@@ -1,0 +1,27 @@
+var classArcane_1_1LimaMalipp2DReaderWrapper =
+[
+    [ "LimaCellGroup", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#a28a0c292dc29723ae6e12c13ef4ccdb5", null ],
+    [ "LimaComposition", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#a7adfe3d62b5931dd93b29204359ee04f", null ],
+    [ "LimaFaceGroup", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#af70754ae7b2d2637877937511f00b4fe", null ],
+    [ "LimaNodeGroup", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#a8866eb5e2d3ac5db9c5780ee3129edcf", null ],
+    [ "allocateCellsBuffer", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#aa3782eac2ec8d3fc47f8d1d3343cb2de", null ],
+    [ "cellGroup", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#a2247f383e9634e4cd4e0136172d04e8a", null ],
+    [ "cellGroupReader", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#ac1fe6568ba72f296f62f93dda44dbd4f", null ],
+    [ "cellGroups", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#a1c27c0e934dc90a778b0b29503d434f6", null ],
+    [ "cells", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#a5054df6bf501f349bd151df7236d18d3", null ],
+    [ "dimension", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#a2f5aba396959b959b6ddbe282cff8742", null ],
+    [ "faceGroup", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#ad3498c07888cd88a706c31135a4985b0", null ],
+    [ "faceGroupReader", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#a860857b4c8172f29f2971eacbe58adb9", null ],
+    [ "faceGroups", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#aa4131930b16da621af343d9f5fea3f4d", null ],
+    [ "faces", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#a492ad872dcfc1ada4d0cf32b273125d7", null ],
+    [ "facesBufferSize", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#a941305e02f5e354b1bdda298a02f39fa", null ],
+    [ "limaDimension", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#a704a7015c2afe4576545fbbe40731e2d", null ],
+    [ "nodeGroup", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#a760c3a06cc500476536f9b6716b8b2c1", null ],
+    [ "nodeGroupReader", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#a9cfc041da5252021ac296e0773f3d72f", null ],
+    [ "nodeGroups", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#a16652775beab8b66c087669116b68231", null ],
+    [ "nodes", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#aa36ac8078047bbc42ebdbded1eae1d21", null ],
+    [ "readCells", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#a68145a299619ab401df976ffb3654467", null ],
+    [ "readFaces", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#a6445637b8360d946225a4533d44a874a", null ],
+    [ "readNodeCoords", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#af2b42849c74de409389431f15767e570", null ],
+    [ "strDimension", "d4/df5/classArcane_1_1LimaMalipp2DReaderWrapper.html#aeb0e0e853180fceeaac4eaecff6b8435", null ]
+];

@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arcane/launcher/ArcaneLauncher.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.0.4.13</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d8/d3a/ArcaneLauncher_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">ArcaneLauncher.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2021 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* ArcaneMain.h                                                (C) 2000-2021 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Classe gérant l&#39;exécution.                                                */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_LAUNCHER_ARCANELAUNCHER_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_LAUNCHER_ARCANELAUNCHER_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/launcher/LauncherGlobal.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">// Les fichiers suivants ne sont pas directement utilisés dans ce &#39;.h&#39;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">// mais sont ajoutés pour que le code utilisateur n&#39;ait besoin d&#39;inclure</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">// que &#39;ArcaneLauncher.h&#39;.</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/ApplicationInfo.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/CommandLineArguments.h&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;arcane/ApplicationBuildInfo.h&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;arcane/DotNetRuntimeInitialisationInfo.h&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;arcane/AcceleratorRuntimeInitialisationInfo.h&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;arcane/launcher/DirectExecutionContext.h&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;arcane/launcher/DirectSubDomainExecutionContext.h&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;arcane/launcher/IDirectExecutionContext.h&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">class </span>IMainFactory;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../d3/d46/classArcane_1_1ArcaneLauncher.html">   70</a></span>&#160;<span class="keyword">class </span>ARCANE_LAUNCHER_EXPORT <a class="code" href="../../d3/d46/classArcane_1_1ArcaneLauncher.html">ArcaneLauncher</a></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;{</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> init(<span class="keyword">const</span> <a class="code" href="../../d8/d5c/classArcane_1_1CommandLineArguments.html">CommandLineArguments</a>&amp; args);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html#ab1ddd29d41fdab35a8f2df7cc0205d8b">run</a>();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html#ab1ddd29d41fdab35a8f2df7cc0205d8b">run</a>(std::function&lt;<span class="keywordtype">int</span>(<a class="code" href="../../dc/d48/classArcane_1_1DirectExecutionContext.html">DirectExecutionContext</a>&amp;)&gt; func);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html#ab1ddd29d41fdab35a8f2df7cc0205d8b">run</a>(std::function&lt;<span class="keywordtype">int</span>(<a class="code" href="../../d3/d52/classArcane_1_1DirectSubDomainExecutionContext.html">DirectSubDomainExecutionContext</a>&amp;)&gt; func);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> setDefaultMainFactory(<a class="code" href="../../d2/dae/classArcane_1_1IMainFactory.html">IMainFactory</a>* mf);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d0/d68/classArcane_1_1ApplicationInfo.html">ApplicationInfo</a>&amp; applicationInfo();</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d2/d2b/classArcane_1_1ApplicationBuildInfo.html">ApplicationBuildInfo</a>&amp; applicationBuildInfo();</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d0/d8b/classArcane_1_1DotNetRuntimeInitialisationInfo.html">DotNetRuntimeInitialisationInfo</a>&amp; dotNetRuntimeInitialisationInfo();</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d0/d2b/classArcane_1_1AcceleratorRuntimeInitialisationInfo.html">AcceleratorRuntimeInitialisationInfo</a>&amp; acceleratorRuntimeInitialisationInfo();</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> getExeDirectory();</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  ARCCORE_DEPRECATED_2020(<span class="stringliteral">&quot;Use run(func) instead&quot;</span>)</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">int</span> runDirect(std::function&lt;<span class="keywordtype">int</span>(<a class="code" href="../../db/d48/classArcane_1_1IDirectExecutionContext.html">IDirectExecutionContext</a>*)&gt; func);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#a7fa0bf624a54d26929d0f8b8b398738f">  175</a></span>&#160;  <a class="code" href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#a7fa0bf624a54d26929d0f8b8b398738f">ARCCORE_DEPRECATED_2020</a>(<span class="stringliteral">&quot;Use init(args) instead&quot;</span>)</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  static <span class="keywordtype">void</span> setCommandLineArguments(const <a class="code" href="../../d8/d5c/classArcane_1_1CommandLineArguments.html">CommandLineArguments</a>&amp; args)</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  {</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    init(args);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  }</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;};</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="preprocessor">#endif  </span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclassArcane_1_1ArcaneLauncherDirectExecuteFunctor_html_a99cfdffc81188b95c34eb6f8c7641d2d"><div class="ttname"><a href="../../db/d6a/classArcane_1_1ArcaneLauncherDirectExecuteFunctor.html#a99cfdffc81188b95c34eb6f8c7641d2d">Arcane::ArcaneLauncherDirectExecuteFunctor::execute</a></div><div class="ttdeci">int execute() override</div><div class="ttdoc">Exécute l'opération du fonctor.</div><div class="ttdef"><b>Definition:</b> ArcaneLauncher.cc:234</div></div>
+<div class="ttc" id="aclassArcane_1_1properties_1_1IPropertySetting_html_a099bcf8f75de0605a5eec432f3d6a9c1"><div class="ttname"><a href="../../d9/da9/classArcane_1_1properties_1_1IPropertySetting.html#a099bcf8f75de0605a5eec432f3d6a9c1">Arcane::properties::IPropertySetting::description</a></div><div class="ttdeci">virtual String description() const =0</div><div class="ttdoc">Description de la propriété</div></div>
+<div class="ttc" id="aclassArcane_1_1ApplicationInfo_html"><div class="ttname"><a href="../../d0/d68/classArcane_1_1ApplicationInfo.html">Arcane::ApplicationInfo</a></div><div class="ttdoc">Informations sur une application.</div><div class="ttdef"><b>Definition:</b> ApplicationInfo.h:39</div></div>
+<div class="ttc" id="aclassArcane_1_1DirectExecutionContextImpl_html_a39e3a7cfbdd5bf1fc7e1e32edb6343fa"><div class="ttname"><a href="../../d7/dae/classArcane_1_1DirectExecutionContextImpl.html#a39e3a7cfbdd5bf1fc7e1e32edb6343fa">Arcane::DirectExecutionContextImpl::createSequentialSubDomain</a></div><div class="ttdeci">ISubDomain * createSequentialSubDomain(const String &amp;case_file_name) override</div><div class="ttdoc">Créé un sous-domaine en séquentiel avec le fichier de jeu de données ayant pour nom case_file_name.</div><div class="ttdef"><b>Definition:</b> ArcaneLauncher.cc:56</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html_ac15f4ee7396eaf404ab846d614d7bded"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html#ac15f4ee7396eaf404ab846d614d7bded">Arccore::String::null</a></div><div class="ttdeci">bool null() const</div><div class="ttdoc">Retourne true si la chaîne est nulle.</div><div class="ttdef"><b>Definition:</b> String.cc:307</div></div>
+<div class="ttc" id="aclassArcane_1_1ArcaneLauncher_html_acdc88475a3004a2a1b511c285148ba88"><div class="ttname"><a href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#acdc88475a3004a2a1b511c285148ba88">Arcane::ArcaneLauncher::setDefaultMainFactory</a></div><div class="ttdeci">static void setDefaultMainFactory(IMainFactory *mf)</div><div class="ttdoc">Positionne la fabrique par défaut pour créer les différents gestionnaires.</div><div class="ttdef"><b>Definition:</b> ArcaneLauncher.cc:322</div></div>
+<div class="ttc" id="aclassArcane_1_1IDirectSubDomainExecuteFunctor_html"><div class="ttname"><a href="../../da/d25/classArcane_1_1IDirectSubDomainExecuteFunctor.html">Arcane::IDirectSubDomainExecuteFunctor</a></div><div class="ttdef"><b>Definition:</b> IDirectSubDomainExecuteFunctor.h:32</div></div>
+<div class="ttc" id="aclassArcane_1_1DirectCodeFunctor_html"><div class="ttname"><a href="../../d4/d67/classArcane_1_1DirectCodeFunctor.html">Arcane::DirectCodeFunctor</a></div><div class="ttdef"><b>Definition:</b> ArcaneLauncher.cc:151</div></div>
+<div class="ttc" id="aclassArcane_1_1DirectCodeFunctor_html_a25f946647889b123d781196bfb141cda"><div class="ttname"><a href="../../d4/d67/classArcane_1_1DirectCodeFunctor.html#a25f946647889b123d781196bfb141cda">Arcane::DirectCodeFunctor::executeFunctor</a></div><div class="ttdeci">void executeFunctor() override</div><div class="ttdoc">Exécute la méthode associé</div><div class="ttdef"><b>Definition:</b> ArcaneLauncher.cc:162</div></div>
+<div class="ttc" id="aclassArcane_1_1AcceleratorRuntimeInitialisationInfo_html"><div class="ttname"><a href="../../d0/d2b/classArcane_1_1AcceleratorRuntimeInitialisationInfo.html">Arcane::AcceleratorRuntimeInitialisationInfo</a></div><div class="ttdoc">Informations pour l'initialisation des accélérateurs.</div><div class="ttdef"><b>Definition:</b> AcceleratorRuntimeInitialisationInfo.h:31</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html">Arcane::ISubDomain</a></div><div class="ttdoc">Interface du gestionnaire d'un sous-domaine.</div><div class="ttdef"><b>Definition:</b> ISubDomain.h:72</div></div>
+<div class="ttc" id="aclassArcane_1_1ArcaneLauncher_html_a637c73ac97c8d466c4125b76aba84d78"><div class="ttname"><a href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#a637c73ac97c8d466c4125b76aba84d78">Arcane::ArcaneLauncher::init</a></div><div class="ttdeci">static void init(const CommandLineArguments &amp;args)</div><div class="ttdoc">Positionne les informations à partir des arguments de la ligne de commande et initialise le lanceur.</div><div class="ttdef"><b>Definition:</b> ArcaneLauncher.cc:295</div></div>
+<div class="ttc" id="aclassArcane_1_1ApplicationInfo_html_a3147f7efe108016ab43821ca9e86f88e"><div class="ttname"><a href="../../d0/d68/classArcane_1_1ApplicationInfo.html#a3147f7efe108016ab43821ca9e86f88e">Arcane::ApplicationInfo::setCommandLineArguments</a></div><div class="ttdeci">void setCommandLineArguments(const CommandLineArguments &amp;args)</div><div class="ttdoc">Positionne les arguments de la ligne de commande.</div><div class="ttdef"><b>Definition:</b> ApplicationInfo.cc:401</div></div>
+<div class="ttc" id="aclassArcane_1_1CommandLineArguments_html_a034e889c0625db088b27a8a0fa1b2de8"><div class="ttname"><a href="../../d8/d5c/classArcane_1_1CommandLineArguments.html#a034e889c0625db088b27a8a0fa1b2de8">Arcane::CommandLineArguments::parameters</a></div><div class="ttdeci">const ParameterList &amp; parameters() const</div><div class="ttdoc">Liste des paramètres.</div><div class="ttdef"><b>Definition:</b> CommandLineArguments.cc:243</div></div>
+<div class="ttc" id="aclassArcane_1_1ArcaneLauncher_html"><div class="ttname"><a href="../../d3/d46/classArcane_1_1ArcaneLauncher.html">Arcane::ArcaneLauncher</a></div><div class="ttdoc">Classe de gestion de l'exécution.</div><div class="ttdef"><b>Definition:</b> ArcaneLauncher.h:70</div></div>
+<div class="ttc" id="aclassArcane_1_1ArcaneLauncher_html_a142f569f621e3a3d733905650c320bc7"><div class="ttname"><a href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#a142f569f621e3a3d733905650c320bc7">Arcane::ArcaneLauncher::getExeDirectory</a></div><div class="ttdeci">static String getExeDirectory()</div><div class="ttdoc">Nom complet du répertoire où se trouve l'exécutable.</div><div class="ttdef"><b>Definition:</b> ArcaneLauncher.cc:141</div></div>
+<div class="ttc" id="anamespaceArcane_1_1Accelerator_html_ab1ddd29d41fdab35a8f2df7cc0205d8b"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#ab1ddd29d41fdab35a8f2df7cc0205d8b">Arcane::Accelerator::run</a></div><div class="ttdeci">void run(RunCommand &amp;command, const ItemGroupT&lt; ItemType &gt; &amp;items, Lambda func)</div><div class="ttdoc">Applique la lambda func sur l'intervalle d'itération donnée par bounds.</div><div class="ttdef"><b>Definition:</b> RunCommandEnumerate.h:109</div></div>
+<div class="ttc" id="aclassArccore_1_1IFunctor_html"><div class="ttname"><a href="../../d5/d5f/classArccore_1_1IFunctor.html">Arccore::IFunctor</a></div><div class="ttdoc">Interface d'un fonctor.</div><div class="ttdef"><b>Definition:</b> IFunctor.h:43</div></div>
+<div class="ttc" id="anamespaceArcane_1_1platform_html_abbe334d7bde9016936df0309901f7902"><div class="ttname"><a href="../../dd/d27/namespaceArcane_1_1platform.html#abbe334d7bde9016936df0309901f7902">Arcane::platform::readAllFile</a></div><div class="ttdeci">bool readAllFile(StringView filename, bool is_binary, ByteArray &amp;out_bytes)</div><div class="ttdoc">Lit le contenu d'un fichier et le conserve dans out_bytes.</div><div class="ttdef"><b>Definition:</b> PlatformUtils.cc:330</div></div>
+<div class="ttc" id="aclassArcane_1_1ApplicationBuildInfo_html"><div class="ttname"><a href="../../d2/d2b/classArcane_1_1ApplicationBuildInfo.html">Arcane::ApplicationBuildInfo</a></div><div class="ttdoc">Informations pour construire une instance de IApplication.</div><div class="ttdef"><b>Definition:</b> ApplicationBuildInfo.h:31</div></div>
+<div class="ttc" id="aclassArcane_1_1CommandLineArguments_html"><div class="ttname"><a href="../../d8/d5c/classArcane_1_1CommandLineArguments.html">Arcane::CommandLineArguments</a></div><div class="ttdoc">Arguments de la ligne de commande.</div><div class="ttdef"><b>Definition:</b> CommandLineArguments.h:48</div></div>
+<div class="ttc" id="aclassArcane_1_1DirectSubDomainExecutionContext_html"><div class="ttname"><a href="../../d3/d52/classArcane_1_1DirectSubDomainExecutionContext.html">Arcane::DirectSubDomainExecutionContext</a></div><div class="ttdoc">Contexte d'exécution directe avec création d'un sous-domaine.</div><div class="ttdef"><b>Definition:</b> DirectSubDomainExecutionContext.h:31</div></div>
+<div class="ttc" id="aclassArcane_1_1DotNetRuntimeInitialisationInfo_html"><div class="ttname"><a href="../../d0/d8b/classArcane_1_1DotNetRuntimeInitialisationInfo.html">Arcane::DotNetRuntimeInitialisationInfo</a></div><div class="ttdoc">Informations pour l'initialisation du runtime '.Net'.</div><div class="ttdef"><b>Definition:</b> DotNetRuntimeInitialisationInfo.h:31</div></div>
+<div class="ttc" id="aclassArcane_1_1CommandLineArguments_html_aad512e5246e72634ebdf21eebc85c53a"><div class="ttname"><a href="../../d8/d5c/classArcane_1_1CommandLineArguments.html#aad512e5246e72634ebdf21eebc85c53a">Arcane::CommandLineArguments::getParameter</a></div><div class="ttdeci">String getParameter(const String &amp;param_name) const</div><div class="ttdoc">Récupère le paramètre de nom param_name.</div><div class="ttdef"><b>Definition:</b> CommandLineArguments.cc:216</div></div>
+<div class="ttc" id="aclassArcane_1_1properties_1_1IPropertySetting_html_aff98a069747e14ff6b652ca47903c3d6"><div class="ttname"><a href="../../d9/da9/classArcane_1_1properties_1_1IPropertySetting.html#aff98a069747e14ff6b652ca47903c3d6">Arcane::properties::IPropertySetting::commandLineArgument</a></div><div class="ttdeci">virtual String commandLineArgument() const =0</div><div class="ttdoc">Nom de l'argument de la ligne de commande (nul si aucun)</div></div>
+<div class="ttc" id="aclassArcane_1_1DirectExecutionContext_html"><div class="ttname"><a href="../../dc/d48/classArcane_1_1DirectExecutionContext.html">Arcane::DirectExecutionContext</a></div><div class="ttdoc">Contexte d'exécution directe.</div><div class="ttdef"><b>Definition:</b> DirectExecutionContext.h:32</div></div>
+<div class="ttc" id="aclassArcane_1_1DirectExecutionContextImpl_html"><div class="ttname"><a href="../../d7/dae/classArcane_1_1DirectExecutionContextImpl.html">Arcane::DirectExecutionContextImpl</a></div><div class="ttdef"><b>Definition:</b> ArcaneLauncher.cc:44</div></div>
+<div class="ttc" id="aclassArcane_1_1properties_1_1IPropertyVisitor_html"><div class="ttname"><a href="../../de/df1/classArcane_1_1properties_1_1IPropertyVisitor.html">Arcane::properties::IPropertyVisitor</a></div><div class="ttdoc">Interface d'un visiteur sur une propriété.</div><div class="ttdef"><b>Definition:</b> Property.h:179</div></div>
+<div class="ttc" id="aclassArcane_1_1ArcaneLauncherDirectExecuteFunctor_html"><div class="ttname"><a href="../../db/d6a/classArcane_1_1ArcaneLauncherDirectExecuteFunctor.html">Arcane::ArcaneLauncherDirectExecuteFunctor</a></div><div class="ttdef"><b>Definition:</b> ArcaneLauncher.cc:227</div></div>
+<div class="ttc" id="aclassArcane_1_1ArcaneLauncher_html_a0947388b5dc8e3f6edb5cde9e5d516be"><div class="ttname"><a href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#a0947388b5dc8e3f6edb5cde9e5d516be">Arcane::ArcaneLauncher::run</a></div><div class="ttdeci">static int run()</div><div class="ttdoc">Point d'entrée de l'exécutable dans Arcane.</div><div class="ttdef"><b>Definition:</b> ArcaneLauncher.cc:96</div></div>
+<div class="ttc" id="aclassArcane_1_1ApplicationInfo_html_ab252e04b38c5a22cf30713f7cec2c13a"><div class="ttname"><a href="../../d0/d68/classArcane_1_1ApplicationInfo.html#ab252e04b38c5a22cf30713f7cec2c13a">Arcane::ApplicationInfo::commandLineArguments</a></div><div class="ttdeci">const CommandLineArguments &amp; commandLineArguments() const</div><div class="ttdoc">Arguments de la ligne de commande.</div><div class="ttdef"><b>Definition:</b> ApplicationInfo.cc:365</div></div>
+<div class="ttc" id="aclassArcane_1_1IDirectExecutionContext_html"><div class="ttname"><a href="../../db/d48/classArcane_1_1IDirectExecutionContext.html">Arcane::IDirectExecutionContext</a></div><div class="ttdef"><b>Definition:</b> IDirectExecutionContext.h:32</div></div>
+<div class="ttc" id="aclassArcane_1_1ArcaneLauncherDirectExecuteFunctor_html_aaf8cbb5145cda9c96f963ad7c87742aa"><div class="ttname"><a href="../../db/d6a/classArcane_1_1ArcaneLauncherDirectExecuteFunctor.html#aaf8cbb5145cda9c96f963ad7c87742aa">Arcane::ArcaneLauncherDirectExecuteFunctor::setSubDomain</a></div><div class="ttdeci">void setSubDomain(ISubDomain *sd) override</div><div class="ttdoc">Positionne le sous-domaine associé. Cette méthode doit être appelée avant execute()</div><div class="ttdef"><b>Definition:</b> ArcaneLauncher.cc:241</div></div>
+<div class="ttc" id="aclassArcane_1_1DirectExecutionContextImpl_html_ac18cf521ac8160d62e79bfbb62689daa"><div class="ttname"><a href="../../d7/dae/classArcane_1_1DirectExecutionContextImpl.html#ac18cf521ac8160d62e79bfbb62689daa">Arcane::DirectExecutionContextImpl::createSequentialSubDomain</a></div><div class="ttdeci">ISubDomain * createSequentialSubDomain() override</div><div class="ttdoc">Créé un sous-domaine en séquentiel sans jeu de données.</div><div class="ttdef"><b>Definition:</b> ArcaneLauncher.cc:52</div></div>
+<div class="ttc" id="aclassArcane_1_1ArcaneLauncher_html_a37cd861bcce182618f1db6a66dbca0e2"><div class="ttname"><a href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#a37cd861bcce182618f1db6a66dbca0e2">Arcane::ArcaneLauncher::dotNetRuntimeInitialisationInfo</a></div><div class="ttdeci">static DotNetRuntimeInitialisationInfo &amp; dotNetRuntimeInitialisationInfo()</div><div class="ttdoc">Informations pour l'initialisation du runtime '.Net'.</div><div class="ttdef"><b>Definition:</b> ArcaneLauncher.cc:114</div></div>
+<div class="ttc" id="aclassArcane_1_1properties_1_1IPropertySetting_html"><div class="ttname"><a href="../../d9/da9/classArcane_1_1properties_1_1IPropertySetting.html">Arcane::properties::IPropertySetting</a></div><div class="ttdoc">Interface d'un paramètre de propriété.</div><div class="ttdef"><b>Definition:</b> Property.h:114</div></div>
+<div class="ttc" id="aclassArcane_1_1ArcaneLauncher_html_aa8b0b9252d9cc3818ca29d06fac8ae3c"><div class="ttname"><a href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#aa8b0b9252d9cc3818ca29d06fac8ae3c">Arcane::ArcaneLauncher::acceleratorRuntimeInitialisationInfo</a></div><div class="ttdeci">static AcceleratorRuntimeInitialisationInfo &amp; acceleratorRuntimeInitialisationInfo()</div><div class="ttdoc">Informations pour l'initialisation des accélerateurs.</div><div class="ttdef"><b>Definition:</b> ArcaneLauncher.cc:123</div></div>
+<div class="ttc" id="aclassArccore_1_1Exception_html"><div class="ttname"><a href="../../d7/d37/classArccore_1_1Exception.html">Arccore::Exception</a></div><div class="ttdoc">Classe de base d'une exception.</div><div class="ttdef"><b>Definition:</b> Exception.h:58</div></div>
+<div class="ttc" id="aclassArcane_1_1IMainFactory_html"><div class="ttname"><a href="../../d2/dae/classArcane_1_1IMainFactory.html">Arcane::IMainFactory</a></div><div class="ttdef"><b>Definition:</b> IMainFactory.h:92</div></div>
+<div class="ttc" id="aclassArcane_1_1ArcaneLauncher_html_aa7fc14843c8fd871a28495be4c396b40"><div class="ttname"><a href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#aa7fc14843c8fd871a28495be4c396b40">Arcane::ArcaneLauncher::applicationInfo</a></div><div class="ttdeci">static ApplicationInfo &amp; applicationInfo()</div><div class="ttdoc">Informations sur l'application.</div><div class="ttdef"><b>Definition:</b> ArcaneLauncher.cc:105</div></div>
+<div class="ttc" id="aclassArcane_1_1ArcaneLauncher_html_a649de237fb80c38ecb01eb53734fe71d"><div class="ttname"><a href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#a649de237fb80c38ecb01eb53734fe71d">Arcane::ArcaneLauncher::applicationBuildInfo</a></div><div class="ttdeci">static ApplicationBuildInfo &amp; applicationBuildInfo()</div><div class="ttdoc">Informations sur les paramêtre d'exécutions de l'application.</div><div class="ttdef"><b>Definition:</b> ArcaneLauncher.cc:132</div></div>
+<div class="ttc" id="aclassArcane_1_1ApplicationBuildInfo_html_abbfe4179caddb7853bdd4381dd0d3a74"><div class="ttname"><a href="../../d2/d2b/classArcane_1_1ApplicationBuildInfo.html#abbfe4179caddb7853bdd4381dd0d3a74">Arcane::ApplicationBuildInfo::setConfigFileName</a></div><div class="ttdeci">void setConfigFileName(const String &amp;name)</div><div class="ttdoc">Positionne le fichier de configuration du code.</div><div class="ttdef"><b>Definition:</b> ApplicationBuildInfo.cc:495</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> String.h:80</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html_a531230192cc80e673bdc12ca8b5434ec"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html#a531230192cc80e673bdc12ca8b5434ec">Arccore::String::empty</a></div><div class="ttdeci">bool empty() const</div><div class="ttdoc">Vrai si la chaîne est vide (nulle ou &quot;&quot;)</div><div class="ttdef"><b>Definition:</b> String.cc:318</div></div>
+<div class="ttc" id="aclassArcane_1_1ApplicationBuildInfo_html_a4c0994127d1147c230db0939236bbfa3"><div class="ttname"><a href="../../d2/d2b/classArcane_1_1ApplicationBuildInfo.html#a4c0994127d1147c230db0939236bbfa3">Arcane::ApplicationBuildInfo::configFileName</a></div><div class="ttdeci">String configFileName() const</div><div class="ttdoc">Nom du fichier de configuration du code.</div><div class="ttdef"><b>Definition:</b> ApplicationBuildInfo.cc:486</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">Interface for base mesh operations.</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a9d85d5fb84c5371348dd56600999e564"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a></div><div class="ttdeci">#define ARCANE_FATAL(...)</div><div class="ttdoc">Macro envoyant une exception FatalErrorException.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:751</div></div>
+<div class="ttc" id="aclassArcane_1_1ArcaneLauncher_html_a7fa0bf624a54d26929d0f8b8b398738f"><div class="ttname"><a href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#a7fa0bf624a54d26929d0f8b8b398738f">Arcane::ArcaneLauncher::ARCCORE_DEPRECATED_2020</a></div><div class="ttdeci">ARCCORE_DEPRECATED_2020(&quot;Use run(func) instead&quot;) static int runDirect(std ARCCORE_DEPRECATED_2020(&quot;Use init(args) instead&quot;) static void setCommandLineArguments(const CommandLineArguments &amp;args)</div><div class="ttdef"><b>Definition:</b> ArcaneLauncher.h:175</div></div>
+<div class="ttc" id="anamespaceArcane_1_1platform_html_aae605a9967ecee41cea1b502ef9d7663"><div class="ttname"><a href="../../dd/d27/namespaceArcane_1_1platform.html#aae605a9967ecee41cea1b502ef9d7663">Arcane::platform::getExeFullPath</a></div><div class="ttdeci">String getExeFullPath()</div><div class="ttdoc">Retourne le nom complet avec le chemin de l'exécutable.</div><div class="ttdef"><b>Definition:</b> PlatformUtils.cc:364</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_050f182cfd4329e7fe1ae122895331c9.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_a826b2886aa61666da9274856f211834.html">launcher</a></li><li class="navelem"><b>ArcaneLauncher.h</b></li>
+    <li class="footer">Généré le Vendredi 17 Septembre 2021 19:15:59 pour Arcane par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

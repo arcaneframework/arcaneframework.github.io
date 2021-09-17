@@ -1,0 +1,25 @@
+var classArcane_1_1VariableInfo =
+[
+    [ "VariableInfo", "df/df8/classArcane_1_1VariableInfo.html#a4ad9036c7cea82b474d51fe667a65d10", null ],
+    [ "ARCCORE_DEPRECATED_2020", "df/df8/classArcane_1_1VariableInfo.html#a305c8986fd78c74ac65a4aefbb603326", null ],
+    [ "dataType", "df/df8/classArcane_1_1VariableInfo.html#acfa8227f236af8d4f2eff69f4734f594", null ],
+    [ "dimension", "df/df8/classArcane_1_1VariableInfo.html#ab7e03d88b7ccfe34f841a8076aebd50f", null ],
+    [ "fullName", "df/df8/classArcane_1_1VariableInfo.html#affddc877dce332254538f800934c76bd", null ],
+    [ "isPartial", "df/df8/classArcane_1_1VariableInfo.html#a160301122a78a3e28d3582e1278b8bf7", null ],
+    [ "itemFamilyName", "df/df8/classArcane_1_1VariableInfo.html#a8ac6bda421b01ba4b7869a6bdb15ec00", null ],
+    [ "itemGroupName", "df/df8/classArcane_1_1VariableInfo.html#aa118775fcaa43448e5f807c27b2ad06e", null ],
+    [ "itemKind", "df/df8/classArcane_1_1VariableInfo.html#a93b3944a209e3b4281b71fb94a7b1eb0", null ],
+    [ "localName", "df/df8/classArcane_1_1VariableInfo.html#ae68011adb86d035edfa3fb955cdb03f3", null ],
+    [ "meshName", "df/df8/classArcane_1_1VariableInfo.html#af1bac863a68691d207b0affd227ccddc", null ],
+    [ "multiTag", "df/df8/classArcane_1_1VariableInfo.html#a62e3d66df8985ea94367721328fc1353", null ],
+    [ "setDefaultItemGroupName", "df/df8/classArcane_1_1VariableInfo.html#af97fea7357c255b7216eb13153649fed", null ],
+    [ "storageTypeInfo", "df/df8/classArcane_1_1VariableInfo.html#a9c2817fafcc2ea19ffcc38d1e0f4fafb", null ],
+    [ "variableTypeInfo", "df/df8/classArcane_1_1VariableInfo.html#a58285155364c22f517cd0b320b3c6162", null ],
+    [ "dimension", "df/df8/classArcane_1_1VariableInfo.html#a5a89662f1b5f89e983ff6b0e0e4d722b", null ],
+    [ "item_family_name", "df/df8/classArcane_1_1VariableInfo.html#af48ef64dce12e864259396435bdffb40", null ],
+    [ "item_group_name", "df/df8/classArcane_1_1VariableInfo.html#aa462a9ee40094e1a0c8d5d456cb033b6", null ],
+    [ "item_kind", "df/df8/classArcane_1_1VariableInfo.html#a0e831ace1c994f9ded92322da01bf6ca", null ],
+    [ "mesh_name", "df/df8/classArcane_1_1VariableInfo.html#a2d962c6e1953471cf85384366700134e", null ],
+    [ "multi_tag", "df/df8/classArcane_1_1VariableInfo.html#a3a180af3a50094dab7d181aab32fa433", null ],
+    [ "type", "df/df8/classArcane_1_1VariableInfo.html#afec9d240cd49a8d7a8d3774dd00bf8ab", null ]
+];

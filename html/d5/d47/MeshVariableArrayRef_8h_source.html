@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arcane/MeshVariableArrayRef.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.0.4.13</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d5/d47/MeshVariableArrayRef_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">MeshVariableArrayRef.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2021 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* MeshVariableArrayRef.h                                      (C) 2000-2020 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Classe gérant une variable vectorielle sur une entité du maillage.        */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_MESHVARIABLEARRAYREF_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_MESHVARIABLEARRAYREF_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/PrivateVariableArray.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d6/d0f/ItemEnumerator_8h.html">arcane/ItemEnumerator.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;arcane/ItemGroupRangeIterator.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;arcane/ItemPairEnumerator.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/FatalErrorException.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> DataTypeT&gt;</div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d2/dbb/classArcane_1_1ItemVariableArrayRefT.html">   36</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d2/dbb/classArcane_1_1ItemVariableArrayRefT.html">ItemVariableArrayRefT</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d4/ddf/classArcane_1_1PrivateVariableArrayT.html">PrivateVariableArrayT</a>&lt;DataTypeT&gt;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">typedef</span> DataTypeT DataType;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d3/d1d/classArccore_1_1UniqueArray2.html">UniqueArray2&lt;DataType&gt;</a> <a class="code" href="../../d3/d1d/classArccore_1_1UniqueArray2.html">ValueType</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;DataType&gt;</a> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstReturnReferenceType</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayView&lt;DataType&gt;</a> <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ReturnReferenceType</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d4/ddf/classArcane_1_1PrivateVariableArrayT.html">PrivateVariableArrayT&lt;DataType&gt;</a> <a class="code" href="../../d4/ddf/classArcane_1_1PrivateVariableArrayT.html">BaseClass</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="../../d8/d38/classArcane_1_1Array2VariableT.html">BaseClass::PrivatePartType</a> <a class="code" href="../../d8/d38/classArcane_1_1Array2VariableT.html">PrivatePartType</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayView&lt;DataType&gt;</a> <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayType</a>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;DataType&gt;</a> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayType</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  ARCANE_CORE_EXPORT <a class="code" href="../../d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#a7cdc651595d5aacefb09200a85a42321">ItemVariableArrayRefT</a>(<span class="keyword">const</span> <a class="code" href="../../df/d8a/classArcane_1_1VariableBuildInfo.html">VariableBuildInfo</a>&amp; b,<a class="code" href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7">eItemKind</a> ik);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">explicit</span> ARCANE_CORE_EXPORT <a class="code" href="../../d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#a7cdc651595d5aacefb09200a85a42321">ItemVariableArrayRefT</a>(<a class="code" href="../../d5/d96/classArcane_1_1IVariable.html">IVariable</a>* var);</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  ARCANE_CORE_EXPORT <a class="code" href="../../d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#a7cdc651595d5aacefb09200a85a42321">ItemVariableArrayRefT</a>(<span class="keyword">const</span> <a class="code" href="../../d2/dbb/classArcane_1_1ItemVariableArrayRefT.html">ItemVariableArrayRefT&lt;DataType&gt;</a>&amp; rhs);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  ARCANE_CORE_EXPORT <span class="keywordtype">void</span> <a class="code" href="../../d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#ad6bf7f5488f4b46769aed3793792c60d">operator=</a>(<span class="keyword">const</span> <a class="code" href="../../d2/dbb/classArcane_1_1ItemVariableArrayRefT.html">ItemVariableArrayRefT&lt;DataType&gt;</a>&amp; rhs);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayType</a> operator[](<span class="keyword">const</span> <a class="code" href="../../df/d5f/classArcane_1_1Item.html">Item</a>&amp; i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keyword">  </span>{ </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    ARCANE_ASSERT((i.<a class="code" href="../../df/d5f/classArcane_1_1Item.html#a6a21925a30a72f0ce597d23e8e789bf4">kind</a>() == this-&gt;itemGroup().itemKind()),(<span class="stringliteral">&quot;Item and group kind not same&quot;</span>));</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">return</span> this-&gt;m_view[i.<a class="code" href="../../df/d5f/classArcane_1_1Item.html#a5c3dac466a25bb5c0e5b42c85d4304b8">localId</a>()]; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayType</a> operator[](<span class="keyword">const</span> <a class="code" href="../../df/d5f/classArcane_1_1Item.html">Item</a>&amp; i)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  { </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    ARCANE_ASSERT((i.<a class="code" href="../../df/d5f/classArcane_1_1Item.html#a6a21925a30a72f0ce597d23e8e789bf4">kind</a>() == this-&gt;itemGroup().itemKind()),(<span class="stringliteral">&quot;Item and group kind not same&quot;</span>));</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">return</span> this-&gt;m_view[i.<a class="code" href="../../df/d5f/classArcane_1_1Item.html#a5c3dac466a25bb5c0e5b42c85d4304b8">localId</a>()]; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayType</a> operator[](<span class="keyword">const</span> <a class="code" href="../../da/d23/classArcane_1_1ItemGroupRangeIterator.html">ItemGroupRangeIterator</a>&amp; i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    ARCANE_ASSERT((i.kind() == this-&gt;itemGroup().itemKind()),(<span class="stringliteral">&quot;Item and group kind not same&quot;</span>));</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordflow">return</span> this-&gt;m_view[i.itemLocalId()];</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayType</a> operator[](<span class="keyword">const</span> <a class="code" href="../../da/d23/classArcane_1_1ItemGroupRangeIterator.html">ItemGroupRangeIterator</a>&amp; i)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    ARCANE_ASSERT((i.kind() == this-&gt;itemGroup().itemKind()),(<span class="stringliteral">&quot;Item and group kind not same&quot;</span>));</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">return</span> this-&gt;m_view[i.itemLocalId()];</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayType</a> operator[](<span class="keyword">const</span> <a class="code" href="../../d6/dcd/classArcane_1_1ItemEnumerator.html">ItemEnumerator</a>&amp; i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;   ARCANE_ASSERT((i-&gt;<a class="code" href="../../df/d5f/classArcane_1_1Item.html#a6a21925a30a72f0ce597d23e8e789bf4">kind</a>() == this-&gt;itemGroup().itemKind()),(<span class="stringliteral">&quot;Item and group kind not same&quot;</span>));</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;     <span class="keywordflow">return</span> this-&gt;m_view[i.<a class="code" href="../../d6/dcd/classArcane_1_1ItemEnumerator.html#a8ab61d2eb18f195de0e05465cfbf5e6d">localId</a>()];</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayType</a> operator[](<span class="keyword">const</span> <a class="code" href="../../d6/dcd/classArcane_1_1ItemEnumerator.html">ItemEnumerator</a>&amp; i)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  {</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    ARCANE_ASSERT((i-&gt;<a class="code" href="../../df/d5f/classArcane_1_1Item.html#a6a21925a30a72f0ce597d23e8e789bf4">kind</a>() == this-&gt;itemGroup().itemKind()),(<span class="stringliteral">&quot;Item and group kind not same&quot;</span>));</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    <span class="keywordflow">return</span> this-&gt;m_view[i.<a class="code" href="../../d6/dcd/classArcane_1_1ItemEnumerator.html#a8ab61d2eb18f195de0e05465cfbf5e6d">localId</a>()];</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  ARCANE_CORE_EXPORT <span class="keywordtype">void</span> <a class="code" href="../../d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#a2c7962aca546834e711ebf12ae2dc099">copy</a>(<span class="keyword">const</span> <a class="code" href="../../d2/dbb/classArcane_1_1ItemVariableArrayRefT.html">ItemVariableArrayRefT&lt;DataType&gt;</a>&amp; v);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  ARCANE_CORE_EXPORT <span class="keywordtype">void</span> <a class="code" href="../../d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#a2c7962aca546834e711ebf12ae2dc099">copy</a>(<span class="keyword">const</span> <a class="code" href="../../d2/dbb/classArcane_1_1ItemVariableArrayRefT.html">ItemVariableArrayRefT&lt;DataType&gt;</a>&amp; v,<span class="keyword">const</span> <a class="code" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a>&amp; group);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  ARCANE_CORE_EXPORT <span class="keywordtype">void</span> <a class="code" href="../../d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#aff7e9e151d0c06a20d12b8fb52431613">fill</a>(<span class="keyword">const</span> DataType&amp; value);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  ARCANE_CORE_EXPORT <span class="keywordtype">void</span> <a class="code" href="../../d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#aff7e9e151d0c06a20d12b8fb52431613">fill</a>(<span class="keyword">const</span> DataType&amp; value,<span class="keyword">const</span> <a class="code" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a>&amp; group);</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="keyword">static</span> ARCANE_CORE_EXPORT <a class="code" href="../../df/df8/classArcane_1_1VariableInfo.html">VariableInfo</a> _internalVariableInfo(<span class="keyword">const</span> <a class="code" href="../../df/d8a/classArcane_1_1VariableBuildInfo.html">VariableBuildInfo</a>&amp; vbi,<a class="code" href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7">eItemKind</a> ik);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keyword">static</span> ARCANE_CORE_EXPORT <a class="code" href="../../df/d46/classArcane_1_1VariableTypeInfo.html">VariableTypeInfo</a> _internalVariableTypeInfo(<a class="code" href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7">eItemKind</a> ik);</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;};</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> ItemTypeT,<span class="keyword">class</span> DataTypeT&gt;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keyword">class </span><a class="code" href="../../dd/d95/classArcane_1_1MeshVariableArrayRefT.html">MeshVariableArrayRefT</a></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  : <span class="keyword">public</span> <a class="code" href="../../d2/dbb/classArcane_1_1ItemVariableArrayRefT.html">ItemVariableArrayRefT</a>&lt;DataTypeT&gt;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;{</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <span class="keyword">typedef</span> DataTypeT DataType;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="keyword">typedef</span> ItemTypeT ItemType;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d3/d1d/classArccore_1_1UniqueArray2.html">UniqueArray2&lt;DataType&gt;</a> ValueType;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;DataType&gt;</a> ConstReturnReferenceType;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayView&lt;DataType&gt;</a> ReturnReferenceType;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../de/d79/classArcane_1_1MeshVariableRef.html">MeshVariableRef</a> BaseClass;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d7/da7/classArccore_1_1Array2View.html">Array2View&lt;DataType&gt;</a> ArrayBase;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayView&lt;DataType&gt;</a> ArrayType;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;DataType&gt;</a> ConstArrayType;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d8/d38/classArcane_1_1Array2VariableT.html">Array2VariableT&lt;DataType&gt;</a> PrivatePartType;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="../../df/de7/classArcane_1_1ItemTraitsT.html">ItemTraitsT&lt;ItemType&gt;::ItemGroupType</a> GroupType;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../dd/d95/classArcane_1_1MeshVariableArrayRefT.html">MeshVariableArrayRefT&lt;ItemType,DataType&gt;</a> ThatClass;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  ARCANE_CORE_EXPORT <a class="code" href="../../dd/d95/classArcane_1_1MeshVariableArrayRefT.html#afdeeb28950c960236879c9fd9b9fe894">MeshVariableArrayRefT</a>(<span class="keyword">const</span> <a class="code" href="../../df/d8a/classArcane_1_1VariableBuildInfo.html">VariableBuildInfo</a>&amp; b);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="keyword">explicit</span> ARCANE_CORE_EXPORT <a class="code" href="../../dd/d95/classArcane_1_1MeshVariableArrayRefT.html#afdeeb28950c960236879c9fd9b9fe894">MeshVariableArrayRefT</a>(<a class="code" href="../../d5/d96/classArcane_1_1IVariable.html">IVariable</a>* var);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  ARCANE_CORE_EXPORT <a class="code" href="../../dd/d95/classArcane_1_1MeshVariableArrayRefT.html#afdeeb28950c960236879c9fd9b9fe894">MeshVariableArrayRefT</a>(<span class="keyword">const</span> <a class="code" href="../../dd/d95/classArcane_1_1MeshVariableArrayRefT.html">MeshVariableArrayRefT&lt;ItemType,DataType&gt;</a>&amp; rhs);</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  ARCANE_CORE_EXPORT <span class="keywordtype">void</span> <a class="code" href="../../dd/d95/classArcane_1_1MeshVariableArrayRefT.html#adfe0165a7df69f929c0d423aa05ce624">refersTo</a>(<span class="keyword">const</span> <a class="code" href="../../dd/d95/classArcane_1_1MeshVariableArrayRefT.html">MeshVariableArrayRefT&lt;ItemType,DataType&gt;</a>&amp; rhs);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  ThatClass&amp; operator=(<span class="keyword">const</span> ThatClass&amp; rhs) = <span class="keyword">delete</span>; <span class="comment">// Interdit.</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  ConstArrayType operator[](<span class="keyword">const</span> ItemType&amp; i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="keyword">  </span>{ <span class="keywordflow">return</span> this-&gt;m_view[i.localId()]; }</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  ArrayType operator[](<span class="keyword">const</span> ItemType&amp; i)</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  { <span class="keywordflow">return</span> this-&gt;m_view[i.localId()]; }</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  ConstArrayType operator[](<span class="keyword">const</span> ItemGroupRangeIteratorT&lt;ItemType&gt;&amp; i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="keyword">  </span>{ <span class="keywordflow">return</span> this-&gt;m_view[i.itemLocalId()]; }</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  ArrayType operator[](<span class="keyword">const</span> ItemGroupRangeIteratorT&lt;ItemType&gt;&amp; i)</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  { <span class="keywordflow">return</span> this-&gt;m_view[i.itemLocalId()]; }</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  ConstArrayType operator[](<span class="keyword">const</span> ItemPairEnumeratorSubT&lt;ItemType&gt;&amp; i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;<span class="keyword">  </span>{ <span class="keywordflow">return</span> this-&gt;m_view[i.itemLocalId()]; }</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  ArrayType operator[](<span class="keyword">const</span> ItemPairEnumeratorSubT&lt;ItemType&gt;&amp; i)</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  { <span class="keywordflow">return</span> this-&gt;m_view[i.itemLocalId()]; }</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  ConstArrayType operator[](<span class="keyword">const</span> ItemEnumeratorT&lt;ItemType&gt;&amp; i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;<span class="keyword">  </span>{ <span class="keywordflow">return</span> this-&gt;m_view[i.localId()]; }</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  ArrayType operator[](<span class="keyword">const</span> ItemEnumeratorT&lt;ItemType&gt;&amp; i)</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  { <span class="keywordflow">return</span> this-&gt;m_view[i.localId()]; }</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  ARCANE_CORE_EXPORT GroupType <a class="code" href="../../dd/d95/classArcane_1_1MeshVariableArrayRefT.html#a3038bf30d9bb7e7bb521e8273d3c5866">itemGroup</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  ARCANE_CORE_EXPORT <span class="keywordtype">void</span> <a class="code" href="../../dd/d95/classArcane_1_1MeshVariableArrayRefT.html#ab31e0ef4440e6bda9824efb333afc5d8">swapValues</a>(MeshVariableArrayRefT&lt;ItemType,DataType&gt;&amp; rhs);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  <span class="keyword">static</span> ARCANE_CORE_EXPORT VariableTypeInfo _internalVariableTypeInfo();</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  <span class="keyword">static</span> ARCANE_CORE_EXPORT VariableInfo _internalVariableInfo(<span class="keyword">const</span> VariableBuildInfo&amp; vbi);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  <span class="keyword">static</span> VariableFactoryRegisterer m_auto_registerer;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  <span class="keyword">static</span> VariableRef* _autoCreate(<span class="keyword">const</span> VariableBuildInfo&amp; vb);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;};</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<span class="preprocessor">#endif  </span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclassArcane_1_1IVariable_html"><div class="ttname"><a href="../../d5/d96/classArcane_1_1IVariable.html">Arcane::IVariable</a></div><div class="ttdef"><b>Definition:</b> IVariable.h:53</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableTypeInfo_html"><div class="ttname"><a href="../../df/d46/classArcane_1_1VariableTypeInfo.html">Arcane::VariableTypeInfo</a></div><div class="ttdoc">Informations caractérisant le type d'une variable.</div><div class="ttdef"><b>Definition:</b> VariableTypeInfo.h:34</div></div>
+<div class="ttc" id="aclassArccore_1_1ArrayView_html"><div class="ttname"><a href="../../d7/d02/classArccore_1_1ArrayView.html">Arccore::ArrayView</a></div><div class="ttdoc">Vue modifiable d'un tableau d'un type T.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:105</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemVariableArrayRefT_html_a2c7962aca546834e711ebf12ae2dc099"><div class="ttname"><a href="../../d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#a2c7962aca546834e711ebf12ae2dc099">Arcane::ItemVariableArrayRefT::copy</a></div><div class="ttdeci">void copy(const ItemVariableArrayRefT&lt; DataType &gt; &amp;v)</div><div class="ttdoc">Copie les valeurs de v dans cette variable.</div><div class="ttdef"><b>Definition:</b> MeshVariableArrayRefT.H:241</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshVariableArrayRefT_html_afdeeb28950c960236879c9fd9b9fe894"><div class="ttname"><a href="../../dd/d95/classArcane_1_1MeshVariableArrayRefT.html#afdeeb28950c960236879c9fd9b9fe894">Arcane::MeshVariableArrayRefT::MeshVariableArrayRefT</a></div><div class="ttdeci">MeshVariableArrayRefT(const VariableBuildInfo &amp;b)</div><div class="ttdoc">Construit une référence à la variable spécifiée dans vb.</div><div class="ttdef"><b>Definition:</b> MeshVariableArrayRefT.H:149</div></div>
+<div class="ttc" id="aclassArcane_1_1Item_html_a5c3dac466a25bb5c0e5b42c85d4304b8"><div class="ttname"><a href="../../df/d5f/classArcane_1_1Item.html#a5c3dac466a25bb5c0e5b42c85d4304b8">Arcane::Item::localId</a></div><div class="ttdeci">Int32 localId() const</div><div class="ttdoc">Identifiant local de l'entité dans le sous-domaine du processeur.</div><div class="ttdef"><b>Definition:</b> Item.h:172</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemVariableArrayRefT_html_a7cdc651595d5aacefb09200a85a42321"><div class="ttname"><a href="../../d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#a7cdc651595d5aacefb09200a85a42321">Arcane::ItemVariableArrayRefT::ItemVariableArrayRefT</a></div><div class="ttdeci">ItemVariableArrayRefT(const VariableBuildInfo &amp;b, eItemKind ik)</div><div class="ttdoc">Construit une référence à la variable spécifiée dans vb.</div><div class="ttdef"><b>Definition:</b> MeshVariableArrayRefT.H:57</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemVariableArrayRefT_html_ad6bf7f5488f4b46769aed3793792c60d"><div class="ttname"><a href="../../d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#ad6bf7f5488f4b46769aed3793792c60d">Arcane::ItemVariableArrayRefT::operator=</a></div><div class="ttdeci">void operator=(const ItemVariableArrayRefT&lt; DataType &gt; &amp;rhs)</div><div class="ttdoc">Positionne la référence de l'instance à la variable rhs.</div><div class="ttdef"><b>Definition:</b> MeshVariableArrayRefT.H:92</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshVariableArrayRefT_html_adfe0165a7df69f929c0d423aa05ce624"><div class="ttname"><a href="../../dd/d95/classArcane_1_1MeshVariableArrayRefT.html#adfe0165a7df69f929c0d423aa05ce624">Arcane::MeshVariableArrayRefT::refersTo</a></div><div class="ttdeci">void refersTo(const MeshVariableArrayRefT&lt; ItemType, DataType &gt; &amp;rhs)</div><div class="ttdoc">Positionne la référence de l'instance à la variable rhs.</div><div class="ttdef"><b>Definition:</b> MeshVariableArrayRefT.H:195</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableInfo_html"><div class="ttname"><a href="../../df/df8/classArcane_1_1VariableInfo.html">Arcane::VariableInfo</a></div><div class="ttdoc">Infos caractérisant une variable.</div><div class="ttdef"><b>Definition:</b> VariableInfo.h:36</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableBuildInfo_html"><div class="ttname"><a href="../../df/d8a/classArcane_1_1VariableBuildInfo.html">Arcane::VariableBuildInfo</a></div><div class="ttdoc">Paramètres nécessaires à la construction d'une variable.</div><div class="ttdef"><b>Definition:</b> VariableBuildInfo.h:42</div></div>
+<div class="ttc" id="aclassArccore_1_1Array2View_html"><div class="ttname"><a href="../../d7/da7/classArccore_1_1Array2View.html">Arccore::Array2View</a></div><div class="ttdoc">Vue modifiable pour un tableau 2D.</div><div class="ttdef"><b>Definition:</b> Array2View.h:49</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumerator_html_a8ab61d2eb18f195de0e05465cfbf5e6d"><div class="ttname"><a href="../../d6/dcd/classArcane_1_1ItemEnumerator.html#a8ab61d2eb18f195de0e05465cfbf5e6d">Arcane::ItemEnumerator::localId</a></div><div class="ttdeci">Integer localId() const</div><div class="ttdoc">localId() de l'entité courante.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:92</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumerator_html"><div class="ttname"><a href="../../d6/dcd/classArcane_1_1ItemEnumerator.html">Arcane::ItemEnumerator</a></div><div class="ttdoc">Enumérateur sur une liste d'entités.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:48</div></div>
+<div class="ttc" id="aclassArcane_1_1PrivateVariableArrayT_html"><div class="ttname"><a href="../../d4/ddf/classArcane_1_1PrivateVariableArrayT.html">Arcane::PrivateVariableArrayT</a></div><div class="ttdoc">Classe de factorisation des variables scalaires sur des entités du maillage.</div><div class="ttdef"><b>Definition:</b> PrivateVariableArray.h:34</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemGroupRangeIterator_html"><div class="ttname"><a href="../../da/d23/classArcane_1_1ItemGroupRangeIterator.html">Arcane::ItemGroupRangeIterator</a></div><div class="ttdoc">Iterateur sur les éléments d'un groupe.</div><div class="ttdef"><b>Definition:</b> ItemGroupRangeIterator.h:34</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemVariableArrayRefT_html_aff7e9e151d0c06a20d12b8fb52431613"><div class="ttname"><a href="../../d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#aff7e9e151d0c06a20d12b8fb52431613">Arcane::ItemVariableArrayRefT::fill</a></div><div class="ttdeci">void fill(const DataType &amp;value)</div><div class="ttdoc">Remplit la variable avec la valeur value.</div><div class="ttdef"><b>Definition:</b> MeshVariableArrayRefT.H:219</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemVariableArrayRefT_html"><div class="ttname"><a href="../../d2/dbb/classArcane_1_1ItemVariableArrayRefT.html">Arcane::ItemVariableArrayRefT</a></div><div class="ttdoc">Variable tableau sur un type d'entité du maillage.</div><div class="ttdef"><b>Definition:</b> MeshVariableArrayRef.h:36</div></div>
+<div class="ttc" id="anamespaceArcane_html_aaa6951864e32e84c29b3cffca3d4b3f7"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7">Arcane::eItemKind</a></div><div class="ttdeci">eItemKind</div><div class="ttdoc">Genre d'entité de maillage.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:114</div></div>
+<div class="ttc" id="aclassArccore_1_1UniqueArray2_html"><div class="ttname"><a href="../../d3/d1d/classArccore_1_1UniqueArray2.html">Arccore::UniqueArray2</a></div><div class="ttdoc">Vecteur de données 2D avec sémantique par valeur (style STL).</div><div class="ttdef"><b>Definition:</b> Array2.h:566</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshVariableArrayRefT_html"><div class="ttname"><a href="../../dd/d95/classArcane_1_1MeshVariableArrayRefT.html">Arcane::MeshVariableArrayRefT</a></div><div class="ttdoc">Variable tableau sur un type d'entité du maillage.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:331</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshVariableArrayRefT_html_a3038bf30d9bb7e7bb521e8273d3c5866"><div class="ttname"><a href="../../dd/d95/classArcane_1_1MeshVariableArrayRefT.html#a3038bf30d9bb7e7bb521e8273d3c5866">Arcane::MeshVariableArrayRefT::itemGroup</a></div><div class="ttdeci">GroupType itemGroup() const</div><div class="ttdoc">Groupe associé à la grandeur.</div><div class="ttdef"><b>Definition:</b> MeshVariableArrayRefT.H:209</div></div>
+<div class="ttc" id="aItemEnumerator_8h_html"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html">ItemEnumerator.h</a></div><div class="ttdoc">Types et macros pour itérer sur les entités du maillage.</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemGroup_html"><div class="ttname"><a href="../../d9/d27/classArcane_1_1ItemGroup.html">Arcane::ItemGroup</a></div><div class="ttdoc">Groupe d'entités de maillage.</div><div class="ttdef"><b>Definition:</b> ItemGroup.h:48</div></div>
+<div class="ttc" id="aclassArcane_1_1Item_html_a6a21925a30a72f0ce597d23e8e789bf4"><div class="ttname"><a href="../../df/d5f/classArcane_1_1Item.html#a6a21925a30a72f0ce597d23e8e789bf4">Arcane::Item::kind</a></div><div class="ttdeci">eItemKind kind() const</div><div class="ttdoc">Genre de l'entité</div><div class="ttdef"><b>Definition:</b> Item.h:184</div></div>
+<div class="ttc" id="aclassArcane_1_1Array2VariableT_html"><div class="ttname"><a href="../../d8/d38/classArcane_1_1Array2VariableT.html">Arcane::Array2VariableT</a></div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:313</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:43</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTraitsT_html"><div class="ttname"><a href="../../df/de7/classArcane_1_1ItemTraitsT.html">Arcane::ItemTraitsT</a></div><div class="ttdef"><b>Definition:</b> ItemTypes.h:436</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshVariableArrayRefT_html_ab31e0ef4440e6bda9824efb333afc5d8"><div class="ttname"><a href="../../dd/d95/classArcane_1_1MeshVariableArrayRefT.html#ab31e0ef4440e6bda9824efb333afc5d8">Arcane::MeshVariableArrayRefT::swapValues</a></div><div class="ttdeci">void swapValues(MeshVariableArrayRefT&lt; ItemType, DataType &gt; &amp;rhs)</div><div class="ttdoc">Échange les valeurs de la variable rhs avec celles de l'instance.</div><div class="ttdef"><b>Definition:</b> MeshVariableArrayRefT.H:270</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">Interface for base mesh operations.</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aclassArcane_1_1Item_html"><div class="ttname"><a href="../../df/d5f/classArcane_1_1Item.html">Arcane::Item</a></div><div class="ttdoc">Classe de base d'un élément de maillage.</div><div class="ttdef"><b>Definition:</b> Item.h:71</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshVariableRef_html"><div class="ttname"><a href="../../de/d79/classArcane_1_1MeshVariableRef.html">Arcane::MeshVariableRef</a></div><div class="ttdoc">Classe de base d'une variable sur des entités du maillage.</div><div class="ttdef"><b>Definition:</b> MeshVariableRef.h:31</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_050f182cfd4329e7fe1ae122895331c9.html">arcane</a></li><li class="navelem"><b>MeshVariableArrayRef.h</b></li>
+    <li class="footer">Généré le Vendredi 17 Septembre 2021 19:16:00 pour Arcane par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

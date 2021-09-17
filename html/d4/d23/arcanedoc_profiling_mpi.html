@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane: Analyse de performances par instrumentation interne</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.0.4.13</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d4/d23/arcanedoc_profiling_mpi.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Analyse de performances par instrumentation interne </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><dl class="section warning"><dt>Avertissement</dt><dd>Actuellement, le <em>profiling</em> ne fonctionne que sur les plateformes <b>Linux</b>.</dd>
+<dd>
+Actuellement, le <em>profiling</em> ne fonctionne que pour l'implémentation MPI du <em>message passing</em>.</dd>
+<dd>
+Les fonctionnalités de <em>profiling</em> pour le <em>message passing</em> décrite ci-dessous sont encore en développement.</dd></dl>
+<p>Arcane dispose d'un mécanisme interne de prise de traces pour l'analyse à posteriori des performances des operations dites de <em>message passing</em>. Ce mécanisme est transparent pour l'utilisateur qui peut activer cette fonctionnalité <em>via</em> la variable d'environnement <b>ARCANE_MESSAGE_PASSING_PROFILING</b>. Selon la valeur qu'on lui passe, l'un des services sera executé :</p><ul>
+<li><a class="el" href="../../d4/d23/arcanedoc_profiling_mpi.html#arcanedoc_profiling_mpi_json">JSON</a></li>
+<li><a class="el" href="../../d4/d23/arcanedoc_profiling_mpi.html#arcanedoc_profiling_mpi_otf2">OTF2</a></li>
+</ul>
+<p>Chacun de ces services fournira des traces au format associé.</p>
+<h1><a class="anchor" id="arcanedoc_profiling_mpi_json"></a>
+JSON</h1>
+<p>Lorsque l'on positionne la variable d'environnement <b>ARCANE_MESSAGE_PASSING_PROFILING=JSON</b>, le service de profiling interne du <em>message passing</em> au format JSON est activé. Celui-ci va espionner par itération et par point d'entrée les fonctions MPI, indiquant le nombre d'appel à la fonction, la taille des messages échangés (en octet) et le temps passé dedans (en seconde). Ces informations sont disponibles dans le sous-répertoire listing de sortie du cas. Les fichiers sont nommés <b>message_passing_logs.i.json</b> où <b>i</b> correspond au numéro du sous-domaine espionné.</p>
+<p>Exemple de trace JSON :</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">  &quot;1&quot;: {</div>
+<div class="line">    &quot;ArcaneTimeLoopBegin&quot;: {</div>
+<div class="line">      &quot;MPI_Allgather&quot;: {</div>
+<div class="line">        &quot;Count&quot;: 2,</div>
+<div class="line">        &quot;MessageSize&quot;: 4,</div>
+<div class="line">        &quot;TotalTime&quot;: 0.0000171661376953125</div>
+<div class="line">      }</div>
+<div class="line">    },</div>
+<div class="line">  },</div>
+<div class="line">  &quot;2&quot;: {</div>
+<div class="line">    &quot;TP_testLoop&quot;: {</div>
+<div class="line">      &quot;MPI_Allreduce&quot;: {</div>
+<div class="line">        &quot;Count&quot;: 3,</div>
+<div class="line">        &quot;MessageSize&quot;: 2014,</div>
+<div class="line">        &quot;TotalTime&quot;: 0.034449100494384769</div>
+<div class="line">      },</div>
+<div class="line">      &quot;MPI_Recv&quot;: {</div>
+<div class="line">        &quot;Count&quot;: 22,</div>
+<div class="line">        &quot;MessageSize&quot;: 307625744,</div>
+<div class="line">        &quot;TotalTime&quot;: 0.00004458427429199219</div>
+<div class="line">      },</div>
+<div class="line">      &quot;Synchronize&quot;: {</div>
+<div class="line">        &quot;Count&quot;: 82,</div>
+<div class="line">        &quot;MessageSize&quot;: 82,</div>
+<div class="line">        &quot;TotalTime&quot;: 0.0026214122772216799</div>
+<div class="line">      }</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Un plugin pour browser permettant de lire et manipuler les traces fournies à ce format est en cours d'étude.</dd></dl>
+<h1><a class="anchor" id="arcanedoc_profiling_mpi_otf2"></a>
+OTF2</h1>
+<p>Lorsque l'on positionne la variable d'environnement <b>ARCANE_MESSAGE_PASSING_PROFILING=OTF2</b>, le service de profiling interne du <em>message passing</em> au format OTF2 est activé. Le format OTF2 est un format binaire (Open Trace Format 2) open source destiné à être lu par des outils de profiling comme Vampir, Scalasca, Tau, Score-P, etc.</p>
+<p>Chaque appel aux fonctions MPI est instrumenté et va permettre d'obtenir des informations détaillées sur les communications entre sous-domaines, permettant notamment de détecter les problèmes de déséquilibre de charge ou d'identifier de mauvais motifs d'échanges.</p>
+<p>Ces informations sont disponibles dans le sous-répertoire listing de sortie du cas. Elles sont stoquées dans 2 fichiers et un répertoire. Le répertoire reprend le nom du cas et les deux fichiers également modulo les extensions *.otf2* et *.def*. </p><dl class="section note"><dt>Note</dt><dd>Les fichiers et le répertoire sont écrasés à chaque nouveau lancement de la simulation.</dd></dl>
+<p>Exemple de trace OTF2 visualisée par Vampir :</p>
+<div class="image">
+<img src="../../ex_otf2_vampir.png" alt=""/>
+</div>
+ </div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li><li class="navelem"><a class="el" href="../../db/df9/arcanedoc_profiling_toc.html">Analyse de performances (&lt;em&gt;Profiling&lt;/em&gt;)</a></li>
+    <li class="footer">Généré le Vendredi 17 Septembre 2021 19:16:19 pour Arcane par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

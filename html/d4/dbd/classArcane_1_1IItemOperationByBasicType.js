@@ -1,0 +1,27 @@
+var classArcane_1_1IItemOperationByBasicType =
+[
+    [ "~IItemOperationByBasicType", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#a218eac78bd44e484ca1b5e33bce4fd92", null ],
+    [ "applyAntiWedgeLeft6", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#aa0d98771e4979eaf95a25c3ccc3fa7c5", null ],
+    [ "applyAntiWedgeRight6", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#a732de212be8d02b97ee3accb5a855b7b", null ],
+    [ "applyDiTetra5", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#a8ec29d212deea53059b5b283be4c0936", null ],
+    [ "applyDualCell", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#af1dcde51337ca9f965d4b124e8b7df4b", null ],
+    [ "applyDualEdge", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#a488ab5a00523a1b08ecdcebb0fc44dfd", null ],
+    [ "applyDualFace", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#a50f154e18912c457f3c6989bb4b2dd89", null ],
+    [ "applyDualNode", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#a059bee4a6bf50c5080a3d4316417d75c", null ],
+    [ "applyHemiHexa5", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#a1e5acbf6a275e21a68d2a5fef52e5daa", null ],
+    [ "applyHemiHexa6", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#ab86108da9dbc65b4a8db536ff25ae24f", null ],
+    [ "applyHemiHexa7", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#a2450a37d7cd1670d5d94fcb847484c12", null ],
+    [ "applyHeptaedron10", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#ad83d8f03e7a5413dee4caf0d86d5bf22", null ],
+    [ "applyHexaedron8", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#af5925476db1b84402bdfed0f3456ccd6", null ],
+    [ "applyHexagon6", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#a1481577f7b0b53969a3bf39ae7cf376d", null ],
+    [ "applyLine2", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#aec3e5b1b7b7297449b9c4c8cd08a3f94", null ],
+    [ "applyLink", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#a26f6732e879e0f815f48486f84c0e08e", null ],
+    [ "applyOctaedron12", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#ade307545b204409d181922ce4f1421a6", null ],
+    [ "applyPentaedron6", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#adaa992cda077c094d79b0cdf5055eb94", null ],
+    [ "applyPentagon5", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#af271607649fc893538d7cfa6e4b5e241", null ],
+    [ "applyPyramid5", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#a18e96319091bc467af31ffc37ad2db8e", null ],
+    [ "applyQuad4", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#a6ebd26f94b4326dd4b82a609c7c0a505", null ],
+    [ "applyTetraedron4", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#ae62eb32078c78628e114907b136f63d7", null ],
+    [ "applyTriangle3", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#aa2222f769b1fad8c0a2597b63215a6d0", null ],
+    [ "applyVertex", "d4/dbd/classArcane_1_1IItemOperationByBasicType.html#a1db36d66ceb0d56e55bfc3158405707f", null ]
+];

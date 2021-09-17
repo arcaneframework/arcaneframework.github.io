@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arcane/utils/Numeric.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.0.4.13</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('dc/da6/Numeric_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Numeric.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2021 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* Numeric.h                                                   (C) 2000-2020 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Définitions des constantes numériques.                                    */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_DATATYPE_NUMERIC_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_DATATYPE_NUMERIC_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/Limits.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/Math.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../da/d09/classArcane_1_1TypeEqualT.html">   44</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../da/d09/classArcane_1_1TypeEqualT.html">TypeEqualT</a></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../da/d09/classArcane_1_1TypeEqualT.html#aa4575949ffcf74697ccadaa54543b860">   52</a></span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../da/d09/classArcane_1_1TypeEqualT.html#aa4575949ffcf74697ccadaa54543b860">isNearlyZero</a> (<span class="keyword">const</span> T&amp; a)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <span class="keywordflow">return</span> (a==T());</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../da/d09/classArcane_1_1TypeEqualT.html#a8cfbb884796e04225760b65b44fd71a7">   62</a></span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../da/d09/classArcane_1_1TypeEqualT.html#a8cfbb884796e04225760b65b44fd71a7">isZero</a> (<span class="keyword">const</span> T&amp; a)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> (a==T());</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../da/d09/classArcane_1_1TypeEqualT.html#a0452b9114d35d894649e34b5f7602b1d">   72</a></span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../da/d09/classArcane_1_1TypeEqualT.html#a0452b9114d35d894649e34b5f7602b1d">isNearlyEqual</a>(<span class="keyword">const</span> T&amp; a,<span class="keyword">const</span> T&amp; b)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  {</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">return</span> (a==b);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="../../da/d09/classArcane_1_1TypeEqualT.html#ad5af7481759386eb83d4cafc4d7bbb2d">   82</a></span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../da/d09/classArcane_1_1TypeEqualT.html#ad5af7481759386eb83d4cafc4d7bbb2d">isNearlyEqualWithEpsilon</a>(<span class="keyword">const</span> T&amp; a,<span class="keyword">const</span> T&amp; b,<span class="keyword">const</span> T&amp;)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    <span class="keywordflow">return</span> (a==b);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="../../da/d09/classArcane_1_1TypeEqualT.html#a570832e02866c70ce0e3e21b299416b2">   92</a></span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../da/d09/classArcane_1_1TypeEqualT.html#a570832e02866c70ce0e3e21b299416b2">isEqual</a>(<span class="keyword">const</span> T&amp; a,<span class="keyword">const</span> T&amp; b)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  {</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">return</span> (a==b);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  }</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;};</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="../../d6/dfd/classArcane_1_1FloatEqualT.html">  108</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d6/dfd/classArcane_1_1FloatEqualT.html">FloatEqualT</a></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;{</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">static</span> T nepsilon() { <span class="keywordflow">return</span> <a class="code" href="../../dd/d97/classArcane_1_1FloatInfo.html">FloatInfo&lt;T&gt;::nearlyEpsilon</a>(); }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">static</span> <span class="keywordtype">bool</span> isNearlyZero(T a)</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  {</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">return</span> ( (a&lt;0.) ? a&gt;-nepsilon() : a&lt;nepsilon() );</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  </div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="../../d6/dfd/classArcane_1_1FloatEqualT.html#a02a93777c2219a93382b0324850fe87c">  126</a></span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d6/dfd/classArcane_1_1FloatEqualT.html#a02a93777c2219a93382b0324850fe87c">isNearlyZeroWithEpsilon</a>(T a,T epsilon)</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  {</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">return</span> ( (a&lt;0.) ? a&gt;-epsilon : a&lt;epsilon );</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  }</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  </div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="../../d6/dfd/classArcane_1_1FloatEqualT.html#ad44d4b7ef1e16a0eef276bd910a401cf">  133</a></span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d6/dfd/classArcane_1_1FloatEqualT.html#ad44d4b7ef1e16a0eef276bd910a401cf">isNearlyZero</a>(T a,T b)</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  {</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;    <span class="keywordflow">return</span> ( (a&lt;0.) ? a&gt;-(b*nepsilon()) : a&lt;(b*nepsilon()) );</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">static</span> <span class="keywordtype">bool</span> isTrueZero(T a) { <span class="keywordflow">return</span> (a==<a class="code" href="../../dd/d97/classArcane_1_1FloatInfo.html">FloatInfo&lt;T&gt;::zero</a>()); }</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">static</span> <span class="keywordtype">bool</span> isZero(T a) { <span class="keywordflow">return</span> (a==FloatInfo&lt;T&gt;::zero()); }</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">static</span> <span class="keywordtype">bool</span> isNearlyEqual(T a,T b)</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  {</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    T s = <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#gaa4834754f5833981528f829e143b25f3">math::abs</a>(a) + <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#gaa4834754f5833981528f829e143b25f3">math::abs</a>(b);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    T d = a - b;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    <span class="keywordflow">return</span> (d==FloatInfo&lt;T&gt;::zero()) ? true : isNearlyZero(d/s);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  }</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">static</span> <span class="keywordtype">bool</span> isNearlyEqualWithEpsilon(T a,T b,T epsilon)</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  {</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    T s = <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#gaa4834754f5833981528f829e143b25f3">math::abs</a>(a) + <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#gaa4834754f5833981528f829e143b25f3">math::abs</a>(b);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    T d = a - b;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="keywordflow">return</span> (d==FloatInfo&lt;T&gt;::zero()) ? true : <a class="code" href="../../d6/dfd/classArcane_1_1FloatEqualT.html#a02a93777c2219a93382b0324850fe87c">isNearlyZeroWithEpsilon</a>(d/s,epsilon);</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  }</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">static</span> <span class="keywordtype">bool</span> isEqual(T a,T b)</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  {</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordflow">return</span> a==b;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  }</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;};</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;<span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="../../d9/da7/classArcane_1_1TypeEqualT_3_01float_01_4.html">  162</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../da/d09/classArcane_1_1TypeEqualT.html">TypeEqualT</a>&lt;float&gt;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d6/dfd/classArcane_1_1FloatEqualT.html">FloatEqualT</a>&lt;float&gt;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;{};</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="../../d1/d42/classArcane_1_1TypeEqualT_3_01double_01_4.html">  171</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../da/d09/classArcane_1_1TypeEqualT.html">TypeEqualT</a>&lt;double&gt;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d6/dfd/classArcane_1_1FloatEqualT.html">FloatEqualT</a>&lt;double&gt;</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;{};</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00180"></a><span class="lineno"><a class="line" href="../../d0/dce/classArcane_1_1TypeEqualT_3_01long_01double_01_4.html">  180</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../da/d09/classArcane_1_1TypeEqualT.html">TypeEqualT</a>&lt;long double&gt;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d6/dfd/classArcane_1_1FloatEqualT.html">FloatEqualT</a>&lt;long double&gt;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;{};</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="preprocessor">#ifdef ARCANE_REAL_NOT_BUILTIN</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="keyword">class </span><a class="code" href="../../da/d09/classArcane_1_1TypeEqualT.html">TypeEqualT</a>&lt;Real&gt;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d6/dfd/classArcane_1_1FloatEqualT.html">FloatEqualT</a>&lt;Real&gt;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;{};</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="keyword">namespace </span>math</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;{</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> _Type&gt; ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#af0da372fd40b655cb32c7ad200f19ea2">  212</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#af0da372fd40b655cb32c7ad200f19ea2">isNearlyEqual</a>(<span class="keyword">const</span> _Type&amp; a,<span class="keyword">const</span> _Type&amp; b)</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;{</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../da/d09/classArcane_1_1TypeEqualT.html#a0452b9114d35d894649e34b5f7602b1d">TypeEqualT&lt;_Type&gt;::isNearlyEqual</a>(a,b);</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;}</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#a07ceaf8a56cb9e64e26c88332362cdf5">  219</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#af0da372fd40b655cb32c7ad200f19ea2">isNearlyEqual</a>(Real a,Real b)</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;{</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../da/d09/classArcane_1_1TypeEqualT.html#a0452b9114d35d894649e34b5f7602b1d">TypeEqualT&lt;Real&gt;::isNearlyEqual</a>(a,b);</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;}</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> _Type&gt; ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#ae9b01ef09fa4b2f01a3f8123fb24ea25">  235</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#ae9b01ef09fa4b2f01a3f8123fb24ea25">isNearlyEqualWithEpsilon</a>(<span class="keyword">const</span> _Type&amp; a,<span class="keyword">const</span> _Type&amp; b,<span class="keyword">const</span> _Type&amp; epsilon)</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;{</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../da/d09/classArcane_1_1TypeEqualT.html#ad5af7481759386eb83d4cafc4d7bbb2d">TypeEqualT&lt;_Type&gt;::isNearlyEqualWithEpsilon</a>(a,b,epsilon);</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;}</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#aa24e0010fd2ca8ed4731c97977339e3f">  242</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#ae9b01ef09fa4b2f01a3f8123fb24ea25">isNearlyEqualWithEpsilon</a>(Real a,Real b,Real epsilon)</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;{</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../da/d09/classArcane_1_1TypeEqualT.html#ad5af7481759386eb83d4cafc4d7bbb2d">TypeEqualT&lt;Real&gt;::isNearlyEqualWithEpsilon</a>(a,b,epsilon);</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;}</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> _Type&gt; ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#ad06e20dd12ae811002d82baad563d179">  253</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#ad06e20dd12ae811002d82baad563d179">isEqual</a>(<span class="keyword">const</span> _Type&amp; a,<span class="keyword">const</span> _Type&amp; b)</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;{</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../da/d09/classArcane_1_1TypeEqualT.html#a570832e02866c70ce0e3e21b299416b2">TypeEqualT&lt;_Type&gt;::isEqual</a>(a,b);</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;}</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#a187458f5bfd780aac329f4e4dc91008a">  260</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#ad06e20dd12ae811002d82baad563d179">isEqual</a>(Real a,Real b)</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;{</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../da/d09/classArcane_1_1TypeEqualT.html#a570832e02866c70ce0e3e21b299416b2">TypeEqualT&lt;Real&gt;::isEqual</a>(a,b);</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;}</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; </div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> _Type&gt; ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#a4d2823391d64d9499c837bb652de253f">  276</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#a4d2823391d64d9499c837bb652de253f">isNearlyZeroWithEpsilon</a>(<span class="keyword">const</span> _Type&amp; a,<span class="keyword">const</span> _Type&amp; epsilon)</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;{</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../da/d09/classArcane_1_1TypeEqualT.html">TypeEqualT&lt;_Type&gt;::isNearlyZeroWithEpsilon</a>(a,epsilon);</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;}</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> _Type&gt; ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#a6a29e8f4630efebd2fd862413998e7bd">  289</a></span>&#160;isNearlyZero(<span class="keyword">const</span> _Type&amp; a)</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;{</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../da/d09/classArcane_1_1TypeEqualT.html#aa4575949ffcf74697ccadaa54543b860">TypeEqualT&lt;_Type&gt;::isNearlyZero</a>(a);</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;}</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> _Type&gt; ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#a25cc0e813bf146f60944c36f520feb4e">  300</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#a8b311f28caafbebce959549e3383e065">isZero</a>(<span class="keyword">const</span> _Type&amp; a)</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;{</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../da/d09/classArcane_1_1TypeEqualT.html#a8cfbb884796e04225760b65b44fd71a7">TypeEqualT&lt;_Type&gt;::isZero</a>(a);</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;}</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;} <span class="comment">// namespace math</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="anamespaceArcane_1_1math_html_af0da372fd40b655cb32c7ad200f19ea2"><div class="ttname"><a href="../../d8/d68/namespaceArcane_1_1math.html#af0da372fd40b655cb32c7ad200f19ea2">Arcane::math::isNearlyEqual</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE bool isNearlyEqual(const _Type &amp;a, const _Type &amp;b)</div><div class="ttdoc">Teste si deux valeurs sont à un peu près égales. Pour les types entiers, cette fonction est équivalen...</div><div class="ttdef"><b>Definition:</b> Numeric.h:212</div></div>
+<div class="ttc" id="anamespaceArcane_1_1math_html_a4d2823391d64d9499c837bb652de253f"><div class="ttname"><a href="../../d8/d68/namespaceArcane_1_1math.html#a4d2823391d64d9499c837bb652de253f">Arcane::math::isNearlyZeroWithEpsilon</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE bool isNearlyZeroWithEpsilon(const _Type &amp;a, const _Type &amp;epsilon)</div><div class="ttdoc">Teste si une valeur est à peu près égale à zéro à un epsilon près.</div><div class="ttdef"><b>Definition:</b> Numeric.h:276</div></div>
+<div class="ttc" id="aclassArcane_1_1FloatEqualT_html_a02a93777c2219a93382b0324850fe87c"><div class="ttname"><a href="../../d6/dfd/classArcane_1_1FloatEqualT.html#a02a93777c2219a93382b0324850fe87c">Arcane::FloatEqualT::isNearlyZeroWithEpsilon</a></div><div class="ttdeci">static ARCCORE_HOST_DEVICE bool isNearlyZeroWithEpsilon(T a, T epsilon)</div><div class="ttdoc">Compare a à zéro à epsilon près.</div><div class="ttdef"><b>Definition:</b> Numeric.h:126</div></div>
+<div class="ttc" id="agroup__GroupMathUtils_html_gaa4834754f5833981528f829e143b25f3"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#gaa4834754f5833981528f829e143b25f3">Arcane::math::abs</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE long double abs(long double a)</div><div class="ttdoc">Retourne la valeur absolue d'un réel.</div><div class="ttdef"><b>Definition:</b> Math.h:417</div></div>
+<div class="ttc" id="aclassArcane_1_1TypeEqualT_html_a570832e02866c70ce0e3e21b299416b2"><div class="ttname"><a href="../../da/d09/classArcane_1_1TypeEqualT.html#a570832e02866c70ce0e3e21b299416b2">Arcane::TypeEqualT::isEqual</a></div><div class="ttdeci">static ARCCORE_HOST_DEVICE bool isEqual(const T &amp;a, const T &amp;b)</div><div class="ttdoc">Compare a à b.</div><div class="ttdef"><b>Definition:</b> Numeric.h:92</div></div>
+<div class="ttc" id="anamespaceArcane_1_1math_html_a8b311f28caafbebce959549e3383e065"><div class="ttname"><a href="../../d8/d68/namespaceArcane_1_1math.html#a8b311f28caafbebce959549e3383e065">Arcane::math::isZero</a></div><div class="ttdeci">bool isZero(const BuiltInProxy&lt; _Type &gt; &amp;a)</div><div class="ttdoc">Teste si une valeur est exactement égale à zéro.</div><div class="ttdef"><b>Definition:</b> BuiltInProxy.h:164</div></div>
+<div class="ttc" id="anamespaceArcane_1_1math_html_ae9b01ef09fa4b2f01a3f8123fb24ea25"><div class="ttname"><a href="../../d8/d68/namespaceArcane_1_1math.html#ae9b01ef09fa4b2f01a3f8123fb24ea25">Arcane::math::isNearlyEqualWithEpsilon</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE bool isNearlyEqualWithEpsilon(const _Type &amp;a, const _Type &amp;b, const _Type &amp;epsilon)</div><div class="ttdoc">Teste si deux valeurs sont à un peu près égales. Pour les types entiers, cette fonction est équivalen...</div><div class="ttdef"><b>Definition:</b> Numeric.h:235</div></div>
+<div class="ttc" id="aclassArcane_1_1TypeEqualT_html_aa4575949ffcf74697ccadaa54543b860"><div class="ttname"><a href="../../da/d09/classArcane_1_1TypeEqualT.html#aa4575949ffcf74697ccadaa54543b860">Arcane::TypeEqualT::isNearlyZero</a></div><div class="ttdeci">static ARCCORE_HOST_DEVICE bool isNearlyZero(const T &amp;a)</div><div class="ttdoc">Compare a à zéro.</div><div class="ttdef"><b>Definition:</b> Numeric.h:52</div></div>
+<div class="ttc" id="aclassArcane_1_1TypeEqualT_html_a8cfbb884796e04225760b65b44fd71a7"><div class="ttname"><a href="../../da/d09/classArcane_1_1TypeEqualT.html#a8cfbb884796e04225760b65b44fd71a7">Arcane::TypeEqualT::isZero</a></div><div class="ttdeci">static ARCCORE_HOST_DEVICE bool isZero(const T &amp;a)</div><div class="ttdoc">Compare a à zéro.</div><div class="ttdef"><b>Definition:</b> Numeric.h:62</div></div>
+<div class="ttc" id="anamespaceArcane_1_1math_html_ad06e20dd12ae811002d82baad563d179"><div class="ttname"><a href="../../d8/d68/namespaceArcane_1_1math.html#ad06e20dd12ae811002d82baad563d179">Arcane::math::isEqual</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE bool isEqual(const _Type &amp;a, const _Type &amp;b)</div><div class="ttdoc">Teste l'égalité bit à bit entre deux valeurs.</div><div class="ttdef"><b>Definition:</b> Numeric.h:253</div></div>
+<div class="ttc" id="aclassArcane_1_1FloatInfo_html"><div class="ttname"><a href="../../dd/d97/classArcane_1_1FloatInfo.html">Arcane::FloatInfo</a></div><div class="ttdoc">Informations sur le type flottant.</div><div class="ttdef"><b>Definition:</b> Limits.h:47</div></div>
+<div class="ttc" id="aclassArcane_1_1TypeEqualT_html_a0452b9114d35d894649e34b5f7602b1d"><div class="ttname"><a href="../../da/d09/classArcane_1_1TypeEqualT.html#a0452b9114d35d894649e34b5f7602b1d">Arcane::TypeEqualT::isNearlyEqual</a></div><div class="ttdeci">static ARCCORE_HOST_DEVICE bool isNearlyEqual(const T &amp;a, const T &amp;b)</div><div class="ttdoc">Compare a à b.</div><div class="ttdef"><b>Definition:</b> Numeric.h:72</div></div>
+<div class="ttc" id="aclassArcane_1_1TypeEqualT_html_ad5af7481759386eb83d4cafc4d7bbb2d"><div class="ttname"><a href="../../da/d09/classArcane_1_1TypeEqualT.html#ad5af7481759386eb83d4cafc4d7bbb2d">Arcane::TypeEqualT::isNearlyEqualWithEpsilon</a></div><div class="ttdeci">static ARCCORE_HOST_DEVICE bool isNearlyEqualWithEpsilon(const T &amp;a, const T &amp;b, const T &amp;)</div><div class="ttdoc">Compare a à b.</div><div class="ttdef"><b>Definition:</b> Numeric.h:82</div></div>
+<div class="ttc" id="aclassArcane_1_1TypeEqualT_html"><div class="ttname"><a href="../../da/d09/classArcane_1_1TypeEqualT.html">Arcane::TypeEqualT</a></div><div class="ttdef"><b>Definition:</b> Numeric.h:44</div></div>
+<div class="ttc" id="aclassArcane_1_1FloatEqualT_html_ad44d4b7ef1e16a0eef276bd910a401cf"><div class="ttname"><a href="../../d6/dfd/classArcane_1_1FloatEqualT.html#ad44d4b7ef1e16a0eef276bd910a401cf">Arcane::FloatEqualT::isNearlyZero</a></div><div class="ttdeci">static ARCCORE_HOST_DEVICE bool isNearlyZero(T a, T b)</div><div class="ttdoc">Compare avec b*epsilon.</div><div class="ttdef"><b>Definition:</b> Numeric.h:133</div></div>
+<div class="ttc" id="aclassArcane_1_1FloatEqualT_html"><div class="ttname"><a href="../../d6/dfd/classArcane_1_1FloatEqualT.html">Arcane::FloatEqualT</a></div><div class="ttdef"><b>Definition:</b> Numeric.h:108</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">Interface for base mesh operations.</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_050f182cfd4329e7fe1ae122895331c9.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_795b6007a59c91e88082f61e485690d1.html">utils</a></li><li class="navelem"><b>Numeric.h</b></li>
+    <li class="footer">Généré le Vendredi 17 Septembre 2021 19:16:10 pour Arcane par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

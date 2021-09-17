@@ -1,0 +1,522 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arcane/IItemFamily.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.0.4.13</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d0/dd3/IItemFamily_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">IItemFamily.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2021 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* IItemFamily.h                                               (C) 2000-2020 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Interface d&#39;une famille d&#39;entités.                                        */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_IITEMFAMILY_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_IITEMFAMILY_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d7e/ArcaneTypes_8h.html">arcane/ArcaneTypes.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/daf/ItemTypes_8h.html">arcane/ItemTypes.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d5/dc7/VariableTypedef_8h.html">arcane/VariableTypedef.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d8b/Parallel_8h.html">arcane/Parallel.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">class </span>IParallelMng;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span>IDataOperation;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">class </span>ItemUniqueId;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">class </span>IItemInternalSortFunction;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">class </span>IVariableSynchronizer;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">class </span>IParticleFamily;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">class </span>GroupIndexTable;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">class </span>IItemConnectivityInfo;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">class </span>IItemConnectivityMng;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">class </span>IItemConnectivity;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">class </span>IExtraGhostItemsBuilder;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">class </span>IIncrementalItemConnectivity;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">class </span>IItemFamilyPolicyMng;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">class </span>IItemFamilyTopologyModifier;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">class </span>ItemInternalConnectivityList;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">class </span>Properties;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../d5/d7e/namespaceArcane_1_1mesh.html">   47</a></span>&#160;<span class="keyword">namespace </span>mesh{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keyword">class </span>ItemDataList;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="../../dd/d0a/classArcane_1_1IItemFamily.html">  106</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html">IItemFamily</a></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;{</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html">IItemFamily</a>() {} <span class="comment">//&lt;! Libère les ressources</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> build() =0;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a394933b94f2a6f4fa41779f04dcb2ace">name</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a65bbe2ded73f745e54dc2cdb83d66904">fullName</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7">eItemKind</a> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a9ad039c775d18575532c390f1f1eaab4">itemKind</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="keyword">virtual</span> Integer <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#adc9dbaecb401f9448826b4c0f8624e40">nbItem</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  <span class="keyword">virtual</span> ARCANE_DEPRECATED_112 Int32 <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#ad18da61a8419dc55c7f9853e05c39473">variableMaxSize</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="keyword">virtual</span> Int32 <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a63e7bb01f8e6c58b5eb033a5a65dedba">maxLocalId</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ItemInternalArrayView</a> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a5274480df9c2e1163d59cda218f882bf">itemsInternal</a>() =0;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html">IItemFamily</a>* <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a9d9d42b5e35e52a7e7aea8d9c709fd13">parentFamily</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a3a616ceff090651b95c75e405cc2d54a">setParentFamily</a>(<a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html">IItemFamily</a> * parent) = 0;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="keyword">virtual</span> Integer <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a258baa0cfaece80303aac4d4aa5bdad7">parentFamilyDepth</a>() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#ac38cea8a4c95f6fb96c21ef931be7bb5">addChildFamily</a>(<a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html">IItemFamily</a> * family) = 0;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d3/d5d/classArcane_1_1Collection.html">IItemFamilyCollection</a> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a7cb30b8269f18b8acdba4673db999ab0">childFamilies</a>() = 0;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../de/dc3/classArcane_1_1ItemVariableScalarRefT.html">VariableItemInt32</a>&amp; <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a9763cb9fa15ce83dc325a1bdc376f576">itemsNewOwner</a>() =0;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  </div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a7004b8c21809436ce8cfc3128872f6d5">checkValid</a>() =0;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#aa06c8259dbf29bdca56265dbd1231cee">checkValidConnectivity</a>() =0;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a3232e51eb0ecf2a41d185c84bb50d8fd">checkUniqueIds</a>(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int64ConstArrayView</a> unique_ids) =0;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="preprocessor">#if 1</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  <span class="keyword">virtual</span> ARCANE_DEPRECATED_114 <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a7267c9726097b8d06e9058f6fadedb8c">addItems</a>(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int64ConstArrayView</a> unique_ids,<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int32ArrayView</a> items) =0;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  <span class="keyword">virtual</span> ARCANE_DEPRECATED_114 <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a7267c9726097b8d06e9058f6fadedb8c">addItems</a>(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int64ConstArrayView</a> unique_ids,<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayView&lt;Item&gt;</a> items) =0;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  <span class="keyword">virtual</span> ARCANE_DEPRECATED_114 <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a7267c9726097b8d06e9058f6fadedb8c">addItems</a>(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int64ConstArrayView</a> unique_ids,<a class="code" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a> item_group) =0;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  <span class="keyword">virtual</span> ARCANE_DEPRECATED_114 <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a2f50bd5e33aa99a13edb949582eb5c12">exchangeItems</a>() =0;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; </div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#afd54bf9ec354c1cfa6c38ea03befe113">view</a>(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> local_ids) =0;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#afd54bf9ec354c1cfa6c38ea03befe113">view</a>() =0;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;<span class="preprocessor">#if 1</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  <span class="keyword">virtual</span> ARCANE_DEPRECATED_114 <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a421eb7017ad85a1f8fdd9cb001e9a70b">removeItems</a>(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> local_ids,<span class="keywordtype">bool</span> keep_ghost=<span class="keyword">false</span>) =0;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  </div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#ac8b57e14739e2ec93cb5277fd4d2316b">removeItems2</a>(mesh::ItemDataList&amp; item_data_list) =0;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; </div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a0d84c52844ffe8a9d3c120058b46d869">removeNeedRemoveMarkedItems</a>() =0;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  <span class="comment">/*</span></div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;<span class="comment">   * \brief Entité de numéro unique \a unique_id.</span></div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;<span class="comment">   *</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="comment">   * Si aucune entité avec cet \a unique_id n&#39;est trouvé, retourne null.</span></div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="comment">   */</span></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../dd/df1/classArcane_1_1ItemInternal.html">ItemInternal</a>* findOneItem(Int64 unique_id) =0;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; </div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  ARCANE_DEPRECATED_240 <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a7eb7e659920c11b31d5bbe682f9ae855">mergeItems</a>(Int32 local_id1,Int32 local_id2) = 0;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160; </div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  ARCANE_DEPRECATED_240 <span class="keyword">virtual</span> Int32 <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a3547bd67c6461fb811e9a953c2750f66">getMergedItemLID</a>(Int32 local_id1,Int32 local_id2) = 0;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#af038a7ecc0e0d64855014d5427db0f31">endUpdate</a>() =0;</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a1346f15737002a179fa8932d247a4678">partialEndUpdate</a>() =0;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; </div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#ae7d29be4ba2cbcf6e9d1f38f2505f659">partialEndUpdateGroup</a>(<span class="keyword">const</span> <a class="code" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a>&amp; group) =0;</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;  </div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a4cf9d2f186345eae0e2dfde10736e707">partialEndUpdateVariable</a>(<a class="code" href="../../d5/d96/classArcane_1_1IVariable.html">IVariable</a>* variable) =0;</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160; </div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#abbd65f8f3296e6e23f4805665e2389f2">notifyItemsOwnerChanged</a>() =0;</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160; </div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a2c7e22a00808f0f514170fecb81af09e">notifyItemsUniqueIdChanged</a>() =0;</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160; </div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> resizeVariables(<span class="keywordtype">bool</span> force_resize=<span class="keyword">false</span>) =0;</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160; </div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160; </div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;  <span class="keyword">virtual</span> ARCANE_DEPRECATED_122 Integer <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#aeef475467cf10fd7f928105aed8a7103">maxNodePerItem</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;  </div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;  <span class="keyword">virtual</span> ARCANE_DEPRECATED_122 Integer <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a57c69aec768d7ced88df203e3570fd33">maxEdgePerItem</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;  <span class="keyword">virtual</span> ARCANE_DEPRECATED_122 Integer <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#ab07b436dd289ddd0446b73432a6e740a">maxFacePerItem</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160; </div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;  <span class="keyword">virtual</span> ARCANE_DEPRECATED_122 Integer <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a12410e490c4cad3142f7ce1753c82c52">maxCellPerItem</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; </div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;  <span class="keyword">virtual</span> ARCANE_DEPRECATED_122 Integer <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#ae051eac0494d590d3a3cfd966c873d73">maxLocalNodePerItemType</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;  </div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;  <span class="keyword">virtual</span> ARCANE_DEPRECATED_122 Integer <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a7183cf9f60a2904ee455d0731c500ca5">maxLocalEdgePerItemType</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160; </div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;  <span class="keyword">virtual</span> ARCANE_DEPRECATED_122 Integer <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#acd95be4a082ae2cf83ee132b1fecac97">maxLocalFacePerItemType</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160; </div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d2/dce/classArcane_1_1IItemConnectivityInfo.html">IItemConnectivityInfo</a>* <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#af6353c856052dad1d80a8f38620ff632">localConnectivityInfos</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160; </div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d2/dce/classArcane_1_1IItemConnectivityInfo.html">IItemConnectivityInfo</a>* <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a645040c925b51b1c7522730b1ae6ed3b">globalConnectivityInfos</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160; </div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160; </div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a4b5cdedef3afdf75c2c1a5159f45c6f7">setHasUniqueIdMap</a>(<span class="keywordtype">bool</span> v) =0;</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160; </div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a701ee67365509461d8ed7cfef4091780">hasUniqueIdMap</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160; </div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160; </div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#ac84615ed0ea22a2104fdae7d9c8c5179">itemsUniqueIdToLocalId</a>(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int32ArrayView</a> local_ids,</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;                                      <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int64ConstArrayView</a> unique_ids,</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;                                      <span class="keywordtype">bool</span> do_fatal=<span class="keyword">true</span>) <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160; </div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#ac84615ed0ea22a2104fdae7d9c8c5179">itemsUniqueIdToLocalId</a>(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int32ArrayView</a> local_ids,</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;                                      <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;ItemUniqueId&gt;</a> unique_ids,</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;                                      <span class="keywordtype">bool</span> do_fatal=<span class="keyword">true</span>) <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160; </div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160; </div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#aeb2a7f40e0697e8fecfc05f48398bb29">setItemSortFunction</a>(<a class="code" href="../../de/d9f/classArcane_1_1IItemInternalSortFunction.html">IItemInternalSortFunction</a>* sort_function) =0;</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160; </div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../de/d9f/classArcane_1_1IItemInternalSortFunction.html">IItemInternalSortFunction</a>* <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a79ab1227b1ab30207fb7b0f15febde1c">itemSortFunction</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160; </div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160; </div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> endAllocate() =0;</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160; </div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> notifyEndUpdateFromMesh() =0;</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160; </div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160; </div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;  <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a2bc6ba0af338207a203fc9572907571a">ARCCORE_DEPRECATED_2020</a>(<span class="stringliteral">&quot;Do not use this method. Try to get &#39;ISubDomain&#39; from another way&quot;</span>)</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html">ISubDomain</a>* subDomain() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160; </div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d0/df9/classArccore_1_1ITraceMng.html">ITraceMng</a>* <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#af5497cdd2d29bf7abc1fb9c8405b6027">traceMng</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160; </div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d0/d9f/classArcane_1_1IMesh.html">IMesh</a>* <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a5a2db3d9fcd8f888fe5026175974d3df">mesh</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160; </div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../dc/d5a/classArcane_1_1IParallelMng.html">IParallelMng</a>* <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#afcc57d1377af5103cc8002b6b19bde97">parallelMng</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160; </div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160; </div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a3d3659197cb052e60fb2fc573046830b">allItems</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160; </div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d3/d5d/classArcane_1_1Collection.html">ItemGroupCollection</a> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a362b45810cef1ced23d1112a15352d51">groups</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160; </div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160; </div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160; </div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160; </div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a20b719c617781f49dadbbc1aa72390c3">findGroup</a>(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a394933b94f2a6f4fa41779f04dcb2ace">name</a>) <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160; </div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a20b719c617781f49dadbbc1aa72390c3">findGroup</a>(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a394933b94f2a6f4fa41779f04dcb2ace">name</a>,<span class="keywordtype">bool</span> create_if_needed) =0;</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;  </div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160; </div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a5f15d92ac335c03cf5b095ab21edb3b4">createGroup</a>(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a394933b94f2a6f4fa41779f04dcb2ace">name</a>,<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> local_ids,<span class="keywordtype">bool</span> do_override=<span class="keyword">false</span>) =0;</div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160; </div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a5f15d92ac335c03cf5b095ab21edb3b4">createGroup</a>(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a394933b94f2a6f4fa41779f04dcb2ace">name</a>) =0;</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160; </div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#aec250c44b7fe91df02c97c201fccc1b9">destroyGroups</a>() =0;</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160; </div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a5f15d92ac335c03cf5b095ab21edb3b4">createGroup</a>(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a394933b94f2a6f4fa41779f04dcb2ace">name</a>,<span class="keyword">const</span> <a class="code" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a>&amp; parent,<span class="keywordtype">bool</span> do_override=<span class="keyword">false</span>) =0;</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160; </div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160; </div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d5/d96/classArcane_1_1IVariable.html">IVariable</a>* <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a1d51a507539288a0669d446ff1b8c97c">findVariable</a>(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a394933b94f2a6f4fa41779f04dcb2ace">name</a>,<span class="keywordtype">bool</span> throw_exception=<span class="keyword">false</span>) =0;</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160; </div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a14396d82475af8e894b71f14082b804d">usedVariables</a>(<a class="code" href="../../d7/d1b/classArcane_1_1VariableCollection.html">VariableCollection</a> collection) =0;</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160; </div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160; </div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a5a6d6a79afc532f1f54f2964b4d9df7d">prepareForDump</a>() =0;</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160; </div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a32892c1fb9f189fa309629ddc6df1232">readFromDump</a>() =0;</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160; </div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a4b89bdcc237ace437cc7a35bde37cc1c">copyItemsValues</a>(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> source, <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> destination) =0;</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160; </div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#aa07bcb09b0122dc3cfd870afd096858b">copyItemsMeanValues</a>(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> first_source,</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;                                   <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> second_source,</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;                                   <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> destination) = 0;</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160; </div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a6ed63472524330567cebaea3e7abbc1d">clearItems</a>() =0;</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160; </div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#aaf93adc45a3cbe9902aa1516774449bb">compactItems</a>(<span class="keywordtype">bool</span> do_sort) =0;</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160; </div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160; </div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> addVariable(<a class="code" href="../../d5/d96/classArcane_1_1IVariable.html">IVariable</a>* var) =0;</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;  </div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> removeVariable(<a class="code" href="../../d5/d96/classArcane_1_1IVariable.html">IVariable</a>* var) =0;</div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160; </div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160; </div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a67d8b3fe1dfe6377abb4848892f65383">computeSynchronizeInfos</a>() =0;</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160; </div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#ae542d448df2b57080c20f12b436bb6ef">getCommunicatingSubDomains</a>(<a class="code" href="../../d9/d09/classArccore_1_1Array.html">Int32Array</a>&amp; sub_domains) <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160; </div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160; </div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160; </div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d4/d9f/classArcane_1_1IVariableSynchronizer.html">IVariableSynchronizer</a>* <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a549d4c75b8850f7321d749994af8eb5a">allItemsSynchronizer</a>() =0;</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;  </div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a5d31dd96b8534daacdefb58d3cd10be0">synchronize</a>(<a class="code" href="../../d7/d1b/classArcane_1_1VariableCollection.html">VariableCollection</a> variables) =0;</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;  </div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#acd1ef98123427735c6d65e530dd9fb0a">reduceFromGhostItems</a>(<a class="code" href="../../d5/d96/classArcane_1_1IVariable.html">IVariable</a>* v,<a class="code" href="../../df/d13/classArcane_1_1IDataOperation.html">IDataOperation</a>* operation) =0;</div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#acd1ef98123427735c6d65e530dd9fb0a">reduceFromGhostItems</a>(<a class="code" href="../../d5/d96/classArcane_1_1IVariable.html">IVariable</a>* v,Parallel::eReduceType operation) =0;</div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160; </div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../df/dbe/classArcane_1_1ItemPairGroup.html">ItemPairGroup</a> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a822ef43a0d206d3da0f5dc2674ed0831">findAdjencyItems</a>(<span class="keyword">const</span> <a class="code" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a>&amp; group,</div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;                                         <span class="keyword">const</span> <a class="code" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a>&amp; sub_group,</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160;                                         <a class="code" href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7">eItemKind</a> link_kind,</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;                                         Integer nb_layer) =0;</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160;  </div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d7/d38/classArcane_1_1IParticleFamily.html">IParticleFamily</a>* <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#aa2abe4b7686102f15d0421beac0df661">toParticleFamily</a>() =0;</div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160; </div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> internalRemoveItems(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> local_ids,<span class="keywordtype">bool</span> keep_ghost=<span class="keyword">false</span>) =0;</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160; </div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160; </div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> addSourceConnectivity(<a class="code" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html">IItemConnectivity</a>* connectivity) =0;</div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> addSourceConnectivity(<a class="code" href="../../df/d35/classArcane_1_1IIncrementalItemConnectivity.html">IIncrementalItemConnectivity</a>* connectivity) =0;</div>
+<div class="line"><a name="l00788"></a><span class="lineno">  788</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> addTargetConnectivity(<a class="code" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html">IItemConnectivity</a>* connectivity) =0;</div>
+<div class="line"><a name="l00789"></a><span class="lineno">  789</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> addTargetConnectivity(<a class="code" href="../../df/d35/classArcane_1_1IIncrementalItemConnectivity.html">IIncrementalItemConnectivity</a>* connectivity) =0;</div>
+<div class="line"><a name="l00790"></a><span class="lineno">  790</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> removeSourceConnectivity(<a class="code" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html">IItemConnectivity</a>* connectivity) =0;</div>
+<div class="line"><a name="l00791"></a><span class="lineno">  791</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> removeTargetConnectivity(<a class="code" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html">IItemConnectivity</a>* connectivity) =0;</div>
+<div class="line"><a name="l00792"></a><span class="lineno">  792</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> setConnectivityMng(<a class="code" href="../../d8/dc6/classArcane_1_1IItemConnectivityMng.html">IItemConnectivityMng</a>* connectivity_mng) =0;</div>
+<div class="line"><a name="l00794"></a><span class="lineno">  794</span>&#160; </div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#aeac9eb57c4e561e15f3b96e5f0b930e3">addGhostItems</a>(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int64ConstArrayView</a> unique_ids, <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int32ArrayView</a> items,</div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;                             <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> owners) =0;</div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160; </div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160; </div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d6/d57/classArcane_1_1IItemFamilyPolicyMng.html">IItemFamilyPolicyMng</a>* <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a415a157f95337c14e806e30ef94a2c33">policyMng</a>() =0;</div>
+<div class="line"><a name="l00816"></a><span class="lineno">  816</span>&#160; </div>
+<div class="line"><a name="l00818"></a><span class="lineno">  818</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d0/d62/classArcane_1_1Properties.html">Properties</a>* <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a24a03a28f0f825fa1cb7de8b89e3073e">properties</a>() =0;</div>
+<div class="line"><a name="l00819"></a><span class="lineno">  819</span>&#160; </div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d6/df1/classArcane_1_1IItemFamilyTopologyModifier.html">IItemFamilyTopologyModifier</a>* _topologyModifier() =0;</div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160; </div>
+<div class="line"><a name="l00830"></a><span class="lineno">  830</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d1/ddd/classArcane_1_1ItemInternalConnectivityList.html">ItemInternalConnectivityList</a>* _unstructuredItemInternalConnectivityList() =0;</div>
+<div class="line"><a name="l00831"></a><span class="lineno">  831</span>&#160;};</div>
+<div class="line"><a name="l00832"></a><span class="lineno">  832</span>&#160; </div>
+<div class="line"><a name="l00833"></a><span class="lineno">  833</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00834"></a><span class="lineno">  834</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160; </div>
+<div class="line"><a name="l00836"></a><span class="lineno">  836</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160; </div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00839"></a><span class="lineno">  839</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00840"></a><span class="lineno">  840</span>&#160; </div>
+<div class="line"><a name="l00841"></a><span class="lineno">  841</span>&#160;<span class="preprocessor">#endif  </span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_aa2abe4b7686102f15d0421beac0df661"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#aa2abe4b7686102f15d0421beac0df661">Arcane::IItemFamily::toParticleFamily</a></div><div class="ttdeci">virtual IParticleFamily * toParticleFamily()=0</div><div class="ttdoc">Retourne l'interface de la famille de particule de cette famille.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a9763cb9fa15ce83dc325a1bdc376f576"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a9763cb9fa15ce83dc325a1bdc376f576">Arcane::IItemFamily::itemsNewOwner</a></div><div class="ttdeci">virtual VariableItemInt32 &amp; itemsNewOwner()=0</div><div class="ttdoc">Variable contenant le numéro du nouveau sous-domaine propriétaire de l'entité.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_acd1ef98123427735c6d65e530dd9fb0a"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#acd1ef98123427735c6d65e530dd9fb0a">Arcane::IItemFamily::reduceFromGhostItems</a></div><div class="ttdeci">virtual void reduceFromGhostItems(IVariable *v, IDataOperation *operation)=0</div><div class="ttdoc">Applique une opération de réduction depuis les entités fantômes.</div></div>
+<div class="ttc" id="aclassArcane_1_1IVariable_html"><div class="ttname"><a href="../../d5/d96/classArcane_1_1IVariable.html">Arcane::IVariable</a></div><div class="ttdef"><b>Definition:</b> IVariable.h:53</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a2c7e22a00808f0f514170fecb81af09e"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a2c7e22a00808f0f514170fecb81af09e">Arcane::IItemFamily::notifyItemsUniqueIdChanged</a></div><div class="ttdeci">virtual void notifyItemsUniqueIdChanged()=0</div><div class="ttdoc">Notifie que les numéros uniques des entités ont été modifiées.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_ae051eac0494d590d3a3cfd966c873d73"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#ae051eac0494d590d3a3cfd966c873d73">Arcane::IItemFamily::maxLocalNodePerItemType</a></div><div class="ttdeci">virtual ARCANE_DEPRECATED_122 Integer maxLocalNodePerItemType() const =0</div></div>
+<div class="ttc" id="aclassArccore_1_1ArrayView_html"><div class="ttname"><a href="../../d7/d02/classArccore_1_1ArrayView.html">Arccore::ArrayView</a></div><div class="ttdoc">Vue modifiable d'un tableau d'un type T.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:105</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_af6353c856052dad1d80a8f38620ff632"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#af6353c856052dad1d80a8f38620ff632">Arcane::IItemFamily::localConnectivityInfos</a></div><div class="ttdeci">virtual IItemConnectivityInfo * localConnectivityInfos() const =0</div><div class="ttdoc">Informations sur la connectivité locales au sous-domaine pour à cette famille.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamilyPolicyMng_html"><div class="ttname"><a href="../../d6/d57/classArcane_1_1IItemFamilyPolicyMng.html">Arcane::IItemFamilyPolicyMng</a></div><div class="ttdoc">Interface des politiques d'une famille d'entités.</div><div class="ttdef"><b>Definition:</b> IItemFamilyPolicyMng.h:40</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_ac8b57e14739e2ec93cb5277fd4d2316b"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#ac8b57e14739e2ec93cb5277fd4d2316b">Arcane::IItemFamily::removeItems2</a></div><div class="ttdeci">virtual void removeItems2(mesh::ItemDataList &amp;item_data_list)=0</div><div class="ttdoc">Supprime des entités.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a0d84c52844ffe8a9d3c120058b46d869"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a0d84c52844ffe8a9d3c120058b46d869">Arcane::IItemFamily::removeNeedRemoveMarkedItems</a></div><div class="ttdeci">virtual void removeNeedRemoveMarkedItems()=0</div><div class="ttdoc">Supprime des entités et met a jour les connectivites. Ne supprime pas d'eventuels sous items orphelin...</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a2f50bd5e33aa99a13edb949582eb5c12"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a2f50bd5e33aa99a13edb949582eb5c12">Arcane::IItemFamily::exchangeItems</a></div><div class="ttdeci">virtual ARCANE_DEPRECATED_114 void exchangeItems()=0</div><div class="ttdoc">Échange des entités.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a63e7bb01f8e6c58b5eb033a5a65dedba"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a63e7bb01f8e6c58b5eb033a5a65dedba">Arcane::IItemFamily::maxLocalId</a></div><div class="ttdeci">virtual Int32 maxLocalId() const =0</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelMng_html"><div class="ttname"><a href="../../dc/d5a/classArcane_1_1IParallelMng.html">Arcane::IParallelMng</a></div><div class="ttdoc">Interface du gestionnaire de parallélisme pour un sous-domaine.</div><div class="ttdef"><b>Definition:</b> IParallelMng.h:69</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html">Arcane::ItemInternal</a></div><div class="ttdef"><b>Definition:</b> ItemInternal.h:370</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a3547bd67c6461fb811e9a953c2750f66"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a3547bd67c6461fb811e9a953c2750f66">Arcane::IItemFamily::getMergedItemLID</a></div><div class="ttdeci">virtual ARCANE_DEPRECATED_240 Int32 getMergedItemLID(Int32 local_id1, Int32 local_id2)=0</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a9ad039c775d18575532c390f1f1eaab4"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a9ad039c775d18575532c390f1f1eaab4">Arcane::IItemFamily::itemKind</a></div><div class="ttdeci">virtual eItemKind itemKind() const =0</div><div class="ttdoc">Genre des entités.</div></div>
+<div class="ttc" id="aItemTypes_8h_html"><div class="ttname"><a href="../../db/daf/ItemTypes_8h.html">ItemTypes.h</a></div><div class="ttdoc">Déclarations de types sur les entités.</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemPairGroup_html"><div class="ttname"><a href="../../df/dbe/classArcane_1_1ItemPairGroup.html">Arcane::ItemPairGroup</a></div><div class="ttdoc">Tableau de listes d'entités.</div><div class="ttdef"><b>Definition:</b> ItemPairGroup.h:41</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a67d8b3fe1dfe6377abb4848892f65383"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a67d8b3fe1dfe6377abb4848892f65383">Arcane::IItemFamily::computeSynchronizeInfos</a></div><div class="ttdeci">virtual void computeSynchronizeInfos()=0</div><div class="ttdoc">Construit les structures nécessaires à la synchronisation.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a20b719c617781f49dadbbc1aa72390c3"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a20b719c617781f49dadbbc1aa72390c3">Arcane::IItemFamily::findGroup</a></div><div class="ttdeci">virtual ItemGroup findGroup(const String &amp;name) const =0</div><div class="ttdoc">Recherche un groupe.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a394933b94f2a6f4fa41779f04dcb2ace"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a394933b94f2a6f4fa41779f04dcb2ace">Arcane::IItemFamily::name</a></div><div class="ttdeci">virtual const String &amp; name() const =0</div><div class="ttdoc">Nom de la famille.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a5d31dd96b8534daacdefb58d3cd10be0"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a5d31dd96b8534daacdefb58d3cd10be0">Arcane::IItemFamily::synchronize</a></div><div class="ttdeci">virtual void synchronize(VariableCollection variables)=0</div><div class="ttdoc">Synchronise les variables variables.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a57c69aec768d7ced88df203e3570fd33"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a57c69aec768d7ced88df203e3570fd33">Arcane::IItemFamily::maxEdgePerItem</a></div><div class="ttdeci">virtual ARCANE_DEPRECATED_122 Integer maxEdgePerItem() const =0</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a24a03a28f0f825fa1cb7de8b89e3073e"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a24a03a28f0f825fa1cb7de8b89e3073e">Arcane::IItemFamily::properties</a></div><div class="ttdeci">virtual Properties * properties()=0</div><div class="ttdoc">Propriétés associées à cette famille.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a7eb7e659920c11b31d5bbe682f9ae855"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a7eb7e659920c11b31d5bbe682f9ae855">Arcane::IItemFamily::mergeItems</a></div><div class="ttdeci">virtual ARCANE_DEPRECATED_240 void mergeItems(Int32 local_id1, Int32 local_id2)=0</div></div>
+<div class="ttc" id="aclassArccore_1_1ITraceMng_html"><div class="ttname"><a href="../../d0/df9/classArccore_1_1ITraceMng.html">Arccore::ITraceMng</a></div><div class="ttdoc">Interface du gestionnaire de traces.</div><div class="ttdef"><b>Definition:</b> ITraceMng.h:165</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a2bc6ba0af338207a203fc9572907571a"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a2bc6ba0af338207a203fc9572907571a">Arcane::IItemFamily::ARCCORE_DEPRECATED_2020</a></div><div class="ttdeci">ARCCORE_DEPRECATED_2020(&quot;Do not use this method. Try to get 'ISubDomain' from another way&quot;) virtual ISubDomain *subDomain() const =0</div><div class="ttdoc">Sous-domaine associé</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemInternalSortFunction_html"><div class="ttname"><a href="../../de/d9f/classArcane_1_1IItemInternalSortFunction.html">Arcane::IItemInternalSortFunction</a></div><div class="ttdoc">Interface d'une fonction de tri des entités.</div><div class="ttdef"><b>Definition:</b> IItemInternalSortFunction.h:41</div></div>
+<div class="ttc" id="aArcaneTypes_8h_html"><div class="ttname"><a href="../../d0/d7e/ArcaneTypes_8h.html">ArcaneTypes.h</a></div><div class="ttdoc">Déclarations des types généraux de Arcane.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html">Arcane::ISubDomain</a></div><div class="ttdoc">Interface du gestionnaire d'un sous-domaine.</div><div class="ttdef"><b>Definition:</b> ISubDomain.h:72</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_ae542d448df2b57080c20f12b436bb6ef"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#ae542d448df2b57080c20f12b436bb6ef">Arcane::IItemFamily::getCommunicatingSubDomains</a></div><div class="ttdeci">virtual void getCommunicatingSubDomains(Int32Array &amp;sub_domains) const =0</div><div class="ttdoc">Liste des sous-domaines communiquants pour les entités.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a4b89bdcc237ace437cc7a35bde37cc1c"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a4b89bdcc237ace437cc7a35bde37cc1c">Arcane::IItemFamily::copyItemsValues</a></div><div class="ttdeci">virtual void copyItemsValues(Int32ConstArrayView source, Int32ConstArrayView destination)=0</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a5f15d92ac335c03cf5b095ab21edb3b4"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a5f15d92ac335c03cf5b095ab21edb3b4">Arcane::IItemFamily::createGroup</a></div><div class="ttdeci">virtual ItemGroup createGroup(const String &amp;name, Int32ConstArrayView local_ids, bool do_override=false)=0</div><div class="ttdoc">Créé un groupe d'entités de nom name contenant les entités local_ids.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_ae7d29be4ba2cbcf6e9d1f38f2505f659"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#ae7d29be4ba2cbcf6e9d1f38f2505f659">Arcane::IItemFamily::partialEndUpdateGroup</a></div><div class="ttdeci">virtual void partialEndUpdateGroup(const ItemGroup &amp;group)=0</div><div class="ttdoc">Met à jour un groupe.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a12410e490c4cad3142f7ce1753c82c52"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a12410e490c4cad3142f7ce1753c82c52">Arcane::IItemFamily::maxCellPerItem</a></div><div class="ttdeci">virtual ARCANE_DEPRECATED_122 Integer maxCellPerItem() const =0</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a4b5cdedef3afdf75c2c1a5159f45c6f7"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a4b5cdedef3afdf75c2c1a5159f45c6f7">Arcane::IItemFamily::setHasUniqueIdMap</a></div><div class="ttdeci">virtual void setHasUniqueIdMap(bool v)=0</div><div class="ttdoc">Indique si la famille possède une table de conversion uniqueId vers localId.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a7004b8c21809436ce8cfc3128872f6d5"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a7004b8c21809436ce8cfc3128872f6d5">Arcane::IItemFamily::checkValid</a></div><div class="ttdeci">virtual void checkValid()=0</div><div class="ttdoc">Vérification de la validité des structures internes (interne)</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivityMng_html"><div class="ttname"><a href="../../d8/dc6/classArcane_1_1IItemConnectivityMng.html">Arcane::IItemConnectivityMng</a></div><div class="ttdef"><b>Definition:</b> IItemConnectivityMng.h:34</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_ac38cea8a4c95f6fb96c21ef931be7bb5"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#ac38cea8a4c95f6fb96c21ef931be7bb5">Arcane::IItemFamily::addChildFamily</a></div><div class="ttdeci">virtual void addChildFamily(IItemFamily *family)=0</div><div class="ttdoc">Ajoute d'une famile en dépendance.</div></div>
+<div class="ttc" id="aParallel_8h_html"><div class="ttname"><a href="../../db/d8b/Parallel_8h.html">Parallel.h</a></div><div class="ttdoc">Fichier contenant les déclarations concernant le modèle de programmation par échange de message.</div></div>
+<div class="ttc" id="aclassArcane_1_1Properties_html"><div class="ttname"><a href="../../d0/d62/classArcane_1_1Properties.html">Arcane::Properties</a></div><div class="ttdoc">Liste de propriétés.</div><div class="ttdef"><b>Definition:</b> Properties.h:63</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_ab07b436dd289ddd0446b73432a6e740a"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#ab07b436dd289ddd0446b73432a6e740a">Arcane::IItemFamily::maxFacePerItem</a></div><div class="ttdeci">virtual ARCANE_DEPRECATED_122 Integer maxFacePerItem() const =0</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html">Arcane::IMesh</a></div><div class="ttdef"><b>Definition:</b> IMesh.h:56</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_aeef475467cf10fd7f928105aed8a7103"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#aeef475467cf10fd7f928105aed8a7103">Arcane::IItemFamily::maxNodePerItem</a></div><div class="ttdeci">virtual ARCANE_DEPRECATED_122 Integer maxNodePerItem() const =0</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html">Arcane::IItemFamily</a></div><div class="ttdoc">Interface d'une famille d'entités.</div><div class="ttdef"><b>Definition:</b> IItemFamily.h:106</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemVariableScalarRefT_html"><div class="ttname"><a href="../../de/dc3/classArcane_1_1ItemVariableScalarRefT.html">Arcane::ItemVariableScalarRefT</a></div><div class="ttdoc">Variable scalaire sur un type d'entité du maillage.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:327</div></div>
+<div class="ttc" id="aclassArcane_1_1IDataOperation_html"><div class="ttname"><a href="../../df/d13/classArcane_1_1IDataOperation.html">Arcane::IDataOperation</a></div><div class="ttdef"><b>Definition:</b> IDataOperation.h:36</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemVectorView_html"><div class="ttname"><a href="../../d6/df2/classArcane_1_1ItemVectorView.html">Arcane::ItemVectorView</a></div><div class="ttdoc">Vue sur un vecteur d'entités.</div><div class="ttdef"><b>Definition:</b> ItemVectorView.h:144</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivity_html"><div class="ttname"><a href="../../d0/dc0/classArcane_1_1IItemConnectivity.html">Arcane::IItemConnectivity</a></div><div class="ttdoc">Interface pour gérer une connectivité.</div><div class="ttdef"><b>Definition:</b> IItemConnectivity.h:55</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a65bbe2ded73f745e54dc2cdb83d66904"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a65bbe2ded73f745e54dc2cdb83d66904">Arcane::IItemFamily::fullName</a></div><div class="ttdeci">virtual const String &amp; fullName() const =0</div><div class="ttdoc">Nom complet de la famille (avec celui du maillage)</div></div>
+<div class="ttc" id="aclassArcane_1_1Collection_html"><div class="ttname"><a href="../../d3/d5d/classArcane_1_1Collection.html">Arcane::Collection</a></div><div class="ttdoc">Classe de base d'une collection fortement typée.</div><div class="ttdef"><b>Definition:</b> Collection.h:33</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_aa06c8259dbf29bdca56265dbd1231cee"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#aa06c8259dbf29bdca56265dbd1231cee">Arcane::IItemFamily::checkValidConnectivity</a></div><div class="ttdeci">virtual void checkValidConnectivity()=0</div><div class="ttdoc">Vérification de la validité des structures internes concernant la connectivité.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a645040c925b51b1c7522730b1ae6ed3b"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a645040c925b51b1c7522730b1ae6ed3b">Arcane::IItemFamily::globalConnectivityInfos</a></div><div class="ttdeci">virtual IItemConnectivityInfo * globalConnectivityInfos() const =0</div><div class="ttdoc">Informations sur la connectivité globales à tous les sous-domaines.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_af5497cdd2d29bf7abc1fb9c8405b6027"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#af5497cdd2d29bf7abc1fb9c8405b6027">Arcane::IItemFamily::traceMng</a></div><div class="ttdeci">virtual ITraceMng * traceMng() const =0</div><div class="ttdoc">Gestionnaire de trace associé</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a4cf9d2f186345eae0e2dfde10736e707"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a4cf9d2f186345eae0e2dfde10736e707">Arcane::IItemFamily::partialEndUpdateVariable</a></div><div class="ttdeci">virtual void partialEndUpdateVariable(IVariable *variable)=0</div><div class="ttdoc">Met à jour une variable.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_acd95be4a082ae2cf83ee132b1fecac97"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#acd95be4a082ae2cf83ee132b1fecac97">Arcane::IItemFamily::maxLocalFacePerItemType</a></div><div class="ttdeci">virtual ARCANE_DEPRECATED_122 Integer maxLocalFacePerItemType() const =0</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a1346f15737002a179fa8932d247a4678"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a1346f15737002a179fa8932d247a4678">Arcane::IItemFamily::partialEndUpdate</a></div><div class="ttdeci">virtual void partialEndUpdate()=0</div><div class="ttdoc">Mise à jour partielle.</div></div>
+<div class="ttc" id="anamespaceArcane_html_aaa6951864e32e84c29b3cffca3d4b3f7"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7">Arcane::eItemKind</a></div><div class="ttdeci">eItemKind</div><div class="ttdoc">Genre d'entité de maillage.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:114</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a258baa0cfaece80303aac4d4aa5bdad7"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a258baa0cfaece80303aac4d4aa5bdad7">Arcane::IItemFamily::parentFamilyDepth</a></div><div class="ttdeci">virtual Integer parentFamilyDepth() const =0</div><div class="ttdoc">Donne la profondeur d'imbrication du maillage courant.</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html">Arccore::Array</a></div><div class="ttdoc">Classe de base des vecteurs 1D de données.</div><div class="ttdef"><b>Definition:</b> Array.h:795</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_afcc57d1377af5103cc8002b6b19bde97"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#afcc57d1377af5103cc8002b6b19bde97">Arcane::IItemFamily::parallelMng</a></div><div class="ttdeci">virtual IParallelMng * parallelMng() const =0</div><div class="ttdoc">Gestionnaire de parallélisme associé</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a822ef43a0d206d3da0f5dc2674ed0831"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a822ef43a0d206d3da0f5dc2674ed0831">Arcane::IItemFamily::findAdjencyItems</a></div><div class="ttdeci">virtual ItemPairGroup findAdjencyItems(const ItemGroup &amp;group, const ItemGroup &amp;sub_group, eItemKind link_kind, Integer nb_layer)=0</div><div class="ttdoc">Cherche une liste d'adjacence.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a32892c1fb9f189fa309629ddc6df1232"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a32892c1fb9f189fa309629ddc6df1232">Arcane::IItemFamily::readFromDump</a></div><div class="ttdeci">virtual void readFromDump()=0</div><div class="ttdoc">Relit les données à partir d'une protection.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_aa07bcb09b0122dc3cfd870afd096858b"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#aa07bcb09b0122dc3cfd870afd096858b">Arcane::IItemFamily::copyItemsMeanValues</a></div><div class="ttdeci">virtual void copyItemsMeanValues(Int32ConstArrayView first_source, Int32ConstArrayView second_source, Int32ConstArrayView destination)=0</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableCollection_html"><div class="ttname"><a href="../../d7/d1b/classArcane_1_1VariableCollection.html">Arcane::VariableCollection</a></div><div class="ttdoc">Collection de variables.</div><div class="ttdef"><b>Definition:</b> VariableCollection.h:80</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a701ee67365509461d8ed7cfef4091780"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a701ee67365509461d8ed7cfef4091780">Arcane::IItemFamily::hasUniqueIdMap</a></div><div class="ttdeci">virtual bool hasUniqueIdMap() const =0</div><div class="ttdoc">Indique si la famille possède une table de conversion uniqueId vers localId.</div></div>
+<div class="ttc" id="aVariableTypedef_8h_html"><div class="ttname"><a href="../../d5/dc7/VariableTypedef_8h.html">VariableTypedef.h</a></div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a3a616ceff090651b95c75e405cc2d54a"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a3a616ceff090651b95c75e405cc2d54a">Arcane::IItemFamily::setParentFamily</a></div><div class="ttdeci">virtual void setParentFamily(IItemFamily *parent)=0</div><div class="ttdoc">Positionne l'IItemFamily parent.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a3232e51eb0ecf2a41d185c84bb50d8fd"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a3232e51eb0ecf2a41d185c84bb50d8fd">Arcane::IItemFamily::checkUniqueIds</a></div><div class="ttdeci">virtual void checkUniqueIds(Int64ConstArrayView unique_ids)=0</div><div class="ttdoc">Vérifie que les identifiants unique_ids sont bien uniques pour tous les sous-domaines.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a9d9d42b5e35e52a7e7aea8d9c709fd13"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a9d9d42b5e35e52a7e7aea8d9c709fd13">Arcane::IItemFamily::parentFamily</a></div><div class="ttdeci">virtual IItemFamily * parentFamily() const =0</div><div class="ttdoc">IItemFamily parent.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a415a157f95337c14e806e30ef94a2c33"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a415a157f95337c14e806e30ef94a2c33">Arcane::IItemFamily::policyMng</a></div><div class="ttdeci">virtual IItemFamilyPolicyMng * policyMng()=0</div><div class="ttdoc">Interface des comportements/politiques associées à cette famille.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a7183cf9f60a2904ee455d0731c500ca5"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a7183cf9f60a2904ee455d0731c500ca5">Arcane::IItemFamily::maxLocalEdgePerItemType</a></div><div class="ttdeci">virtual ARCANE_DEPRECATED_122 Integer maxLocalEdgePerItemType() const =0</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemGroup_html"><div class="ttname"><a href="../../d9/d27/classArcane_1_1ItemGroup.html">Arcane::ItemGroup</a></div><div class="ttdoc">Groupe d'entités de maillage.</div><div class="ttdef"><b>Definition:</b> ItemGroup.h:48</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a5274480df9c2e1163d59cda218f882bf"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a5274480df9c2e1163d59cda218f882bf">Arcane::IItemFamily::itemsInternal</a></div><div class="ttdeci">virtual ItemInternalArrayView itemsInternal()=0</div><div class="ttdoc">Tableau interne des entités.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_af038a7ecc0e0d64855014d5427db0f31"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#af038a7ecc0e0d64855014d5427db0f31">Arcane::IItemFamily::endUpdate</a></div><div class="ttdeci">virtual void endUpdate()=0</div><div class="ttdoc">Notifie la fin de modification de la liste des entités.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a79ab1227b1ab30207fb7b0f15febde1c"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a79ab1227b1ab30207fb7b0f15febde1c">Arcane::IItemFamily::itemSortFunction</a></div><div class="ttdeci">virtual IItemInternalSortFunction * itemSortFunction() const =0</div><div class="ttdoc">Fonction de tri des entités.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a5a6d6a79afc532f1f54f2964b4d9df7d"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a5a6d6a79afc532f1f54f2964b4d9df7d">Arcane::IItemFamily::prepareForDump</a></div><div class="ttdeci">virtual void prepareForDump()=0</div><div class="ttdoc">Prépare les données pour une protection.</div></div>
+<div class="ttc" id="aclassArcane_1_1IParticleFamily_html"><div class="ttname"><a href="../../d7/d38/classArcane_1_1IParticleFamily.html">Arcane::IParticleFamily</a></div><div class="ttdoc">Interface d'une famille de particules.</div><div class="ttdef"><b>Definition:</b> IParticleFamily.h:44</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivityInfo_html"><div class="ttname"><a href="../../d2/dce/classArcane_1_1IItemConnectivityInfo.html">Arcane::IItemConnectivityInfo</a></div><div class="ttdoc">Interface des informations sur la connectivité par type d'entité.</div><div class="ttdef"><b>Definition:</b> IItemConnectivityInfo.h:43</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a549d4c75b8850f7321d749994af8eb5a"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a549d4c75b8850f7321d749994af8eb5a">Arcane::IItemFamily::allItemsSynchronizer</a></div><div class="ttdeci">virtual IVariableSynchronizer * allItemsSynchronizer()=0</div><div class="ttdoc">Synchroniseur sur toutes les entités de la famille.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a6ed63472524330567cebaea3e7abbc1d"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a6ed63472524330567cebaea3e7abbc1d">Arcane::IItemFamily::clearItems</a></div><div class="ttdeci">virtual void clearItems()=0</div><div class="ttdoc">Supprime toutes les entités de la famille.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a3d3659197cb052e60fb2fc573046830b"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a3d3659197cb052e60fb2fc573046830b">Arcane::IItemFamily::allItems</a></div><div class="ttdeci">virtual ItemGroup allItems() const =0</div><div class="ttdoc">Groupe de toutes les entités.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_aec250c44b7fe91df02c97c201fccc1b9"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#aec250c44b7fe91df02c97c201fccc1b9">Arcane::IItemFamily::destroyGroups</a></div><div class="ttdeci">virtual void destroyGroups()=0</div><div class="ttdoc">Supprime tous les groupes de cette famille.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a5a2db3d9fcd8f888fe5026175974d3df"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a5a2db3d9fcd8f888fe5026175974d3df">Arcane::IItemFamily::mesh</a></div><div class="ttdeci">virtual IMesh * mesh() const =0</div><div class="ttdoc">Maillage associé</div></div>
+<div class="ttc" id="aclassArcane_1_1IIncrementalItemConnectivity_html"><div class="ttname"><a href="../../df/d35/classArcane_1_1IIncrementalItemConnectivity.html">Arcane::IIncrementalItemConnectivity</a></div><div class="ttdoc">Interface pour gérer une connectivité incrémentale.</div><div class="ttdef"><b>Definition:</b> IIncrementalItemConnectivity.h:40</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_ad18da61a8419dc55c7f9853e05c39473"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#ad18da61a8419dc55c7f9853e05c39473">Arcane::IItemFamily::variableMaxSize</a></div><div class="ttdeci">virtual ARCANE_DEPRECATED_112 Int32 variableMaxSize() const =0</div><div class="ttdoc">Taille nécessaire pour dimensionner les variables sur ces entités.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_aeb2a7f40e0697e8fecfc05f48398bb29"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#aeb2a7f40e0697e8fecfc05f48398bb29">Arcane::IItemFamily::setItemSortFunction</a></div><div class="ttdeci">virtual void setItemSortFunction(IItemInternalSortFunction *sort_function)=0</div><div class="ttdoc">Positionne la fonction de tri des entités.</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternalConnectivityList_html"><div class="ttname"><a href="../../d1/ddd/classArcane_1_1ItemInternalConnectivityList.html">Arcane::ItemInternalConnectivityList</a></div><div class="ttdef"><b>Definition:</b> ItemInternal.h:136</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:43</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_ac84615ed0ea22a2104fdae7d9c8c5179"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#ac84615ed0ea22a2104fdae7d9c8c5179">Arcane::IItemFamily::itemsUniqueIdToLocalId</a></div><div class="ttdeci">virtual void itemsUniqueIdToLocalId(Int32ArrayView local_ids, Int64ConstArrayView unique_ids, bool do_fatal=true) const =0</div><div class="ttdoc">Converti un tableau de numéros uniques en numéros locaux.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a14396d82475af8e894b71f14082b804d"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a14396d82475af8e894b71f14082b804d">Arcane::IItemFamily::usedVariables</a></div><div class="ttdeci">virtual void usedVariables(VariableCollection collection)=0</div><div class="ttdoc">Ajoute à la collection collection la liste des variables utilisés de cette famille.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a362b45810cef1ced23d1112a15352d51"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a362b45810cef1ced23d1112a15352d51">Arcane::IItemFamily::groups</a></div><div class="ttdeci">virtual ItemGroupCollection groups() const =0</div><div class="ttdoc">Liste des groupes de cette famille.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_adc9dbaecb401f9448826b4c0f8624e40"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#adc9dbaecb401f9448826b4c0f8624e40">Arcane::IItemFamily::nbItem</a></div><div class="ttdeci">virtual Integer nbItem() const =0</div><div class="ttdoc">Nombre d'entités.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamilyTopologyModifier_html"><div class="ttname"><a href="../../d6/df1/classArcane_1_1IItemFamilyTopologyModifier.html">Arcane::IItemFamilyTopologyModifier</a></div><div class="ttdoc">Interface de modification de la topologie des entités d'une famille.</div><div class="ttdef"><b>Definition:</b> IItemFamilyTopologyModifier.h:39</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_afd54bf9ec354c1cfa6c38ea03befe113"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#afd54bf9ec354c1cfa6c38ea03befe113">Arcane::IItemFamily::view</a></div><div class="ttdeci">virtual ItemVectorView view()=0</div><div class="ttdoc">Vue sur toutes les entités de la famille.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a7267c9726097b8d06e9058f6fadedb8c"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a7267c9726097b8d06e9058f6fadedb8c">Arcane::IItemFamily::addItems</a></div><div class="ttdeci">virtual ARCANE_DEPRECATED_114 void addItems(Int64ConstArrayView unique_ids, Int32ArrayView items)=0</div><div class="ttdoc">Alloue des entités.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_aaf93adc45a3cbe9902aa1516774449bb"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#aaf93adc45a3cbe9902aa1516774449bb">Arcane::IItemFamily::compactItems</a></div><div class="ttdeci">virtual void compactItems(bool do_sort)=0</div><div class="ttdoc">Compacte les entités.</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> String.h:80</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a1d51a507539288a0669d446ff1b8c97c"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a1d51a507539288a0669d446ff1b8c97c">Arcane::IItemFamily::findVariable</a></div><div class="ttdeci">virtual IVariable * findVariable(const String &amp;name, bool throw_exception=false)=0</div><div class="ttdoc">Recherche la variable de nom name associée à cette famille.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_aeac9eb57c4e561e15f3b96e5f0b930e3"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#aeac9eb57c4e561e15f3b96e5f0b930e3">Arcane::IItemFamily::addGhostItems</a></div><div class="ttdeci">virtual void addGhostItems(Int64ConstArrayView unique_ids, Int32ArrayView items, Int32ConstArrayView owners)=0</div><div class="ttdoc">Alloue des entités fantômes.</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">Interface for base mesh operations.</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a7cb30b8269f18b8acdba4673db999ab0"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a7cb30b8269f18b8acdba4673db999ab0">Arcane::IItemFamily::childFamilies</a></div><div class="ttdeci">virtual IItemFamilyCollection childFamilies()=0</div><div class="ttdoc">Familles enfantes de cette famille.</div></div>
+<div class="ttc" id="aclassArcane_1_1IVariableSynchronizer_html"><div class="ttname"><a href="../../d4/d9f/classArcane_1_1IVariableSynchronizer.html">Arcane::IVariableSynchronizer</a></div><div class="ttdoc">Interface d'un service de synchronisation de variable.</div><div class="ttdef"><b>Definition:</b> IVariableSynchronizer.h:50</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a421eb7017ad85a1f8fdd9cb001e9a70b"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a421eb7017ad85a1f8fdd9cb001e9a70b">Arcane::IItemFamily::removeItems</a></div><div class="ttdeci">virtual ARCANE_DEPRECATED_114 void removeItems(Int32ConstArrayView local_ids, bool keep_ghost=false)=0</div><div class="ttdoc">Supprime des entités.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_abbd65f8f3296e6e23f4805665e2389f2"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#abbd65f8f3296e6e23f4805665e2389f2">Arcane::IItemFamily::notifyItemsOwnerChanged</a></div><div class="ttdeci">virtual void notifyItemsOwnerChanged()=0</div><div class="ttdoc">Notifie que les entités propres au sous-domaine de la famille ont été modifiées.</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_050f182cfd4329e7fe1ae122895331c9.html">arcane</a></li><li class="navelem"><b>IItemFamily.h</b></li>
+    <li class="footer">Généré le Vendredi 17 Septembre 2021 19:15:55 pour Arcane par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

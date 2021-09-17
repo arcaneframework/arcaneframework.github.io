@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane: Prise en compte du parallélisme dans ARCANE</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.0.4.13</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('df/d78/arcanedoc_parallel.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Prise en compte du parallélisme dans ARCANE </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h1><a class="anchor" id="arcanedoc_parallel_general"></a>
+Généralités</h1>
+<p>Dans ARCANE, le parallélisme est géré par échange de messages. Le maillage est partitionné en plusieurs sous-domaines. Chaque sous-domaine est éventuellement complété d'une ou plusieurs couches de mailles fantômes qui représentent une duplication d'entités pour lesquelles il faudra effectuer une synchronisation. Chaque processeur effectue les calculs sur un sous-domaine et synchroniseses variables régilièrement avec les autres processeurs.</p>
+<p>En règle générale, il n'y a pas de solution unique au problème des synchronisations :</p><ul>
+<li>pour certaines variables, il est possible soit de faire le calcul sur tout le sous-domaine, c'est à dire à la fois sur les entités fantômes et les entités propres, soit de faire le calcul uniquement sur les entités propres et synchroniser ensuite les valeurs calculées. Le choix de l'une ou l'autre des solutions dépend globalement de deux paramètres : le temps nécessaire pour effectuer le calcul et le temps nécessaire pour effectuer la synchronisation. Chacun de ses paramètres dépend lui même d'autres paramètre comme la puissance du processeur, la bande passante du réseau d'interconnexion, ...;</li>
+<li>lorsqu'on augmente le nombre de couches d'entités fantômes, certaines variables qui ne sont utilisées que temporairement lors d'une itération n'ont plus besoin d'être synchronisées. Cela permet donc de réduire le nombre de synchronisations mais en contre-partie chaque synchronisation concernera plus de processeurs et d'entités fantômes.</li>
+</ul>
+<p>Afin de ne pas compliquer inutilement la prise en compte du parallélisme, ARCANE fonctionne aujourd'hui en utilisant une seule couche de maille fantômes et privilégie le calcul au détriment du nombre de synchronisations. Lors de la réalisation de vos modules numériques, il est conceillé de priviligier le même critère.</p>
+<p>ARCANE possède son propre service de partionnement parallèle. Ce service utilise l'algorithme Métis. Il est utilisé pour l'équilibrage de la charge des processeurs.</p>
+<h1><a class="anchor" id="arcanedoc_parallel_seqvspar"></a>
+Calculs séquentiels vs calculs parallèles</h1>
+<p>ARCANE utilise le même ordre de numérotation dans chaque sous-domaine. Cela permet de limiter au maximum le nombre de synchronisations. Les mailles, les noeuds et les faces sont toujours décrits dans le même ordre quel que soit le sous-domaine et quel que soit le découpage.</p>
+<p>Si toutes les opérations se font en itérant sur un groupe de noeuds ou de mailles, le résultat est identique en séquentiel et en parallèle.</p>
+<h1><a class="anchor" id="arcanedoc_parallel_operation"></a>
+Opérations disponibles</h1>
+<p>Les opérations proposées par le service de parallélisme sont les suivantes :</p><ul>
+<li>barrières,</li>
+<li>envois / réceptions,</li>
+<li>regroupements,</li>
+<li>réductions,</li>
+<li>diffusion,</li>
+<li>sérialisation (pack / unpack).</li>
+</ul>
+<p>Le détail de ces opérations est disponible sur la documentation en ligne de l'interface <code>IParallelMng</code>.</p>
+<p>Notons que les variables du code peuvent appeler directement les opérations de parallélisme qui sont cohérentes pour leur type. Par exemple une variable de type <code>VariableScalarReal</code> nommée <code>m_density_ratio</code> peut appeler l'opération de réduction :</p>
+<div class="fragment"><div class="line">m_density_ratio_maximum.reduce(Parallel::ReduceMax);</div>
+</div><!-- fragment --><h1><a class="anchor" id="arcanedoc_parallel_impl"></a>
+Implémentation</h1>
+<p>Le parallélisme dans ARCANE est conçu comme un service (cf <a class="el" href="../../d1/deb/arcanedoc_core.html#arcanedoc_service">Les services</a>). Toutes les opérations disponibles (synchronisation, réduction...) sont interfacées par le service. La seule implémentation de ce service développée à ce jour est MPI.</p>
+<p>Pour exécuter un code en parallèle avec MPI, la procédure à suivre dépend de l'implémentation Mpi cible. Par exemple, si on utilise une version de mpich2, il faut :</p><ul>
+<li>lancer le démon <code>mpd</code> dans une fenêtre xterm,</li>
+<li>positionner la variable d'environnement <code>ARCANE_PARALLEL_SERVICE</code> à la valeur <code>Mpi</code> </li>
+<li>exécuter votre application en tapant la commande : <code>mpiexec -n nb_proc nom_executable</code> </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li>
+    <li class="footer">Généré le Vendredi 17 Septembre 2021 19:16:19 pour Arcane par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

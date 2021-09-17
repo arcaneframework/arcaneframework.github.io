@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arcane/ICaseMng.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.0.4.13</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d1/ddf/ICaseMng_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">ICaseMng.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2021 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* ICaseMng.h                                                  (C) 2000-2018 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Interface de la classe gérant le jeu de données.                          */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_ICASEMNG_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_ICASEMNG_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d7e/ArcaneTypes_8h.html">arcane/ArcaneTypes.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">class </span>ICaseFunction;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">class </span>ICaseOptions;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">class </span>ICaseDocument;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">class </span>IApplication;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span>IObservable;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d0/d32/namespaceArcane.html#a31c49c793d16b4c7f3fda08254ceeeb5">   42</a></span>&#160;<span class="keyword">enum class</span> <a class="code" href="../../d0/d32/namespaceArcane.html#a31c49c793d16b4c7f3fda08254ceeeb5">eCaseMngEventType</a></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="../../d0/d32/namespaceArcane.html#a31c49c793d16b4c7f3fda08254ceeeb5a0ece0938b5db9bd5cd6d4d4098188c47">BeginReadOptionsPhase1</a>,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <a class="code" href="../../d0/d32/namespaceArcane.html#a31c49c793d16b4c7f3fda08254ceeeb5a0e85ce3eb4b658517ab8262545970e45">BeginReadOptionsPhase2</a></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;};</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../d3/dcf/classArcane_1_1ICaseMng.html">   56</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html">ICaseMng</a></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html">ICaseMng</a>(){} </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d9/d7f/classArcane_1_1IApplication.html">IApplication</a>* <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#a2ce3a1e0a40c2eb0447cabdf1b4f7db3">application</a>() =0;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d0/df9/classArccore_1_1ITraceMng.html">ITraceMng</a>* <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#a7dfd71fdfc77a0843ba0613eceffd6c4">traceMng</a>() =0;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html">ISubDomain</a>* <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#a908862d4aabccd582e8a000a5bd2d5d2">subDomain</a>() =0;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d3/dd9/classArcane_1_1ICaseDocument.html">ICaseDocument</a>* <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#a445499f2eedac661797dfa464d488653">caseDocument</a>() =0;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d3/dd9/classArcane_1_1ICaseDocument.html">ICaseDocument</a>* <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#a2af8aeb2e63b7e74eb682faf8ce89086">readCaseDocument</a>(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; filename,<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ByteConstArrayView</a> bytes) =0;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#acf4502033165837fbcdc546102505665">readOptions</a>(<span class="keywordtype">bool</span> is_phase1) =0;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#a44250630bfb1a54b42cf00e7e7a985f7">printOptions</a>() =0;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#a5cee2d659d668f4d02e2c1173404ac06">readFunctions</a>() =0;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#afee7b854cc1acbd1784ea5bb02fe1585">registerOptions</a>(<a class="code" href="../../dd/d74/classArcane_1_1ICaseOptions.html">ICaseOptions</a>*) =0;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#ad7627d7688f7447eee89aa6b6415fb8d">unregisterOptions</a>(<a class="code" href="../../dd/d74/classArcane_1_1ICaseOptions.html">ICaseOptions</a>*) =0;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d3/d5d/classArcane_1_1Collection.html">CaseOptionsCollection</a> <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#aaf7ada0ad5dd57d4037779a939283d92">blocks</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d6/dec/classArcane_1_1ICaseFunction.html">ICaseFunction</a>* <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#ab9f2308c879fdf74a6b4da1c224937ea">findFunction</a>(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; name) <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d3/d5d/classArcane_1_1Collection.html">CaseFunctionCollection</a> <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#adaadb504a3d5159544fbdf9aa681ccc4">functions</a>() =0;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#afcbd272070ab449094cb9cbbd1400d36">ARCCORE_DEPRECATED_2019</a>(<span class="stringliteral">&quot;Use removeFunction(ICaseFunction*) instead.&quot;</span>)</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#a8a900ff10d134ba90ac083370044b16f">removeFunction</a>(<a class="code" href="../../d6/dec/classArcane_1_1ICaseFunction.html">ICaseFunction</a>* func,<span class="keywordtype">bool</span> dofree) =0;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#a8a900ff10d134ba90ac083370044b16f">removeFunction</a>(<a class="code" href="../../d6/dec/classArcane_1_1ICaseFunction.html">ICaseFunction</a>* func) =0;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#afcbd272070ab449094cb9cbbd1400d36">ARCCORE_DEPRECATED_2019</a>(<span class="stringliteral">&quot;Use addFunction(Ref&lt;ICaseFunction&gt;) instead.&quot;</span>)</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#aae088b43f5d5f83bfd08c7e4e8360bed">addFunction</a>(<a class="code" href="../../d6/dec/classArcane_1_1ICaseFunction.html">ICaseFunction</a>* func) =0;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#aae088b43f5d5f83bfd08c7e4e8360bed">addFunction</a>(<a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;ICaseFunction&gt;</a> func) =0;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#adff38e7ef3226b2917c9190cc21dcc88">updateOptions</a>(Real current_time,Real current_deltat,Integer current_iteration) =0;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#a2648a5c3e2371f4915576205fd9b0989">setTreatWarningAsError</a>(<span class="keywordtype">bool</span> v) =0;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#a3bcf1571948ba7c74422ca086a18b401">isTreatWarningAsError</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#ade04ed379b2eda836fdc81f5a18c67c2">setAllowUnkownRootElelement</a>(<span class="keywordtype">bool</span> v) =0;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#ae723299ec99157203f0e2148b6336917">isAllowUnkownRootElelement</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../dc/d38/classArcane_1_1IObservable.html">IObservable</a>* <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#abb6a319041704af5d101c94f18d3ddcc">observable</a>(<a class="code" href="../../d0/d32/namespaceArcane.html#a31c49c793d16b4c7f3fda08254ceeeb5">eCaseMngEventType</a> type) =0;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> _internalReadOneOption(<a class="code" href="../../dd/d74/classArcane_1_1ICaseOptions.html">ICaseOptions</a>* opt,<span class="keywordtype">bool</span> is_phase1) =0;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;};</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;<span class="preprocessor">#endif  </span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_ae723299ec99157203f0e2148b6336917"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#ae723299ec99157203f0e2148b6336917">Arcane::ICaseMng::isAllowUnkownRootElelement</a></div><div class="ttdeci">virtual bool isAllowUnkownRootElelement() const =0</div><div class="ttdoc">Indique si les éléments inconnus à la racine du document sont autorisés.</div></div>
+<div class="ttc" id="aclassArcane_1_1IApplication_html"><div class="ttname"><a href="../../d9/d7f/classArcane_1_1IApplication.html">Arcane::IApplication</a></div><div class="ttdoc">Interface de l'application.</div><div class="ttdef"><b>Definition:</b> IApplication.h:56</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseOptions_html"><div class="ttname"><a href="../../dd/d74/classArcane_1_1ICaseOptions.html">Arcane::ICaseOptions</a></div><div class="ttdef"><b>Definition:</b> ICaseOptions.h:43</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_a2ce3a1e0a40c2eb0447cabdf1b4f7db3"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#a2ce3a1e0a40c2eb0447cabdf1b4f7db3">Arcane::ICaseMng::application</a></div><div class="ttdeci">virtual IApplication * application()=0</div><div class="ttdoc">Application associée.</div></div>
+<div class="ttc" id="aclassArccore_1_1ITraceMng_html"><div class="ttname"><a href="../../d0/df9/classArccore_1_1ITraceMng.html">Arccore::ITraceMng</a></div><div class="ttdoc">Interface du gestionnaire de traces.</div><div class="ttdef"><b>Definition:</b> ITraceMng.h:165</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_adff38e7ef3226b2917c9190cc21dcc88"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#adff38e7ef3226b2917c9190cc21dcc88">Arcane::ICaseMng::updateOptions</a></div><div class="ttdeci">virtual void updateOptions(Real current_time, Real current_deltat, Integer current_iteration)=0</div><div class="ttdoc">Met à jour les options basée sur une table de marche en temps.</div></div>
+<div class="ttc" id="anamespaceArcane_html_a31c49c793d16b4c7f3fda08254ceeeb5"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a31c49c793d16b4c7f3fda08254ceeeb5">Arcane::eCaseMngEventType</a></div><div class="ttdeci">eCaseMngEventType</div><div class="ttdoc">Types des évènements supportés par ICaseMng.</div><div class="ttdef"><b>Definition:</b> ICaseMng.h:42</div></div>
+<div class="ttc" id="aArcaneTypes_8h_html"><div class="ttname"><a href="../../d0/d7e/ArcaneTypes_8h.html">ArcaneTypes.h</a></div><div class="ttdoc">Déclarations des types généraux de Arcane.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html">Arcane::ISubDomain</a></div><div class="ttdoc">Interface du gestionnaire d'un sous-domaine.</div><div class="ttdef"><b>Definition:</b> ISubDomain.h:72</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_a7dfd71fdfc77a0843ba0613eceffd6c4"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#a7dfd71fdfc77a0843ba0613eceffd6c4">Arcane::ICaseMng::traceMng</a></div><div class="ttdeci">virtual ITraceMng * traceMng()=0</div><div class="ttdoc">Gestionnaire de traces.</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_aae088b43f5d5f83bfd08c7e4e8360bed"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#aae088b43f5d5f83bfd08c7e4e8360bed">Arcane::ICaseMng::addFunction</a></div><div class="ttdeci">virtual void addFunction(Ref&lt; ICaseFunction &gt; func)=0</div><div class="ttdoc">Ajoute la fonction func.</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_a3bcf1571948ba7c74422ca086a18b401"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#a3bcf1571948ba7c74422ca086a18b401">Arcane::ICaseMng::isTreatWarningAsError</a></div><div class="ttdeci">virtual bool isTreatWarningAsError() const =0</div><div class="ttdoc">Indique si les avertissements dans le jeu de données doivent être traités comme des erreurs et provoq...</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_afcbd272070ab449094cb9cbbd1400d36"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#afcbd272070ab449094cb9cbbd1400d36">Arcane::ICaseMng::ARCCORE_DEPRECATED_2019</a></div><div class="ttdeci">ARCCORE_DEPRECATED_2019(&quot;Use removeFunction(ICaseFunction*) instead.&quot;) virtual void removeFunction(ICaseFunction *func</div><div class="ttdoc">Supprime une fonction.</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_a2648a5c3e2371f4915576205fd9b0989"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#a2648a5c3e2371f4915576205fd9b0989">Arcane::ICaseMng::setTreatWarningAsError</a></div><div class="ttdeci">virtual void setTreatWarningAsError(bool v)=0</div><div class="ttdoc">Positionne la manière de traiter les avertissements.</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_a908862d4aabccd582e8a000a5bd2d5d2"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#a908862d4aabccd582e8a000a5bd2d5d2">Arcane::ICaseMng::subDomain</a></div><div class="ttdeci">virtual ISubDomain * subDomain()=0</div><div class="ttdoc">Gestionnaire de sous-domaine.</div></div>
+<div class="ttc" id="aclassArcane_1_1Collection_html"><div class="ttname"><a href="../../d3/d5d/classArcane_1_1Collection.html">Arcane::Collection</a></div><div class="ttdoc">Classe de base d'une collection fortement typée.</div><div class="ttdef"><b>Definition:</b> Collection.h:33</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_afee7b854cc1acbd1784ea5bb02fe1585"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#afee7b854cc1acbd1784ea5bb02fe1585">Arcane::ICaseMng::registerOptions</a></div><div class="ttdeci">virtual void registerOptions(ICaseOptions *)=0</div><div class="ttdoc">Enregistre une liste d'options du jeu de donnée.</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_abb6a319041704af5d101c94f18d3ddcc"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#abb6a319041704af5d101c94f18d3ddcc">Arcane::ICaseMng::observable</a></div><div class="ttdeci">virtual IObservable * observable(eCaseMngEventType type)=0</div><div class="ttdoc">Observable sur l'instance.</div></div>
+<div class="ttc" id="anamespaceArcane_html_a31c49c793d16b4c7f3fda08254ceeeb5a0ece0938b5db9bd5cd6d4d4098188c47"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a31c49c793d16b4c7f3fda08254ceeeb5a0ece0938b5db9bd5cd6d4d4098188c47">Arcane::eCaseMngEventType::BeginReadOptionsPhase1</a></div><div class="ttdeci">@ BeginReadOptionsPhase1</div><div class="ttdoc">Évènement généré avant de lire les options dans la phase 1.</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_adaadb504a3d5159544fbdf9aa681ccc4"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#adaadb504a3d5159544fbdf9aa681ccc4">Arcane::ICaseMng::functions</a></div><div class="ttdeci">virtual CaseFunctionCollection functions()=0</div><div class="ttdoc">Retourne la liste des tables.</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_ade04ed379b2eda836fdc81f5a18c67c2"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#ade04ed379b2eda836fdc81f5a18c67c2">Arcane::ICaseMng::setAllowUnkownRootElelement</a></div><div class="ttdeci">virtual void setAllowUnkownRootElelement(bool v)=0</div><div class="ttdoc">Positionne l'autorisation des éléments inconnus à la racine du document.</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_a44250630bfb1a54b42cf00e7e7a985f7"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#a44250630bfb1a54b42cf00e7e7a985f7">Arcane::ICaseMng::printOptions</a></div><div class="ttdeci">virtual void printOptions()=0</div><div class="ttdoc">Affiche les valeurs des options.</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_a8a900ff10d134ba90ac083370044b16f"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#a8a900ff10d134ba90ac083370044b16f">Arcane::ICaseMng::removeFunction</a></div><div class="ttdeci">virtual void removeFunction(ICaseFunction *func)=0</div><div class="ttdoc">Supprime une fonction.</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_a445499f2eedac661797dfa464d488653"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#a445499f2eedac661797dfa464d488653">Arcane::ICaseMng::caseDocument</a></div><div class="ttdeci">virtual ICaseDocument * caseDocument()=0</div><div class="ttdoc">Document XML du jeu de données.</div></div>
+<div class="ttc" id="aclassArcane_1_1IObservable_html"><div class="ttname"><a href="../../dc/d38/classArcane_1_1IObservable.html">Arcane::IObservable</a></div><div class="ttdoc">Interface d'un observable.</div><div class="ttdef"><b>Definition:</b> IObservable.h:51</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_ab9f2308c879fdf74a6b4da1c224937ea"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#ab9f2308c879fdf74a6b4da1c224937ea">Arcane::ICaseMng::findFunction</a></div><div class="ttdeci">virtual ICaseFunction * findFunction(const String &amp;name) const =0</div><div class="ttdoc">Retourne la fonction de nom name ou 0 s'il n'y en a pas.</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_ad7627d7688f7447eee89aa6b6415fb8d"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#ad7627d7688f7447eee89aa6b6415fb8d">Arcane::ICaseMng::unregisterOptions</a></div><div class="ttdeci">virtual void unregisterOptions(ICaseOptions *)=0</div><div class="ttdoc">Déseregistre une liste d'options du jeu de donnée.</div></div>
+<div class="ttc" id="aclassArccore_1_1Ref_html"><div class="ttname"><a href="../../de/d9f/classArccore_1_1Ref.html">Arccore::Ref</a></div><div class="ttdoc">Référence à une instance.</div><div class="ttdef"><b>Definition:</b> Ref.h:139</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_a5cee2d659d668f4d02e2c1173404ac06"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#a5cee2d659d668f4d02e2c1173404ac06">Arcane::ICaseMng::readFunctions</a></div><div class="ttdeci">virtual void readFunctions()=0</div><div class="ttdoc">Lit les tables du jeu de donnée.</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:43</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_aaf7ada0ad5dd57d4037779a939283d92"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#aaf7ada0ad5dd57d4037779a939283d92">Arcane::ICaseMng::blocks</a></div><div class="ttdeci">virtual CaseOptionsCollection blocks() const =0</div><div class="ttdoc">Collection des blocs d'options.</div></div>
+<div class="ttc" id="anamespaceArcane_html_a31c49c793d16b4c7f3fda08254ceeeb5a0e85ce3eb4b658517ab8262545970e45"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a31c49c793d16b4c7f3fda08254ceeeb5a0e85ce3eb4b658517ab8262545970e45">Arcane::eCaseMngEventType::BeginReadOptionsPhase2</a></div><div class="ttdeci">@ BeginReadOptionsPhase2</div><div class="ttdoc">Évènement généré avant de lire les options dans la phase 2.</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseFunction_html"><div class="ttname"><a href="../../d6/dec/classArcane_1_1ICaseFunction.html">Arcane::ICaseFunction</a></div><div class="ttdef"><b>Definition:</b> ICaseFunction.h:44</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> String.h:80</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_acf4502033165837fbcdc546102505665"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#acf4502033165837fbcdc546102505665">Arcane::ICaseMng::readOptions</a></div><div class="ttdeci">virtual void readOptions(bool is_phase1)=0</div><div class="ttdoc">Lit les options du jeu de donnée correspondant aux modules utilisés.</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseDocument_html"><div class="ttname"><a href="../../d3/dd9/classArcane_1_1ICaseDocument.html">Arcane::ICaseDocument</a></div><div class="ttdef"><b>Definition:</b> ICaseDocument.h:39</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">Interface for base mesh operations.</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_a2af8aeb2e63b7e74eb682faf8ce89086"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#a2af8aeb2e63b7e74eb682faf8ce89086">Arcane::ICaseMng::readCaseDocument</a></div><div class="ttdeci">virtual ICaseDocument * readCaseDocument(const String &amp;filename, ByteConstArrayView bytes)=0</div><div class="ttdoc">Lit le document XML du jeu de données.</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html">Arcane::ICaseMng</a></div><div class="ttdoc">Interface du gestionnaire de cas.</div><div class="ttdef"><b>Definition:</b> ICaseMng.h:56</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_050f182cfd4329e7fe1ae122895331c9.html">arcane</a></li><li class="navelem"><b>ICaseMng.h</b></li>
+    <li class="footer">Généré le Vendredi 17 Septembre 2021 19:15:54 pour Arcane par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

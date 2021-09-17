@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane: Utilisation des traces</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.0.4.13</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d2/dcf/arcanedoc_traces.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Utilisation des traces </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h1><a class="anchor" id="arcanedoc_traces_intro"></a>
+Introduction</h1>
+<p>ARCANE fournit une classe utilitaire (<code>TraceAccessor</code>) pour afficher des traces dans les modules. Cette classe permet de gérer plusieurs types de traces : informations, erreurs, ...</p>
+<p>Si dans le descripteur de module, l'attribut <code>parent-name</code> de l'élément <code>module</code> vaut <code>BasicModule</code> (le défaut), les traces sont automatiquement disponibles.</p>
+<p>Les traces s'utilisent comme des flots classiques en C++, grâce à l'operateur &lt;&lt;.</p>
+<p>Par exemple, pour afficher une trace d'information :</p>
+<div class="fragment"><div class="line">info() &lt;&lt; <span class="stringliteral">&quot;Ceci est un message d&#39;information&quot;</span>;</div>
+</div><!-- fragment --><p>Tous les types C++ qui disposent de l'opérateur &lt;&lt; peuvent être tracés. Par exemple :</p>
+<div class="fragment"><div class="line"><span class="keywordtype">int</span> z = 3;</div>
+<div class="line">info() &lt;&lt; <span class="stringliteral">&quot;z vaut &quot;</span> &lt;&lt; z;</div>
+</div><!-- fragment --><p>A noter qu'un retour chariot est effectué automatiquement entre chaque message. Par conséquent l'ajout d'un retour chariot en fin de trace provoque un saut de ligne.</p>
+<h1><a class="anchor" id="arcanedoc_traces_class"></a>
+Catégories de trace</h1>
+<p>Les méthodes de trace sont :</p><ul>
+<li><b>info</b> pour les traces d'informations,</li>
+<li><b>debug</b> pour les traces de debug,</li>
+<li><b>log</b> pour les traces de log,</li>
+<li><b>warning</b> pour les traces d'avertissement,</li>
+<li><b>error</b> pour les traces d'erreur,</li>
+<li><b>fatal</b> pour les traces d'erreur fatale, ce qui arrête l'exécution.</li>
+</ul>
+<p>Les traces d'avertissement ou d'erreur (warning(), error() et fatal()) sont toujours affichées. Pour les traces d'informations (info()) et de débug (debug()), le comportement dépend de l'exécution séquentielle ou parallèle et si ARCANE est compilée en mode débug ou optimisé:</p><ul>
+<li>en mode optimisé, les traces de débug ne sont jamais actives. De plus, la méthode debug() est remplacée par une méthode vide ce qui fait qu'elle ne prend aucune ressource CPU.</li>
+<li>en mode optimisé, par défaut, les traces d'informations ne sont affichées que par le sous-domaine 0. Ce comportement est configurable (voir section <a class="el" href="../../d2/dcf/arcanedoc_traces.html#arcanedoc_traces_config">Configuration des traces</a>).</li>
+<li>en mode débug, les traces du sous-domaine 0 s'affichent sur la sortie standard. Les traces des autres sous-domaines sont écrites dans un fichier de nom 'outputn', où 'n' est le numéro du sous-domaine.</li>
+</ul>
+<p>Les traces de log sont écrites dans un fichier dans le répertoire 'listing', sous le nom 'log.n', avec 'n' le numéro du sous-domaine.</p>
+<p>Il existe 4 méthodes pour la gestion parallèle des traces:</p><ul>
+<li><b>pinfo</b> pour les traces d'informations,</li>
+<li><b>pwarning</b> pour les traces d'avertissement,</li>
+<li><b>perror</b> pour les traces d'erreur,</li>
+<li><b>pfatal</b> pour les traces d'erreur fatale, ce qui arrête l'exécution.</li>
+</ul>
+<p>Pour pinfo(), chaque sous-domaine affiche le message. Pour les autres (pwarning(), perror() et pfatal()), cela signifie que chaque sous-domaine appelle cette méthode (opération collective), et donc une seule trace sera affichée. Ces traces parallèles peuvent par exemple être utiles lorsqu'on est certain que l'erreur produite le sera par tous les processeurs, par exemple, une erreur dans le jeu de données. Il faut prendre soin que tous les sous-domaines appellent les méthodes parallèle, car cela peut conduire à un blocage du code dans le cas contraire.</p>
+<p>Il faut noter qu'en cas d'appel à la méthode fatal() en parallèle, les processus sont en général tués sans ménagement. Avec pfatal(), il est possible d'arrêter le code proprement puisque chaque sous-domaine génère l'erreur.</p>
+<p>Il existe trois niveaux de traces pour la catégorie <code>debug</code> : <em>Trace::Low</em>, <em>Trace::Medium</em> et <em>Trace::High</em>. Le niveau par défaut est <em>Trace::Medium</em>.</p>
+<div class="fragment"><div class="line">debug(Trace::Medium) &lt;&lt; <span class="stringliteral">&quot;Trace debug moyen&quot;</span></div>
+<div class="line">debug()              &lt;&lt; <span class="stringliteral">&quot;Trace debug moyen&quot;</span></div>
+<div class="line">debug(Trace::Low)    &lt;&lt; <span class="stringliteral">&quot;Trace debug affiché dès que le mode débug est utilisé&quot;</span></div>
+</div><!-- fragment --><h1><a class="anchor" id="arcanedoc_traces_config"></a>
+Configuration des traces</h1>
+<p>Il est possible de configurer le niveau de debug souhaité et l'utilisation des traces d'informations pour chaque module dans le fichier de configuration de ARCANE. Ce fichier de configuration utilisateur permet de modifier le comportement par défaut de certains éléments de l'architecture comme par exemple l'affichage des traces. Il est nommé <em>config.xml</em> et se trouve dans le répertoire <code>.arcane</code> du compte de l'utilisateur qui lance l'exécution.</p>
+<p>La configuration se fait avec les attributs <code>name</code>, <code>info</code> et <code>debug</code> de l'élément <code>trace-module</code>. Cet élément doit être fils de l'élément <code>traces</code>.</p>
+<ul>
+<li><b>name</b> spécifie le nom du module concerné</li>
+<li><b>info</b> vaut <em>true</em> s'il faut afficher les traces d'informations, <em>false</em> sinon.</li>
+<li><b>debug</b> vaut <em>none</em>, <em>low</em>, <em>medium</em> ou <em>high</em> suivant le niveau de débug souhaité. Les traces de débug d'un niveau supérieur à celui demandé ne sont pas affichées. Le niveau <em>high</em> correspond à toutes les traces.</li>
+</ul>
+<p>Voici un exemple de fichier :</p>
+<div class="fragment"><div class="line">&lt;?xml version=<span class="stringliteral">&quot;1.0&quot;</span> encoding=<span class="stringliteral">&quot;ISO-8859-1&quot;</span> ?&gt;</div>
+<div class="line">&lt;arcane-config&gt;</div>
+<div class="line">  &lt;traces&gt;</div>
+<div class="line">    &lt;trace-<span class="keyword">class </span>name=<span class="stringliteral">&quot;*&quot;</span> info=<span class="stringliteral">&quot;true&quot;</span> debug=<span class="stringliteral">&quot;none&quot;</span> /&gt;</div>
+<div class="line">    &lt;trace-<span class="keyword">class </span>name=<span class="stringliteral">&quot;Hydro&quot;</span> info=<span class="stringliteral">&quot;true&quot;</span> debug=<span class="stringliteral">&quot;medium&quot;</span> /&gt;</div>
+<div class="line">    &lt;trace-<span class="keyword">class </span>name=<span class="stringliteral">&quot;ParallelMng&quot;</span> info=<span class="stringliteral">&quot;true&quot;</span> print-<span class="keyword">class</span>-name=<span class="stringliteral">&quot;false&quot;</span> print-elapsed-time=<span class="stringliteral">&quot;true&quot;</span> /&gt;</div>
+<div class="line">  &lt;/traces&gt;</div>
+<div class="line">&lt;/arcane-config&gt;</div>
+</div><!-- fragment --><p>Dans l'exemple, l'utilisateur demande à ce que les traces d'informations pour tous les modules soient par défaut activées et pas les traces de debug. Pour le module Hydro, sont affichées les traces d'informations et les traces de debug jusqu'au niveau <em>medium</em>. Pour la classe de message ParallelMng, on affiche les infos et le temps écoulé mais pas le nom de la classe du message (c'est à dire le début de la ligne '*I-ParallelMng'.</p>
+<dl class="section note"><dt>Note</dt><dd>Quelle que soit la configuration, les traces de débug ne sont pas disponibles en version optimisée complète.</dd></dl>
+<p>Il est possible de changer dynamiquement les informations d'une classe de message. Par exemple le code suivant permet depuis un module ou service de changer le niveau de verbosité et d'afficher le temps écoulé mais pas le nom de la classe de de message:</p>
+<div class="fragment"><div class="line">ITraceMng* tm = traceMng();</div>
+<div class="line">TraceClassConfig tcc = tm-&gt;classConfig(<span class="stringliteral">&quot;MyTest&quot;</span>);</div>
+<div class="line">tcc.setFlags(Trace::PF_ElapsedTime|Trace::PF_NoClassName);</div>
+<div class="line">tcc.setVerboseLevel(4);</div>
+<div class="line">tm-&gt;setClassConfig(<span class="stringliteral">&quot;MyTest&quot;</span>,tcc);</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li>
+    <li class="footer">Généré le Vendredi 17 Septembre 2021 19:16:19 pour Arcane par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>
