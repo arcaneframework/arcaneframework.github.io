@@ -1,0 +1,702 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de /home/grospellierg/arcane_packaging/framework/arccore/src/base/arccore/base/Span.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.0.4.16</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d3/dc0/Span_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Span.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2020 IFPEN-CEA</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">// You may obtain a copy of the License at</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// See the License for the specific language governing permissions and</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// limitations under the License.</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/* Span.h                                                      (C) 2000-2021 */</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/* Vues sur des tableaux C.                                                  */</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#ifndef ARCCORE_BASE_SPAN_H</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#define ARCCORE_BASE_SPAN_H</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;arccore/base/ArrayView.h&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d5/d60/namespaceArccore.html">Arccore</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span>detail</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">// Pour indiquer que Span&lt;T&gt;::view() retourne un ArrayView</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">// et Span&lt;const T&gt;::view() retourn un ConstArrayView.</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../df/d67/classArccore_1_1detail_1_1ViewTypeT.html">   43</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/d67/classArccore_1_1detail_1_1ViewTypeT.html">ViewTypeT</a></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">view_type</a> = <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayView&lt;T&gt;</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;};</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../de/d4b/classArccore_1_1detail_1_1ViewTypeT_3_01const_01T_01_4.html">   49</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/d67/classArccore_1_1detail_1_1ViewTypeT.html">ViewTypeT</a>&lt;const T&gt;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;{</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">view_type</a> = <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;T&gt;</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;};</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;}</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T,<span class="keyword">typename</span> SizeType&gt;</div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html">   72</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">SpanImpl</a></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;{</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">ThatClass</a> = <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">SpanImpl&lt;T,SizeType&gt;</a>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keyword">using</span> ElementType = T;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keyword">using</span> element_type = ElementType;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keyword">using</span> value_type = <span class="keyword">typename</span> std::remove_cv&lt;ElementType&gt;::type;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keyword">using</span> index_type = SizeType;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keyword">using</span> difference_type = SizeType;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keyword">using</span> pointer = ElementType*;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keyword">using</span> const_pointer = <span class="keyword">typename</span> std::add_const&lt;ElementType*&gt;::type ;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keyword">using</span> reference = ElementType&amp;;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d3/d2f/classArccore_1_1ArrayIterator.html">iterator</a> = <a class="code" href="../../d3/d2f/classArccore_1_1ArrayIterator.html">ArrayIterator&lt;pointer&gt;</a>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d3/d2f/classArccore_1_1ArrayIterator.html">const_iterator</a> = <a class="code" href="../../d3/d2f/classArccore_1_1ArrayIterator.html">ArrayIterator&lt;const_pointer&gt;</a>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keyword">using</span> view_type = <span class="keyword">typename</span> <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">detail::ViewTypeT&lt;ElementType&gt;::view_type</a>;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keyword">using</span> reverse_iterator = std::reverse_iterator&lt;iterator&gt;;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keyword">using</span> const_reverse_iterator = std::reverse_iterator&lt;const_iterator&gt;;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#ae35af8dbaa6aa79a573722bd4d5ec76d">   94</a></span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#ae35af8dbaa6aa79a573722bd4d5ec76d">SpanImpl</a>() : m_ptr(nullptr), m_size(0) {}</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="comment">// Pour un Span&lt;const T&gt;, on a le droit de construire depuis un Span&lt;T&gt;</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> X,<span class="keyword">typename</span> = std::enable_if_t&lt;std::is_same_v&lt;X,value_type&gt;&gt; &gt;</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#a38a22f159eb75cc7152b7e6c4aa71bd3">   98</a></span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a38a22f159eb75cc7152b7e6c4aa71bd3">SpanImpl</a>(<span class="keyword">const</span> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">SpanImpl&lt;X,SizeType&gt;</a>&amp; from)</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  : m_ptr(from.<a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a134d7c368de72f567ba4e5ed39072ac9">data</a>()), m_size(from.<a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a1f9193e678d607500f85ffd78210d77f">size</a>()) {}</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="comment">// contenant \a asize éléments.</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#a5e3233005f03f244288b2d8b1b4bff5f">  102</a></span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a5e3233005f03f244288b2d8b1b4bff5f">SpanImpl</a>(T* ptr,SizeType asize)</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  : m_ptr(ptr), m_size(asize) {}</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#a70068610fd5b2be2c3792d7b06e41036">  112</a></span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">inline</span> reference <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a70068610fd5b2be2c3792d7b06e41036">operator[]</a>(SizeType i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    ARCCORE_CHECK_AT(i,m_size);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;    <span class="keywordflow">return</span> m_ptr[i];</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#a8692d8f184d099b0df90f66a19299017">  123</a></span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">inline</span> reference <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a8692d8f184d099b0df90f66a19299017">item</a>(SizeType i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;    ARCCORE_CHECK_AT(i,m_size);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    <span class="keywordflow">return</span> m_ptr[i];</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#afb5661659aa684b5e9fab9845fa8662a">  134</a></span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#afb5661659aa684b5e9fab9845fa8662a">setItem</a>(SizeType i,<span class="keyword">const</span> T&amp; v)</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    ARCCORE_CHECK_AT(i,m_size);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    m_ptr[i] = v;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  }</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#a1f9193e678d607500f85ffd78210d77f">  141</a></span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">inline</span> SizeType <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a1f9193e678d607500f85ffd78210d77f">size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_size; }</div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#a6a36007a0ecbce2609c0d683c156e782">  143</a></span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a6a36007a0ecbce2609c0d683c156e782">sizeBytes</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_size * <span class="keyword">sizeof</span>(value_type); }</div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#afb7718ac3782b81feb78be193e54881b">  145</a></span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">inline</span> SizeType <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#afb7718ac3782b81feb78be193e54881b">length</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_size; }</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#afd587d66b72427fb277da2d84d4b6c96">  150</a></span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d3/d2f/classArccore_1_1ArrayIterator.html">iterator</a> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#afd587d66b72427fb277da2d84d4b6c96">begin</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d3/d2f/classArccore_1_1ArrayIterator.html">iterator</a>(m_ptr); }</div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#a67c424d0d063a5b3ae1cf78b952ef826">  154</a></span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d3/d2f/classArccore_1_1ArrayIterator.html">iterator</a> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a67c424d0d063a5b3ae1cf78b952ef826">end</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d3/d2f/classArccore_1_1ArrayIterator.html">iterator</a>(m_ptr+m_size); }</div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#a864255842f3ebda6fa78ae9230c341be">  156</a></span>&#160;  ARCCORE_HOST_DEVICE reverse_iterator <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a864255842f3ebda6fa78ae9230c341be">rbegin</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> std::make_reverse_iterator(<a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a67c424d0d063a5b3ae1cf78b952ef826">end</a>()); }</div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#a8152ae6c046d5545c98df21bd84d3e0b">  158</a></span>&#160;  ARCCORE_HOST_DEVICE reverse_iterator <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a8152ae6c046d5545c98df21bd84d3e0b">rend</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> std::make_reverse_iterator(<a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#afd587d66b72427fb277da2d84d4b6c96">begin</a>()); }</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#ab42ce3ab757d48fc5504e77f8c761784">  163</a></span>&#160;  <a class="code" href="../../d8/d5a/classArccore_1_1ArrayRange.html">ArrayRange&lt;pointer&gt;</a> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#ab42ce3ab757d48fc5504e77f8c761784">range</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d8/d5a/classArccore_1_1ArrayRange.html">ArrayRange&lt;pointer&gt;</a>(m_ptr,m_ptr+m_size);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  }</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#aa74f0cbce568e2004263a84faf2295a3">  171</a></span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">inline</span> T* <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#aa74f0cbce568e2004263a84faf2295a3">ptrAt</a>(SizeType index)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    ARCCORE_CHECK_AT(index,m_size);</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keywordflow">return</span> m_ptr+index;</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  }</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  <span class="comment">// Elément d&#39;indice \a i. Vérifie toujours les débordements</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  ARCCORE_HOST_DEVICE reference at(SizeType i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    arccoreCheckAt(i,m_size);</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordflow">return</span> m_ptr[i];</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  }</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  <span class="comment">// Positionne l&#39;élément d&#39;indice \a i. Vérifie toujours les débordements</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  ARCCORE_HOST_DEVICE <span class="keywordtype">void</span> setAt(SizeType i,<span class="keyword">const</span> T&amp; value)</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  {</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    arccoreCheckAt(i,m_size);</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    m_ptr[i] = value;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  }</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#a31889710c37d15f0ba96215072e178c6">  192</a></span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a31889710c37d15f0ba96215072e178c6">fill</a>(T o)</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  {</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordflow">for</span>( SizeType i=0, n=m_size; i&lt;n; ++i )</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;      m_ptr[i] = o;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  }</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#a3578049c8b3419bb7b882acd74e0c712">  201</a></span>&#160;  view_type <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a3578049c8b3419bb7b882acd74e0c712">smallView</a>()</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  {</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> s = <a class="code" href="../../d5/d60/namespaceArccore.html#aa7b4e1c64dcae64730511c8b3fc37511">arccoreCheckArraySize</a>(m_size);</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="keywordflow">return</span> view_type(s,m_ptr);</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  }</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#a5ae8d00a47d668652cbfa71a95f4fe9d">  210</a></span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;value_type&gt;</a> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a5ae8d00a47d668652cbfa71a95f4fe9d">constSmallView</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> s = <a class="code" href="../../d5/d60/namespaceArccore.html#aa7b4e1c64dcae64730511c8b3fc37511">arccoreCheckArraySize</a>(m_size);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;value_type&gt;</a>(s,m_ptr);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  }</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
+<div class="line"><a name="l00223"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#aafcea6bb768db10254ce1db99a599a83">  223</a></span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">ThatClass</a> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#aafcea6bb768db10254ce1db99a599a83">subspan</a>(SizeType abegin,SizeType asize)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="keywordflow">if</span> (abegin&gt;=m_size)</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;      <span class="keywordflow">return</span> {};</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    asize = _min(asize,m_size-abegin);</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <span class="keywordflow">return</span> {m_ptr+abegin,asize};</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  }</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
+<div class="line"><a name="l00238"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#a2bf5bf542d5d5c4e02d040ceb8dc79b0">  238</a></span>&#160;  <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">ThatClass</a> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a2bf5bf542d5d5c4e02d040ceb8dc79b0">subView</a>(SizeType abegin,SizeType asize)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#aafcea6bb768db10254ce1db99a599a83">subspan</a>(abegin,asize);</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  }</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
+<div class="line"><a name="l00244"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#ad17a112473a88d79f348e77857e9c5cd">  244</a></span>&#160;  <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">ThatClass</a> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#ad17a112473a88d79f348e77857e9c5cd">subViewInterval</a>(SizeType index,SizeType nb_interval)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    SizeType n = m_size;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    SizeType isize = n / nb_interval;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    SizeType ibegin = index * isize;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="comment">// Pour le dernier interval, prend les elements restants</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    <span class="keywordflow">if</span> ((index+1)==nb_interval)</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;      isize = n - ibegin;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    <span class="keywordflow">return</span> {m_ptr+ibegin,isize};</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  }</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> U&gt; ARCCORE_HOST_DEVICE</div>
+<div class="line"><a name="l00264"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#a7893bc8625985fb87f398ca0519ec463">  264</a></span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a7893bc8625985fb87f398ca0519ec463">copy</a>(<span class="keyword">const</span> U&amp; copy_array)</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;  {</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> n = copy_array.size();</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> size_as_int64 = m_size;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    arccoreCheckAt(n,size_as_int64+1);</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keyword">const</span> T* copy_begin = copy_array.data();</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    T* to_ptr = m_ptr;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    <span class="comment">// On est sur que \a n tient sur un &#39;SizeType&#39; car il est plus petit</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    <span class="comment">// que \a m_size</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    SizeType n_as_sizetype = <span class="keyword">static_cast&lt;</span>SizeType<span class="keyword">&gt;</span>(n);</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    <span class="keywordflow">for</span>( SizeType i=0; i&lt;n_as_sizetype; ++i )</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;      to_ptr[i] = copy_begin[i];</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  }</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
+<div class="line"><a name="l00279"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#aa605cb70e41def75b63534fb3ef8a840">  279</a></span>&#160;  ARCCORE_HOST_DEVICE <span class="keywordtype">bool</span> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#aa605cb70e41def75b63534fb3ef8a840">empty</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_size==0; }</div>
+<div class="line"><a name="l00281"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#afba538b53bfedf0d817c0e3ed21e5393">  281</a></span>&#160;  ARCCORE_HOST_DEVICE <span class="keywordtype">bool</span> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#afba538b53bfedf0d817c0e3ed21e5393">contains</a>(<span class="keyword">const</span> T&amp; v)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;    <span class="keywordflow">for</span>( SizeType i=0; i&lt;m_size; ++i ){</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;      <span class="keywordflow">if</span> (m_ptr[i]==v)</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    }</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  }</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; </div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  ARCCORE_HOST_DEVICE <span class="keywordtype">void</span> setArray(<span class="keyword">const</span> <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayView&lt;T&gt;</a>&amp; v)</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  {</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    m_ptr = v.m_ptr;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    m_size = v.m_size;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  }</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  ARCCORE_HOST_DEVICE <span class="keywordtype">void</span> setArray(<span class="keyword">const</span> Span&lt;T&gt;&amp; v)</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  {</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;    m_ptr = v.m_ptr;</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    m_size = v.m_size;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  }</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
+<div class="line"><a name="l00311"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#a134d7c368de72f567ba4e5ed39072ac9">  311</a></span>&#160;  ARCCORE_HOST_DEVICE pointer <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a134d7c368de72f567ba4e5ed39072ac9">data</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_ptr; }</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  </div>
+<div class="line"><a name="l00321"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#a71e25461593fa748f700a819428b575a">  321</a></span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a71e25461593fa748f700a819428b575a">_setArray</a>(T* v,SizeType s){ m_ptr = v; m_size = s; }</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
+<div class="line"><a name="l00329"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#a2c88300cc798be480ded8db9d7b2a531">  329</a></span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a2c88300cc798be480ded8db9d7b2a531">_setPtr</a>(T* v) { m_ptr = v; }</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; </div>
+<div class="line"><a name="l00337"></a><span class="lineno"><a class="line" href="../../d6/d42/classArccore_1_1SpanImpl.html#ac7d1686954b96809073c2ff0ed86861f">  337</a></span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#ac7d1686954b96809073c2ff0ed86861f">_setSize</a>(SizeType s) { m_size = s; }</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; </div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;  T* m_ptr;  </div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  SizeType m_size; </div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; </div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;  <span class="keyword">static</span> SizeType _min(SizeType a,SizeType b)</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;  {</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keywordflow">return</span> ( (a&lt;b) ? a : b );</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;  }</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;};</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00366"></a><span class="lineno"><a class="line" href="../../dd/d9f/classArccore_1_1Span.html">  366</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span</a></div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">SpanImpl</a>&lt;T,Int64&gt;</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;{</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160; </div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">BaseClass</a> = <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">SpanImpl&lt;T,Int64&gt;</a>;</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;  <span class="keyword">using</span> value_type = <span class="keyword">typename</span> BaseClass::value_type;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160; </div>
+<div class="line"><a name="l00377"></a><span class="lineno"><a class="line" href="../../dd/d9f/classArccore_1_1Span.html#a2c8b0a634f5ad6046e269eae305d7637">  377</a></span>&#160;  <a class="code" href="../../dd/d9f/classArccore_1_1Span.html#a2c8b0a634f5ad6046e269eae305d7637">Span</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00379"></a><span class="lineno"><a class="line" href="../../dd/d9f/classArccore_1_1Span.html#a2af72a6ea2600d0b08a7d14b8ae28cf3">  379</a></span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../dd/d9f/classArccore_1_1Span.html#a2af72a6ea2600d0b08a7d14b8ae28cf3">Span</a>(<span class="keyword">const</span> <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayView&lt;value_type&gt;</a>&amp; from)</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;  : <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">BaseClass</a>(from.m_ptr,from.m_size) {}</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;  <span class="comment">// Constructeur à partir d&#39;un ConstArrayView. Cela n&#39;est autorisé que</span></div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;  <span class="comment">// si T est const.</span></div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> X,<span class="keyword">typename</span> = std::enable_if_t&lt;std::is_same_v&lt;X,value_type&gt;&gt; &gt;</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../dd/d9f/classArccore_1_1Span.html#a2c8b0a634f5ad6046e269eae305d7637">Span</a>(<span class="keyword">const</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;X&gt;</a>&amp; from)</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;  : BaseClass(from.m_ptr,from.m_size) {}</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;  <span class="comment">// Pour un Span&lt;const T&gt;, on a le droit de construire depuis un Span&lt;T&gt;</span></div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> X,<span class="keyword">typename</span> = std::enable_if_t&lt;std::is_same_v&lt;X,value_type&gt;&gt; &gt;</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../dd/d9f/classArccore_1_1Span.html#a2c8b0a634f5ad6046e269eae305d7637">Span</a>(<span class="keyword">const</span> Span&lt;X&gt;&amp; from)</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;  : BaseClass(from) {}</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../dd/d9f/classArccore_1_1Span.html#a2c8b0a634f5ad6046e269eae305d7637">Span</a>(<span class="keyword">const</span> SpanImpl&lt;T,Int64&gt;&amp; from)</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;  : BaseClass(from) {}</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../dd/d9f/classArccore_1_1Span.html#a2c8b0a634f5ad6046e269eae305d7637">Span</a>(<span class="keyword">const</span> SpanImpl&lt;T,Int32&gt;&amp; from)</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;  : BaseClass(from.<a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a134d7c368de72f567ba4e5ed39072ac9">data</a>(),from.<a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a1f9193e678d607500f85ffd78210d77f">size</a>()) {}</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;  <span class="comment">// contenant \a asize éléments.</span></div>
+<div class="line"><a name="l00396"></a><span class="lineno"><a class="line" href="../../dd/d9f/classArccore_1_1Span.html#a46cc69ce180c15b5973f61841c72d012">  396</a></span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../dd/d9f/classArccore_1_1Span.html#a46cc69ce180c15b5973f61841c72d012">Span</a>(T* ptr,<a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> asize)</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;  : <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">BaseClass</a>(ptr,asize) {}</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160; </div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160; </div>
+<div class="line"><a name="l00408"></a><span class="lineno"><a class="line" href="../../dd/d9f/classArccore_1_1Span.html#a185776ed431516c7f30734557161e843">  408</a></span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;T&gt;</a> <a class="code" href="../../dd/d9f/classArccore_1_1Span.html#a185776ed431516c7f30734557161e843">subspan</a>(<a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> abegin,<a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> asize)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#aafcea6bb768db10254ce1db99a599a83">BaseClass::subspan</a>(abegin,asize);</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;  }</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160; </div>
+<div class="line"><a name="l00420"></a><span class="lineno"><a class="line" href="../../dd/d9f/classArccore_1_1Span.html#aced7f0902521262b4eaa59887cec8ef2">  420</a></span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;T&gt;</a> <a class="code" href="../../dd/d9f/classArccore_1_1Span.html#aced7f0902521262b4eaa59887cec8ef2">subView</a>(<a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> abegin,<a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> asize)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../dd/d9f/classArccore_1_1Span.html#a185776ed431516c7f30734557161e843">subspan</a>(abegin,asize);</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;  }</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160; </div>
+<div class="line"><a name="l00426"></a><span class="lineno"><a class="line" href="../../dd/d9f/classArccore_1_1Span.html#a5bd0e78be095dd435d0d03e933b1621c">  426</a></span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;T&gt;</a> <a class="code" href="../../dd/d9f/classArccore_1_1Span.html#a5bd0e78be095dd435d0d03e933b1621c">subViewInterval</a>(<a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> index,<a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> nb_interval)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;    <span class="keywordflow">return</span> BaseClass::subViewInternal(index,nb_interval);</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;  }</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;};</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160; </div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a name="l00444"></a><span class="lineno"><a class="line" href="../../d2/d75/classArccore_1_1SmallSpan.html">  444</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d2/d75/classArccore_1_1SmallSpan.html">SmallSpan</a></div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">SpanImpl</a>&lt;T,Int32&gt;</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;{</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;  <span class="comment">// Pour le cas où on ne supporte pas le C++14.</span></div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;  <span class="keyword">template</span>&lt; <span class="keywordtype">bool</span> B, <span class="keyword">class</span> XX = <span class="keywordtype">void</span> &gt;</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;  <span class="keyword">using</span> Span_enable_if_t = <span class="keyword">typename</span> std::enable_if&lt;B,XX&gt;::type;</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160; </div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160; </div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">BaseClass</a> = <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">SpanImpl&lt;T,Int32&gt;</a>;</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;  <span class="keyword">using</span> value_type = <span class="keyword">typename</span> BaseClass::value_type;</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160; </div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160; </div>
+<div class="line"><a name="l00459"></a><span class="lineno"><a class="line" href="../../d2/d75/classArccore_1_1SmallSpan.html#ad27c48c7766b8e0c16573bcd3003fe59">  459</a></span>&#160;  <a class="code" href="../../d2/d75/classArccore_1_1SmallSpan.html#ad27c48c7766b8e0c16573bcd3003fe59">SmallSpan</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00461"></a><span class="lineno"><a class="line" href="../../d2/d75/classArccore_1_1SmallSpan.html#afada81443100e6f2c807144229158c9f">  461</a></span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d2/d75/classArccore_1_1SmallSpan.html#afada81443100e6f2c807144229158c9f">SmallSpan</a>(<span class="keyword">const</span> <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayView&lt;value_type&gt;</a>&amp; from)</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;  : <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">BaseClass</a>(from.m_ptr,from.m_size) {}</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160;  <span class="comment">// Constructeur à partir d&#39;un ConstArrayView. Cela n&#39;est autorisé que</span></div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;  <span class="comment">// si T est const.</span></div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;  template&lt;typename X,typename = Span_enable_if_t&lt;std::is_same&lt;X,value_type&gt;::value&gt; &gt;</div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d2/d75/classArccore_1_1SmallSpan.html#ad27c48c7766b8e0c16573bcd3003fe59">SmallSpan</a>(<span class="keyword">const</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;X&gt;</a>&amp; from)</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160;  : BaseClass(from.m_ptr,from.m_size) {}</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;  <span class="comment">// Pour un Span&lt;const T&gt;, on a le droit de construire depuis un Span&lt;T&gt;</span></div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;  template&lt;typename X,typename = Span_enable_if_t&lt;std::is_same&lt;X,value_type&gt;::value&gt; &gt;</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d2/d75/classArccore_1_1SmallSpan.html#ad27c48c7766b8e0c16573bcd3003fe59">SmallSpan</a>(<span class="keyword">const</span> SmallSpan&lt;X&gt;&amp; from)</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160;  : BaseClass(from) {}</div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d2/d75/classArccore_1_1SmallSpan.html#ad27c48c7766b8e0c16573bcd3003fe59">SmallSpan</a>(<span class="keyword">const</span> SpanImpl&lt;T,Int32&gt;&amp; from)</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160;  : BaseClass(from) {}</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160;  <span class="comment">// contenant \a asize éléments.</span></div>
+<div class="line"><a name="l00476"></a><span class="lineno"><a class="line" href="../../d2/d75/classArccore_1_1SmallSpan.html#a36eebf531b458fe9bed3dd0ac0f9af22">  476</a></span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d2/d75/classArccore_1_1SmallSpan.html#a36eebf531b458fe9bed3dd0ac0f9af22">SmallSpan</a>(T* ptr,<a class="code" href="../../d5/d60/namespaceArccore.html#ab32c98ae2c2cf8372feb620983bb5b67">Int32</a> asize)</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;  : <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">BaseClass</a>(ptr,asize) {}</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160; </div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160; </div>
+<div class="line"><a name="l00488"></a><span class="lineno"><a class="line" href="../../d2/d75/classArccore_1_1SmallSpan.html#a3cf8f43496bf35b29262624526331c19">  488</a></span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;T&gt;</a> <a class="code" href="../../d2/d75/classArccore_1_1SmallSpan.html#a3cf8f43496bf35b29262624526331c19">subspan</a>(<a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> abegin,<a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> asize)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#aafcea6bb768db10254ce1db99a599a83">BaseClass::subspan</a>(abegin,asize);</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;  }</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160; </div>
+<div class="line"><a name="l00500"></a><span class="lineno"><a class="line" href="../../d2/d75/classArccore_1_1SmallSpan.html#a625d5216d8da3859772e1dbb25290b9e">  500</a></span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;T&gt;</a> <a class="code" href="../../d2/d75/classArccore_1_1SmallSpan.html#a625d5216d8da3859772e1dbb25290b9e">subView</a>(<a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> abegin,<a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> asize)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d2/d75/classArccore_1_1SmallSpan.html#a3cf8f43496bf35b29262624526331c19">subspan</a>(abegin,asize);</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;  }</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160; </div>
+<div class="line"><a name="l00506"></a><span class="lineno"><a class="line" href="../../d2/d75/classArccore_1_1SmallSpan.html#a0d8f855bdb72df38ecc85916c115fcc4">  506</a></span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;T&gt;</a> <a class="code" href="../../d2/d75/classArccore_1_1SmallSpan.html#a0d8f855bdb72df38ecc85916c115fcc4">subViewInterval</a>(<a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> index,<a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> nb_interval)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;    <span class="keywordflow">return</span> BaseClass::subViewInternal(index,nb_interval);</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;  }</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;};</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160; </div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160; </div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T,<span class="keyword">typename</span> SizeType&gt; <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160;operator==(SpanImpl&lt;const T,SizeType&gt; rhs, SpanImpl&lt;const T,SizeType&gt; lhs)</div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;{</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;  <span class="keywordflow">if</span> (rhs.size()!=lhs.size())</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;  SizeType s = rhs.size();</div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;  <span class="keywordflow">for</span>( SizeType i=0; i&lt;s; ++i ){</div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;    <span class="keywordflow">if</span> (rhs[i]==lhs[i])</div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;      <span class="keywordflow">continue</span>;</div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;  }</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;}</div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160; </div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;operator==(Span&lt;const T&gt; rhs, Span&lt;const T&gt; lhs)</div>
+<div class="line"><a name="l00532"></a><span class="lineno">  532</span>&#160;{</div>
+<div class="line"><a name="l00533"></a><span class="lineno">  533</span>&#160;  SpanImpl&lt;const T,Int64&gt; a = rhs;</div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;  SpanImpl&lt;const T,Int64&gt; b = lhs;</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;  <span class="keywordflow">return</span> a==b;</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160;}</div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160; </div>
+<div class="line"><a name="l00538"></a><span class="lineno">  538</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;operator!=(Span&lt;const T&gt; rhs, Span&lt;const T&gt; lhs)</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;{</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;  <span class="keywordflow">return</span> !(rhs==lhs);</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;}</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160; </div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160; </div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;operator==(Span&lt;T&gt; rhs, Span&lt;T&gt; lhs)</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;{</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;  <span class="keywordflow">return</span> operator==(rhs.constView(),lhs.constView());</div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160;}</div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160; </div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;operator!=(Span&lt;T&gt; rhs, Span&lt;T&gt; lhs)</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;{</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;  <span class="keywordflow">return</span> !(rhs==lhs);</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;}</div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160; </div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160; </div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;operator==(SmallSpan&lt;T&gt; rhs, SmallSpan&lt;T&gt; lhs)</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;{</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;  <span class="keywordflow">return</span> operator==(Span&lt;const T&gt;(rhs),Span&lt;const T&gt;(lhs));</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;}</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160; </div>
+<div class="line"><a name="l00568"></a><span class="lineno">  568</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00569"></a><span class="lineno">  569</span>&#160;operator!=(SmallSpan&lt;T&gt; rhs, SmallSpan&lt;T&gt; lhs)</div>
+<div class="line"><a name="l00570"></a><span class="lineno">  570</span>&#160;{</div>
+<div class="line"><a name="l00571"></a><span class="lineno">  571</span>&#160;  <span class="keywordflow">return</span> !(rhs==lhs);</div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;}</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160; </div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160; </div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T,<span class="keyword">typename</span> SizeType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00586"></a><span class="lineno"><a class="line" href="../../d5/d60/namespaceArccore.html#a18da5850dc7d8089b8d0a646b86dfc78">  586</a></span>&#160;<a class="code" href="../../d5/d60/namespaceArccore.html#accd1640bb647607ff3e9d5e2c11e97dc">dumpArray</a>(std::ostream&amp; o,<a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">SpanImpl&lt;const T,SizeType&gt;</a> val,<span class="keywordtype">int</span> max_print)</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;{</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;  SizeType n = val.<a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a1f9193e678d607500f85ffd78210d77f">size</a>();</div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;  <span class="keywordflow">if</span> (max_print&gt;0 &amp;&amp; n&gt;max_print){</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;    <span class="comment">// N&#39;affiche que les (max_print/2) premiers et les (max_print/2) derniers</span></div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;    <span class="comment">// sinon si le tableau est très grand cela peut générer des</span></div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160;    <span class="comment">// sorties listings énormes.</span></div>
+<div class="line"><a name="l00593"></a><span class="lineno">  593</span>&#160;    SizeType z = (max_print/2);</div>
+<div class="line"><a name="l00594"></a><span class="lineno">  594</span>&#160;    SizeType z2 = n - z;</div>
+<div class="line"><a name="l00595"></a><span class="lineno">  595</span>&#160;    o &lt;&lt; <span class="stringliteral">&quot;[0]=\&quot;&quot;</span> &lt;&lt; val[0] &lt;&lt; <span class="charliteral">&#39;&quot;&#39;</span>;</div>
+<div class="line"><a name="l00596"></a><span class="lineno">  596</span>&#160;    <span class="keywordflow">for</span>( SizeType i=1; i&lt;z; ++i )</div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;      o &lt;&lt; <span class="stringliteral">&quot; [&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;]=\&quot;&quot;</span> &lt;&lt; val[i] &lt;&lt; <span class="charliteral">&#39;&quot;&#39;</span>;</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;    o &lt;&lt; <span class="stringliteral">&quot; ... ... (skipping indexes &quot;</span> &lt;&lt; z &lt;&lt; <span class="stringliteral">&quot; to &quot;</span> &lt;&lt; z2 &lt;&lt; <span class="stringliteral">&quot; ) ... ... &quot;</span>;</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;    <span class="keywordflow">for</span>( SizeType i=(z2+1); i&lt;n; ++i )</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;      o &lt;&lt; <span class="stringliteral">&quot; [&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;]=\&quot;&quot;</span> &lt;&lt; val[i] &lt;&lt; <span class="charliteral">&#39;&quot;&#39;</span>;</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;  }</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;  <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160;    <span class="keywordflow">for</span>( SizeType i=0; i&lt;n; ++i ){</div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;      <span class="keywordflow">if</span> (i!=0)</div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;        o &lt;&lt; <span class="charliteral">&#39; &#39;</span>;</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;      o &lt;&lt; <span class="stringliteral">&quot;[&quot;</span> &lt;&lt; i &lt;&lt; <span class="stringliteral">&quot;]=\&quot;&quot;</span> &lt;&lt; val[i] &lt;&lt; <span class="charliteral">&#39;&quot;&#39;</span>;</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;    }</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;  }</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;}</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160; </div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> DataType,<span class="keyword">typename</span> IntegerType,<span class="keyword">typename</span> SizeType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00622"></a><span class="lineno"><a class="line" href="../../d5/d60/namespaceArccore.html#a340238f0760379df351cab1f7cdd284c">  622</a></span>&#160;<a class="code" href="../../d5/d60/namespaceArccore.html#a340238f0760379df351cab1f7cdd284c">_sampleSpan</a>(<a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">SpanImpl&lt;const DataType,SizeType&gt;</a> values,</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;            <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">SpanImpl&lt;const IntegerType,SizeType&gt;</a> indexes,</div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;            <a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">SpanImpl&lt;DataType,SizeType&gt;</a> result)</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;{</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;  <span class="keyword">const</span> <a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> result_size = indexes.<a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a1f9193e678d607500f85ffd78210d77f">size</a>();</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;  [[maybe_unused]] <span class="keyword">const</span> <a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> my_size = values.<a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a1f9193e678d607500f85ffd78210d77f">size</a>();</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;  <span class="keyword">const</span> DataType* ptr = values.<a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a134d7c368de72f567ba4e5ed39072ac9">data</a>();</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;  <span class="keywordflow">for</span>( <a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> i=0; i&lt;result_size; ++i) {</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;    IntegerType index = indexes[i];</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;    ARCCORE_CHECK_AT(index,my_size);</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;    result[i] = ptr[index];</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;  }</div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;}</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160; </div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> DataType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00647"></a><span class="lineno"><a class="line" href="../../d5/d60/namespaceArccore.html#aada85e6e09aa1c9310bb7044703fb0df">  647</a></span>&#160;<a class="code" href="../../d5/d60/namespaceArccore.html#aada85e6e09aa1c9310bb7044703fb0df">sampleSpan</a>(<a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;const DataType&gt;</a> values,<a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;const Int64&gt;</a> indexes,<a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;DataType&gt;</a> result)</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;{</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;  <a class="code" href="../../d5/d60/namespaceArccore.html#a340238f0760379df351cab1f7cdd284c">_sampleSpan</a>(values,indexes,result);</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;}</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160; </div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> DataType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00661"></a><span class="lineno"><a class="line" href="../../d5/d60/namespaceArccore.html#aa780e6655a0d6b06aae4b1bd21faaada">  661</a></span>&#160;<a class="code" href="../../d5/d60/namespaceArccore.html#aada85e6e09aa1c9310bb7044703fb0df">sampleSpan</a>(<a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;const DataType&gt;</a> values,<a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;const Int32&gt;</a> indexes,<a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;DataType&gt;</a> result)</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;{</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;  <a class="code" href="../../d5/d60/namespaceArccore.html#a340238f0760379df351cab1f7cdd284c">_sampleSpan</a>(values,indexes,result);</div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;}</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160; </div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> DataType,<span class="keyword">typename</span> SizeType&gt; <span class="keyword">inline</span> Span&lt;const std::byte&gt;</div>
+<div class="line"><a name="l00672"></a><span class="lineno"><a class="line" href="../../d5/d60/namespaceArccore.html#ab5aa97331ef394d3fe9a838d85d41d70">  672</a></span>&#160;<a class="code" href="../../d5/d60/namespaceArccore.html#ab5aa97331ef394d3fe9a838d85d41d70">asBytes</a>(<a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">SpanImpl&lt;const DataType,SizeType&gt;</a> s)</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;{</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;  <span class="keywordflow">return</span> {<span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span>std::byte*<span class="keyword">&gt;</span>(s.<a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a134d7c368de72f567ba4e5ed39072ac9">data</a>()), s.<a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a6a36007a0ecbce2609c0d683c156e782">sizeBytes</a>()};</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;}</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160; </div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> DataType,<span class="keyword">typename</span> SizeType,</div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;         <span class="keyword">typename</span> std::enable_if_t&lt;!std::is_const&lt;DataType&gt;::value, <span class="keywordtype">int</span>&gt; = 0&gt;</div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;<span class="keyword">inline</span> Span&lt;std::byte&gt;</div>
+<div class="line"><a name="l00687"></a><span class="lineno"><a class="line" href="../../d5/d60/namespaceArccore.html#acc2769b4416dee74d273c292ec1a6f53">  687</a></span>&#160;<a class="code" href="../../d5/d60/namespaceArccore.html#acc2769b4416dee74d273c292ec1a6f53">asWritableBytes</a>(<a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html">SpanImpl&lt;DataType,SizeType&gt;</a> s)</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;{</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160;  <span class="keywordflow">return</span> {<span class="keyword">reinterpret_cast&lt;</span>std::byte*<span class="keyword">&gt;</span>(s.<a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a134d7c368de72f567ba4e5ed39072ac9">data</a>()), s.<a class="code" href="../../d6/d42/classArccore_1_1SpanImpl.html#a6a36007a0ecbce2609c0d683c156e782">sizeBytes</a>()};</div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;}</div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160; </div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160; </div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">inline</span> std::ostream&amp;</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;operator&lt;&lt;(std::ostream&amp; o, Span&lt;const T&gt; val)</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;{</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;  <a class="code" href="../../d5/d60/namespaceArccore.html#accd1640bb647607ff3e9d5e2c11e97dc">dumpArray</a>(o,val,500);</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;  <span class="keywordflow">return</span> o;</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;}</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160; </div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160; </div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">inline</span> std::ostream&amp;</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;<a class="code" href="../../d0/d32/namespaceArcane.html#ae7fe252d07667426958ff2a1aa634196">operator&lt;&lt;</a>(std::ostream&amp; o, Span&lt;T&gt; val)</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160;{</div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;  o &lt;&lt; Span&lt;const T&gt;(val);</div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;  <span class="keywordflow">return</span> o;</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;}</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160; </div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160; </div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">inline</span> std::ostream&amp;</div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;<a class="code" href="../../d0/d32/namespaceArcane.html#ae7fe252d07667426958ff2a1aa634196">operator&lt;&lt;</a>(std::ostream&amp; o, SmallSpan&lt;const T&gt; val)</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;{</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;  o &lt;&lt; Span&lt;const T&gt;(val);</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;  <span class="keywordflow">return</span> o;</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;}</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160; </div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160; </div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; <span class="keyword">inline</span> std::ostream&amp;</div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;<a class="code" href="../../d0/d32/namespaceArcane.html#ae7fe252d07667426958ff2a1aa634196">operator&lt;&lt;</a>(std::ostream&amp; o, SmallSpan&lt;T&gt; val)</div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;{</div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160;  o &lt;&lt; Span&lt;const T&gt;(val);</div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;  <span class="keywordflow">return</span> o;</div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160;}</div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160; </div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160; </div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;} <span class="comment">// End namespace Arccore</span></div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160; </div>
+<div class="line"><a name="l00737"></a><span class="lineno">  737</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160; </div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassArccore_1_1ArrayIterator_html"><div class="ttname"><a href="../../d3/d2f/classArccore_1_1ArrayIterator.html">Arccore::ArrayIterator</a></div><div class="ttdoc">Itérateur sur les classes tableau de Arccore.</div><div class="ttdef"><b>Definition:</b> ArrayIterator.h:50</div></div>
+<div class="ttc" id="aclassArccore_1_1ArrayRange_html"><div class="ttname"><a href="../../d8/d5a/classArccore_1_1ArrayRange.html">Arccore::ArrayRange</a></div><div class="ttdoc">Intervalle sur les classes tableau de Arccore.</div><div class="ttdef"><b>Definition:</b> ArrayRange.h:47</div></div>
+<div class="ttc" id="aclassArccore_1_1ArrayView_html"><div class="ttname"><a href="../../d7/d02/classArccore_1_1ArrayView.html">Arccore::ArrayView</a></div><div class="ttdoc">Vue modifiable d'un tableau d'un type T.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:106</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:470</div></div>
+<div class="ttc" id="aclassArccore_1_1SmallSpan_html"><div class="ttname"><a href="../../d2/d75/classArccore_1_1SmallSpan.html">Arccore::SmallSpan</a></div><div class="ttdoc">Vue d'un tableau d'éléments de type T.</div><div class="ttdef"><b>Definition:</b> Span.h:446</div></div>
+<div class="ttc" id="aclassArccore_1_1SmallSpan_html_a0d8f855bdb72df38ecc85916c115fcc4"><div class="ttname"><a href="../../d2/d75/classArccore_1_1SmallSpan.html#a0d8f855bdb72df38ecc85916c115fcc4">Arccore::SmallSpan::subViewInterval</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE Span&lt; T &gt; subViewInterval(Int64 index, Int64 nb_interval) const</div><div class="ttdoc">Sous-vue correspondant à l'interval index sur nb_interval.</div><div class="ttdef"><b>Definition:</b> Span.h:506</div></div>
+<div class="ttc" id="aclassArccore_1_1SmallSpan_html_a36eebf531b458fe9bed3dd0ac0f9af22"><div class="ttname"><a href="../../d2/d75/classArccore_1_1SmallSpan.html#a36eebf531b458fe9bed3dd0ac0f9af22">Arccore::SmallSpan::SmallSpan</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE SmallSpan(T *ptr, Int32 asize)</div><div class="ttdoc">Construit une vue sur une zone mémoire commencant par ptr et.</div><div class="ttdef"><b>Definition:</b> Span.h:476</div></div>
+<div class="ttc" id="aclassArccore_1_1SmallSpan_html_a3cf8f43496bf35b29262624526331c19"><div class="ttname"><a href="../../d2/d75/classArccore_1_1SmallSpan.html#a3cf8f43496bf35b29262624526331c19">Arccore::SmallSpan::subspan</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE Span&lt; T &gt; subspan(Int64 abegin, Int64 asize) const</div><div class="ttdoc">Sous-vue à partir de l'élément abegin et contenant asize éléments.</div><div class="ttdef"><b>Definition:</b> Span.h:488</div></div>
+<div class="ttc" id="aclassArccore_1_1SmallSpan_html_a625d5216d8da3859772e1dbb25290b9e"><div class="ttname"><a href="../../d2/d75/classArccore_1_1SmallSpan.html#a625d5216d8da3859772e1dbb25290b9e">Arccore::SmallSpan::subView</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE Span&lt; T &gt; subView(Int64 abegin, Int64 asize) const</div><div class="ttdoc">Sous-vue à partir de l'élément abegin et contenant asize éléments.</div><div class="ttdef"><b>Definition:</b> Span.h:500</div></div>
+<div class="ttc" id="aclassArccore_1_1SmallSpan_html_ad27c48c7766b8e0c16573bcd3003fe59"><div class="ttname"><a href="../../d2/d75/classArccore_1_1SmallSpan.html#ad27c48c7766b8e0c16573bcd3003fe59">Arccore::SmallSpan::SmallSpan</a></div><div class="ttdeci">SmallSpan()=default</div><div class="ttdoc">Construit une vue vide.</div></div>
+<div class="ttc" id="aclassArccore_1_1SmallSpan_html_afada81443100e6f2c807144229158c9f"><div class="ttname"><a href="../../d2/d75/classArccore_1_1SmallSpan.html#afada81443100e6f2c807144229158c9f">Arccore::SmallSpan::SmallSpan</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE SmallSpan(const ArrayView&lt; value_type &gt; &amp;from)</div><div class="ttdoc">Constructeur de recopie depuis une autre vue.</div><div class="ttdef"><b>Definition:</b> Span.h:461</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html">Arccore::SpanImpl</a></div><div class="ttdoc">Vue d'un tableau d'éléments de type T.</div><div class="ttdef"><b>Definition:</b> Span.h:73</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_a134d7c368de72f567ba4e5ed39072ac9"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#a134d7c368de72f567ba4e5ed39072ac9">Arccore::SpanImpl::data</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE pointer data() const</div><div class="ttdoc">Pointeur sur le début de la vue.</div><div class="ttdef"><b>Definition:</b> Span.h:311</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_a1f9193e678d607500f85ffd78210d77f"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#a1f9193e678d607500f85ffd78210d77f">Arccore::SpanImpl::size</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE SizeType size() const</div><div class="ttdoc">Retourne la taille du tableau.</div><div class="ttdef"><b>Definition:</b> Span.h:141</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_a2bf5bf542d5d5c4e02d040ceb8dc79b0"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#a2bf5bf542d5d5c4e02d040ceb8dc79b0">Arccore::SpanImpl::subView</a></div><div class="ttdeci">ThatClass subView(SizeType abegin, SizeType asize) const</div><div class="ttdoc">Sous-vue à partir de l'élément abegin et contenant asize éléments.</div><div class="ttdef"><b>Definition:</b> Span.h:238</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_a2c88300cc798be480ded8db9d7b2a531"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#a2c88300cc798be480ded8db9d7b2a531">Arccore::SpanImpl::_setPtr</a></div><div class="ttdeci">void _setPtr(T *v)</div><div class="ttdoc">Modifie le pointeur du début du tableau.</div><div class="ttdef"><b>Definition:</b> Span.h:329</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_a31889710c37d15f0ba96215072e178c6"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#a31889710c37d15f0ba96215072e178c6">Arccore::SpanImpl::fill</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE void fill(T o)</div><div class="ttdoc">Remplit le tableau avec la valeur o.</div><div class="ttdef"><b>Definition:</b> Span.h:192</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_a3578049c8b3419bb7b882acd74e0c712"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#a3578049c8b3419bb7b882acd74e0c712">Arccore::SpanImpl::smallView</a></div><div class="ttdeci">view_type smallView()</div><div class="ttdoc">Vue constante sur cette vue.</div><div class="ttdef"><b>Definition:</b> Span.h:201</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_a38a22f159eb75cc7152b7e6c4aa71bd3"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#a38a22f159eb75cc7152b7e6c4aa71bd3">Arccore::SpanImpl::SpanImpl</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE SpanImpl(const SpanImpl&lt; X, SizeType &gt; &amp;from)</div><div class="ttdoc">Constructeur de recopie depuis une autre vue.</div><div class="ttdef"><b>Definition:</b> Span.h:98</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_a5ae8d00a47d668652cbfa71a95f4fe9d"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#a5ae8d00a47d668652cbfa71a95f4fe9d">Arccore::SpanImpl::constSmallView</a></div><div class="ttdeci">ConstArrayView&lt; value_type &gt; constSmallView() const</div><div class="ttdoc">Vue constante sur cette vue.</div><div class="ttdef"><b>Definition:</b> Span.h:210</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_a5e3233005f03f244288b2d8b1b4bff5f"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#a5e3233005f03f244288b2d8b1b4bff5f">Arccore::SpanImpl::SpanImpl</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE SpanImpl(T *ptr, SizeType asize)</div><div class="ttdoc">Construit une vue sur une zone mémoire commencant par ptr et.</div><div class="ttdef"><b>Definition:</b> Span.h:102</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_a67c424d0d063a5b3ae1cf78b952ef826"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#a67c424d0d063a5b3ae1cf78b952ef826">Arccore::SpanImpl::end</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE iterator end() const</div><div class="ttdoc">Itérateur sur le premier élément après la fin du tableau.</div><div class="ttdef"><b>Definition:</b> Span.h:154</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_a6a36007a0ecbce2609c0d683c156e782"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#a6a36007a0ecbce2609c0d683c156e782">Arccore::SpanImpl::sizeBytes</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE Int64 sizeBytes() const</div><div class="ttdoc">Retourne la taille du tableau en octets.</div><div class="ttdef"><b>Definition:</b> Span.h:143</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_a70068610fd5b2be2c3792d7b06e41036"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#a70068610fd5b2be2c3792d7b06e41036">Arccore::SpanImpl::operator[]</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE reference operator[](SizeType i) const</div><div class="ttdoc">i-ème élément du tableau.</div><div class="ttdef"><b>Definition:</b> Span.h:112</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_a71e25461593fa748f700a819428b575a"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#a71e25461593fa748f700a819428b575a">Arccore::SpanImpl::_setArray</a></div><div class="ttdeci">void _setArray(T *v, SizeType s)</div><div class="ttdoc">Modifie le pointeur et la taille du tableau.</div><div class="ttdef"><b>Definition:</b> Span.h:321</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_a7893bc8625985fb87f398ca0519ec463"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#a7893bc8625985fb87f398ca0519ec463">Arccore::SpanImpl::copy</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE void copy(const U &amp;copy_array)</div><div class="ttdoc">Recopie le tableau copy_array dans l'instance.</div><div class="ttdef"><b>Definition:</b> Span.h:264</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_a8152ae6c046d5545c98df21bd84d3e0b"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#a8152ae6c046d5545c98df21bd84d3e0b">Arccore::SpanImpl::rend</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE reverse_iterator rend() const</div><div class="ttdoc">Itérateur inverse sur le premier élément après la fin du tableau.</div><div class="ttdef"><b>Definition:</b> Span.h:158</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_a864255842f3ebda6fa78ae9230c341be"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#a864255842f3ebda6fa78ae9230c341be">Arccore::SpanImpl::rbegin</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE reverse_iterator rbegin() const</div><div class="ttdoc">Itérateur inverse sur le premier élément du tableau.</div><div class="ttdef"><b>Definition:</b> Span.h:156</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_a8692d8f184d099b0df90f66a19299017"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#a8692d8f184d099b0df90f66a19299017">Arccore::SpanImpl::item</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE reference item(SizeType i) const</div><div class="ttdoc">i-ème élément du tableau.</div><div class="ttdef"><b>Definition:</b> Span.h:123</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_aa605cb70e41def75b63534fb3ef8a840"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#aa605cb70e41def75b63534fb3ef8a840">Arccore::SpanImpl::empty</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE bool empty() const</div><div class="ttdoc">Retourne true si le tableau est vide (dimension nulle)</div><div class="ttdef"><b>Definition:</b> Span.h:279</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_aa74f0cbce568e2004263a84faf2295a3"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#aa74f0cbce568e2004263a84faf2295a3">Arccore::SpanImpl::ptrAt</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE T * ptrAt(SizeType index) const</div><div class="ttdoc">Addresse du index-ème élément.</div><div class="ttdef"><b>Definition:</b> Span.h:171</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_aafcea6bb768db10254ce1db99a599a83"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#aafcea6bb768db10254ce1db99a599a83">Arccore::SpanImpl::subspan</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE ThatClass subspan(SizeType abegin, SizeType asize) const</div><div class="ttdoc">Sous-vue à partir de l'élément abegin et contenant asize éléments.</div><div class="ttdef"><b>Definition:</b> Span.h:223</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_ab42ce3ab757d48fc5504e77f8c761784"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#ab42ce3ab757d48fc5504e77f8c761784">Arccore::SpanImpl::range</a></div><div class="ttdeci">ArrayRange&lt; pointer &gt; range() const</div><div class="ttdoc">Intervalle d'itération du premier au dernièr élément.</div><div class="ttdef"><b>Definition:</b> Span.h:163</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_ac7d1686954b96809073c2ff0ed86861f"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#ac7d1686954b96809073c2ff0ed86861f">Arccore::SpanImpl::_setSize</a></div><div class="ttdeci">void _setSize(SizeType s)</div><div class="ttdoc">Modifie la taille du tableau.</div><div class="ttdef"><b>Definition:</b> Span.h:337</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_ad17a112473a88d79f348e77857e9c5cd"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#ad17a112473a88d79f348e77857e9c5cd">Arccore::SpanImpl::subViewInterval</a></div><div class="ttdeci">ThatClass subViewInterval(SizeType index, SizeType nb_interval) const</div><div class="ttdoc">Sous-vue correspondant à l'interval index sur nb_interval.</div><div class="ttdef"><b>Definition:</b> Span.h:244</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_ae35af8dbaa6aa79a573722bd4d5ec76d"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#ae35af8dbaa6aa79a573722bd4d5ec76d">Arccore::SpanImpl::SpanImpl</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE SpanImpl()</div><div class="ttdoc">Construit une vue vide.</div><div class="ttdef"><b>Definition:</b> Span.h:94</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_afb5661659aa684b5e9fab9845fa8662a"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#afb5661659aa684b5e9fab9845fa8662a">Arccore::SpanImpl::setItem</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE void setItem(SizeType i, const T &amp;v)</div><div class="ttdoc">Positionne le i-ème élément du tableau.</div><div class="ttdef"><b>Definition:</b> Span.h:134</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_afb7718ac3782b81feb78be193e54881b"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#afb7718ac3782b81feb78be193e54881b">Arccore::SpanImpl::length</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE SizeType length() const</div><div class="ttdoc">Nombre d'éléments du tableau.</div><div class="ttdef"><b>Definition:</b> Span.h:145</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_afba538b53bfedf0d817c0e3ed21e5393"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#afba538b53bfedf0d817c0e3ed21e5393">Arccore::SpanImpl::contains</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE bool contains(const T &amp;v) const</div><div class="ttdoc">true si le tableau contient l'élément de valeur v</div><div class="ttdef"><b>Definition:</b> Span.h:281</div></div>
+<div class="ttc" id="aclassArccore_1_1SpanImpl_html_afd587d66b72427fb277da2d84d4b6c96"><div class="ttname"><a href="../../d6/d42/classArccore_1_1SpanImpl.html#afd587d66b72427fb277da2d84d4b6c96">Arccore::SpanImpl::begin</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE iterator begin() const</div><div class="ttdoc">Itérateur sur le premier élément du tableau.</div><div class="ttdef"><b>Definition:</b> Span.h:150</div></div>
+<div class="ttc" id="aclassArccore_1_1Span_html"><div class="ttname"><a href="../../dd/d9f/classArccore_1_1Span.html">Arccore::Span</a></div><div class="ttdoc">Vue d'un tableau d'éléments de type T.</div><div class="ttdef"><b>Definition:</b> Span.h:368</div></div>
+<div class="ttc" id="aclassArccore_1_1Span_html_a185776ed431516c7f30734557161e843"><div class="ttname"><a href="../../dd/d9f/classArccore_1_1Span.html#a185776ed431516c7f30734557161e843">Arccore::Span::subspan</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE Span&lt; T &gt; subspan(Int64 abegin, Int64 asize) const</div><div class="ttdoc">Sous-vue à partir de l'élément abegin et contenant asize éléments.</div><div class="ttdef"><b>Definition:</b> Span.h:408</div></div>
+<div class="ttc" id="aclassArccore_1_1Span_html_a2af72a6ea2600d0b08a7d14b8ae28cf3"><div class="ttname"><a href="../../dd/d9f/classArccore_1_1Span.html#a2af72a6ea2600d0b08a7d14b8ae28cf3">Arccore::Span::Span</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE Span(const ArrayView&lt; value_type &gt; &amp;from)</div><div class="ttdoc">Constructeur de recopie depuis une autre vue.</div><div class="ttdef"><b>Definition:</b> Span.h:379</div></div>
+<div class="ttc" id="aclassArccore_1_1Span_html_a2c8b0a634f5ad6046e269eae305d7637"><div class="ttname"><a href="../../dd/d9f/classArccore_1_1Span.html#a2c8b0a634f5ad6046e269eae305d7637">Arccore::Span::Span</a></div><div class="ttdeci">Span()=default</div><div class="ttdoc">Construit une vue vide.</div></div>
+<div class="ttc" id="aclassArccore_1_1Span_html_a46cc69ce180c15b5973f61841c72d012"><div class="ttname"><a href="../../dd/d9f/classArccore_1_1Span.html#a46cc69ce180c15b5973f61841c72d012">Arccore::Span::Span</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE Span(T *ptr, Int64 asize)</div><div class="ttdoc">Construit une vue sur une zone mémoire commencant par ptr et.</div><div class="ttdef"><b>Definition:</b> Span.h:396</div></div>
+<div class="ttc" id="aclassArccore_1_1Span_html_a5bd0e78be095dd435d0d03e933b1621c"><div class="ttname"><a href="../../dd/d9f/classArccore_1_1Span.html#a5bd0e78be095dd435d0d03e933b1621c">Arccore::Span::subViewInterval</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE Span&lt; T &gt; subViewInterval(Int64 index, Int64 nb_interval) const</div><div class="ttdoc">Sous-vue correspondant à l'interval index sur nb_interval.</div><div class="ttdef"><b>Definition:</b> Span.h:426</div></div>
+<div class="ttc" id="aclassArccore_1_1Span_html_aced7f0902521262b4eaa59887cec8ef2"><div class="ttname"><a href="../../dd/d9f/classArccore_1_1Span.html#aced7f0902521262b4eaa59887cec8ef2">Arccore::Span::subView</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE Span&lt; T &gt; subView(Int64 abegin, Int64 asize) const</div><div class="ttdoc">Sous-vue à partir de l'élément abegin et contenant asize éléments.</div><div class="ttdef"><b>Definition:</b> Span.h:420</div></div>
+<div class="ttc" id="aclassArccore_1_1detail_1_1ViewTypeT_html"><div class="ttname"><a href="../../df/d67/classArccore_1_1detail_1_1ViewTypeT.html">Arccore::detail::ViewTypeT</a></div><div class="ttdef"><b>Definition:</b> Span.h:44</div></div>
+<div class="ttc" id="anamespaceArcane_html_ae7fe252d07667426958ff2a1aa634196"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ae7fe252d07667426958ff2a1aa634196">Arcane::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;ostr, eItemKind item_kind)</div><div class="ttdoc">Opérateur de sortie sur un flot.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.cc:73</div></div>
+<div class="ttc" id="anamespaceArccore_html"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html">Arccore</a></div><div class="ttdoc">Espace de nom de Arccore.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:24</div></div>
+<div class="ttc" id="anamespaceArccore_html_a19fea02f94d4da203710fd2070c0f2fb"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Arccore::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:236</div></div>
+<div class="ttc" id="anamespaceArccore_html_a340238f0760379df351cab1f7cdd284c"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a340238f0760379df351cab1f7cdd284c">Arccore::_sampleSpan</a></div><div class="ttdeci">void _sampleSpan(SpanImpl&lt; const DataType, SizeType &gt; values, SpanImpl&lt; const IntegerType, SizeType &gt; indexes, SpanImpl&lt; DataType, SizeType &gt; result)</div><div class="ttdoc">Extrait un sous-tableau à à partir d'une liste d'index.</div><div class="ttdef"><b>Definition:</b> Span.h:622</div></div>
+<div class="ttc" id="anamespaceArccore_html_a7cde9b16416e2271fa90d200e7c9e276"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Arccore::Int64</a></div><div class="ttdeci">std::int64_t Int64</div><div class="ttdoc">Type entier signé sur 64 bits.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:183</div></div>
+<div class="ttc" id="anamespaceArccore_html_aa7b4e1c64dcae64730511c8b3fc37511"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#aa7b4e1c64dcae64730511c8b3fc37511">Arccore::arccoreCheckArraySize</a></div><div class="ttdeci">ARCCORE_BASE_EXPORT Integer arccoreCheckArraySize(unsigned long long size)</div><div class="ttdoc">Vérifie que size peut être converti dans un 'Integer' pour servir de taille à un tableau....</div><div class="ttdef"><b>Definition:</b> ArrayView.cc:49</div></div>
+<div class="ttc" id="anamespaceArccore_html_aada85e6e09aa1c9310bb7044703fb0df"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#aada85e6e09aa1c9310bb7044703fb0df">Arccore::sampleSpan</a></div><div class="ttdeci">void sampleSpan(Span&lt; const DataType &gt; values, Span&lt; const Int64 &gt; indexes, Span&lt; DataType &gt; result)</div><div class="ttdoc">Extrait un sous-tableau à à partir d'une liste d'index.</div><div class="ttdef"><b>Definition:</b> Span.h:647</div></div>
+<div class="ttc" id="anamespaceArccore_html_ab32c98ae2c2cf8372feb620983bb5b67"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#ab32c98ae2c2cf8372feb620983bb5b67">Arccore::Int32</a></div><div class="ttdeci">std::int32_t Int32</div><div class="ttdoc">Type entier signé sur 32 bits.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:182</div></div>
+<div class="ttc" id="anamespaceArccore_html_ab5aa97331ef394d3fe9a838d85d41d70"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#ab5aa97331ef394d3fe9a838d85d41d70">Arccore::asBytes</a></div><div class="ttdeci">Span&lt; const std::byte &gt; asBytes(SpanImpl&lt; const DataType, SizeType &gt; s)</div><div class="ttdoc">Converti la vue en un tableau d'octets non modifiables.</div><div class="ttdef"><b>Definition:</b> Span.h:672</div></div>
+<div class="ttc" id="anamespaceArccore_html_acc2769b4416dee74d273c292ec1a6f53"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#acc2769b4416dee74d273c292ec1a6f53">Arccore::asWritableBytes</a></div><div class="ttdeci">Span&lt; std::byte &gt; asWritableBytes(SpanImpl&lt; DataType, SizeType &gt; s)</div><div class="ttdoc">Converti la vue en un tableau d'octets modifiables.</div><div class="ttdef"><b>Definition:</b> Span.h:687</div></div>
+<div class="ttc" id="anamespaceArccore_html_accd1640bb647607ff3e9d5e2c11e97dc"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#accd1640bb647607ff3e9d5e2c11e97dc">Arccore::dumpArray</a></div><div class="ttdeci">void dumpArray(std::ostream &amp;o, ConstArrayView&lt; T &gt; val, int max_print)</div><div class="ttdoc">Affiche sur le flot o les valeurs du tableau val.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:718</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_6495e2f1ddb8636de3a40a77818a3fea.html">arccore</a></li><li class="navelem"><a class="el" href="../../dir_fdd937920005a50be918d5ba10c6d9bc.html">src</a></li><li class="navelem"><a class="el" href="../../dir_3e497bf2f22d18fddf8d9a9dcddc574c.html">base</a></li><li class="navelem"><a class="el" href="../../dir_317292796549f57c322564f1daeb9fb5.html">arccore</a></li><li class="navelem"><a class="el" href="../../dir_8a3b74d6d60129cae386750cf1370bdf.html">base</a></li><li class="navelem"><b>Span.h</b></li>
+    <li class="footer">Généré le Jeudi 23 Septembre 2021 09:25:17 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

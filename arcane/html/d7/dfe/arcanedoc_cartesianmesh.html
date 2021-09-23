@@ -1,0 +1,228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane: Gestion des maillages cartésiens</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.0.4.16</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d7/dfe/arcanedoc_cartesianmesh.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Gestion des maillages cartésiens </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="toc"><h3>Table des matières</h3>
+<ul><li class="level1"><a href="#arcanedoc_cartesianmesh_init">Initialisation</a></li>
+<li class="level1"><a href="#arcanedoc_cartesianmesh_direction">Utilisation des infos par direction</a></li>
+<li class="level1"><a href="#arcanedoc_cartesianmesh_cartesian_connectivity">Utilisation des connectivités cartésiennnes</a></li>
+</ul>
+</div>
+<div class="textblock"><p><a class="anchor" id="md__home_grospellierg_arcane_packaging_framework_arcane_ceapart_src_arcane_cea_cartesian_mesh"></a></p>
+<p>Cette page décrit la gestion des maillages cartésiens dans Arcane.</p>
+<dl class="section note"><dt>Note</dt><dd>Pour l'instant, Arcane ne gère pas le recalcul des infos de structuration lorsque le maillage change.</dd></dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>Les classes gérant la structuration ne sont finalisées et l'API pourra donc évoluer si besoin.</dd></dl>
+<h1><a class="anchor" id="arcanedoc_cartesianmesh_init"></a>
+Initialisation</h1>
+<p>Pour avoir les infos sur un maillage cartésien, il est nécessaire d'avoir une instance de la classe <a class="el" href="../../d1/d62/classArcane_1_1ICartesianMesh.html" title="Interface d&#39;un maillage cartésien.">Arcane::ICartesianMesh</a>. Pour l'instant, une telle instance est créée via la méthode Arcane::arcaneCreateCartesianMesh():</p>
+<div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line">IMesh* mesh = ...;</div>
+<div class="line">ICartesianMesh* cartesian_mesh = arcaneCreateCartesianMesh(mesh);</div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">Interface for base mesh operations.</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+</div><!-- fragment --><p>Une fois l'instance créée et avant de pouvoir l'utiliser, il est nécessaire de calculer les infos de direction via la méthode <a class="el" href="../../d1/d62/classArcane_1_1ICartesianMesh.html#ac538324a7b6d53031da839c54b3dc55c" title="Calcule les infos pour les accès par direction.">Arcane::ICartesianMesh::computeDirections()</a>. Cet appel ne doit être fait qu'une seule fois, par exemple lors de l'initialisation du code.</p>
+<div class="fragment"><div class="line">cartesian_mesh-&gt;computeDirections();</div>
+</div><!-- fragment --><h1><a class="anchor" id="arcanedoc_cartesianmesh_direction"></a>
+Utilisation des infos par direction</h1>
+<p>Une fois ceci fait, il est possible d'avoir des infos sur les entités pour une direction donnée. Les directions possibles sont données par le type #eMeshDirection. Il est aussi possible d'utiliser un entier pour spécifier la direction, 0 correspondant à la direction X, 1 à la direction Y et 2 à la direction Z. Pour des raisons de lisibilité, il est conseillé d'utiliser le type énuméré si possible. Par exemple, pour récupérer les infos sur les mailles de la direction Y:</p>
+<div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line">CellDirectionMng cell_dm(cartesian_mesh-&gt;cellDirection(<a class="code" href="../../d0/d32/namespaceArcane.html#a87ef4153518c68216588e90c3edbb250ab1804bffed1e985d78500c814222b59b">MD_DirY</a>));</div>
+<div class="line">CellDirectionMng cell_dm(cartesian_mesh-&gt;cellDirection(1));</div>
+<div class="ttc" id="anamespaceArcane_html_a87ef4153518c68216588e90c3edbb250ab1804bffed1e985d78500c814222b59b"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a87ef4153518c68216588e90c3edbb250ab1804bffed1e985d78500c814222b59b">Arcane::MD_DirY</a></div><div class="ttdeci">@ MD_DirY</div><div class="ttdoc">Direction Y.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:278</div></div>
+</div><!-- fragment --><dl class="section warning"><dt>Avertissement</dt><dd>Les objets gérant les entités par direction sont des objets temporaires qui ne doivent pas être conservés notamment d'une itération à l'autre ou lorsque le maillage change.</dd></dl>
+<p>Une fois une direction récupérée, il est possible d'itérer sur toutes les entités de la direction et pour les mailles par exemple d'avoir la maille avant et après:</p>
+<div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line"><a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(icell,cell_dm.allCells()){</div>
+<div class="line">  Cell cell = *icell;</div>
+<div class="line">  DirCell dir_cell(cell_dm[icell]); <span class="comment">// Infos de direction pour cell</span></div>
+<div class="line">  Cell prev_cell = dir_cell.previous(); <span class="comment">// Maille avant</span></div>
+<div class="line">  Cell next_cell = dir_cell.next(); <span class="comment">// Maille après.</span></div>
+<div class="line">}</div>
+<div class="ttc" id="aItemEnumerator_8h_html_aaf5910d68ad8428248f844535ab071f3"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a></div><div class="ttdeci">#define ENUMERATE_CELL(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:221</div></div>
+</div><!-- fragment --><p>Pour les mailles de bord, il est possible que <em>prev_cell</em> ou <em>next_cell</em> soit nulle. Cela peut se tester via la méthode <a class="el" href="../../df/d5f/classArcane_1_1Item.html#a02a2c347c90124d6a4b9c75af7ab9fbe" title="true si l&#39;entité est nul (i.e. non connecté au maillage)">Arcane::Cell::null()</a>.</p>
+<p>La récupération des noeuds d'une direction se fait de la même manière.</p>
+<div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line">NodeDirectionMng node_dm(cartesian_mesh-&gt;nodeDirection(<a class="code" href="../../d0/d32/namespaceArcane.html#a87ef4153518c68216588e90c3edbb250acd881c39f4f6a65eb5933f666f4a4115">MD_DirX</a>));</div>
+<div class="line"><a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aea36524754c129124072de38e045d6ba">ENUMERATE_NODE</a>(inode,node_dm.allNodes()){</div>
+<div class="line">  Node node = *inode;</div>
+<div class="line">  DirNode dir_node(node_dm[inode]); <span class="comment">// Infos de direction pour node</span></div>
+<div class="line">  Node prev_cell = dir_node.previous(); <span class="comment">// Noeud avant</span></div>
+<div class="line">  Node next_cell = dir_node.next(); <span class="comment">// Noeud après</span></div>
+<div class="line">}</div>
+<div class="ttc" id="aItemEnumerator_8h_html_aea36524754c129124072de38e045d6ba"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#aea36524754c129124072de38e045d6ba">ENUMERATE_NODE</a></div><div class="ttdeci">#define ENUMERATE_NODE(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de noeuds.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:212</div></div>
+<div class="ttc" id="anamespaceArcane_html_a87ef4153518c68216588e90c3edbb250acd881c39f4f6a65eb5933f666f4a4115"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a87ef4153518c68216588e90c3edbb250acd881c39f4f6a65eb5933f666f4a4115">Arcane::MD_DirX</a></div><div class="ttdeci">@ MD_DirX</div><div class="ttdoc">Direction X.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:276</div></div>
+</div><!-- fragment --><p>Pour les faces, l'écriture est similaire mais au lieu de récupérer la face avant et après la face courante, on peut récupérer la maille avant et après:</p>
+<div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line">FaceDirectionMng face_dm(cartesian_mesh-&gt;faceDirection(<a class="code" href="../../d0/d32/namespaceArcane.html#a87ef4153518c68216588e90c3edbb250acd881c39f4f6a65eb5933f666f4a4115">MD_DirX</a>));</div>
+<div class="line"><a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#a2301a57310b51190d331e08b4220e9e4">ENUMERATE_FACE</a>(iface,face_dm.allFaces()){</div>
+<div class="line">  Face face = *iface;</div>
+<div class="line">  DirFace dir_face(face_dm[iface]);</div>
+<div class="line">  Cell prev_cell = dir_face.previousCell(); <span class="comment">// Maille avant la face</span></div>
+<div class="line">  Cell next_cell = dir_face.nextCell(); <span class="comment">// Maille après la face</span></div>
+<div class="line">}</div>
+<div class="ttc" id="aItemEnumerator_8h_html_a2301a57310b51190d331e08b4220e9e4"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#a2301a57310b51190d331e08b4220e9e4">ENUMERATE_FACE</a></div><div class="ttdeci">#define ENUMERATE_FACE(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de faces.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:218</div></div>
+</div><!-- fragment --><p>Enfin, pour les mailles, il est possible de récupérer des infos directionnelles sur les noeuds d'une maille suivant une direction, via la classe DirCellNode. </p><dl class="section note"><dt>Note</dt><dd>Cela n'est pour l'instant implémenté que pour les maillages 2D.</dd></dl>
+<div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line">CellDirectionMng cell_dm(cartesian_mesh-&gt;cellDirection(<a class="code" href="../../d0/d32/namespaceArcane.html#a87ef4153518c68216588e90c3edbb250ab1804bffed1e985d78500c814222b59b">MD_DirY</a>));</div>
+<div class="line"><a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(icell,cell_dm.allCells()){</div>
+<div class="line">  Cell cell = *icell;</div>
+<div class="line">  DirCellNode cn(cell_dm.cellNode(cell));</div>
+<div class="line">  Node next_left = cn.nextLeft(); <span class="comment">// Noeud à gauche vers la maille d&#39;après.</span></div>
+<div class="line">  Node next_right = cn.nextRight(); <span class="comment">// Noeud à droite vers la maille d&#39;après.</span></div>
+<div class="line">  Node prev_right = cn.previousRight(); <span class="comment">// Noeud à droite vers la maille d&#39;avant .</span></div>
+<div class="line">  Node prev_left = cn.previousLeft(); <span class="comment">// Noeud à gauche vers la maille d&#39;avant .</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><p>De la même manière, il est aussi possible de connaitre la face devant et derrière la maille dans une direction donnée (cela fonctionne aussi en 3D):</p>
+<div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line">CellDirectionMng cell_dm(cartesian_mesh-&gt;cellDirection(<a class="code" href="../../d0/d32/namespaceArcane.html#a87ef4153518c68216588e90c3edbb250ab1804bffed1e985d78500c814222b59b">MD_DirY</a>));</div>
+<div class="line"><a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(icell,cell_dm.allCells()){</div>
+<div class="line">  Cell cell = *icell;</div>
+<div class="line">  DirCellFace cf(cell_dm.cellFace(cell));</div>
+<div class="line">  Face next_left = cf.next(); <span class="comment">// Face connectée à la maille d&#39;après.</span></div>
+<div class="line">  Face prev_right = cf.previous(); <span class="comment">// Face connectée à la maille d&#39;avant.</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Pour itérer sur toutes les directions d'un maillage, il est possible de boucler comme suit:</p>
+<div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line"><a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> nb_dir = mesh-&gt;dimension();</div>
+<div class="line"><span class="keywordflow">for</span>( Integer idir=0; idir&lt;nb_dir; ++idir){</div>
+<div class="line">  CellDirectionMng cdm(cartesian_mesh-&gt;cellDirection(idir));</div>
+<div class="line">  <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(icell,cdm.allCells()){</div>
+<div class="line">    ...</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+<div class="ttc" id="anamespaceArccore_html_a19fea02f94d4da203710fd2070c0f2fb"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Arccore::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:236</div></div>
+</div><!-- fragment --><p>Depuis la version 1.23.0 de Arcane, il est possible de connaître le nombre global de maille dans une direction donnée via CellDirectionMng::globalNbCell(). De même, il est possible, en supposant que le découpage en sous-domaine peut se représenter sous forme d'une grille, de connaître la numérotation dans cette grille via CellDirectionMng::subDomainOffset(). Cette numérotation commence à 0.</p>
+<p>Depuis la version 1.23.1, il est aussi possible de connaître le nombre de maille propre du sous-domaine dans une direction donnée via CellDirectionMng::ownNbCell(). Il est aussi possible de connaître l'offset dans la grile de la première maille propre via CellDirectionMng::ownCellOffset().</p>
+<dl class="section warning"><dt>Avertissement</dt><dd>Ces informations ne sont accessibles que si le maillage a été généré via le générateur spécifique cartésien. En particulier, elles ne sont pas accessible si le maillage est issu d'un fichier. Pour plus d'informations, se reporter à la description de ces méthodes.</dd></dl>
+<h1><a class="anchor" id="arcanedoc_cartesianmesh_cartesian_connectivity"></a>
+Utilisation des connectivités cartésiennnes</h1>
+<p>Depuis la version 1.20.0 de Arcane, il est possible en 2D d'avoir accès aux mailles autour d'un noeud et aux noeuds de la maille sans passer par les connectivités directionnelles. Cela se fait via l'objet CartesianConnectivity qui est retourné par l'appel à ICartesianMesh::connectivity(). Par exemple:</p>
+<div class="fragment"><div class="line">  CartesianConnectivity cc = cartesian_mesh-&gt;connectivity();</div>
+<div class="line">  <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aea36524754c129124072de38e045d6ba">ENUMERATE_NODE</a>(inode,allNodes()){</div>
+<div class="line">    Node n = *inode;</div>
+<div class="line">    Cell c1 = cc.upperLeft(n); <span class="comment">// Maille en haut à gauche</span></div>
+<div class="line">    Cell c2 = cc.upperRight(n); <span class="comment">// Maille en haut à droite</span></div>
+<div class="line">    Cell c3 = cc.lowerRight(n); <span class="comment">// Maille en bas à droite</span></div>
+<div class="line">    Cell c4 = cc.lowerLeft(n); <span class="comment">// Maille en bas à gauche</span></div>
+<div class="line">    info(6) &lt;&lt; <span class="stringliteral">&quot; C1=&quot;</span> &lt;&lt; ItemPrinter(c1) &lt;&lt; <span class="stringliteral">&quot; C2=&quot;</span> &lt;&lt; ItemPrinter(c2)</div>
+<div class="line">            &lt;&lt; <span class="stringliteral">&quot; C3=&quot;</span> &lt;&lt; ItemPrinter(c3) &lt;&lt; <span class="stringliteral">&quot; C4=&quot;</span> &lt;&lt; ItemPrinter(c4);</div>
+<div class="line">  }</div>
+</div><!-- fragment --><p> Et de la même manière pour les mailles:</p>
+<div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line">CartesianConnectivity cc = cartesian_mesh-&gt;connectivity();</div>
+<div class="line"><a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(icell,allCells()){</div>
+<div class="line">  Cell c = *icell;</div>
+<div class="line">  Node n1 = cc.upperLeft(c); <span class="comment">// Noeud en haut à gauche</span></div>
+<div class="line">  Node n2 = cc.upperRight(c); <span class="comment">// Noeud en haut à droite</span></div>
+<div class="line">  Node n3 = cc.lowerRight(c); <span class="comment">// Noeud en bas à droite</span></div>
+<div class="line">  Node n4 = cc.lowerLeft(c); <span class="comment">// Noeud en bas à gauche</span></div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Depuis la version 1.22.1, ces connectivités sont aussi accessible en 3D. La nomemclature est la même que pour les connectivités 2D. Le préfixe topZ est utilisé pour les noeuds du dessus de la même suivant la direction Z. Pour ceux du dessous, il n'y a pas de préfixe et donc le nom de la méthode est le même qu'en 2D. Cela permet éventuellement d'utiliser le même code en 2D et en 3D.</p>
+<div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line">CartesianConnectivity cc = cartesian_mesh-&gt;connectivity();</div>
+<div class="line"><a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(icell,allCells()){</div>
+<div class="line">  Cell c = *icell;</div>
+<div class="line">  Node n1 = cc.upperLeft(c); <span class="comment">// Noeud en dessous en Z, en haut à gauche</span></div>
+<div class="line">  Node n2 = cc.upperRight(c); <span class="comment">// Noeud en dessous en Z, en haut à droite</span></div>
+<div class="line">  Node n3 = cc.lowerRight(c); <span class="comment">// Noeud en dessous en Z, en bas à droite</span></div>
+<div class="line">  Node n4 = cc.lowerLeft(c); <span class="comment">// Noeud en dessous en Z, en bas à gauche</span></div>
+<div class="line">  Node n5 = cc.topZUpperLeft(c); <span class="comment">// Noeud au dessus en Z, en haut à gauche</span></div>
+<div class="line">  Node n6 = cc.topZUpperRight(c); <span class="comment">// Noeud au dessus en Z, en haut à droite</span></div>
+<div class="line">  Node n7 = cc.topZLowerRight(c); <span class="comment">// Noeud au dessus en Z,en bas à droite</span></div>
+<div class="line">  Node n8 = cc.topZLowerLeft(c); <span class="comment">// Noeud au dessus en Z,en bas à gauche</span></div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li>
+    <li class="footer">Généré le Jeudi 23 Septembre 2021 09:25:21 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane: Concurrence et multi-threading</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.0.4.16</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('dd/db4/arcanedoc_concurrency.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Concurrence et multi-threading </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="toc"><h3>Table des matières</h3>
+<ul><li class="level1"><a href="#arcanedoc_concurrency_activation">Activation</a></li>
+<li class="level1"><a href="#arcanedoc_concurrency_parallel_for">Boucles parallèles</a></li>
+<li class="level1"><a href="#arcanedoc_concurrency_task">Utilisation explicite des tâches</a></li>
+</ul>
+</div>
+<div class="textblock"><p><a class="anchor" id="md__home_grospellierg_arcane_packaging_framework_arcane_doc_common_concurrency"></a></p>
+<p>La notion de concurrence est implémentée dans Arcane via la notion de tâche.</p>
+<p>Cette notion de tâche permet l'exécution concurrente de plusieurs opérations via les threads.</p>
+<p>Cette notion est complémentaire de la notion de décomposition de domaine utilisée par le <a class="el" href="../../dc/d5a/classArcane_1_1IParallelMng.html" title="Interface du gestionnaire de parallélisme pour un sous-domaine.">Arcane::IParallelMng</a>. Il est donc tout à fait possible de mélanger décomposition de domaine et les thread.</p>
+<dl class="section warning"><dt>Avertissement</dt><dd>Néanmoins, si l'implémentation de <a class="el" href="../../dc/d5a/classArcane_1_1IParallelMng.html" title="Interface du gestionnaire de parallélisme pour un sous-domaine.">Arcane::IParallelMng</a> se fait via MPI, il est déconseillé de faire des appels au <a class="el" href="../../dc/d5a/classArcane_1_1IParallelMng.html" title="Interface du gestionnaire de parallélisme pour un sous-domaine.">Arcane::IParallelMng</a> lorsque des tâches se déroulent de manière concurrente, par exemle dans les boucles parallélisées. La plupart des implémentations MPI ne sont pas très performantes dans ce mode et certaines ne le supporte que partiellement.</dd></dl>
+<p>Pour utiliser les tâches, il faut inclure le fichier suivant:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d4/d05/Concurrency_8h.html">arcane/Concurrency.h</a>&quot;</span></div>
+<div class="ttc" id="aConcurrency_8h_html"><div class="ttname"><a href="../../d4/d05/Concurrency_8h.html">Concurrency.h</a></div><div class="ttdoc">Classes, Types et macros pour gérer la concurrence.</div></div>
+</div><!-- fragment --><p>Il existe deux mécanismes pour utiliser les tâches:</p>
+<ol type="1">
+<li>Implicitement via la notion de boucle parallèle</li>
+<li>explicitement en créant les tâches directement</li>
+</ol>
+<p>La première solution est la plus simple et doit être envisagée en priorité.</p>
+<h1><a class="anchor" id="arcanedoc_concurrency_activation"></a>
+Activation</h1>
+<p>Par défaut, le support de la concurrence est désactivé. L'activation se fait <b>avant</b> le lancement du code, en spécifiant le nombre de tâches pouvant s'exécuter de manière concurrentes lors de la ligne de commande (se reporter à la page <a class="el" href="../../da/da4/arcanedoc_launcher.html">Lancement d'un calcul</a> pour savoir comment faire cela).</p>
+<p>Il est possible de savoir dans le code si la concurrence est active en appelant la méthode <a class="el" href="../../d6/d0d/classArcane_1_1TaskFactory.html#ac1c5f1d4743f2a7b0e8d2e4151ea928a" title="Indique si les tâches sont actives. Les tâches sont actives si une implémentation est disponible et s...">Arcane::TaskFactory::isActive()</a>.</p>
+<p>Il n'est pas possible d'activer la concurrence pendant l'exécution.</p>
+<h1><a class="anchor" id="arcanedoc_concurrency_parallel_for"></a>
+Boucles parallèles</h1>
+<p>Il existe deux formes de boucles parallèles. La première forme s'applique sur les boucles classiques, la seconde sur les groupes d'entités.</p>
+<p>Le mécanisme de fonctionnement est similaire aux directives <code>omp parallel for</code> de OpenMp.</p>
+<dl class="section warning"><dt>Avertissement</dt><dd>L'utilisateur de ce mécanisme doit s'assurer que la boucle peut être correctement parallélisée sans qu'il y ait d'effets de bord. Notamment, cela inclut (mais ne se limite pas) la garantie que les itérations de la boucle sont indépendantes, qu'il n'y a pas d'opérations de sortie de boucle (return, break).</dd></dl>
+<p>La première forme est pour paralléliser la boucle séquentielle suivante:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> func()</div>
+<div class="line">{</div>
+<div class="line">  <span class="keywordflow">for</span>( Integer i=0; i&lt;n; ++i )</div>
+<div class="line">    p[i] = (gamma[i]-1) * rho[i] * e[i];</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>La parallélisation se fait comme suit: il faut d'abord écrire une classe fonctor qui représente l'opération que l'on souhaite effectuée sur un interval d'itération. Ensuite, il faut utiliser l'opération <a class="el" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd" title="Applique en concurrence la fonction lambda lambda_function sur l&#39;intervalle d&#39;itération [i0,...">arcaneParallelFor()</a> en spécifiant ce fonctor en argument comme suit:</p>
+<div class="fragment"><div class="line"><span class="keyword">class </span>Func</div>
+<div class="line">{</div>
+<div class="line">  <span class="keyword">public</span>:</div>
+<div class="line">   <span class="keywordtype">void</span> exec(Integer begin,Integer size)</div>
+<div class="line">   {</div>
+<div class="line">     <span class="keywordflow">for</span>( Integer i=begin; i&lt;(begin+size); ++i )</div>
+<div class="line">       p[i] = (gamma[i]-1) * rho[i] * e[i];</div>
+<div class="line">   }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> func()</div>
+<div class="line">{</div>
+<div class="line">  Func my_functor;</div>
+<div class="line">  <a class="code" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd">Arcane::arcaneParallelFor</a>(0,n,&amp;my_functor,&amp;Func::exec);</div>
+<div class="line">}</div>
+<div class="ttc" id="agroup__Concurrency_html_ga3ccb4306b9c1745f2f5b2f72e727e9cd"><div class="ttname"><a href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd">Arcane::arcaneParallelFor</a></div><div class="ttdeci">void arcaneParallelFor(Integer i0, Integer size, InstanceType *itype, void(InstanceType::*lambda_function)(Integer i0, Integer size))</div><div class="ttdoc">Applique en concurrence la fonction lambda lambda_function sur l'intervalle d'itération [i0,...</div><div class="ttdef"><b>Definition:</b> Concurrency.h:142</div></div>
+</div><!-- fragment --><p>Cette syntaxe est un peu verbeuse. Si le compilateur supporte la norme C++11, il est possible d'utiliser les lambda function pour simplifier l'écriture:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> func()</div>
+<div class="line">{</div>
+<div class="line">  <a class="code" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd">Arcane::arcaneParallelFor</a>(0,n,[&amp;](Integer begin,Integer size){</div>
+<div class="line">     <span class="keywordflow">for</span>( Integer i=begin; i&lt;(begin+size); ++i )</div>
+<div class="line">       p[i] = (gamma[i]-1.0) * rho[i] * e[i];</div>
+<div class="line">  });</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Une spécialisation existe pour les groupes d'entités. Pour paralléliser une énumération sur un groupe comme le code suivant:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> func()</div>
+<div class="line">{</div>
+<div class="line">  <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(icell,my_group){</div>
+<div class="line">    p[icell] = (gamma[icell]-1.0) * rho[icell] * e[icell];</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+<div class="ttc" id="aItemEnumerator_8h_html_aaf5910d68ad8428248f844535ab071f3"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a></div><div class="ttdeci">#define ENUMERATE_CELL(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:221</div></div>
+</div><!-- fragment --><p>Il faut écrire comme cela:</p>
+<div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line"><span class="keyword">class </span>Func</div>
+<div class="line">{</div>
+<div class="line">  <span class="keyword">public</span>:</div>
+<div class="line">   <span class="keywordtype">void</span> exec(<a class="code" href="../../de/db5/group__Mesh.html#ga914dea9362ea4dd4c2ca3023bcdbeb62">CellVectorView</a> view)</div>
+<div class="line">   {</div>
+<div class="line">     <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(icell,view){</div>
+<div class="line">       p[icell] = (gamma[icell]-1.0) * rho[icell] * e[icell];</div>
+<div class="line">     }</div>
+<div class="line">   }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> func()</div>
+<div class="line">{</div>
+<div class="line">  Func my_functor;</div>
+<div class="line">  <a class="code" href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c">arcaneParallelForeach</a>(my_group,&amp;my_functor,&amp;Func::exec);</div>
+<div class="line">}</div>
+<div class="ttc" id="agroup__Concurrency_html_ga8cea6a6d467b818b0347af4bbbe1036c"><div class="ttname"><a href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c">Arcane::arcaneParallelForeach</a></div><div class="ttdeci">void arcaneParallelForeach(const ItemVectorView &amp;items_view, const ParallelLoopOptions &amp;options, InstanceType *instance, void(InstanceType::*function)(ItemVectorViewT&lt; ItemType &gt; items))</div><div class="ttdoc">Applique en concurrence la méthode function de l'instance instance sur la vue items_view avec les opt...</div><div class="ttdef"><b>Definition:</b> Concurrency.h:39</div></div>
+<div class="ttc" id="agroup__Mesh_html_ga914dea9362ea4dd4c2ca3023bcdbeb62"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga914dea9362ea4dd4c2ca3023bcdbeb62">Arcane::CellVectorView</a></div><div class="ttdeci">ItemVectorViewT&lt; Cell &gt; CellVectorView</div><div class="ttdoc">Vue sur un vecteur de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:242</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">Interface for base mesh operations.</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+</div><!-- fragment --><p>De même, avec le support du C++11, on peut simplifier:</p>
+<div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line"><span class="keywordtype">void</span> func()</div>
+<div class="line">{</div>
+<div class="line">  <a class="code" href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c">arcaneParallelForeach</a>(my_group,[&amp;](<a class="code" href="../../de/db5/group__Mesh.html#ga914dea9362ea4dd4c2ca3023bcdbeb62">CellVectorView</a> cells){</div>
+<div class="line">    <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(icell,cells){</div>
+<div class="line">      p[icell] = (gamma[icell]-1.0) * rho[icell] * e[icell];</div>
+<div class="line">    }</div>
+<div class="line">  });</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Pour les boucles <a class="el" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd" title="Applique en concurrence la fonction lambda lambda_function sur l&#39;intervalle d&#39;itération [i0,...">Arcane::arcaneParallelFor()</a> et <a class="el" href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c" title="Applique en concurrence la méthode function de l&#39;instance instance sur la vue items_view avec les opt...">Arcane::arcaneParallelForeach()</a>, il est possible de passer en argument une instance de ParallelLoopOptions pour configurer la boucle parallèle. Par exemple, il est possible de spécifier la taille de l'intervalle pour découper la boucle:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> func()</div>
+<div class="line">{</div>
+<div class="line">  <a class="code" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">Arcane::ParallelLoopOptions</a> options;</div>
+<div class="line">  <span class="comment">// Exécute la boucle par parties d&#39;environ 50 mailles.</span></div>
+<div class="line">  options.<a class="code" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html#abb6d3a03def71e968fb0a8f200319c66">setGrainSize</a>(50);</div>
+<div class="line">  <a class="code" href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c">Arcane::arcaneParallelForeach</a>(my_group,[&amp;](<a class="code" href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">Arcane::CellVectorView</a> cells){</div>
+<div class="line">    <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(icell,cells){</div>
+<div class="line">      p[icell] = (gamma[icell]-1.0) * rho[icell] * e[icell];</div>
+<div class="line">    }</div>
+<div class="line">  });</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassArcane_1_1ItemVectorViewT_html"><div class="ttname"><a href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">Arcane::ItemVectorViewT</a></div><div class="ttdoc">Vue sur un tableau typé d'entités.</div><div class="ttdef"><b>Definition:</b> ItemVectorView.h:214</div></div>
+<div class="ttc" id="aclassArcane_1_1ParallelLoopOptions_html"><div class="ttname"><a href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">Arcane::ParallelLoopOptions</a></div><div class="ttdoc">Options d'exécution d'une boucle parallèle en multi-thread.</div><div class="ttdef"><b>Definition:</b> ConcurrencyUtils.h:52</div></div>
+<div class="ttc" id="aclassArcane_1_1ParallelLoopOptions_html_abb6d3a03def71e968fb0a8f200319c66"><div class="ttname"><a href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html#abb6d3a03def71e968fb0a8f200319c66">Arcane::ParallelLoopOptions::setGrainSize</a></div><div class="ttdeci">void setGrainSize(Integer v)</div><div class="ttdoc">Positionne la taille (approximative) d'un intervalle d'itération.</div><div class="ttdef"><b>Definition:</b> ConcurrencyUtils.h:113</div></div>
+</div><!-- fragment --><h1><a class="anchor" id="arcanedoc_concurrency_task"></a>
+Utilisation explicite des tâches</h1>
+<p>La création d'un tâche se fait via la fabrique de tâche. Il faut spécifier en argument un fonctor de la même manière que les boucles parallèles:</p>
+<div class="fragment"><div class="line"><span class="keyword">class </span>Func</div>
+<div class="line">{</div>
+<div class="line">  <span class="keyword">public</span>:</div>
+<div class="line">   <span class="keywordtype">void</span> exec(<span class="keyword">const</span> TaskContext&amp; ctx)</div>
+<div class="line">   {</div>
+<div class="line">     <span class="comment">// Execute la tâche.</span></div>
+<div class="line">   }</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> func()</div>
+<div class="line">{</div>
+<div class="line">  Func my_functor</div>
+<div class="line">  <a class="code" href="../../da/dd2/classArcane_1_1ITask.html">Arcane::ITask</a>* master_task = <a class="code" href="../../d6/d0d/classArcane_1_1TaskFactory.html#acf36e2c55d53d54ed4eb4399d637e821">Arcane::TaskFactory::createTask</a>(&amp;my_functor,&amp;Func::exec);</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassArcane_1_1ITask_html"><div class="ttname"><a href="../../da/dd2/classArcane_1_1ITask.html">Arcane::ITask</a></div><div class="ttdoc">Interface d'une tâche concourante.</div><div class="ttdef"><b>Definition:</b> ConcurrencyUtils.h:262</div></div>
+<div class="ttc" id="aclassArcane_1_1TaskFactory_html_acf36e2c55d53d54ed4eb4399d637e821"><div class="ttname"><a href="../../d6/d0d/classArcane_1_1TaskFactory.html#acf36e2c55d53d54ed4eb4399d637e821">Arcane::TaskFactory::createTask</a></div><div class="ttdeci">static ITask * createTask(InstanceType *instance, void(InstanceType::*function)(const TaskContext &amp;tc))</div><div class="ttdoc">Créé une tâche. Lors de l'exécution, la tâche appellera la méthode function via l'instance instance.</div><div class="ttdef"><b>Definition:</b> ConcurrencyUtils.h:375</div></div>
+</div><!-- fragment --><p>Une fois la tâche créée, il est possible de la lancer et d'attendre sa terminaison via la méthode ITask::launchAndWait(). Pour des raisons de simplicité, la tâche n'est pas lancée tant que cette méthode n'a pas été appelée.</p>
+<p>Il est possible de créer des sous-tâches à partir d'une première tâche via la méthode <a class="el" href="../../d6/d0d/classArcane_1_1TaskFactory.html#a2b84ffaaf3585fa7512074fd11eeeca3" title="Créé une tâche fille.">Arcane::TaskFactory::createChildTask()</a>. L'utilisateur doit gérer le lancement et l'attente des sous-tâches. Par exemple:</p>
+<div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line">ITask* master_task = <a class="code" href="../../d6/d0d/classArcane_1_1TaskFactory.html#acf36e2c55d53d54ed4eb4399d637e821">TaskFactory::createTask</a>(...);</div>
+<div class="line">UniqueArray&lt;ITask*&gt; sub_tasks;</div>
+<div class="line">sub_tasks.add(<a class="code" href="../../d6/d0d/classArcane_1_1TaskFactory.html#a2b84ffaaf3585fa7512074fd11eeeca3">TaskFactory::createChildTask</a>(master_task,&amp;my_functor,&amp;Func::exec);</div>
+<div class="line">sub_tasks.add(<a class="code" href="../../d6/d0d/classArcane_1_1TaskFactory.html#a2b84ffaaf3585fa7512074fd11eeeca3">TaskFactory::createChildTask</a>(master_task,&amp;my_functor,&amp;Func::exec);</div>
+<div class="line">master_task-&gt;<a class="code" href="../../da/dd2/classArcane_1_1ITask.html#aeaf5b8ec85a62b095915c808e7a61475">launchAndWait</a>(sub_tasks);</div>
+<div class="ttc" id="aclassArcane_1_1ITask_html_aeaf5b8ec85a62b095915c808e7a61475"><div class="ttname"><a href="../../da/dd2/classArcane_1_1ITask.html#aeaf5b8ec85a62b095915c808e7a61475">Arcane::ITask::launchAndWait</a></div><div class="ttdeci">virtual void launchAndWait()=0</div><div class="ttdoc">Lance la tâche et bloque jusqu'à ce qu'elle se termine.</div></div>
+<div class="ttc" id="aclassArcane_1_1TaskFactory_html_a2b84ffaaf3585fa7512074fd11eeeca3"><div class="ttname"><a href="../../d6/d0d/classArcane_1_1TaskFactory.html#a2b84ffaaf3585fa7512074fd11eeeca3">Arcane::TaskFactory::createChildTask</a></div><div class="ttdeci">static ITask * createChildTask(ITask *parent_task, InstanceType *instance, void(InstanceType::*function)(const TaskContext &amp;tc))</div><div class="ttdoc">Créé une tâche fille.</div><div class="ttdef"><b>Definition:</b> ConcurrencyUtils.h:400</div></div>
+</div><!-- fragment --><p>L'exemple complet suivant montre l'implémentation du calcul d'une suite de Fibonacci via le mécanisme des tâches.</p>
+<div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line"><span class="keyword">class </span>Fibonnaci</div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line"> <span class="keyword">const</span> <span class="keywordtype">long</span> n;</div>
+<div class="line"> <span class="keywordtype">long</span>* <span class="keyword">const</span> sum;</div>
+<div class="line"> Fibonnaci( <span class="keywordtype">long</span> n_, <span class="keywordtype">long</span>* sum_ ) : n(n_), sum(sum_)</div>
+<div class="line"> {}</div>
+<div class="line"> <span class="keywordtype">void</span> execute(<span class="keyword">const</span> TaskContext&amp; context)</div>
+<div class="line"> {</div>
+<div class="line">   <span class="keywordflow">if</span>( n&lt;10 ) {</div>
+<div class="line">     *sum = SerialFib(n);</div>
+<div class="line">   }</div>
+<div class="line">   <span class="keywordflow">else</span> {</div>
+<div class="line">     <span class="keywordtype">long</span> x, y;</div>
+<div class="line">     Fibonnaci a(n-1,&amp;x);</div>
+<div class="line">     Fibonnaci b(n-2,&amp;y);</div>
+<div class="line">     ITask* child_tasks[2];</div>
+<div class="line">     ITask* parent_task = context.task();</div>
+<div class="line">     child_tasks[0] = <a class="code" href="../../d6/d0d/classArcane_1_1TaskFactory.html#a2b84ffaaf3585fa7512074fd11eeeca3">TaskFactory::createChildTask</a>(parent_task,&amp;a,&amp;Test5Fibonnaci::execute);</div>
+<div class="line">     child_tasks[1] = <a class="code" href="../../d6/d0d/classArcane_1_1TaskFactory.html#a2b84ffaaf3585fa7512074fd11eeeca3">TaskFactory::createChildTask</a>(parent_task,&amp;b,&amp;Test5Fibonnaci::execute);</div>
+<div class="line">     parent_task-&gt;launchAndWait(ConstArrayView&lt;ITask*&gt;(2,child_tasks));</div>
+<div class="line"> </div>
+<div class="line">     <span class="comment">// Effectue la somme</span></div>
+<div class="line">     *sum = x+y;</div>
+<div class="line">   }</div>
+<div class="line"> }</div>
+<div class="line"> <span class="keyword">static</span> <span class="keywordtype">long</span> SerialFib( <span class="keywordtype">long</span> n )</div>
+<div class="line"> {</div>
+<div class="line">   <span class="keywordflow">if</span>( n&lt;2 )</div>
+<div class="line">     <span class="keywordflow">return</span> n;</div>
+<div class="line">   <span class="keywordflow">else</span></div>
+<div class="line">     <span class="keywordflow">return</span> SerialFib(n-1)+SerialFib(n-2);</div>
+<div class="line"> }</div>
+<div class="line"> <span class="keyword">static</span> <span class="keywordtype">long</span> ParallelFib( <span class="keywordtype">long</span> n )</div>
+<div class="line"> {</div>
+<div class="line">   <span class="keywordtype">long</span> sum;</div>
+<div class="line">   Test5Fibonnaci a(n,&amp;sum);</div>
+<div class="line">   ITask* task = <a class="code" href="../../d6/d0d/classArcane_1_1TaskFactory.html#acf36e2c55d53d54ed4eb4399d637e821">TaskFactory::createTask</a>(&amp;a,&amp;Test5Fibonnaci::execute);</div>
+<div class="line">   task-&gt;launchAndWait();</div>
+<div class="line">   <span class="keywordflow">return</span> sum;</div>
+<div class="line"> }</div>
+<div class="line">};</div>
+</div><!-- fragment --> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li>
+    <li class="footer">Généré le Jeudi 23 Septembre 2021 09:25:20 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

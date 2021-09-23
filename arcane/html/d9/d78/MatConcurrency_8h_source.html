@@ -1,0 +1,283 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de /home/grospellierg/arcane_packaging/framework/arcane/ceapart/src/arcane/materials/MatConcurrency.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.0.4.16</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d9/d78/MatConcurrency_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">MatConcurrency.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2021 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* MatConcurrency.h                                            (C) 2000-2021 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Classes gérant la concurrence pour les matériaux.                         */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_MATERIALS_MATCONCURRENCY_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_MATERIALS_MATCONCURRENCY_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/da8/UtilsTypes_8h.html">arcane/utils/UtilsTypes.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/RangeFunctor.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/FatalErrorException.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d05/Concurrency_8h.html">arcane/Concurrency.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html">arcane/materials/MatItemEnumerator.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;arcane/materials/ComponentItemVectorView.h&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span>Arcane::Materials</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> ViewType,<span class="keyword">typename</span> LambdaType&gt;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../db/df6/classArcane_1_1Materials_1_1LambdaMatItemRangeFunctorT.html">   41</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../db/df6/classArcane_1_1Materials_1_1LambdaMatItemRangeFunctorT.html">LambdaMatItemRangeFunctorT</a></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d2/d8e/classArcane_1_1IRangeFunctor.html">IRangeFunctor</a></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="../../db/df6/classArcane_1_1Materials_1_1LambdaMatItemRangeFunctorT.html">LambdaMatItemRangeFunctorT</a>(ViewType items_view,<span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  : m_items(items_view), m_lambda_function(lambda_function)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../db/df6/classArcane_1_1Materials_1_1LambdaMatItemRangeFunctorT.html#a8b247758616390aeeb3e05229a9961b0">   52</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../db/df6/classArcane_1_1Materials_1_1LambdaMatItemRangeFunctorT.html#a8b247758616390aeeb3e05229a9961b0">executeFunctor</a>(Integer begin,Integer size)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    ViewType sub_view(m_items._subView(begin,size));</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    m_lambda_function(sub_view);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  ViewType m_items;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">const</span> LambdaType&amp; m_lambda_function;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;};</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;} <span class="comment">// End namespace Arcane::Materials</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;{</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keyword">using namespace </span><a class="code" href="../../d5/d4d/namespaceMaterials.html">Materials</a>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> LambdaType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="../../d4/dad/group__Concurrency.html#ga37b92e8629b4258651e66c6a5e622eb7">   80</a></span>&#160;  <a class="code" href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c">arcaneParallelForeach</a>(<span class="keyword">const</span> <a class="code" href="../../d6/d29/classArcane_1_1Materials_1_1ComponentItemVectorView.html">ComponentItemVectorView</a>&amp; items_view,<span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <a class="code" href="../../db/df6/classArcane_1_1Materials_1_1LambdaMatItemRangeFunctorT.html">LambdaMatItemRangeFunctorT&lt;ComponentItemVectorView,LambdaType&gt;</a> ipf(items_view,lambda_function);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="../../d6/d0d/classArcane_1_1TaskFactory.html#a73949ddfeb992edab891aff30258205b">TaskFactory::executeParallelFor</a>(0,items_view.<a class="code" href="../../d6/d29/classArcane_1_1Materials_1_1ComponentItemVectorView.html#adc646b6e2990569fe32e77729db4b062">nbItem</a>(),&amp;ipf);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> LambdaType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="../../d4/dad/group__Concurrency.html#ga14fcc40b56d8c26a5297742b29358305">   92</a></span>&#160;  <a class="code" href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c">arcaneParallelForeach</a>(<span class="keyword">const</span> <a class="code" href="../../d6/d29/classArcane_1_1Materials_1_1ComponentItemVectorView.html">ComponentItemVectorView</a>&amp; items_view,<span class="keyword">const</span> <a class="code" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a>&amp; options,</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;                       <span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  {</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <a class="code" href="../../db/df6/classArcane_1_1Materials_1_1LambdaMatItemRangeFunctorT.html">LambdaMatItemRangeFunctorT&lt;ComponentItemVectorView,LambdaType&gt;</a> ipf(items_view,lambda_function);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <a class="code" href="../../d6/d0d/classArcane_1_1TaskFactory.html#a73949ddfeb992edab891aff30258205b">TaskFactory::executeParallelFor</a>(0,items_view.<a class="code" href="../../d6/d29/classArcane_1_1Materials_1_1ComponentItemVectorView.html#adc646b6e2990569fe32e77729db4b062">nbItem</a>(),options,&amp;ipf);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> LambdaType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="../../d4/dad/group__Concurrency.html#ga851f3282abd7384feef06893bdf01f8d">  105</a></span>&#160;  <a class="code" href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c">arcaneParallelForeach</a>(<span class="keyword">const</span> <a class="code" href="../../d9/d41/classArcane_1_1Materials_1_1EnvItemVectorView.html">EnvItemVectorView</a>&amp; items_view,<span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="../../db/df6/classArcane_1_1Materials_1_1LambdaMatItemRangeFunctorT.html">LambdaMatItemRangeFunctorT&lt;EnvItemVectorView,LambdaType&gt;</a> ipf(items_view,lambda_function);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    <a class="code" href="../../d6/d0d/classArcane_1_1TaskFactory.html#a73949ddfeb992edab891aff30258205b">TaskFactory::executeParallelFor</a>(0,items_view.<a class="code" href="../../d6/d29/classArcane_1_1Materials_1_1ComponentItemVectorView.html#adc646b6e2990569fe32e77729db4b062">nbItem</a>(),&amp;ipf);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  }</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> LambdaType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="../../d4/dad/group__Concurrency.html#ga75a7cd54f253e3c888b5a1eb86d1e1f2">  117</a></span>&#160;  <a class="code" href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c">arcaneParallelForeach</a>(<span class="keyword">const</span> <a class="code" href="../../d9/d41/classArcane_1_1Materials_1_1EnvItemVectorView.html">EnvItemVectorView</a>&amp; items_view,<span class="keyword">const</span> <a class="code" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a>&amp; options,</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                       <span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  {</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <a class="code" href="../../db/df6/classArcane_1_1Materials_1_1LambdaMatItemRangeFunctorT.html">LambdaMatItemRangeFunctorT&lt;EnvItemVectorView,LambdaType&gt;</a> ipf(items_view,lambda_function);</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <a class="code" href="../../d6/d0d/classArcane_1_1TaskFactory.html#a73949ddfeb992edab891aff30258205b">TaskFactory::executeParallelFor</a>(0,items_view.<a class="code" href="../../d6/d29/classArcane_1_1Materials_1_1ComponentItemVectorView.html#adc646b6e2990569fe32e77729db4b062">nbItem</a>(),options,&amp;ipf);</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> LambdaType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="../../d4/dad/group__Concurrency.html#gad6fefa3a1ef5873cc9b782959fb72b0e">  130</a></span>&#160;  <a class="code" href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c">arcaneParallelForeach</a>(<span class="keyword">const</span> <a class="code" href="../../dc/dcc/classArcane_1_1Materials_1_1MatItemVectorView.html">MatItemVectorView</a>&amp; items_view,<span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  {</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;    <a class="code" href="../../db/df6/classArcane_1_1Materials_1_1LambdaMatItemRangeFunctorT.html">LambdaMatItemRangeFunctorT&lt;MatItemVectorView,LambdaType&gt;</a> ipf(items_view,lambda_function);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <a class="code" href="../../d6/d0d/classArcane_1_1TaskFactory.html#a73949ddfeb992edab891aff30258205b">TaskFactory::executeParallelFor</a>(0,items_view.<a class="code" href="../../d6/d29/classArcane_1_1Materials_1_1ComponentItemVectorView.html#adc646b6e2990569fe32e77729db4b062">nbItem</a>(),&amp;ipf);</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  }</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> LambdaType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="../../d4/dad/group__Concurrency.html#gaffe39e768b33f83b9bcaa89483f02927">  142</a></span>&#160;  <a class="code" href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c">arcaneParallelForeach</a>(<span class="keyword">const</span> <a class="code" href="../../dc/dcc/classArcane_1_1Materials_1_1MatItemVectorView.html">MatItemVectorView</a>&amp; items_view,<span class="keyword">const</span> <a class="code" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a>&amp; options,</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;          <span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  {</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <a class="code" href="../../db/df6/classArcane_1_1Materials_1_1LambdaMatItemRangeFunctorT.html">LambdaMatItemRangeFunctorT&lt;MatItemVectorView,LambdaType&gt;</a> ipf(items_view,lambda_function);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    <a class="code" href="../../d6/d0d/classArcane_1_1TaskFactory.html#a73949ddfeb992edab891aff30258205b">TaskFactory::executeParallelFor</a>(0,items_view.<a class="code" href="../../d6/d29/classArcane_1_1Materials_1_1ComponentItemVectorView.html#adc646b6e2990569fe32e77729db4b062">nbItem</a>(),options,&amp;ipf);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  }</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d8/d8f/namespaceArcane_1_1Parallel.html">Arcane::Parallel</a></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;{</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  <span class="keyword">using namespace </span><a class="code" href="../../d5/d4d/namespaceMaterials.html">Materials</a>;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  <span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> LambdaType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="../../d4/dad/group__Concurrency.html#gafe72b9ee3469b918af4c958bc16582be">  164</a></span>&#160;  <a class="code" href="../../d8/d8f/namespaceArcane_1_1Parallel.html#a277e2e6fcf1cb8b627771800e6afe0e7">Foreach</a>(<span class="keyword">const</span> <a class="code" href="../../d6/d29/classArcane_1_1Materials_1_1ComponentItemVectorView.html">ComponentItemVectorView</a>&amp; items_view,<span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  {</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <a class="code" href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c">arcaneParallelForeach</a>(items_view,lambda_function);</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  }</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> LambdaType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="../../d4/dad/group__Concurrency.html#ga1f966070d5ad77566552a55e97df1223">  175</a></span>&#160;  <a class="code" href="../../d8/d8f/namespaceArcane_1_1Parallel.html#a277e2e6fcf1cb8b627771800e6afe0e7">Foreach</a>(<span class="keyword">const</span> <a class="code" href="../../d6/d29/classArcane_1_1Materials_1_1ComponentItemVectorView.html">ComponentItemVectorView</a>&amp; items_view,<span class="keyword">const</span> <a class="code" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a>&amp; options,</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;          <span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  {</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <a class="code" href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c">arcaneParallelForeach</a>(items_view,options,lambda_function);</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  }</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> LambdaType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="../../d4/dad/group__Concurrency.html#gaed879d2b3e842f2b83df06af33b4d4b7">  187</a></span>&#160;  <a class="code" href="../../d8/d8f/namespaceArcane_1_1Parallel.html#a277e2e6fcf1cb8b627771800e6afe0e7">Foreach</a>(<span class="keyword">const</span> <a class="code" href="../../d9/d41/classArcane_1_1Materials_1_1EnvItemVectorView.html">EnvItemVectorView</a>&amp; items_view,<span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  {</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <a class="code" href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c">arcaneParallelForeach</a>(items_view,lambda_function);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  }</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> LambdaType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00198"></a><span class="lineno"><a class="line" href="../../d4/dad/group__Concurrency.html#ga7b417872361c8e1ec8587a03af56bc7c">  198</a></span>&#160;  <a class="code" href="../../d8/d8f/namespaceArcane_1_1Parallel.html#a277e2e6fcf1cb8b627771800e6afe0e7">Foreach</a>(<span class="keyword">const</span> <a class="code" href="../../d9/d41/classArcane_1_1Materials_1_1EnvItemVectorView.html">EnvItemVectorView</a>&amp; items_view,<span class="keyword">const</span> <a class="code" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a>&amp; options,</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;          <span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  {</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <a class="code" href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c">arcaneParallelForeach</a>(items_view,options,lambda_function);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  }</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> LambdaType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno"><a class="line" href="../../d4/dad/group__Concurrency.html#ga0a55c206861fe20baf812988acf6faf4">  210</a></span>&#160;  <a class="code" href="../../d8/d8f/namespaceArcane_1_1Parallel.html#a277e2e6fcf1cb8b627771800e6afe0e7">Foreach</a>(<span class="keyword">const</span> <a class="code" href="../../dc/dcc/classArcane_1_1Materials_1_1MatItemVectorView.html">MatItemVectorView</a>&amp; items_view,<span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  {</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <a class="code" href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c">arcaneParallelForeach</a>(items_view,lambda_function);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  }</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> LambdaType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="../../d4/dad/group__Concurrency.html#ga59311a0e9543bb30d52f8fd1214c9e42">  221</a></span>&#160;  <a class="code" href="../../d8/d8f/namespaceArcane_1_1Parallel.html#a277e2e6fcf1cb8b627771800e6afe0e7">Foreach</a>(<span class="keyword">const</span> <a class="code" href="../../dc/dcc/classArcane_1_1Materials_1_1MatItemVectorView.html">MatItemVectorView</a>&amp; items_view,<span class="keyword">const</span> <a class="code" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a>&amp; options,</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;          <span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  {</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <a class="code" href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c">arcaneParallelForeach</a>(items_view,options,lambda_function);</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  }</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;} <span class="comment">// End namespace Arcane::Parallel</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
+<div class="ttc" id="aConcurrency_8h_html"><div class="ttname"><a href="../../d4/d05/Concurrency_8h.html">Concurrency.h</a></div><div class="ttdoc">Classes, Types et macros pour gérer la concurrence.</div></div>
+<div class="ttc" id="aMatItemEnumerator_8h_html"><div class="ttname"><a href="../../d9/d0b/MatItemEnumerator_8h.html">MatItemEnumerator.h</a></div></div>
+<div class="ttc" id="aUtilsTypes_8h_html"><div class="ttname"><a href="../../d4/da8/UtilsTypes_8h.html">UtilsTypes.h</a></div><div class="ttdoc">Déclarations des types utilisés dans Arcane.</div></div>
+<div class="ttc" id="aclassArcane_1_1IRangeFunctor_html"><div class="ttname"><a href="../../d2/d8e/classArcane_1_1IRangeFunctor.html">Arcane::IRangeFunctor</a></div><div class="ttdoc">Interface d'un fonctor sur un interval d'itération.</div><div class="ttdef"><b>Definition:</b> IRangeFunctor.h:31</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1ComponentItemVectorView_html"><div class="ttname"><a href="../../d6/d29/classArcane_1_1Materials_1_1ComponentItemVectorView.html">Arcane::Materials::ComponentItemVectorView</a></div><div class="ttdoc">Vue sur un vecteur sur les entités d'un composant.</div><div class="ttdef"><b>Definition:</b> ComponentItemVectorView.h:40</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1ComponentItemVectorView_html_adc646b6e2990569fe32e77729db4b062"><div class="ttname"><a href="../../d6/d29/classArcane_1_1Materials_1_1ComponentItemVectorView.html#adc646b6e2990569fe32e77729db4b062">Arcane::Materials::ComponentItemVectorView::nbItem</a></div><div class="ttdeci">Integer nbItem() const</div><div class="ttdoc">Nombre d'entités dans la vue.</div><div class="ttdef"><b>Definition:</b> ComponentItemVectorView.h:78</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1EnvItemVectorView_html"><div class="ttname"><a href="../../d9/d41/classArcane_1_1Materials_1_1EnvItemVectorView.html">Arcane::Materials::EnvItemVectorView</a></div><div class="ttdoc">Vue sur un vecteur sur les entités d'un milieu.</div><div class="ttdef"><b>Definition:</b> ComponentItemVectorView.h:152</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1LambdaMatItemRangeFunctorT_html"><div class="ttname"><a href="../../db/df6/classArcane_1_1Materials_1_1LambdaMatItemRangeFunctorT.html">Arcane::Materials::LambdaMatItemRangeFunctorT</a></div><div class="ttdoc">Fonctor sur un interval d'itération instancié via une lambda fonction.</div><div class="ttdef"><b>Definition:</b> MatConcurrency.h:43</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1LambdaMatItemRangeFunctorT_html_a8b247758616390aeeb3e05229a9961b0"><div class="ttname"><a href="../../db/df6/classArcane_1_1Materials_1_1LambdaMatItemRangeFunctorT.html#a8b247758616390aeeb3e05229a9961b0">Arcane::Materials::LambdaMatItemRangeFunctorT::executeFunctor</a></div><div class="ttdeci">virtual void executeFunctor(Integer begin, Integer size)</div><div class="ttdoc">Exécute la méthode associée.</div><div class="ttdef"><b>Definition:</b> MatConcurrency.h:52</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1MatItemVectorView_html"><div class="ttname"><a href="../../dc/dcc/classArcane_1_1Materials_1_1MatItemVectorView.html">Arcane::Materials::MatItemVectorView</a></div><div class="ttdoc">Vue sur un vecteur sur les entités d'un matériau.</div><div class="ttdef"><b>Definition:</b> ComponentItemVectorView.h:113</div></div>
+<div class="ttc" id="aclassArcane_1_1ParallelLoopOptions_html"><div class="ttname"><a href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">Arcane::ParallelLoopOptions</a></div><div class="ttdoc">Options d'exécution d'une boucle parallèle en multi-thread.</div><div class="ttdef"><b>Definition:</b> ConcurrencyUtils.h:52</div></div>
+<div class="ttc" id="aclassArcane_1_1TaskFactory_html_a73949ddfeb992edab891aff30258205b"><div class="ttname"><a href="../../d6/d0d/classArcane_1_1TaskFactory.html#a73949ddfeb992edab891aff30258205b">Arcane::TaskFactory::executeParallelFor</a></div><div class="ttdeci">static void executeParallelFor(Integer begin, Integer size, const ParallelLoopOptions &amp;options, IRangeFunctor *f)</div><div class="ttdoc">Exécute le fonctor f en concurrence.</div><div class="ttdef"><b>Definition:</b> ConcurrencyUtils.h:420</div></div>
+<div class="ttc" id="agroup__Concurrency_html_ga8cea6a6d467b818b0347af4bbbe1036c"><div class="ttname"><a href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c">Arcane::arcaneParallelForeach</a></div><div class="ttdeci">void arcaneParallelForeach(const ItemVectorView &amp;items_view, const ParallelLoopOptions &amp;options, InstanceType *instance, void(InstanceType::*function)(ItemVectorViewT&lt; ItemType &gt; items))</div><div class="ttdoc">Applique en concurrence la méthode function de l'instance instance sur la vue items_view avec les opt...</div><div class="ttdef"><b>Definition:</b> Concurrency.h:39</div></div>
+<div class="ttc" id="anamespaceArcane_1_1Parallel_html"><div class="ttname"><a href="../../d8/d8f/namespaceArcane_1_1Parallel.html">Arcane::Parallel</a></div><div class="ttdoc">Implémentation de la concurrence.</div><div class="ttdef"><b>Definition:</b> Concurrency.h:184</div></div>
+<div class="ttc" id="anamespaceArcane_1_1Parallel_html_a277e2e6fcf1cb8b627771800e6afe0e7"><div class="ttname"><a href="../../d8/d8f/namespaceArcane_1_1Parallel.html#a277e2e6fcf1cb8b627771800e6afe0e7">Arcane::Parallel::Foreach</a></div><div class="ttdeci">void Foreach(const ItemVectorView &amp;items_view, const ParallelLoopOptions &amp;options, InstanceType *instance, void(InstanceType::*function)(ItemVectorViewT&lt; ItemType &gt; items))</div><div class="ttdef"><b>Definition:</b> Concurrency.h:191</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">Interface for base mesh operations.</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="anamespaceMaterials_html"><div class="ttname"><a href="../../d5/d4d/namespaceMaterials.html">Materials</a></div><div class="ttdoc">Ensemble des classes assurant la gestion des matériaux et des milieux.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_a6bcc3582b039aca3c9752b42992521e.html">ceapart</a></li><li class="navelem"><a class="el" href="../../dir_2afde094aa80eb43fc7f67220474ac92.html">src</a></li><li class="navelem"><a class="el" href="../../dir_174bda8998ad22529e76d2de7d5a7f9d.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_e958519736e98ec4d4f44c0010057f6c.html">materials</a></li><li class="navelem"><b>MatConcurrency.h</b></li>
+    <li class="footer">Généré le Jeudi 23 Septembre 2021 09:24:17 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

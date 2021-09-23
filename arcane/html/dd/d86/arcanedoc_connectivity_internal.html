@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane: Gestion des connectivités des entités</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.0.4.16</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('dd/d86/arcanedoc_connectivity_internal.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Gestion des connectivités des entités </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="anchor" id="md__home_grospellierg_arcane_packaging_framework_arcane_doc_connectivity_internal"></a></p>
+<p>Cette page regroupe les informations sur les développements effectués dans Arcane pour la gestion des nouvelles connectivités. Il se base sur la version CEA de février 2017, ce qui correspond aux versions de Arcane 2.5.0 et ultérieures.</p>
+<p>Afin de répondre à de nouveaux besoin, le mécanisme de gestion des connectivités des entités de Arcane a évolué à partir de 2017.</p>
+<p>Le mécanisme historique avait pour but premier d'économiser la mémoire et rangeait toutes les connectivités d'une entité consécutivement en mémoire. Cela présente cependant deux inconvénients:</p><ul>
+<li>ce mécanisme n'est pas facilement extensible si on souhaite ajouter de nouvelles connectivités ou si on souhaite ne pas utiliser certaines connectivités. Au départ seuls les noeuds, faces et mailles étaient gérés. Aujourd'hui il y a les noeuds duaux, les liens, les degrés de liberté, l'AMR et toutes ces connectivités alourdissent la gestion.</li>
+<li>il est plus difficile de profiter des effets de cache mémoire lorsqu'on parcours qu'un seul type de connectivité.</li>
+</ul>
+<p>Le nouveau mécanisme permet de séparer complètement chaque type de connectivités et éventuellement de spécialiser un type de connectivité en fonction de certains besoins (par exemple suivant le type de maillage).</p>
+<p>Il permet de résoudre les deux inconvénients précédents avec en contre partie pour les maillages non structurés une augmentation de la mémoire utilisée. Avec l'ancien mécanisme, pour chaque entité 1 indice (de type Arcane::Int32) suffisait pour accéder aux infos de connectivité alors qu'avec le nouveau il faut 2 indices (position + nombre de connectivité) par connectivité. Par exemple dans le cas des entités classiques de maillage (noeud, arête, face ou maille), il faut donc 8 indices au lieu de 1.</p>
+<p>Le mécanisme historique permet d'accéder aux informations de connectivité directement via l'entité. Par exemple, pour accéder au 4ème noeud d'une maille: </p><div class="fragment"><div class="line"><a class="code" href="../../d9/db2/classArcane_1_1Cell.html">Arcane::Cell</a> cell;</div>
+<div class="line"><a class="code" href="../../d8/dd7/classArcane_1_1Node.html">Arcane::Node</a> node = cell.<a class="code" href="../../d4/d55/classArcane_1_1ItemWithNodes.html#a5b0ac05c0313732d2a73dd9eacc317dd">node</a>(3);</div>
+<div class="ttc" id="aclassArcane_1_1Cell_html"><div class="ttname"><a href="../../d9/db2/classArcane_1_1Cell.html">Arcane::Cell</a></div><div class="ttdoc">Maille d'un maillage.</div><div class="ttdef"><b>Definition:</b> Item.h:840</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemWithNodes_html_a5b0ac05c0313732d2a73dd9eacc317dd"><div class="ttname"><a href="../../d4/d55/classArcane_1_1ItemWithNodes.html#a5b0ac05c0313732d2a73dd9eacc317dd">Arcane::ItemWithNodes::node</a></div><div class="ttdeci">Node node(Integer i) const</div><div class="ttdoc">i-ème noeud de l'élément</div><div class="ttdef"><b>Definition:</b> Item.h:539</div></div>
+<div class="ttc" id="aclassArcane_1_1Node_html"><div class="ttname"><a href="../../d8/dd7/classArcane_1_1Node.html">Arcane::Node</a></div><div class="ttdoc">Noeud d'un maillage.</div><div class="ttdef"><b>Definition:</b> Dom.h:204</div></div>
+</div><!-- fragment --><p>A terme, l'accès aux connectivités pourrait être disponible sous une autre forme mais en attendant il faut pouvoir continuer à utiliser ce mécanisme sous peine de rendre tous les codes actuels incompatibles.</p>
+<p>Pour effectuer la transition entre l'ancienne et la nouvelle gestion des connectivités, des mécanismes de compatibilité ont été mis en place. L'objectif de ces mécanismes est de garantir la compatibilité au niveau des sources des codes utilisant Arcane: ces codes doivent pouvoir compiler sans modification avec les versions d'Arcane intégrant les nouvelles connectivités.</p>
+<p>Pour garantir cette compatibilité, le mécanisme d'accès pour les méthodes telles que <a class="el" href="../../d4/d55/classArcane_1_1ItemWithNodes.html#a5b0ac05c0313732d2a73dd9eacc317dd" title="i-ème noeud de l&#39;élément">Arcane::Cell::node()</a> est modifié et utilise maintenant un objet de type <a class="el" href="../../d1/ddd/classArcane_1_1ItemInternalConnectivityList.html">Arcane::ItemInternalConnectivityList</a>. La classe <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html">Arcane::ItemInternal</a> contient un champ Arcane::ItemInternal::m_connectivity est qui un pointeur sur un <a class="el" href="../../d1/ddd/classArcane_1_1ItemInternalConnectivityList.html">Arcane::ItemInternalConnectivityList</a>. Toutes les entités d'une même famille pointent sur la même valeur qui est Arcane::ItemFamily::m_item_connectivity_list.</p>
+<dl class="section note"><dt>Note</dt><dd>Le fait de mettre ce pointeur dans chaque <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html">Arcane::ItemInternal</a> permet d'éviter une indirection lorsqu'on accède aux connectivités mais il est aussi possible de le mettre dans le <a class="el" href="../../df/d0b/classArcane_1_1ItemSharedInfo.html">Arcane::ItemSharedInfo</a> car il est commun à toutes les entités d'une famille. Cela permet d'utiliser moins de mémoire pour <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html">Arcane::ItemInternal</a> (16 octets au lieu de 24) au pris d'une indirection supplémentaire. Dans mes tests au CEA, je n'ai pas eu de différences de performances entre les deux mécanismes.</dd></dl>
+<p>Afin de ne pas modifier l'API existante, les méthodes de ItemInternal permettant d'accéder à la connectivité n'ont pas été modifiées et de nouvelles ont été ajoutées. Elles utilisent le suffixe V2. Par exemple Arcane::ItemInternal::nodesV2() au lieu de Arcane::ItemInternal::nodes().</p>
+<p>La macro <b>ARCANE_USE_LEGACY_ITEMINTERNAL_CONNECTIVITY</b> permet de choisir à la compilation si les acceseseurs via <a class="el" href="../../df/d5f/classArcane_1_1Item.html" title="Classe de base d&#39;un élément de maillage.">Arcane::Item</a>, <a class="el" href="../../d1/d16/classArcane_1_1Edge.html" title="Arête d&#39;une maille.">Arcane::Edge</a>, <a class="el" href="../../d1/db1/classArcane_1_1Face.html" title="Face d&#39;une maille.">Arcane::Face</a>, <a class="el" href="../../d9/db2/classArcane_1_1Cell.html" title="Maille d&#39;un maillage.">Arcane::Cell</a>, ... utilisent les anciens ou nouveaux mécanismes. Si cette macro est définie alors: </p><div class="fragment"><div class="line"><span class="comment">// version historique si macro définie</span></div>
+<div class="line"><a class="code" href="../../de/db5/group__Mesh.html#ga043244d96e0f701a5037a8d9620ab667">NodeVectorView</a> Cell::node() { <span class="keywordflow">return</span> m_internal-&gt;nodes(); }</div>
+<div class="line"><span class="comment">// nouvelle version si macro non définie</span></div>
+<div class="line"><a class="code" href="../../de/db5/group__Mesh.html#ga043244d96e0f701a5037a8d9620ab667">NodeVectorView</a> Cell::node() { <span class="keywordflow">return</span> m_internal-&gt;nodesV2(); }</div>
+<div class="ttc" id="agroup__Mesh_html_ga043244d96e0f701a5037a8d9620ab667"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga043244d96e0f701a5037a8d9620ab667">Arcane::NodeVectorView</a></div><div class="ttdeci">ItemVectorViewT&lt; Node &gt; NodeVectorView</div><div class="ttdoc">Vue sur un vecteur de noeuds.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:227</div></div>
+</div><!-- fragment --><p>Cette macro est définie uniquement si on compile Arcane avec dans le configure l'option <b>&ndash;with-legacy-connectivity</b>. Si cette option est active, il est impossible d'accéder aux nouvelles connectivités via Item. Le seul intérêt de cette option est de vérifier si le nouveau mécanisme ne contient pas de bugs et de valider les nouvelles versions de Arcane sur d'anciens codes utilisateur. On supposera par la suite que cette option n'est pas utilisée et donc qu'on accède aux connectivités via les méthodes V2. Pour cela, il faut utiliser l'option de configuration <b>&ndash;without-legacy-connectiviy</b> dans le configure.</p>
+<p>Lorsqu'on utilise les méthodes V2, les accès de chaque connectivité se font via la classe <a class="el" href="../../d1/ddd/classArcane_1_1ItemInternalConnectivityList.html">Arcane::ItemInternalConnectivityList</a>. Pour chaque connectivité, il y a trois tableaux:</p><ul>
+<li>nb_item: nombre d'entité connectée</li>
+<li>list: tableaux des localId() des entités connectées.</li>
+<li>index: indice dans <em>list</em> de la première entité connectée.</li>
+</ul>
+<p>La liste des entités connectées à une entité est rangée consécutivement en mémoire et donc l'indice dans le tableau de la première permet de récupérer les autres. <em>nb_item</em> et <em>index</em> sont indéxés par le localId() de l'entité dont on souhaite avoir les connectivités. Par exemple:</p>
+<div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line">Item my_item = ...;</div>
+<div class="line">Int32 lid = my_item.localId();</div>
+<div class="line"><a class="code" href="../../d0/d32/namespaceArcane.html#a638ab0b5813a316efa87a4e382bedc59">Int32ConstArrayView</a> nb_items = ...;</div>
+<div class="line"><a class="code" href="../../d0/d32/namespaceArcane.html#a638ab0b5813a316efa87a4e382bedc59">Int32ConstArrayView</a> list = ...;</div>
+<div class="line"><a class="code" href="../../d0/d32/namespaceArcane.html#a638ab0b5813a316efa87a4e382bedc59">Int32ConstArrayView</a> index = ...;</div>
+<div class="line"><span class="comment">// Nombre d&#39;entités connectés à my_item.</span></div>
+<div class="line">Int32 n = nb_items[lid];</div>
+<div class="line"><span class="comment">// localId() de la première entité connectées à my_item.</span></div>
+<div class="line">Int32 c0 = list[ index[lid] ];</div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">Interface for base mesh operations.</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="anamespaceArcane_html_a638ab0b5813a316efa87a4e382bedc59"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a638ab0b5813a316efa87a4e382bedc59">Arcane::Int32ConstArrayView</a></div><div class="ttdeci">ConstArrayView&lt; Int32 &gt; Int32ConstArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension d'entiers 32 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:524</div></div>
+</div><!-- fragment --><p>Toutes les connectivités des entités classiques (<a class="el" href="../../d8/dd7/classArcane_1_1Node.html" title="Noeud d&#39;un maillage.">Arcane::Node</a>, <a class="el" href="../../d1/d16/classArcane_1_1Edge.html" title="Arête d&#39;une maille.">Arcane::Edge</a>, <a class="el" href="../../d1/db1/classArcane_1_1Face.html" title="Face d&#39;une maille.">Arcane::Face</a> et <a class="el" href="../../d9/db2/classArcane_1_1Cell.html" title="Maille d&#39;un maillage.">Arcane::Cell</a>) utilisent maintenant ce type d'accès. Il est possible de choisir à l'exécution si les accès se font via les connectivités historiques ou les nouvelles connectitivités. Cela se fait via la variable d'environnement <b>ARCANE_CONNECTIVITY_POLICY</b> qui permet d'associer une des valeurs énumérées <a class="el" href="../../d0/d32/namespaceArcane.html#af1a2bb770356f8dc0de7dc4aef70c8a6" title="Politique d&#39;utilisation des connectivités.">Arcane::InternalConnectivityPolicy</a>. Cette association se fait dans le constructeur de DynamicMesh. La méthode Arcane::IMesh::_connectivityPolicy() permet de récupérer la politique choisie. Il y a actuellement 4 valeurs possibles:</p><ul>
+<li><a class="el" href="../../d0/d32/namespaceArcane.html#af1a2bb770356f8dc0de7dc4aef70c8a6a0cc0a0507cf3d31e5089f420a4cf8b4b" title="Connectivités historiques.">Arcane::InternalConnectivityPolicy::Legacy</a>: indique seules les connectivités historiques sont allouées et donc que ItemInternal::m_connectivity n'est pas utilisé. Il n'est donc pas possible d'accéder aux nouveaux mécanismes de connectivités via ce mode. Ce mode est celui qui correspond le plus au anciennes versions de <a class="el" href="../../d0/d32/namespaceArcane.html" title="Interface for base mesh operations.">Arcane</a>, notamment au niveau de l'usage mémoire.</li>
+<li><a class="el" href="../../d0/d32/namespaceArcane.html#af1a2bb770356f8dc0de7dc4aef70c8a6a0846c2c5f2747df5b432707d775371ef" title="Utilise les connectivités historiques et alloue les accesseurs pour ces connectivités.">Arcane::InternalConnectivityPolicy::LegacyAndAllocAccessor</a>: indique que seules les connectivités historiques sont allouées et que Arcane::ItemInternal::m_connectivity utilise les connectivités définies dans Arcane::ItemFamily::m_items_data. Le booléen Arcane::ItemFamily::m_use_legacy_connectivity_policy vaut <em>true</em> dans ce cas. Ce mode alloue les acceseurs des connectivités via ItemInternal::m_connectivity et donc utilise plus de mémoire que le mode InternalConnectivityPolicy::Legacy.</li>
+<li><a class="el" href="../../d0/d32/namespaceArcane.html#af1a2bb770356f8dc0de7dc4aef70c8a6a0ecf4f6b10925d30659bd9b93ab915aa" title="Alloue les anciennes et les nouvelles connectivités et utilise les anciennes via les nouveaux accesse...">Arcane::InternalConnectivityPolicy::LegacyAndNew</a>: est identique à la valeur InternalConnectivityPolicy::LegacyAndAllocAccessor mais en plus les nouvelles connectités sont allouées. Elles ne sont cependant pas utilisées par les classes Item et Internal. En mode check, on vérifie à chaque modification de maillage que les valeurs des anciennes et nouvelles connectivités sont les mêmes. Ce mode permet donc de valider les nouveaux mécanismes. Pour ce mode Arcane::ItemFamily::m_use_legacy_connectivity_policy vaut aussi <em>true</em>.</li>
+<li><a class="el" href="../../d0/d32/namespaceArcane.html#af1a2bb770356f8dc0de7dc4aef70c8a6a3f967b49cb0c73c0bc50c76fe77e9f64" title="Alloue les anciennes et les nouvelles connectivités et utilise les nouvelles via les nouveaux accesse...">Arcane::InternalConnectivityPolicy::NewAndLegacy</a>: indique qu'on alloue les anciennes et nouvelles connectivités mais que les accès via Item et ItemInternal se font avec ces nouvelles connectivités. Ce mode est donc proche du futur mode de fonctionnement.</li>
+</ul>
+<p>A terme il y a aura une 5ème valeur qui correspond au mode définitif ou seules les nouvelles connectivités sont allouées. Il sera mis en place lorsque tous les codes utilisant Arcane auront été validés avec les nouvelles connectivités.</p>
+<p>Suivant comme Arcane est configuré, certaines valeurs ne sont pas possible. Si la configuration est faite avec <b>&ndash;with-legacy-connectivity</b>, alors le mode <a class="el" href="../../d0/d32/namespaceArcane.html#af1a2bb770356f8dc0de7dc4aef70c8a6a3f967b49cb0c73c0bc50c76fe77e9f64" title="Alloue les anciennes et les nouvelles connectivités et utilise les nouvelles via les nouveaux accesse...">Arcane::InternalConnectivityPolicy::NewAndLegacy</a> n'est pas possible. Si Arcane est configuré avec <b>&ndash;without-legacy-connectivity</b>, alors le mode <a class="el" href="../../d0/d32/namespaceArcane.html#af1a2bb770356f8dc0de7dc4aef70c8a6a0cc0a0507cf3d31e5089f420a4cf8b4b" title="Connectivités historiques.">Arcane::InternalConnectivityPolicy::Legacy</a> n'est pas possible. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li>
+    <li class="footer">Généré le Jeudi 23 Septembre 2021 09:25:20 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

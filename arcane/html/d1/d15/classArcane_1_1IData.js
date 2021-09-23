@@ -1,0 +1,28 @@
+var classArcane_1_1IData =
+[
+    [ "~IData", "d1/d15/classArcane_1_1IData.html#a01d43cd7b4c6dd7272f14476869384b5", null ],
+    [ "allocateBufferForSerializedData", "d1/d15/classArcane_1_1IData.html#a0a2ca945379c91a02b90af618c3bcafe", null ],
+    [ "ARCCORE_DEPRECATED_2020", "d1/d15/classArcane_1_1IData.html#a86370e387320189f2e26b3a998c29c91", null ],
+    [ "ARCCORE_DEPRECATED_2020", "d1/d15/classArcane_1_1IData.html#a1430b1d0e146df39de6f2f0a8cd431a4", null ],
+    [ "assignSerializedData", "d1/d15/classArcane_1_1IData.html#ae2529ee3efc1a7a9d797b8035827e1b1", null ],
+    [ "cloneEmptyRef", "d1/d15/classArcane_1_1IData.html#a79927e638d86cd9700864c4497469f2b", null ],
+    [ "cloneRef", "d1/d15/classArcane_1_1IData.html#a94789793d358cf1f5a013801b0518adb", null ],
+    [ "computeHash", "d1/d15/classArcane_1_1IData.html#a4203c8f3ec367a69d19a99109de41158", null ],
+    [ "copy", "d1/d15/classArcane_1_1IData.html#a0af75248ea80cb4c201ed77e2274a1b1", null ],
+    [ "createSerializedDataRef", "d1/d15/classArcane_1_1IData.html#ae1780c424650807f6e6747c168264d09", null ],
+    [ "dataType", "d1/d15/classArcane_1_1IData.html#ab5fb134ee4645abc75801dd2b02c2fd6", null ],
+    [ "dimension", "d1/d15/classArcane_1_1IData.html#a840ae536ce461ac498bc4e25fdda469f", null ],
+    [ "fillDefault", "d1/d15/classArcane_1_1IData.html#a92bbae4a97d7202d355e1cb6d11b41ac", null ],
+    [ "multiTag", "d1/d15/classArcane_1_1IData.html#a8fcd8e1348dfd9c39126cfc373c3a226", null ],
+    [ "resize", "d1/d15/classArcane_1_1IData.html#ad272d69ca3a445479b77098478ebee27", null ],
+    [ "serialize", "d1/d15/classArcane_1_1IData.html#a1b1eb029f89f73816b990495a7fef422", null ],
+    [ "serialize", "d1/d15/classArcane_1_1IData.html#a600ae1ce8df12ae8f50e60ece853eebf", null ],
+    [ "setName", "d1/d15/classArcane_1_1IData.html#a6ddd3b6ad98487c172d73f879f700006", null ],
+    [ "storageTypeInfo", "d1/d15/classArcane_1_1IData.html#ae506995fb107917a318da2d9772e87da", null ],
+    [ "swapValues", "d1/d15/classArcane_1_1IData.html#a3d33201f2fb9e8016657f4a4fea57db0", null ],
+    [ "visit", "d1/d15/classArcane_1_1IData.html#a82a90fd530712fb1362e6a31349fc69c", null ],
+    [ "visitArray", "d1/d15/classArcane_1_1IData.html#a85a4738060d8a18f91b01aa18dfdfd35", null ],
+    [ "visitArray2", "d1/d15/classArcane_1_1IData.html#a432c40afd78d714f38439760ea3fa0ea", null ],
+    [ "visitMultiArray2", "d1/d15/classArcane_1_1IData.html#a6c297695fc9d781d5df8f0ed0189651c", null ],
+    [ "visitScalar", "d1/d15/classArcane_1_1IData.html#ab5248ae3abec982fab133adf13206ddd", null ]
+];

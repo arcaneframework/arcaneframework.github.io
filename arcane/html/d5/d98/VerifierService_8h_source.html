@@ -1,0 +1,231 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arcane/VerifierService.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.0.4.16</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d5/d98/VerifierService_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">VerifierService.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2021 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* VerifierService.h                                           (C) 2000-2014 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Classe de base du service de vérification des données.                    */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_VERIFIERSERVICE_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_VERIFIERSERVICE_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/String.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d7e/ArcaneTypes_8h.html">arcane/ArcaneTypes.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;arcane/AbstractService.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;arcane/IVerifierService.h&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">class </span>ServiceBuildInfo;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span>IDataReader;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d9/d64/classArcane_1_1VerifierService.html">   41</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../d9/d64/classArcane_1_1VerifierService.html">VerifierService</a></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../da/d61/classArcane_1_1AbstractService.html">AbstractService</a></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;, <span class="keyword">public</span> <a class="code" href="../../d3/d3e/classArcane_1_1IVerifierService.html">IVerifierService</a></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">struct </span>DiffInfo</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  {</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    DiffInfo()</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    : m_variable_name(), m_nb_diff(0)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      {}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    DiffInfo(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; var_name,Int64 nb_diff)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    : m_variable_name(var_name), m_nb_diff(nb_diff)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      {}</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> m_variable_name;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    Int64 m_nb_diff;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  };</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="code" href="../../d9/d64/classArcane_1_1VerifierService.html">VerifierService</a>(<span class="keyword">const</span> <a class="code" href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">ServiceBuildInfo</a>&amp; sbi);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../d9/d64/classArcane_1_1VerifierService.html">VerifierService</a>();</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d3/d96/classArcane_1_1IBase.html">IBase</a>* <a class="code" href="../../da/d61/classArcane_1_1AbstractService.html#a277e82fab42a1cf8c48231351fafa5f3">serviceParent</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="../../d9/d64/classArcane_1_1VerifierService.html#ae47886f233f16c5ffdf5bdb8a4a81955">   67</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../de/df8/classArcane_1_1IServiceInfo.html">IServiceInfo</a>* <a class="code" href="../../d9/d64/classArcane_1_1VerifierService.html#ae47886f233f16c5ffdf5bdb8a4a81955">serviceInfo</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_service_info; }</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../d9/d64/classArcane_1_1VerifierService.html#ad037620a1794b3a0933a76b1baacc66a">   68</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../da/d7e/classArcane_1_1IService.html">IService</a>* <a class="code" href="../../d9/d64/classArcane_1_1VerifierService.html#ad037620a1794b3a0933a76b1baacc66a">serviceInterface</a>() { <span class="keywordflow">return</span> <span class="keyword">this</span>; }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../d9/d64/classArcane_1_1VerifierService.html#ad06a483e53e339b0ef3e4d067acab0bd">   72</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/d64/classArcane_1_1VerifierService.html#ad06a483e53e339b0ef3e4d067acab0bd">setFileName</a>(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; file_name) { m_file_name = file_name; }</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../d9/d64/classArcane_1_1VerifierService.html#a8f04b91903d0503d648420c77606527e">   73</a></span>&#160;  <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; <a class="code" href="../../d9/d64/classArcane_1_1VerifierService.html#a8f04b91903d0503d648420c77606527e">fileName</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_file_name; }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> setResultFileName(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; file_name) { m_result_file_name = file_name; }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keyword">virtual</span> <span class="keyword">const</span> String&amp; resultfileName()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_result_file_name; }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  </div>
+<div class="line"><a name="l00082"></a><span class="lineno"><a class="line" href="../../d9/d64/classArcane_1_1VerifierService.html#a878fa3f0e2dd9be9e604502cee218ec0">   82</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/d64/classArcane_1_1VerifierService.html#a878fa3f0e2dd9be9e604502cee218ec0">setSubDir</a>(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; sub_dir) { m_sub_dir = sub_dir; }</div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d9/d64/classArcane_1_1VerifierService.html#a3af9f3c7399e1728a812266e0ef3fcd2">   83</a></span>&#160;  <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; <a class="code" href="../../d9/d64/classArcane_1_1VerifierService.html#a3af9f3c7399e1728a812266e0ef3fcd2">subDir</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_sub_dir; }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> _doVerif(<a class="code" href="../../d1/d46/classArcane_1_1IDataReader.html">IDataReader</a>* reader,<span class="keyword">const</span> <a class="code" href="../../d7/d1b/classArcane_1_1VariableCollection.html">VariableCollection</a>&amp; variables,<span class="keywordtype">bool</span> compare_ghost);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> _getVariables(<a class="code" href="../../d7/d1b/classArcane_1_1VariableCollection.html">VariableList</a> variables,<span class="keywordtype">bool</span> parallel_sequential);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html">ISubDomain</a>* subDomain() { <span class="keywordflow">return</span> m_sub_domain; }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  ISubDomain* m_sub_domain;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  IServiceInfo* m_service_info;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  String m_file_name;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  String m_result_file_name;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  String m_sub_dir;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ReaderType&gt; <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  _doVerif2(ReaderType reader,<span class="keyword">const</span> VariableList&amp; variables,<span class="keywordtype">bool</span> compare_ghost);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;};</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;ARCANE_END_NAMESPACE</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="ttc" id="aArcaneTypes_8h_html"><div class="ttname"><a href="../../d0/d7e/ArcaneTypes_8h.html">ArcaneTypes.h</a></div><div class="ttdoc">Déclarations des types généraux de Arcane.</div></div>
+<div class="ttc" id="aclassArcane_1_1AbstractService_html"><div class="ttname"><a href="../../da/d61/classArcane_1_1AbstractService.html">Arcane::AbstractService</a></div><div class="ttdoc">Classe de base d'un service.</div><div class="ttdef"><b>Definition:</b> AbstractService.h:42</div></div>
+<div class="ttc" id="aclassArcane_1_1AbstractService_html_a277e82fab42a1cf8c48231351fafa5f3"><div class="ttname"><a href="../../da/d61/classArcane_1_1AbstractService.html#a277e82fab42a1cf8c48231351fafa5f3">Arcane::AbstractService::serviceParent</a></div><div class="ttdeci">virtual IBase * serviceParent() const</div><div class="ttdoc">Accès à l'interface de base des principaux objets Arcane.</div><div class="ttdef"><b>Definition:</b> AbstractService.h:68</div></div>
+<div class="ttc" id="aclassArcane_1_1IBase_html"><div class="ttname"><a href="../../d3/d96/classArcane_1_1IBase.html">Arcane::IBase</a></div><div class="ttdoc">Interface de la classe de base des objets principaux arcane.</div><div class="ttdef"><b>Definition:</b> IBase.h:38</div></div>
+<div class="ttc" id="aclassArcane_1_1IDataReader_html"><div class="ttname"><a href="../../d1/d46/classArcane_1_1IDataReader.html">Arcane::IDataReader</a></div><div class="ttdoc">Interface de lecture des données d'une variable.</div><div class="ttdef"><b>Definition:</b> IDataReader.h:41</div></div>
+<div class="ttc" id="aclassArcane_1_1IServiceInfo_html"><div class="ttname"><a href="../../de/df8/classArcane_1_1IServiceInfo.html">Arcane::IServiceInfo</a></div><div class="ttdoc">Interface des informations d'un service ou d'un module.</div><div class="ttdef"><b>Definition:</b> IServiceInfo.h:37</div></div>
+<div class="ttc" id="aclassArcane_1_1IService_html"><div class="ttname"><a href="../../da/d7e/classArcane_1_1IService.html">Arcane::IService</a></div><div class="ttdoc">Interface d'un service.</div><div class="ttdef"><b>Definition:</b> IService.h:45</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html">Arcane::ISubDomain</a></div><div class="ttdoc">Interface du gestionnaire d'un sous-domaine.</div><div class="ttdef"><b>Definition:</b> ISubDomain.h:74</div></div>
+<div class="ttc" id="aclassArcane_1_1IVerifierService_html"><div class="ttname"><a href="../../d3/d3e/classArcane_1_1IVerifierService.html">Arcane::IVerifierService</a></div><div class="ttdoc">Interface du service de vérification des données entre deux exécutions.</div><div class="ttdef"><b>Definition:</b> IVerifierService.h:36</div></div>
+<div class="ttc" id="aclassArcane_1_1ServiceBuildInfo_html"><div class="ttname"><a href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">Arcane::ServiceBuildInfo</a></div><div class="ttdoc">Structure contenant les informations pour créer un service.</div><div class="ttdef"><b>Definition:</b> ServiceBuildInfo.h:124</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableCollection_html"><div class="ttname"><a href="../../d7/d1b/classArcane_1_1VariableCollection.html">Arcane::VariableCollection</a></div><div class="ttdoc">Collection de variables.</div><div class="ttdef"><b>Definition:</b> VariableCollection.h:81</div></div>
+<div class="ttc" id="aclassArcane_1_1VerifierService_html"><div class="ttname"><a href="../../d9/d64/classArcane_1_1VerifierService.html">Arcane::VerifierService</a></div><div class="ttdoc">Classe de base du service de vérification des données entre deux exécutions.</div><div class="ttdef"><b>Definition:</b> VerifierService.h:44</div></div>
+<div class="ttc" id="aclassArcane_1_1VerifierService_html_a3af9f3c7399e1728a812266e0ef3fcd2"><div class="ttname"><a href="../../d9/d64/classArcane_1_1VerifierService.html#a3af9f3c7399e1728a812266e0ef3fcd2">Arcane::VerifierService::subDir</a></div><div class="ttdeci">virtual const String &amp; subDir() const</div><div class="ttdoc">Nom du fichier contenant les valeurs de référence.</div><div class="ttdef"><b>Definition:</b> VerifierService.h:83</div></div>
+<div class="ttc" id="aclassArcane_1_1VerifierService_html_a878fa3f0e2dd9be9e604502cee218ec0"><div class="ttname"><a href="../../d9/d64/classArcane_1_1VerifierService.html#a878fa3f0e2dd9be9e604502cee218ec0">Arcane::VerifierService::setSubDir</a></div><div class="ttdeci">virtual void setSubDir(const String &amp;sub_dir)</div><div class="ttdoc">Positionne le nom du sous répertoire contenant les valeurs de référence.</div><div class="ttdef"><b>Definition:</b> VerifierService.h:82</div></div>
+<div class="ttc" id="aclassArcane_1_1VerifierService_html_a8f04b91903d0503d648420c77606527e"><div class="ttname"><a href="../../d9/d64/classArcane_1_1VerifierService.html#a8f04b91903d0503d648420c77606527e">Arcane::VerifierService::fileName</a></div><div class="ttdeci">virtual const String &amp; fileName() const</div><div class="ttdoc">Nom du fichier contenant les valeurs de référence.</div><div class="ttdef"><b>Definition:</b> VerifierService.h:73</div></div>
+<div class="ttc" id="aclassArcane_1_1VerifierService_html_ad037620a1794b3a0933a76b1baacc66a"><div class="ttname"><a href="../../d9/d64/classArcane_1_1VerifierService.html#ad037620a1794b3a0933a76b1baacc66a">Arcane::VerifierService::serviceInterface</a></div><div class="ttdeci">virtual IService * serviceInterface()</div><div class="ttdoc">Retourne l'interface bas niveau IService du service.</div><div class="ttdef"><b>Definition:</b> VerifierService.h:68</div></div>
+<div class="ttc" id="aclassArcane_1_1VerifierService_html_ad06a483e53e339b0ef3e4d067acab0bd"><div class="ttname"><a href="../../d9/d64/classArcane_1_1VerifierService.html#ad06a483e53e339b0ef3e4d067acab0bd">Arcane::VerifierService::setFileName</a></div><div class="ttdeci">virtual void setFileName(const String &amp;file_name)</div><div class="ttdoc">Positionne le nom du fichier contenant les valeurs de référence.</div><div class="ttdef"><b>Definition:</b> VerifierService.h:72</div></div>
+<div class="ttc" id="aclassArcane_1_1VerifierService_html_ae47886f233f16c5ffdf5bdb8a4a81955"><div class="ttname"><a href="../../d9/d64/classArcane_1_1VerifierService.html#ae47886f233f16c5ffdf5bdb8a4a81955">Arcane::VerifierService::serviceInfo</a></div><div class="ttdeci">virtual IServiceInfo * serviceInfo() const</div><div class="ttdoc">Accès aux informations du service.</div><div class="ttdef"><b>Definition:</b> VerifierService.h:67</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> String.h:81</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_eaea1cc2eef2b99746e8bb8e35999405.html">arcane</a></li><li class="navelem"><b>VerifierService.h</b></li>
+    <li class="footer">Généré le Jeudi 23 Septembre 2021 09:25:15 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,7 +1,0 @@
-var classArccore_1_1MessagePassing_1_1ISerializeMessageList =
-[
-    [ "addMessage", "d0/d54/classArccore_1_1MessagePassing_1_1ISerializeMessageList.html#a921a2358381fbf4594ae4dac572aaeb6", null ],
-    [ "createAndAddMessage", "d0/d54/classArccore_1_1MessagePassing_1_1ISerializeMessageList.html#ae570ec9c2fa50791ab9a6d783129e36d", null ],
-    [ "processPendingMessages", "d0/d54/classArccore_1_1MessagePassing_1_1ISerializeMessageList.html#a62a0e4f3bcbfa7a2ca51c8fb79d07ecd", null ],
-    [ "waitMessages", "d0/d54/classArccore_1_1MessagePassing_1_1ISerializeMessageList.html#ab8539b1d8a399e124403e13dfeea8421", null ]
-];

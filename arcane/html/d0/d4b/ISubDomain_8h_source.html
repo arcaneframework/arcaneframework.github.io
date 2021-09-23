@@ -1,0 +1,399 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arcane/ISubDomain.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.0.4.16</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d0/d4b/ISubDomain_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">ISubDomain.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2021 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* ISubDomain.h                                                (C) 2000-2021 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Interface d&#39;un sous-domaine.                                              */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_ISUBDOMAIN_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_ISUBDOMAIN_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d7e/ArcaneTypes_8h.html">arcane/ArcaneTypes.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;arcane/IBase.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">class </span>IVariableMng;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">class </span>IModuleMng;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span>IServiceMng;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">class </span>IEntryPointMng;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">class </span>IModule;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">class </span>IMeshIOService;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">class </span>IMesh;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">class </span>IMeshMng;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">class </span>ApplicationInfo;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">class </span>IIOMng;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">class </span>ITimeLoopMng;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">class </span>CaseOptionsMain;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">class </span>IParallelMng;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">class </span>IThreadMng;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">class </span>IDirectory;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">class </span>ITimeHistoryMng;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">class </span>ICaseMng;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">class </span>IInterfaceMng;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">class </span>ITimerMng;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">class </span>ITimeStats;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">class </span>IRessourceMng;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">class </span>CommonVariables;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keyword">class </span>IMainFactory;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">class </span>ICaseDocument;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">class </span>XmlNode;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">class </span>IMemoryInfo;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keyword">class </span>IObservable;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">class </span>IInitialPartitioner;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">class </span>IDirectExecution;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">class </span>IPhysicalUnitSystem;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">class </span>ILoadBalanceMng;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">class </span>IModuleMaster;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;<span class="keyword">class </span>ICheckpointMng;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">class </span>IPropertyMng;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">class </span>IConfiguration;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">class </span>MeshHandle;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html">   72</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html">ISubDomain</a></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d3/d96/classArcane_1_1IBase.html">IBase</a></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;{</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a54d8a4d390611dfca291b3736f87f82d">   77</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a54d8a4d390611dfca291b3736f87f82d">~ISubDomain</a>() {} </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> destroy() =0;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a51086a8480be6d104f845e1b6256c65d">   86</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d2/dae/classArcane_1_1IMainFactory.html">IMainFactory</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a51086a8480be6d104f845e1b6256c65d">mainFactory</a>() =0;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a66de0103a0b92503da39f19a0dd4573d">   89</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../db/d9b/classArcane_1_1ISession.html">ISession</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a66de0103a0b92503da39f19a0dd4573d">session</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#ae60d83c9f0f5c43f4684a9519553e3d2">   92</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d9/d7f/classArcane_1_1IApplication.html">IApplication</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#ae60d83c9f0f5c43f4684a9519553e3d2">application</a>() =0;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a2c032073a843242cb6b4401bdaa80296">   95</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d7/d7c/classArcane_1_1IVariableMng.html">IVariableMng</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a2c032073a843242cb6b4401bdaa80296">variableMng</a>() =0;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a38f68fc39f89dd515642f33b7c0679d3">   98</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d2/d3b/classArcane_1_1IModuleMng.html">IModuleMng</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a38f68fc39f89dd515642f33b7c0679d3">moduleMng</a>() =0;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a4ab72b38def9e6f39813b967ccf371f9">  101</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d1/d66/classArcane_1_1IEntryPointMng.html">IEntryPointMng</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a4ab72b38def9e6f39813b967ccf371f9">entryPointMng</a>() =0;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#ad7de3091e7965328264b91c0162fe631">  104</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../dc/d5a/classArcane_1_1IParallelMng.html">IParallelMng</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#ad7de3091e7965328264b91c0162fe631">parallelMng</a>() =0;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#ad8b8916d766aa953ebfcd7f480762952">  114</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../dc/d5a/classArcane_1_1IParallelMng.html">IParallelMng</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#ad8b8916d766aa953ebfcd7f480762952">allReplicaParallelMng</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a18e56bc244988b5dc280bc6bd7d7a749">  117</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d3/db0/classArcane_1_1IThreadMng.html">IThreadMng</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a18e56bc244988b5dc280bc6bd7d7a749">threadMng</a>() =0;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a55267cb8234d98f7e17fb5eee8f61f26">  120</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d9/da8/classArcane_1_1ITimeHistoryMng.html">ITimeHistoryMng</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a55267cb8234d98f7e17fb5eee8f61f26">timeHistoryMng</a>() =0;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a32bf8a6f8318a7fed96e4abaf60cf9f5">  123</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d5/d9e/classArcane_1_1ITimeLoopMng.html">ITimeLoopMng</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a32bf8a6f8318a7fed96e4abaf60cf9f5">timeLoopMng</a>() =0;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a352f2a51d92ceb86208427a50171c365">  126</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../da/dd2/classArcane_1_1IIOMng.html">IIOMng</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a352f2a51d92ceb86208427a50171c365">ioMng</a>() =0;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#aad044c8bb89eb7f49b9ce8180096ebe2">  129</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html">ICaseMng</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#aad044c8bb89eb7f49b9ce8180096ebe2">caseMng</a>() =0;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a9250908c6151da6538d8706106712137">  132</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../df/de1/classArcane_1_1ITimerMng.html">ITimerMng</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a9250908c6151da6538d8706106712137">timerMng</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a2d95748569c5d919e5755200e7c794e4">  135</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d4/d8d/classArcane_1_1ICheckpointMng.html">ICheckpointMng</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a2d95748569c5d919e5755200e7c794e4">checkpointMng</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#ad29ab2302ed789b078bb99e07a050ab0">  138</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../da/d8d/classArcane_1_1IPropertyMng.html">IPropertyMng</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#ad29ab2302ed789b078bb99e07a050ab0">propertyMng</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a9df18ec3965e339012d7ff849dd4d822">  141</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d3/d52/classArcane_1_1ITimeStats.html">ITimeStats</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a9df18ec3965e339012d7ff849dd4d822">timeStats</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a3d12d16a1d782855b1694c310c992e17">  144</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../de/d6b/classArcane_1_1IMemoryInfo.html">IMemoryInfo</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a3d12d16a1d782855b1694c310c992e17">memoryInfo</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a0dc3132c081d99e871358a20c688a283">  147</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../dd/d0e/classArcane_1_1IPhysicalUnitSystem.html">IPhysicalUnitSystem</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a0dc3132c081d99e871358a20c688a283">physicalUnitSystem</a>() =0;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a624c35df8c4e84c44f9129e43e83f14a">  150</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../dc/d00/classArcane_1_1ILoadBalanceMng.html">ILoadBalanceMng</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a624c35df8c4e84c44f9129e43e83f14a">loadBalanceMng</a>() =0;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a1fa0fa38b83e53b4b8c2aef4504364f2">  153</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d1/d4e/classArcane_1_1IMeshMng.html">IMeshMng</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a1fa0fa38b83e53b4b8c2aef4504364f2">meshMng</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a37f53eb13774a7568c824f3c59d9a556">  156</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d2/de2/classArcane_1_1IModuleMaster.html">IModuleMaster</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a37f53eb13774a7568c824f3c59d9a556">moduleMaster</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a09d32835f564268ebb11f033ce7a5070">  159</a></span>&#160;  <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="../../dd/dde/classArcane_1_1IConfiguration.html">IConfiguration</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a09d32835f564268ebb11f033ce7a5070">configuration</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#abef018bebf592b9754838912c828c83b">  162</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../dd/dde/classArcane_1_1IConfiguration.html">IConfiguration</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#abef018bebf592b9754838912c828c83b">configuration</a>() =0;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a526600309ced620c4253ffdadfca9bd5">  165</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../df/d02/classArcane_1_1Accelerator_1_1IAcceleratorMng.html">IAcceleratorMng</a>* <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a526600309ced620c4253ffdadfca9bd5">acceleratorMng</a>() =0;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a1680949060a963d161667da88f7d4054">  170</a></span>&#160;  <span class="keyword">virtual</span> Int32 <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a1680949060a963d161667da88f7d4054">subDomainId</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a7d1d9a21c4a59fd14559885bbca60b68">  173</a></span>&#160;  <span class="keyword">virtual</span> Int32 <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a7d1d9a21c4a59fd14559885bbca60b68">nbSubDomain</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#abf7ec0f5094baca017ca36348059349b">  176</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#abf7ec0f5094baca017ca36348059349b">readCaseMeshes</a>() =0;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> setIsContinue() =0;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a67ed213631b5bd49427ddbc16b7d4033">  188</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a67ed213631b5bd49427ddbc16b7d4033">isContinue</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> allocateMeshes() =0;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> readOrReloadMeshes() =0;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> initializeMeshVariablesFromCaseFile() =0;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> doInitMeshPartition() =0;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
+<div class="line"><a name="l00224"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a0ded5574fadaa74ed8cf00696245990a">  224</a></span>&#160;  <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a0ded5574fadaa74ed8cf00696245990a">ARCCORE_DEPRECATED_2020</a>(<span class="stringliteral">&quot;Use meshMng()-&gt;meshFactoryMng() to create and add mesh&quot;</span>)</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  virtual <span class="keywordtype">void</span> addMesh(<a class="code" href="../../d0/d9f/classArcane_1_1IMesh.html">IMesh</a>* mesh) =0;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a0db2658577a964e542a8204964ede0cb">  228</a></span>&#160;  virtual <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView</a>&lt;<a class="code" href="../../d0/d9f/classArcane_1_1IMesh.html">IMesh</a>*&gt; meshes() const =0;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  virtual ARCANE_DEPRECATED_2018 <span class="keywordtype">void</span> doInitModules() =0;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
+<div class="line"><a name="l00238"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a1ac0fdc5d523befe59653ba48aedce4c">  238</a></span>&#160;  virtual <span class="keywordtype">void</span> doExitModules() =0;</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
+<div class="line"><a name="l00241"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a3da32aefabc518be21ba79c17d0bcfa6">  241</a></span>&#160;  virtual <span class="keywordtype">void</span> dumpInfo(std::ostream&amp;) =0;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
+<div class="line"><a name="l00250"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a74c5edce6ac7ff27f9c7e029914a21ed">  250</a></span>&#160;  virtual <a class="code" href="../../d0/d9f/classArcane_1_1IMesh.html">IMesh</a>* defaultMesh() =0;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  </div>
+<div class="line"><a name="l00258"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a9dc1a1e49bfb74d6d6fe624b118d814f">  258</a></span>&#160;  virtual const <a class="code" href="../../d7/d6f/classArcane_1_1MeshHandle.html">MeshHandle</a>&amp; defaultMeshHandle() =0;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  virtual ARCANE_DEPRECATED <a class="code" href="../../d0/d9f/classArcane_1_1IMesh.html">IMesh</a>* mesh() =0;</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
+<div class="line"><a name="l00268"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#ae6a96cca2ed913851ce74e272fc2c811">  268</a></span>&#160;  ARCCORE_DEPRECATED_2019(&quot;Use meshMng()-&gt;findMeshHandle() instead&quot;)</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  virtual <a class="code" href="../../d0/d9f/classArcane_1_1IMesh.html">IMesh</a>* findMesh(const <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; name,<span class="keywordtype">bool</span> throw_exception=true) =0;</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  </div>
+<div class="line"><a name="l00272"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#ac2d094578668d48156c6d58837f7bdae">  272</a></span>&#160;  virtual <span class="keywordtype">bool</span> isInitialized() const =0;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  virtual <span class="keywordtype">void</span> setIsInitialized() =0;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; </div>
+<div class="line"><a name="l00281"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#ab6da6f815b6cc0719f6f3d74f1038e91">  281</a></span>&#160;  virtual const <a class="code" href="../../d0/d68/classArcane_1_1ApplicationInfo.html">ApplicationInfo</a>&amp; applicationInfo() const =0;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
+<div class="line"><a name="l00284"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a543389cec2dee4367bcee2d20c01822b">  284</a></span>&#160;  virtual <a class="code" href="../../d3/dd9/classArcane_1_1ICaseDocument.html">ICaseDocument</a>* caseDocument() =0;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
+<div class="line"><a name="l00291"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a0b8ccef5b381438044abc579adf5eb14">  291</a></span>&#160;  virtual <span class="keywordtype">void</span> checkId(const <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; where,const <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; <span class="keywordtype">id</span>) =0;</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; </div>
+<div class="line"><a name="l00294"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a4173a590920499a1821257adcc68b84a">  294</a></span>&#160;  virtual const <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; caseFullFileName() const =0;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
+<div class="line"><a name="l00297"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a1c7165b475c8681245cbf6a16f8551dc">  297</a></span>&#160;  virtual const <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; caseName() const =0;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
+<div class="line"><a name="l00300"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a5829977669163818433114b48ccdab7e">  300</a></span>&#160;  virtual <span class="keywordtype">void</span> fillCaseBytes(<a class="code" href="../../d9/d09/classArccore_1_1Array.html">ByteArray</a>&amp; bytes) const =0;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160; </div>
+<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#ab97974be86b05208d68b9f89e4d02614">  306</a></span>&#160;  virtual <span class="keywordtype">void</span> setCaseName(const <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; name) =0;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160; </div>
+<div class="line"><a name="l00320"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#ac33fc4998b8bb0ac3e617b7fa95215b3">  320</a></span>&#160;  virtual <span class="keywordtype">void</span> setInitialPartitioner(<a class="code" href="../../d2/d04/classArcane_1_1IInitialPartitioner.html">IInitialPartitioner</a>* partitioner) =0;</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
+<div class="line"><a name="l00323"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#ac271b001eaf720b0a7d14c229c29c34d">  323</a></span>&#160;  virtual const <a class="code" href="../../d3/df6/classArcane_1_1CaseOptionsMain.html">CaseOptionsMain</a>* caseOptionsMain() const =0;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
+<div class="line"><a name="l00326"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a115b6b92318cba625934f18094144c37">  326</a></span>&#160;  virtual const <a class="code" href="../../d5/d86/classArcane_1_1IDirectory.html">IDirectory</a>&amp; exportDirectory() const =0;</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
+<div class="line"><a name="l00334"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a75fa25173b6c952a24c41c0d6279226a">  334</a></span>&#160;  virtual <span class="keywordtype">void</span> setExportDirectory(const <a class="code" href="../../d5/d86/classArcane_1_1IDirectory.html">IDirectory</a>&amp; dir) =0;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160; </div>
+<div class="line"><a name="l00337"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a082e327bec1152f8818785a464e47973">  337</a></span>&#160;  virtual const <a class="code" href="../../d5/d86/classArcane_1_1IDirectory.html">IDirectory</a>&amp; storageDirectory() const =0;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
+<div class="line"><a name="l00346"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a3e05deefbdf8b34943454f0a9aab6441">  346</a></span>&#160;  virtual <span class="keywordtype">void</span> setStorageDirectory(const <a class="code" href="../../d5/d86/classArcane_1_1IDirectory.html">IDirectory</a>&amp; dir) =0;</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; </div>
+<div class="line"><a name="l00349"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a32396a0927b7c82436230850a749de4a">  349</a></span>&#160;  virtual const <a class="code" href="../../d5/d86/classArcane_1_1IDirectory.html">IDirectory</a>&amp; listingDirectory() const =0;</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
+<div class="line"><a name="l00357"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a5358b4a054685572b23efe23e9cff318">  357</a></span>&#160;  virtual <span class="keywordtype">void</span> setListingDirectory(const <a class="code" href="../../d5/d86/classArcane_1_1IDirectory.html">IDirectory</a>&amp; dir) =0;</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160; </div>
+<div class="line"><a name="l00360"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#ab749dc4348ccc2c5ed655731126be299">  360</a></span>&#160;  virtual const <a class="code" href="../../d1/d74/classArcane_1_1CommonVariables.html">CommonVariables</a>&amp; commonVariables() const =0;</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160; </div>
+<div class="line"><a name="l00368"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a4bd1b4c9ac0d8cbbcbb1f3ca4fd539a3">  368</a></span>&#160;  virtual <span class="keywordtype">void</span> dumpInternalInfos(<a class="code" href="../../d9/dcc/classArcane_1_1XmlNode.html">XmlNode</a>&amp; elem) =0;</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160; </div>
+<div class="line"><a name="l00374"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a4a100b049b49d694538eda98e9a26d1a">  374</a></span>&#160;  virtual Integer ARCANE_DEPRECATED meshDimension() const =0;</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160; </div>
+<div class="line"><a name="l00379"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#ab8a97c0b440be2762c518cd40289d337">  379</a></span>&#160;  virtual <a class="code" href="../../dc/d38/classArcane_1_1IObservable.html">IObservable</a>* onDestroyObservable() =0;</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; </div>
+<div class="line"><a name="l00382"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a101ec1fb63336e5f227ab775db6568cd">  382</a></span>&#160;  virtual <a class="code" href="../../d2/d06/classArcane_1_1IDirectExecution.html">IDirectExecution</a>* directExecution() const =0;</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160; </div>
+<div class="line"><a name="l00390"></a><span class="lineno"><a class="line" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a72a62fcbfcbd3de8609f55d28c42a885">  390</a></span>&#160;  virtual <span class="keywordtype">void</span> setDirectExecution(<a class="code" href="../../d2/d06/classArcane_1_1IDirectExecution.html">IDirectExecution</a>* v) =0;</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;};</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160; </div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160; </div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160; </div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160; </div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160; </div>
+<div class="ttc" id="aArcaneTypes_8h_html"><div class="ttname"><a href="../../d0/d7e/ArcaneTypes_8h.html">ArcaneTypes.h</a></div><div class="ttdoc">Déclarations des types généraux de Arcane.</div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1IAcceleratorMng_html"><div class="ttname"><a href="../../df/d02/classArcane_1_1Accelerator_1_1IAcceleratorMng.html">Arcane::Accelerator::IAcceleratorMng</a></div><div class="ttdoc">Interface du gestionnaire des accélérateurs.</div><div class="ttdef"><b>Definition:</b> IAcceleratorMng.h:34</div></div>
+<div class="ttc" id="aclassArcane_1_1ApplicationInfo_html"><div class="ttname"><a href="../../d0/d68/classArcane_1_1ApplicationInfo.html">Arcane::ApplicationInfo</a></div><div class="ttdoc">Informations sur une application.</div><div class="ttdef"><b>Definition:</b> ApplicationInfo.h:40</div></div>
+<div class="ttc" id="aclassArcane_1_1CaseOptionsMain_html"><div class="ttname"><a href="../../d3/df6/classArcane_1_1CaseOptionsMain.html">Arcane::CaseOptionsMain</a></div><div class="ttdef"><b>Definition:</b> CaseOptionsMain.h:29</div></div>
+<div class="ttc" id="aclassArcane_1_1CommonVariables_html"><div class="ttname"><a href="../../d1/d74/classArcane_1_1CommonVariables.html">Arcane::CommonVariables</a></div><div class="ttdoc">Variables communes d'un cas.</div><div class="ttdef"><b>Definition:</b> CommonVariables.h:38</div></div>
+<div class="ttc" id="aclassArcane_1_1IApplication_html"><div class="ttname"><a href="../../d9/d7f/classArcane_1_1IApplication.html">Arcane::IApplication</a></div><div class="ttdoc">Interface de l'application.</div><div class="ttdef"><b>Definition:</b> IApplication.h:57</div></div>
+<div class="ttc" id="aclassArcane_1_1IBase_html"><div class="ttname"><a href="../../d3/d96/classArcane_1_1IBase.html">Arcane::IBase</a></div><div class="ttdoc">Interface de la classe de base des objets principaux arcane.</div><div class="ttdef"><b>Definition:</b> IBase.h:38</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseDocument_html"><div class="ttname"><a href="../../d3/dd9/classArcane_1_1ICaseDocument.html">Arcane::ICaseDocument</a></div><div class="ttdef"><b>Definition:</b> ICaseDocument.h:40</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html">Arcane::ICaseMng</a></div><div class="ttdoc">Interface du gestionnaire de cas.</div><div class="ttdef"><b>Definition:</b> ICaseMng.h:57</div></div>
+<div class="ttc" id="aclassArcane_1_1ICheckpointMng_html"><div class="ttname"><a href="../../d4/d8d/classArcane_1_1ICheckpointMng.html">Arcane::ICheckpointMng</a></div><div class="ttdoc">Interface du gestionnaire des informations des protections.</div><div class="ttdef"><b>Definition:</b> ICheckpointMng.h:46</div></div>
+<div class="ttc" id="aclassArcane_1_1IConfiguration_html"><div class="ttname"><a href="../../dd/dde/classArcane_1_1IConfiguration.html">Arcane::IConfiguration</a></div><div class="ttdoc">Interface d'une configuration.</div><div class="ttdef"><b>Definition:</b> Configuration.h:62</div></div>
+<div class="ttc" id="aclassArcane_1_1IDirectExecution_html"><div class="ttname"><a href="../../d2/d06/classArcane_1_1IDirectExecution.html">Arcane::IDirectExecution</a></div><div class="ttdoc">Interface d'un service d'exécution direct.</div><div class="ttdef"><b>Definition:</b> IDirectExecution.h:47</div></div>
+<div class="ttc" id="aclassArcane_1_1IDirectory_html"><div class="ttname"><a href="../../d5/d86/classArcane_1_1IDirectory.html">Arcane::IDirectory</a></div><div class="ttdoc">Interface d'une classe gérant un répertoire.</div><div class="ttdef"><b>Definition:</b> IDirectory.h:31</div></div>
+<div class="ttc" id="aclassArcane_1_1IEntryPointMng_html"><div class="ttname"><a href="../../d1/d66/classArcane_1_1IEntryPointMng.html">Arcane::IEntryPointMng</a></div><div class="ttdef"><b>Definition:</b> IEntryPointMng.h:36</div></div>
+<div class="ttc" id="aclassArcane_1_1IIOMng_html"><div class="ttname"><a href="../../da/dd2/classArcane_1_1IIOMng.html">Arcane::IIOMng</a></div><div class="ttdoc">Interface du gestionnaire des entrées sorties.</div><div class="ttdef"><b>Definition:</b> IIOMng.h:42</div></div>
+<div class="ttc" id="aclassArcane_1_1IInitialPartitioner_html"><div class="ttname"><a href="../../d2/d04/classArcane_1_1IInitialPartitioner.html">Arcane::IInitialPartitioner</a></div><div class="ttdoc">Interface d'un partitionneur initial.</div><div class="ttdef"><b>Definition:</b> IInitialPartitioner.h:40</div></div>
+<div class="ttc" id="aclassArcane_1_1ILoadBalanceMng_html"><div class="ttname"><a href="../../dc/d00/classArcane_1_1ILoadBalanceMng.html">Arcane::ILoadBalanceMng</a></div><div class="ttdoc">Interface d'enregistrement des variables pour l'equilibrage de charge.</div><div class="ttdef"><b>Definition:</b> ILoadBalanceMng.h:35</div></div>
+<div class="ttc" id="aclassArcane_1_1IMainFactory_html"><div class="ttname"><a href="../../d2/dae/classArcane_1_1IMainFactory.html">Arcane::IMainFactory</a></div><div class="ttdef"><b>Definition:</b> IMainFactory.h:93</div></div>
+<div class="ttc" id="aclassArcane_1_1IMemoryInfo_html"><div class="ttname"><a href="../../de/d6b/classArcane_1_1IMemoryInfo.html">Arcane::IMemoryInfo</a></div><div class="ttdef"><b>Definition:</b> IMemoryInfo.h:60</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshMng_html"><div class="ttname"><a href="../../d1/d4e/classArcane_1_1IMeshMng.html">Arcane::IMeshMng</a></div><div class="ttdoc">Interface du gestionnaire des maillages.</div><div class="ttdef"><b>Definition:</b> IMeshMng.h:40</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html">Arcane::IMesh</a></div><div class="ttdef"><b>Definition:</b> IMesh.h:57</div></div>
+<div class="ttc" id="aclassArcane_1_1IModuleMaster_html"><div class="ttname"><a href="../../d2/de2/classArcane_1_1IModuleMaster.html">Arcane::IModuleMaster</a></div><div class="ttdef"><b>Definition:</b> IModuleMaster.h:44</div></div>
+<div class="ttc" id="aclassArcane_1_1IModuleMng_html"><div class="ttname"><a href="../../d2/d3b/classArcane_1_1IModuleMng.html">Arcane::IModuleMng</a></div><div class="ttdoc">Interface du gestionnaire de modules.</div><div class="ttdef"><b>Definition:</b> IModuleMng.h:39</div></div>
+<div class="ttc" id="aclassArcane_1_1IObservable_html"><div class="ttname"><a href="../../dc/d38/classArcane_1_1IObservable.html">Arcane::IObservable</a></div><div class="ttdoc">Interface d'un observable.</div><div class="ttdef"><b>Definition:</b> IObservable.h:53</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelMng_html"><div class="ttname"><a href="../../dc/d5a/classArcane_1_1IParallelMng.html">Arcane::IParallelMng</a></div><div class="ttdoc">Interface du gestionnaire de parallélisme pour un sous-domaine.</div><div class="ttdef"><b>Definition:</b> IParallelMng.h:70</div></div>
+<div class="ttc" id="aclassArcane_1_1IPhysicalUnitSystem_html"><div class="ttname"><a href="../../dd/d0e/classArcane_1_1IPhysicalUnitSystem.html">Arcane::IPhysicalUnitSystem</a></div><div class="ttdef"><b>Definition:</b> IPhysicalUnitSystem.h:37</div></div>
+<div class="ttc" id="aclassArcane_1_1IPropertyMng_html"><div class="ttname"><a href="../../da/d8d/classArcane_1_1IPropertyMng.html">Arcane::IPropertyMng</a></div><div class="ttdoc">Interface du gestionnaire des propriétés.</div><div class="ttdef"><b>Definition:</b> IPropertyMng.h:38</div></div>
+<div class="ttc" id="aclassArcane_1_1ISession_html"><div class="ttname"><a href="../../db/d9b/classArcane_1_1ISession.html">Arcane::ISession</a></div><div class="ttdoc">Interface d'une session d'exécution d'un cas.</div><div class="ttdef"><b>Definition:</b> ISession.h:44</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html">Arcane::ISubDomain</a></div><div class="ttdoc">Interface du gestionnaire d'un sous-domaine.</div><div class="ttdef"><b>Definition:</b> ISubDomain.h:74</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a09d32835f564268ebb11f033ce7a5070"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a09d32835f564268ebb11f033ce7a5070">Arcane::ISubDomain::configuration</a></div><div class="ttdeci">virtual const IConfiguration * configuration() const =0</div><div class="ttdoc">Configuration associée.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a0dc3132c081d99e871358a20c688a283"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a0dc3132c081d99e871358a20c688a283">Arcane::ISubDomain::physicalUnitSystem</a></div><div class="ttdeci">virtual IPhysicalUnitSystem * physicalUnitSystem()=0</div><div class="ttdoc">Système d'unité du sous-domaine.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a0ded5574fadaa74ed8cf00696245990a"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a0ded5574fadaa74ed8cf00696245990a">Arcane::ISubDomain::ARCCORE_DEPRECATED_2020</a></div><div class="ttdeci">ARCCORE_DEPRECATED_2020(&quot;Use meshMng()-&gt;meshFactoryMng() to create and add mesh&quot;) virtual void addMesh(IMesh *mesh)=0</div><div class="ttdoc">Ajoute un maillage au sous-domaine.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a1680949060a963d161667da88f7d4054"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a1680949060a963d161667da88f7d4054">Arcane::ISubDomain::subDomainId</a></div><div class="ttdeci">virtual Int32 subDomainId() const =0</div><div class="ttdoc">Numéro du sous-domaine associé à ce gestionnaire.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a18e56bc244988b5dc280bc6bd7d7a749"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a18e56bc244988b5dc280bc6bd7d7a749">Arcane::ISubDomain::threadMng</a></div><div class="ttdeci">virtual IThreadMng * threadMng()=0</div><div class="ttdoc">Retourne le gestionnaire de thread.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a1fa0fa38b83e53b4b8c2aef4504364f2"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a1fa0fa38b83e53b4b8c2aef4504364f2">Arcane::ISubDomain::meshMng</a></div><div class="ttdeci">virtual IMeshMng * meshMng() const =0</div><div class="ttdoc">Retourne le gestionnaire de maillage.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a2c032073a843242cb6b4401bdaa80296"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a2c032073a843242cb6b4401bdaa80296">Arcane::ISubDomain::variableMng</a></div><div class="ttdeci">virtual IVariableMng * variableMng()=0</div><div class="ttdoc">Retourne le gestionnaire de variables.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a2d95748569c5d919e5755200e7c794e4"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a2d95748569c5d919e5755200e7c794e4">Arcane::ISubDomain::checkpointMng</a></div><div class="ttdeci">virtual ICheckpointMng * checkpointMng() const =0</div><div class="ttdoc">Gestionnaire de protections.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a32bf8a6f8318a7fed96e4abaf60cf9f5"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a32bf8a6f8318a7fed96e4abaf60cf9f5">Arcane::ISubDomain::timeLoopMng</a></div><div class="ttdeci">virtual ITimeLoopMng * timeLoopMng()=0</div><div class="ttdoc">Retourne le gestionnaire de la boucle en temps.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a352f2a51d92ceb86208427a50171c365"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a352f2a51d92ceb86208427a50171c365">Arcane::ISubDomain::ioMng</a></div><div class="ttdeci">virtual IIOMng * ioMng()=0</div><div class="ttdoc">Retourne le gestionnaire des entrées/sorties.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a37f53eb13774a7568c824f3c59d9a556"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a37f53eb13774a7568c824f3c59d9a556">Arcane::ISubDomain::moduleMaster</a></div><div class="ttdeci">virtual IModuleMaster * moduleMaster() const =0</div><div class="ttdoc">Interface du module maître.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a38f68fc39f89dd515642f33b7c0679d3"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a38f68fc39f89dd515642f33b7c0679d3">Arcane::ISubDomain::moduleMng</a></div><div class="ttdeci">virtual IModuleMng * moduleMng()=0</div><div class="ttdoc">Retourne le gestionnaire de modules.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a3d12d16a1d782855b1694c310c992e17"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a3d12d16a1d782855b1694c310c992e17">Arcane::ISubDomain::memoryInfo</a></div><div class="ttdeci">virtual IMemoryInfo * memoryInfo() const =0</div><div class="ttdoc">Gestionnaire d'informations mémoire.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a4ab72b38def9e6f39813b967ccf371f9"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a4ab72b38def9e6f39813b967ccf371f9">Arcane::ISubDomain::entryPointMng</a></div><div class="ttdeci">virtual IEntryPointMng * entryPointMng()=0</div><div class="ttdoc">Retourne le gestionnaire de points d'entrée.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a51086a8480be6d104f845e1b6256c65d"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a51086a8480be6d104f845e1b6256c65d">Arcane::ISubDomain::mainFactory</a></div><div class="ttdeci">virtual IMainFactory * mainFactory()=0</div><div class="ttdoc">Manufacture principale.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a526600309ced620c4253ffdadfca9bd5"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a526600309ced620c4253ffdadfca9bd5">Arcane::ISubDomain::acceleratorMng</a></div><div class="ttdeci">virtual IAcceleratorMng * acceleratorMng()=0</div><div class="ttdoc">Gestionnaire de l'accélérateur associé</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a54d8a4d390611dfca291b3736f87f82d"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a54d8a4d390611dfca291b3736f87f82d">Arcane::ISubDomain::~ISubDomain</a></div><div class="ttdeci">virtual ~ISubDomain()</div><div class="ttdoc">Libère les ressources.</div><div class="ttdef"><b>Definition:</b> ISubDomain.h:77</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a55267cb8234d98f7e17fb5eee8f61f26"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a55267cb8234d98f7e17fb5eee8f61f26">Arcane::ISubDomain::timeHistoryMng</a></div><div class="ttdeci">virtual ITimeHistoryMng * timeHistoryMng()=0</div><div class="ttdoc">Retourne le gestionnaire d'historique.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a624c35df8c4e84c44f9129e43e83f14a"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a624c35df8c4e84c44f9129e43e83f14a">Arcane::ISubDomain::loadBalanceMng</a></div><div class="ttdeci">virtual ILoadBalanceMng * loadBalanceMng()=0</div><div class="ttdoc">Retourne le gestionnaire d'équilibrage de charge.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a66de0103a0b92503da39f19a0dd4573d"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a66de0103a0b92503da39f19a0dd4573d">Arcane::ISubDomain::session</a></div><div class="ttdeci">virtual ISession * session() const =0</div><div class="ttdoc">Session.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a67ed213631b5bd49427ddbc16b7d4033"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a67ed213631b5bd49427ddbc16b7d4033">Arcane::ISubDomain::isContinue</a></div><div class="ttdeci">virtual bool isContinue() const =0</div><div class="ttdoc">Vrai si on effectue une reprise, faux sinon.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a7d1d9a21c4a59fd14559885bbca60b68"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a7d1d9a21c4a59fd14559885bbca60b68">Arcane::ISubDomain::nbSubDomain</a></div><div class="ttdeci">virtual Int32 nbSubDomain() const =0</div><div class="ttdoc">Nombre total de sous-domaines.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a9250908c6151da6538d8706106712137"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a9250908c6151da6538d8706106712137">Arcane::ISubDomain::timerMng</a></div><div class="ttdeci">virtual ITimerMng * timerMng() const =0</div><div class="ttdoc">Retourne le gestionnaire de timers.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a9df18ec3965e339012d7ff849dd4d822"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a9df18ec3965e339012d7ff849dd4d822">Arcane::ISubDomain::timeStats</a></div><div class="ttdeci">virtual ITimeStats * timeStats() const =0</div><div class="ttdoc">Statistiques des temps d'exécution.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_aad044c8bb89eb7f49b9ce8180096ebe2"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#aad044c8bb89eb7f49b9ce8180096ebe2">Arcane::ISubDomain::caseMng</a></div><div class="ttdeci">virtual ICaseMng * caseMng()=0</div><div class="ttdoc">Retourne le gestionnaire du jeu de données.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_abef018bebf592b9754838912c828c83b"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#abef018bebf592b9754838912c828c83b">Arcane::ISubDomain::configuration</a></div><div class="ttdeci">virtual IConfiguration * configuration()=0</div><div class="ttdoc">Configuration associée.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_abf7ec0f5094baca017ca36348059349b"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#abf7ec0f5094baca017ca36348059349b">Arcane::ISubDomain::readCaseMeshes</a></div><div class="ttdeci">virtual void readCaseMeshes()=0</div><div class="ttdoc">Lit les informations de maillage du jeu de données.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_ad29ab2302ed789b078bb99e07a050ab0"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#ad29ab2302ed789b078bb99e07a050ab0">Arcane::ISubDomain::propertyMng</a></div><div class="ttdeci">virtual IPropertyMng * propertyMng() const =0</div><div class="ttdoc">Gestionnaire de propriétés.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_ad7de3091e7965328264b91c0162fe631"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#ad7de3091e7965328264b91c0162fe631">Arcane::ISubDomain::parallelMng</a></div><div class="ttdeci">virtual IParallelMng * parallelMng()=0</div><div class="ttdoc">Retourne le gestionnaire de parallélisme.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_ad8b8916d766aa953ebfcd7f480762952"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#ad8b8916d766aa953ebfcd7f480762952">Arcane::ISubDomain::allReplicaParallelMng</a></div><div class="ttdeci">virtual IParallelMng * allReplicaParallelMng() const =0</div><div class="ttdoc">Retourne le gestionnaire de parallélisme pour tous les réplicats.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_ae60d83c9f0f5c43f4684a9519553e3d2"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#ae60d83c9f0f5c43f4684a9519553e3d2">Arcane::ISubDomain::application</a></div><div class="ttdeci">virtual IApplication * application()=0</div><div class="ttdoc">Application.</div></div>
+<div class="ttc" id="aclassArcane_1_1IThreadMng_html"><div class="ttname"><a href="../../d3/db0/classArcane_1_1IThreadMng.html">Arcane::IThreadMng</a></div><div class="ttdoc">Interface d'un gestionnaire de thread.</div><div class="ttdef"><b>Definition:</b> IThreadMng.h:30</div></div>
+<div class="ttc" id="aclassArcane_1_1ITimeHistoryMng_html"><div class="ttname"><a href="../../d9/da8/classArcane_1_1ITimeHistoryMng.html">Arcane::ITimeHistoryMng</a></div><div class="ttdoc">Classe gérant un historique de valeurs.</div><div class="ttdef"><b>Definition:</b> ITimeHistoryMng.h:68</div></div>
+<div class="ttc" id="aclassArcane_1_1ITimeLoopMng_html"><div class="ttname"><a href="../../d5/d9e/classArcane_1_1ITimeLoopMng.html">Arcane::ITimeLoopMng</a></div><div class="ttdoc">Interface du gestionnaire de la boucle en temps.</div><div class="ttdef"><b>Definition:</b> ITimeLoopMng.h:77</div></div>
+<div class="ttc" id="aclassArcane_1_1ITimeStats_html"><div class="ttname"><a href="../../d3/d52/classArcane_1_1ITimeStats.html">Arcane::ITimeStats</a></div><div class="ttdef"><b>Definition:</b> ITimeStats.h:40</div></div>
+<div class="ttc" id="aclassArcane_1_1ITimerMng_html"><div class="ttname"><a href="../../df/de1/classArcane_1_1ITimerMng.html">Arcane::ITimerMng</a></div><div class="ttdoc">Interface d'un gestionnaire de timer.</div><div class="ttdef"><b>Definition:</b> ITimerMng.h:53</div></div>
+<div class="ttc" id="aclassArcane_1_1IVariableMng_html"><div class="ttname"><a href="../../d7/d7c/classArcane_1_1IVariableMng.html">Arcane::IVariableMng</a></div><div class="ttdoc">Interface du gestionnaire de variables.</div><div class="ttdef"><b>Definition:</b> IVariableMng.h:56</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshHandle_html"><div class="ttname"><a href="../../d7/d6f/classArcane_1_1MeshHandle.html">Arcane::MeshHandle</a></div><div class="ttdoc">Handle sur un maillage.</div><div class="ttdef"><b>Definition:</b> MeshHandle.h:55</div></div>
+<div class="ttc" id="aclassArcane_1_1XmlNode_html"><div class="ttname"><a href="../../d9/dcc/classArcane_1_1XmlNode.html">Arcane::XmlNode</a></div><div class="ttdoc">Noeud d'un arbre DOM.</div><div class="ttdef"><b>Definition:</b> XmlNode.h:50</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html">Arccore::Array</a></div><div class="ttdoc">Classe de base des vecteurs 1D de données.</div><div class="ttdef"><b>Definition:</b> Array.h:797</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:470</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> String.h:81</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">Interface for base mesh operations.</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_eaea1cc2eef2b99746e8bb8e35999405.html">arcane</a></li><li class="navelem"><b>ISubDomain.h</b></li>
+    <li class="footer">Généré le Jeudi 23 Septembre 2021 09:24:33 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

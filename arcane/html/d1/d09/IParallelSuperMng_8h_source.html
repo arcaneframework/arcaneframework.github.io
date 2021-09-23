@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arcane/IParallelSuperMng.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.0.4.16</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d1/d09/IParallelSuperMng_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">IParallelSuperMng.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2021 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* IParallelSuperMng.h                                         (C) 2000-2020 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Interface du superviseur du parallélisme.                                 */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_IPARALLELSUPERMNG_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_IPARALLELSUPERMNG_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/da8/UtilsTypes_8h.html">arcane/utils/UtilsTypes.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/d8b/Parallel_8h.html">arcane/Parallel.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">class </span>IApplication;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">class </span>IParallelMng;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span>IThreadMng;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html">   40</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html">IParallelSuperMng</a></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d1/d72/classArccore_1_1MessagePassing_1_1Request.html">Parallel::Request</a> <a class="code" href="../../d1/d72/classArccore_1_1MessagePassing_1_1Request.html">Request</a>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">typedef</span> Parallel::eReduceType eReduceType;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  </div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a5b7a25215578e741afbf12abfb2113f6">   49</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a5b7a25215578e741afbf12abfb2113f6">~IParallelSuperMng</a>() {} </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#af0a0f50aa482d440dfa4e698de679d04">   61</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#af0a0f50aa482d440dfa4e698de679d04">build</a>() =0;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#ae84d493a9bd22320261d5ebcf7920a16">   70</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#ae84d493a9bd22320261d5ebcf7920a16">initialize</a>() =0;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a79fe68d708d6adaade26ac20f102171b">   75</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d9/d7f/classArcane_1_1IApplication.html">IApplication</a>* <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a79fe68d708d6adaade26ac20f102171b">application</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#adaa1d3bb75dc1a0f5f2a8aca6b63076e">   78</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d3/db0/classArcane_1_1IThreadMng.html">IThreadMng</a>* <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#adaa1d3bb75dc1a0f5f2a8aca6b63076e">threadMng</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a93358bd9f09c9240e5ab14fdeb746c49">   81</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a93358bd9f09c9240e5ab14fdeb746c49">isParallel</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a8b8e40b0be60a8652f26bb9cb6932f95">   84</a></span>&#160;  <span class="keyword">virtual</span> Int32 <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a8b8e40b0be60a8652f26bb9cb6932f95">commRank</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#af93049aecf16da9a5bd5838633cad1f8">   87</a></span>&#160;  <span class="keyword">virtual</span> Int32 <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#af93049aecf16da9a5bd5838633cad1f8">commSize</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a7c9747531b91d3e02f0e03c12b3accc9">   90</a></span>&#160;  <span class="keyword">virtual</span> Int32 <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a7c9747531b91d3e02f0e03c12b3accc9">traceRank</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#ab677bfc2b4c6940a6af28134f7134d7b">   99</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span>* <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#ab677bfc2b4c6940a6af28134f7134d7b">getMPICommunicator</a>() =0;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a92a3262185c70be4b1a32bddec6e1dac">  106</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d0/d0f/classArccore_1_1MessagePassing_1_1Communicator.html">Parallel::Communicator</a> <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a92a3262185c70be4b1a32bddec6e1dac">communicator</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;IParallelMng&gt;</a> internalCreateWorldParallelMng(Int32 local_rank) =0;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#ab57402448124bb95adc1909db2134b23">  134</a></span>&#160;  <span class="keyword">virtual</span> Int32 <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#ab57402448124bb95adc1909db2134b23">nbLocalSubDomain</a>() =0;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno"><a class="line" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a522aaf04c6c4a1b07e764181893f044a">  143</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a522aaf04c6c4a1b07e764181893f044a">tryAbort</a>() =0;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a7221625eb693ab33c28db9999c493231">  146</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a7221625eb693ab33c28db9999c493231">isMasterIO</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#aeae3e594fd2954f3df7848b93546d9c8">  153</a></span>&#160;  <span class="keyword">virtual</span> Int32 <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#aeae3e594fd2954f3df7848b93546d9c8">masterIORank</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="comment">//virtual IParallelMng* worldParallelMng() const =0;</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a9248a517d578f8be82403ce6881f116b">  161</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a9248a517d578f8be82403ce6881f116b">barrier</a>() =0;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00176"></a><span class="lineno"><a class="line" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a353b77df4f6ccdaeef6f508078d0d5f6">  176</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a353b77df4f6ccdaeef6f508078d0d5f6">broadcast</a>(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ByteArrayView</a> send_buf,Integer process_id) =0;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> broadcast(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int32ArrayView</a> send_buf,Integer process_id) =0;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> broadcast(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int64ArrayView</a> send_buf,Integer process_id) =0;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> broadcast(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">RealArrayView</a> send_buf,Integer process_id) =0;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;};</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aParallel_8h_html"><div class="ttname"><a href="../../db/d8b/Parallel_8h.html">Parallel.h</a></div><div class="ttdoc">Fichier contenant les déclarations concernant le modèle de programmation par échange de message.</div></div>
+<div class="ttc" id="aUtilsTypes_8h_html"><div class="ttname"><a href="../../d4/da8/UtilsTypes_8h.html">UtilsTypes.h</a></div><div class="ttdoc">Déclarations des types utilisés dans Arcane.</div></div>
+<div class="ttc" id="aclassArcane_1_1IApplication_html"><div class="ttname"><a href="../../d9/d7f/classArcane_1_1IApplication.html">Arcane::IApplication</a></div><div class="ttdoc">Interface de l'application.</div><div class="ttdef"><b>Definition:</b> IApplication.h:57</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html">Arcane::IParallelSuperMng</a></div><div class="ttdef"><b>Definition:</b> IParallelSuperMng.h:41</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html_a353b77df4f6ccdaeef6f508078d0d5f6"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a353b77df4f6ccdaeef6f508078d0d5f6">Arcane::IParallelSuperMng::broadcast</a></div><div class="ttdeci">virtual void broadcast(ByteArrayView send_buf, Integer process_id)=0</div><div class="ttdoc">Envoie un tableau de valeurs sur tous les processus Cette opération synchronise le tableau de valeur ...</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html_a522aaf04c6c4a1b07e764181893f044a"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a522aaf04c6c4a1b07e764181893f044a">Arcane::IParallelSuperMng::tryAbort</a></div><div class="ttdeci">virtual void tryAbort()=0</div><div class="ttdoc">Tente de faire un abort.</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html_a5b7a25215578e741afbf12abfb2113f6"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a5b7a25215578e741afbf12abfb2113f6">Arcane::IParallelSuperMng::~IParallelSuperMng</a></div><div class="ttdeci">virtual ~IParallelSuperMng()</div><div class="ttdoc">Libère les ressources.</div><div class="ttdef"><b>Definition:</b> IParallelSuperMng.h:49</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html_a7221625eb693ab33c28db9999c493231"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a7221625eb693ab33c28db9999c493231">Arcane::IParallelSuperMng::isMasterIO</a></div><div class="ttdeci">virtual bool isMasterIO() const =0</div><div class="ttdoc">true si l'instance est un gestionnaire maître des entrées/sorties.</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html_a79fe68d708d6adaade26ac20f102171b"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a79fe68d708d6adaade26ac20f102171b">Arcane::IParallelSuperMng::application</a></div><div class="ttdeci">virtual IApplication * application() const =0</div><div class="ttdoc">Retourne le gestionnaire principal.</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html_a7c9747531b91d3e02f0e03c12b3accc9"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a7c9747531b91d3e02f0e03c12b3accc9">Arcane::IParallelSuperMng::traceRank</a></div><div class="ttdeci">virtual Int32 traceRank() const =0</div><div class="ttdoc">Rang de cette instance pour les traces.</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html_a8b8e40b0be60a8652f26bb9cb6932f95"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a8b8e40b0be60a8652f26bb9cb6932f95">Arcane::IParallelSuperMng::commRank</a></div><div class="ttdeci">virtual Int32 commRank() const =0</div><div class="ttdoc">Retourne le numéro du process (compris entre 0 et nbProcess()-1)</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html_a9248a517d578f8be82403ce6881f116b"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a9248a517d578f8be82403ce6881f116b">Arcane::IParallelSuperMng::barrier</a></div><div class="ttdeci">virtual void barrier()=0</div><div class="ttdoc">Gestionnaire de parallèlisme pour l'ensemble des ressources allouées.</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html_a92a3262185c70be4b1a32bddec6e1dac"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a92a3262185c70be4b1a32bddec6e1dac">Arcane::IParallelSuperMng::communicator</a></div><div class="ttdeci">virtual Parallel::Communicator communicator() const =0</div><div class="ttdoc">Communicateur MPI associé à ce gestionnaire.</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html_a93358bd9f09c9240e5ab14fdeb746c49"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a93358bd9f09c9240e5ab14fdeb746c49">Arcane::IParallelSuperMng::isParallel</a></div><div class="ttdeci">virtual bool isParallel() const =0</div><div class="ttdoc">Retourne true si l'exécution est parallèle.</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html_ab57402448124bb95adc1909db2134b23"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#ab57402448124bb95adc1909db2134b23">Arcane::IParallelSuperMng::nbLocalSubDomain</a></div><div class="ttdeci">virtual Int32 nbLocalSubDomain()=0</div><div class="ttdoc">Nombre de sous-domaines à créér localement.</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html_ab677bfc2b4c6940a6af28134f7134d7b"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#ab677bfc2b4c6940a6af28134f7134d7b">Arcane::IParallelSuperMng::getMPICommunicator</a></div><div class="ttdeci">virtual void * getMPICommunicator()=0</div><div class="ttdoc">Adresse du communicateur MPI associé à ce gestionnaire.</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html_adaa1d3bb75dc1a0f5f2a8aca6b63076e"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#adaa1d3bb75dc1a0f5f2a8aca6b63076e">Arcane::IParallelSuperMng::threadMng</a></div><div class="ttdeci">virtual IThreadMng * threadMng() const =0</div><div class="ttdoc">Gestionnaire de thread.</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html_ae84d493a9bd22320261d5ebcf7920a16"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#ae84d493a9bd22320261d5ebcf7920a16">Arcane::IParallelSuperMng::initialize</a></div><div class="ttdeci">virtual void initialize()=0</div><div class="ttdoc">Initialise l'instance.</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html_aeae3e594fd2954f3df7848b93546d9c8"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#aeae3e594fd2954f3df7848b93546d9c8">Arcane::IParallelSuperMng::masterIORank</a></div><div class="ttdeci">virtual Int32 masterIORank() const =0</div><div class="ttdoc">Rang de l'instance gérant les entrées/sorties (pour laquelle isMasterIO() est vrai)</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html_af0a0f50aa482d440dfa4e698de679d04"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#af0a0f50aa482d440dfa4e698de679d04">Arcane::IParallelSuperMng::build</a></div><div class="ttdeci">virtual void build()=0</div><div class="ttdoc">Construit les membres l'instance.</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html_af93049aecf16da9a5bd5838633cad1f8"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#af93049aecf16da9a5bd5838633cad1f8">Arcane::IParallelSuperMng::commSize</a></div><div class="ttdeci">virtual Int32 commSize() const =0</div><div class="ttdoc">Retourne le nombre total de process utilisés.</div></div>
+<div class="ttc" id="aclassArcane_1_1IThreadMng_html"><div class="ttname"><a href="../../d3/db0/classArcane_1_1IThreadMng.html">Arcane::IThreadMng</a></div><div class="ttdoc">Interface d'un gestionnaire de thread.</div><div class="ttdef"><b>Definition:</b> IThreadMng.h:30</div></div>
+<div class="ttc" id="aclassArccore_1_1ArrayView_html"><div class="ttname"><a href="../../d7/d02/classArccore_1_1ArrayView.html">Arccore::ArrayView</a></div><div class="ttdoc">Vue modifiable d'un tableau d'un type T.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:106</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1Communicator_html"><div class="ttname"><a href="../../d0/d0f/classArccore_1_1MessagePassing_1_1Communicator.html">Arccore::MessagePassing::Communicator</a></div><div class="ttdoc">Communicateur pour l'échange de message.</div><div class="ttdef"><b>Definition:</b> Communicator.h:57</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1Request_html"><div class="ttname"><a href="../../d1/d72/classArccore_1_1MessagePassing_1_1Request.html">Arccore::MessagePassing::Request</a></div><div class="ttdoc">Requête d'un message.</div><div class="ttdef"><b>Definition:</b> Request.h:81</div></div>
+<div class="ttc" id="aclassArccore_1_1Ref_html"><div class="ttname"><a href="../../de/d9f/classArccore_1_1Ref.html">Arccore::Ref</a></div><div class="ttdoc">Référence à une instance.</div><div class="ttdef"><b>Definition:</b> Ref.h:141</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">Interface for base mesh operations.</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_eaea1cc2eef2b99746e8bb8e35999405.html">arcane</a></li><li class="navelem"><b>IParallelSuperMng.h</b></li>
+    <li class="footer">Généré le Jeudi 23 Septembre 2021 09:24:33 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

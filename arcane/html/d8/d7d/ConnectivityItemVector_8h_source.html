@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arcane/ConnectivityItemVector.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.0.4.16</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d8/d7d/ConnectivityItemVector_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">ConnectivityItemVector.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2021 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* ConnectivityItemVector.h                                    (C) 2000-2016 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Interface des accesseurs des connectivité des entités.                    */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_CONNECTIVITYITEMVECTOR_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_CONNECTIVITYITEMVECTOR_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/ArrayView.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/String.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/daf/ItemTypes_8h.html">arcane/ItemTypes.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;arcane/ItemVector.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;arcane/IItemConnectivity.h&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;arcane/IIncrementalItemConnectivity.h&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &lt;functional&gt;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">class </span>ConnectivityItemVector;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">class </span>IItemConnectivity;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../dc/d64/structArcane_1_1ConnectivityItemVectorCatalyst.html">   44</a></span>&#160;<span class="keyword">struct </span><a class="code" href="../../dc/d64/structArcane_1_1ConnectivityItemVectorCatalyst.html">ConnectivityItemVectorCatalyst</a></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    std::function&lt;void(<a class="code" href="../../dc/d3a/classArcane_1_1ConnectivityItemVector.html">ConnectivityItemVector</a>&amp;)&gt; set;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    std::function&lt;void(<a class="code" href="../../dc/d3a/classArcane_1_1ConnectivityItemVector.html">ConnectivityItemVector</a>&amp;)&gt; apply; <span class="comment">// When C++14 available, use a template type (will avoid std::function object and allow more genericity).</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  };</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../dc/d3a/classArcane_1_1ConnectivityItemVector.html">   60</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../dc/d3a/classArcane_1_1ConnectivityItemVector.html">ConnectivityItemVector</a></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d1/d71/classArcane_1_1ItemVector.html">ItemVector</a></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="comment">// SDC new API : user handles directly the ConnectivityItemVector and iterates on it...need a public inheritance.</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="comment">// the Use of views as in first version is confusing for user that doesn&#39;t understand where the view comes from and easily invalidates it...</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <a class="code" href="../../dc/d3a/classArcane_1_1ConnectivityItemVector.html">ConnectivityItemVector</a>(<a class="code" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html">IItemConnectivity</a>* c)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  : <a class="code" href="../../d1/d71/classArcane_1_1ItemVector.html#abe2d66af5963c25ac1dd1b95f61910c1">ItemVector</a>(c-&gt;<a class="code" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html#ab2fdb5b11c4f294323140baecb671ce4">targetFamily</a>()), m_connectivity_accessor(c)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    c-&gt;<a class="code" href="../../de/d13/classArcane_1_1IItemConnectivityAccessor.html#a97efcb12ad9a5e4bab36f1b96f009d4c">_initializeStorage</a>(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <a class="code" href="../../dc/d3a/classArcane_1_1ConnectivityItemVector.html">ConnectivityItemVector</a>(<a class="code" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html">IItemConnectivity</a>&amp; c)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  : <a class="code" href="../../d1/d71/classArcane_1_1ItemVector.html#abe2d66af5963c25ac1dd1b95f61910c1">ItemVector</a>(c.<a class="code" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html#ab2fdb5b11c4f294323140baecb671ce4">targetFamily</a>()), m_connectivity_accessor(&amp;c)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    c.<a class="code" href="../../de/d13/classArcane_1_1IItemConnectivityAccessor.html#a97efcb12ad9a5e4bab36f1b96f009d4c">_initializeStorage</a>(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <a class="code" href="../../dc/d3a/classArcane_1_1ConnectivityItemVector.html">ConnectivityItemVector</a>(<a class="code" href="../../df/d35/classArcane_1_1IIncrementalItemConnectivity.html">IIncrementalItemConnectivity</a>* c)</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  : <a class="code" href="../../d1/d71/classArcane_1_1ItemVector.html#abe2d66af5963c25ac1dd1b95f61910c1">ItemVector</a>(c-&gt;<a class="code" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html#ab2fdb5b11c4f294323140baecb671ce4">targetFamily</a>()), m_connectivity_accessor(c)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    c-&gt;<a class="code" href="../../de/d13/classArcane_1_1IItemConnectivityAccessor.html#a97efcb12ad9a5e4bab36f1b96f009d4c">_initializeStorage</a>(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <a class="code" href="../../dc/d3a/classArcane_1_1ConnectivityItemVector.html">ConnectivityItemVector</a>(<a class="code" href="../../df/d35/classArcane_1_1IIncrementalItemConnectivity.html">IIncrementalItemConnectivity</a>&amp; c)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  : <a class="code" href="../../d1/d71/classArcane_1_1ItemVector.html#abe2d66af5963c25ac1dd1b95f61910c1">ItemVector</a>(c.<a class="code" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html#ab2fdb5b11c4f294323140baecb671ce4">targetFamily</a>()), m_connectivity_accessor(&amp;c)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    c.<a class="code" href="../../de/d13/classArcane_1_1IItemConnectivityAccessor.html#a97efcb12ad9a5e4bab36f1b96f009d4c">_initializeStorage</a>(<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <a class="code" href="../../dc/d3a/classArcane_1_1ConnectivityItemVector.html">ConnectivityItemVector</a>(<span class="keyword">const</span> <a class="code" href="../../dc/d64/structArcane_1_1ConnectivityItemVectorCatalyst.html">ConnectivityItemVectorCatalyst</a>&amp; to_c)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  : <a class="code" href="../../d1/d71/classArcane_1_1ItemVector.html#abe2d66af5963c25ac1dd1b95f61910c1">ItemVector</a>(), m_connectivity_accessor(<span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  {</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    to_c.set(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    to_c.apply(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="../../dc/d3a/classArcane_1_1ConnectivityItemVector.html#acfb8151c67c5c4e0230fd9e9ba673b08">   97</a></span>&#160;  <a class="code" href="../../de/d13/classArcane_1_1IItemConnectivityAccessor.html">IItemConnectivityAccessor</a>* <a class="code" href="../../dc/d3a/classArcane_1_1ConnectivityItemVector.html#acfb8151c67c5c4e0230fd9e9ba673b08">accessor</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> m_connectivity_accessor;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="../../dc/d3a/classArcane_1_1ConnectivityItemVector.html#a9608c15376c44e60c334c645b602a797">  103</a></span>&#160;  <a class="code" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> <a class="code" href="../../dc/d3a/classArcane_1_1ConnectivityItemVector.html#a9608c15376c44e60c334c645b602a797">connectedItems</a>(<a class="code" href="../../de/dc8/classArcane_1_1ItemLocalId.html">ItemLocalId</a> item)</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  {</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <span class="keywordflow">return</span> m_connectivity_accessor-&gt;_connectedItems(item,*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  }</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <a class="code" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> resizeAndCopy(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> ids)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  {</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    this-&gt;<a class="code" href="../../d1/d71/classArcane_1_1ItemVector.html#aa0d024bda03d9ba8c07d35d834d692f4">resize</a>(ids.<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html#a8a9847121fcaaec2c77133c8d75845a4">size</a>());</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    this-&gt;viewAsArray().copy(ids);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    <span class="keywordflow">return</span> (*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  }</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  ItemVectorView setItem(Int32 <span class="keywordtype">id</span>)</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  {</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;    this-&gt;<a class="code" href="../../d1/d71/classArcane_1_1ItemVector.html#aa0d024bda03d9ba8c07d35d834d692f4">resize</a>(1);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    this-&gt;viewAsArray()[0] = id;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">return</span> (*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  }</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <span class="keywordtype">void</span> operator=(<span class="keyword">const</span> ConnectivityItemVectorCatalyst&amp; to_con_vec)</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  {</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    to_con_vec.apply(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  }</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  IItemConnectivityAccessor* m_connectivity_accessor;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;};</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;ARCANE_END_NAMESPACE</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aItemTypes_8h_html"><div class="ttname"><a href="../../db/daf/ItemTypes_8h.html">ItemTypes.h</a></div><div class="ttdoc">Déclarations de types sur les entités.</div></div>
+<div class="ttc" id="aclassArcane_1_1ConnectivityItemVector_html"><div class="ttname"><a href="../../dc/d3a/classArcane_1_1ConnectivityItemVector.html">Arcane::ConnectivityItemVector</a></div><div class="ttdoc">Gère la récupération des informations de connectivité.</div><div class="ttdef"><b>Definition:</b> ConnectivityItemVector.h:64</div></div>
+<div class="ttc" id="aclassArcane_1_1ConnectivityItemVector_html_a9608c15376c44e60c334c645b602a797"><div class="ttname"><a href="../../dc/d3a/classArcane_1_1ConnectivityItemVector.html#a9608c15376c44e60c334c645b602a797">Arcane::ConnectivityItemVector::connectedItems</a></div><div class="ttdeci">ItemVectorView connectedItems(ItemLocalId item)</div><div class="ttdoc">Retourne les entités connectées à item.</div><div class="ttdef"><b>Definition:</b> ConnectivityItemVector.h:103</div></div>
+<div class="ttc" id="aclassArcane_1_1ConnectivityItemVector_html_acfb8151c67c5c4e0230fd9e9ba673b08"><div class="ttname"><a href="../../dc/d3a/classArcane_1_1ConnectivityItemVector.html#acfb8151c67c5c4e0230fd9e9ba673b08">Arcane::ConnectivityItemVector::accessor</a></div><div class="ttdeci">IItemConnectivityAccessor * accessor() const</div><div class="ttdoc">Connectivité associée.</div><div class="ttdef"><b>Definition:</b> ConnectivityItemVector.h:97</div></div>
+<div class="ttc" id="aclassArcane_1_1IIncrementalItemConnectivity_html"><div class="ttname"><a href="../../df/d35/classArcane_1_1IIncrementalItemConnectivity.html">Arcane::IIncrementalItemConnectivity</a></div><div class="ttdoc">Interface pour gérer une connectivité incrémentale.</div><div class="ttdef"><b>Definition:</b> IIncrementalItemConnectivity.h:42</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivityAccessor_html"><div class="ttname"><a href="../../de/d13/classArcane_1_1IItemConnectivityAccessor.html">Arcane::IItemConnectivityAccessor</a></div><div class="ttdoc">Interface pour gérer l'accès à une connectivité.</div><div class="ttdef"><b>Definition:</b> IItemConnectivityAccessor.h:38</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivityAccessor_html_a97efcb12ad9a5e4bab36f1b96f009d4c"><div class="ttname"><a href="../../de/d13/classArcane_1_1IItemConnectivityAccessor.html#a97efcb12ad9a5e4bab36f1b96f009d4c">Arcane::IItemConnectivityAccessor::_initializeStorage</a></div><div class="ttdeci">virtual void _initializeStorage(ConnectivityItemVector *civ)=0</div><div class="ttdoc">Implémente l'initialisation de civ pour cette connectivitée.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivity_html"><div class="ttname"><a href="../../d0/dc0/classArcane_1_1IItemConnectivity.html">Arcane::IItemConnectivity</a></div><div class="ttdoc">Interface pour gérer une connectivité.</div><div class="ttdef"><b>Definition:</b> IItemConnectivity.h:57</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivity_html_ab2fdb5b11c4f294323140baecb671ce4"><div class="ttname"><a href="../../d0/dc0/classArcane_1_1IItemConnectivity.html#ab2fdb5b11c4f294323140baecb671ce4">Arcane::IItemConnectivity::targetFamily</a></div><div class="ttdeci">virtual IItemFamily * targetFamily() const =0</div><div class="ttdoc">Famille cible.</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemLocalId_html"><div class="ttname"><a href="../../de/dc8/classArcane_1_1ItemLocalId.html">Arcane::ItemLocalId</a></div><div class="ttdoc">Index d'un Item dans une variable.</div><div class="ttdef"><b>Definition:</b> ItemLocalId.h:32</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemVectorView_html"><div class="ttname"><a href="../../d6/df2/classArcane_1_1ItemVectorView.html">Arcane::ItemVectorView</a></div><div class="ttdoc">Vue sur un vecteur d'entités.</div><div class="ttdef"><b>Definition:</b> ItemVectorView.h:145</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemVector_html"><div class="ttname"><a href="../../d1/d71/classArcane_1_1ItemVector.html">Arcane::ItemVector</a></div><div class="ttdoc">Vecteur d'entités.</div><div class="ttdef"><b>Definition:</b> ItemVector.h:51</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemVector_html_aa0d024bda03d9ba8c07d35d834d692f4"><div class="ttname"><a href="../../d1/d71/classArcane_1_1ItemVector.html#aa0d024bda03d9ba8c07d35d834d692f4">Arcane::ItemVector::resize</a></div><div class="ttdeci">void resize(Integer new_size)</div><div class="ttdoc">Positionne le nombre d'éléments du tableau.</div><div class="ttdef"><b>Definition:</b> ItemVector.h:192</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemVector_html_abe2d66af5963c25ac1dd1b95f61910c1"><div class="ttname"><a href="../../d1/d71/classArcane_1_1ItemVector.html#abe2d66af5963c25ac1dd1b95f61910c1">Arcane::ItemVector::ItemVector</a></div><div class="ttdeci">ItemVector()</div><div class="ttdoc">Créé un vecteur nul. Il faudra ensuite appeler setFamily() pour l'utiliser.</div><div class="ttdef"><b>Definition:</b> ItemVector.h:89</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:470</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html_a8a9847121fcaaec2c77133c8d75845a4"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html#a8a9847121fcaaec2c77133c8d75845a4">Arccore::ConstArrayView::size</a></div><div class="ttdeci">Integer size() const</div><div class="ttdoc">Nombre d'éléments du tableau.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:603</div></div>
+<div class="ttc" id="astructArcane_1_1ConnectivityItemVectorCatalyst_html"><div class="ttname"><a href="../../dc/d64/structArcane_1_1ConnectivityItemVectorCatalyst.html">Arcane::ConnectivityItemVectorCatalyst</a></div><div class="ttdoc">Type temporaire automatiquement casté en ConnectivityItemVector.</div><div class="ttdef"><b>Definition:</b> ConnectivityItemVector.h:45</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_eaea1cc2eef2b99746e8bb8e35999405.html">arcane</a></li><li class="navelem"><b>ConnectivityItemVector.h</b></li>
+    <li class="footer">Généré le Jeudi 23 Septembre 2021 09:24:24 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

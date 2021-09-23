@@ -1,0 +1,341 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arcane/VariableRef.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.0.4.16</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('de/d9a/VariableRef_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">VariableRef.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2021 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* VariableRef.h                                               (C) 2000-2020 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Classe gérant une référence sur une variable.                             */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_VARIABLEREF_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_VARIABLEREF_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/String.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;arcane/IVariable.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;arcane/VariableComputeFunction.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">class </span>IModule;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span>IVariableComputeFunction;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">class </span>VariableBuildInfo;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">typedef</span> VariableBuildInfo VariableBuilder;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../d6/d00/classArcane_1_1VariableRef.html">   55</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html">VariableRef</a></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">class </span><a class="code" href="../../da/db9/classArcane_1_1VariableRef_1_1UpdateNotifyFunctorList.html">UpdateNotifyFunctorList</a>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../da/db9/classArcane_1_1VariableRef_1_1UpdateNotifyFunctorList.html">UpdateNotifyFunctorList</a>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html">VariableRef</a>(<span class="keyword">const</span> <a class="code" href="../../df/d8a/classArcane_1_1VariableBuildInfo.html">VariableBuildInfo</a>&amp; vbi);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html">VariableRef</a>(<span class="keyword">const</span> <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html">VariableRef</a>&amp; from);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html">VariableRef</a>(<a class="code" href="../../d5/d96/classArcane_1_1IVariable.html">IVariable</a>* var);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordtype">void</span> operator=(<span class="keyword">const</span> <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html">VariableRef</a>&amp; from);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html">VariableRef</a>();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html">VariableRef</a>();</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html">ISubDomain</a>* subDomain() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; name() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d0/d32/namespaceArcane.html#a05c27a651d3da9ae112c75113fcf7426">eDataType</a> dataType() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> print(std::ostream&amp; o) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="../../d6/d00/classArcane_1_1VariableRef.html#a03a7bc0bc2e04582cbd73f2f6c0a91bc">   97</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d2/da2/classArcane_1_1IModule.html">IModule</a>* <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html#a03a7bc0bc2e04582cbd73f2f6c0a91bc">module</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_module; }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">int</span> property() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">int</span> referenceProperty() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> setProperty(<span class="keywordtype">int</span> property);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> unsetProperty(<span class="keywordtype">int</span> property);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> registerVariable();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> unregisterVariable();</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="../../d6/d00/classArcane_1_1VariableRef.html#a8a9709d6485948918731368178d57fff">  118</a></span>&#160;  <a class="code" href="../../d5/d96/classArcane_1_1IVariable.html">IVariable</a>* <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html#a8a9709d6485948918731368178d57fff">variable</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_variable; }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="keyword">virtual</span> Integer checkIfSync(<span class="keywordtype">int</span> max_print =0);</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <span class="keyword">virtual</span> Integer checkIfSameOnAllReplica(<span class="keywordtype">int</span> max_print =0);</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> updateFromInternal();</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="../../d6/d00/classArcane_1_1VariableRef.html#ad047052d41e35e7da6c2d4e1e479950f">  135</a></span>&#160;  <span class="keyword">virtual</span> Integer <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html#ad047052d41e35e7da6c2d4e1e479950f">arraySize</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <span class="keywordtype">void</span> setUsed(<span class="keywordtype">bool</span> v) { m_variable-&gt;setUsed(v); }</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <span class="keywordtype">bool</span> isUsed()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_variable-&gt;isUsed(); }</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> internalSetUsed(<span class="keywordtype">bool</span> <span class="comment">/*v*/</span>) { }</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="../../d6/d00/classArcane_1_1VariableRef.html#a32dd6f7214295a92aee106cbdeaf5389">  152</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html#a32dd6f7214295a92aee106cbdeaf5389">assignmentStackTrace</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="keyword">    </span>{ <span class="keywordflow">return</span> m_assignment_stack_trace; }</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="keywordtype">void</span> addTag(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; tagname,<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; tagvalue);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  <span class="keywordtype">void</span> removeTag(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; tagname);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  <span class="keywordtype">bool</span> hasTag(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; tagname) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> tagValue(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; tagname) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  <span class="keywordtype">void</span> update();</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  <span class="keywordtype">void</span> setUpToDate();</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  Int64 modifiedTime();</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  <span class="keywordtype">void</span> addDependCurrentTime(<span class="keyword">const</span> <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html">VariableRef</a>&amp; var);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  <span class="keywordtype">void</span> addDependCurrentTime(<span class="keyword">const</span> <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html">VariableRef</a>&amp; var,<span class="keyword">const</span> <a class="code" href="../../db/d6c/classArccore_1_1TraceInfo.html">TraceInfo</a>&amp; tinfo);</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  <span class="keywordtype">void</span> addDependPreviousTime(<span class="keyword">const</span> <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html">VariableRef</a>&amp; var);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  <span class="keywordtype">void</span> addDependPreviousTime(<span class="keyword">const</span> <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html">VariableRef</a>&amp; var,<span class="keyword">const</span> <a class="code" href="../../db/d6c/classArccore_1_1TraceInfo.html">TraceInfo</a>&amp; tinfo);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  <span class="keywordtype">void</span> removeDepend(<span class="keyword">const</span> <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html">VariableRef</a>&amp; var);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ClassType&gt; <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="../../d6/d00/classArcane_1_1VariableRef.html#ae521b39e27b3260be55028a99c110110">  221</a></span>&#160;  <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html#ae521b39e27b3260be55028a99c110110">setComputeFunction</a>(ClassType* instance,<span class="keywordtype">void</span> (ClassType::*func)())</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  {</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    _setComputeFunction(<span class="keyword">new</span> <a class="code" href="../../d2/d1b/classArcane_1_1VariableComputeFunction.html">VariableComputeFunction</a>(instance,func));</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  }</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ClassType&gt; <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno"><a class="line" href="../../d6/d00/classArcane_1_1VariableRef.html#a7f40330fadf916bfa0a05398a598411a">  234</a></span>&#160;  <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html#a7f40330fadf916bfa0a05398a598411a">setComputeFunction</a>(ClassType* instance,<span class="keywordtype">void</span> (ClassType::*func)(),<span class="keyword">const</span> <a class="code" href="../../db/d6c/classArccore_1_1TraceInfo.html">TraceInfo</a>&amp; tinfo)</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  {</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    _setComputeFunction(<span class="keyword">new</span> <a class="code" href="../../d2/d1b/classArcane_1_1VariableComputeFunction.html">VariableComputeFunction</a>(instance,func,tinfo));</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  }</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html">VariableRef</a>* previousReference();</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html">VariableRef</a>* nextReference();</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  <span class="keywordtype">void</span> setPreviousReference(<a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html">VariableRef</a>* v);</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  <span class="keywordtype">void</span> setNextReference(<a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html">VariableRef</a>* v);</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> setTraceCreation(<span class="keywordtype">bool</span> v);</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> hasTraceCreation();</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; </div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  <span class="keywordtype">void</span> _setComputeFunction(<a class="code" href="../../d8/dc4/classArcane_1_1IVariableComputeFunction.html">IVariableComputeFunction</a>* v);</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; </div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  <span class="keywordtype">void</span> _internalInit(<a class="code" href="../../d5/d96/classArcane_1_1IVariable.html">IVariable</a>*);</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
+<div class="line"><a name="l00286"></a><span class="lineno"><a class="line" href="../../d6/d00/classArcane_1_1VariableRef.html#aeeec9a9f27f09c88329790a169a32a65">  286</a></span>&#160;  <a class="code" href="../../d5/d96/classArcane_1_1IVariable.html">IVariable</a>* <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html#aeeec9a9f27f09c88329790a169a32a65">_variable</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;      _checkValid();</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      <span class="keywordflow">return</span> m_variable;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    }</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  <a class="code" href="../../d5/d96/classArcane_1_1IVariable.html">IVariable</a>* m_variable;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  <a class="code" href="../../d2/da2/classArcane_1_1IModule.html">IModule</a>* m_module;</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;  </div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  <span class="keywordtype">bool</span> m_is_registered;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  <span class="keywordtype">int</span> m_reference_property;</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html">VariableRef</a>* m_previous_reference;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  <a class="code" href="../../d6/d00/classArcane_1_1VariableRef.html">VariableRef</a>* m_next_reference;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> m_assignment_stack_trace;</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  <span class="keywordtype">void</span> _executeUpdateFunctors();</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  <span class="keywordtype">bool</span> m_has_trace;</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160; </div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; </div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;  <span class="keywordtype">void</span> _checkValid()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;<span class="keyword"> </span>{</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="preprocessor">#ifdef ARCANE_CHECK</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keywordflow">if</span> (!m_variable)</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;      _throwInvalid();</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  }</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  <span class="keywordtype">void</span> _throwInvalid() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  <span class="keywordtype">bool</span> _checkValidPropertyChanged(<span class="keywordtype">int</span> property);</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;  <span class="keywordtype">void</span> _setAssignmentStackTrace();</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160; </div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> m_static_has_trace_creation;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;  UpdateNotifyFunctorList* m_notify_functor_list;</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;};</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; </div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;} <span class="comment">// End variable Arcane</span></div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160; </div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160; </div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;<span class="comment">//TODO: a supprimer quand tous les codes inclueront directement ce fichier</span></div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="preprocessor">#include &quot;arcane/VariableList.h&quot;</span></div>
+<div class="ttc" id="aclassArcane_1_1IModule_html"><div class="ttname"><a href="../../d2/da2/classArcane_1_1IModule.html">Arcane::IModule</a></div><div class="ttdoc">Interface d'un module.</div><div class="ttdef"><b>Definition:</b> IModule.h:39</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html">Arcane::ISubDomain</a></div><div class="ttdoc">Interface du gestionnaire d'un sous-domaine.</div><div class="ttdef"><b>Definition:</b> ISubDomain.h:74</div></div>
+<div class="ttc" id="aclassArcane_1_1IVariableComputeFunction_html"><div class="ttname"><a href="../../d8/dc4/classArcane_1_1IVariableComputeFunction.html">Arcane::IVariableComputeFunction</a></div><div class="ttdoc">Interface de la classe fonctor de recalcul d'une variable.</div><div class="ttdef"><b>Definition:</b> IVariableComputeFunction.h:30</div></div>
+<div class="ttc" id="aclassArcane_1_1IVariable_html"><div class="ttname"><a href="../../d5/d96/classArcane_1_1IVariable.html">Arcane::IVariable</a></div><div class="ttdef"><b>Definition:</b> IVariable.h:54</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableBuildInfo_html"><div class="ttname"><a href="../../df/d8a/classArcane_1_1VariableBuildInfo.html">Arcane::VariableBuildInfo</a></div><div class="ttdoc">Paramètres nécessaires à la construction d'une variable.</div><div class="ttdef"><b>Definition:</b> VariableBuildInfo.h:43</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableComputeFunction_html"><div class="ttname"><a href="../../d2/d1b/classArcane_1_1VariableComputeFunction.html">Arcane::VariableComputeFunction</a></div><div class="ttdoc">Interface de la classe fonctor de recalcul d'une variable.</div><div class="ttdef"><b>Definition:</b> VariableComputeFunction.h:40</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableRef_1_1UpdateNotifyFunctorList_html"><div class="ttname"><a href="../../da/db9/classArcane_1_1VariableRef_1_1UpdateNotifyFunctorList.html">Arcane::VariableRef::UpdateNotifyFunctorList</a></div><div class="ttdoc">Classe interne pour gérer les fonctor appelés lors de la mise à jour de la variable.</div><div class="ttdef"><b>Definition:</b> VariableRef.cc:52</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableRef_html"><div class="ttname"><a href="../../d6/d00/classArcane_1_1VariableRef.html">Arcane::VariableRef</a></div><div class="ttdoc">Référence à une variable.</div><div class="ttdef"><b>Definition:</b> VariableRef.h:56</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableRef_html_a03a7bc0bc2e04582cbd73f2f6c0a91bc"><div class="ttname"><a href="../../d6/d00/classArcane_1_1VariableRef.html#a03a7bc0bc2e04582cbd73f2f6c0a91bc">Arcane::VariableRef::module</a></div><div class="ttdeci">virtual IModule * module() const</div><div class="ttdoc">Module associé à la variable (ou 0, s'il n'y en a pas)</div><div class="ttdef"><b>Definition:</b> VariableRef.h:97</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableRef_html_a32dd6f7214295a92aee106cbdeaf5389"><div class="ttname"><a href="../../d6/d00/classArcane_1_1VariableRef.html#a32dd6f7214295a92aee106cbdeaf5389">Arcane::VariableRef::assignmentStackTrace</a></div><div class="ttdeci">const String &amp; assignmentStackTrace() const</div><div class="ttdoc">Pile d'appel au moment de l'assignation de cette instance.</div><div class="ttdef"><b>Definition:</b> VariableRef.h:152</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableRef_html_a7f40330fadf916bfa0a05398a598411a"><div class="ttname"><a href="../../d6/d00/classArcane_1_1VariableRef.html#a7f40330fadf916bfa0a05398a598411a">Arcane::VariableRef::setComputeFunction</a></div><div class="ttdeci">void setComputeFunction(ClassType *instance, void(ClassType::*func)(), const TraceInfo &amp;tinfo)</div><div class="ttdoc">Positionne la fonction de recalcule de la variable.</div><div class="ttdef"><b>Definition:</b> VariableRef.h:234</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableRef_html_a8a9709d6485948918731368178d57fff"><div class="ttname"><a href="../../d6/d00/classArcane_1_1VariableRef.html#a8a9709d6485948918731368178d57fff">Arcane::VariableRef::variable</a></div><div class="ttdeci">IVariable * variable() const</div><div class="ttdoc">Variable associée.</div><div class="ttdef"><b>Definition:</b> VariableRef.h:118</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableRef_html_ad047052d41e35e7da6c2d4e1e479950f"><div class="ttname"><a href="../../d6/d00/classArcane_1_1VariableRef.html#ad047052d41e35e7da6c2d4e1e479950f">Arcane::VariableRef::arraySize</a></div><div class="ttdeci">virtual Integer arraySize() const</div><div class="ttdoc">Si la variable est un tableau, retourne sa dimension, sinon retourne 0.</div><div class="ttdef"><b>Definition:</b> VariableRef.h:135</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableRef_html_ae521b39e27b3260be55028a99c110110"><div class="ttname"><a href="../../d6/d00/classArcane_1_1VariableRef.html#ae521b39e27b3260be55028a99c110110">Arcane::VariableRef::setComputeFunction</a></div><div class="ttdeci">void setComputeFunction(ClassType *instance, void(ClassType::*func)())</div><div class="ttdoc">Positionne la fonction de recalcule de la variable.</div><div class="ttdef"><b>Definition:</b> VariableRef.h:221</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableRef_html_aeeec9a9f27f09c88329790a169a32a65"><div class="ttname"><a href="../../d6/d00/classArcane_1_1VariableRef.html#aeeec9a9f27f09c88329790a169a32a65">Arcane::VariableRef::_variable</a></div><div class="ttdeci">IVariable * _variable() const</div><div class="ttdoc">Variable référencée.</div><div class="ttdef"><b>Definition:</b> VariableRef.h:286</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> String.h:81</div></div>
+<div class="ttc" id="aclassArccore_1_1TraceInfo_html"><div class="ttname"><a href="../../db/d6c/classArccore_1_1TraceInfo.html">Arccore::TraceInfo</a></div><div class="ttdoc">Informations de trace.</div><div class="ttdef"><b>Definition:</b> TraceInfo.h:45</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">Interface for base mesh operations.</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="anamespaceArcane_html_a05c27a651d3da9ae112c75113fcf7426"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a05c27a651d3da9ae112c75113fcf7426">Arcane::eDataType</a></div><div class="ttdeci">eDataType</div><div class="ttdoc">Type d'une donnée.</div><div class="ttdef"><b>Definition:</b> DataTypes.h:35</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_eaea1cc2eef2b99746e8bb8e35999405.html">arcane</a></li><li class="navelem"><b>VariableRef.h</b></li>
+    <li class="footer">Généré le Jeudi 23 Septembre 2021 09:25:14 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>
