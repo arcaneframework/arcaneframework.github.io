@@ -19,6 +19,7 @@ var classArcane_1_1VariableRefScalarT =
     [ "isZero", "d0/db7/classArcane_1_1VariableRefScalarT.html#ab9227fa8b10bf945692bdc52fbae3344", null ],
     [ "operator()", "d0/db7/classArcane_1_1VariableRefScalarT.html#af706f3553e3e0255acb81e9eeaf37003", null ],
     [ "operator=", "d0/db7/classArcane_1_1VariableRefScalarT.html#aa449fffcf12559fae6c20b7428372aea", null ],
+    [ "operator=", "d0/db7/classArcane_1_1VariableRefScalarT.html#aaca7e78d35bbb6e3d8b063d261c2a285", null ],
     [ "reduce", "d0/db7/classArcane_1_1VariableRefScalarT.html#a69cc5b80d5c9cb6110341ae27e7563bd", null ],
     [ "refersTo", "d0/db7/classArcane_1_1VariableRefScalarT.html#a0d8afb417393381511b396f58d31fb7b", null ],
     [ "reset", "d0/db7/classArcane_1_1VariableRefScalarT.html#a32c9217f896c2dcc264da9e68199da25", null ],

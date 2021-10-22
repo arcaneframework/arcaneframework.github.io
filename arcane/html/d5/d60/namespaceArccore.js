@@ -369,6 +369,7 @@ var namespaceArccore =
     [ "ARCCORE_DEFINE_ARRAY_PODTYPE", "d5/d60/namespaceArccore.html#afffd83108122580e27429eae05734355", null ],
     [ "ARCCORE_DEFINE_ARRAY_PODTYPE", "d5/d60/namespaceArccore.html#a493177cfc564c433ae46f0b5527d3e57", null ],
     [ "ARCCORE_DEFINE_ARRAY_PODTYPE", "d5/d60/namespaceArccore.html#a8e6f96ebe9e8d9b7c4bce3c3cc76b9a8", null ],
+    [ "ARCCORE_DEFINE_REFERENCE_COUNTED_CLASS", "d5/d60/namespaceArccore.html#a1ffc9cc643ca37a45cfec656a3c88b3d", null ],
     [ "ARCCORE_DEFINE_REFERENCE_COUNTED_CLASS", "d5/d60/namespaceArccore.html#aff9e52bbef68857177b3d1977f049d20", null ],
     [ "ARCCORE_DEFINE_REFERENCE_COUNTED_CLASS", "d5/d60/namespaceArccore.html#a068eba18a6a22340f4247d1869916a74", null ],
     [ "ARCCORE_DEFINE_REFERENCE_COUNTED_CLASS", "d5/d60/namespaceArccore.html#a334aa94858646709f40b8aaa4bd41118", null ],

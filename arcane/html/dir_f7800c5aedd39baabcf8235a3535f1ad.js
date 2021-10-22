@@ -17,7 +17,8 @@ var dir_f7800c5aedd39baabcf8235a3535f1ad =
     [ "RunQueue.h", "d4/db4/RunQueue_8h_source.html", null ],
     [ "RunQueueImpl.h", "d4/d83/RunQueueImpl_8h_source.html", null ],
     [ "RunQueueInternal.h", "d5/d39/RunQueueInternal_8h_source.html", null ],
-    [ "Views.h", "dc/dc7/Views_8h.html", "dc/dc7/Views_8h" ],
+    [ "VariableViews.h", "d7/dd5/VariableViews_8h_source.html", null ],
+    [ "Views.h", "dc/dc7/Views_8h.html", null ],
     [ "ViewsCommon.h", "dd/da7/ViewsCommon_8h.html", [
       [ "DataViewGetter", "de/da3/classArcane_1_1Accelerator_1_1DataViewGetter.html", "de/da3/classArcane_1_1Accelerator_1_1DataViewGetter" ],
       [ "DataViewSetter", "d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html", "d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter" ],

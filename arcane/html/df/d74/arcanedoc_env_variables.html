@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.0.4.16</span>
+   &#160;<span id="projectnumber">3.1.2.0</span>
    </div>
   </td>
  </tr>
@@ -90,7 +90,7 @@ $(document).ready(function(){initNavTree('df/d74/arcanedoc_env_variables.html','
 <p>Les variables d'environnement suivantes permettent de modifier le comportement à l'exécution:</p>
 <ul>
 <li><b>ARCANE_PARALLEL_SERVICE</b> : <b>obsolète</b> Nom du service utilisé pour gérer le parallélisme. Cette variable doit être positionnée si on souhaite un modèle d'exécution parallèle spécifique. Les valeurs possibles sont: <code>Mpi</code> ou <code>Sequential</code>. Le mode <code>Mpi</code> provoque l'appel à MPI_Init() et il faut donc que le programme soit lancé par le lanceur mpi de la plateforme (par exemple <code>mpiexec</code>, <code>mpirun</code>, <code>prun</code>, ...). Cette variable ne doit plus être utilisée car Arcane détecte automatiquement le lancement avec MPI. Si on souhaite surchargé le service de parallélisme, il faut le spécifier dans les arguments de la ligne de commande (voir <a class="el" href="../../da/da4/arcanedoc_launcher.html">Lancement d'un calcul</a>)</li>
-<li><b>ARCANE_CHECK</b> : Si définie, ajoute des tests de vérification de la validité des opérations effectuées. Cela est utile si le code plante dans une méthode <a class="el" href="../../d0/d32/namespaceArcane.html" title="Interface for base mesh operations.">Arcane</a>. Il est possible de relancer le code avec cette variable pour espérer détecter la cause de l'erreur. La version 'check' de Arcane inclut automatiquement ces tests ainsi que d'autres tests plus coûteux comme les débordements de tableau.</li>
+<li><b>ARCANE_CHECK</b> : Si définie, ajoute des tests de vérification de la validité des opérations effectuées. Cela est utile si le code plante dans une méthode <a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a>. Il est possible de relancer le code avec cette variable pour espérer détecter la cause de l'erreur. La version 'check' de Arcane inclut automatiquement ces tests ainsi que d'autres tests plus coûteux comme les débordements de tableau.</li>
 <li><b>ARCANE_PAUSE_ON_ERROR</b> : Si définie, met le code en pause en cas d'erreur détectée par Arcane, comme une exception fatale ou un débordement de tableau.</li>
 <li><b>ARCANE_PROFILING</b> : Nom du service utiliser pour avoir des informations de profiling. Positionner cette option active le profiling. Cela permet en fin d'exécution d'avoir les temps passés dans chaque fonction. Les deux valeurs supportées sont 'Papi' et 'Prof'. Pour 'Papi', la bibliothèque 'papi' doit avoir être installée et le noyau linux compatible. 'Prof' utilise les signaux du systeme.</li>
 <li><b>ARCANE_PROFILING_PERIOD</b> : Nombre de cycles CPU entre deux échantillons de profiling. Cette variable n'est utilisée que si le profiling est actif avec 'Papi'. Une valeur correcte est 500000, ce qui sur une machine à 3Ghz fait environ 6000 évènements par seconde.</li>
@@ -100,7 +100,7 @@ $(document).ready(function(){initNavTree('df/d74/arcanedoc_env_variables.html','
 <li><b>OTF2</b>, utilise le service de prise de trace au format du même nom. Une fois ouvert avec un outil adéquat (par exemple Vampir) le détail des communications MPI peut être analysé. Les informations permettent notamment d'identifier les fonctions MPI mises en oeuvre dans chaque point d'entrée de la boucle en temps ainsi que celle invoquées par les opérations de synchronisation de variables Arcane.</li>
 </ul>
 </li>
-<li><b>ARCANE_REDIRECT_SIGNALS</b> : Active (TRUE) ou désactive (FALSE) la redirection des signaux par <a class="el" href="../../d0/d32/namespaceArcane.html" title="Interface for base mesh operations.">Arcane</a>. Cette redirection est active par défaut dans <a class="el" href="../../d0/d32/namespaceArcane.html" title="Interface for base mesh operations.">Arcane</a> et permet d'afficher la pile d'appel notamment en cas de plantage. Neammoins, cela peut interférer avec d'autres bibliothèques et il est donc possible de désactiver la redirection des signaux.</li>
+<li><b>ARCANE_REDIRECT_SIGNALS</b> : Active (TRUE) ou désactive (FALSE) la redirection des signaux par <a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a>. Cette redirection est active par défaut dans <a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a> et permet d'afficher la pile d'appel notamment en cas de plantage. Neammoins, cela peut interférer avec d'autres bibliothèques et il est donc possible de désactiver la redirection des signaux.</li>
 <li><b>ARCANE_PARALLEL_OUTPUT</b> : Active (TRUE) ou désactive (FALSE) les sorties listings de tous les sous-domaines en parallèle. Chaque sous-domaine écrira les informations de listing dans le fichier 'output::x' avec #x le numéro du sous-domaine.</li>
 <li><b>ARCANE_TRACE_VARIABLE_CREATION</b> : Si définie, récupère la pile d'appel de chaque création de référence à une variable. Ces informations sont ensuite affichées en fin d'exécution afin de connaître les variables qui n'ont pas été désallouées. A noter que cela peut ralentir sensiblement une exécution.</li>
 <li><b>STDENV_VERIF, STDENV_VERIF_ENTRYPOINT, STDENV_VERIF_PATH, STDENV_VERIF_SKIP_GHOSTS</b> : Voir la rubrique <a class="el" href="../../d8/d0c/arcanedoc_compare_bittobit.html">Comparaison bit à bit</a></li>
@@ -144,7 +144,7 @@ $(document).ready(function(){initNavTree('df/d74/arcanedoc_env_variables.html','
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li>
-    <li class="footer">Généré le Jeudi 23 Septembre 2021 09:25:20 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Généré le Vendredi 22 Octobre 2021 09:11:02 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

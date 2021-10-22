@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.0.4.16</span>
+   &#160;<span id="projectnumber">3.1.2.0</span>
    </div>
   </td>
  </tr>
@@ -87,8 +87,9 @@ $(document).ready(function(){initNavTree('d7/d29/arcanedoc_changelog.html','../.
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table des matières</h3>
-<ul><li class="level1"><a href="#arcanedoc_version304">Arcane Version 3.0.4 (... 2021)</a></li>
-<li class="level1"><a href="#arcanedoc_version303">Arcane Version 3.0.3 (... 2021)</a></li>
+<ul><li class="level1"><a href="#arcanedoc_version310">Arcane Version 3.1.2 (...)</a></li>
+<li class="level1"><a href="#arcanedoc_version305">Arcane Version 3.0.5 (30 septembre 2021)</a></li>
+<li class="level1"><a href="#arcanedoc_version303">Arcane Version 3.0.3 (Not released)</a></li>
 <li class="level1"><a href="#arcanedoc_version301">Arcane Version 3.0.1 (27 mai 2021)</a></li>
 <li class="level1"><a href="#arcanedoc_version2220">Arcane Version 2.22.0 (03 mars 2021)</a></li>
 <li class="level1"><a href="#arcanedoc_version2200">Arcane Version 2.20.0 (07 janvier 2021)</a></li>
@@ -122,8 +123,28 @@ $(document).ready(function(){initNavTree('d7/d29/arcanedoc_changelog.html','../.
 </div>
 <div class="textblock"><p><a class="anchor" id="md__home_grospellierg_arcane_packaging_framework_arcane_doc_changelog"></a></p>
 <p>Cette page contient les nouveautés de chaque version de Arcane.</p>
-<h1><a class="anchor" id="arcanedoc_version304"></a>
-Arcane Version 3.0.4 (... 2021)</h1>
+<h1><a class="anchor" id="arcanedoc_version310"></a>
+Arcane Version 3.1.2 (...)</h1>
+<p>Nouveautés/Améliorations:</p>
+<ul>
+<li>Nouvelle implémentation des graphes de maillage utilisant les <code><a class="el" href="../../d0/d6c/classArcane_1_1DoF.html" title="classe degre de liberte.">Arcane::DoF</a></code>.</li>
+<li>Ajoute possibilité de renuméroter (via la méthode <a class="el" href="../../d1/d62/classArcane_1_1ICartesianMesh.html#a47bf4b286b4529945776d70e6385c386" title="Renumérote les uniqueId() des entités.">Arcane::ICartesianMesh::renumberItemsUniqueId()</a>') les entités dans les maillages AMR par patch pour avoir la même numérotation quel que soit le découpage.</li>
+<li>Mise à jour de la documentation pour les accélérateurs</li>
+</ul>
+<p>Changements:</p>
+<ul>
+<li>Le lecteur de maillage au format <code>GMSH</code> est maintenant dans la bibliothèque <code>arcane_std</code> au lieu de <code>arcane_ios</code>. Il n'y a donc plus besoin de faire l'édition de lien avec cette dernière pour pouvoir lire les maillages de ce format.</li>
+<li>Suppression des anciens types d'entités <code>Link</code> et <code>DualNode</code> et des énumérations et classes associées</li>
+<li>Suppression de certaines classes associées aux anciennes connectivités</li>
+<li>Supprime le support pour le système d'exploitation RedHat 6.</li>
+</ul>
+<p>Corrections:</p>
+<ul>
+<li>Corrige plantage lors de la mise à jour des matériaux si la variable globale associée à un matériau est désallouée (<a class="el" href="../../d5/d96/classArcane_1_1IVariable.html#a85b4f33f92e041b1f0a38266df83b8f7" title="Etat d&#39;utilisation de la variable.">Arcane::IVariable::isUsed()</a>==false)</li>
+<li>Corrige exception flottante (FPE) avec les versions 2.9.9+ de <code>libxml2</code>. Cette bibliothèque fait explicitement des divisions par 0 lors de l'initialisation.</li>
+</ul>
+<h1><a class="anchor" id="arcanedoc_version305"></a>
+Arcane Version 3.0.5 (30 septembre 2021)</h1>
 <p>Nouveautés/Améliorations:</p>
 <ul>
 <li>Déplacement de la classe <a class="el" href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray</a> dans la composante <code>utils</code>. Cela permet de la rendre accessible en dehors de son usage pour les accélérateurs</li>
@@ -134,6 +155,9 @@ Arcane Version 3.0.4 (... 2021)</h1>
 <li>Ajoute méthodes <a class="el" href="../../d6/d24/classArcane_1_1Real2.html#a0eeea5042810d3b2e45fa279e943aa7b" title="Valeur absolue composante par composante.">Arcane::Real2::absolute()</a>, <a class="el" href="../../d1/da6/classArcane_1_1Real3.html#a498205143146d2f45f1846691b1d0a6c" title="Valeur absolue composante par composante.">Arcane::Real3::absolute()</a>, pour retourner un vecteur avec les valeurs absolues par composante.</li>
 <li>Ajoute support pour la version OneTBB 2021.</li>
 <li>Ajoute macros <a class="el" href="../../da/d9a/RunCommandEnumerate_8h.html#a96e4a267c3c5c0ea43afef025aa2a2b1" title="Macro pour itérer un groupe d&#39;entités.">RUNCOMMAND_ENUMERATE()</a> et <a class="el" href="../../d6/d52/RunCommandLoop_8h.html#ab7e14f7438197160df439871b0108540" title="Boucle sur accélérateur.">RUNCOMMAND_LOOP()</a> pour itérer sur les accélérateurs</li>
+<li>Ajoute classe <a class="el" href="../../df/d02/classArcane_1_1Accelerator_1_1IAcceleratorMng.html" title="Interface du gestionnaire des accélérateurs.">Arcane::Accelerator::IAcceleratorMng</a> pour récupérer les informations pour utiliser les accélérateurs. Cette interface permet de récupérer l'environnement d'exécution par défaut et la file d'exécution par défaut.</li>
+<li>Ajoute classe <a class="el" href="../../d0/d53/classArcane_1_1StandaloneAcceleratorMng.html" title="Implémentation autonome de &#39;IAcceleratorMng.h&#39;.">Arcane::StandaloneAcceleratorMng</a> pour utiliser les accélérateurs sans initialiser une application.</li>
+<li>Ajoute support pour paralléliser en multi-thread les boucles imbriquées jusqu'à 4 niveaux (PR #10)</li>
 </ul>
 <p>Changements:</p>
 <ul>
@@ -150,7 +174,7 @@ Arcane Version 3.0.4 (... 2021)</h1>
 <div class="line">  v2[icell] = v1[icell]; <span class="comment">// ERREUR: v2 faisait ensuite référence à v1.</span></div>
 <div class="line">}</div>
 <div class="ttc" id="aItemEnumerator_8h_html_aaf5910d68ad8428248f844535ab071f3"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a></div><div class="ttdeci">#define ENUMERATE_CELL(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:221</div></div>
-<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">Interface for base mesh operations.</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
 <div class="ttc" id="anamespaceArcane_html_ac94fa0b1a6f5e22d71c54246d0528408"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ac94fa0b1a6f5e22d71c54246d0528408">Arcane::viewInOut</a></div><div class="ttdeci">auto viewInOut(MeshVariableScalarRefT&lt; ItemType, DataType &gt; &amp;var)</div><div class="ttdoc">Vue en lecture/écriture.</div><div class="ttdef"><b>Definition:</b> VariableView.h:444</div></div>
 </div><!-- fragment --></li>
 <li>Corrige erreur de compilation dans le constructeur Span&lt;const T&gt; à partir d'un 'ConstArrayView'.</li>
@@ -158,8 +182,7 @@ Arcane Version 3.0.4 (... 2021)</h1>
 <li>[config] Supporte le cas où plusieurs versions du SDK pour 'dotnet' sont installées. Dans ce cas la version la plus récente est utilisée.</li>
 </ul>
 <h1><a class="anchor" id="arcanedoc_version303"></a>
-Arcane Version 3.0.3 (... 2021)</h1>
-<p>[TEMPORARY]</p>
+Arcane Version 3.0.3 (Not released)</h1>
 <p>Nouveautés/Améliorations:</p>
 <ul>
 <li>Support de l'AMR par patch en parallèle</li>
@@ -197,7 +220,7 @@ Arcane Version 2.22.0 (03 mars 2021)</h1>
 <ul>
 <li>Support des protections/reprises pour les maillages AMR</li>
 <li>Modifications internes pour le support des accélérateurs, notamment le support des cartes graphiques (GPGPU).</li>
-<li>Suppression des classes et familles d'entités pour les <a class="el" href="../../d9/d61/classArcane_1_1DualNode.html" title="Noeud d&#39;un graphe.">Arcane::DualNode</a> et <a class="el" href="../../d8/d14/classArcane_1_1Link.html" title="Lien d&#39;un graphe.">Arcane::Link</a>. Ces classes peuvent être remplacées par l'utilisation de <a class="el" href="../../d0/d6c/classArcane_1_1DoF.html" title="classe degre de liberte.">Arcane::DoF</a>.</li>
+<li>Suppression des classes et familles d'entités pour les Arcane::DualNode et Arcane::Link. Ces classes peuvent être remplacées par l'utilisation de <a class="el" href="../../d0/d6c/classArcane_1_1DoF.html" title="classe degre de liberte.">Arcane::DoF</a>.</li>
 <li>Support partiel des fichiers de maillage au format 'msh' version 4.1.</li>
 </ul>
 <p>Changements:</p>
@@ -383,7 +406,7 @@ Arcane Version 2.10.1 (04 octobre 2018)</h1>
 Arcane Version 2.10.0 (septembre 2018)</h1>
 <p>Cette version comporte les développements suivants:</p>
 <ul>
-<li>Création d'une nouvelle composante 'Arccore' regroupant la partie de Arcane commune avec Alien. Cette composante contient une partie de 'arcane_utils' et 'arcane_mpi'. Par conséquent, les classes de base telles que <a class="el" href="../../d2/ddb/classArccore_1_1String.html" title="Chaîne de caractères unicode.">Arccore::String</a>, <a class="el" href="../../d7/d02/classArccore_1_1ArrayView.html" title="Vue modifiable d&#39;un tableau d&#39;un type T.">Arccore::ArrayView</a>, <a class="el" href="../../d9/d09/classArccore_1_1Array.html" title="Classe de base des vecteurs 1D de données.">Arccore::Array</a> sont maintenant dans le namespace '<a class="el" href="../../d5/d60/namespaceArccore.html" title="Espace de nom de Arccore.">Arccore</a>' au lieu de '<a class="el" href="../../d0/d32/namespaceArcane.html" title="Interface for base mesh operations.">Arcane</a>'. Via le mécanisme 'using' du C++ ces classes sont aussi disponibles dans le namespace <a class="el" href="../../d0/d32/namespaceArcane.html" title="Interface for base mesh operations.">Arcane</a> et il ne devrait donc pas y avoir d'incompatibilité avec le code source existant. La seule condition est de ne pas déclarer explicitement les types Arcane mais d'utiliser le fichier d'en-tête '<a class="el" href="../../d4/da8/UtilsTypes_8h.html" title="Déclarations des types utilisés dans Arcane.">arcane/utils/UtilsTypes.h</a>'.</li>
+<li>Création d'une nouvelle composante 'Arccore' regroupant la partie de Arcane commune avec Alien. Cette composante contient une partie de 'arcane_utils' et 'arcane_mpi'. Par conséquent, les classes de base telles que <a class="el" href="../../d2/ddb/classArccore_1_1String.html" title="Chaîne de caractères unicode.">Arccore::String</a>, <a class="el" href="../../d7/d02/classArccore_1_1ArrayView.html" title="Vue modifiable d&#39;un tableau d&#39;un type T.">Arccore::ArrayView</a>, <a class="el" href="../../d9/d09/classArccore_1_1Array.html" title="Classe de base des vecteurs 1D de données.">Arccore::Array</a> sont maintenant dans le namespace '<a class="el" href="../../d5/d60/namespaceArccore.html" title="Espace de nom de Arccore.">Arccore</a>' au lieu de '<a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a>'. Via le mécanisme 'using' du C++ ces classes sont aussi disponibles dans le namespace <a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a> et il ne devrait donc pas y avoir d'incompatibilité avec le code source existant. La seule condition est de ne pas déclarer explicitement les types Arcane mais d'utiliser le fichier d'en-tête '<a class="el" href="../../d4/da8/UtilsTypes_8h.html" title="Déclarations des types utilisés dans Arcane.">arcane/utils/UtilsTypes.h</a>'.</li>
 <li>Utilisation de la bibliothèque 'libxml2' pour gérer le XML au lieu de la bibliothèque 'XercesC'. Cette modification a été effectuée pour deux fonctionnalités qui ne sont pas disponibles dans 'XercesC': le support de XInclude avec XmlSchema et l'encodage UTF-8 des chaînes de caractères.</li>
 <li>Rend obsolète la construction de '<a class="el" href="../../d9/d09/classArccore_1_1Array.html" title="Classe de base des vecteurs 1D de données.">Arccore::Array</a>'. Il faut explicitement utiliser soit '<a class="el" href="../../da/daa/classArccore_1_1UniqueArray.html" title="Vecteur 1D de données avec sémantique par valeur (style STL).">Arccore::UniqueArray</a>', soit '<a class="el" href="../../d4/dee/classArccore_1_1SharedArray.html" title="Vecteur 1D de données avec sémantique par référence.">Arccore::SharedArray</a>'.</li>
 <li>Sépare l'implémentation de <a class="el" href="../../da/daa/classArccore_1_1UniqueArray.html" title="Vecteur 1D de données avec sémantique par valeur (style STL).">Arccore::UniqueArray</a> de celle de <a class="el" href="../../d4/dee/classArccore_1_1SharedArray.html" title="Vecteur 1D de données avec sémantique par référence.">Arccore::SharedArray</a> pour éviter de conserver des informations qui ne sont utiles que pour l'une ou l'autre de ces classes.</li>
@@ -498,7 +521,7 @@ Arcane Version 2.5.2 (25 juillet 2017)</h1>
 <div class="line"><a class="code" href="../../d6/d0d/classArcane_1_1TaskFactory.html#a72f3750e9b1a16c3fe6af3c1eae7d48a">TaskFactory::setDefaultParallelLoopOptions</a>(opt);</div>
 <div class="ttc" id="aConcurrency_8h_html"><div class="ttname"><a href="../../d4/d05/Concurrency_8h.html">Concurrency.h</a></div><div class="ttdoc">Classes, Types et macros pour gérer la concurrence.</div></div>
 <div class="ttc" id="aclassArcane_1_1ParallelLoopOptions_html_adb69cf9bcc031b07263152c09205fe8aa84a8921b25f505d0d2077aeb5db4bc16"><div class="ttname"><a href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html#adb69cf9bcc031b07263152c09205fe8aa84a8921b25f505d0d2077aeb5db4bc16">Arcane::ParallelLoopOptions::Partitioner::Static</a></div><div class="ttdeci">@ Static</div><div class="ttdoc">Utilise un partitionnement statique.</div></div>
-<div class="ttc" id="aclassArcane_1_1TaskFactory_html_a72f3750e9b1a16c3fe6af3c1eae7d48a"><div class="ttname"><a href="../../d6/d0d/classArcane_1_1TaskFactory.html#a72f3750e9b1a16c3fe6af3c1eae7d48a">Arcane::TaskFactory::setDefaultParallelLoopOptions</a></div><div class="ttdeci">static void setDefaultParallelLoopOptions(const ParallelLoopOptions &amp;v)</div><div class="ttdoc">Positionne les valeurs par défaut d'exécution d'une boucle parallèle.</div><div class="ttdef"><b>Definition:</b> ConcurrencyUtils.h:475</div></div>
+<div class="ttc" id="aclassArcane_1_1TaskFactory_html_a72f3750e9b1a16c3fe6af3c1eae7d48a"><div class="ttname"><a href="../../d6/d0d/classArcane_1_1TaskFactory.html#a72f3750e9b1a16c3fe6af3c1eae7d48a">Arcane::TaskFactory::setDefaultParallelLoopOptions</a></div><div class="ttdeci">static void setDefaultParallelLoopOptions(const ParallelLoopOptions &amp;v)</div><div class="ttdoc">Positionne les valeurs par défaut d'exécution d'une boucle parallèle.</div><div class="ttdef"><b>Definition:</b> ConcurrencyUtils.h:527</div></div>
 </div><!-- fragment --></li>
 <li>ajout d'un mécanisme de barrière nommée pour garantir que tous les processus arrivent à la même barrière: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/d8b/Parallel_8h.html">arcane/Parallel.h</a>&gt;</span></div>
 <div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
@@ -534,7 +557,7 @@ Arcane Version 2.5.0 (15 mars 2017)</h1>
 <div class="line">vars.add(cell_center);</div>
 <div class="line">mesh()-&gt;cellFamily()-&gt;synchronize(vars);</div>
 <div class="ttc" id="agroup__Variable_html_ga135a2515548fbcacb89c3ce1a2410b79"><div class="ttname"><a href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">Arcane::VariableCellReal</a></div><div class="ttdeci">MeshVariableScalarRefT&lt; Cell, Real &gt; VariableCellReal</div><div class="ttdoc">Grandeur au centre des mailles de type réel.</div><div class="ttdef"><b>Definition:</b> VariableTypedef.h:290</div></div>
-<div class="ttc" id="agroup__Variable_html_ga89541ae01facee42d91990fbd2a351f0"><div class="ttname"><a href="../../d3/d00/group__Variable.html#ga89541ae01facee42d91990fbd2a351f0">Arcane::VariableCellReal3</a></div><div class="ttdeci">MeshVariableScalarRefT&lt; Cell, Real3 &gt; VariableCellReal3</div><div class="ttdoc">Grandeur au centre des mailles de type coordonnées.</div><div class="ttdef"><b>Definition:</b> VariableTypedef.h:399</div></div>
+<div class="ttc" id="agroup__Variable_html_ga89541ae01facee42d91990fbd2a351f0"><div class="ttname"><a href="../../d3/d00/group__Variable.html#ga89541ae01facee42d91990fbd2a351f0">Arcane::VariableCellReal3</a></div><div class="ttdeci">MeshVariableScalarRefT&lt; Cell, Real3 &gt; VariableCellReal3</div><div class="ttdoc">Grandeur au centre des mailles de type coordonnées.</div><div class="ttdef"><b>Definition:</b> VariableTypedef.h:377</div></div>
 </div><!-- fragment --> A noter que si la collection spécifiée en paramètre contient des variables partielles, la synchronisation se fait comme avant soit variable par variable.</li>
 </ul>
 <h1><a class="anchor" id="arcanedoc_version242"></a>
@@ -625,9 +648,9 @@ Amélioration de la vectorisation</h2>
 <div class="line">}</div>
 <div class="line"><a class="code" href="../../d5/d04/group__ArcaneSimd.html#ga0a9dc0b44f6c0935eefd6947014c937f">ENUMERATE_SIMD_CELL</a>(ivcell,vec_cells){ <span class="comment">// ERREUR car un CellVector n&#39;est pas toujours aligné</span></div>
 <div class="line">}</div>
-<div class="ttc" id="agroup__ArcaneSimd_html_ga0a9dc0b44f6c0935eefd6947014c937f"><div class="ttname"><a href="../../d5/d04/group__ArcaneSimd.html#ga0a9dc0b44f6c0935eefd6947014c937f">ENUMERATE_SIMD_CELL</a></div><div class="ttdeci">#define ENUMERATE_SIMD_CELL(name, group)</div><div class="ttdoc">Enumérateur SIMD sur un groupe ou liste de mailles.</div><div class="ttdef"><b>Definition:</b> SimdItem.h:483</div></div>
-<div class="ttc" id="agroup__Mesh_html_ga098f1d69085543e45c84e21aea721d8c"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga098f1d69085543e45c84e21aea721d8c">Arcane::CellVector</a></div><div class="ttdeci">ItemVectorT&lt; Cell &gt; CellVector</div><div class="ttdoc">Vecteur de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:405</div></div>
-<div class="ttc" id="agroup__Mesh_html_ga4d78be302ffdabc4e0f16578cc077314"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga4d78be302ffdabc4e0f16578cc077314">Arcane::CellGroup</a></div><div class="ttdeci">ItemGroupT&lt; Cell &gt; CellGroup</div><div class="ttdoc">Groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:132</div></div>
+<div class="ttc" id="agroup__ArcaneSimd_html_ga0a9dc0b44f6c0935eefd6947014c937f"><div class="ttname"><a href="../../d5/d04/group__ArcaneSimd.html#ga0a9dc0b44f6c0935eefd6947014c937f">ENUMERATE_SIMD_CELL</a></div><div class="ttdeci">#define ENUMERATE_SIMD_CELL(name, group)</div><div class="ttdoc">Enumérateur SIMD sur un groupe ou liste de mailles.</div><div class="ttdef"><b>Definition:</b> SimdItem.h:473</div></div>
+<div class="ttc" id="agroup__Mesh_html_ga098f1d69085543e45c84e21aea721d8c"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga098f1d69085543e45c84e21aea721d8c">Arcane::CellVector</a></div><div class="ttdeci">ItemVectorT&lt; Cell &gt; CellVector</div><div class="ttdoc">Vecteur de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:364</div></div>
+<div class="ttc" id="agroup__Mesh_html_ga4d78be302ffdabc4e0f16578cc077314"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga4d78be302ffdabc4e0f16578cc077314">Arcane::CellGroup</a></div><div class="ttdeci">ItemGroupT&lt; Cell &gt; CellGroup</div><div class="ttdoc">Groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:128</div></div>
 </div><!-- fragment --></li>
 <li>L'utilisation des méthodes <a class="el" href="../../d8/d8f/namespaceArcane_1_1Parallel.html#a277e2e6fcf1cb8b627771800e6afe0e7">Parallel::Foreach()</a> sur les groupes d'entités garantit que les itérations se feront sur des multiples de 8 valeurs. Il est ainsi valide d'écrire le code suivant: <div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
 <div class="line"><a class="code" href="../../de/db5/group__Mesh.html#ga4d78be302ffdabc4e0f16578cc077314">CellGroup</a> cells = ...;</div>
@@ -638,7 +661,7 @@ Amélioration de la vectorisation</h2>
 <div class="line">  }</div>
 <div class="line">}</div>
 <div class="ttc" id="agroup__ArcaneSimd_html_ga1fa29db17212b77758a93b80957fe001"><div class="ttname"><a href="../../d5/d04/group__ArcaneSimd.html#ga1fa29db17212b77758a93b80957fe001">Arcane::SimdCell</a></div><div class="ttdeci">SimdItemT&lt; Cell &gt; SimdCell</div><div class="ttdoc">Vecteur SIMD de Cell.</div><div class="ttdef"><b>Definition:</b> SimdItem.h:431</div></div>
-<div class="ttc" id="agroup__Mesh_html_ga914dea9362ea4dd4c2ca3023bcdbeb62"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga914dea9362ea4dd4c2ca3023bcdbeb62">Arcane::CellVectorView</a></div><div class="ttdeci">ItemVectorViewT&lt; Cell &gt; CellVectorView</div><div class="ttdoc">Vue sur un vecteur de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:242</div></div>
+<div class="ttc" id="agroup__Mesh_html_ga914dea9362ea4dd4c2ca3023bcdbeb62"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga914dea9362ea4dd4c2ca3023bcdbeb62">Arcane::CellVectorView</a></div><div class="ttdeci">ItemVectorViewT&lt; Cell &gt; CellVectorView</div><div class="ttdoc">Vue sur un vecteur de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:217</div></div>
 <div class="ttc" id="anamespaceArcane_1_1Parallel_html_a277e2e6fcf1cb8b627771800e6afe0e7"><div class="ttname"><a href="../../d8/d8f/namespaceArcane_1_1Parallel.html#a277e2e6fcf1cb8b627771800e6afe0e7">Arcane::Parallel::Foreach</a></div><div class="ttdeci">void Foreach(const ItemVectorView &amp;items_view, const ParallelLoopOptions &amp;options, InstanceType *instance, void(InstanceType::*function)(ItemVectorViewT&lt; ItemType &gt; items))</div><div class="ttdef"><b>Definition:</b> Concurrency.h:191</div></div>
 </div><!-- fragment --></li>
 <li>Ajoute le support pour la vectorisation de type AVX512 et supprime la vectorisation spécifique aux processeurs Intel Knight Corner (KNC). L'AVX512 est supportée à partir des Xeon Skylake et sur les processeurs de XeonPhi à partir de l'Intel Knight Landing (KNL).</li>
@@ -655,7 +678,7 @@ Améliorations diverses</h2>
 <div class="line"><a class="code" href="../../d3/d00/group__Variable.html#gaee6feded16c556185773d761fc09796f">VariableCellArrayReal</a> old_energy = ...;</div>
 <div class="line">old_temperature.swapValues(temperature);</div>
 <div class="line">old_energy.swapValues(energy);</div>
-<div class="ttc" id="agroup__Variable_html_gaee6feded16c556185773d761fc09796f"><div class="ttname"><a href="../../d3/d00/group__Variable.html#gaee6feded16c556185773d761fc09796f">Arcane::VariableCellArrayReal</a></div><div class="ttdeci">MeshVariableArrayRefT&lt; Cell, Real &gt; VariableCellArrayReal</div><div class="ttdoc">Grandeur au centre des mailles de type tableau de réel.</div><div class="ttdef"><b>Definition:</b> VariableTypedef.h:898</div></div>
+<div class="ttc" id="agroup__Variable_html_gaee6feded16c556185773d761fc09796f"><div class="ttname"><a href="../../d3/d00/group__Variable.html#gaee6feded16c556185773d761fc09796f">Arcane::VariableCellArrayReal</a></div><div class="ttdeci">MeshVariableArrayRefT&lt; Cell, Real &gt; VariableCellArrayReal</div><div class="ttdoc">Grandeur au centre des mailles de type tableau de réel.</div><div class="ttdef"><b>Definition:</b> VariableTypedef.h:778</div></div>
 </div><!-- fragment --></li>
 <li>Passage à la version 1.11.4 de hwloc.</li>
 <li>[C#] Dans Arcane.Curves, support des courbes avec plusieurs valeurs par itération (courbes 2D).</li>
@@ -668,7 +691,7 @@ Améliorations diverses</h2>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li>
-    <li class="footer">Généré le Jeudi 23 Septembre 2021 09:25:20 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Généré le Vendredi 22 Octobre 2021 09:11:02 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

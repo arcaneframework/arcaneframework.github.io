@@ -33,12 +33,7 @@ var dir_5637290916cc66258cd1696f50e5ef4e =
     [ "Collection.h", "dd/dc6/Collection_8h_source.html", null ],
     [ "CollectionImpl.h", "d6/d3f/CollectionImpl_8h_source.html", null ],
     [ "CommandLineArguments.h", "d7/daa/CommandLineArguments_8h_source.html", null ],
-    [ "ConcurrencyUtils.h", "d7/d3c/ConcurrencyUtils_8h.html", [
-      [ "ITaskFunctor", "d7/d7d/classArcane_1_1ITaskFunctor.html", "d7/d7d/classArcane_1_1ITaskFunctor" ],
-      [ "TaskFunctor", "df/d1d/classArcane_1_1TaskFunctor.html", "df/d1d/classArcane_1_1TaskFunctor" ],
-      [ "TaskFunctorWithContext", "da/d64/classArcane_1_1TaskFunctorWithContext.html", "da/d64/classArcane_1_1TaskFunctorWithContext" ],
-      [ "ITaskImplementation", "dd/df9/classArcane_1_1ITaskImplementation.html", "dd/df9/classArcane_1_1ITaskImplementation" ]
-    ] ],
+    [ "ConcurrencyUtils.h", "d7/d3c/ConcurrencyUtils_8h.html", "d7/d3c/ConcurrencyUtils_8h" ],
     [ "Convert.h", "de/d42/Convert_8h_source.html", null ],
     [ "CoreArray.h", "dd/d9b/arcane_2src_2arcane_2utils_2CoreArray_8h_source.html", null ],
     [ "CriticalSection.h", "d6/d90/CriticalSection_8h_source.html", null ],
@@ -48,6 +43,7 @@ var dir_5637290916cc66258cd1696f50e5ef4e =
     [ "DataVectorCommon1D.h", "da/d0b/DataVectorCommon1D_8h_source.html", null ],
     [ "DefaultAllocator.h", "d4/d33/DefaultAllocator_8h_source.html", null ],
     [ "Deleter.h", "d4/d2f/Deleter_8h_source.html", null ],
+    [ "DependencyInjection.h", "d3/d65/DependencyInjection_8h_source.html", null ],
     [ "Dictionary.h", "d5/d1a/Dictionary_8h_source.html", null ],
     [ "DirectedAcyclicGraphT.h", "da/d02/DirectedAcyclicGraphT_8h_source.html", null ],
     [ "DirectedGraphT.h", "d1/d15/DirectedGraphT_8h_source.html", null ],

@@ -69,6 +69,10 @@ var group__Core =
       [ "~IRangeFunctor", "d2/d8e/classArcane_1_1IRangeFunctor.html#a5d285da0f8c2d082ca49ef00acf5ecb5", null ],
       [ "executeFunctor", "d2/d8e/classArcane_1_1IRangeFunctor.html#a4587a280de5e2c16b9f3ab433bc914ae", null ]
     ] ],
+    [ "IMDRangeFunctor", "d3/dbe/classArcane_1_1IMDRangeFunctor.html", [
+      [ "~IMDRangeFunctor", "d3/dbe/classArcane_1_1IMDRangeFunctor.html#ac65dbfb2190f59582d0dc4da8b1c5b39", null ],
+      [ "executeFunctor", "d3/dbe/classArcane_1_1IMDRangeFunctor.html#a91fb63a4760fb41907c4303650d98292", null ]
+    ] ],
     [ "IUserData", "df/d32/classArcane_1_1IUserData.html", [
       [ "~IUserData", "df/d32/classArcane_1_1IUserData.html#ac9451446082898d642768559b9fdfddb", null ],
       [ "notifyAttach", "df/d32/classArcane_1_1IUserData.html#a1a0e8a39f557f47b65b8c43b4f17fafe", null ],

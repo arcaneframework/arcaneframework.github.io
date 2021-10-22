@@ -17,5 +17,6 @@ var classArcane_1_1CartesianMesh =
     [ "patch", "d4/db5/classArcane_1_1CartesianMesh.html#a7e9b046a7e153abd039e282663112749", null ],
     [ "recreateFromDump", "d4/db5/classArcane_1_1CartesianMesh.html#ae650daea59a09af979a2b48230c65c10", null ],
     [ "refinePatch2D", "d4/db5/classArcane_1_1CartesianMesh.html#aa3d05235cbc1382032befb6d4e44c347", null ],
+    [ "renumberItemsUniqueId", "d4/db5/classArcane_1_1CartesianMesh.html#a4751a30ed1131f08ae4f075511a24b44", null ],
     [ "traceMng", "d4/db5/classArcane_1_1CartesianMesh.html#ac2a3898ce5f723f975b3c53727cc527c", null ]
 ];

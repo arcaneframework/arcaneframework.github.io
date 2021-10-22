@@ -16,6 +16,12 @@ var classArcane_1_1Connectivity =
       [ "CT_CellToNode", "d9/de9/classArcane_1_1Connectivity.html#a647b8038a2cf1a20437a923b6ef0f4dca448e5022207e0299e5dc4d52f9811b85", null ],
       [ "CT_CellToEdge", "d9/de9/classArcane_1_1Connectivity.html#a647b8038a2cf1a20437a923b6ef0f4dca87b6779d0d2ae310bdb68c4216bf62c7", null ],
       [ "CT_CellToFace", "d9/de9/classArcane_1_1Connectivity.html#a647b8038a2cf1a20437a923b6ef0f4dcae887f4c77ebe779c5b2f552cecd5a345", null ],
+      [ "CT_DoFToNode", "d9/de9/classArcane_1_1Connectivity.html#a647b8038a2cf1a20437a923b6ef0f4dca9f1bf2cf1a6bb4e049264e4734785d0e", null ],
+      [ "CT_DoFToEdge", "d9/de9/classArcane_1_1Connectivity.html#a647b8038a2cf1a20437a923b6ef0f4dca3a5c4a10ed239de2386e5b9f945d15b7", null ],
+      [ "CT_DoFToFace", "d9/de9/classArcane_1_1Connectivity.html#a647b8038a2cf1a20437a923b6ef0f4dcaba427074bc034d9798191d7d86a38429", null ],
+      [ "CT_DoFToCell", "d9/de9/classArcane_1_1Connectivity.html#a647b8038a2cf1a20437a923b6ef0f4dca24adb977e839b4f3a809bcd0b307a684", null ],
+      [ "CT_DoFToDoF", "d9/de9/classArcane_1_1Connectivity.html#a647b8038a2cf1a20437a923b6ef0f4dca5440ebaf2c962aa360c6f97e20912ba4", null ],
+      [ "CT_DoFToParticle", "d9/de9/classArcane_1_1Connectivity.html#a647b8038a2cf1a20437a923b6ef0f4dca6de82ee44c4b5da54b9c2901a79d0a0d", null ],
       [ "CT_HasNode", "d9/de9/classArcane_1_1Connectivity.html#a647b8038a2cf1a20437a923b6ef0f4dca935fe43061996489821cd55f22190d3d", null ],
       [ "CT_HasEdge", "d9/de9/classArcane_1_1Connectivity.html#a647b8038a2cf1a20437a923b6ef0f4dca70b23e3ce2d79d6392c9f00f261ed776", null ],
       [ "CT_HasFace", "d9/de9/classArcane_1_1Connectivity.html#a647b8038a2cf1a20437a923b6ef0f4dca8859bd3bd3b926fd970b670e431c86be", null ],
@@ -30,7 +36,8 @@ var classArcane_1_1Connectivity =
       [ "CT_Default3D", "d9/de9/classArcane_1_1Connectivity.html#a647b8038a2cf1a20437a923b6ef0f4dcad5afd2d176b23bf323777883c6d0b325", null ],
       [ "CT_FullConnectivity2D", "d9/de9/classArcane_1_1Connectivity.html#a647b8038a2cf1a20437a923b6ef0f4dca95d6acec2e56e21e702d3c782fa23376", null ],
       [ "CT_FullConnectivity3D", "d9/de9/classArcane_1_1Connectivity.html#a647b8038a2cf1a20437a923b6ef0f4dca9bf0e3a7d4406a9211c98c3cf6a21a86", null ],
-      [ "CT_EdgeConnectivity", "d9/de9/classArcane_1_1Connectivity.html#a647b8038a2cf1a20437a923b6ef0f4dca84e970390b16da77db828a9939ffb9c7", null ]
+      [ "CT_EdgeConnectivity", "d9/de9/classArcane_1_1Connectivity.html#a647b8038a2cf1a20437a923b6ef0f4dca84e970390b16da77db828a9939ffb9c7", null ],
+      [ "CT_GraphConnectivity", "d9/de9/classArcane_1_1Connectivity.html#a647b8038a2cf1a20437a923b6ef0f4dca2486723cfa5bfbebed8b9df43e59df00", null ]
     ] ],
     [ "Connectivity", "d9/de9/classArcane_1_1Connectivity.html#aea47f1a6965ab979cdd82c49aa5129a2", null ],
     [ "~Connectivity", "d9/de9/classArcane_1_1Connectivity.html#a2f5c982e03cf3d79e5ac052bf78580fa", null ],

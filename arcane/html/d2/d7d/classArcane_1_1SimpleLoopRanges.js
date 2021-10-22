@@ -6,5 +6,6 @@ var classArcane_1_1SimpleLoopRanges =
     [ "getIndices", "d2/d7d/classArcane_1_1SimpleLoopRanges.html#ac181168a3e1e2728e8a13f6f0a08d851", null ],
     [ "lowerBound", "d2/d7d/classArcane_1_1SimpleLoopRanges.html#ac23fdd1ca11a3ddee11e87d5f227bc22", null ],
     [ "nbElement", "d2/d7d/classArcane_1_1SimpleLoopRanges.html#a35184eeab723891625d57d8613672651", null ],
-    [ "upperBound", "d2/d7d/classArcane_1_1SimpleLoopRanges.html#af67ced17d4cd193815d1f24574594e05", null ]
+    [ "upperBound", "d2/d7d/classArcane_1_1SimpleLoopRanges.html#af67ced17d4cd193815d1f24574594e05", null ],
+    [ "ComplexLoopRanges< N >", "d2/d7d/classArcane_1_1SimpleLoopRanges.html#a9fcb285d4eeb052c4ed3ae00098dfbef", null ]
 ];

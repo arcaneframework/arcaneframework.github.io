@@ -1,17 +1,8 @@
 var classArcane_1_1ItemInternal =
 [
     [ "ItemInternal", "dd/df1/classArcane_1_1ItemInternal.html#ad726bc129f0ee330390e28a14c3de9a6", null ],
-    [ "_cellsOld", "dd/df1/classArcane_1_1ItemInternal.html#af47db298cbe1c3d2846f655a77f3e28a", null ],
-    [ "_cellsV2", "dd/df1/classArcane_1_1ItemInternal.html#ad68f7dcd1084076e84ccd18810f06760", null ],
-    [ "_edgesOld", "dd/df1/classArcane_1_1ItemInternal.html#ab2371a190acf84964bc857c08a35f3f4", null ],
-    [ "_edgesV2", "dd/df1/classArcane_1_1ItemInternal.html#a9ca68db8e4c1f0e1dab4d9cfdeb67f63", null ],
-    [ "_facesOld", "dd/df1/classArcane_1_1ItemInternal.html#a486cb093606823322939b1c6bd1d79e8", null ],
-    [ "_facesV2", "dd/df1/classArcane_1_1ItemInternal.html#a2b858aade99e6f8750f5b380a83a5c03", null ],
-    [ "_internalCheckValidConnectivityAccessor", "dd/df1/classArcane_1_1ItemInternal.html#adac53cc594872331dedcc8218b939693", null ],
     [ "_internalCopyAndChangeSharedInfos", "dd/df1/classArcane_1_1ItemInternal.html#aa1f246dee55a4c41abd05ec2b7fd5e69", null ],
     [ "_internalCopyAndSetDataIndex", "dd/df1/classArcane_1_1ItemInternal.html#a0aefa665efb88304173252252c0007cc", null ],
-    [ "_nodesOld", "dd/df1/classArcane_1_1ItemInternal.html#ae363d27de42f16610c5196d6fd2be12d", null ],
-    [ "_nodesV2", "dd/df1/classArcane_1_1ItemInternal.html#a048a5a1588de494899a853d15570436a", null ],
     [ "_setFaceBackAndFrontCells", "dd/df1/classArcane_1_1ItemInternal.html#a776aeabb39b79dae979b3a0054d99999", null ],
     [ "activeCells", "dd/df1/classArcane_1_1ItemInternal.html#a991c69f9d90d775f081a76b3cff629cc", null ],
     [ "activeEdges", "dd/df1/classArcane_1_1ItemInternal.html#afb38abab18b61828b7f524023c167e4b", null ],
@@ -87,15 +78,7 @@ var classArcane_1_1ItemInternal =
     [ "uniqueId", "dd/df1/classArcane_1_1ItemInternal.html#abc13bc4235cbea2632f859b2e3c69b83", null ],
     [ "unsetUniqueId", "dd/df1/classArcane_1_1ItemInternal.html#a78639f66d081931408a82993fe0a646d", null ],
     [ "whichChildAmI", "dd/df1/classArcane_1_1ItemInternal.html#a268dc89c8c7a19fe65c4577a342d3ab9", null ],
-    [ "Arcane::mesh::CellCompactItemConnectivityAccessor", "dd/df1/classArcane_1_1ItemInternal.html#a5a0c087eb1782f180456fa95f2fcf0ff", null ],
-    [ "Arcane::mesh::EdgeCompactItemConnectivityAccessor", "dd/df1/classArcane_1_1ItemInternal.html#a1812cd69b528ed11eec31c2b740af7d1", null ],
-    [ "Arcane::mesh::FaceCompactItemConnectivityAccessor", "dd/df1/classArcane_1_1ItemInternal.html#a7f9801993c1860cb995ea1e6a8aaa30e", null ],
-    [ "Arcane::mesh::FaceToCellCompactIncrementalConnectivity", "dd/df1/classArcane_1_1ItemInternal.html#afa697c75077990c9e34f55f6d21c794b", null ],
-    [ "Arcane::mesh::HChildCompactItemConnectivityAccessor", "dd/df1/classArcane_1_1ItemInternal.html#acc09ede610f3ce3dfafbbfb4031b9177", null ],
-    [ "Arcane::mesh::HParentCompactItemConnectivityAccessor", "dd/df1/classArcane_1_1ItemInternal.html#a5cd24fe0ff73bf1c552d53c8a9408dee", null ],
-    [ "Arcane::mesh::NodeCompactItemConnectivityAccessor", "dd/df1/classArcane_1_1ItemInternal.html#af3ea4811cb871a5f81557fe38352ea22", null ],
     [ "Arcane::mesh::NodeFamily", "dd/df1/classArcane_1_1ItemInternal.html#aa9274b1c46a7b2c3fe02bcf4954bd51e", null ],
-    [ "Arcane::mesh::ParticleCellCompactIncrementalItemConnectivity", "dd/df1/classArcane_1_1ItemInternal.html#ab498de8b8d561a0d312f8ae5a9cd770d", null ],
     [ "Arcane::mesh::ParticleFamilyCompactPolicy", "dd/df1/classArcane_1_1ItemInternal.html#a1f0229e70b55911c421c1b6866a3d849", null ],
     [ "Arcane::mesh::StandardItemFamilyCompactPolicy", "dd/df1/classArcane_1_1ItemInternal.html#a13dae71b2f740f9497f03efbfec5e7f0", null ]
 ];

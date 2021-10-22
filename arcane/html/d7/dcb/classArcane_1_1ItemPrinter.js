@@ -9,8 +9,6 @@ var classArcane_1_1ItemPrinter =
     [ "ItemPrinter", "d7/dcb/classArcane_1_1ItemPrinter.html#ae237689427af26e699d7c75a37297285", null ],
     [ "ItemPrinter", "d7/dcb/classArcane_1_1ItemPrinter.html#a1c40e5a8aa0c8a0a3b458d6fc511f1b5", null ],
     [ "ItemPrinter", "d7/dcb/classArcane_1_1ItemPrinter.html#a433c783e4c7b450c145135ac36694959", null ],
-    [ "ItemPrinter", "d7/dcb/classArcane_1_1ItemPrinter.html#a64111859392158852a3cdbe6094c29ba", null ],
-    [ "ItemPrinter", "d7/dcb/classArcane_1_1ItemPrinter.html#a5e41964f75f6a2892a6be067b30feef4", null ],
     [ "ItemPrinter", "d7/dcb/classArcane_1_1ItemPrinter.html#a5b76bcb4c575df14e137a64b3fe49626", null ],
     [ "print", "d7/dcb/classArcane_1_1ItemPrinter.html#ab4742e4a3e3ff85e7bf91c061b62decb", null ],
     [ "m_has_item_kind", "d7/dcb/classArcane_1_1ItemPrinter.html#a2630ee4d33b7ce01eff3389b065d505e", null ],

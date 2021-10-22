@@ -5,6 +5,7 @@ var classArcane_1_1IndexedItemConnectivityViewBase =
     [ "init", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#ac4906714b4554525ec0ea4bb56bbe6bc", null ],
     [ "items", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a5a5b6d245b7e8292c2f2025c9e45d328", null ],
     [ "nbItem", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#aff144c4e8cf117be5307d684d5ffb4a3", null ],
+    [ "set", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#adcd9c49993df1f6c8bb47c926397daf7", null ],
     [ "sourceItemKind", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a2e37ec016bbe2dc0352c80dca166f54b", null ],
     [ "targetItemKind", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a6cce6d9ec8f08e1abea40e1a8fc93b4f", null ],
     [ "m_indexes", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a87bd6f364b8614b413a41242d057d213", null ],

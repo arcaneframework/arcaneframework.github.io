@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.0.4.16</span>
+   &#160;<span id="projectnumber">3.1.2.0</span>
    </div>
   </td>
  </tr>
@@ -106,7 +106,7 @@ $(document).ready(function(){initNavTree('dd/d05/arcanedoc_material.html','../..
 </ul>
 </div>
 <div class="textblock"><p>Cette page décrit la gestion des matériaux et des milieux dans Arcane.</p>
-<p>L'ensemble des classes associées aux matériaux et milieux se trouvent dans le namespace <a class="el" href="../../d5/d4d/namespaceMaterials.html" title="Ensemble des classes assurant la gestion des matériaux et des milieux.">Materials</a> de <a class="el" href="../../d0/d32/namespaceArcane.html" title="Interface for base mesh operations.">Arcane</a> (voir <a class="el" href="../../d9/d01/group__ArcaneMaterials.html">Matériaux et des milieux.</a>). Le plus simple pour utiliser ces classes est d'utiliser le mot clé <em>using</em>. Par exemple:</p>
+<p>L'ensemble des classes associées aux matériaux et milieux se trouvent dans le namespace <a class="el" href="../../d5/d4d/namespaceMaterials.html" title="Ensemble des classes assurant la gestion des matériaux et des milieux.">Materials</a> de <a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a> (voir <a class="el" href="../../d9/d01/group__ArcaneMaterials.html">Matériaux et des milieux.</a>). Le plus simple pour utiliser ces classes est d'utiliser le mot clé <em>using</em>. Par exemple:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;arcane/materials/IMeshMaterial.h&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><span class="keyword">using namespace </span>Arcane::Materials;</div>
@@ -131,7 +131,7 @@ Création des matériaux, des milieux et des blocs</h1>
 <div class="line">    material_mng-&gt;registerMaterialInfo(<span class="stringliteral">&quot;MAT1&quot;</span>);</div>
 <div class="line">    material_mng-&gt;registerMaterialInfo(<span class="stringliteral">&quot;MAT2&quot;</span>);</div>
 <div class="line">    material_mng-&gt;registerMaterialInfo(<span class="stringliteral">&quot;MAT3&quot;</span>);</div>
-</div><!-- fragment --><p> Une fois les caractéristiques enregistrées, il est possible de créer les milieux, en spécifiant leur nom et la liste de leurs matériaux. Il faut noter que deux milieux (ou plus) peuvent être constitués du même matériau. Dans ce cas, <a class="el" href="../../d0/d32/namespaceArcane.html" title="Interface for base mesh operations.">Arcane</a> créé deux instances différentes du même matériau et ces dernieres sont indépendantes. Ainsi, dans l'exemple suivant, le matériau MAT1 est présent dans ENV1 et ENV3, ce qui fait deux matériaux distints avec chacun leurs valeurs partielles. Une fois les milieux créés, il est possible de les associés dans des blocs. Un bloc est défini par un nom, le groupe de maille associé et sa liste des milieux, qui est donc fixe.</p>
+</div><!-- fragment --><p> Une fois les caractéristiques enregistrées, il est possible de créer les milieux, en spécifiant leur nom et la liste de leurs matériaux. Il faut noter que deux milieux (ou plus) peuvent être constitués du même matériau. Dans ce cas, <a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a> créé deux instances différentes du même matériau et ces dernieres sont indépendantes. Ainsi, dans l'exemple suivant, le matériau MAT1 est présent dans ENV1 et ENV3, ce qui fait deux matériaux distints avec chacun leurs valeurs partielles. Une fois les milieux créés, il est possible de les associés dans des blocs. Un bloc est défini par un nom, le groupe de maille associé et sa liste des milieux, qui est donc fixe.</p>
 <div class="fragment"><div class="line">    <span class="comment">// Création du milieu ENV1 contenant les matériaux MAT1 et MAT2</span></div>
 <div class="line">    MeshEnvironmentBuildInfo ebi1(<span class="stringliteral">&quot;ENV1&quot;</span>);</div>
 <div class="line">    ebi1.addMaterial(<span class="stringliteral">&quot;MAT1&quot;</span>);</div>
@@ -176,7 +176,7 @@ Depuis la version 2.3.4 de Arcane, il est possible de supprimer des milieux à u
 <div class="line">    info() &lt;&lt; block-&gt;id();                <span class="comment">// Affiche &#39;0&#39;</span></div>
 </div><!-- fragment --> <h1><a class="anchor" id="arcanedoc_material_addremovecells"></a>
 Ajout ou suppression de mailles d'un matériau</h1>
-<p>Une fois les matériaux et milieux créés, il est possible d'ajouter ou de supprimer des mailles pour un matériau. Il n'est pas nécessaire de modifier les mailles par milieu: <a class="el" href="../../d0/d32/namespaceArcane.html" title="Interface for base mesh operations.">Arcane</a> se charge de recalculer automatiquement la liste des mailles d'un milieu en fonction de celles de ses matériaux.</p>
+<p>Une fois les matériaux et milieux créés, il est possible d'ajouter ou de supprimer des mailles pour un matériau. Il n'est pas nécessaire de modifier les mailles par milieu: <a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a> se charge de recalculer automatiquement la liste des mailles d'un milieu en fonction de celles de ses matériaux.</p>
 <p>Toute modification se fait via la classe MeshMaterialModifier. Il suffit de créer une instance de cette classe et d'appeler autant de fois que nécessaire les méthodes MeshMaterialModifier::addCells() ou MeshMaterialModifier::removeCells(). Il faut noter que ceux deux méthodes permettent uniquement d'indiquer les mailles à ajouter ou supprimer. La modification effective n'a lieu que lors de l'appel à MeshMaterialModifier::endUpdate() ou de la destruction l'instance de MeshMaterialModifier. C'est seulement à ce moment là que les valeurs partielles sont mises à jour et qu'il est possible d'y accéder.</p>
 <dl class="section note"><dt>Note</dt><dd>Pour l'instant, les variables partielles des matériaux sont automatiquement initialisées à 0 dans les nouvelles mailles d'un matériau. Pour des raisons de performance, il est possible que cela ne soit plus le cas et alors les valeurs ne seront pas initialisées.</dd></dl>
 <div class="fragment"><div class="line">    {</div>
@@ -207,7 +207,7 @@ Ajout ou suppression de mailles d'un matériau</h1>
 <div class="line">    <span class="comment">// A partir d&#39;ici, les matériaux sont mis à jour.</span></div>
 <div class="line">    info() &lt;&lt; env1-&gt;materials()[0]-&gt;cells().size(); <span class="comment">// Nombre de mailles du matériau</span></div>
 <div class="ttc" id="aItemEnumerator_8h_html_aaf5910d68ad8428248f844535ab071f3"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a></div><div class="ttdeci">#define ENUMERATE_CELL(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:221</div></div>
-<div class="ttc" id="anamespaceArcane_html_a9705dd87194ca42d81d4da3d95a9acd7"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a9705dd87194ca42d81d4da3d95a9acd7">Arcane::Int32UniqueArray</a></div><div class="ttdeci">UniqueArray&lt; Int32 &gt; Int32UniqueArray</div><div class="ttdoc">Tableau dynamique à une dimension d'entiers 32 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:399</div></div>
+<div class="ttc" id="anamespaceArcane_html_a9705dd87194ca42d81d4da3d95a9acd7"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a9705dd87194ca42d81d4da3d95a9acd7">Arcane::Int32UniqueArray</a></div><div class="ttdeci">UniqueArray&lt; Int32 &gt; Int32UniqueArray</div><div class="ttdoc">Tableau dynamique à une dimension d'entiers 32 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:400</div></div>
 <div class="ttc" id="anamespaceArccore_html_a19fea02f94d4da203710fd2070c0f2fb"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Arccore::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:236</div></div>
 </div><!-- fragment --> <h1><a class="anchor" id="arcanedoc_material_iteration"></a>
 Itération sur les mailles matériaux</h1>
@@ -292,7 +292,7 @@ Itération sur les mailles matériaux</h1>
 <div class="line">    <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#a568f790f7de72e2144399d55d8c63455">ENUMERATE_ENVCELL</a>(imatcell,env_cells){</div>
 <div class="line">      mat_density[imatcell] = 3.1;</div>
 <div class="line">    }</div>
-<div class="ttc" id="agroup__Mesh_html_ga4d78be302ffdabc4e0f16578cc077314"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga4d78be302ffdabc4e0f16578cc077314">Arcane::CellGroup</a></div><div class="ttdeci">ItemGroupT&lt; Cell &gt; CellGroup</div><div class="ttdoc">Groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:132</div></div>
+<div class="ttc" id="agroup__Mesh_html_ga4d78be302ffdabc4e0f16578cc077314"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga4d78be302ffdabc4e0f16578cc077314">Arcane::CellGroup</a></div><div class="ttdeci">ItemGroupT&lt; Cell &gt; CellGroup</div><div class="ttdoc">Groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:128</div></div>
 </div><!-- fragment --> <dl class="section note"><dt>Note</dt><dd>Actuellement, les classes MatCellVector et EnvCellVector ne sont pas copiables et ne sont valides que tant que le matériau (pour MatCellVector) ou le milieu (pour EnvCellVector) et le groupe de maille associé ne change pas. De plus, la conservation des informations consomme de la mémoire et la création à un cout en temps de calcul proportionnel au nombre de mailles du groupe.</dd></dl>
 <h1><a class="anchor" id="arcanedoc_material_conversion"></a>
 Conversion Cell vers AllEnvCell, MatCell ou EnvCell</h1>
@@ -402,7 +402,7 @@ Variables matériaux</h1>
 <tr>
 <td>#MaterialVariableCellArrayReal3x3</td><td>variable matériau de type tableau de '#Real3x3' </td></tr>
 </table>
-<dl class="section note"><dt>Note</dt><dd>Pour information, en interne d'<a class="el" href="../../d0/d32/namespaceArcane.html" title="Interface for base mesh operations.">Arcane</a>, ces valeurs partielles sont gérées sous forme de variable tableau classique mais cette implémentation peut évoluer. Depuis la version 2.0 de Arcane, pour pouvoir distinguer ces variables des variables classiques, elles sont taggées avec la valeur "Material". Par exemple, la commande <div class="fragment"><div class="line">IVariable* var = ...;</div>
+<dl class="section note"><dt>Note</dt><dd>Pour information, en interne d'<a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a>, ces valeurs partielles sont gérées sous forme de variable tableau classique mais cette implémentation peut évoluer. Depuis la version 2.0 de Arcane, pour pouvoir distinguer ces variables des variables classiques, elles sont taggées avec la valeur "Material". Par exemple, la commande <div class="fragment"><div class="line">IVariable* var = ...;</div>
 <div class="line"><span class="keywordflow">if</span> (var-&gt;hasTag(<span class="stringliteral">&quot;Material&quot;</span>)){</div>
 <div class="line">  <span class="comment">// Il s&#39;agit d&#39;une valeur partielle.</span></div>
 <div class="line">}</div>
@@ -435,7 +435,7 @@ Utilisation</h2>
 <div class="line">mat_density[global_cell]; <span class="comment">// Valeur globale</span></div>
 <div class="line">mat_density[mat_cell];    <span class="comment">// Valeur pour un matériau</span></div>
 <div class="line">mat_density[env_cell];    <span class="comment">// Valeur pour un milieu.</span></div>
-</div><!-- fragment --><p>La valeur globale est partagée avec celle des variables standards <a class="el" href="../../d0/d32/namespaceArcane.html" title="Interface for base mesh operations.">Arcane</a> de même nom. Par exemple:</p>
+</div><!-- fragment --><p>La valeur globale est partagée avec celle des variables standards <a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a> de même nom. Par exemple:</p>
 <div class="fragment"><div class="line">IMeshMaterialMng* material_mng = ...;</div>
 <div class="line">MaterialVariableBuildInfo mat_info(material_mng,<span class="stringliteral">&quot;Density&quot;</span>))</div>
 <div class="line">MaterialVariableCellReal mat_density(mat_info);</div>
@@ -666,7 +666,7 @@ Notes sur l'implémentation</h2>
 <div class="line">ids.add(6);</div>
 <div class="line">ids.add(6); <span class="comment">// Erreur si \a ids contient plusieurs fois la même maille.</span></div>
 <div class="ttc" id="aclassArccore_1_1Array_html_ab3f2d332e7c412261b9199bb5454e31b"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#ab3f2d332e7c412261b9199bb5454e31b">Arccore::Array::add</a></div><div class="ttdeci">void add(ConstReferenceType val)</div><div class="ttdoc">Ajoute l'élément val à la fin du tableau.</div><div class="ttdef"><b>Definition:</b> Array.h:951</div></div>
-<div class="ttc" id="anamespaceArcane_html_abc8d646c5aa8c4a583e54f7798c3bf80"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#abc8d646c5aa8c4a583e54f7798c3bf80">Arcane::Int32Array</a></div><div class="ttdeci">Array&lt; Int32 &gt; Int32Array</div><div class="ttdoc">Tableau dynamique à une dimension d'entiers 32 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:211</div></div>
+<div class="ttc" id="anamespaceArcane_html_abc8d646c5aa8c4a583e54f7798c3bf80"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#abc8d646c5aa8c4a583e54f7798c3bf80">Arcane::Int32Array</a></div><div class="ttdeci">Array&lt; Int32 &gt; Int32Array</div><div class="ttdoc">Tableau dynamique à une dimension d'entiers 32 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:212</div></div>
 </div><!-- fragment --><p>Si on se trouve dans un des cas précédent, il y a de fortes chances que cela fasse planter le code. Pour éviter cela, le mode CHECK détecte ces erreurs, les signale dans le listing et les filtre pour que cela fonctionne correctement. Ces erreurs sont signalées dans le listing par des message du style suivant:</p>
 <pre class="fragment"> ERROR: item ... is present several times in add/remove list for material mat=...
  ERROR: item ... is already in material mat=...
@@ -678,7 +678,7 @@ Notes sur l'implémentation</h2>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li>
-    <li class="footer">Généré le Jeudi 23 Septembre 2021 09:25:21 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Généré le Vendredi 22 Octobre 2021 09:11:02 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

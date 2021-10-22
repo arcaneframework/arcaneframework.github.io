@@ -39,8 +39,6 @@ var ArcaneTypes_8h =
       [ "IK_Edge", "d0/d7e/ArcaneTypes_8h.html#aaa6951864e32e84c29b3cffca3d4b3f7adab840c7bc62b7527ab88c4f97503005", null ],
       [ "IK_Face", "d0/d7e/ArcaneTypes_8h.html#aaa6951864e32e84c29b3cffca3d4b3f7a970214a4f93b95c7ff1c00d2d4438dee", null ],
       [ "IK_Cell", "d0/d7e/ArcaneTypes_8h.html#aaa6951864e32e84c29b3cffca3d4b3f7a43a1d702aabd0a4063e61442d68d6fb0", null ],
-      [ "IK_DualNode", "d0/d7e/ArcaneTypes_8h.html#aaa6951864e32e84c29b3cffca3d4b3f7a63e80f0ca89b7e9837532a7f5757c0ad", null ],
-      [ "IK_Link", "d0/d7e/ArcaneTypes_8h.html#aaa6951864e32e84c29b3cffca3d4b3f7ab5d4b509074b1c8c3664227c3eae9588", null ],
       [ "IK_DoF", "d0/d7e/ArcaneTypes_8h.html#aaa6951864e32e84c29b3cffca3d4b3f7ac1a1f5f32ab75b58955d9063500e74bd", null ],
       [ "IK_Particle", "d0/d7e/ArcaneTypes_8h.html#aaa6951864e32e84c29b3cffca3d4b3f7a257d132ec593a7ae8940b84b70184b94", null ],
       [ "IK_Unknown", "d0/d7e/ArcaneTypes_8h.html#aaa6951864e32e84c29b3cffca3d4b3f7a8801e4f56cb20372e75f70d514b6e968", null ]
