@@ -82,6 +82,8 @@ var group__ArcaneMaterials =
     ] ],
     [ "IMeshComponent", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html", [
       [ "~IMeshComponent", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#a9a60f6bfe78a96f511ca313fa00a935f", null ],
+      [ "asEnvironment", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#a07494f83e58d3a94eb91cda65bdcb9cb", null ],
+      [ "asMaterial", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#a23550c1687e0023948d244cdffaae59e", null ],
       [ "cells", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#a7b7c1a55de01459870b35712ae45b9b3", null ],
       [ "checkValid", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#ae219fde07a6cf9befae8202785af9c4c", null ],
       [ "findComponentCell", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#adceae06a311483d1ce72b73c5afd8ec5", null ],

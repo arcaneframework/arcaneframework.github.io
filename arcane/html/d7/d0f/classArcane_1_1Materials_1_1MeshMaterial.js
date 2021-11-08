@@ -2,6 +2,8 @@ var classArcane_1_1Materials_1_1MeshMaterial =
 [
     [ "MeshMaterial", "d7/d0f/classArcane_1_1Materials_1_1MeshMaterial.html#a2779554d567111c2ff491c4bcb12a655", null ],
     [ "~MeshMaterial", "d7/d0f/classArcane_1_1Materials_1_1MeshMaterial.html#a94800fb833c45fdf6ead90b7f05262bc", null ],
+    [ "asEnvironment", "d7/d0f/classArcane_1_1Materials_1_1MeshMaterial.html#a6af2341765d6c4b5ca64dfc73d3b59b9", null ],
+    [ "asMaterial", "d7/d0f/classArcane_1_1Materials_1_1MeshMaterial.html#ad0d2cd9aa9f736e5ba40fb468500b056", null ],
     [ "build", "d7/d0f/classArcane_1_1Materials_1_1MeshMaterial.html#a0004321df7c158633400a85a8c0d4cdf", null ],
     [ "cells", "d7/d0f/classArcane_1_1Materials_1_1MeshMaterial.html#aef1c248c6c5eb833732625d01752dd6b", null ],
     [ "checkValid", "d7/d0f/classArcane_1_1Materials_1_1MeshMaterial.html#aa54beec5c8a7998ba4d59f03c1573779", null ],

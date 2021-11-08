@@ -1,8 +1,11 @@
 var classArccore_1_1BasicSerializerNewImpl =
 [
+    [ "SizeInfo", "dc/de5/structArccore_1_1BasicSerializerNewImpl_1_1SizeInfo.html", "dc/de5/structArccore_1_1BasicSerializerNewImpl_1_1SizeInfo" ],
     [ "_allocBuffer", "d3/d40/classArccore_1_1BasicSerializerNewImpl.html#aeb59d475977aaaf1c0ba78f18217bf81", null ],
     [ "_checkAddr", "d3/d40/classArccore_1_1BasicSerializerNewImpl.html#a679e609ec9c6dfe201bebd6812ce69bb", null ],
     [ "_checkAlignment", "d3/d40/classArccore_1_1BasicSerializerNewImpl.html#a8c3017e79283fd60ae33dd5846ba7743", null ],
+    [ "_fillPadding", "d3/d40/classArccore_1_1BasicSerializerNewImpl.html#a4fb224efcd38869d452f555c7fa9a6c1", null ],
+    [ "_fillPadding", "d3/d40/classArccore_1_1BasicSerializerNewImpl.html#ac790c6b2f232e78b6302c00baa6377f2", null ],
     [ "_printAddr", "d3/d40/classArccore_1_1BasicSerializerNewImpl.html#a3c76456e5a734bd2ea0e690592777bbb", null ],
     [ "_printAlignment", "d3/d40/classArccore_1_1BasicSerializerNewImpl.html#aa1d430d2eead8878772aa05cb566a6a0", null ],
     [ "allocateBuffer", "d3/d40/classArccore_1_1BasicSerializerNewImpl.html#af994e4493a8d525219c40d7a2eb33294", null ],
@@ -12,7 +15,7 @@ var classArccore_1_1BasicSerializerNewImpl =
     [ "getInt16Buffer", "d3/d40/classArccore_1_1BasicSerializerNewImpl.html#a627c248b5c4308492f3bb0243618f67d", null ],
     [ "getInt32Buffer", "d3/d40/classArccore_1_1BasicSerializerNewImpl.html#aabff409a9bbba2cebdbec00ff69ce543", null ],
     [ "getInt64Buffer", "d3/d40/classArccore_1_1BasicSerializerNewImpl.html#a8f776e01b8b488e8627cc6cc52f6315d", null ],
-    [ "getPaddingSize", "d3/d40/classArccore_1_1BasicSerializerNewImpl.html#ad0721d223999e6f7c6796e8b7144291d", null ],
+    [ "getPaddingSize", "d3/d40/classArccore_1_1BasicSerializerNewImpl.html#ae7d720f44803de9495eb6cdad03cb597", null ],
     [ "getRealBuffer", "d3/d40/classArccore_1_1BasicSerializerNewImpl.html#a9a21802df75daa39026c742db39be629", null ],
     [ "globalBuffer", "d3/d40/classArccore_1_1BasicSerializerNewImpl.html#a39462f3f126958a1b2f86f691cdba6d1", null ],
     [ "globalBuffer", "d3/d40/classArccore_1_1BasicSerializerNewImpl.html#a53943746e01260050fbd608471f0eb5e", null ],

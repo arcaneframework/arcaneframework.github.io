@@ -705,7 +705,7 @@ var hierarchy =
     ] ],
     [ "Arcane::IBinaryMathFunctor< Arg1, Arg2, ReturnType >", "d9/d89/classArcane_1_1IBinaryMathFunctor.html", null ],
     [ "Arcane::ICartesianMesh", "d1/d62/classArcane_1_1ICartesianMesh.html", [
-      [ "Arcane::CartesianMesh", "d4/db5/classArcane_1_1CartesianMesh.html", null ]
+      [ "Arcane::CartesianMeshImpl", "db/d6f/classArcane_1_1CartesianMeshImpl.html", null ]
     ] ],
     [ "Arcane::ICartesianMeshPatch", "d9/d49/classArcane_1_1ICartesianMeshPatch.html", null ],
     [ "Arcane::ICaseDocument", "d3/dd9/classArcane_1_1ICaseDocument.html", null ],
@@ -1004,7 +1004,10 @@ var hierarchy =
     [ "Arcane::IMeshModifier", "d9/d71/classArcane_1_1IMeshModifier.html", null ],
     [ "Arcane::IMeshPartitionConstraint", "d7/dc2/classArcane_1_1IMeshPartitionConstraint.html", null ],
     [ "Arcane::IMeshPartitionConstraintMng", "d5/d8f/classArcane_1_1IMeshPartitionConstraintMng.html", null ],
-    [ "Arcane::IMeshPartitioner", "dc/dd8/classArcane_1_1IMeshPartitioner.html", null ],
+    [ "Arcane::IMeshPartitionerBase", "d8/d7d/classArcane_1_1IMeshPartitionerBase.html", [
+      [ "Arcane::IGridMeshPartitioner", "d8/d13/classArcane_1_1IGridMeshPartitioner.html", null ],
+      [ "Arcane::IMeshPartitioner", "dc/dd8/classArcane_1_1IMeshPartitioner.html", null ]
+    ] ],
     [ "Arcane::IMeshReader", "d7/d2c/classArcane_1_1IMeshReader.html", [
       [ "Arcane::LimaMeshReader", "db/dbe/classArcane_1_1LimaMeshReader.html", null ]
     ] ],
@@ -2193,6 +2196,7 @@ var hierarchy =
       [ "Arcane::SimplePropertyT< T >", "d2/d4e/classArcane_1_1SimplePropertyT.html", null ]
     ] ],
     [ "Arcane::SimpleSVGMeshExporter", "de/d9a/classArcane_1_1SimpleSVGMeshExporter.html", null ],
+    [ "Arccore::BasicSerializerNewImpl::SizeInfo", "dc/de5/structArccore_1_1BasicSerializerNewImpl_1_1SizeInfo.html", null ],
     [ "Arccore::BasicSerializer::SizesPrinter", "d1/d18/classArccore_1_1BasicSerializer_1_1SizesPrinter.html", null ],
     [ "Arcane::SmallVariant", "d8/db0/classArcane_1_1SmallVariant.html", null ],
     [ "Arcane::DirectedAcyclicGraphT< VertexType, EdgeType >::SortedElementSet< ContainerT >", "d2/dd9/classArcane_1_1DirectedAcyclicGraphT_1_1SortedElementSet.html", null ],
@@ -2274,7 +2278,7 @@ var hierarchy =
       [ "Arcane::AbstractService", "da/d61/classArcane_1_1AbstractService.html", null ],
       [ "Arcane::Accelerator::AcceleratorMng", "db/db8/classArcane_1_1Accelerator_1_1AcceleratorMng.html", null ],
       [ "Arcane::BitonicSort< KeyType, KeyTypeTraits >", "d5/d14/classArcane_1_1BitonicSort.html", null ],
-      [ "Arcane::CartesianMesh", "d4/db5/classArcane_1_1CartesianMesh.html", null ],
+      [ "Arcane::CartesianMeshImpl", "db/d6f/classArcane_1_1CartesianMeshImpl.html", null ],
       [ "Arcane::CaseOptionList", "db/d32/classArcane_1_1CaseOptionList.html", null ],
       [ "Arcane::DualUniqueIdMng", "d8/d35/classArcane_1_1DualUniqueIdMng.html", null ],
       [ "Arcane::LimaCutInfosReader", "dd/d4b/classArcane_1_1LimaCutInfosReader.html", null ],

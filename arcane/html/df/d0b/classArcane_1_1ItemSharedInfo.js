@@ -1,11 +1,6 @@
 var classArcane_1_1ItemSharedInfo =
 [
     [ "ItemSharedInfo", "df/d0b/classArcane_1_1ItemSharedInfo.html#aa33e0d02741f41a77e2d3e8e334c9de2", null ],
-    [ "ItemSharedInfo", "df/d0b/classArcane_1_1ItemSharedInfo.html#a5d864a3a41fab637337ec9856ffead5a", null ],
-    [ "ItemSharedInfo", "df/d0b/classArcane_1_1ItemSharedInfo.html#aeb37730476d0ff46ac32ed37042b80bb", null ],
-    [ "ItemSharedInfo", "df/d0b/classArcane_1_1ItemSharedInfo.html#a8545244ee94afcad05c898f510e69625", null ],
-    [ "ItemSharedInfo", "df/d0b/classArcane_1_1ItemSharedInfo.html#a1ba960188a5165e4dc887d8a6de20973", null ],
-    [ "ItemSharedInfo", "df/d0b/classArcane_1_1ItemSharedInfo.html#a8ba61a6f5a3d2f10a9fd46f740ac4201", null ],
     [ "_infos", "df/d0b/classArcane_1_1ItemSharedInfo.html#a8fd0972e0410ea2d54be9c0f76f5f49a", null ],
     [ "_setInfos", "df/d0b/classArcane_1_1ItemSharedInfo.html#af90cb5f461dfa5a23d85c244c6d4b5c7", null ],
     [ "addReference", "df/d0b/classArcane_1_1ItemSharedInfo.html#a8f6b6356ceeff46fcd3908d917d00f3f", null ],
@@ -71,6 +66,7 @@ var classArcane_1_1ItemSharedInfo =
     [ "setParent", "df/d0b/classArcane_1_1ItemSharedInfo.html#a19b87e851ef5f04b9516375f9fafd060", null ],
     [ "typeId", "df/d0b/classArcane_1_1ItemSharedInfo.html#a9371d056ad3680a0ac93cb88db824f58", null ],
     [ "ItemInternal", "df/d0b/classArcane_1_1ItemSharedInfo.html#ab5a45f7a19563aed8af84613b3b97503", null ],
+    [ "mesh::ItemSharedInfoList", "df/d0b/classArcane_1_1ItemSharedInfo.html#a842de3a24d5e8344033db48cb4276c85", null ],
     [ "m_connectivity", "df/d0b/classArcane_1_1ItemSharedInfo.html#a4fb629faec7c9169cec8d04d1fbc3a5b", null ],
     [ "m_item_family", "df/d0b/classArcane_1_1ItemSharedInfo.html#a89907ff5405eea92e68034602a52f9b8", null ],
     [ "m_item_kind", "df/d0b/classArcane_1_1ItemSharedInfo.html#ac9e75eca283c4cd76d8c6cff97d930b3", null ],

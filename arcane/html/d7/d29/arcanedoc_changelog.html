@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.1.2.0</span>
+   &#160;<span id="projectnumber">3.2.0.0</span>
    </div>
   </td>
  </tr>
@@ -87,7 +87,8 @@ $(document).ready(function(){initNavTree('d7/d29/arcanedoc_changelog.html','../.
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table des matières</h3>
-<ul><li class="level1"><a href="#arcanedoc_version310">Arcane Version 3.1.2 (...)</a></li>
+<ul><li class="level1"><a href="#arcanedoc_version320">Arcane Version 3.2.0 (...)</a></li>
+<li class="level1"><a href="#arcanedoc_version310">Arcane Version 3.1.2 (21 octobre 2021)</a></li>
 <li class="level1"><a href="#arcanedoc_version305">Arcane Version 3.0.5 (30 septembre 2021)</a></li>
 <li class="level1"><a href="#arcanedoc_version303">Arcane Version 3.0.3 (Not released)</a></li>
 <li class="level1"><a href="#arcanedoc_version301">Arcane Version 3.0.1 (27 mai 2021)</a></li>
@@ -123,12 +124,34 @@ $(document).ready(function(){initNavTree('d7/d29/arcanedoc_changelog.html','../.
 </div>
 <div class="textblock"><p><a class="anchor" id="md__home_grospellierg_arcane_packaging_framework_arcane_doc_changelog"></a></p>
 <p>Cette page contient les nouveautés de chaque version de Arcane.</p>
+<h1><a class="anchor" id="arcanedoc_version320"></a>
+Arcane Version 3.2.0 (...)</h1>
+<p>Nouveautés/Améliorations:</p>
+<ul>
+<li>Ajoute une interface <a class="el" href="../../d8/d7d/classArcane_1_1IMeshPartitionerBase.html" title="Interface d&#39;un partitionneur de maillage.">Arcane::IMeshPartitionerBase</a> pour faire uniquement le partitionnement sans support pour le repartionnement. L'interface <a class="el" href="../../dc/dd8/classArcane_1_1IMeshPartitioner.html" title="Interface d&#39;un partitionneur de maillage.">Arcane::IMeshPartitioner</a> hérite maintenant de <a class="el" href="../../d8/d7d/classArcane_1_1IMeshPartitionerBase.html" title="Interface d&#39;un partitionneur de maillage.">Arcane::IMeshPartitionerBase</a>.</li>
+<li>Ajoute dans <a class="el" href="../../d5/de9/classArcane_1_1MeshReaderMng.html" title="Gestionnaire de lecteurs de maillage.">Arcane::MeshReaderMng</a> la possibilité de créer des maillages avec un <a class="el" href="../../dc/d5a/classArcane_1_1IParallelMng.html" title="Interface du gestionnaire de parallélisme pour un sous-domaine.">Arcane::IParallelMng</a> quelconque via la méthode <a class="el" href="../../d5/de9/classArcane_1_1MeshReaderMng.html#a16f4a3e9ff3c366857e59a2ec68e026a" title="Lit le maillage dont le nom de fichier est file_name.">Arcane::MeshReaderMng::readMesh()</a>.</li>
+<li>Ajoute une interface <a class="el" href="../../d8/d13/classArcane_1_1IGridMeshPartitioner.html" title="Interface d&#39;un partitionneur de maillage sur une grille.">Arcane::IGridMeshPartitioner</a> pour partitionner un maillage suivant une grille. Un service de nom <code>SimpleGridMeshPartitioner</code> implémente cette interface. La page <a class="el" href="../../d7/dc1/arcanedoc_snippet_cartesianmesh.html#arcanesnippet_imeshgridpartitioner1">Exemple d'utilisation de IGridMeshPartitioner</a> montre un exemple d'utilisation.</li>
+</ul>
+<p>Changements:</p>
+<ul>
+<li>Passage version CMake 3.18 sur les machines Unix et CMake 3.21 sous Windows.</li>
+<li>Rend obsolète dans <a class="el" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html" title="Gestionnaire des types d&#39;entités de maillage.">Arcane::ItemTypeMng</a> la méthode <code>singleton()</code>. Les instances de cette classe sont attachées au maillage et peuvent être récupérées via <a class="el" href="../../d0/d9f/classArcane_1_1IMesh.html#a562dd7bfb64e11c2c206c26998ef6309" title="Gestionnaire de types d&#39;entités associé">Arcane::IMesh::itemTypeMng()</a>.</li>
+<li>Déplace les classes gérant le maillage cartésian dans le répertoire <code>arcane/cartesianmesh</code>. Les anciens chemins dans <code>arcane/cea</code> restent valides.</li>
+<li>Utilise par défaut la version 3 (au lieu de 2) du service de création des mailles fantômes. Cette version est plus efficace lorsqu'on utilise un grand nombre de sous-domaines car elle utilise des communications collectives.</li>
+<li>Supprime la préallocation mémoire pour les anciennes connectivités.</li>
+<li>Rend privé à Arcane les constructeurs de <a class="el" href="../../df/d0b/classArcane_1_1ItemSharedInfo.html">Arcane::ItemSharedInfo</a></li>
+<li>Lance une exception fatale si on demande le support des tâches mais qu'aucune implémentation n'est disponible. Auparavant, il y avait juste un message d'avertissement.</li>
+</ul>
+<p>Corrections:</p>
+<ul>
+<li>Corrige plantage (SEGV) lorsqu'on utilise les tâches et sous-tâches en séquentiel.</li>
+</ul>
 <h1><a class="anchor" id="arcanedoc_version310"></a>
-Arcane Version 3.1.2 (...)</h1>
+Arcane Version 3.1.2 (21 octobre 2021)</h1>
 <p>Nouveautés/Améliorations:</p>
 <ul>
 <li>Nouvelle implémentation des graphes de maillage utilisant les <code><a class="el" href="../../d0/d6c/classArcane_1_1DoF.html" title="classe degre de liberte.">Arcane::DoF</a></code>.</li>
-<li>Ajoute possibilité de renuméroter (via la méthode <a class="el" href="../../d1/d62/classArcane_1_1ICartesianMesh.html#a47bf4b286b4529945776d70e6385c386" title="Renumérote les uniqueId() des entités.">Arcane::ICartesianMesh::renumberItemsUniqueId()</a>') les entités dans les maillages AMR par patch pour avoir la même numérotation quel que soit le découpage.</li>
+<li>Ajoute possibilité de renuméroter (via la méthode <a class="el" href="../../d1/d62/classArcane_1_1ICartesianMesh.html#a47bf4b286b4529945776d70e6385c386" title="Renumérote les uniqueId() des entités.">Arcane::ICartesianMesh::renumberItemsUniqueId()</a>) les entités dans les maillages AMR par patch pour avoir la même numérotation quel que soit le découpage.</li>
 <li>Mise à jour de la documentation pour les accélérateurs</li>
 </ul>
 <p>Changements:</p>
@@ -521,7 +544,7 @@ Arcane Version 2.5.2 (25 juillet 2017)</h1>
 <div class="line"><a class="code" href="../../d6/d0d/classArcane_1_1TaskFactory.html#a72f3750e9b1a16c3fe6af3c1eae7d48a">TaskFactory::setDefaultParallelLoopOptions</a>(opt);</div>
 <div class="ttc" id="aConcurrency_8h_html"><div class="ttname"><a href="../../d4/d05/Concurrency_8h.html">Concurrency.h</a></div><div class="ttdoc">Classes, Types et macros pour gérer la concurrence.</div></div>
 <div class="ttc" id="aclassArcane_1_1ParallelLoopOptions_html_adb69cf9bcc031b07263152c09205fe8aa84a8921b25f505d0d2077aeb5db4bc16"><div class="ttname"><a href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html#adb69cf9bcc031b07263152c09205fe8aa84a8921b25f505d0d2077aeb5db4bc16">Arcane::ParallelLoopOptions::Partitioner::Static</a></div><div class="ttdeci">@ Static</div><div class="ttdoc">Utilise un partitionnement statique.</div></div>
-<div class="ttc" id="aclassArcane_1_1TaskFactory_html_a72f3750e9b1a16c3fe6af3c1eae7d48a"><div class="ttname"><a href="../../d6/d0d/classArcane_1_1TaskFactory.html#a72f3750e9b1a16c3fe6af3c1eae7d48a">Arcane::TaskFactory::setDefaultParallelLoopOptions</a></div><div class="ttdeci">static void setDefaultParallelLoopOptions(const ParallelLoopOptions &amp;v)</div><div class="ttdoc">Positionne les valeurs par défaut d'exécution d'une boucle parallèle.</div><div class="ttdef"><b>Definition:</b> ConcurrencyUtils.h:527</div></div>
+<div class="ttc" id="aclassArcane_1_1TaskFactory_html_a72f3750e9b1a16c3fe6af3c1eae7d48a"><div class="ttname"><a href="../../d6/d0d/classArcane_1_1TaskFactory.html#a72f3750e9b1a16c3fe6af3c1eae7d48a">Arcane::TaskFactory::setDefaultParallelLoopOptions</a></div><div class="ttdeci">static void setDefaultParallelLoopOptions(const ParallelLoopOptions &amp;v)</div><div class="ttdoc">Positionne les valeurs par défaut d'exécution d'une boucle parallèle.</div><div class="ttdef"><b>Definition:</b> ConcurrencyUtils.h:529</div></div>
 </div><!-- fragment --></li>
 <li>ajout d'un mécanisme de barrière nommée pour garantir que tous les processus arrivent à la même barrière: <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../db/d8b/Parallel_8h.html">arcane/Parallel.h</a>&gt;</span></div>
 <div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
@@ -691,7 +714,7 @@ Améliorations diverses</h2>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li>
-    <li class="footer">Généré le Vendredi 22 Octobre 2021 09:11:02 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Généré le Lundi 8 Novembre 2021 16:23:50 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>
