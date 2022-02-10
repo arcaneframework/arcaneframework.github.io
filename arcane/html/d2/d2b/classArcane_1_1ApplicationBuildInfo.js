@@ -14,6 +14,8 @@ var classArcane_1_1ApplicationBuildInfo =
     [ "codeName", "d2/d2b/classArcane_1_1ApplicationBuildInfo.html#ab7e41242c20cc0e637df035240817e9b", null ],
     [ "codeVersion", "d2/d2b/classArcane_1_1ApplicationBuildInfo.html#a2fbc521f18aa74b60d99ea44ef094569", null ],
     [ "configFileName", "d2/d2b/classArcane_1_1ApplicationBuildInfo.html#a4c0994127d1147c230db0939236bbfa3", null ],
+    [ "internalDefaultMessagePassingService", "d2/d2b/classArcane_1_1ApplicationBuildInfo.html#a023fe45b5705998dbb2219cb3d16a371", null ],
+    [ "internalSetDefaultMessagePassingService", "d2/d2b/classArcane_1_1ApplicationBuildInfo.html#a7ef1f9860f7dc2d9dedcb96b28a95591", null ],
     [ "isMasterHasOutputFile", "d2/d2b/classArcane_1_1ApplicationBuildInfo.html#a349abb7945a18d8a97be1e363d027d2f", null ],
     [ "messagePassingService", "d2/d2b/classArcane_1_1ApplicationBuildInfo.html#a22d39f01e30f4460d9cb6b12f9d43b3e", null ],
     [ "minimalVerbosityLevel", "d2/d2b/classArcane_1_1ApplicationBuildInfo.html#aa714d3484fd1f93a84a0a2874695025f", null ],
@@ -46,6 +48,8 @@ var classArcane_1_1ApplicationBuildInfo =
     [ "setThreadImplementationServices", "d2/d2b/classArcane_1_1ApplicationBuildInfo.html#a66824283532b35654864639613e1577a", null ],
     [ "setVerbosityLevel", "d2/d2b/classArcane_1_1ApplicationBuildInfo.html#a0de4027b59cc20598b4096232904e0c4", null ],
     [ "taskImplementationServices", "d2/d2b/classArcane_1_1ApplicationBuildInfo.html#a0a9ec641ecd8c5cb0c52935831e00112", null ],
+    [ "threadBindingStrategy", "d2/d2b/classArcane_1_1ApplicationBuildInfo.html#af43dd9483a258ca1fe5018b255f814c4", null ],
+    [ "threadBindingStrategy", "d2/d2b/classArcane_1_1ApplicationBuildInfo.html#ac974db5afab00515fdb0dea861b1f727", null ],
     [ "threadImplementationServices", "d2/d2b/classArcane_1_1ApplicationBuildInfo.html#ab69f11600808819be63152aa33140ffc", null ],
     [ "verbosityLevel", "d2/d2b/classArcane_1_1ApplicationBuildInfo.html#ac0cfd95066ffc1c1f9aada4cb4fac7fd", null ]
 ];

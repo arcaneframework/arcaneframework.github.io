@@ -1,7 +1,7 @@
 var classArcane_1_1Materials_1_1MeshMaterialMng =
 [
     [ "MeshMaterialMng", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#adc744b232ea0ed841909e9193f906f1c", null ],
-    [ "~MeshMaterialMng", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#a4c368d0b4200e3068f516ad7a919d44e", null ],
+    [ "~MeshMaterialMng", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#ae465a1988600bd895bba9de2fe0db505", null ],
     [ "_allCellsEnvOnlySynchronizer", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#a98c1c972897097af5b75a2b806ddbe0e", null ],
     [ "_allCellsMatEnvSynchronizer", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#aeb342f844f64f7fb1841ee9c19a4482f", null ],
     [ "addEnvironmentToBlock", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#a50c079c3714b90d1a34ea5b78ac267b6", null ],
@@ -36,7 +36,7 @@ var classArcane_1_1Materials_1_1MeshMaterialMng =
     [ "isMeshModificationNotified", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#aa43e0f09b76934ada94eeca6f3582aeb", null ],
     [ "materials", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#a4659b498035c6c280c835fe6c57c8c3e", null ],
     [ "materialsAsComponents", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#a5108c43f91c555134ce85fad4a6dc68f", null ],
-    [ "mesh", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#ac4b99d56b15e7d450fecc1e1a7ed9253", null ],
+    [ "mesh", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#a34ccb2e8387996ef48c551607560880b", null ],
     [ "meshHandle", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#a8f67fc736e5ef14796e5c035a3f00322", null ],
     [ "modificationFlags", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#a7950883ef7f55e780fca75311d74a07c", null ],
     [ "modifier", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#a063b02a598e08505e7a04b347ca0f575", null ],
@@ -55,7 +55,7 @@ var classArcane_1_1Materials_1_1MeshMaterialMng =
     [ "synchronizeVariableVersion", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#a37423924e2de930e7f8a133f5c6f71b6", null ],
     [ "syncVariablesReferences", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#ade4bee3909a8a0e2d0978340ff0af718", null ],
     [ "timestamp", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#a3c26355f47fc24d0d9ce140f9eb3faaf", null ],
-    [ "traceMng", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#a3fed429bd83271eb96faa81e96addac4", null ],
+    [ "traceMng", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#adece84ccf3af8443f2549aa3b6de7018", null ],
     [ "trueEnvironments", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#a1f1a67646f7fa1e9733184dd4ff28284", null ],
     [ "variableLock", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#a1e181407d2a93e5bb56299b369277ef5", null ],
     [ "variablesIndexer", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#adfbd1bb8f3ab7efc8b87c49c51d195d3", null ],

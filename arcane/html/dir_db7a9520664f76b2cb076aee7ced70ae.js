@@ -9,6 +9,8 @@ var dir_db7a9520664f76b2cb076aee7ced70ae =
     [ "DataTypeTraits.h", "dd/d04/DataTypeTraits_8h_source.html", null ],
     [ "IDataOperation.h", "db/d70/IDataOperation_8h_source.html", null ],
     [ "IDataTracer.h", "d8/d9b/IDataTracer_8h_source.html", null ],
+    [ "RealArray2Variant.h", "db/da1/RealArray2Variant_8h_source.html", null ],
+    [ "RealArrayVariant.h", "d2/df4/RealArrayVariant_8h_source.html", null ],
     [ "ScalarVariant.h", "de/d13/ScalarVariant_8h_source.html", null ],
     [ "SmallVariant.h", "d1/dcd/SmallVariant_8h_source.html", null ],
     [ "VariantBase.h", "d5/dff/VariantBase_8h_source.html", null ]

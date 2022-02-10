@@ -10,6 +10,7 @@ var classArccore_1_1ITraceMng =
     [ "endTrace", "d0/df9/classArccore_1_1ITraceMng.html#a993f59aed60821103e2dbf47c9d615f4", null ],
     [ "error", "d0/df9/classArccore_1_1ITraceMng.html#a8c08ff68d12afe104bf9500b674c44ab", null ],
     [ "fatal", "d0/df9/classArccore_1_1ITraceMng.html#a71c2e1ee50c22f23230276dd72a40934", null ],
+    [ "fatalMessage", "d0/df9/classArccore_1_1ITraceMng.html#a0d160f1bfd88fff09eebd0207c285c93", null ],
     [ "finishInitialize", "d0/df9/classArccore_1_1ITraceMng.html#ad7e307e3672d930ec17f5af4b08d1977", null ],
     [ "flush", "d0/df9/classArccore_1_1ITraceMng.html#a60e7b2f917722f9b02838efc4196739d", null ],
     [ "info", "d0/df9/classArccore_1_1ITraceMng.html#a5487c834570278c27f5614e8cb7b3f0d", null ],

@@ -1,6 +1,6 @@
 var classArccore_1_1MessagePassing_1_1ITypeDispatcher =
 [
-    [ "~ITypeDispatcher", "dc/d82/classArccore_1_1MessagePassing_1_1ITypeDispatcher.html#af0fb71b38839d5c9e105567c35e0e765", null ],
+    [ "~ITypeDispatcher", "dc/d82/classArccore_1_1MessagePassing_1_1ITypeDispatcher.html#ace49bb71a527b64d57269eecab67654d", null ],
     [ "allGather", "dc/d82/classArccore_1_1MessagePassing_1_1ITypeDispatcher.html#a226070ae21b824a186d9caca13000b9c", null ],
     [ "allGatherVariable", "dc/d82/classArccore_1_1MessagePassing_1_1ITypeDispatcher.html#a745408e1581c0e0ed9eea450b393b890", null ],
     [ "allReduce", "dc/d82/classArccore_1_1MessagePassing_1_1ITypeDispatcher.html#a6dac6b3d08f43e2f20a64e12511d2504", null ],
@@ -11,6 +11,12 @@ var classArccore_1_1MessagePassing_1_1ITypeDispatcher =
     [ "finalize", "dc/d82/classArccore_1_1MessagePassing_1_1ITypeDispatcher.html#ad8c2812a41f6f215f8f1d853a9e9320a", null ],
     [ "gather", "dc/d82/classArccore_1_1MessagePassing_1_1ITypeDispatcher.html#abed99f44f2c0f24117dbda70c7593e33", null ],
     [ "gatherVariable", "dc/d82/classArccore_1_1MessagePassing_1_1ITypeDispatcher.html#a9df91866bd6a59a1608541da4615dc4c", null ],
+    [ "nonBlockingAllGather", "dc/d82/classArccore_1_1MessagePassing_1_1ITypeDispatcher.html#aeddad6b8e457c56807ef41ffaaef98ee", null ],
+    [ "nonBlockingAllReduce", "dc/d82/classArccore_1_1MessagePassing_1_1ITypeDispatcher.html#a7b0f1e43298b214cf0af89ec5561a4b6", null ],
+    [ "nonBlockingAllToAll", "dc/d82/classArccore_1_1MessagePassing_1_1ITypeDispatcher.html#a9b082139fb2a1bdf6b80fed30deefff8", null ],
+    [ "nonBlockingAllToAllVariable", "dc/d82/classArccore_1_1MessagePassing_1_1ITypeDispatcher.html#a009b7671588da2eeccab2f7b7c8b3fa1", null ],
+    [ "nonBlockingBroadcast", "dc/d82/classArccore_1_1MessagePassing_1_1ITypeDispatcher.html#a84d4f085cbd742d52cc8dff821461258", null ],
+    [ "nonBlockingGather", "dc/d82/classArccore_1_1MessagePassing_1_1ITypeDispatcher.html#a8f5601f2069f789a5de4a3b28137ea6b", null ],
     [ "receive", "dc/d82/classArccore_1_1MessagePassing_1_1ITypeDispatcher.html#ac583c142137d453b347de5a3bc3e939e", null ],
     [ "receive", "dc/d82/classArccore_1_1MessagePassing_1_1ITypeDispatcher.html#acb0c177c76c27b6d4d96bcb0da738e40", null ],
     [ "scatterVariable", "dc/d82/classArccore_1_1MessagePassing_1_1ITypeDispatcher.html#aa470f5516c8c0fa980bd98d7df7a0fd0", null ],

@@ -3,6 +3,8 @@ var classArccore_1_1String =
     [ "String", "d2/ddb/classArccore_1_1String.html#aae815b6d5a996a53d0958c2ea99ac1ce", null ],
     [ "String", "d2/ddb/classArccore_1_1String.html#aca107b36e0331563f776410f45a16357", null ],
     [ "String", "d2/ddb/classArccore_1_1String.html#aa8e3675ef818b2666ad46cefcc483211", null ],
+    [ "String", "d2/ddb/classArccore_1_1String.html#a24a332ccad4c123df3735a4dc854287f", null ],
+    [ "String", "d2/ddb/classArccore_1_1String.html#a4d1335f84e333253571e12fbbffb0962", null ],
     [ "String", "d2/ddb/classArccore_1_1String.html#abe51bb7fc20c29c17a1e43dbebffd9b9", null ],
     [ "String", "d2/ddb/classArccore_1_1String.html#af5c4e0fbc5c39d6de1a0dc61cf4d2f0a", null ],
     [ "String", "d2/ddb/classArccore_1_1String.html#a6ed3d2d2a468672e193c39f9bf304c1b", null ],
@@ -11,9 +13,6 @@ var classArccore_1_1String =
     [ "String", "d2/ddb/classArccore_1_1String.html#ad4a5486825442b500257a4601321351e", null ],
     [ "String", "d2/ddb/classArccore_1_1String.html#a33ec3e413d8f41704032943a74952731", null ],
     [ "~String", "d2/ddb/classArccore_1_1String.html#a186d2a1d2d7e94235eec94756035ce2e", null ],
-    [ "ARCCORE_DEPRECATED_2019", "d2/ddb/classArccore_1_1String.html#af25fe3a03a8835dff6983f1bd0ad7687", null ],
-    [ "ARCCORE_DEPRECATED_2019", "d2/ddb/classArccore_1_1String.html#a26c82eda828b09515a1d01de91d9846c", null ],
-    [ "ARCCORE_DEPRECATED_2019", "d2/ddb/classArccore_1_1String.html#a26c82eda828b09515a1d01de91d9846c", null ],
     [ "bytes", "d2/ddb/classArccore_1_1String.html#a7354b8a6932c5cba5928cde278316a82", null ],
     [ "clone", "d2/ddb/classArccore_1_1String.html#a7a238cf0acc905be2f3344263b562639", null ],
     [ "contains", "d2/ddb/classArccore_1_1String.html#a2dd2033d968772ee62fac709acf09ea0", null ],
@@ -21,6 +20,7 @@ var classArccore_1_1String =
     [ "endsWith", "d2/ddb/classArccore_1_1String.html#aed216b2c1944baeb6ffc412e019350e4", null ],
     [ "hashCode", "d2/ddb/classArccore_1_1String.html#aff3dc1944a2a2387fab850ea9ced00b7", null ],
     [ "internalDump", "d2/ddb/classArccore_1_1String.html#a2c65e855062af995a45a3dcc36023e93", null ],
+    [ "len", "d2/ddb/classArccore_1_1String.html#aad0d8835379ef7c0fec90d291392f945", null ],
     [ "length", "d2/ddb/classArccore_1_1String.html#ac26fd27ed0d23e015182473efb223352", null ],
     [ "localstr", "d2/ddb/classArccore_1_1String.html#ab9f88427a38ac95ab3cf53743f248cb7", null ],
     [ "lower", "d2/ddb/classArccore_1_1String.html#ac63e4e1f7cce88462a320deec39d55f4", null ],
@@ -56,7 +56,5 @@ var classArccore_1_1String =
     [ "writeBytes", "d2/ddb/classArccore_1_1String.html#a1218162be9b2b3cab2071e39aa1fbf9a", null ],
     [ "operator<", "d2/ddb/classArccore_1_1String.html#a7671e8463bcfe306052cdf706e0cbb58", null ],
     [ "operator==", "d2/ddb/classArccore_1_1String.html#a7ef42a805c82a927e746b6d5380dc4e3", null ],
-    [ "StringBuilder", "d2/ddb/classArccore_1_1String.html#a0499e7f0cafab51b99e453165e64d62b", null ],
-    [ "do_alloc", "d2/ddb/classArccore_1_1String.html#ac44f12cd49fa8d9a35d3df64dc8415e5", null ],
-    [ "len", "d2/ddb/classArccore_1_1String.html#afbd6a532c0635840a32f64264d08daef", null ]
+    [ "StringBuilder", "d2/ddb/classArccore_1_1String.html#a0499e7f0cafab51b99e453165e64d62b", null ]
 ];

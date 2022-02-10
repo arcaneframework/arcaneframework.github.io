@@ -16,6 +16,7 @@ var classArccore_1_1Array2 =
     [ "Array2", "d1/da2/classArccore_1_1Array2.html#a9edf41f32946fe6ef264da90089797f2", null ],
     [ "~Array2", "d1/da2/classArccore_1_1Array2.html#a4fea13f4e0a74015925a99f2040dae7d", null ],
     [ "Array2", "d1/da2/classArccore_1_1Array2.html#ae8de9a88d2087b1ea0f99cc9c771047e", null ],
+    [ "_copyMetaData", "d1/da2/classArccore_1_1Array2.html#a700fa9e20fc1ab68a708c1d83a1e4731", null ],
     [ "_move", "d1/da2/classArccore_1_1Array2.html#abf8a9cea0950db5fb7f0fc908540d18b", null ],
     [ "_resize", "d1/da2/classArccore_1_1Array2.html#a417ed04fbf25449d78574b733c270d86", null ],
     [ "_resize", "d1/da2/classArccore_1_1Array2.html#a7feb08080ada1c51779ef63016302dcc", null ],

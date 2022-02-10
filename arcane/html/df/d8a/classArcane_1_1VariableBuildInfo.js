@@ -13,7 +13,6 @@ var classArcane_1_1VariableBuildInfo =
     [ "VariableBuildInfo", "df/d8a/classArcane_1_1VariableBuildInfo.html#ada7f4039ec146479c8a50b3d2cb04aea", null ],
     [ "VariableBuildInfo", "df/d8a/classArcane_1_1VariableBuildInfo.html#a8e93ef9d60197c3a568177dfc2435452", null ],
     [ "VariableBuildInfo", "df/d8a/classArcane_1_1VariableBuildInfo.html#ab046038251c4fd8800fd61841f8b7f7d", null ],
-    [ "ARCCORE_DEPRECATED_2020", "df/d8a/classArcane_1_1VariableBuildInfo.html#a88d5633802e2a9fa61b0e2f341599178", null ],
     [ "dataFactoryMng", "df/d8a/classArcane_1_1VariableBuildInfo.html#a10c3b987e78c9695a4d6003abae86432", null ],
     [ "itemFamilyName", "df/d8a/classArcane_1_1VariableBuildInfo.html#ab8f8a54f399ac84b024faa4c5a8cdac0", null ],
     [ "itemGroupName", "df/d8a/classArcane_1_1VariableBuildInfo.html#a75024b04a248f8bc58172c1ea4d97c28", null ],
@@ -23,6 +22,7 @@ var classArcane_1_1VariableBuildInfo =
     [ "module", "df/d8a/classArcane_1_1VariableBuildInfo.html#ac169587633f1ea166e9ff9257a3d14a6", null ],
     [ "name", "df/d8a/classArcane_1_1VariableBuildInfo.html#a37e85f84df54e5072af261916645b014", null ],
     [ "property", "df/d8a/classArcane_1_1VariableBuildInfo.html#a27ebf1f5481b0ae5db8716f3f45ad34b", null ],
+    [ "subDomain", "df/d8a/classArcane_1_1VariableBuildInfo.html#ab47a17707d349ab9a7a2389ff413e06a", null ],
     [ "traceMng", "df/d8a/classArcane_1_1VariableBuildInfo.html#af58726732b307391af5d9cf28a1485ba", null ],
     [ "variableMng", "df/d8a/classArcane_1_1VariableBuildInfo.html#a36e942c22ecfa9b5eae7223e699eb433", null ],
     [ "VariablePrivate", "df/d8a/classArcane_1_1VariableBuildInfo.html#a80e0410fd0e3a9f2435a8ab52d3aa2c6", null ]

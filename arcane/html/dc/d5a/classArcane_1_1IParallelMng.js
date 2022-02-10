@@ -87,8 +87,6 @@ var classArcane_1_1IParallelMng =
     [ "allToAllVariable", "dc/d5a/classArcane_1_1IParallelMng.html#a8998de6ef5fa7e6be82144b3746b5042", null ],
     [ "allToAllVariable", "dc/d5a/classArcane_1_1IParallelMng.html#a52eedbcb9199d848d18cd0348f18d373", null ],
     [ "allToAllVariable", "dc/d5a/classArcane_1_1IParallelMng.html#a3d4ec703470516fd3f9fa10101565f0f", null ],
-    [ "ARCCORE_DEPRECATED_2020", "dc/d5a/classArcane_1_1IParallelMng.html#aadce89854f999bf1202331d0b470d057", null ],
-    [ "ARCCORE_DEPRECATED_2020", "dc/d5a/classArcane_1_1IParallelMng.html#aac01b9fbc042dd7c2cb79ecabb6bab35", null ],
     [ "barrier", "dc/d5a/classArcane_1_1IParallelMng.html#af7c4f789cba5c7b73fe7079d7d74336d", null ],
     [ "broadcast", "dc/d5a/classArcane_1_1IParallelMng.html#af2c72754e5faa714340ae77366f1d222", null ],
     [ "broadcast", "dc/d5a/classArcane_1_1IParallelMng.html#a7fba1f9186ef764ca09c503628d1563e", null ],
@@ -161,7 +159,10 @@ var classArcane_1_1IParallelMng =
     [ "createGetVariablesValuesOperation", "dc/d5a/classArcane_1_1IParallelMng.html#ad9a6d5dab95b24608e26bec7be9dcb70", null ],
     [ "createReceiveSerializer", "dc/d5a/classArcane_1_1IParallelMng.html#a9d1dff1112e8579e130f2b28e193991a", null ],
     [ "createRequestListRef", "dc/d5a/classArcane_1_1IParallelMng.html#a7bf2ae212611a00ef66d08e46bf4a71c", null ],
+    [ "createSendSerializer", "dc/d5a/classArcane_1_1IParallelMng.html#a3fb2c37e3db9a4f3eda9370dab0d8d08", null ],
+    [ "createSerializeMessageList", "dc/d5a/classArcane_1_1IParallelMng.html#ae4b986a441e527af95467341e4dd6688", null ],
     [ "createSerializeMessageListRef", "dc/d5a/classArcane_1_1IParallelMng.html#a82eeddbf01dc70f5112e68dadc4eea8b", null ],
+    [ "createSubParallelMng", "dc/d5a/classArcane_1_1IParallelMng.html#a415df1166135f6b0ac001f619c3d8aaa", null ],
     [ "createSubParallelMngRef", "dc/d5a/classArcane_1_1IParallelMng.html#a72e79ae36bbcb267391afa306aa56d17", null ],
     [ "createSynchronizer", "dc/d5a/classArcane_1_1IParallelMng.html#ae25e5a8aaddd2f16744ae9d09de268d3", null ],
     [ "createSynchronizer", "dc/d5a/classArcane_1_1IParallelMng.html#a6c72e09570f43456347187113eec7ce2", null ],
@@ -446,6 +447,7 @@ var classArcane_1_1IParallelMng =
     [ "sendRecv", "dc/d5a/classArcane_1_1IParallelMng.html#a74606175dd60f6f8d65a9aa568162213", null ],
     [ "sendSerializer", "dc/d5a/classArcane_1_1IParallelMng.html#ae902a59f726160156fc27f656c6fbe17", null ],
     [ "sendSerializer", "dc/d5a/classArcane_1_1IParallelMng.html#a72c17baa33371a52458d10e72716ed35", null ],
+    [ "sendSerializer", "dc/d5a/classArcane_1_1IParallelMng.html#ad3a8caa1b003a14b144ee70bf9178bcf", null ],
     [ "sequentialParallelMng", "dc/d5a/classArcane_1_1IParallelMng.html#abd074fd398951fccd2bbd5c7f38497c6", null ],
     [ "sequentialParallelMngRef", "dc/d5a/classArcane_1_1IParallelMng.html#a3cee271265d5fc4ea90d4d2844cce47f", null ],
     [ "setReplication", "dc/d5a/classArcane_1_1IParallelMng.html#aa523d29d39c74f9392304167b95563fb", null ],
@@ -459,5 +461,6 @@ var classArcane_1_1IParallelMng =
     [ "traceMng", "dc/d5a/classArcane_1_1IParallelMng.html#a5f99a4c0466f9aaea57f34a387f8a0e2", null ],
     [ "waitAllRequests", "dc/d5a/classArcane_1_1IParallelMng.html#a8ceccdc7d3b6c0c6b1c29bbddeeb076e", null ],
     [ "waitSomeRequests", "dc/d5a/classArcane_1_1IParallelMng.html#a08262068d0f48f51f199d899cb541e08", null ],
-    [ "worldParallelMng", "dc/d5a/classArcane_1_1IParallelMng.html#a503b1fd97f3d579c0bc4548645fe2940", null ]
+    [ "worldParallelMng", "dc/d5a/classArcane_1_1IParallelMng.html#a503b1fd97f3d579c0bc4548645fe2940", null ],
+    [ "ParallelMngUtilsAccessor", "dc/d5a/classArcane_1_1IParallelMng.html#a2b2ac063bce37b8afe3b1e9e242799a8", null ]
 ];

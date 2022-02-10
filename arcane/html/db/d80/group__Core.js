@@ -241,6 +241,7 @@ var group__Core =
       [ "debug", "d4/d0e/classArccore_1_1TraceAccessor.html#a87f1b199abdaea45cfe09d1bb05bc0b8", null ],
       [ "error", "d4/d0e/classArccore_1_1TraceAccessor.html#a555ec64caa802e1f8aa08b19fece679e", null ],
       [ "fatal", "d4/d0e/classArccore_1_1TraceAccessor.html#a2472d978c345629a92f9dfd18db6de8f", null ],
+      [ "fatalMessage", "d4/d0e/classArccore_1_1TraceAccessor.html#ab188017607e299f2c59d480737b49345", null ],
       [ "info", "d4/d0e/classArccore_1_1TraceAccessor.html#a7e7e3f1772e522d7d908458644154161", null ],
       [ "info", "d4/d0e/classArccore_1_1TraceAccessor.html#ae786de355db4ca209edb3a69d0ab10c9", null ],
       [ "info", "d4/d0e/classArccore_1_1TraceAccessor.html#acc586deb0466c4c28508004e72ab30cd", null ],

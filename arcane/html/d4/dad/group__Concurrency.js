@@ -1,6 +1,6 @@
 var group__Concurrency =
 [
-    [ "List of interfaces", "de/d46/out_interfacemainpage_dox.html#autotoc_md66", null ],
+    [ "List of interfaces", "de/d46/out_interfacemainpage_dox.html#autotoc_md67", null ],
     [ "ParallelLoopOptions", "d9/d62/classArcane_1_1ParallelLoopOptions.html", [
       [ "Summary of options", "d1/db1/axldoc_module_ArcanePostProcessing_arcane_std.html#autotoc_md43", null ],
       [ "Summary of options", "d7/d29/axldoc_module_ArcaneCheckpoint_arcane_std.html#autotoc_md41", null ],
@@ -15,15 +15,16 @@ var group__Concurrency =
       [ "Summary of options", "d1/dfc/axldoc_service_ArcaneMeshConverter_arcane_std.html#autotoc_md50", null ],
       [ "Summary of options", "de/d9b/axldoc_service_Cartesian2DMeshGenerator_arcane_std.html#autotoc_md51", null ],
       [ "Summary of options", "de/d80/axldoc_service_Cartesian3DMeshGenerator_arcane_std.html#autotoc_md52", null ],
-      [ "Summary of options", "d4/d03/axldoc_service_MetisMeshPartitioner_arcane_std_90.html#autotoc_md59", null ],
+      [ "Summary of options", "db/d6d/axldoc_service_MetisMeshPartitioner_arcane_std_91.html#autotoc_md60", null ],
       [ "Summary of options", "dd/d71/axldoc_service_Ensight7PostProcessor_arcane_std.html#autotoc_md53", null ],
       [ "Summary of options", "dc/dec/axldoc_service_Hdf5VariableReader_arcane_std.html#autotoc_md56", null ],
       [ "Summary of options", "df/db3/axldoc_service_Hdf5VariableWriter_arcane_std.html#autotoc_md57", null ],
-      [ "Summary of options", "db/d5b/axldoc_service_MetisMeshPartitioner_arcane_std.html#autotoc_md58", null ],
-      [ "Summary of options", "d4/d52/axldoc_service_MetisMeshPartitioner_arcane_std_94.html#autotoc_md60", null ],
-      [ "Summary of options", "d5/d94/axldoc_service_PTScotchMeshPartitioner_arcane_std.html#autotoc_md61", null ],
-      [ "Summary of options", "d9/d85/axldoc_service_PTScotchMeshPartitioner_arcane_std_86.html#autotoc_md62", null ],
-      [ "Summary of options", "df/dcc/axldoc_service_Sod3DMeshGenerator_arcane_std.html#autotoc_md63", null ],
+      [ "Summary of options", "d2/d75/axldoc_service_HoneyComb2DMeshGenerator_arcane_std.html#autotoc_md58", null ],
+      [ "Summary of options", "db/d5b/axldoc_service_MetisMeshPartitioner_arcane_std.html#autotoc_md59", null ],
+      [ "Summary of options", "d9/d95/axldoc_service_MetisMeshPartitioner_arcane_std_95.html#autotoc_md61", null ],
+      [ "Summary of options", "d5/d94/axldoc_service_PTScotchMeshPartitioner_arcane_std.html#autotoc_md62", null ],
+      [ "Summary of options", "de/ddd/axldoc_service_PTScotchMeshPartitioner_arcane_std_87.html#autotoc_md63", null ],
+      [ "Summary of options", "df/dcc/axldoc_service_Sod3DMeshGenerator_arcane_std.html#autotoc_md64", null ],
       [ "Partitioner", "d9/d62/classArcane_1_1ParallelLoopOptions.html#adb69cf9bcc031b07263152c09205fe8a", [
         [ "Auto", "d9/d62/classArcane_1_1ParallelLoopOptions.html#adb69cf9bcc031b07263152c09205fe8aa06b9281e396db002010bde1de57262eb", null ],
         [ "Static", "d9/d62/classArcane_1_1ParallelLoopOptions.html#adb69cf9bcc031b07263152c09205fe8aa84a8921b25f505d0d2077aeb5db4bc16", null ],

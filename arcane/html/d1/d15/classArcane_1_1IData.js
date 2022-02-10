@@ -2,9 +2,9 @@ var classArcane_1_1IData =
 [
     [ "~IData", "d1/d15/classArcane_1_1IData.html#a01d43cd7b4c6dd7272f14476869384b5", null ],
     [ "allocateBufferForSerializedData", "d1/d15/classArcane_1_1IData.html#a0a2ca945379c91a02b90af618c3bcafe", null ],
-    [ "ARCCORE_DEPRECATED_2020", "d1/d15/classArcane_1_1IData.html#a86370e387320189f2e26b3a998c29c91", null ],
-    [ "ARCCORE_DEPRECATED_2020", "d1/d15/classArcane_1_1IData.html#a1430b1d0e146df39de6f2f0a8cd431a4", null ],
     [ "assignSerializedData", "d1/d15/classArcane_1_1IData.html#ae2529ee3efc1a7a9d797b8035827e1b1", null ],
+    [ "clone", "d1/d15/classArcane_1_1IData.html#a1496a743509f6f6172338c84f6fc90c2", null ],
+    [ "cloneEmpty", "d1/d15/classArcane_1_1IData.html#a5423140bffac7a0920055c3151f7d1a6", null ],
     [ "cloneEmptyRef", "d1/d15/classArcane_1_1IData.html#a79927e638d86cd9700864c4497469f2b", null ],
     [ "cloneRef", "d1/d15/classArcane_1_1IData.html#a94789793d358cf1f5a013801b0518adb", null ],
     [ "computeHash", "d1/d15/classArcane_1_1IData.html#a4203c8f3ec367a69d19a99109de41158", null ],

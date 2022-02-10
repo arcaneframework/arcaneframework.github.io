@@ -16,14 +16,14 @@ var classArcane_1_1VariableRefArrayT =
     [ "VariableRefArrayT", "d8/d30/classArcane_1_1VariableRefArrayT.html#aa579a77c010c4d6906209d038a8e5f89", null ],
     [ "~VariableRefArrayT", "d8/d30/classArcane_1_1VariableRefArrayT.html#ab456891998f4ea9b6ef38d915e069ed9", null ],
     [ "_internalTrueData", "d8/d30/classArcane_1_1VariableRefArrayT.html#a0e81341b88cbe7d5b785e949241730de", null ],
-    [ "ARCCORE_DEPRECATED_2021", "d8/d30/classArcane_1_1VariableRefArrayT.html#ac3c52c19292f494c3e632a5d276d18e4", null ],
-    [ "ARCCORE_DEPRECATED_2021", "d8/d30/classArcane_1_1VariableRefArrayT.html#a28d598b8537154e70d3d94c98502b799", null ],
-    [ "arraySize", "d8/d30/classArcane_1_1VariableRefArrayT.html#a26a24f40f8016a3a56d0b324e6ab7daf", null ],
+    [ "arraySize", "d8/d30/classArcane_1_1VariableRefArrayT.html#a58f67d8cf4a95be56f04220911ddf610", null ],
     [ "asArray", "d8/d30/classArcane_1_1VariableRefArrayT.html#a1adb360b9c68fa6041aceb2d1800581d", null ],
     [ "asArray", "d8/d30/classArcane_1_1VariableRefArrayT.html#aa689ae54380784e9e872b800a8106e60", null ],
+    [ "internalContainer", "d8/d30/classArcane_1_1VariableRefArrayT.html#aa5034d1c5c1ce87ffcc4de6d1bc6a29f", null ],
     [ "isArrayVariable", "d8/d30/classArcane_1_1VariableRefArrayT.html#a730cde2d04757c8312e0328635bf5684", null ],
+    [ "lock", "d8/d30/classArcane_1_1VariableRefArrayT.html#ac5593b8b333b76d84648bf7db2e07b70", null ],
     [ "refersTo", "d8/d30/classArcane_1_1VariableRefArrayT.html#af4c955519173ed0ba53422044a27f252", null ],
     [ "resize", "d8/d30/classArcane_1_1VariableRefArrayT.html#ab6a547ffc70e3c72e395f55f812ad2e2", null ],
     [ "resizeWithReserve", "d8/d30/classArcane_1_1VariableRefArrayT.html#aad6af444a243ce3b7435150f7a30a50e", null ],
-    [ "updateFromInternal", "d8/d30/classArcane_1_1VariableRefArrayT.html#ab91f4d5652f37cc44bc86f199bff4088", null ]
+    [ "updateFromInternal", "d8/d30/classArcane_1_1VariableRefArrayT.html#a44e26a56d446d60a22b2f85faf108e38", null ]
 ];

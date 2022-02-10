@@ -3,6 +3,7 @@ var dir_f7800c5aedd39baabcf8235a3535f1ad =
     [ "core", "dir_b9d9f2c22df4d18dae45c2682046e42c.html", "dir_b9d9f2c22df4d18dae45c2682046e42c" ],
     [ "Accelerator.h", "db/d5b/Accelerator_8h_source.html", null ],
     [ "AcceleratorGlobal.h", "de/d40/AcceleratorGlobal_8h_source.html", null ],
+    [ "CommonCudaHipReduceImpl.h", "dc/da4/CommonCudaHipReduceImpl_8h_source.html", null ],
     [ "IReduceMemoryImpl.h", "dd/dd2/IReduceMemoryImpl_8h_source.html", null ],
     [ "IRunQueueRuntime.h", "d2/d60/IRunQueueRuntime_8h_source.html", null ],
     [ "IRunQueueStream.h", "d5/d76/IRunQueueStream_8h_source.html", null ],

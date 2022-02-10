@@ -13,6 +13,7 @@ var classArccore_1_1UniqueArray2 =
     [ "UniqueArray2", "d3/d1d/classArccore_1_1UniqueArray2.html#a87ea6bc31af2b77dc51487d2fef67319", null ],
     [ "UniqueArray2", "d3/d1d/classArccore_1_1UniqueArray2.html#a29cac1dccfc14a6dd0730668536eb071", null ],
     [ "~UniqueArray2", "d3/d1d/classArccore_1_1UniqueArray2.html#a5e072b2199326d8382534772c0a528a6", null ],
+    [ "clone", "d3/d1d/classArccore_1_1UniqueArray2.html#a623b2a1514805c7af50ac83bd5a8719d", null ],
     [ "operator=", "d3/d1d/classArccore_1_1UniqueArray2.html#a1b211066ba951ca6d6e97fa043b23f77", null ],
     [ "operator=", "d3/d1d/classArccore_1_1UniqueArray2.html#a38ed8c704b9de601a3d9afc68b724ed3", null ],
     [ "operator=", "d3/d1d/classArccore_1_1UniqueArray2.html#a57aff287a8f620d2df1c94ab91d3f724", null ],

@@ -4,6 +4,7 @@ var classArcane_1_1ParallelMngDispatcher_1_1DefaultControlDispatcher =
     [ "barrier", "da/da0/classArcane_1_1ParallelMngDispatcher_1_1DefaultControlDispatcher.html#adf2b3bf696fcc3f3f275e7387a391316", null ],
     [ "commSplit", "da/da0/classArcane_1_1ParallelMngDispatcher_1_1DefaultControlDispatcher.html#a29f66b524179a31fb8b2f6354d7562a1", null ],
     [ "createRequestListRef", "da/da0/classArcane_1_1ParallelMngDispatcher_1_1DefaultControlDispatcher.html#ab1b24aa6037cf86b70631d35d4ece708", null ],
+    [ "nonBlockingBarrier", "da/da0/classArcane_1_1ParallelMngDispatcher_1_1DefaultControlDispatcher.html#a87b998a80a1ce6915bf81d5c076582aa", null ],
     [ "probe", "da/da0/classArcane_1_1ParallelMngDispatcher_1_1DefaultControlDispatcher.html#a5652836e8f3e6a43ff2fea4d2b735e77", null ],
     [ "profiler", "da/da0/classArcane_1_1ParallelMngDispatcher_1_1DefaultControlDispatcher.html#abae70220b20c5366f5f7509344ee56ac", null ],
     [ "setProfiler", "da/da0/classArcane_1_1ParallelMngDispatcher_1_1DefaultControlDispatcher.html#a7bd97c6216c521c249839c1cda3890da", null ],

@@ -2,10 +2,9 @@ var classArcane_1_1ICaseMng =
 [
     [ "~ICaseMng", "d3/dcf/classArcane_1_1ICaseMng.html#ada87e5d6061d65ea76ba0c1a60cd53b4", null ],
     [ "_internalReadOneOption", "d3/dcf/classArcane_1_1ICaseMng.html#af8c2d6931f5f482bba8c07f403c2e896", null ],
+    [ "addFunction", "d3/dcf/classArcane_1_1ICaseMng.html#a0be1a304c72884d2c4e93219590d8a57", null ],
     [ "addFunction", "d3/dcf/classArcane_1_1ICaseMng.html#aae088b43f5d5f83bfd08c7e4e8360bed", null ],
     [ "application", "d3/dcf/classArcane_1_1ICaseMng.html#a2ce3a1e0a40c2eb0447cabdf1b4f7db3", null ],
-    [ "ARCCORE_DEPRECATED_2019", "d3/dcf/classArcane_1_1ICaseMng.html#a63b0a89b3ca2865db4b9eca61bbd4aab", null ],
-    [ "ARCCORE_DEPRECATED_2019", "d3/dcf/classArcane_1_1ICaseMng.html#afcbd272070ab449094cb9cbbd1400d36", null ],
     [ "blocks", "d3/dcf/classArcane_1_1ICaseMng.html#aaf7ada0ad5dd57d4037779a939283d92", null ],
     [ "caseDocument", "d3/dcf/classArcane_1_1ICaseMng.html#a445499f2eedac661797dfa464d488653", null ],
     [ "findFunction", "d3/dcf/classArcane_1_1ICaseMng.html#ab9f2308c879fdf74a6b4da1c224937ea", null ],
@@ -19,11 +18,11 @@ var classArcane_1_1ICaseMng =
     [ "readOptions", "d3/dcf/classArcane_1_1ICaseMng.html#acf4502033165837fbcdc546102505665", null ],
     [ "registerOptions", "d3/dcf/classArcane_1_1ICaseMng.html#afee7b854cc1acbd1784ea5bb02fe1585", null ],
     [ "removeFunction", "d3/dcf/classArcane_1_1ICaseMng.html#a8a900ff10d134ba90ac083370044b16f", null ],
+    [ "removeFunction", "d3/dcf/classArcane_1_1ICaseMng.html#a5af769d38c0b13e23e2b1a65e4f28034", null ],
     [ "setAllowUnkownRootElelement", "d3/dcf/classArcane_1_1ICaseMng.html#ade04ed379b2eda836fdc81f5a18c67c2", null ],
     [ "setTreatWarningAsError", "d3/dcf/classArcane_1_1ICaseMng.html#a2648a5c3e2371f4915576205fd9b0989", null ],
     [ "subDomain", "d3/dcf/classArcane_1_1ICaseMng.html#a908862d4aabccd582e8a000a5bd2d5d2", null ],
     [ "traceMng", "d3/dcf/classArcane_1_1ICaseMng.html#a7dfd71fdfc77a0843ba0613eceffd6c4", null ],
     [ "unregisterOptions", "d3/dcf/classArcane_1_1ICaseMng.html#ad7627d7688f7447eee89aa6b6415fb8d", null ],
-    [ "updateOptions", "d3/dcf/classArcane_1_1ICaseMng.html#adff38e7ef3226b2917c9190cc21dcc88", null ],
-    [ "dofree", "d3/dcf/classArcane_1_1ICaseMng.html#a52a38bd8dcc005f07e9217290122eebf", null ]
+    [ "updateOptions", "d3/dcf/classArcane_1_1ICaseMng.html#adff38e7ef3226b2917c9190cc21dcc88", null ]
 ];

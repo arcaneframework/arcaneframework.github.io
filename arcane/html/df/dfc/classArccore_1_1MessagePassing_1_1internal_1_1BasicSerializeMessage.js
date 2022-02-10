@@ -8,6 +8,7 @@ var classArccore_1_1MessagePassing_1_1internal_1_1BasicSerializeMessage =
     [ "BasicSerializeMessage", "df/dfc/classArccore_1_1MessagePassing_1_1internal_1_1BasicSerializeMessage.html#a836a2d8ca5787650697bfa483348173a", null ],
     [ "BasicSerializeMessage", "df/dfc/classArccore_1_1MessagePassing_1_1internal_1_1BasicSerializeMessage.html#abe2cdd3b296c1908e9c301b06019a161", null ],
     [ "_internalMessageId", "df/dfc/classArccore_1_1MessagePassing_1_1internal_1_1BasicSerializeMessage.html#ab15fd9ba93e21fbf56d9c03a95f0c0df", null ],
+    [ "_internalMessageType", "df/dfc/classArccore_1_1MessagePassing_1_1internal_1_1BasicSerializeMessage.html#a6e5139b6dfb7cfb6b8feaf704c38e8b3", null ],
     [ "buffer", "df/dfc/classArccore_1_1MessagePassing_1_1internal_1_1BasicSerializeMessage.html#a56dcff2f0556668f7e2348fe10a7548b", null ],
     [ "destination", "df/dfc/classArccore_1_1MessagePassing_1_1internal_1_1BasicSerializeMessage.html#a11a506b0cd425bdeb50dd685fabf1bba", null ],
     [ "destRank", "df/dfc/classArccore_1_1MessagePassing_1_1internal_1_1BasicSerializeMessage.html#ab948507828cd995ea7cb46f110db4bb5", null ],

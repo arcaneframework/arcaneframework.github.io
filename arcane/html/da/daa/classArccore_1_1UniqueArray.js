@@ -19,6 +19,7 @@ var classArccore_1_1UniqueArray =
     [ "UniqueArray", "da/daa/classArccore_1_1UniqueArray.html#a917685065ec21dc609713f397608de79", null ],
     [ "UniqueArray", "da/daa/classArccore_1_1UniqueArray.html#a080e0a65f59d842e0a48ddc4cf36ea0a", null ],
     [ "~UniqueArray", "da/daa/classArccore_1_1UniqueArray.html#acb02d9985dfafb81b0f429a354b8011e", null ],
+    [ "clone", "da/daa/classArccore_1_1UniqueArray.html#a8554f1934c131277ec6a6890dfa92985", null ],
     [ "operator=", "da/daa/classArccore_1_1UniqueArray.html#a460194dc2f416749a4b81555e93157d7", null ],
     [ "operator=", "da/daa/classArccore_1_1UniqueArray.html#a509d36bc72dd3396b30158ef4280cddc", null ],
     [ "operator=", "da/daa/classArccore_1_1UniqueArray.html#abcaa97b5086fd30d029582007d49f6bf", null ],

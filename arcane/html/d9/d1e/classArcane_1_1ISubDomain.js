@@ -2,12 +2,11 @@ var classArcane_1_1ISubDomain =
 [
     [ "~ISubDomain", "d9/d1e/classArcane_1_1ISubDomain.html#a54d8a4d390611dfca291b3736f87f82d", null ],
     [ "acceleratorMng", "d9/d1e/classArcane_1_1ISubDomain.html#a526600309ced620c4253ffdadfca9bd5", null ],
+    [ "addMesh", "d9/d1e/classArcane_1_1ISubDomain.html#aded7c506819796fe7b20bf1943eb3beb", null ],
     [ "allocateMeshes", "d9/d1e/classArcane_1_1ISubDomain.html#ac9f334a5e0d65c8a599ca4785ea31dfa", null ],
     [ "allReplicaParallelMng", "d9/d1e/classArcane_1_1ISubDomain.html#ad8b8916d766aa953ebfcd7f480762952", null ],
     [ "application", "d9/d1e/classArcane_1_1ISubDomain.html#ae60d83c9f0f5c43f4684a9519553e3d2", null ],
     [ "applicationInfo", "d9/d1e/classArcane_1_1ISubDomain.html#ab6da6f815b6cc0719f6f3d74f1038e91", null ],
-    [ "ARCCORE_DEPRECATED_2019", "d9/d1e/classArcane_1_1ISubDomain.html#ae6a96cca2ed913851ce74e272fc2c811", null ],
-    [ "ARCCORE_DEPRECATED_2020", "d9/d1e/classArcane_1_1ISubDomain.html#a0ded5574fadaa74ed8cf00696245990a", null ],
     [ "caseDocument", "d9/d1e/classArcane_1_1ISubDomain.html#a543389cec2dee4367bcee2d20c01822b", null ],
     [ "caseFullFileName", "d9/d1e/classArcane_1_1ISubDomain.html#a4173a590920499a1821257adcc68b84a", null ],
     [ "caseMng", "d9/d1e/classArcane_1_1ISubDomain.html#aad044c8bb89eb7f49b9ce8180096ebe2", null ],
@@ -30,6 +29,7 @@ var classArcane_1_1ISubDomain =
     [ "entryPointMng", "d9/d1e/classArcane_1_1ISubDomain.html#a4ab72b38def9e6f39813b967ccf371f9", null ],
     [ "exportDirectory", "d9/d1e/classArcane_1_1ISubDomain.html#a115b6b92318cba625934f18094144c37", null ],
     [ "fillCaseBytes", "d9/d1e/classArcane_1_1ISubDomain.html#a5829977669163818433114b48ccdab7e", null ],
+    [ "findMesh", "d9/d1e/classArcane_1_1ISubDomain.html#a24fa1d12cf8726dc5476d44215df919f", null ],
     [ "initializeMeshVariablesFromCaseFile", "d9/d1e/classArcane_1_1ISubDomain.html#a7640fc2fa30de50aecec6bb777c99a99", null ],
     [ "ioMng", "d9/d1e/classArcane_1_1ISubDomain.html#a352f2a51d92ceb86208427a50171c365", null ],
     [ "isContinue", "d9/d1e/classArcane_1_1ISubDomain.html#a67ed213631b5bd49427ddbc16b7d4033", null ],
@@ -67,6 +67,5 @@ var classArcane_1_1ISubDomain =
     [ "timeLoopMng", "d9/d1e/classArcane_1_1ISubDomain.html#a32bf8a6f8318a7fed96e4abaf60cf9f5", null ],
     [ "timerMng", "d9/d1e/classArcane_1_1ISubDomain.html#a9250908c6151da6538d8706106712137", null ],
     [ "timeStats", "d9/d1e/classArcane_1_1ISubDomain.html#a9df18ec3965e339012d7ff849dd4d822", null ],
-    [ "variableMng", "d9/d1e/classArcane_1_1ISubDomain.html#a2c032073a843242cb6b4401bdaa80296", null ],
-    [ "throw_exception", "d9/d1e/classArcane_1_1ISubDomain.html#a5fcad32ef4d3aefa48400177a4fcf5f8", null ]
+    [ "variableMng", "d9/d1e/classArcane_1_1ISubDomain.html#a2c032073a843242cb6b4401bdaa80296", null ]
 ];

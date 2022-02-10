@@ -1,8 +1,6 @@
 var classArcane_1_1IMainFactory =
 [
     [ "~IMainFactory", "d2/dae/classArcane_1_1IMainFactory.html#a8668887448b74bd34cfaea9e224f0a5b", null ],
-    [ "ARCCORE_DEPRECATED_2020", "d2/dae/classArcane_1_1IMainFactory.html#a233cd74c67cb1e8c17f1733b09dbc125", null ],
-    [ "ARCCORE_DEPRECATED_2020", "d2/dae/classArcane_1_1IMainFactory.html#a774c871e0da517c660ccfa609fe10687", null ],
     [ "createAcceleratorMngRef", "d2/dae/classArcane_1_1IMainFactory.html#a15a10edcf487a9007652afcb40bd4e6f", null ],
     [ "createApplication", "d2/dae/classArcane_1_1IMainFactory.html#a92344e9d65873403864e3551a3158fc3", null ],
     [ "createArcaneMain", "d2/dae/classArcane_1_1IMainFactory.html#a0792b82702f06ab8baf7a2daceed2390", null ],
@@ -11,6 +9,7 @@ var classArcane_1_1IMainFactory =
     [ "createCaseDocument", "d2/dae/classArcane_1_1IMainFactory.html#a94c24f5a3e87cfb50c47028499ce368b", null ],
     [ "createCaseMng", "d2/dae/classArcane_1_1IMainFactory.html#aed0d0e1a6384641923873278b4852ba4", null ],
     [ "createCheckpointMng", "d2/dae/classArcane_1_1IMainFactory.html#a2a4486a684c84d391c87d0dc2ddda888", null ],
+    [ "createDataFactory", "d2/dae/classArcane_1_1IMainFactory.html#a4e4ffe0528bb1419469f2cecd393bf87", null ],
     [ "createDataFactoryMngRef", "d2/dae/classArcane_1_1IMainFactory.html#abdf9830fb93e78fcc745d955a481e17a", null ],
     [ "createEntryPointMng", "d2/dae/classArcane_1_1IMainFactory.html#abb4f0307546c17864069e07273b9107a", null ],
     [ "createIOMng", "d2/dae/classArcane_1_1IMainFactory.html#ac2c62b7cc2490ebfdb2892edb1f4de23", null ],
@@ -22,6 +21,7 @@ var classArcane_1_1IMainFactory =
     [ "createMesh", "d2/dae/classArcane_1_1IMainFactory.html#ad6b22b29175b1d083062e2bd2faf2155", null ],
     [ "createModuleMaster", "d2/dae/classArcane_1_1IMainFactory.html#a7ff7d87987a9f1aeb91ef4866f6b7308", null ],
     [ "createModuleMng", "d2/dae/classArcane_1_1IMainFactory.html#a630acb3f21aa4c4e439a3ce7cdc68adb", null ],
+    [ "createPropertyMng", "d2/dae/classArcane_1_1IMainFactory.html#a55c969f58a0c86095138cbac48c51df0", null ],
     [ "createPropertyMngReference", "d2/dae/classArcane_1_1IMainFactory.html#afc3879299bd5d95d038fbfcd1d96af93", null ],
     [ "createServiceLoader", "d2/dae/classArcane_1_1IMainFactory.html#ad506e8d73c7715e0d54d21a47a97aec2", null ],
     [ "createServiceMng", "d2/dae/classArcane_1_1IMainFactory.html#a5c6e7493296fdb031b781c790794f7c9", null ],

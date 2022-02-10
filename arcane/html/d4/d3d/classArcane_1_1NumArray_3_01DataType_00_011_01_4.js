@@ -2,6 +2,7 @@ var classArcane_1_1NumArray_3_01DataType_00_011_01_4 =
 [
     [ "BaseClass", "d4/d3d/classArcane_1_1NumArray_3_01DataType_00_011_01_4.html#a05134672abe0685860df45f22559868e", null ],
     [ "NumArray", "d4/d3d/classArcane_1_1NumArray_3_01DataType_00_011_01_4.html#a662f19b83d039fd9c35b1ecc56358e68", null ],
+    [ "NumArray", "d4/d3d/classArcane_1_1NumArray_3_01DataType_00_011_01_4.html#aef0964bc8a420574c67d9653359f324a", null ],
     [ "NumArray", "d4/d3d/classArcane_1_1NumArray_3_01DataType_00_011_01_4.html#ad255ae316a2dca51086aeb44bd2d6b24", null ],
     [ "dim1Size", "d4/d3d/classArcane_1_1NumArray_3_01DataType_00_011_01_4.html#af1b0cc6c2dacb0adadc433d7aad39ceb", null ],
     [ "operator MDSpan< const DataType, 1 >", "d4/d3d/classArcane_1_1NumArray_3_01DataType_00_011_01_4.html#ac881218f7aecc91b8f45e7fbab567db6", null ],

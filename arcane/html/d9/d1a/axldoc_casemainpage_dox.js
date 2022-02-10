@@ -1,8 +1,8 @@
 var axldoc_casemainpage_dox =
 [
     [ "'arcane-equilibrage-charge' module", "df/de6/axldoc_module_ArcaneLoadBalance_arcane_std.html", [
-      [ "Liste des modules", "d9/d1a/axldoc_casemainpage_dox.html#autotoc_md64", null ],
-      [ "Liste des services", "d9/d1a/axldoc_casemainpage_dox.html#autotoc_md65", [
+      [ "Liste des modules", "d9/d1a/axldoc_casemainpage_dox.html#autotoc_md65", null ],
+      [ "Liste des services", "d9/d1a/axldoc_casemainpage_dox.html#autotoc_md66", [
         [ "Summary of options", "df/de6/axldoc_module_ArcaneLoadBalance_arcane_std.html#autotoc_md42", null ]
       ] ]
     ] ],
@@ -20,13 +20,14 @@ var axldoc_casemainpage_dox =
     [ "'BasicParticleExchanger' service", "d4/d05/axldoc_service_BasicParticleExchanger_arcane_mesh.html", null ],
     [ "'Cartesian2D' service", "de/d9b/axldoc_service_Cartesian2DMeshGenerator_arcane_std.html", null ],
     [ "'Cartesian3D' service", "de/d80/axldoc_service_Cartesian3DMeshGenerator_arcane_std.html", null ],
-    [ "'DefaultPartitioner' service", "d4/d03/axldoc_service_MetisMeshPartitioner_arcane_std_90.html", null ],
+    [ "'DefaultPartitioner' service", "db/d6d/axldoc_service_MetisMeshPartitioner_arcane_std_91.html", null ],
     [ "'Ensight7PostProcessor' service", "dd/d71/axldoc_service_Ensight7PostProcessor_arcane_std.html", null ],
     [ "'Hdf5VariableReader' service", "dc/dec/axldoc_service_Hdf5VariableReader_arcane_std.html", null ],
     [ "'Hdf5VariableWriter' service", "df/db3/axldoc_service_Hdf5VariableWriter_arcane_std.html", null ],
+    [ "'HoneyComb2D' service", "d2/d75/axldoc_service_HoneyComb2DMeshGenerator_arcane_std.html", null ],
     [ "'Metis' service", "db/d5b/axldoc_service_MetisMeshPartitioner_arcane_std.html", null ],
-    [ "'Metis' service", "d4/d52/axldoc_service_MetisMeshPartitioner_arcane_std_94.html", null ],
+    [ "'Metis' service", "d9/d95/axldoc_service_MetisMeshPartitioner_arcane_std_95.html", null ],
     [ "'PTScotch' service", "d5/d94/axldoc_service_PTScotchMeshPartitioner_arcane_std.html", null ],
-    [ "'PTScotch' service", "d9/d85/axldoc_service_PTScotchMeshPartitioner_arcane_std_86.html", null ],
+    [ "'PTScotch' service", "de/ddd/axldoc_service_PTScotchMeshPartitioner_arcane_std_87.html", null ],
     [ "'Sod3D' service", "df/dcc/axldoc_service_Sod3DMeshGenerator_arcane_std.html", null ]
 ];

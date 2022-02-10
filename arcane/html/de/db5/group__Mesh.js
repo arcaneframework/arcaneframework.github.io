@@ -52,7 +52,6 @@ var group__Mesh =
       [ "addVariable", "dd/d0a/classArcane_1_1IItemFamily.html#a4606b69f25214585577f1a404db1f5a8", null ],
       [ "allItems", "dd/d0a/classArcane_1_1IItemFamily.html#a3d3659197cb052e60fb2fc573046830b", null ],
       [ "allItemsSynchronizer", "dd/d0a/classArcane_1_1IItemFamily.html#a549d4c75b8850f7321d749994af8eb5a", null ],
-      [ "ARCCORE_DEPRECATED_2020", "dd/d0a/classArcane_1_1IItemFamily.html#a2bc6ba0af338207a203fc9572907571a", null ],
       [ "build", "dd/d0a/classArcane_1_1IItemFamily.html#abfb9ee98792a0349f9c712e462badc92", null ],
       [ "checkUniqueIds", "dd/d0a/classArcane_1_1IItemFamily.html#a3232e51eb0ecf2a41d185c84bb50d8fd", null ],
       [ "checkValid", "dd/d0a/classArcane_1_1IItemFamily.html#a7004b8c21809436ce8cfc3128872f6d5", null ],
@@ -127,6 +126,7 @@ var group__Mesh =
       [ "setHasUniqueIdMap", "dd/d0a/classArcane_1_1IItemFamily.html#a4b5cdedef3afdf75c2c1a5159f45c6f7", null ],
       [ "setItemSortFunction", "dd/d0a/classArcane_1_1IItemFamily.html#aeb2a7f40e0697e8fecfc05f48398bb29", null ],
       [ "setParentFamily", "dd/d0a/classArcane_1_1IItemFamily.html#a3a616ceff090651b95c75e405cc2d54a", null ],
+      [ "subDomain", "dd/d0a/classArcane_1_1IItemFamily.html#a926d541e475478567efa2f3fe87de720", null ],
       [ "synchronize", "dd/d0a/classArcane_1_1IItemFamily.html#a5d31dd96b8534daacdefb58d3cd10be0", null ],
       [ "toParticleFamily", "dd/d0a/classArcane_1_1IItemFamily.html#aa2abe4b7686102f15d0421beac0df661", null ],
       [ "traceMng", "dd/d0a/classArcane_1_1IItemFamily.html#af5497cdd2d29bf7abc1fb9c8405b6027", null ],
@@ -234,7 +234,6 @@ var group__Mesh =
       [ "_checkKind", "df/d5f/classArcane_1_1Item.html#a1a7e5ff302406e8c9dc143f826135424", null ],
       [ "_set", "df/d5f/classArcane_1_1Item.html#a7cc9e610f6eb717570ddd0d518d64144", null ],
       [ "_set", "df/d5f/classArcane_1_1Item.html#ae90b0e9466071eda5eaf8da56a351502", null ],
-      [ "ARCCORE_DEPRECATED_2021", "df/d5f/classArcane_1_1Item.html#ae19a29e10eb6d306a8a8a1f7393b4b1f", null ],
       [ "id", "df/d5f/classArcane_1_1Item.html#a9fd0267480996254fbfb01f83249ab56", null ],
       [ "internal", "df/d5f/classArcane_1_1Item.html#a9beb17a99adcdd450f9327004ea060eb", null ],
       [ "isCell", "df/d5f/classArcane_1_1Item.html#a544d7ef415e9bc9cc797bcf4474a9e66", null ],
@@ -556,33 +555,33 @@ var group__Mesh =
       [ "sortItems", "dd/d27/classArcane_1_1ItemInternalSortFunction.html#aab48eac9f8547ad1f38206378fa5323d", null ]
     ] ],
     [ "ItemLocalId", "de/dc8/classArcane_1_1ItemLocalId.html", [
-      [ "ItemLocalId", "de/dc8/classArcane_1_1ItemLocalId.html#ac3a610db6eed16ece0e0c902e200d2dd", null ],
-      [ "ItemLocalId", "de/dc8/classArcane_1_1ItemLocalId.html#afc0fc60f61e9a0fd2156923282a2add4", null ],
+      [ "ItemLocalId", "de/dc8/classArcane_1_1ItemLocalId.html#a6ab05d2f12c8779e7896c55c84ea87fb", null ],
+      [ "ItemLocalId", "de/dc8/classArcane_1_1ItemLocalId.html#aa5d85beefc065e33433d6cb8a3871d51", null ],
       [ "ItemLocalId", "de/dc8/classArcane_1_1ItemLocalId.html#a051521834929bd0c38422052534e56fb", null ],
       [ "ItemLocalId", "de/dc8/classArcane_1_1ItemLocalId.html#a4a9e3cf8173f6a0fc79a7d0586a02569", null ],
-      [ "asInt32", "de/dc8/classArcane_1_1ItemLocalId.html#a8f23a932a2e8d3e52327b0dea45b18c8", null ],
-      [ "asInteger", "de/dc8/classArcane_1_1ItemLocalId.html#a5bcd9afe82a3994cc498cc8250b2f1e8", null ],
-      [ "localId", "de/dc8/classArcane_1_1ItemLocalId.html#ae80645112402730627f64823afac6df8", null ],
-      [ "operator Int32", "de/dc8/classArcane_1_1ItemLocalId.html#a3db1dbe5f317d331e7c1a34033b4b91c", null ]
+      [ "asInt32", "de/dc8/classArcane_1_1ItemLocalId.html#a5d1a666697e53ee4a7d4f53626897f34", null ],
+      [ "asInteger", "de/dc8/classArcane_1_1ItemLocalId.html#abee5127ecefe406ffd5d2554c5dc7915", null ],
+      [ "localId", "de/dc8/classArcane_1_1ItemLocalId.html#a05b73c8803fc45e2a667f125c0846945", null ],
+      [ "operator Int32", "de/dc8/classArcane_1_1ItemLocalId.html#afa407a0bf754e51dbd5b4f29e00b63de", null ]
     ] ],
     [ "NodeLocalId", "d5/d77/classArcane_1_1NodeLocalId.html", [
-      [ "NodeLocalId", "d5/d77/classArcane_1_1NodeLocalId.html#a97c796fe27123c40cf06d8518302bdfc", null ],
+      [ "NodeLocalId", "d5/d77/classArcane_1_1NodeLocalId.html#ab81befda2dbb82afb0c82fc402fcf357", null ],
       [ "NodeLocalId", "d5/d77/classArcane_1_1NodeLocalId.html#a6ea5c07ac8afd429e09dbc67b827272e", null ]
     ] ],
     [ "EdgeLocalId", "d9/d8a/classArcane_1_1EdgeLocalId.html", [
-      [ "EdgeLocalId", "d9/d8a/classArcane_1_1EdgeLocalId.html#a1770f380d1dcf653d3106f84acd2d9ca", null ],
+      [ "EdgeLocalId", "d9/d8a/classArcane_1_1EdgeLocalId.html#a09d011a1835d03bb999b9d4d87707870", null ],
       [ "EdgeLocalId", "d9/d8a/classArcane_1_1EdgeLocalId.html#a8d182e3fcb50c9c7983ef420d461ce3e", null ]
     ] ],
     [ "FaceLocalId", "dd/d66/classArcane_1_1FaceLocalId.html", [
-      [ "FaceLocalId", "dd/d66/classArcane_1_1FaceLocalId.html#acd3481ed870ec35be2d0c87f947c63ce", null ],
+      [ "FaceLocalId", "dd/d66/classArcane_1_1FaceLocalId.html#ad2c654ee97d6ece2492f6fb46fd97235", null ],
       [ "FaceLocalId", "dd/d66/classArcane_1_1FaceLocalId.html#a2013efe3b534912882e97f9e36662735", null ]
     ] ],
     [ "CellLocalId", "d1/d1d/classArcane_1_1CellLocalId.html", [
-      [ "CellLocalId", "d1/d1d/classArcane_1_1CellLocalId.html#ab3c85cf6b460b7ae39d741bf6ec7f77a", null ],
+      [ "CellLocalId", "d1/d1d/classArcane_1_1CellLocalId.html#abe708c0dbb973cafd10d6b9828bb7509", null ],
       [ "CellLocalId", "d1/d1d/classArcane_1_1CellLocalId.html#a7c0027109b12da728ea808acdfeddc25", null ]
     ] ],
     [ "ParticleLocalId", "d0/d2f/classArcane_1_1ParticleLocalId.html", [
-      [ "ParticleLocalId", "d0/d2f/classArcane_1_1ParticleLocalId.html#a9a4ff1343e01965414c393a6521517d1", null ],
+      [ "ParticleLocalId", "d0/d2f/classArcane_1_1ParticleLocalId.html#ae967feeaac960bd6eb00d72685b41d2d", null ],
       [ "ParticleLocalId", "d0/d2f/classArcane_1_1ParticleLocalId.html#a36f17ecd705e529582b20231ec703c69", null ]
     ] ],
     [ "ItemTypeInfo", "dc/d74/classArcane_1_1ItemTypeInfo.html", [
@@ -620,8 +619,6 @@ var group__Mesh =
     [ "ItemTypeMng", "d7/dbb/classArcane_1_1ItemTypeMng.html", [
       [ "ItemTypeMng", "d7/dbb/classArcane_1_1ItemTypeMng.html#a36ad3232f32de318caca5fb41b10e342", null ],
       [ "~ItemTypeMng", "d7/dbb/classArcane_1_1ItemTypeMng.html#a3a638cffa15b798aeade2cf93bcd3980", null ],
-      [ "ARCCORE_DEPRECATED_2021", "d7/dbb/classArcane_1_1ItemTypeMng.html#abd186824dda1d333903544f3d1099fef", null ],
-      [ "ARCCORE_DEPRECATED_2021", "d7/dbb/classArcane_1_1ItemTypeMng.html#a46a2ad4a5f17bc01bd5687b1102a7810", null ],
       [ "build", "d7/dbb/classArcane_1_1ItemTypeMng.html#a7de181486499d2744db5c704aafb4391", null ],
       [ "printTypes", "d7/dbb/classArcane_1_1ItemTypeMng.html#abb0a4b6f64a700d4e17837db3015a082", null ],
       [ "typeFromId", "d7/dbb/classArcane_1_1ItemTypeMng.html#a6dbdcef18e34209d65c7e26b7c315de1", null ],
@@ -652,13 +649,13 @@ var group__Mesh =
       [ "tiedNodes", "d6/db6/classArcane_1_1ITiedInterface.html#ab208cdb0c2e360a9ddc367e7e90fe252", null ]
     ] ],
     [ "MeshAccessor", "d6/d09/classArcane_1_1MeshAccessor.html", [
+      [ "MeshAccessor", "d6/d09/classArcane_1_1MeshAccessor.html#a24d5fa5ae5956ffba29fbcbac9191dbe", null ],
       [ "MeshAccessor", "d6/d09/classArcane_1_1MeshAccessor.html#a6db551344bd43b9380d8aebcefeafc96", null ],
       [ "MeshAccessor", "d6/d09/classArcane_1_1MeshAccessor.html#a8dfbce6042cf569459e55cb030c02258", null ],
       [ "allCells", "d6/d09/classArcane_1_1MeshAccessor.html#a3db98a21eeda68789b60a901a0fca31d", null ],
       [ "allEdges", "d6/d09/classArcane_1_1MeshAccessor.html#a01bba01058976f0edd8c3d377461cea8", null ],
       [ "allFaces", "d6/d09/classArcane_1_1MeshAccessor.html#a4e5c02a3e6426fde74dce55955cb7f44", null ],
       [ "allNodes", "d6/d09/classArcane_1_1MeshAccessor.html#a84743eb89f7cbb2e30b99af6ea2887f7", null ],
-      [ "ARCCORE_DEPRECATED_2020", "d6/d09/classArcane_1_1MeshAccessor.html#ad526973a2f6fabe3601cd7760eb8e8ef", null ],
       [ "mesh", "d6/d09/classArcane_1_1MeshAccessor.html#adcf196f01cf920c63ea392ca49470ed7", null ],
       [ "meshHandle", "d6/d09/classArcane_1_1MeshAccessor.html#af0cdf5e7d0566b412f7e4fa2701b8124", null ],
       [ "nbCell", "d6/d09/classArcane_1_1MeshAccessor.html#aa253c5fabd09b4590f0577ef02c70ea7", null ],
@@ -727,7 +724,6 @@ var group__Mesh =
       [ "allFaces", "d0/d9f/classArcane_1_1IMesh.html#a275a98487df90f0baabcf2c5144a8060", null ],
       [ "allLevelCells", "d0/d9f/classArcane_1_1IMesh.html#a4e0d3da79a6a4c6edc9bf02e44e680b2", null ],
       [ "allNodes", "d0/d9f/classArcane_1_1IMesh.html#a8a988ade617f508cd842bcd9b5ab2bc1", null ],
-      [ "ARCCORE_DEPRECATED_2020", "d0/d9f/classArcane_1_1IMesh.html#aef84f397a0ee35da9a4d2ec481d41471", null ],
       [ "build", "d0/d9f/classArcane_1_1IMesh.html#a50ee480b2b2491e6eb288dd095840f99", null ],
       [ "cellFamily", "d0/d9f/classArcane_1_1IMesh.html#a550726c207135384e7773d0ebee5488d", null ],
       [ "checker", "d0/d9f/classArcane_1_1IMesh.html#a591510e3f6c79bb0822cfc0d7bb63ab2", null ],
@@ -764,6 +760,7 @@ var group__Mesh =
       [ "meshItemInternalList", "d0/d9f/classArcane_1_1IMesh.html#a31db3c25f8849e287bd04c51a4299f2e", null ],
       [ "meshMng", "d0/d9f/classArcane_1_1IMesh.html#aeeada96bb800a41ad92da1b0f3a5f0f8", null ],
       [ "meshPartInfo", "d0/d9f/classArcane_1_1IMesh.html#ac03dd6aadc0f22a51096167b1bb8694f", null ],
+      [ "meshUniqueIdMng", "d0/d9f/classArcane_1_1IMesh.html#a6d8203febc835b295fb1b2eaf83a0e1c", null ],
       [ "modifier", "d0/d9f/classArcane_1_1IMesh.html#a49590ea4d05b5d9b66eae9779631172b", null ],
       [ "nodeFamily", "d0/d9f/classArcane_1_1IMesh.html#a35e2ae3274072999ba22018f2b50b167", null ],
       [ "nodesCoordinates", "d0/d9f/classArcane_1_1IMesh.html#adb1b4c58d844e7c27cb271bdf8ab758c", null ],
@@ -785,6 +782,7 @@ var group__Mesh =
       [ "serializeCells", "d0/d9f/classArcane_1_1IMesh.html#a384338c40e3eb70e7fdf4359426e8e56", null ],
       [ "setCheckLevel", "d0/d9f/classArcane_1_1IMesh.html#a6beb43147f5df1e3d4dd8830eab548fe", null ],
       [ "sharedNodesCoordinates", "d0/d9f/classArcane_1_1IMesh.html#a53951b76f8fc90b57ec8d9f2496f7c97", null ],
+      [ "subDomain", "d0/d9f/classArcane_1_1IMesh.html#ae5b62f0f173784a37d47cb61574e9b69", null ],
       [ "synchronizeGroupsAndVariables", "d0/d9f/classArcane_1_1IMesh.html#a5f086f4366ac5f570fdca980d7c42946", null ],
       [ "tiedInterfaces", "d0/d9f/classArcane_1_1IMesh.html#a4d46d8379291967e7af010103fc44349", null ],
       [ "timestamp", "d0/d9f/classArcane_1_1IMesh.html#a923deef4afc607dd282500b68131534f", null ],
@@ -799,6 +797,7 @@ var group__Mesh =
     [ "IPrimaryMesh", "d7/d89/classArcane_1_1IPrimaryMesh.html", [
       [ "~IPrimaryMesh", "d7/d89/classArcane_1_1IPrimaryMesh.html#a74eadce784a0b9168aedb2860906dcf5", null ],
       [ "allocateCells", "d7/d89/classArcane_1_1IPrimaryMesh.html#a20388e004bece51246f03d3fc0b54f64", null ],
+      [ "deallocate", "d7/d89/classArcane_1_1IPrimaryMesh.html#ae021d61ee5a3243d7b0a80624ef38f4a", null ],
       [ "endAllocate", "d7/d89/classArcane_1_1IPrimaryMesh.html#a6768749be29cc23ed6764c5f6b612618", null ],
       [ "exchangeItems", "d7/d89/classArcane_1_1IPrimaryMesh.html#a32dea986e9b66f426ec3bff1660dc388", null ],
       [ "itemsNewOwner", "d7/d89/classArcane_1_1IPrimaryMesh.html#a0de08d0a4ee16abec4f3dc568e8f92c4", null ],

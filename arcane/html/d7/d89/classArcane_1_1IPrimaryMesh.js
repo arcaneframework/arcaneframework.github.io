@@ -2,6 +2,7 @@ var classArcane_1_1IPrimaryMesh =
 [
     [ "~IPrimaryMesh", "d7/d89/classArcane_1_1IPrimaryMesh.html#a74eadce784a0b9168aedb2860906dcf5", null ],
     [ "allocateCells", "d7/d89/classArcane_1_1IPrimaryMesh.html#a20388e004bece51246f03d3fc0b54f64", null ],
+    [ "deallocate", "d7/d89/classArcane_1_1IPrimaryMesh.html#ae021d61ee5a3243d7b0a80624ef38f4a", null ],
     [ "endAllocate", "d7/d89/classArcane_1_1IPrimaryMesh.html#a6768749be29cc23ed6764c5f6b612618", null ],
     [ "exchangeItems", "d7/d89/classArcane_1_1IPrimaryMesh.html#a32dea986e9b66f426ec3bff1660dc388", null ],
     [ "itemsNewOwner", "d7/d89/classArcane_1_1IPrimaryMesh.html#a0de08d0a4ee16abec4f3dc568e8f92c4", null ],

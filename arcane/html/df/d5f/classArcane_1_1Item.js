@@ -11,7 +11,6 @@ var classArcane_1_1Item =
     [ "_checkKind", "df/d5f/classArcane_1_1Item.html#a1a7e5ff302406e8c9dc143f826135424", null ],
     [ "_set", "df/d5f/classArcane_1_1Item.html#a7cc9e610f6eb717570ddd0d518d64144", null ],
     [ "_set", "df/d5f/classArcane_1_1Item.html#ae90b0e9466071eda5eaf8da56a351502", null ],
-    [ "ARCCORE_DEPRECATED_2021", "df/d5f/classArcane_1_1Item.html#ae19a29e10eb6d306a8a8a1f7393b4b1f", null ],
     [ "id", "df/d5f/classArcane_1_1Item.html#a9fd0267480996254fbfb01f83249ab56", null ],
     [ "internal", "df/d5f/classArcane_1_1Item.html#a9beb17a99adcdd450f9327004ea060eb", null ],
     [ "isCell", "df/d5f/classArcane_1_1Item.html#a544d7ef415e9bc9cc797bcf4474a9e66", null ],

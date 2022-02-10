@@ -4,6 +4,7 @@ var classArccore_1_1MessagePassing_1_1IControlDispatcher =
     [ "barrier", "d2/dab/classArccore_1_1MessagePassing_1_1IControlDispatcher.html#adfe2773598c95364e0a3a3a298e1321d", null ],
     [ "commSplit", "d2/dab/classArccore_1_1MessagePassing_1_1IControlDispatcher.html#a56bdf20a65cbf5cc7142ad7e39db9085", null ],
     [ "createRequestListRef", "d2/dab/classArccore_1_1MessagePassing_1_1IControlDispatcher.html#ab094d678ae0598402237dfb54abe04e2", null ],
+    [ "nonBlockingBarrier", "d2/dab/classArccore_1_1MessagePassing_1_1IControlDispatcher.html#a4dffe69758d0e83874bf0bbe11259ea5", null ],
     [ "probe", "d2/dab/classArccore_1_1MessagePassing_1_1IControlDispatcher.html#a51603a1db97555e0f083ce0a3c6e0bfe", null ],
     [ "profiler", "d2/dab/classArccore_1_1MessagePassing_1_1IControlDispatcher.html#aba5ad022bb9e7b635e19e6a1d3016b6f", null ],
     [ "setProfiler", "d2/dab/classArccore_1_1MessagePassing_1_1IControlDispatcher.html#afbca952fd042b45114910305c8c4d327", null ],

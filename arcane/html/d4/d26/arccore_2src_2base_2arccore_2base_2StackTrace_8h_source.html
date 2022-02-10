@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Arcane:  Fichier source de /home/grospellierg/arcane_packaging/framework/arccore/src/base/arccore/base/StackTrace.h</title>
+<title>Arcane:  Fichier source de arccore/base/StackTrace.h</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="../../jquery.js"></script>
 <script type="text/javascript" src="../../dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.2.0.0</span>
+   &#160;<span id="projectnumber">3.4.5.0</span>
    </div>
   </td>
  </tr>
@@ -88,135 +88,123 @@ $(document).ready(function(){initNavTree('d4/d26/arccore_2src_2base_2arccore_2ba
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2020 IFPEN-CEA</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// you may not use this file except in compliance with the License.</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">// You may obtain a copy of the License at</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// http://www.apache.org/licenses/LICENSE-2.0</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// Unless required by applicable law or agreed to in writing, software</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// See the License for the specific language governing permissions and</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">// limitations under the License.</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/* StackTrace.h                                                (C) 2000-2018 */</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*                                                                           */</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/* Informations d&#39;une pile d&#39;appel.                                          */</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#ifndef ARCCORE_BASE_STACKTRACE_H</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#define ARCCORE_BASE_STACKTRACE_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* StackTrace.h                                                (C) 2000-2018 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Informations d&#39;une pile d&#39;appel.                                          */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCCORE_BASE_STACKTRACE_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCCORE_BASE_STACKTRACE_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arccore/base/ArrayView.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arccore/base/String.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d5/d60/namespaceArccore.html">Arccore</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;arccore/base/ArrayView.h&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;arccore/base/String.h&quot;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d5/d60/namespaceArccore.html">Arccore</a></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d1/d31/classArccore_1_1StackFrame.html">   46</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/d31/classArccore_1_1StackFrame.html">StackFrame</a></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d1/d31/classArccore_1_1StackFrame.html">StackFrame</a>(intptr_t v) : m_address(v){}</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <a class="code" href="../../d1/d31/classArccore_1_1StackFrame.html">StackFrame</a>() : m_address(0){}</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  intptr_t address()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_address; }</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  intptr_t m_address;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;};</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../d9/d1f/classArccore_1_1FixedStackFrameArray.html">   63</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/d1f/classArccore_1_1FixedStackFrameArray.html">FixedStackFrameArray</a></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> MAX_FRAME = 32;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <a class="code" href="../../d9/d1f/classArccore_1_1FixedStackFrameArray.html">FixedStackFrameArray</a>() : m_nb_frame(0){}</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;StackFrame&gt;</a> view()<span class="keyword"> const</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="keyword">  </span>{</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;StackFrame&gt;</a>(m_nb_frame,m_addresses);</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  }</div>
-<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d9/d1f/classArccore_1_1FixedStackFrameArray.html#a1450c8717ec17d945f58798c762861f4">   77</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d9/d1f/classArccore_1_1FixedStackFrameArray.html#a1450c8717ec17d945f58798c762861f4">addFrame</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d31/classArccore_1_1StackFrame.html">StackFrame</a>&amp; frame)</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  {</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordflow">if</span> (m_nb_frame&lt;MAX_FRAME){</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      m_addresses[m_nb_frame] = frame;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;      ++m_nb_frame;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> nbFrame()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_nb_frame; }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  StackFrame m_addresses[MAX_FRAME];</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> m_nb_frame;</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;};</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="../../df/d50/classArccore_1_1StackTrace.html">   97</a></span>&#160;<span class="keyword">class </span>ARCCORE_BASE_EXPORT <a class="code" href="../../df/d50/classArccore_1_1StackTrace.html">StackTrace</a></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;{</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <a class="code" href="../../df/d50/classArccore_1_1StackTrace.html">StackTrace</a>() {}</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <a class="code" href="../../df/d50/classArccore_1_1StackTrace.html">StackTrace</a>(<span class="keyword">const</span> <a class="code" href="../../d9/d1f/classArccore_1_1FixedStackFrameArray.html">FixedStackFrameArray</a>&amp; stack_frames) : m_stack_frames(stack_frames){}</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <a class="code" href="../../df/d50/classArccore_1_1StackTrace.html">StackTrace</a>(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; msg) : m_stack_trace_string(msg){}</div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <a class="code" href="../../df/d50/classArccore_1_1StackTrace.html">StackTrace</a>(<span class="keyword">const</span> <a class="code" href="../../d9/d1f/classArccore_1_1FixedStackFrameArray.html">FixedStackFrameArray</a>&amp; stack_frames,<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; msg)</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  : m_stack_frames(stack_frames), m_stack_trace_string(msg){}</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d1/d31/classArccore_1_1StackFrame.html">   34</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/d31/classArccore_1_1StackFrame.html">StackFrame</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d1/d31/classArccore_1_1StackFrame.html">StackFrame</a>(intptr_t v) : m_address(v){}</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="../../d1/d31/classArccore_1_1StackFrame.html">StackFrame</a>() : m_address(0){}</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  intptr_t address()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_address; }</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  intptr_t m_address;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d9/d1f/classArccore_1_1FixedStackFrameArray.html">   51</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/d1f/classArccore_1_1FixedStackFrameArray.html">FixedStackFrameArray</a></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> MAX_FRAME = 32;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <a class="code" href="../../d9/d1f/classArccore_1_1FixedStackFrameArray.html">FixedStackFrameArray</a>() : m_nb_frame(0){}</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;StackFrame&gt;</a> view()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;StackFrame&gt;</a>(m_nb_frame,m_addresses);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  }</div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="../../d9/d1f/classArccore_1_1FixedStackFrameArray.html#a1450c8717ec17d945f58798c762861f4">   65</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d9/d1f/classArccore_1_1FixedStackFrameArray.html#a1450c8717ec17d945f58798c762861f4">addFrame</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d31/classArccore_1_1StackFrame.html">StackFrame</a>&amp; frame)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  {</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">if</span> (m_nb_frame&lt;MAX_FRAME){</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;      m_addresses[m_nb_frame] = frame;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      ++m_nb_frame;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> nbFrame()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_nb_frame; }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  StackFrame m_addresses[MAX_FRAME];</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> m_nb_frame;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="../../df/d50/classArccore_1_1StackTrace.html">   85</a></span>&#160;<span class="keyword">class </span>ARCCORE_BASE_EXPORT <a class="code" href="../../df/d50/classArccore_1_1StackTrace.html">StackTrace</a></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <a class="code" href="../../df/d50/classArccore_1_1StackTrace.html">StackTrace</a>() {}</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <a class="code" href="../../df/d50/classArccore_1_1StackTrace.html">StackTrace</a>(<span class="keyword">const</span> <a class="code" href="../../d9/d1f/classArccore_1_1FixedStackFrameArray.html">FixedStackFrameArray</a>&amp; stack_frames) : m_stack_frames(stack_frames){}</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <a class="code" href="../../df/d50/classArccore_1_1StackTrace.html">StackTrace</a>(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; msg) : m_stack_trace_string(msg){}</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <a class="code" href="../../df/d50/classArccore_1_1StackTrace.html">StackTrace</a>(<span class="keyword">const</span> <a class="code" href="../../d9/d1f/classArccore_1_1FixedStackFrameArray.html">FixedStackFrameArray</a>&amp; stack_frames,<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; msg)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  : m_stack_frames(stack_frames), m_stack_trace_string(msg){}</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="../../df/d50/classArccore_1_1StackTrace.html#acbb6da9b8b2bb4bd2031f97092508560">   98</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; <a class="code" href="../../df/d50/classArccore_1_1StackTrace.html#acbb6da9b8b2bb4bd2031f97092508560">toString</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_stack_trace_string; }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="../../df/d50/classArccore_1_1StackTrace.html#a441acd55911c9a0e602f088550a32f75">  101</a></span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;StackFrame&gt;</a> <a class="code" href="../../df/d50/classArccore_1_1StackTrace.html#a441acd55911c9a0e602f088550a32f75">stackFrames</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_stack_frames.view(); }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <a class="code" href="../../d9/d1f/classArccore_1_1FixedStackFrameArray.html">FixedStackFrameArray</a> m_stack_frames;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> m_stack_trace_string;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;};</div>
 <div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="../../df/d50/classArccore_1_1StackTrace.html#acbb6da9b8b2bb4bd2031f97092508560">  110</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; <a class="code" href="../../df/d50/classArccore_1_1StackTrace.html#acbb6da9b8b2bb4bd2031f97092508560">toString</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_stack_trace_string; }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="../../df/d50/classArccore_1_1StackTrace.html#a441acd55911c9a0e602f088550a32f75">  113</a></span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;StackFrame&gt;</a> <a class="code" href="../../df/d50/classArccore_1_1StackTrace.html#a441acd55911c9a0e602f088550a32f75">stackFrames</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_stack_frames.view(); }</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;ARCCORE_BASE_EXPORT std::ostream&amp; operator&lt;&lt;(std::ostream&amp; o,<span class="keyword">const</span> StackTrace&amp;);</div>
 <div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <a class="code" href="../../d9/d1f/classArccore_1_1FixedStackFrameArray.html">FixedStackFrameArray</a> m_stack_frames;</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> m_stack_trace_string;</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;};</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;} <span class="comment">// End namespace Arccore</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;ARCCORE_BASE_EXPORT std::ostream&amp; operator&lt;&lt;(std::ostream&amp; o,<span class="keyword">const</span> StackTrace&amp;);</div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;} <span class="comment">// End namespace Arccore</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor">#endif  </span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:470</div></div>
-<div class="ttc" id="aclassArccore_1_1FixedStackFrameArray_html"><div class="ttname"><a href="../../d9/d1f/classArccore_1_1FixedStackFrameArray.html">Arccore::FixedStackFrameArray</a></div><div class="ttdef"><b>Definition:</b> StackTrace.h:64</div></div>
-<div class="ttc" id="aclassArccore_1_1FixedStackFrameArray_html_a1450c8717ec17d945f58798c762861f4"><div class="ttname"><a href="../../d9/d1f/classArccore_1_1FixedStackFrameArray.html#a1450c8717ec17d945f58798c762861f4">Arccore::FixedStackFrameArray::addFrame</a></div><div class="ttdeci">void addFrame(const StackFrame &amp;frame)</div><div class="ttdoc">Ajoute frame à la liste des frames. Si nbFrame() est supérieur ou égal à MAX_FRAME,...</div><div class="ttdef"><b>Definition:</b> StackTrace.h:77</div></div>
-<div class="ttc" id="aclassArccore_1_1StackFrame_html"><div class="ttname"><a href="../../d1/d31/classArccore_1_1StackFrame.html">Arccore::StackFrame</a></div><div class="ttdef"><b>Definition:</b> StackTrace.h:47</div></div>
-<div class="ttc" id="aclassArccore_1_1StackTrace_html"><div class="ttname"><a href="../../df/d50/classArccore_1_1StackTrace.html">Arccore::StackTrace</a></div><div class="ttdef"><b>Definition:</b> StackTrace.h:98</div></div>
-<div class="ttc" id="aclassArccore_1_1StackTrace_html_a441acd55911c9a0e602f088550a32f75"><div class="ttname"><a href="../../df/d50/classArccore_1_1StackTrace.html#a441acd55911c9a0e602f088550a32f75">Arccore::StackTrace::stackFrames</a></div><div class="ttdeci">ConstArrayView&lt; StackFrame &gt; stackFrames() const</div><div class="ttdoc">Pile d'appel sous forme d'adresses.</div><div class="ttdef"><b>Definition:</b> StackTrace.h:113</div></div>
-<div class="ttc" id="aclassArccore_1_1StackTrace_html_acbb6da9b8b2bb4bd2031f97092508560"><div class="ttname"><a href="../../df/d50/classArccore_1_1StackTrace.html#acbb6da9b8b2bb4bd2031f97092508560">Arccore::StackTrace::toString</a></div><div class="ttdeci">const String &amp; toString() const</div><div class="ttdoc">Chaîne de caractères indiquant la pile d'appel.</div><div class="ttdef"><b>Definition:</b> StackTrace.h:110</div></div>
-<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> String.h:81</div></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:478</div></div>
+<div class="ttc" id="aclassArccore_1_1FixedStackFrameArray_html"><div class="ttname"><a href="../../d9/d1f/classArccore_1_1FixedStackFrameArray.html">Arccore::FixedStackFrameArray</a></div><div class="ttdef"><b>Definition:</b> StackTrace.h:52</div></div>
+<div class="ttc" id="aclassArccore_1_1FixedStackFrameArray_html_a1450c8717ec17d945f58798c762861f4"><div class="ttname"><a href="../../d9/d1f/classArccore_1_1FixedStackFrameArray.html#a1450c8717ec17d945f58798c762861f4">Arccore::FixedStackFrameArray::addFrame</a></div><div class="ttdeci">void addFrame(const StackFrame &amp;frame)</div><div class="ttdoc">Ajoute frame à la liste des frames. Si nbFrame() est supérieur ou égal à MAX_FRAME,...</div><div class="ttdef"><b>Definition:</b> StackTrace.h:65</div></div>
+<div class="ttc" id="aclassArccore_1_1StackFrame_html"><div class="ttname"><a href="../../d1/d31/classArccore_1_1StackFrame.html">Arccore::StackFrame</a></div><div class="ttdef"><b>Definition:</b> StackTrace.h:35</div></div>
+<div class="ttc" id="aclassArccore_1_1StackTrace_html"><div class="ttname"><a href="../../df/d50/classArccore_1_1StackTrace.html">Arccore::StackTrace</a></div><div class="ttdef"><b>Definition:</b> StackTrace.h:86</div></div>
+<div class="ttc" id="aclassArccore_1_1StackTrace_html_a441acd55911c9a0e602f088550a32f75"><div class="ttname"><a href="../../df/d50/classArccore_1_1StackTrace.html#a441acd55911c9a0e602f088550a32f75">Arccore::StackTrace::stackFrames</a></div><div class="ttdeci">ConstArrayView&lt; StackFrame &gt; stackFrames() const</div><div class="ttdoc">Pile d'appel sous forme d'adresses.</div><div class="ttdef"><b>Definition:</b> StackTrace.h:101</div></div>
+<div class="ttc" id="aclassArccore_1_1StackTrace_html_acbb6da9b8b2bb4bd2031f97092508560"><div class="ttname"><a href="../../df/d50/classArccore_1_1StackTrace.html#acbb6da9b8b2bb4bd2031f97092508560">Arccore::StackTrace::toString</a></div><div class="ttdeci">const String &amp; toString() const</div><div class="ttdoc">Chaîne de caractères indiquant la pile d'appel.</div><div class="ttdef"><b>Definition:</b> StackTrace.h:98</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> String.h:69</div></div>
 <div class="ttc" id="anamespaceArccore_html"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html">Arccore</a></div><div class="ttdoc">Espace de nom de Arccore.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:24</div></div>
-<div class="ttc" id="anamespaceArccore_html_a19fea02f94d4da203710fd2070c0f2fb"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Arccore::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:236</div></div>
+<div class="ttc" id="anamespaceArccore_html_a19fea02f94d4da203710fd2070c0f2fb"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Arccore::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:232</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="../../dir_6495e2f1ddb8636de3a40a77818a3fea.html">arccore</a></li><li class="navelem"><a class="el" href="../../dir_fdd937920005a50be918d5ba10c6d9bc.html">src</a></li><li class="navelem"><a class="el" href="../../dir_3e497bf2f22d18fddf8d9a9dcddc574c.html">base</a></li><li class="navelem"><a class="el" href="../../dir_317292796549f57c322564f1daeb9fb5.html">arccore</a></li><li class="navelem"><a class="el" href="../../dir_8a3b74d6d60129cae386750cf1370bdf.html">base</a></li><li class="navelem"><b>StackTrace.h</b></li>
-    <li class="footer">Généré le Lundi 8 Novembre 2021 16:23:49 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="navelem"><a class="el" href="../../dir_317292796549f57c322564f1daeb9fb5.html">arccore</a></li><li class="navelem"><a class="el" href="../../dir_8a3b74d6d60129cae386750cf1370bdf.html">base</a></li><li class="navelem"><b>StackTrace.h</b></li>
+    <li class="footer">Généré le Jeudi 10 Février 2022 09:30:01 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

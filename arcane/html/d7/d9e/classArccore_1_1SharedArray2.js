@@ -14,6 +14,7 @@ var classArccore_1_1SharedArray2 =
     [ "_checkFreeMemory", "d7/d9e/classArccore_1_1SharedArray2.html#abcb747b7f6a0599c6774180000fa50ca", null ],
     [ "_getNbRef", "d7/d9e/classArccore_1_1SharedArray2.html#a1f98d297c854072f014715bd7b186096", null ],
     [ "_initReference", "d7/d9e/classArccore_1_1SharedArray2.html#a9c97d76990e8303d88a92e5f5e85692f", null ],
+    [ "_isUseOwnMetaData", "d7/d9e/classArccore_1_1SharedArray2.html#a2835d4265a5f9ad670ea51afbde03c02", null ],
     [ "_operatorEqual", "d7/d9e/classArccore_1_1SharedArray2.html#a8c453c7311f038421f439df2172b532b", null ],
     [ "_removeReference", "d7/d9e/classArccore_1_1SharedArray2.html#aca7216679b817ef4d528cc4551736a94", null ],
     [ "_updateReferences", "d7/d9e/classArccore_1_1SharedArray2.html#a824ba3cfd73974dfa5e78ced5c7eb3d3", null ],

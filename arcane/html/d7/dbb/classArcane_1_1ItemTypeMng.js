@@ -2,8 +2,6 @@ var classArcane_1_1ItemTypeMng =
 [
     [ "ItemTypeMng", "d7/dbb/classArcane_1_1ItemTypeMng.html#a36ad3232f32de318caca5fb41b10e342", null ],
     [ "~ItemTypeMng", "d7/dbb/classArcane_1_1ItemTypeMng.html#a3a638cffa15b798aeade2cf93bcd3980", null ],
-    [ "ARCCORE_DEPRECATED_2021", "d7/dbb/classArcane_1_1ItemTypeMng.html#abd186824dda1d333903544f3d1099fef", null ],
-    [ "ARCCORE_DEPRECATED_2021", "d7/dbb/classArcane_1_1ItemTypeMng.html#a46a2ad4a5f17bc01bd5687b1102a7810", null ],
     [ "build", "d7/dbb/classArcane_1_1ItemTypeMng.html#a7de181486499d2744db5c704aafb4391", null ],
     [ "printTypes", "d7/dbb/classArcane_1_1ItemTypeMng.html#abb0a4b6f64a700d4e17837db3015a082", null ],
     [ "typeFromId", "d7/dbb/classArcane_1_1ItemTypeMng.html#a6dbdcef18e34209d65c7e26b7c315de1", null ],

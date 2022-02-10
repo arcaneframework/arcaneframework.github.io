@@ -20,6 +20,7 @@ var classArccore_1_1SharedArray =
     [ "_checkFreeMemory", "d4/dee/classArccore_1_1SharedArray.html#a2f1b5644af309d5dfe87d6fd67a89755", null ],
     [ "_getNbRef", "d4/dee/classArccore_1_1SharedArray.html#ad02b647fc3f3e36da58f2bfa4f197a5f", null ],
     [ "_initReference", "d4/dee/classArccore_1_1SharedArray.html#a1b1ecce40014976dadd70c8f3aa3f336", null ],
+    [ "_isUseOwnMetaData", "d4/dee/classArccore_1_1SharedArray.html#a03f3275b36ab2869e984969d59ce9eb8", null ],
     [ "_operatorEqual", "d4/dee/classArccore_1_1SharedArray.html#a4674d04d0279d9c68233b68d0e520848", null ],
     [ "_removeReference", "d4/dee/classArccore_1_1SharedArray.html#a273b4b38748c734bdd91545a6f9b19ac", null ],
     [ "_updateReferences", "d4/dee/classArccore_1_1SharedArray.html#a5c5d7150f4aa733563f33a371b3713de", null ],

@@ -14,6 +14,7 @@ var classArcane_1_1ApplicationBuildInfo_1_1Impl =
     [ "m_app_info", "d3/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl.html#ae50849a4b4392914085b6df958876020", null ],
     [ "m_case_dataset_source", "d3/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl.html#a4fa8b505b381dbff1a35cd73522805ad", null ],
     [ "m_config_file_name", "d3/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl.html#a9e823ea429dd4ce43ba6b638fc5f0d91", null ],
+    [ "m_default_message_passing_service", "d3/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl.html#ad9ee7848eddb306e323ce2fd7e4a0a96", null ],
     [ "m_is_master_has_output_file", "d3/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl.html#abcfc1b8ff460615b024cf2827d40f816", null ],
     [ "m_message_passing_service", "d3/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl.html#aa4e3ec7bcada3880f01e4e535755416d", null ],
     [ "m_minimal_verbosity_level", "d3/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl.html#a092c896121a40c09e0541dc05ae388f9", null ],
@@ -24,6 +25,7 @@ var classArcane_1_1ApplicationBuildInfo_1_1Impl =
     [ "m_output_directory", "d3/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl.html#a72beba1abc84cc425faa296e94524bf1", null ],
     [ "m_output_level", "d3/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl.html#aa2484f2581bc436cae4af72cb36d2c02", null ],
     [ "m_task_implementation_services", "d3/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl.html#a4d972ac2ebb11b4524df1f9deee15acd", null ],
+    [ "m_thread_binding_strategy", "d3/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl.html#afeb4f6e6ca1a6be4ce48304581c9e858", null ],
     [ "m_thread_implementation_services", "d3/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl.html#ae1dd731a41e742bbdbcecca3320e4ed8", null ],
     [ "m_values", "d3/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl.html#a8c5d5bcab1ca9646d3a774f57ae6f986", null ],
     [ "m_verbosity_level", "d3/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl.html#a4489f75c69b036a4c03c7312ef2287a2", null ]

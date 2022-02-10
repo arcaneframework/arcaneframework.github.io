@@ -7,6 +7,7 @@ var classArcane_1_1MeshVariableArrayRefT =
     [ "ConstReturnReferenceType", "dd/d95/classArcane_1_1MeshVariableArrayRefT.html#a557922aee6633324315585cd7b67b43d", null ],
     [ "DataType", "dd/d95/classArcane_1_1MeshVariableArrayRefT.html#aafcb8aaec712910fe7f0eb7523ba3b99", null ],
     [ "GroupType", "dd/d95/classArcane_1_1MeshVariableArrayRefT.html#a9688dd244170c844494b1c58adecf87a", null ],
+    [ "ItemLocalIdType", "dd/d95/classArcane_1_1MeshVariableArrayRefT.html#ab7f51dd3467f4949a841f712a3f6234a", null ],
     [ "ItemType", "dd/d95/classArcane_1_1MeshVariableArrayRefT.html#a1eb35d8a41618231eb830543819ba786", null ],
     [ "PrivatePartType", "dd/d95/classArcane_1_1MeshVariableArrayRefT.html#abc681d649eb31082153a4b5929af2edc", null ],
     [ "ReturnReferenceType", "dd/d95/classArcane_1_1MeshVariableArrayRefT.html#a145faba992ec7d051256ea6b9bf280a0", null ],
@@ -25,6 +26,8 @@ var classArcane_1_1MeshVariableArrayRefT =
     [ "operator[]", "dd/d95/classArcane_1_1MeshVariableArrayRefT.html#ad429cfda797dcf4355b949b4840935bb", null ],
     [ "operator[]", "dd/d95/classArcane_1_1MeshVariableArrayRefT.html#a2de2940cfe20254093c99c3d8ff3ac03", null ],
     [ "operator[]", "dd/d95/classArcane_1_1MeshVariableArrayRefT.html#ae38df4255327978d7598eccd2d656e3d", null ],
+    [ "operator[]", "dd/d95/classArcane_1_1MeshVariableArrayRefT.html#ad18bce6563144fd883779249b0e635d5", null ],
+    [ "operator[]", "dd/d95/classArcane_1_1MeshVariableArrayRefT.html#abbfdb8cc0f53d84811f9de549d862016", null ],
     [ "refersTo", "dd/d95/classArcane_1_1MeshVariableArrayRefT.html#adfe0165a7df69f929c0d423aa05ce624", null ],
     [ "swapValues", "dd/d95/classArcane_1_1MeshVariableArrayRefT.html#ab31e0ef4440e6bda9824efb333afc5d8", null ]
 ];

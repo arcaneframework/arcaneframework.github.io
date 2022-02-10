@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.2.0.0</span>
+   &#160;<span id="projectnumber">3.4.5.0</span>
    </div>
   </td>
  </tr>
@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('da/da4/arcanedoc_launcher.html','../..
 <li class="level1"><a href="#autotoc_md33">Choix du gestionnaire d&#39;échange de message</a></li>
 </ul>
 </div>
-<div class="textblock"><p><a class="anchor" id="md__home_grospellierg_arcane_packaging_framework_arcane_doc_common_launcher"></a></p>
+<div class="textblock"><p><a class="anchor" id="md_doc_common_launcher"></a></p>
 <p>Il existe deux mécanismes pour exécuter un code avec Arcane:</p>
 <ol type="1">
 <li>le mécanisme avec boucle en temps qui est le mécanisme classique disponible depuis les premières versions de Arcane.</li>
@@ -152,6 +152,7 @@ Initialisation de MPI</h1>
 <p>L'utilisation de MPI nécessite de faire un appel à la méthode MPI_Init_thread() de la bibliothèque MPI. Si Arcane est compilé avec le support de MPI, alors la détection de MPI et l'appel à MPI_Init_thread() est fait automatiquement par Arcane. Le niveau de support des threads utilisé pour l'appel à MPI_Init_thread() dépend des options telles que le nombre de tâches ou de sous-domaines locaux en mode hybride qu'on souhaite utiliser.</p>
 <p>Il est néanmoins possible pour le code d'initialiser lui même MPI s'il le souhaite. Pour cela, il doit appeler la méthode MPI_Init_thread() avant l'appel à <a class="el" href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#a0947388b5dc8e3f6edb5cde9e5d516be" title="Point d&#39;entrée de l&#39;exécutable dans Arcane.">Arcane::ArcaneLauncher::run()</a>.</p>
 <dl class="section note"><dt>Note</dt><dd>Même si l'exécutable est utilisé en séquentiel (c'est à dire sans passer par une commande telle que <code>mpiexec ...</code>), Arcane tente d'initialiser MPI. Cela est nécessaire car certaines bibliothèques (par exemple les solveurs linéaires) ont besoin que MPI soit initialisé dans tous les cas. Il est possible de modifier ce comportement en spécifiant explicitement le service de parallélisme souhaité (TODO faire doc).</dd></dl>
+<dl class="section warning"><dt>Avertissement</dt><dd>Il faut faire attention à bien utiliser l'exécutable <code>mpiexec</code> qui correspond à la version de MPI avec laquelle Arcane a été compilé sinon on va lancer <em>N</em> fois l'exécution séquentielle.</dd></dl>
 <h1><a class="anchor" id="autotoc_md31"></a>
 Exécution du code</h1>
 <p>La méthode <a class="el" href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#a0947388b5dc8e3f6edb5cde9e5d516be" title="Point d&#39;entrée de l&#39;exécutable dans Arcane.">Arcane::ArcaneLauncher::run()</a> permet de lancer l'exécution du code. Cette méthode possède trois surcharges:</p>
@@ -175,15 +176,15 @@ Options de la ligne de commande</h1>
 <p class="endtd"></p>
 </td></tr>
 <tr>
-<td>S </td><td>ARCANE_NB_THREAD **(obsolète)** </td><td>Int32 </td><td></td><td><p class="starttd">Nombre de sous-domaines en mémoire partagée </p>
+<td>S </td><td>ARCANE_NB_THREAD (Cette variable d'environnement est obsolète) </td><td>Int32 </td><td></td><td><p class="starttd">Nombre de sous-domaines en mémoire partagée </p>
 <p class="endtd"></p>
 </td></tr>
 <tr>
-<td>R </td><td>ARCANE_NB_REPLICATION **(obsolète)** </td><td>Int32 </td><td>1 </td><td><p class="starttd">Nombre de sous-domaines répliqués </p>
+<td>R </td><td>ARCANE_NB_REPLICATION (Cette variable d'environnement est obsolète) </td><td>Int32 </td><td>1 </td><td><p class="starttd">Nombre de sous-domaines répliqués </p>
 <p class="endtd"></p>
 </td></tr>
 <tr>
-<td>P </td><td>ARCANE_NB_SUB_DOMAIN **(obsolète)** </td><td>Int32 </td><td></td><td><p class="starttd">Nombre de processus à utiliser pour les sous-domaines. Cette valeur est normalement calculée automatiquement en fonction des paramètres MPI. Elle n'est utile que si on souhaite utiliser moins de processus pour le partitionnement de domaine que ceux alloués pour le calcul.  </p>
+<td>P </td><td>ARCANE_NB_SUB_DOMAIN (Cette variable d'environnement est obsolète) </td><td>Int32 </td><td></td><td><p class="starttd">Nombre de processus à utiliser pour les sous-domaines. Cette valeur est normalement calculée automatiquement en fonction des paramètres MPI. Elle n'est utile que si on souhaite utiliser moins de processus pour le partitionnement de domaine que ceux alloués pour le calcul.  </p>
 <p class="endtd"></p>
 </td></tr>
 <tr>
@@ -210,6 +211,11 @@ Options de la ligne de commande</h1>
 <td>CaseDatasetFileName </td><td></td><td>String </td><td></td><td><p class="starttd">Nom du fichier du jeu de données. Si non specifié et requis, le dernier argument de la ligne de commande est considéré comme le nom de fichier du jeu données.  </p>
 <p class="endtd"></p>
 </td></tr>
+<tr>
+<td>ThreadBindingStrategy </td><td>ARCANE_THREAD_BINDING_STRATEGY </td><td>String </td><td></td><td><p class="starttd">Stratégie de punaisage des threads. Cela fonctionne uniquement si Arcane est compilé avec la bibliothèque 'hwloc'. Par défaut aucun binding n'est effectué. Le seul mode disponible est 'Simple' qui alloue les threads suivant un mécanisme round-robin.</p>
+<p class="intertd">NOTE: ce mécanisme de punaisage est en cours de développement et il est possible qu'il ne fonctionne pas de manière optimale dans tous les cas  </p>
+<p class="endtd"></p>
+</td></tr>
 </table>
 <h1><a class="anchor" id="autotoc_md33"></a>
 Choix du gestionnaire d'échange de message</h1>
@@ -221,7 +227,7 @@ Choix du gestionnaire d'échange de message</h1>
 <li>SharedMemoryParallelSuperMng</li>
 <li>HybridParallelSuperMng</li>
 </ul>
-<p>En général, Arcane choisit automatiquement le gestionnaire en fonction des paramètres utilisés pour lancer le calcul mais il est possible de spécifier explicitement le gestionnaire à utiliser en positionnant la variable d'environnement <code>ARCANE_PARALLEL_SERVICE</code> ou en spécifiant l'option <code>MessagePassingService</code> dans la ligne de commande avec une des valeurs ci-dessus (sans le suffixe <code>ParallelSuperMng</code>, donc par exemple <code>Mpi</code>, <code>Sequential</code>, <code>MpiSequential</code>, ...).</p>
+<p>En général, Arcane choisit automatiquement le gestionnaire en fonction des paramètres utilisés pour lancer le calcul mais il est possible de spécifier explicitement le gestionnaire à utiliser en positionnant la variable d'environnement (obsolète) <code>ARCANE_PARALLEL_SERVICE</code> ou en spécifiant l'option <code>MessagePassingService</code> dans la ligne de commande avec une des valeurs ci-dessus (sans le suffixe <code>ParallelSuperMng</code>, donc par exemple <code>Mpi</code>, <code>Sequential</code>, <code>MpiSequential</code>, ...).</p>
 <p>Le choix automatique du gestionnaire est fait comme suit:</p>
 <table class="doxtable">
 <tr>
@@ -263,7 +269,7 @@ Choix du gestionnaire d'échange de message</h1>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li>
-    <li class="footer">Généré le Lundi 8 Novembre 2021 16:23:50 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Généré le Jeudi 10 Février 2022 09:30:02 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

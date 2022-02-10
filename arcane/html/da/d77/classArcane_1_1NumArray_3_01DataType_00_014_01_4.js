@@ -2,6 +2,7 @@ var classArcane_1_1NumArray_3_01DataType_00_014_01_4 =
 [
     [ "BaseClass", "da/d77/classArcane_1_1NumArray_3_01DataType_00_014_01_4.html#a6a9cba086e307e45c4c920f47ec5661b", null ],
     [ "NumArray", "da/d77/classArcane_1_1NumArray_3_01DataType_00_014_01_4.html#ac1a9ea2fe6c56e4ae5a6bd0eca7e8b00", null ],
+    [ "NumArray", "da/d77/classArcane_1_1NumArray_3_01DataType_00_014_01_4.html#a7a2f2627afd97ddbe3375f1f3981bed1", null ],
     [ "NumArray", "da/d77/classArcane_1_1NumArray_3_01DataType_00_014_01_4.html#a7c5168be746587f04d43a3928781b728", null ],
     [ "dim1Size", "da/d77/classArcane_1_1NumArray_3_01DataType_00_014_01_4.html#a37891c85138523b5194ed72a2bdeff68", null ],
     [ "dim2Size", "da/d77/classArcane_1_1NumArray_3_01DataType_00_014_01_4.html#a244f5945d38e934f945d64839bb9101a", null ],

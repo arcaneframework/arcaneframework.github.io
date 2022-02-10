@@ -60,7 +60,7 @@ var classArcane_1_1ItemGroupImplPrivate =
     [ "m_parent", "db/d8e/classArcane_1_1ItemGroupImplPrivate.html#a4f5d0cd00f4e7b2c29cf98e179d9a3af", null ],
     [ "m_simd_timestamp", "db/d8e/classArcane_1_1ItemGroupImplPrivate.html#a51e1b1fedd822869bf3ee8e471f1bf08", null ],
     [ "m_sub_groups", "db/d8e/classArcane_1_1ItemGroupImplPrivate.html#afe04b9dbd69f24c304c00703f7b73c24", null ],
-    [ "m_synchronizer", "db/d8e/classArcane_1_1ItemGroupImplPrivate.html#a44c3d4f5bbff490801573f411767491b", null ],
+    [ "m_synchronizer", "db/d8e/classArcane_1_1ItemGroupImplPrivate.html#a3ae4928c8fe0be62ccf90ee7d2e11759", null ],
     [ "m_transaction_mode", "db/d8e/classArcane_1_1ItemGroupImplPrivate.html#a6b456d07aa8491c5bc8377081a30e623", null ],
     [ "m_variable_name", "db/d8e/classArcane_1_1ItemGroupImplPrivate.html#a0e91e046a7e113106605df9569822e5d", null ]
 ];

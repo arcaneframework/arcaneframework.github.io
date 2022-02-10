@@ -1,15 +1,21 @@
 var classArccore_1_1Span =
 [
     [ "BaseClass", "dd/d9f/classArccore_1_1Span.html#a5328878d0cabf1cb4aa5466a6145697d", null ],
+    [ "is_same_const_type", "dd/d9f/classArccore_1_1Span.html#aad515aa6b26855ec6cfd92bbaeb90b33", null ],
+    [ "pointer", "dd/d9f/classArccore_1_1Span.html#aa0b495971d70ad4ba3c8ebd580176bd1", null ],
+    [ "size_type", "dd/d9f/classArccore_1_1Span.html#a60828b36b1e4c207e6d7406b3fd2dfb7", null ],
+    [ "ThatClass", "dd/d9f/classArccore_1_1Span.html#a63bbe1c4483e26296c417393326b8d6c", null ],
     [ "value_type", "dd/d9f/classArccore_1_1Span.html#a031bace981288975e2201ac7a1750779", null ],
     [ "Span", "dd/d9f/classArccore_1_1Span.html#a2c8b0a634f5ad6046e269eae305d7637", null ],
-    [ "Span", "dd/d9f/classArccore_1_1Span.html#a2af72a6ea2600d0b08a7d14b8ae28cf3", null ],
-    [ "Span", "dd/d9f/classArccore_1_1Span.html#a028417572f0c082cb06ad8fe1b28b1ae", null ],
-    [ "Span", "dd/d9f/classArccore_1_1Span.html#af08b4e39c35078a97b1b2e69b1b55b79", null ],
-    [ "Span", "dd/d9f/classArccore_1_1Span.html#a1635ca55477b184b2eb5e9e6da842e2b", null ],
-    [ "Span", "dd/d9f/classArccore_1_1Span.html#ae0b3a169dc1038f7e9dd0689b354b0b0", null ],
-    [ "Span", "dd/d9f/classArccore_1_1Span.html#a46cc69ce180c15b5973f61841c72d012", null ],
-    [ "subspan", "dd/d9f/classArccore_1_1Span.html#a185776ed431516c7f30734557161e843", null ],
-    [ "subView", "dd/d9f/classArccore_1_1Span.html#aced7f0902521262b4eaa59887cec8ef2", null ],
-    [ "subViewInterval", "dd/d9f/classArccore_1_1Span.html#a5bd0e78be095dd435d0d03e933b1621c", null ]
+    [ "Span", "dd/d9f/classArccore_1_1Span.html#a1d2beecae0a3df4a097d2588a8ee8fa6", null ],
+    [ "Span", "dd/d9f/classArccore_1_1Span.html#af4f626769bf5178a56d171400ef1e086", null ],
+    [ "Span", "dd/d9f/classArccore_1_1Span.html#a2b8845d903e7ecc6f4dbd5f9d28e4b49", null ],
+    [ "Span", "dd/d9f/classArccore_1_1Span.html#ac29ee761c3bdb67e8013b0e2aef6d512", null ],
+    [ "Span", "dd/d9f/classArccore_1_1Span.html#a5bcaa49c67d3058c81d2b3f0002fb710", null ],
+    [ "Span", "dd/d9f/classArccore_1_1Span.html#a53d75ab6f076f2c784f6b6a60309a882", null ],
+    [ "Span", "dd/d9f/classArccore_1_1Span.html#a3bb6d87ce7929b19e479537c23b3d218", null ],
+    [ "operator=", "dd/d9f/classArccore_1_1Span.html#af531a9da3479239dea43d62f80e5b9d5", null ],
+    [ "subspan", "dd/d9f/classArccore_1_1Span.html#ac746bf7fe6fef0ee6bf87c4789baaa0b", null ],
+    [ "subView", "dd/d9f/classArccore_1_1Span.html#a70e1da6fe7659c3951c80fe5fb2acc0e", null ],
+    [ "subViewInterval", "dd/d9f/classArccore_1_1Span.html#aca37a9e4efedbc3489f63400994a55fe", null ]
 ];

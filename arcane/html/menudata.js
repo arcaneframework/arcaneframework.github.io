@@ -97,7 +97,10 @@ var menudata={children:[
 {text:"l",url:"namespacemembers_eval.html#index_l"},
 {text:"m",url:"namespacemembers_eval.html#index_m"},
 {text:"p",url:"namespacemembers_eval.html#index_p"},
-{text:"s",url:"namespacemembers_eval.html#index_s"}]}]}]},
+{text:"r",url:"namespacemembers_eval.html#index_r"},
+{text:"s",url:"namespacemembers_eval.html#index_s"},
+{text:"t",url:"namespacemembers_eval.html#index_t"},
+{text:"w",url:"namespacemembers_eval.html#index_w"}]}]}]},
 {text:"Classes",url:"annotated.html",children:[
 {text:"Liste des classes",url:"annotated.html"},
 {text:"Index des classes",url:"classes.html"},

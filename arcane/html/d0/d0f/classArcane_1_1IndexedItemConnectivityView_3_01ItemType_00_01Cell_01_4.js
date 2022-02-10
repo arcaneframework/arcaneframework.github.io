@@ -5,6 +5,6 @@ var classArcane_1_1IndexedItemConnectivityView_3_01ItemType_00_01Cell_01_4 =
     [ "ItemLocalIdViewType", "d0/d0f/classArcane_1_1IndexedItemConnectivityView_3_01ItemType_00_01Cell_01_4.html#a1a3a0d49eca04420d72efa5c02b750ae", null ],
     [ "IndexedItemConnectivityView", "d0/d0f/classArcane_1_1IndexedItemConnectivityView_3_01ItemType_00_01Cell_01_4.html#a5825d6118906d9974986326ea74f6e79", null ],
     [ "IndexedItemConnectivityView", "d0/d0f/classArcane_1_1IndexedItemConnectivityView_3_01ItemType_00_01Cell_01_4.html#a6b4a81d124a276593d7c28b231e70faa", null ],
-    [ "cells", "d0/d0f/classArcane_1_1IndexedItemConnectivityView_3_01ItemType_00_01Cell_01_4.html#a90bc5f9d99646efbb0c7b2b46841b306", null ],
-    [ "nbCell", "d0/d0f/classArcane_1_1IndexedItemConnectivityView_3_01ItemType_00_01Cell_01_4.html#ad1df53f3bbc990a288d2f0f7e5d13b86", null ]
+    [ "cells", "d0/d0f/classArcane_1_1IndexedItemConnectivityView_3_01ItemType_00_01Cell_01_4.html#a6671c81f3a1cf66a854dc7e8867d3f3f", null ],
+    [ "nbCell", "d0/d0f/classArcane_1_1IndexedItemConnectivityView_3_01ItemType_00_01Cell_01_4.html#ac2615e6ba3dc2403953962b6990723a6", null ]
 ];

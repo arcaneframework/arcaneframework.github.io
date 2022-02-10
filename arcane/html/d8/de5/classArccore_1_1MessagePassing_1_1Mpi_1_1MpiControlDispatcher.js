@@ -5,6 +5,7 @@ var classArccore_1_1MessagePassing_1_1Mpi_1_1MpiControlDispatcher =
     [ "barrier", "d8/de5/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiControlDispatcher.html#a7b4c0e83809d62c2324993fe664f9cb3", null ],
     [ "commSplit", "d8/de5/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiControlDispatcher.html#a55f3576b3bccec08ba0c52364362c8bf", null ],
     [ "createRequestListRef", "d8/de5/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiControlDispatcher.html#a195fa1f8dd4701017215c862f4cc20ac", null ],
+    [ "nonBlockingBarrier", "d8/de5/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiControlDispatcher.html#adee45d958d6a49807fa28777ed9fa562", null ],
     [ "probe", "d8/de5/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiControlDispatcher.html#a3e342789cf83b6a7cdaa3fbc5640a0da", null ],
     [ "profiler", "d8/de5/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiControlDispatcher.html#a416e37501461a3f124b95f6bf604de47", null ],
     [ "setProfiler", "d8/de5/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiControlDispatcher.html#af52d862618cde8bec9d6b62933b4a582", null ],

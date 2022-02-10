@@ -8,7 +8,6 @@ var classArcane_1_1Array2VariableT =
     [ "_checkIfSameOnAllReplica", "d8/d38/classArcane_1_1Array2VariableT.html#ad9546ffa6cc311c9159657500b03dd98", null ],
     [ "_internalResize", "d8/d38/classArcane_1_1Array2VariableT.html#afeab6f1b714256c22d45c66348757014", null ],
     [ "allocatedMemory", "d8/d38/classArcane_1_1Array2VariableT.html#ad4fb73102784f2185ef99dd334de5474", null ],
-    [ "ARCCORE_DEPRECATED_2021", "d8/d38/classArcane_1_1Array2VariableT.html#a3f05623d6be900c8bd3f164b8c75c480", null ],
     [ "checkIfSame", "d8/d38/classArcane_1_1Array2VariableT.html#a4729a9d0d124e240741e1e48f73456a8", null ],
     [ "checkIfSync", "d8/d38/classArcane_1_1Array2VariableT.html#a23b1b6782fbd3bfe73c257a24685d20a", null ],
     [ "compact", "d8/d38/classArcane_1_1Array2VariableT.html#a034bfdea8cad779d5e6b8b5f9e917d1d", null ],
@@ -26,6 +25,7 @@ var classArcane_1_1Array2VariableT =
     [ "swapValues", "d8/d38/classArcane_1_1Array2VariableT.html#a707b7a3cfbf391dd02e6d5e9ebf72033", null ],
     [ "synchronize", "d8/d38/classArcane_1_1Array2VariableT.html#a90f0303c7db135f11afcbd49f1d4c522", null ],
     [ "trueData", "d8/d38/classArcane_1_1Array2VariableT.html#a1d761ae71f267ee77c071284cf90f015", null ],
+    [ "value", "d8/d38/classArcane_1_1Array2VariableT.html#a654f640358b2cd70120f9c99ac9a96e0", null ],
     [ "valueView", "d8/d38/classArcane_1_1Array2VariableT.html#a1a9ad5481b0f8a7d1168ec0f6a6545b8", null ],
     [ "valueView", "d8/d38/classArcane_1_1Array2VariableT.html#acabaaab0adcad2551945620b096df4c0", null ]
 ];
