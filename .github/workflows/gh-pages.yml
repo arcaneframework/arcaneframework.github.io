@@ -1,0 +1,96 @@
+name: Documentation generator
+
+on:
+  schedule:
+    - cron: '23 1 * * 1' # Tous les lundis à 01:23 (du matin).
+  # A executer lorsque l'on demande.
+  workflow_dispatch:
+  
+
+env:
+
+  # Arcane
+  ARCANE_BUILD_DIR: '/__w/arcaneframework.github.io/arcaneframework.github.io/arcane_build'
+  ARCANE_INSTALL_DIR: '/__w/arcaneframework.github.io/arcaneframework.github.io/arcane_install'
+  ARCANE_SOURCE_DIR: '/__w/arcaneframework.github.io/arcaneframework.github.io/arcane'
+
+  # ccache
+  CC_KEY_PREFIX: 'doc_gcc-11'
+  CCACHE_COMPRESS: true
+  CCACHE_COMPRESSLEVEL: 6
+  CCACHE_DIR: '/__w/arcaneframework.github.io/arcaneframework.github.io/ccache'
+  CCACHE_MAXSIZE: 5G
+
+  # CMake
+  CM_BUILD_OPTS: "-j2"
+  CM_BUILD_TYPE: Release
+  CM_CCACHE_OPTS: "-DCMAKE_CXX_COMPILER_LAUNCHER=ccache"
+  CM_COMPILER: '-DCMAKE_C_COMPILER=gcc -DCMAKE_CXX_COMPILER=g++'
+
+jobs:
+  arcane_build:
+    name: Build Arcane and documentations
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/arcaneframework/ubuntu-2004_gcc-11:latest
+    strategy:
+      fail-fast: false
+    steps:
+
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          repository: arcaneframework/framework
+          path: ${{ env.ARCANE_SOURCE_DIR }}
+          submodules: true
+
+
+      - name: Get date
+        id: get-date
+        shell: bash
+        run: echo "::set-output name=date::$(/bin/date -u '+%Y%m%d%H%M%S')"
+
+      - name: Get cache for ccache tool
+        uses: actions/cache@v2
+        with:
+          path: ${{env.CCACHE_DIR}}
+          key: ${{ env.CC_KEY_PREFIX }}-arcane-${{ env.CM_BUILD_TYPE }}-${{ steps.get-date.outputs.date }}-${{ github.run_number }}
+          restore-keys: ${{ env.CC_KEY_PREFIX }}-arcane-${{ env.CM_BUILD_TYPE }}-
+
+      - name: Install missing packages
+        shell: 'bash'
+        run: |
+          apt-get update -y
+          apt-get install -y texlive-full doxygen graphviz
+
+      - name: Configure
+        shell: bash
+        run: cmake -S ${{ env.ARCANE_SOURCE_DIR }} -B ${{ env.ARCANE_BUILD_DIR }} -DCMAKE_BUILD_TYPE=${{ env.CM_BUILD_TYPE }} ${{ env.CM_CCACHE_OPTS }} ${{ env.CM_COMPILER }}
+
+      - name: Build doc
+        shell: bash
+        run: |
+          cmake --build ${{ env.ARCANE_BUILD_DIR }} ${{ env.CM_BUILD_OPTS }}
+          cmake --build ${{ env.ARCANE_BUILD_DIR }} ${{ env.CM_BUILD_OPTS }} --target userdoc
+          cmake --build ${{ env.ARCANE_BUILD_DIR }} ${{ env.CM_BUILD_OPTS }} --target devdoc
+
+      - name: Mv doc
+        shell: bash
+        run: |
+          mkdir ${{ env.ARCANE_BUILD_DIR }}/share/docs
+          mv ${{ env.ARCANE_BUILD_DIR }}/share/userdoc ${{ env.ARCANE_BUILD_DIR }}/share/docs
+          mv ${{ env.ARCANE_BUILD_DIR }}/share/devdoc ${{ env.ARCANE_BUILD_DIR }}/share/docs
+          wget -P ${{ env.ARCANE_BUILD_DIR }}/share/docs https://raw.githubusercontent.com/${{ github.repository }}/main/doc_add/index.html
+          wget -P ${{ env.ARCANE_BUILD_DIR }}/share/docs https://raw.githubusercontent.com/${{ github.repository }}/main/doc_add/README.md
+          mkdir ${{ env.ARCANE_BUILD_DIR }}/share/docs/arcane/html/
+          wget -P ${{ env.ARCANE_BUILD_DIR }}/share/docs/arcane/html/ https://raw.githubusercontent.com/${{ github.repository }}/main/doc_add/index.html
+
+      - name: Deploy Docs
+        uses: peaceiris/actions-gh-pages@v3.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: documentation
+          publish_dir: ${{ env.ARCANE_BUILD_DIR }}/share/docs
+          force_orphan: true
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
