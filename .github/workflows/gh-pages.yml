@@ -14,6 +14,8 @@ env:
   ARCANE_INSTALL_DIR: '/__w/arcaneframework.github.io/arcaneframework.github.io/arcane_install'
   ARCANE_SOURCE_DIR: '/__w/arcaneframework.github.io/arcaneframework.github.io/arcane'
 
+  DOC_DIR: '/__w/arcaneframework.github.io/arcaneframework.github.io/doc'
+
   # ccache
   CC_KEY_PREFIX: 'doc_gcc-11'
   CCACHE_COMPRESS: true
@@ -37,13 +39,17 @@ jobs:
       fail-fast: false
     steps:
 
-      - name: Checkout
+      - name: Checkout doc
+        uses: actions/checkout@v3
+        with:
+          path: ${{ env.DOC_DIR }}
+
+      - name: Checkout framework
         uses: actions/checkout@v3
         with:
           repository: arcaneframework/framework
           path: ${{ env.ARCANE_SOURCE_DIR }}
           submodules: true
-
 
       - name: Get date
         id: get-date
@@ -67,28 +73,37 @@ jobs:
         shell: bash
         run: cmake -S ${{ env.ARCANE_SOURCE_DIR }} -B ${{ env.ARCANE_BUILD_DIR }} -DCMAKE_BUILD_TYPE=${{ env.CM_BUILD_TYPE }} ${{ env.CM_CCACHE_OPTS }} ${{ env.CM_COMPILER }}
 
-      - name: Build doc
+      - name: Build
         shell: bash
         run: |
           cmake --build ${{ env.ARCANE_BUILD_DIR }} ${{ env.CM_BUILD_OPTS }}
-          cmake --build ${{ env.ARCANE_BUILD_DIR }} ${{ env.CM_BUILD_OPTS }} --target userdoc
-          cmake --build ${{ env.ARCANE_BUILD_DIR }} ${{ env.CM_BUILD_OPTS }} --target devdoc
 
-      - name: Mv doc
+      - name: Build userdoc
         shell: bash
         run: |
-          mkdir ${{ env.ARCANE_BUILD_DIR }}/share/docs
-          mv ${{ env.ARCANE_BUILD_DIR }}/share/userdoc ${{ env.ARCANE_BUILD_DIR }}/share/docs
-          mv ${{ env.ARCANE_BUILD_DIR }}/share/devdoc ${{ env.ARCANE_BUILD_DIR }}/share/docs
-          wget -P ${{ env.ARCANE_BUILD_DIR }}/share/docs https://raw.githubusercontent.com/${{ github.repository }}/main/doc_add/index.html
-          wget -P ${{ env.ARCANE_BUILD_DIR }}/share/docs https://raw.githubusercontent.com/${{ github.repository }}/main/doc_add/README.md
+          cmake --build ${{ env.ARCANE_BUILD_DIR }} ${{ env.CM_BUILD_OPTS }} --target userdoc
+
+      - name: Build devdoc
+        shell: bash
+        run: |
+          cmake --build ${{ env.ARCANE_BUILD_DIR }} ${{ env.CM_BUILD_OPTS }} --target devdoc
+
+
+      - name: Move userdoc and devdoc
+        shell: bash
+        run: |
+          rm -rf ${{ env.DOC_DIR }}/arcane
+          mkdir -p ${{ env.DOC_DIR }}/arcane
+          mv ${{ env.ARCANE_BUILD_DIR }}/share/userdoc ${{ env.DOC_DIR }}/arcane
+          mv ${{ env.ARCANE_BUILD_DIR }}/share/devdoc ${{ env.DOC_DIR }}/arcane
           
       - name: Deploy Docs
         uses: peaceiris/actions-gh-pages@v3.8.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: documentation
-          publish_dir: ${{ env.ARCANE_BUILD_DIR }}/share/docs
-          force_orphan: true
+          publish_branch: main
+          publish_dir: ${{ env.DOC_DIR }}
+          force_orphan: false
+          exclude_assets: ''
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'

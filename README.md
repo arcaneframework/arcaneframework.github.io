@@ -1,8 +1,13 @@
 # Documentation Arcane
 ## The Arcane Framework for HPC codes
 
-### Accès à la documentation : https://arcaneframework.github.io/index.html
+### [Cliquer ici pour accéder à la documentation Arcane pour les utilisateurs.](https://arcaneframework.github.io/arcane/userdoc/html/index.html)
+### [Cliquer ici pour accéder à la documentation Arcane pour les développeurs.](https://arcaneframework.github.io/arcane/devdoc/html/index.html)
 
-La branche main contient les éléments permettant à Github Actions de compiler la documentation.
+Ce dépôt contient la documentation Arcane.
 
-La documentation est ensuite placée dans la branche "documentation".
+Pour cloner la documentation, prévoir de l'espace disque et faire :
+
+```{.sh}
+git clone https://github.com/arcaneframework/arcaneframework.github.io
+```
