@@ -1,0 +1,966 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de DependencyInjection.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_2729d02b006c8e73197ea03fae7905d4.html">utils</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">DependencyInjection.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* DependencyInjection.h                                       (C) 2000-2021 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Types et fonctions pour gérer le pattern &#39;DependencyInjection&#39;.           */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_UTILS_DEPENDENCYINJECTION_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_UTILS_DEPENDENCYINJECTION_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> * NOTE: API en cours de définition. Ne pas utiliser.</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/Ref.h&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/ExternalRef.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d3c/ReferenceCounterImpl_8h.html">arccore/base/ReferenceCounterImpl.h</a>&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">//TODO Mettre le lancement des exceptions dans le &#39;.cc&#39;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/NotImplementedException.h&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;tuple&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;typeinfo&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">// TODO: Améliorer les messages d&#39;erreurs en cas d&#39;échec de l&#39;injection</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">// TODO: Ajouter méthodes pour afficher le type en cas d&#39;erreur (utiliser A_FUNC_INFO)</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">// TODO: Ajouter mode verbose</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">// TODO: Supporter plusieurs constructeurs et ne pas échouer si le premier</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">// ne fonctionne pas</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">// TODO: Supporter des instances externes (comme par exemple celles créées en C#).</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">namespace </span>Arcane::DependencyInjection</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">class </span>Injector;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">namespace </span>Arcane::DependencyInjection::impl</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">class </span>FactoryInfo;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">class </span>IInstanceFactory;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> InterfaceType&gt;</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d4/d70/classArcane_1_1DependencyInjection_1_1impl_1_1IConcreteFactory.html">   52</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d70/classArcane_1_1DependencyInjection_1_1impl_1_1IConcreteFactory.html">IConcreteFactory</a>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">class </span><a class="code" href="../../d2/d67/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactoryTypeInfo.html">ConcreteFactoryTypeInfo</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;} <span class="comment">// namespace Arcane::DependencyInjection::impl</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<a class="code" href="../../dc/d80/RefDeclarations_8h.html#ac552d5509ace2b0d19f592bffdf2a8c7">ARCCORE_DECLARE_REFERENCE_COUNTED_CLASS</a>(<a class="code" href="../../d3/d41/classArcane_1_1DependencyInjection_1_1impl_1_1IInstanceFactory.html">Arcane::DependencyInjection::impl::IInstanceFactory</a>)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">namespace </span>Arcane::DependencyInjection</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;{</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="../../de/d44/classArcane_1_1DependencyInjection_1_1IInjectedInstance.html">   67</a></span>&#160;<span class="keyword">class </span>ARCANE_UTILS_EXPORT <a class="code" href="../../de/d44/classArcane_1_1DependencyInjection_1_1IInjectedInstance.html">IInjectedInstance</a></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;{</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../de/d44/classArcane_1_1DependencyInjection_1_1IInjectedInstance.html">IInjectedInstance</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> hasName(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; str) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> hasTypeInfo(<span class="keyword">const</span> std::type_info&amp; tinfo) <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;};</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d5/dbb/classArcane_1_1DependencyInjection_1_1ProviderProperty.html">   83</a></span>&#160;<span class="keyword">class </span>ARCANE_UTILS_EXPORT <a class="code" href="../../d5/dbb/classArcane_1_1DependencyInjection_1_1ProviderProperty.html">ProviderProperty</a></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;{</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <a class="code" href="../../d5/dbb/classArcane_1_1DependencyInjection_1_1ProviderProperty.html">ProviderProperty</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  : m_name(name)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  {}</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">char</span>* name()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_name; }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">char</span>* m_name;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;};</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;} <span class="comment">// namespace Arcane::DependencyInjection</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword">namespace </span>Arcane::DependencyInjection::impl</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;{</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="../../d0/dcc/classArcane_1_1DependencyInjection_1_1impl_1_1TypeInfo.html">  111</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d0/dcc/classArcane_1_1DependencyInjection_1_1impl_1_1TypeInfo.html">TypeInfo</a></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;{</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <a class="code" href="../../d0/dcc/classArcane_1_1DependencyInjection_1_1impl_1_1TypeInfo.html">TypeInfo</a>(<span class="keyword">const</span> <a class="code" href="../../db/d6c/classArccore_1_1TraceInfo.html">TraceInfo</a>&amp; trace_info, <span class="keyword">const</span> std::type_info&amp; type_info)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  : m_trace_info(trace_info)</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  , m_type_info(type_info)</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  {}</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Type&gt; <span class="keyword">static</span> <a class="code" href="../../d0/dcc/classArcane_1_1DependencyInjection_1_1impl_1_1TypeInfo.html">TypeInfo</a> create()</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  {</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d0/dcc/classArcane_1_1DependencyInjection_1_1impl_1_1TypeInfo.html">TypeInfo</a>(A_FUNCINFO, <span class="keyword">typeid</span>(<a class="code" href="../../d4/dc0/rapidjson_8h.html#a1d1cfd8ffb84e947f82999c682b666a7">Type</a>));</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  }</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="keyword">const</span> <a class="code" href="../../db/d6c/classArccore_1_1TraceInfo.html">TraceInfo</a>&amp; traceInfo()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_trace_info; }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="keyword">const</span> std::type_info&amp; stdTypeInfo()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_type_info; }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <a class="code" href="../../db/d6c/classArccore_1_1TraceInfo.html">TraceInfo</a> m_trace_info;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <span class="keyword">const</span> std::type_info&amp; m_type_info;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;};</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="../../d2/d67/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactoryTypeInfo.html">  141</a></span>&#160;<span class="keyword">class </span>ARCANE_UTILS_EXPORT <a class="code" href="../../d2/d67/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactoryTypeInfo.html">ConcreteFactoryTypeInfo</a></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;{</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  <a class="code" href="../../d2/d67/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactoryTypeInfo.html">ConcreteFactoryTypeInfo</a>(<a class="code" href="../../d0/dcc/classArcane_1_1DependencyInjection_1_1impl_1_1TypeInfo.html">TypeInfo</a>&amp;&amp; a, <a class="code" href="../../d0/dcc/classArcane_1_1DependencyInjection_1_1impl_1_1TypeInfo.html">TypeInfo</a>&amp;&amp; b, <a class="code" href="../../d0/dcc/classArcane_1_1DependencyInjection_1_1impl_1_1TypeInfo.html">TypeInfo</a>&amp;&amp; c)</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  : m_interface_info(a)</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  , m_concrete_info(b)</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  , m_constructor_info(c)</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  {}</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> InterfaceType, <span class="keyword">typename</span> ConcreteType, <span class="keyword">typename</span> ConstructorType&gt;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d2/d67/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactoryTypeInfo.html">ConcreteFactoryTypeInfo</a> create()</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  {</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d2/d67/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactoryTypeInfo.html">ConcreteFactoryTypeInfo</a>(TypeInfo::create&lt;InterfaceType&gt;(),</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                                   TypeInfo::create&lt;ConcreteType&gt;(),</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                                   TypeInfo::create&lt;ConstructorType&gt;());</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  }</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="keyword">const</span> <a class="code" href="../../d0/dcc/classArcane_1_1DependencyInjection_1_1impl_1_1TypeInfo.html">TypeInfo</a>&amp; interfaceTypeInfo()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_interface_info; }</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  <span class="keyword">const</span> <a class="code" href="../../d0/dcc/classArcane_1_1DependencyInjection_1_1impl_1_1TypeInfo.html">TypeInfo</a>&amp; concreteTypeInfo()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_concrete_info; }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  <span class="keyword">const</span> <a class="code" href="../../d0/dcc/classArcane_1_1DependencyInjection_1_1impl_1_1TypeInfo.html">TypeInfo</a>&amp; constructorTypeInfo()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_constructor_info; }</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  <a class="code" href="../../d0/dcc/classArcane_1_1DependencyInjection_1_1impl_1_1TypeInfo.html">TypeInfo</a> m_interface_info;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  <a class="code" href="../../d0/dcc/classArcane_1_1DependencyInjection_1_1impl_1_1TypeInfo.html">TypeInfo</a> m_concrete_info;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <a class="code" href="../../d0/dcc/classArcane_1_1DependencyInjection_1_1impl_1_1TypeInfo.html">TypeInfo</a> m_constructor_info;</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;};</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> InterfaceType&gt;</div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="../../d8/dbd/classArcane_1_1DependencyInjection_1_1impl_1_1IInjectedRefInstanceT.html">  175</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d8/dbd/classArcane_1_1DependencyInjection_1_1impl_1_1IInjectedRefInstanceT.html">IInjectedRefInstanceT</a></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../de/d44/classArcane_1_1DependencyInjection_1_1IInjectedInstance.html">IInjectedInstance</a></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;{</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InterfaceType&gt;</a> instance() = 0;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;};</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> InterfaceType&gt;</div>
+<div class="line"><a name="l00191"></a><span class="lineno"><a class="line" href="../../da/dbb/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedRefInstance.html">  191</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../da/dbb/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedRefInstance.html">InjectedRefInstance</a></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d8/dbd/classArcane_1_1DependencyInjection_1_1impl_1_1IInjectedRefInstanceT.html">IInjectedRefInstanceT</a>&lt;InterfaceType&gt;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;{</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">InstanceType</a> = <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InterfaceType&gt;</a>;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  <a class="code" href="../../da/dbb/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedRefInstance.html">InjectedRefInstance</a>(<a class="code" href="../../de/d9f/classArccore_1_1Ref.html">InstanceType</a> t_instance, <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; t_name)</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  : m_instance(t_instance)</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  , m_name(t_name)</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  {}</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InterfaceType&gt;</a> instance()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> m_instance; }</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  <span class="keywordtype">bool</span> hasName(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; str)<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_name == str; }</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  <span class="keywordtype">bool</span> hasTypeInfo(<span class="keyword">const</span> std::type_info&amp; tinfo)<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <span class="keyword">typeid</span>(<a class="code" href="../../de/d9f/classArccore_1_1Ref.html">InstanceType</a>) == tinfo; }</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">InstanceType</a> m_instance;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> m_name;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;};</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Type&gt;</div>
+<div class="line"><a name="l00220"></a><span class="lineno"><a class="line" href="../../df/d60/classArcane_1_1DependencyInjection_1_1impl_1_1IInjectedValueInstance.html">  220</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/d60/classArcane_1_1DependencyInjection_1_1impl_1_1IInjectedValueInstance.html">IInjectedValueInstance</a></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../de/d44/classArcane_1_1DependencyInjection_1_1IInjectedInstance.html">IInjectedInstance</a></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;{</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d4/dc0/rapidjson_8h.html#a1d1cfd8ffb84e947f82999c682b666a7">Type</a> instance() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;};</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Type&gt;</div>
+<div class="line"><a name="l00236"></a><span class="lineno"><a class="line" href="../../dc/d3e/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedValueInstance.html">  236</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dc/d3e/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedValueInstance.html">InjectedValueInstance</a></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../df/d60/classArcane_1_1DependencyInjection_1_1impl_1_1IInjectedValueInstance.html">IInjectedValueInstance</a>&lt;Type&gt;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;{</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d4/dc0/rapidjson_8h.html#a1d1cfd8ffb84e947f82999c682b666a7">InstanceType</a> = <a class="code" href="../../d4/dc0/rapidjson_8h.html#a1d1cfd8ffb84e947f82999c682b666a7">Type</a>;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; </div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <a class="code" href="../../dc/d3e/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedValueInstance.html">InjectedValueInstance</a>(<a class="code" href="../../d4/dc0/rapidjson_8h.html#a1d1cfd8ffb84e947f82999c682b666a7">Type</a> t_instance, <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; t_name)</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  : m_instance(t_instance)</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  , m_name(t_name)</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  {}</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  <a class="code" href="../../d4/dc0/rapidjson_8h.html#a1d1cfd8ffb84e947f82999c682b666a7">Type</a> instance()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_instance; }</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  <span class="keywordtype">bool</span> hasName(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; str)<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_name == str; }</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  <span class="keywordtype">bool</span> hasTypeInfo(<span class="keyword">const</span> std::type_info&amp; tinfo)<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> <span class="keyword">typeid</span>(<a class="code" href="../../d4/dc0/rapidjson_8h.html#a1d1cfd8ffb84e947f82999c682b666a7">InstanceType</a>) == tinfo; }</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  <a class="code" href="../../d4/dc0/rapidjson_8h.html#a1d1cfd8ffb84e947f82999c682b666a7">Type</a> m_instance;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> m_name;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;};</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00266"></a><span class="lineno"><a class="line" href="../../db/d1e/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedInstanceRef.html">  266</a></span>&#160;<span class="keyword">class </span>ARCANE_UTILS_EXPORT <a class="code" href="../../db/d1e/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedInstanceRef.html">InjectedInstanceRef</a></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;{</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;IInjectedInstance&gt;</a> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">RefType</a>;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; </div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  <a class="code" href="../../db/d1e/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedInstanceRef.html">InjectedInstanceRef</a>(<span class="keyword">const</span> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">RefType</a>&amp; r)</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  : m_instance(r)</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  {}</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; </div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  <a class="code" href="../../db/d1e/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedInstanceRef.html">InjectedInstanceRef</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../db/d1e/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedInstanceRef.html">InjectedInstanceRef</a> createRef(<a class="code" href="../../de/d44/classArcane_1_1DependencyInjection_1_1IInjectedInstance.html">IInjectedInstance</a>* p)</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  {</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../db/d1e/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedInstanceRef.html">InjectedInstanceRef</a>(RefType::create(p));</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  }</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../db/d1e/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedInstanceRef.html">InjectedInstanceRef</a> createRefNoDestroy(<a class="code" href="../../de/d44/classArcane_1_1DependencyInjection_1_1IInjectedInstance.html">IInjectedInstance</a>* p)</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  {</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../db/d1e/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedInstanceRef.html">InjectedInstanceRef</a>(RefType::_createNoDestroy(p));</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  }</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../db/d1e/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedInstanceRef.html">InjectedInstanceRef</a> createWithHandle(<a class="code" href="../../de/d44/classArcane_1_1DependencyInjection_1_1IInjectedInstance.html">IInjectedInstance</a>* p, <a class="code" href="../../d3/d47/classArccore_1_1Internal_1_1ExternalRef.html">Internal::ExternalRef</a> handle)</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  {</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../db/d1e/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedInstanceRef.html">InjectedInstanceRef</a>(RefType::createWithHandle(p, handle));</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  }</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; </div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  <a class="code" href="../../de/d44/classArcane_1_1DependencyInjection_1_1IInjectedInstance.html">IInjectedInstance</a>* get()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_instance.get(); }</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  <span class="keywordtype">void</span> reset() { m_instance.reset(); }</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">RefType</a> m_instance;</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;};</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; </div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="../../d3/d41/classArcane_1_1DependencyInjection_1_1impl_1_1IInstanceFactory.html">  306</a></span>&#160;<span class="keyword">class </span>ARCANE_UTILS_EXPORT <a class="code" href="../../d3/d41/classArcane_1_1DependencyInjection_1_1impl_1_1IInstanceFactory.html">IInstanceFactory</a></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;{</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  <a class="code" href="../../dc/d80/RefDeclarations_8h.html#ac3ef9e0e97ab0b1706b56e8285b9b1be">ARCCORE_DECLARE_REFERENCE_COUNTED_INCLASS_METHODS</a>();</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; </div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../d3/d41/classArcane_1_1DependencyInjection_1_1impl_1_1IInstanceFactory.html">IInstanceFactory</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../db/d1e/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedInstanceRef.html">InjectedInstanceRef</a> createGenericReference(<a class="code" href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html">Injector</a>&amp; injector, <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; name) = 0;</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">FactoryInfo</a>* factoryInfo() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d2/d67/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactoryTypeInfo.html">ConcreteFactoryTypeInfo</a> concreteFactoryInfo() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160; </div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  <span class="keyword">virtual</span> Int32 nbConstructorArg() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;};</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00331"></a><span class="lineno"><a class="line" href="../../d9/d87/classArcane_1_1DependencyInjection_1_1impl_1_1AbstractInstanceFactory.html">  331</a></span>&#160;<span class="keyword">class </span>ARCANE_UTILS_EXPORT <a class="code" href="../../d9/d87/classArcane_1_1DependencyInjection_1_1impl_1_1AbstractInstanceFactory.html">AbstractInstanceFactory</a></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../db/d48/classArccore_1_1ReferenceCounterImpl.html">ReferenceCounterImpl</a></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;, <span class="keyword">public</span> <a class="code" href="../../d3/d41/classArcane_1_1DependencyInjection_1_1impl_1_1IInstanceFactory.html">IInstanceFactory</a></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;{</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  <a class="code" href="../../dc/d3c/ReferenceCounterImpl_8h.html#a88a0944e03e68e129032863e462b6b98">ARCCORE_DEFINE_REFERENCE_COUNTED_INCLASS_METHODS</a>();</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;};</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160; </div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; </div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> InterfaceType&gt;</div>
+<div class="line"><a name="l00342"></a><span class="lineno"><a class="line" href="../../db/d0c/classArcane_1_1DependencyInjection_1_1impl_1_1InstanceFactory.html">  342</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../db/d0c/classArcane_1_1DependencyInjection_1_1impl_1_1InstanceFactory.html">InstanceFactory</a></div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d9/d87/classArcane_1_1DependencyInjection_1_1impl_1_1AbstractInstanceFactory.html">AbstractInstanceFactory</a></div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;{</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;  <a class="code" href="../../db/d0c/classArcane_1_1DependencyInjection_1_1impl_1_1InstanceFactory.html">InstanceFactory</a>(<a class="code" href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">FactoryInfo</a>* si, <a class="code" href="../../d4/d70/classArcane_1_1DependencyInjection_1_1impl_1_1IConcreteFactory.html">IConcreteFactory&lt;InterfaceType&gt;</a>* sub_factory)</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;  : m_factory_info(si)</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;  , m_sub_factory(sub_factory)</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;  {</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;  }</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; </div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;  ~<a class="code" href="../../db/d0c/classArcane_1_1DependencyInjection_1_1impl_1_1InstanceFactory.html">InstanceFactory</a>()<span class="keyword"> override</span></div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;    <span class="keyword">delete</span> m_sub_factory;</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;  }</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160; </div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;  <a class="code" href="../../db/d1e/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedInstanceRef.html">InjectedInstanceRef</a> createGenericReference(<a class="code" href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html">Injector</a>&amp; injector, <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; name)<span class="keyword"> override</span></div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keywordflow">return</span> _create(_createReference(injector), name);</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;  }</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160; </div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InterfaceType&gt;</a> createReference(<a class="code" href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html">Injector</a>&amp; injector)</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;  {</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="keywordflow">return</span> _createReference(injector);</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;  }</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;  <span class="keyword">const</span> <a class="code" href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">FactoryInfo</a>* factoryInfo()<span class="keyword"> const override</span></div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    <span class="keywordflow">return</span> m_factory_info;</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;  }</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160; </div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;  <a class="code" href="../../d2/d67/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactoryTypeInfo.html">ConcreteFactoryTypeInfo</a> concreteFactoryInfo()<span class="keyword"> const override</span></div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="keywordflow">return</span> m_sub_factory-&gt;concreteFactoryInfo();</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;  }</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160; </div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;  Int32 nbConstructorArg()<span class="keyword"> const override</span></div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    <span class="keywordflow">return</span> m_sub_factory-&gt;nbConstructorArg();</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;  }</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160; </div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;  <a class="code" href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">FactoryInfo</a>* m_factory_info;</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;  <a class="code" href="../../d4/d70/classArcane_1_1DependencyInjection_1_1impl_1_1IConcreteFactory.html">IConcreteFactory&lt;InterfaceType&gt;</a>* m_sub_factory;</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160; </div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InterfaceType&gt;</a> _createReference(<a class="code" href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html">Injector</a>&amp; injector)</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;  {</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    <span class="keywordflow">return</span> m_sub_factory-&gt;<a class="code" href="../../d4/d70/classArcane_1_1DependencyInjection_1_1impl_1_1IConcreteFactory.html#ab697475a006c3b68bc005d998fa39569">createReference</a>(injector);</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;  }</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; </div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;  <a class="code" href="../../db/d1e/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedInstanceRef.html">InjectedInstanceRef</a> _create(<a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InterfaceType&gt;</a> it, <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; name)</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;  {</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;    <a class="code" href="../../de/d44/classArcane_1_1DependencyInjection_1_1IInjectedInstance.html">IInjectedInstance</a>* x = (!it) ? <span class="keyword">nullptr</span> : <span class="keyword">new</span> <a class="code" href="../../da/dbb/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedRefInstance.html">InjectedRefInstance&lt;InterfaceType&gt;</a>(it, name);</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;    <span class="keywordflow">return</span> InjectedInstanceRef::createRef(x);</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;  }</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;};</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160; </div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; </div>
+<div class="line"><a name="l00402"></a><span class="lineno"><a class="line" href="../../dd/ddc/classArcane_1_1DependencyInjection_1_1impl_1_1IConcreteFactoryBase.html">  402</a></span>&#160;<span class="keyword">class </span>ARCANE_UTILS_EXPORT <a class="code" href="../../dd/ddc/classArcane_1_1DependencyInjection_1_1impl_1_1IConcreteFactoryBase.html">IConcreteFactoryBase</a></div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;{</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../dd/ddc/classArcane_1_1DependencyInjection_1_1impl_1_1IConcreteFactoryBase.html">IConcreteFactoryBase</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160; </div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d2/d67/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactoryTypeInfo.html">ConcreteFactoryTypeInfo</a> concreteFactoryInfo() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;  <span class="keyword">virtual</span> Int32 nbConstructorArg() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;};</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160; </div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> InterfaceType&gt;</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d70/classArcane_1_1DependencyInjection_1_1impl_1_1IConcreteFactory.html">IConcreteFactory</a></div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../dd/ddc/classArcane_1_1DependencyInjection_1_1impl_1_1IConcreteFactoryBase.html">IConcreteFactoryBase</a></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;{</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../d4/d70/classArcane_1_1DependencyInjection_1_1impl_1_1IConcreteFactory.html">IConcreteFactory</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160; </div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InterfaceType&gt;</a> <a class="code" href="../../d4/d70/classArcane_1_1DependencyInjection_1_1impl_1_1IConcreteFactory.html#ab697475a006c3b68bc005d998fa39569">createReference</a>(<a class="code" href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html">Injector</a>&amp;) = 0;</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;};</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160; </div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00437"></a><span class="lineno"><a class="line" href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">  437</a></span>&#160;<span class="keyword">class </span>ARCANE_UTILS_EXPORT <a class="code" href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">FactoryInfo</a></div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;{</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html">Arcane::DependencyInjection::Injector</a>;</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;  <span class="keyword">class </span><a class="code" href="../../d4/deb/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo_1_1Impl.html">Impl</a>;</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160; </div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;  <a class="code" href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">FactoryInfo</a>(<span class="keyword">const</span> <a class="code" href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">FactoryInfo</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;  <a class="code" href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">FactoryInfo</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">FactoryInfo</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;  ~<a class="code" href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">FactoryInfo</a>();</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160; </div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;  <a class="code" href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">FactoryInfo</a>(<span class="keyword">const</span> <a class="code" href="../../d5/dbb/classArcane_1_1DependencyInjection_1_1ProviderProperty.html">ProviderProperty</a>&amp; property);</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160; </div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">FactoryInfo</a>* create(<span class="keyword">const</span> <a class="code" href="../../d5/dbb/classArcane_1_1DependencyInjection_1_1ProviderProperty.html">ProviderProperty</a>&amp; property, <span class="keyword">const</span> <span class="keywordtype">char</span>* file_name, <span class="keywordtype">int</span> line_number)</div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160;  {</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;    ARCANE_UNUSED(file_name);</div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;    ARCANE_UNUSED(line_number);</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">FactoryInfo</a>(property);</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;  }</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;  <span class="keywordtype">void</span> addFactory(<a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;IInstanceFactory&gt;</a> f);</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;  <span class="keywordtype">bool</span> hasName(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; str) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160; </div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;  <a class="code" href="../../d4/deb/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo_1_1Impl.html">Impl</a>* m_p = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160;};</div>
+<div class="line"><a name="l00463"></a><span class="lineno">  463</span>&#160; </div>
+<div class="line"><a name="l00464"></a><span class="lineno">  464</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00465"></a><span class="lineno">  465</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160; </div>
+<div class="line"><a name="l00467"></a><span class="lineno"><a class="line" href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html">  467</a></span>&#160;<span class="keyword">class </span>ARCANE_UTILS_EXPORT <a class="code" href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html">GlobalRegisterer</a></div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;{</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">FactoryInfo</a>* (*FactoryCreateFunc)(<span class="keyword">const</span> <a class="code" href="../../d5/dbb/classArcane_1_1DependencyInjection_1_1ProviderProperty.html">ProviderProperty</a>&amp; property);</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160; </div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;  <a class="code" href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html">GlobalRegisterer</a>(FactoryCreateFunc func, <span class="keyword">const</span> <a class="code" href="../../d5/dbb/classArcane_1_1DependencyInjection_1_1ProviderProperty.html">ProviderProperty</a>&amp; property) ARCANE_NOEXCEPT;</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160; </div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;  FactoryCreateFunc infoCreatorWithPropertyFunction() { <span class="keywordflow">return</span> m_factory_create_func; }</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160; </div>
+<div class="line"><a name="l00484"></a><span class="lineno"><a class="line" href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html#afa3fa74fbfc00809acf1aa07c8ad1600">  484</a></span>&#160;  <span class="keyword">const</span> <span class="keywordtype">char</span>* <a class="code" href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html#afa3fa74fbfc00809acf1aa07c8ad1600">name</a>() { <span class="keywordflow">return</span> m_name; }</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160; </div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160;  <span class="keyword">const</span> <a class="code" href="../../d5/dbb/classArcane_1_1DependencyInjection_1_1ProviderProperty.html">ProviderProperty</a>&amp; property()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_factory_property; }</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160; </div>
+<div class="line"><a name="l00489"></a><span class="lineno"><a class="line" href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html#a80a2a42a785b5f7a625740fca9449543">  489</a></span>&#160;  <a class="code" href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html">GlobalRegisterer</a>* <a class="code" href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html#a80a2a42a785b5f7a625740fca9449543">previousService</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_previous; }</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160; </div>
+<div class="line"><a name="l00492"></a><span class="lineno"><a class="line" href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html#af9fc3362f30f34f603f221b8946d773c">  492</a></span>&#160;  <a class="code" href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html">GlobalRegisterer</a>* <a class="code" href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html#af9fc3362f30f34f603f221b8946d773c">nextService</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_next; }</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160; </div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html">GlobalRegisterer</a>* firstService();</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160; </div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;  <span class="keyword">static</span> Integer nbService();</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160; </div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;  FactoryCreateFunc m_factory_create_func = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">char</span>* m_name = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;  <a class="code" href="../../d5/dbb/classArcane_1_1DependencyInjection_1_1ProviderProperty.html">ProviderProperty</a> m_factory_property;</div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;  <a class="code" href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html">GlobalRegisterer</a>* m_previous = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;  <a class="code" href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html">GlobalRegisterer</a>* m_next = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160; </div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;  <span class="keywordtype">void</span> _init();</div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160; </div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160; </div>
+<div class="line"><a name="l00513"></a><span class="lineno"><a class="line" href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html#a08f776ae44751c33745e8948fe66f769">  513</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html#a08f776ae44751c33745e8948fe66f769">_setPreviousService</a>(<a class="code" href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html">GlobalRegisterer</a>* s) { m_previous = s; }</div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160; </div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160; </div>
+<div class="line"><a name="l00517"></a><span class="lineno"><a class="line" href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html#ad250acebb526889247658b80cb3f8127">  517</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html#ad250acebb526889247658b80cb3f8127">_setNextService</a>(<a class="code" href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html">GlobalRegisterer</a>* s) { m_next = s; }</div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;};</div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160; </div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160; </div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;} <span class="comment">// namespace Arcane::DependencyInjection::impl</span></div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160; </div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;<span class="keyword">namespace </span>Arcane::DependencyInjection</div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;{</div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160; </div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00533"></a><span class="lineno"><a class="line" href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html">  533</a></span>&#160;<span class="keyword">class </span>ARCANE_UTILS_EXPORT <a class="code" href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html">Injector</a></div>
+<div class="line"><a name="l00534"></a><span class="lineno">  534</span>&#160;{</div>
+<div class="line"><a name="l00535"></a><span class="lineno">  535</span>&#160;  <span class="keyword">class </span><a class="code" href="../../da/d4a/classArcane_1_1DependencyInjection_1_1Injector_1_1Impl.html">Impl</a>;</div>
+<div class="line"><a name="l00536"></a><span class="lineno">  536</span>&#160; </div>
+<div class="line"><a name="l00537"></a><span class="lineno">  537</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Type&gt;</div>
+<div class="line"><a name="l00538"></a><span class="lineno"><a class="line" href="../../d1/d43/classArcane_1_1DependencyInjection_1_1Injector_1_1InjectorHelper.html">  538</a></span>&#160;  <span class="keyword">class </span><a class="code" href="../../d1/d43/classArcane_1_1DependencyInjection_1_1Injector_1_1InjectorHelper.html">InjectorHelper</a></div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;  {</div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;    <span class="keyword">static</span> <a class="code" href="../../de/d44/classArcane_1_1DependencyInjection_1_1IInjectedInstance.html">IInjectedInstance</a>* bind(<span class="keyword">const</span> <a class="code" href="../../d4/dc0/rapidjson_8h.html#a1d1cfd8ffb84e947f82999c682b666a7">Type</a>&amp; t, <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; name)</div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;    {</div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="../../dc/d3e/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedValueInstance.html">impl::InjectedValueInstance&lt;Type&gt;</a>(t, name);</div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;    }</div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;    <span class="keyword">static</span> <a class="code" href="../../d4/dc0/rapidjson_8h.html#a1d1cfd8ffb84e947f82999c682b666a7">Type</a> get(<a class="code" href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html">Injector</a>&amp; i, <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; name)</div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;    {</div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;      <span class="keywordflow">return</span> i._getValue&lt;<a class="code" href="../../d4/dc0/rapidjson_8h.html#a1d1cfd8ffb84e947f82999c682b666a7">Type</a>&gt;(name);</div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;    }</div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;  };</div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160; </div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">class</span> Po<span class="keywordtype">int</span>erType&gt;</div>
+<div class="line"><a name="l00553"></a><span class="lineno"><a class="line" href="../../dd/dd7/classArcane_1_1DependencyInjection_1_1Injector_1_1InjectorHelper_3_01Ref_3_01PointerType_01_4_01_4.html">  553</a></span>&#160;  <span class="keyword">class </span><a class="code" href="../../d1/d43/classArcane_1_1DependencyInjection_1_1Injector_1_1InjectorHelper.html">InjectorHelper</a>&lt;<a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref</a>&lt;PointerType&gt;&gt;</div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;  {</div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;    <span class="keyword">using</span> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">ThatType</a> = <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;PointerType&gt;</a>;</div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160; </div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;    <span class="keyword">static</span> <a class="code" href="../../de/d44/classArcane_1_1DependencyInjection_1_1IInjectedInstance.html">IInjectedInstance</a>* bind(<span class="keyword">const</span> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">ThatType</a>&amp; t, <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; name)</div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;    {</div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="../../da/dbb/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedRefInstance.html">impl::InjectedRefInstance&lt;PointerType&gt;</a>(t, name);</div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;    }</div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;    <span class="keyword">static</span> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">ThatType</a> get(<a class="code" href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html">Injector</a>&amp; i, <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; name)</div>
+<div class="line"><a name="l00564"></a><span class="lineno">  564</span>&#160;    {</div>
+<div class="line"><a name="l00565"></a><span class="lineno">  565</span>&#160;      <span class="keywordflow">return</span> i._getRef&lt;PointerType&gt;(name);</div>
+<div class="line"><a name="l00566"></a><span class="lineno">  566</span>&#160;    }</div>
+<div class="line"><a name="l00567"></a><span class="lineno">  567</span>&#160;  };</div>
+<div class="line"><a name="l00571"></a><span class="lineno"><a class="line" href="../../dd/d59/classArcane_1_1DependencyInjection_1_1Injector_1_1IFactoryVisitorFunctor.html">  571</a></span>&#160;  <span class="keyword">class </span><a class="code" href="../../dd/d59/classArcane_1_1DependencyInjection_1_1Injector_1_1IFactoryVisitorFunctor.html">IFactoryVisitorFunctor</a></div>
+<div class="line"><a name="l00572"></a><span class="lineno">  572</span>&#160;  {</div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="../../dd/d59/classArcane_1_1DependencyInjection_1_1Injector_1_1IFactoryVisitorFunctor.html">IFactoryVisitorFunctor</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> execute(<a class="code" href="../../d3/d41/classArcane_1_1DependencyInjection_1_1impl_1_1IInstanceFactory.html">impl::IInstanceFactory</a>* f) = 0;</div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;  };</div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160; </div>
+<div class="line"><a name="l00578"></a><span class="lineno"><a class="line" href="../../d4/d2f/classArcane_1_1DependencyInjection_1_1Injector_1_1FactoryVisitorFunctor.html">  578</a></span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Lambda&gt; <span class="keyword">class </span><a class="code" href="../../d4/d2f/classArcane_1_1DependencyInjection_1_1Injector_1_1FactoryVisitorFunctor.html">FactoryVisitorFunctor</a></div>
+<div class="line"><a name="l00579"></a><span class="lineno">  579</span>&#160;  : <span class="keyword">public</span> <a class="code" href="../../dd/d59/classArcane_1_1DependencyInjection_1_1Injector_1_1IFactoryVisitorFunctor.html">IFactoryVisitorFunctor</a></div>
+<div class="line"><a name="l00580"></a><span class="lineno">  580</span>&#160;  {</div>
+<div class="line"><a name="l00581"></a><span class="lineno">  581</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00582"></a><span class="lineno">  582</span>&#160;    <a class="code" href="../../d4/d2f/classArcane_1_1DependencyInjection_1_1Injector_1_1FactoryVisitorFunctor.html">FactoryVisitorFunctor</a>(Lambda&amp; lambda)</div>
+<div class="line"><a name="l00583"></a><span class="lineno">  583</span>&#160;    : m_lambda(lambda)</div>
+<div class="line"><a name="l00584"></a><span class="lineno">  584</span>&#160;    {}</div>
+<div class="line"><a name="l00585"></a><span class="lineno">  585</span>&#160; </div>
+<div class="line"><a name="l00586"></a><span class="lineno">  586</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> execute(<a class="code" href="../../d3/d41/classArcane_1_1DependencyInjection_1_1impl_1_1IInstanceFactory.html">impl::IInstanceFactory</a>* f) { <span class="keywordflow">return</span> m_lambda(f); }</div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160; </div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;    Lambda&amp; m_lambda;</div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;  };</div>
+<div class="line"><a name="l00592"></a><span class="lineno">  592</span>&#160; </div>
+<div class="line"><a name="l00596"></a><span class="lineno"><a class="line" href="../../d0/d6f/classArcane_1_1DependencyInjection_1_1Injector_1_1IInstanceVisitorFunctor.html">  596</a></span>&#160;  <span class="keyword">class </span><a class="code" href="../../d0/d6f/classArcane_1_1DependencyInjection_1_1Injector_1_1IInstanceVisitorFunctor.html">IInstanceVisitorFunctor</a></div>
+<div class="line"><a name="l00597"></a><span class="lineno">  597</span>&#160;  {</div>
+<div class="line"><a name="l00598"></a><span class="lineno">  598</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00599"></a><span class="lineno">  599</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="../../d0/d6f/classArcane_1_1DependencyInjection_1_1Injector_1_1IInstanceVisitorFunctor.html">IInstanceVisitorFunctor</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00600"></a><span class="lineno">  600</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> execute(<a class="code" href="../../de/d44/classArcane_1_1DependencyInjection_1_1IInjectedInstance.html">IInjectedInstance</a>* v) = 0;</div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;  };</div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160; </div>
+<div class="line"><a name="l00603"></a><span class="lineno"><a class="line" href="../../dc/dc4/classArcane_1_1DependencyInjection_1_1Injector_1_1InstanceVisitorFunctor.html">  603</a></span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Lambda&gt; <span class="keyword">class </span><a class="code" href="../../dc/dc4/classArcane_1_1DependencyInjection_1_1Injector_1_1InstanceVisitorFunctor.html">InstanceVisitorFunctor</a></div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;  : <span class="keyword">public</span> <a class="code" href="../../d0/d6f/classArcane_1_1DependencyInjection_1_1Injector_1_1IInstanceVisitorFunctor.html">IInstanceVisitorFunctor</a></div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;  {</div>
+<div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160;    <a class="code" href="../../dc/dc4/classArcane_1_1DependencyInjection_1_1Injector_1_1InstanceVisitorFunctor.html">InstanceVisitorFunctor</a>(Lambda&amp; lambda)</div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;    : m_lambda(lambda)</div>
+<div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;    {}</div>
+<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160; </div>
+<div class="line"><a name="l00611"></a><span class="lineno">  611</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00612"></a><span class="lineno">  612</span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> execute(<a class="code" href="../../de/d44/classArcane_1_1DependencyInjection_1_1IInjectedInstance.html">IInjectedInstance</a>* v) { <span class="keywordflow">return</span> m_lambda(v); }</div>
+<div class="line"><a name="l00613"></a><span class="lineno">  613</span>&#160; </div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;    Lambda&amp; m_lambda;</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;  };</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160; </div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;  <a class="code" href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html">Injector</a>();</div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;  <a class="code" href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html">Injector</a>(<span class="keyword">const</span> <a class="code" href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html">Injector</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;  <a class="code" href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html">Injector</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html">Injector</a>&amp;) = <span class="keyword">delete</span>;</div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;  ~<a class="code" href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html">Injector</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160; </div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Type&gt; <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;  bind(<a class="code" href="../../d4/dc0/rapidjson_8h.html#a1d1cfd8ffb84e947f82999c682b666a7">Type</a> iref, <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; name = <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>())</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;  {</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;    _add(<a class="code" href="../../d1/d43/classArcane_1_1DependencyInjection_1_1Injector_1_1InjectorHelper.html">InjectorHelper&lt;Type&gt;::bind</a>(iref, name));</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;  }</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160; </div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Type&gt; <a class="code" href="../../d4/dc0/rapidjson_8h.html#a1d1cfd8ffb84e947f82999c682b666a7">Type</a></div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;  get(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; name = <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>())</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;  {</div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;    <span class="keywordflow">return</span> InjectorHelper&lt;Type&gt;::get(*<span class="keyword">this</span>, name);</div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;  }</div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160; </div>
+<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> InterfaceType&gt; <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InterfaceType&gt;</a></div>
+<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;  createInstance(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; service_name = <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>())</div>
+<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;  {</div>
+<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;    <span class="keyword">using</span> FactoryType = impl::InstanceFactory&lt;InterfaceType&gt;;</div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;    <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InterfaceType&gt;</a> instance;</div>
+<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160;    <span class="keyword">auto</span> f = [&amp;](impl::IInstanceFactory* v) -&gt; <span class="keywordtype">bool</span> {</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;      <span class="keyword">auto</span>* t = <span class="keyword">dynamic_cast&lt;</span>FactoryType*<span class="keyword">&gt;</span>(v);</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;      <span class="comment">//std::cout &lt;&lt; &quot;TRY DYNAMIC_CAST FACTORY v=&quot; &lt;&lt; v &lt;&lt; &quot; t=&quot; &lt;&lt; t &lt;&lt; &quot;\n&quot;;</span></div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;      <span class="keywordflow">if</span> (t) {</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;        <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InterfaceType&gt;</a> x = t-&gt;createReference(*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;        <span class="keywordflow">if</span> (x.<a class="code" href="../../de/d9f/classArccore_1_1Ref.html#a24a745ea7e20d10a9633a2b661ce271d">get</a>()) {</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;          instance = x;</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;          <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;        }</div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;      }</div>
+<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;    };</div>
+<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;    FactoryVisitorFunctor ff(f);</div>
+<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;    _iterateFactories(service_name, &amp;ff);</div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;    <span class="keywordflow">if</span> (instance.<a class="code" href="../../de/d9f/classArccore_1_1Ref.html#a24a745ea7e20d10a9633a2b661ce271d">get</a>())</div>
+<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;      <span class="keywordflow">return</span> instance;</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;    <span class="comment">// TODO: améliorer le message</span></div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;    _doError(A_FUNCINFO, <span class="stringliteral">&quot;Can not create instance&quot;</span>);</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;  }</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160; </div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;  String printFactories() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160; </div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;  <span class="keywordtype">void</span> fillWithGlobalFactories();</div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160; </div>
+<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;  Impl* m_p = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160; </div>
+<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;  <span class="keywordtype">void</span> _add(IInjectedInstance* instance);</div>
+<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160; </div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;  <span class="comment">// Itère sur la lambda et s&#39;arrête dès que cette dernière retourne \a true</span></div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;  <span class="keywordtype">void</span> _iterateInstances(<span class="keyword">const</span> std::type_info&amp; t_info, <span class="keyword">const</span> String&amp; instance_name,</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;                         IInstanceVisitorFunctor* lambda);</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;  <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> _nbValue() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;  IInjectedInstance* _value(Integer i) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160; </div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160;  <span class="keywordtype">void</span> _iterateFactories(<span class="keyword">const</span> String&amp; factory_name, IFactoryVisitorFunctor* functor) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;  <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> _nbFactory() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00688"></a><span class="lineno">  688</span>&#160;  impl::IInstanceFactory* _factory(Integer i) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00689"></a><span class="lineno">  689</span>&#160; </div>
+<div class="line"><a name="l00690"></a><span class="lineno">  690</span>&#160;  <span class="comment">// Spécialisation pour les références</span></div>
+<div class="line"><a name="l00691"></a><span class="lineno">  691</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> InterfaceType&gt; Ref&lt;InterfaceType&gt;</div>
+<div class="line"><a name="l00692"></a><span class="lineno">  692</span>&#160;  _getRef(<span class="keyword">const</span> String&amp; instance_name)</div>
+<div class="line"><a name="l00693"></a><span class="lineno">  693</span>&#160;  {</div>
+<div class="line"><a name="l00694"></a><span class="lineno">  694</span>&#160;    <span class="keyword">using</span> InjectedType = impl::IInjectedRefInstanceT&lt;InterfaceType&gt;;</div>
+<div class="line"><a name="l00695"></a><span class="lineno">  695</span>&#160;    InjectedType* t = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00696"></a><span class="lineno">  696</span>&#160;    <span class="keyword">auto</span> f = [&amp;](IInjectedInstance* v) -&gt; <span class="keywordtype">bool</span> {</div>
+<div class="line"><a name="l00697"></a><span class="lineno">  697</span>&#160;      t = <span class="keyword">dynamic_cast&lt;</span>InjectedType*<span class="keyword">&gt;</span>(v);</div>
+<div class="line"><a name="l00698"></a><span class="lineno">  698</span>&#160;      <span class="keywordflow">return</span> t;</div>
+<div class="line"><a name="l00699"></a><span class="lineno">  699</span>&#160;    };</div>
+<div class="line"><a name="l00700"></a><span class="lineno">  700</span>&#160;    InstanceVisitorFunctor ff(f);</div>
+<div class="line"><a name="l00701"></a><span class="lineno">  701</span>&#160;    _iterateInstances(<span class="keyword">typeid</span>(Ref&lt;InterfaceType&gt;), instance_name, &amp;ff);</div>
+<div class="line"><a name="l00702"></a><span class="lineno">  702</span>&#160;    <span class="keywordflow">if</span> (t)</div>
+<div class="line"><a name="l00703"></a><span class="lineno">  703</span>&#160;      <span class="keywordflow">return</span> t-&gt;instance();</div>
+<div class="line"><a name="l00704"></a><span class="lineno">  704</span>&#160;    <span class="comment">// TODO: faire un fatal ou créer l&#39;instance</span></div>
+<div class="line"><a name="l00705"></a><span class="lineno">  705</span>&#160;    <a class="code" href="../../d0/d1e/ArcaneGlobal_8h.html#a98dc7953a3cabcdf7e32826a9cc39da7">ARCANE_THROW</a>(NotImplementedException, <span class="stringliteral">&quot;Create Ref&lt;InterfaceType&gt; from factory&quot;</span>);</div>
+<div class="line"><a name="l00706"></a><span class="lineno">  706</span>&#160;  }</div>
+<div class="line"><a name="l00707"></a><span class="lineno">  707</span>&#160; </div>
+<div class="line"><a name="l00708"></a><span class="lineno">  708</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> Type&gt; <a class="code" href="../../d4/dc0/rapidjson_8h.html#a1d1cfd8ffb84e947f82999c682b666a7">Type</a></div>
+<div class="line"><a name="l00709"></a><span class="lineno">  709</span>&#160;  _getValue(<span class="keyword">const</span> String&amp; instance_name)</div>
+<div class="line"><a name="l00710"></a><span class="lineno">  710</span>&#160;  {</div>
+<div class="line"><a name="l00711"></a><span class="lineno">  711</span>&#160;    <span class="keyword">using</span> InjectedType = impl::IInjectedValueInstance&lt;Type&gt;;</div>
+<div class="line"><a name="l00712"></a><span class="lineno">  712</span>&#160;    InjectedType* t = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00713"></a><span class="lineno">  713</span>&#160;    <span class="keyword">auto</span> f = [&amp;](IInjectedInstance* v) -&gt; <span class="keywordtype">bool</span> {</div>
+<div class="line"><a name="l00714"></a><span class="lineno">  714</span>&#160;      t = <span class="keyword">dynamic_cast&lt;</span>InjectedType*<span class="keyword">&gt;</span>(v);</div>
+<div class="line"><a name="l00715"></a><span class="lineno">  715</span>&#160;      <span class="keywordflow">return</span> t;</div>
+<div class="line"><a name="l00716"></a><span class="lineno">  716</span>&#160;    };</div>
+<div class="line"><a name="l00717"></a><span class="lineno">  717</span>&#160;    InstanceVisitorFunctor ff(f);</div>
+<div class="line"><a name="l00718"></a><span class="lineno">  718</span>&#160;    _iterateInstances(<span class="keyword">typeid</span>(<a class="code" href="../../d4/dc0/rapidjson_8h.html#a1d1cfd8ffb84e947f82999c682b666a7">Type</a>), instance_name, &amp;ff);</div>
+<div class="line"><a name="l00719"></a><span class="lineno">  719</span>&#160;    <span class="keywordflow">if</span> (t)</div>
+<div class="line"><a name="l00720"></a><span class="lineno">  720</span>&#160;      <span class="keywordflow">return</span> t-&gt;instance();</div>
+<div class="line"><a name="l00721"></a><span class="lineno">  721</span>&#160;    _doError(A_FUNCINFO, <span class="stringliteral">&quot;Can not find value for type&quot;</span>);</div>
+<div class="line"><a name="l00722"></a><span class="lineno">  722</span>&#160;  }</div>
+<div class="line"><a name="l00723"></a><span class="lineno">  723</span>&#160;  [[noreturn]] <span class="keywordtype">void</span> _doError(<span class="keyword">const</span> TraceInfo&amp; ti, <span class="keyword">const</span> String&amp; message);</div>
+<div class="line"><a name="l00724"></a><span class="lineno">  724</span>&#160;};</div>
+<div class="line"><a name="l00725"></a><span class="lineno">  725</span>&#160; </div>
+<div class="line"><a name="l00726"></a><span class="lineno">  726</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00727"></a><span class="lineno">  727</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00728"></a><span class="lineno">  728</span>&#160; </div>
+<div class="line"><a name="l00729"></a><span class="lineno">  729</span>&#160;} <span class="comment">// namespace Arcane::DependencyInjection</span></div>
+<div class="line"><a name="l00730"></a><span class="lineno">  730</span>&#160; </div>
+<div class="line"><a name="l00731"></a><span class="lineno">  731</span>&#160;<span class="keyword">namespace </span>Arcane::DependencyInjection::impl</div>
+<div class="line"><a name="l00732"></a><span class="lineno">  732</span>&#160;{</div>
+<div class="line"><a name="l00733"></a><span class="lineno">  733</span>&#160; </div>
+<div class="line"><a name="l00734"></a><span class="lineno">  734</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00735"></a><span class="lineno">  735</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00736"></a><span class="lineno">  736</span>&#160; </div>
+<div class="line"><a name="l00737"></a><span class="lineno"><a class="line" href="../../d2/d2c/classArcane_1_1DependencyInjection_1_1impl_1_1ConstructorRegistererBase.html">  737</a></span>&#160;<span class="keyword">class </span>ARCANE_UTILS_EXPORT <a class="code" href="../../d2/d2c/classArcane_1_1DependencyInjection_1_1impl_1_1ConstructorRegistererBase.html">ConstructorRegistererBase</a></div>
+<div class="line"><a name="l00738"></a><span class="lineno">  738</span>&#160;{</div>
+<div class="line"><a name="l00739"></a><span class="lineno">  739</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00740"></a><span class="lineno">  740</span>&#160;  [[noreturn]] <span class="keywordtype">void</span> _doError1(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; message, <span class="keywordtype">int</span> nb_value);</div>
+<div class="line"><a name="l00741"></a><span class="lineno">  741</span>&#160;};</div>
+<div class="line"><a name="l00742"></a><span class="lineno">  742</span>&#160; </div>
+<div class="line"><a name="l00749"></a><span class="lineno">  749</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00750"></a><span class="lineno"><a class="line" href="../../db/dc5/classArcane_1_1DependencyInjection_1_1impl_1_1ConstructorRegisterer.html">  750</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../db/dc5/classArcane_1_1DependencyInjection_1_1impl_1_1ConstructorRegisterer.html">ConstructorRegisterer</a></div>
+<div class="line"><a name="l00751"></a><span class="lineno">  751</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d2/d2c/classArcane_1_1DependencyInjection_1_1impl_1_1ConstructorRegistererBase.html">ConstructorRegistererBase</a></div>
+<div class="line"><a name="l00752"></a><span class="lineno">  752</span>&#160;{</div>
+<div class="line"><a name="l00753"></a><span class="lineno">  753</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00754"></a><span class="lineno">  754</span>&#160;  <span class="keyword">using</span> ArgsType = std::tuple&lt;Args...&gt;;</div>
+<div class="line"><a name="l00755"></a><span class="lineno">  755</span>&#160; </div>
+<div class="line"><a name="l00756"></a><span class="lineno">  756</span>&#160;  <a class="code" href="../../db/dc5/classArcane_1_1DependencyInjection_1_1impl_1_1ConstructorRegisterer.html">ConstructorRegisterer</a>() {}</div>
+<div class="line"><a name="l00757"></a><span class="lineno">  757</span>&#160; </div>
+<div class="line"><a name="l00758"></a><span class="lineno">  758</span>&#160;  <span class="comment">// Permet de récupérer via l&#39;injecteur \a i le I-ème argument du tuple.</span></div>
+<div class="line"><a name="l00759"></a><span class="lineno">  759</span>&#160;  <span class="keyword">template</span> &lt;std::<span class="keywordtype">size_t</span> I&gt;</div>
+<div class="line"><a name="l00760"></a><span class="lineno">  760</span>&#160;  <span class="keyword">static</span> <span class="keyword">auto</span> _get(<a class="code" href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html">Injector</a>&amp; i) -&gt; std::tuple_element_t&lt;I, ArgsType&gt;</div>
+<div class="line"><a name="l00761"></a><span class="lineno">  761</span>&#160;  {</div>
+<div class="line"><a name="l00762"></a><span class="lineno">  762</span>&#160;    <span class="keyword">using</span> SelectedType = std::tuple_element_t&lt;I, ArgsType&gt;;</div>
+<div class="line"><a name="l00763"></a><span class="lineno">  763</span>&#160;    <span class="comment">//std::cout &lt;&lt; &quot;RETURN _GET(I=&quot; &lt;&lt; I &lt;&lt; &quot;)\n&quot;;</span></div>
+<div class="line"><a name="l00764"></a><span class="lineno">  764</span>&#160;    <span class="keywordflow">return</span> i.get&lt;SelectedType&gt;();</div>
+<div class="line"><a name="l00765"></a><span class="lineno">  765</span>&#160;  }</div>
+<div class="line"><a name="l00766"></a><span class="lineno">  766</span>&#160; </div>
+<div class="line"><a name="l00767"></a><span class="lineno">  767</span>&#160;  ArgsType createTuple(<a class="code" href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html">Injector</a>&amp; i)</div>
+<div class="line"><a name="l00768"></a><span class="lineno">  768</span>&#160;  {</div>
+<div class="line"><a name="l00769"></a><span class="lineno">  769</span>&#160;    <span class="comment">// TODO: supporter plus d&#39;arguments ou passer à des &#39;variadic templates&#39;</span></div>
+<div class="line"><a name="l00770"></a><span class="lineno">  770</span>&#160;    constexpr <span class="keywordtype">int</span> tuple_size = std::tuple_size&lt;ArgsType&gt;();</div>
+<div class="line"><a name="l00771"></a><span class="lineno">  771</span>&#160;    static_assert(tuple_size &lt; 3, <span class="stringliteral">&quot;Too many arguments for createTuple (max=2)&quot;</span>);</div>
+<div class="line"><a name="l00772"></a><span class="lineno">  772</span>&#160;    <span class="keywordflow">if</span> constexpr (tuple_size == 0) {</div>
+<div class="line"><a name="l00773"></a><span class="lineno">  773</span>&#160;      <span class="keywordflow">return</span> ArgsType();</div>
+<div class="line"><a name="l00774"></a><span class="lineno">  774</span>&#160;    }</div>
+<div class="line"><a name="l00775"></a><span class="lineno">  775</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr (tuple_size == 1) {</div>
+<div class="line"><a name="l00776"></a><span class="lineno">  776</span>&#160;      <span class="keywordflow">return</span> ArgsType(_get&lt;0&gt;(i));</div>
+<div class="line"><a name="l00777"></a><span class="lineno">  777</span>&#160;    }</div>
+<div class="line"><a name="l00778"></a><span class="lineno">  778</span>&#160;    <span class="keywordflow">else</span> <span class="keywordflow">if</span> constexpr (tuple_size == 2) {</div>
+<div class="line"><a name="l00779"></a><span class="lineno">  779</span>&#160;      <span class="keywordflow">return</span> ArgsType(_get&lt;0&gt;(i), _get&lt;1&gt;(i));</div>
+<div class="line"><a name="l00780"></a><span class="lineno">  780</span>&#160;    }</div>
+<div class="line"><a name="l00781"></a><span class="lineno">  781</span>&#160;    <span class="comment">// Ne devrait pas arriver mais on ne sais jamais.</span></div>
+<div class="line"><a name="l00782"></a><span class="lineno">  782</span>&#160;    _doError1(<span class="stringliteral">&quot;Too many arguments for createTuple n={0} max=2&quot;</span>, tuple_size);</div>
+<div class="line"><a name="l00783"></a><span class="lineno">  783</span>&#160;  }</div>
+<div class="line"><a name="l00784"></a><span class="lineno">  784</span>&#160;};</div>
+<div class="line"><a name="l00785"></a><span class="lineno">  785</span>&#160; </div>
+<div class="line"><a name="l00786"></a><span class="lineno">  786</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00787"></a><span class="lineno">  787</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00793"></a><span class="lineno">  793</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> InterfaceType, <span class="keyword">typename</span> ConcreteType, <span class="keyword">typename</span> ConstructorType&gt;</div>
+<div class="line"><a name="l00794"></a><span class="lineno"><a class="line" href="../../d5/d36/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactory.html">  794</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d5/d36/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactory.html">ConcreteFactory</a></div>
+<div class="line"><a name="l00795"></a><span class="lineno">  795</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d4/d70/classArcane_1_1DependencyInjection_1_1impl_1_1IConcreteFactory.html">IConcreteFactory</a>&lt;InterfaceType&gt;</div>
+<div class="line"><a name="l00796"></a><span class="lineno">  796</span>&#160;{</div>
+<div class="line"><a name="l00797"></a><span class="lineno">  797</span>&#160;  <span class="keyword">using</span> Args = <span class="keyword">typename</span> ConstructorType::ArgsType;</div>
+<div class="line"><a name="l00798"></a><span class="lineno">  798</span>&#160; </div>
+<div class="line"><a name="l00799"></a><span class="lineno">  799</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00800"></a><span class="lineno"><a class="line" href="../../d5/d36/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactory.html#a61a5247652d65c47f4715babb636ee5c">  800</a></span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InterfaceType&gt;</a> <a class="code" href="../../d5/d36/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactory.html#a61a5247652d65c47f4715babb636ee5c">createReference</a>(<a class="code" href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html">Injector</a>&amp; injector)<span class="keyword"> override</span></div>
+<div class="line"><a name="l00801"></a><span class="lineno">  801</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00802"></a><span class="lineno">  802</span>&#160;    ConstructorType ct;</div>
+<div class="line"><a name="l00803"></a><span class="lineno">  803</span>&#160;    ConcreteType* st = <a class="code" href="../../d5/d36/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactory.html#a590bc60f18f9fb0bf1f43e6ca2531e81">_create</a>(ct.createTuple(injector));</div>
+<div class="line"><a name="l00804"></a><span class="lineno">  804</span>&#160;    <span class="keywordflow">return</span> makeRef&lt;InterfaceType&gt;(st);</div>
+<div class="line"><a name="l00805"></a><span class="lineno">  805</span>&#160;  }</div>
+<div class="line"><a name="l00806"></a><span class="lineno">  806</span>&#160;  <a class="code" href="../../d2/d67/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactoryTypeInfo.html">ConcreteFactoryTypeInfo</a> concreteFactoryInfo()<span class="keyword"> const override</span></div>
+<div class="line"><a name="l00807"></a><span class="lineno">  807</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00808"></a><span class="lineno">  808</span>&#160;    <span class="keywordflow">return</span> ConcreteFactoryTypeInfo::create&lt;InterfaceType, ConcreteType, ConstructorType&gt;();</div>
+<div class="line"><a name="l00809"></a><span class="lineno">  809</span>&#160;  }</div>
+<div class="line"><a name="l00810"></a><span class="lineno">  810</span>&#160;  Int32 nbConstructorArg()<span class="keyword"> const override</span></div>
+<div class="line"><a name="l00811"></a><span class="lineno">  811</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00812"></a><span class="lineno">  812</span>&#160;    <span class="keywordflow">return</span> std::tuple_size&lt;Args&gt;();</div>
+<div class="line"><a name="l00813"></a><span class="lineno">  813</span>&#160;  }</div>
+<div class="line"><a name="l00814"></a><span class="lineno">  814</span>&#160; </div>
+<div class="line"><a name="l00815"></a><span class="lineno">  815</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00821"></a><span class="lineno"><a class="line" href="../../d5/d36/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactory.html#a590bc60f18f9fb0bf1f43e6ca2531e81">  821</a></span>&#160;  ConcreteType* <a class="code" href="../../d5/d36/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactory.html#a590bc60f18f9fb0bf1f43e6ca2531e81">_create</a>(<span class="keyword">const</span> Args&amp;&amp; tuple_args)</div>
+<div class="line"><a name="l00822"></a><span class="lineno">  822</span>&#160;  {</div>
+<div class="line"><a name="l00823"></a><span class="lineno">  823</span>&#160;    ConcreteType* st = std::apply([](<span class="keyword">auto</span>&amp;&amp;... args) -&gt; ConcreteType* { <span class="keywordflow">return</span> <span class="keyword">new</span> ConcreteType(args...); }, tuple_args);</div>
+<div class="line"><a name="l00824"></a><span class="lineno">  824</span>&#160;    <span class="keywordflow">return</span> st;</div>
+<div class="line"><a name="l00825"></a><span class="lineno">  825</span>&#160;  }</div>
+<div class="line"><a name="l00826"></a><span class="lineno">  826</span>&#160;};</div>
+<div class="line"><a name="l00827"></a><span class="lineno">  827</span>&#160; </div>
+<div class="line"><a name="l00828"></a><span class="lineno">  828</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00829"></a><span class="lineno">  829</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00835"></a><span class="lineno">  835</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Interfaces&gt;</div>
+<div class="line"><a name="l00836"></a><span class="lineno"><a class="line" href="../../d7/d33/classArcane_1_1DependencyInjection_1_1impl_1_1InterfaceListRegisterer.html">  836</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d7/d33/classArcane_1_1DependencyInjection_1_1impl_1_1InterfaceListRegisterer.html">InterfaceListRegisterer</a></div>
+<div class="line"><a name="l00837"></a><span class="lineno">  837</span>&#160;{</div>
+<div class="line"><a name="l00838"></a><span class="lineno">  838</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00845"></a><span class="lineno">  845</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ConcreteType, <span class="keyword">typename</span> ConstructorType&gt; <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00846"></a><span class="lineno"><a class="line" href="../../d7/d33/classArcane_1_1DependencyInjection_1_1impl_1_1InterfaceListRegisterer.html#a0914852f762d329465b379c0f5ed6bd0">  846</a></span>&#160;  <a class="code" href="../../d7/d33/classArcane_1_1DependencyInjection_1_1impl_1_1InterfaceListRegisterer.html#a0914852f762d329465b379c0f5ed6bd0">registerFactory</a>(<a class="code" href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">FactoryInfo</a>* si)</div>
+<div class="line"><a name="l00847"></a><span class="lineno">  847</span>&#160;  {</div>
+<div class="line"><a name="l00848"></a><span class="lineno">  848</span>&#160;    _registerFactory&lt;ConcreteType, ConstructorType, Interfaces...&gt;(si);</div>
+<div class="line"><a name="l00849"></a><span class="lineno">  849</span>&#160;  }</div>
+<div class="line"><a name="l00850"></a><span class="lineno">  850</span>&#160; </div>
+<div class="line"><a name="l00851"></a><span class="lineno">  851</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00852"></a><span class="lineno">  852</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ConcreteType, <span class="keyword">typename</span> ConstructorType,</div>
+<div class="line"><a name="l00853"></a><span class="lineno">  853</span>&#160;            <span class="keyword">typename</span> InterfaceType, <span class="keyword">typename</span>... OtherInterfaces&gt;</div>
+<div class="line"><a name="l00854"></a><span class="lineno">  854</span>&#160;  <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00855"></a><span class="lineno">  855</span>&#160;  _registerFactory(<a class="code" href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">FactoryInfo</a>* fi)</div>
+<div class="line"><a name="l00856"></a><span class="lineno">  856</span>&#160;  {</div>
+<div class="line"><a name="l00857"></a><span class="lineno">  857</span>&#160;    <span class="keyword">auto</span>* factory = <span class="keyword">new</span> <a class="code" href="../../d5/d36/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactory.html">ConcreteFactory&lt;InterfaceType, ConcreteType, ConstructorType&gt;</a>();</div>
+<div class="line"><a name="l00858"></a><span class="lineno">  858</span>&#160;    fi-&gt;addFactory(makeRef&lt;IInstanceFactory&gt;(<span class="keyword">new</span> <a class="code" href="../../db/d0c/classArcane_1_1DependencyInjection_1_1impl_1_1InstanceFactory.html">InstanceFactory&lt;InterfaceType&gt;</a>(fi, factory)));</div>
+<div class="line"><a name="l00859"></a><span class="lineno">  859</span>&#160;    <span class="comment">// Applique récursivement pour les autres interfaces si nécessaire</span></div>
+<div class="line"><a name="l00860"></a><span class="lineno">  860</span>&#160;    <span class="keywordflow">if</span> constexpr (<span class="keyword">sizeof</span>...(OtherInterfaces) &gt; 0)</div>
+<div class="line"><a name="l00861"></a><span class="lineno">  861</span>&#160;      _registerFactory&lt;ConcreteType, ConstructorType, OtherInterfaces...&gt;(fi);</div>
+<div class="line"><a name="l00862"></a><span class="lineno">  862</span>&#160;  }</div>
+<div class="line"><a name="l00863"></a><span class="lineno">  863</span>&#160;};</div>
+<div class="line"><a name="l00864"></a><span class="lineno">  864</span>&#160; </div>
+<div class="line"><a name="l00865"></a><span class="lineno">  865</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00866"></a><span class="lineno">  866</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00873"></a><span class="lineno">  873</span>&#160;template &lt;typename ConcreteType, typename InterfaceList&gt;</div>
+<div class="line"><a name="l00874"></a><span class="lineno"><a class="line" href="../../d2/dd2/classArcane_1_1DependencyInjection_1_1impl_1_1InjectionRegisterer.html">  874</a></span>&#160;class <a class="code" href="../../d2/dd2/classArcane_1_1DependencyInjection_1_1impl_1_1InjectionRegisterer.html">InjectionRegisterer</a></div>
+<div class="line"><a name="l00875"></a><span class="lineno">  875</span>&#160;{</div>
+<div class="line"><a name="l00876"></a><span class="lineno">  876</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00878"></a><span class="lineno">  878</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span>... Constructors&gt; <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00879"></a><span class="lineno"><a class="line" href="../../d2/dd2/classArcane_1_1DependencyInjection_1_1impl_1_1InjectionRegisterer.html#a5356613e1d4536b9e2909b6bb2846074">  879</a></span>&#160;  <a class="code" href="../../d2/dd2/classArcane_1_1DependencyInjection_1_1impl_1_1InjectionRegisterer.html#a5356613e1d4536b9e2909b6bb2846074">registerProviderInfo</a>(<a class="code" href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">FactoryInfo</a>* si, <span class="keyword">const</span> Constructors&amp;... args)</div>
+<div class="line"><a name="l00880"></a><span class="lineno">  880</span>&#160;  {</div>
+<div class="line"><a name="l00881"></a><span class="lineno">  881</span>&#160;    _create(si, args...);</div>
+<div class="line"><a name="l00882"></a><span class="lineno">  882</span>&#160;  }</div>
+<div class="line"><a name="l00883"></a><span class="lineno">  883</span>&#160; </div>
+<div class="line"><a name="l00884"></a><span class="lineno">  884</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00885"></a><span class="lineno">  885</span>&#160;  <span class="comment">// TODO: Créér l&#39;instance de &#39;FactoryInfo&#39; dans le constructeur</span></div>
+<div class="line"><a name="l00886"></a><span class="lineno">  886</span>&#160;  InterfaceList m_interface_list;</div>
+<div class="line"><a name="l00887"></a><span class="lineno">  887</span>&#160; </div>
+<div class="line"><a name="l00888"></a><span class="lineno">  888</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00890"></a><span class="lineno">  890</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ConstructorType&gt; <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00891"></a><span class="lineno"><a class="line" href="../../d2/dd2/classArcane_1_1DependencyInjection_1_1impl_1_1InjectionRegisterer.html#a64e48f69d521906f0eb1b123d7026d3e">  891</a></span>&#160;  <a class="code" href="../../d2/dd2/classArcane_1_1DependencyInjection_1_1impl_1_1InjectionRegisterer.html#a64e48f69d521906f0eb1b123d7026d3e">_create</a>(<a class="code" href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">FactoryInfo</a>* si, <span class="keyword">const</span> ConstructorType&amp;)</div>
+<div class="line"><a name="l00892"></a><span class="lineno">  892</span>&#160;  {</div>
+<div class="line"><a name="l00893"></a><span class="lineno">  893</span>&#160;    m_interface_list.template registerFactory&lt;ConcreteType, ConstructorType&gt;(si);</div>
+<div class="line"><a name="l00894"></a><span class="lineno">  894</span>&#160;  }</div>
+<div class="line"><a name="l00895"></a><span class="lineno">  895</span>&#160; </div>
+<div class="line"><a name="l00897"></a><span class="lineno">  897</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> C1, <span class="keyword">typename</span> C2, <span class="keyword">typename</span>... OtherConstructors&gt;</div>
+<div class="line"><a name="l00898"></a><span class="lineno"><a class="line" href="../../d2/dd2/classArcane_1_1DependencyInjection_1_1impl_1_1InjectionRegisterer.html#a0656efebd1daa26dfdc203bfec4b36a1">  898</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d2/dd2/classArcane_1_1DependencyInjection_1_1impl_1_1InjectionRegisterer.html#a0656efebd1daa26dfdc203bfec4b36a1">_create</a>(<a class="code" href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">FactoryInfo</a>* si, <span class="keyword">const</span> C1&amp; c1, <span class="keyword">const</span> C2&amp; c2, <span class="keyword">const</span> OtherConstructors&amp;... args)</div>
+<div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;  {</div>
+<div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160;    _create&lt;C1&gt;(si, c1);</div>
+<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;    <span class="comment">// Applique la récursivité sur les types restants</span></div>
+<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;    _create&lt;C2, OtherConstructors...&gt;(si, c2, args...);</div>
+<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;  }</div>
+<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160;};</div>
+<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160; </div>
+<div class="line"><a name="l00906"></a><span class="lineno">  906</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00907"></a><span class="lineno">  907</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00908"></a><span class="lineno">  908</span>&#160; </div>
+<div class="line"><a name="l00909"></a><span class="lineno">  909</span>&#160;} <span class="comment">// End namespace Arcane::DependencyInjection::impl</span></div>
+<div class="line"><a name="l00910"></a><span class="lineno">  910</span>&#160; </div>
+<div class="line"><a name="l00911"></a><span class="lineno">  911</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00912"></a><span class="lineno">  912</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00913"></a><span class="lineno">  913</span>&#160; </div>
+<div class="line"><a name="l00914"></a><span class="lineno">  914</span>&#160;<span class="preprocessor">#define ARCANE_DI_CONSTRUCTOR(...) \</span></div>
+<div class="line"><a name="l00915"></a><span class="lineno">  915</span>&#160;<span class="preprocessor">  ::Arcane::DependencyInjection::impl::ConstructorRegisterer&lt;__VA_ARGS__&gt;()</span></div>
+<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160; </div>
+<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;<span class="preprocessor">#define ARCANE_DI_EMPTY_CONSTRUCTOR(...) \</span></div>
+<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;<span class="preprocessor">  ::Arcane::DependencyInjection::impl::ConstructorRegisterer&lt;&gt;()</span></div>
+<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160; </div>
+<div class="line"><a name="l00920"></a><span class="lineno">  920</span>&#160;<span class="comment">// TODO: garantir au moins une interface</span></div>
+<div class="line"><a name="l00921"></a><span class="lineno">  921</span>&#160; </div>
+<div class="line"><a name="l00922"></a><span class="lineno">  922</span>&#160;<span class="preprocessor">#define ARCANE_DI_INTERFACES(...) \</span></div>
+<div class="line"><a name="l00923"></a><span class="lineno">  923</span>&#160;<span class="preprocessor">  ::Arcane::DependencyInjection::impl::InterfaceListRegisterer&lt;__VA_ARGS__&gt;</span></div>
+<div class="line"><a name="l00924"></a><span class="lineno">  924</span>&#160; </div>
+<div class="line"><a name="l00925"></a><span class="lineno">  925</span>&#160;<span class="preprocessor">#define ARCANE_DI_REGISTER_PROVIDER(t_class, t_provider_property, t_interfaces, ...) \</span></div>
+<div class="line"><a name="l00926"></a><span class="lineno">  926</span>&#160;<span class="preprocessor">  namespace \</span></div>
+<div class="line"><a name="l00927"></a><span class="lineno">  927</span>&#160;<span class="preprocessor">  { \</span></div>
+<div class="line"><a name="l00928"></a><span class="lineno">  928</span>&#160;<span class="preprocessor">    Arcane::DependencyInjection::impl::FactoryInfo* \</span></div>
+<div class="line"><a name="l00929"></a><span class="lineno">  929</span>&#160;<span class="preprocessor">    ARCANE_JOIN_WITH_LINE(arcaneCreateDependencyInjectionProviderInfo##t_class)(const Arcane::DependencyInjection::ProviderProperty&amp; property) \</span></div>
+<div class="line"><a name="l00930"></a><span class="lineno">  930</span>&#160;<span class="preprocessor">    { \</span></div>
+<div class="line"><a name="l00931"></a><span class="lineno">  931</span>&#160;<span class="preprocessor">      auto* si = Arcane::DependencyInjection::impl::FactoryInfo::create(property, __FILE__, __LINE__); \</span></div>
+<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;<span class="preprocessor">      Arcane::DependencyInjection::impl::InjectionRegisterer&lt;t_class, t_interfaces&gt; injection_registerer; \</span></div>
+<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;<span class="preprocessor">      injection_registerer.registerProviderInfo(si, __VA_ARGS__); \</span></div>
+<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160;<span class="preprocessor">      return si; \</span></div>
+<div class="line"><a name="l00935"></a><span class="lineno">  935</span>&#160;<span class="preprocessor">    } \</span></div>
+<div class="line"><a name="l00936"></a><span class="lineno">  936</span>&#160;<span class="preprocessor">  } \</span></div>
+<div class="line"><a name="l00937"></a><span class="lineno">  937</span>&#160;<span class="preprocessor">  Arcane::DependencyInjection::impl::GlobalRegisterer ARCANE_EXPORT ARCANE_JOIN_WITH_LINE(globalServiceRegisterer##aclass)(&amp;ARCANE_JOIN_WITH_LINE(arcaneCreateDependencyInjectionProviderInfo##t_class), t_provider_property)</span></div>
+<div class="line"><a name="l00938"></a><span class="lineno">  938</span>&#160; </div>
+<div class="line"><a name="l00939"></a><span class="lineno">  939</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00940"></a><span class="lineno">  940</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00941"></a><span class="lineno">  941</span>&#160; </div>
+<div class="line"><a name="l00942"></a><span class="lineno">  942</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1InjectedInstanceRef_html"><div class="ttname"><a href="../../db/d1e/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedInstanceRef.html">Arcane::DependencyInjection::impl::InjectedInstanceRef</a></div><div class="ttdoc">Référence sur une instance injectée.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:266</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1IInjectedRefInstanceT_html"><div class="ttname"><a href="../../d8/dbd/classArcane_1_1DependencyInjection_1_1impl_1_1IInjectedRefInstanceT.html">Arcane::DependencyInjection::impl::IInjectedRefInstanceT</a></div><div class="ttdoc">Interface typée gérant l'instance d'un service.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:175</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a98dc7953a3cabcdf7e32826a9cc39da7"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a98dc7953a3cabcdf7e32826a9cc39da7">ARCANE_THROW</a></div><div class="ttdeci">#define ARCANE_THROW(exception_class,...)</div><div class="ttdoc">Macro pour envoyer une exception avec formattage.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:750</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1IConcreteFactory_html"><div class="ttname"><a href="../../d4/d70/classArcane_1_1DependencyInjection_1_1impl_1_1IConcreteFactory.html">Arcane::DependencyInjection::impl::IConcreteFactory</a></div><div class="ttdoc">Interface d'un fonctor de création d'une instance de service correspondant à l'interface InterfaceTyp...</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:52</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1Injector_1_1IInstanceVisitorFunctor_html"><div class="ttname"><a href="../../d0/d6f/classArcane_1_1DependencyInjection_1_1Injector_1_1IInstanceVisitorFunctor.html">Arcane::DependencyInjection::Injector::IInstanceVisitorFunctor</a></div><div class="ttdoc">Interface d'un fonctor pour appliqué à chaque fabrique.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:596</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer_html"><div class="ttname"><a href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html">Arcane::DependencyInjection::impl::GlobalRegisterer</a></div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:467</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactoryTypeInfo_html"><div class="ttname"><a href="../../d2/d67/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactoryTypeInfo.html">Arcane::DependencyInjection::impl::ConcreteFactoryTypeInfo</a></div><div class="ttdoc">Informations sur les types d'une fabrique.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:141</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactory_html"><div class="ttname"><a href="../../d5/d36/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactory.html">Arcane::DependencyInjection::impl::ConcreteFactory</a></div><div class="ttdoc">Fabrique pour le type ConcreteType pour l'interface InterfaceType via le constructeur ConstructorType...</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:794</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1InstanceFactory_html"><div class="ttname"><a href="../../db/d0c/classArcane_1_1DependencyInjection_1_1impl_1_1InstanceFactory.html">Arcane::DependencyInjection::impl::InstanceFactory</a></div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:342</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer_html_a08f776ae44751c33745e8948fe66f769"><div class="ttname"><a href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html#a08f776ae44751c33745e8948fe66f769">Arcane::DependencyInjection::impl::GlobalRegisterer::_setPreviousService</a></div><div class="ttdeci">void _setPreviousService(GlobalRegisterer *s)</div><div class="ttdoc">Positionne le service précédent.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:513</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1TypeInfo_html"><div class="ttname"><a href="../../d0/dcc/classArcane_1_1DependencyInjection_1_1impl_1_1TypeInfo.html">Arcane::DependencyInjection::impl::TypeInfo</a></div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:111</div></div>
+<div class="ttc" id="arapidjson_8h_html_a1d1cfd8ffb84e947f82999c682b666a7"><div class="ttname"><a href="../../d4/dc0/rapidjson_8h.html#a1d1cfd8ffb84e947f82999c682b666a7">Type</a></div><div class="ttdeci">Type</div><div class="ttdoc">Type of JSON value.</div><div class="ttdef"><b>Definition:</b> rapidjson.h:665</div></div>
+<div class="ttc" id="aRefDeclarations_8h_html_ac3ef9e0e97ab0b1706b56e8285b9b1be"><div class="ttname"><a href="../../dc/d80/RefDeclarations_8h.html#ac3ef9e0e97ab0b1706b56e8285b9b1be">ARCCORE_DECLARE_REFERENCE_COUNTED_INCLASS_METHODS</a></div><div class="ttdeci">#define ARCCORE_DECLARE_REFERENCE_COUNTED_INCLASS_METHODS()</div><div class="ttdoc">Macro pour déclarer les méthodes virtuelles gérant les compteurs de référence.</div><div class="ttdef"><b>Definition:</b> RefDeclarations.h:152</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1InjectedValueInstance_html"><div class="ttname"><a href="../../dc/d3e/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedValueInstance.html">Arcane::DependencyInjection::impl::InjectedValueInstance</a></div><div class="ttdoc">Interface typée gérant l'instance d'un service.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:236</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1Injector_1_1InjectorHelper_html"><div class="ttname"><a href="../../d1/d43/classArcane_1_1DependencyInjection_1_1Injector_1_1InjectorHelper.html">Arcane::DependencyInjection::Injector::InjectorHelper</a></div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:538</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1Injector_html"><div class="ttname"><a href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html">Arcane::DependencyInjection::Injector</a></div><div class="ttdoc">Injecteur.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:533</div></div>
+<div class="ttc" id="aReferenceCounterImpl_8h_html_a26400caa34741dfa4871c7aa2e25925f"><div class="ttname"><a href="../../dc/d3c/ReferenceCounterImpl_8h.html#a26400caa34741dfa4871c7aa2e25925f">ARCCORE_DEFINE_REFERENCE_COUNTED_CLASS</a></div><div class="ttdeci">#define ARCCORE_DEFINE_REFERENCE_COUNTED_CLASS(class_name)</div><div class="ttdoc">Macro pour définir les méthodes et types une classe qui utilise un compteur de référence.</div><div class="ttdef"><b>Definition:</b> ReferenceCounterImpl.h:140</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer_html_af9fc3362f30f34f603f221b8946d773c"><div class="ttname"><a href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html#af9fc3362f30f34f603f221b8946d773c">Arcane::DependencyInjection::impl::GlobalRegisterer::nextService</a></div><div class="ttdeci">GlobalRegisterer * nextService() const</div><div class="ttdoc">Service suivant (0 si le dernier)</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:492</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer_html_a2fe5320755d5d9c28fdb290cce0983fd"><div class="ttname"><a href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html#a2fe5320755d5d9c28fdb290cce0983fd">Arcane::DependencyInjection::impl::GlobalRegisterer::firstService</a></div><div class="ttdeci">static GlobalRegisterer * firstService()</div><div class="ttdoc">Accès au premier élément de la chaine d'enregistreur de service.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.cc:262</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer_html_a80a2a42a785b5f7a625740fca9449543"><div class="ttname"><a href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html#a80a2a42a785b5f7a625740fca9449543">Arcane::DependencyInjection::impl::GlobalRegisterer::previousService</a></div><div class="ttdeci">GlobalRegisterer * previousService() const</div><div class="ttdoc">Service précédent (0 si le premier)</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:489</div></div>
+<div class="ttc" id="anamespaceArccore_html_a19fea02f94d4da203710fd2070c0f2fb"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Arccore::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:232</div></div>
+<div class="ttc" id="aclassArccore_1_1ReferenceCounterImpl_html"><div class="ttname"><a href="../../db/d48/classArccore_1_1ReferenceCounterImpl.html">Arccore::ReferenceCounterImpl</a></div><div class="ttdoc">Implémentation thread-safe d'un compteur de référence.</div><div class="ttdef"><b>Definition:</b> ReferenceCounterImpl.h:67</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo_html"><div class="ttname"><a href="../../d2/d0f/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo.html">Arcane::DependencyInjection::impl::FactoryInfo</a></div><div class="ttdoc">Informations pour une fabrique.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:437</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1InterfaceListRegisterer_html"><div class="ttname"><a href="../../d7/d33/classArcane_1_1DependencyInjection_1_1impl_1_1InterfaceListRegisterer.html">Arcane::DependencyInjection::impl::InterfaceListRegisterer</a></div><div class="ttdoc">Classe permettant d'enregistrer la liste des interfaces d'un service. Interfaces contient la liste de...</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:836</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1ConstructorRegisterer_html"><div class="ttname"><a href="../../db/dc5/classArcane_1_1DependencyInjection_1_1impl_1_1ConstructorRegisterer.html">Arcane::DependencyInjection::impl::ConstructorRegisterer</a></div><div class="ttdoc">Classe permettant d'enregistrer un constructeur pour créer un objet via un Injector....</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:750</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1Injector_1_1FactoryVisitorFunctor_html"><div class="ttname"><a href="../../d4/d2f/classArcane_1_1DependencyInjection_1_1Injector_1_1FactoryVisitorFunctor.html">Arcane::DependencyInjection::Injector::FactoryVisitorFunctor</a></div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:578</div></div>
+<div class="ttc" id="aclassArccore_1_1UniqueArray_html"><div class="ttname"><a href="../../da/daa/classArccore_1_1UniqueArray.html">Arccore::UniqueArray</a></div><div class="ttdoc">Vecteur 1D de données avec sémantique par valeur (style STL).</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:1504</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1IInstanceFactory_html"><div class="ttname"><a href="../../d3/d41/classArcane_1_1DependencyInjection_1_1impl_1_1IInstanceFactory.html">Arcane::DependencyInjection::impl::IInstanceFactory</a></div><div class="ttdoc">Fabrique pour une instance encapsulée par une référence (i.e Ref&lt;T&gt;).</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:306</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1Injector_1_1Impl_1_1InstanceInfo_html"><div class="ttname"><a href="../../d7/d90/classArcane_1_1DependencyInjection_1_1Injector_1_1Impl_1_1InstanceInfo.html">Arcane::DependencyInjection::Injector::Impl::InstanceInfo</a></div><div class="ttdef"><b>Definition:</b> DependencyInjection.cc:32</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1IInjectedInstance_html"><div class="ttname"><a href="../../de/d44/classArcane_1_1DependencyInjection_1_1IInjectedInstance.html">Arcane::DependencyInjection::IInjectedInstance</a></div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:67</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1AbstractInstanceFactory_html"><div class="ttname"><a href="../../d9/d87/classArcane_1_1DependencyInjection_1_1impl_1_1AbstractInstanceFactory.html">Arcane::DependencyInjection::impl::AbstractInstanceFactory</a></div><div class="ttdoc">internal.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:331</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1IConcreteFactoryBase_html"><div class="ttname"><a href="../../dd/ddc/classArcane_1_1DependencyInjection_1_1impl_1_1IConcreteFactoryBase.html">Arcane::DependencyInjection::impl::IConcreteFactoryBase</a></div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:402</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer_html_ad250acebb526889247658b80cb3f8127"><div class="ttname"><a href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html#ad250acebb526889247658b80cb3f8127">Arcane::DependencyInjection::impl::GlobalRegisterer::_setNextService</a></div><div class="ttdeci">void _setNextService(GlobalRegisterer *s)</div><div class="ttdoc">Positionne le service suivant.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:517</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1Injector_1_1InstanceVisitorFunctor_html"><div class="ttname"><a href="../../dc/dc4/classArcane_1_1DependencyInjection_1_1Injector_1_1InstanceVisitorFunctor.html">Arcane::DependencyInjection::Injector::InstanceVisitorFunctor</a></div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:603</div></div>
+<div class="ttc" id="aclassArccore_1_1Internal_1_1ExternalRef_html"><div class="ttname"><a href="../../d3/d47/classArccore_1_1Internal_1_1ExternalRef.html">Arccore::Internal::ExternalRef</a></div><div class="ttdoc">Gestion des références sur un objet externe.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ExternalRef.h:43</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo_1_1Impl_html"><div class="ttname"><a href="../../d4/deb/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo_1_1Impl.html">Arcane::DependencyInjection::impl::FactoryInfo::Impl</a></div><div class="ttdef"><b>Definition:</b> DependencyInjection.cc:146</div></div>
+<div class="ttc" id="aRefDeclarations_8h_html_ac552d5509ace2b0d19f592bffdf2a8c7"><div class="ttname"><a href="../../dc/d80/RefDeclarations_8h.html#ac552d5509ace2b0d19f592bffdf2a8c7">ARCCORE_DECLARE_REFERENCE_COUNTED_CLASS</a></div><div class="ttdeci">#define ARCCORE_DECLARE_REFERENCE_COUNTED_CLASS(class_name)</div><div class="ttdoc">Macro pour déclarer qu'une classe utilise un compteur de référence.</div><div class="ttdef"><b>Definition:</b> RefDeclarations.h:180</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1Injector_1_1Impl_html"><div class="ttname"><a href="../../da/d4a/classArcane_1_1DependencyInjection_1_1Injector_1_1Impl.html">Arcane::DependencyInjection::Injector::Impl</a></div><div class="ttdef"><b>Definition:</b> DependencyInjection.cc:29</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactory_html_a590bc60f18f9fb0bf1f43e6ca2531e81"><div class="ttname"><a href="../../d5/d36/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactory.html#a590bc60f18f9fb0bf1f43e6ca2531e81">Arcane::DependencyInjection::impl::ConcreteFactory::_create</a></div><div class="ttdeci">ConcreteType * _create(const Args &amp;&amp;tuple_args)</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:821</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1InjectedRefInstance_html"><div class="ttname"><a href="../../da/dbb/classArcane_1_1DependencyInjection_1_1impl_1_1InjectedRefInstance.html">Arcane::DependencyInjection::impl::InjectedRefInstance</a></div><div class="ttdoc">Interface typée gérant l'instance d'un service.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:191</div></div>
+<div class="ttc" id="aclassArccore_1_1Ref_html_a24a745ea7e20d10a9633a2b661ce271d"><div class="ttname"><a href="../../de/d9f/classArccore_1_1Ref.html#a24a745ea7e20d10a9633a2b661ce271d">Arccore::Ref::get</a></div><div class="ttdeci">InstanceType * get() const</div><div class="ttdoc">Instance associée ou nullptr si aucune.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/Ref.h:221</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1InjectionRegisterer_html"><div class="ttname"><a href="../../d2/dd2/classArcane_1_1DependencyInjection_1_1impl_1_1InjectionRegisterer.html">Arcane::DependencyInjection::impl::InjectionRegisterer</a></div><div class="ttdoc">Classe permettant d'enregistrer des constructeurs pour créer un type ConcreteType implémentant les in...</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:874</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1InjectionRegisterer_html_a0656efebd1daa26dfdc203bfec4b36a1"><div class="ttname"><a href="../../d2/dd2/classArcane_1_1DependencyInjection_1_1impl_1_1InjectionRegisterer.html#a0656efebd1daa26dfdc203bfec4b36a1">Arcane::DependencyInjection::impl::InjectionRegisterer::_create</a></div><div class="ttdeci">void _create(FactoryInfo *si, const C1 &amp;c1, const C2 &amp;c2, const OtherConstructors &amp;... args)</div><div class="ttdoc">Surcharge pour 2 constructeurs ou plus.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:898</div></div>
+<div class="ttc" id="aclassArccore_1_1TraceInfo_html"><div class="ttname"><a href="../../db/d6c/classArccore_1_1TraceInfo.html">Arccore::TraceInfo</a></div><div class="ttdoc">Informations de trace.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/TraceInfo.h:32</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1ConstructorRegistererBase_html"><div class="ttname"><a href="../../d2/d2c/classArcane_1_1DependencyInjection_1_1impl_1_1ConstructorRegistererBase.html">Arcane::DependencyInjection::impl::ConstructorRegistererBase</a></div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:737</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1IInjectedValueInstance_html"><div class="ttname"><a href="../../df/d60/classArcane_1_1DependencyInjection_1_1impl_1_1IInjectedValueInstance.html">Arcane::DependencyInjection::impl::IInjectedValueInstance</a></div><div class="ttdoc">Interface typée gérant une instance.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:220</div></div>
+<div class="ttc" id="anamespaceArccore_html"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html">Arccore</a></div><div class="ttdoc">Espace de nom de Arccore.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:23</div></div>
+<div class="ttc" id="aclassArccore_1_1Ref_html"><div class="ttname"><a href="../../de/d9f/classArccore_1_1Ref.html">Arccore::Ref</a></div><div class="ttdoc">Référence à une instance.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/Ref.h:127</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer_html_afa3fa74fbfc00809acf1aa07c8ad1600"><div class="ttname"><a href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html#afa3fa74fbfc00809acf1aa07c8ad1600">Arcane::DependencyInjection::impl::GlobalRegisterer::name</a></div><div class="ttdeci">const char * name()</div><div class="ttdoc">Nom du service.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:484</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer_html_aa0cbb40cf341ec6223ac41ae7b8973eb"><div class="ttname"><a href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html#aa0cbb40cf341ec6223ac41ae7b8973eb">Arcane::DependencyInjection::impl::GlobalRegisterer::nbService</a></div><div class="ttdeci">static Integer nbService()</div><div class="ttdoc">Nombre d'enregisteur de service dans la chaine.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.cc:271</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1IConcreteFactory_html_ab697475a006c3b68bc005d998fa39569"><div class="ttname"><a href="../../d4/d70/classArcane_1_1DependencyInjection_1_1impl_1_1IConcreteFactory.html#ab697475a006c3b68bc005d998fa39569">Arcane::DependencyInjection::impl::IConcreteFactory::createReference</a></div><div class="ttdeci">virtual Ref&lt; InterfaceType &gt; createReference(Injector &amp;)=0</div><div class="ttdoc">Créé une instance du service .</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1InterfaceListRegisterer_html_a0914852f762d329465b379c0f5ed6bd0"><div class="ttname"><a href="../../d7/d33/classArcane_1_1DependencyInjection_1_1impl_1_1InterfaceListRegisterer.html#a0914852f762d329465b379c0f5ed6bd0">Arcane::DependencyInjection::impl::InterfaceListRegisterer::registerFactory</a></div><div class="ttdeci">void registerFactory(FactoryInfo *si)</div><div class="ttdoc">Enregistre une fabrique.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:846</div></div>
+<div class="ttc" id="aReferenceCounterImpl_8h_html"><div class="ttname"><a href="../../dc/d3c/ReferenceCounterImpl_8h.html">ReferenceCounterImpl.h</a></div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1InjectionRegisterer_html_a5356613e1d4536b9e2909b6bb2846074"><div class="ttname"><a href="../../d2/dd2/classArcane_1_1DependencyInjection_1_1impl_1_1InjectionRegisterer.html#a5356613e1d4536b9e2909b6bb2846074">Arcane::DependencyInjection::impl::InjectionRegisterer::registerProviderInfo</a></div><div class="ttdeci">void registerProviderInfo(FactoryInfo *si, const Constructors &amp;... args)</div><div class="ttdoc">Enregistre dans si les fabriques correspondentes aux constructeurs Constructors.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:879</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/String.h:68</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1Injector_html_a77acc937f75b992904e24f2743e99068"><div class="ttname"><a href="../../db/d4c/classArcane_1_1DependencyInjection_1_1Injector.html#a77acc937f75b992904e24f2743e99068">Arcane::DependencyInjection::Injector::_iterateFactories</a></div><div class="ttdeci">void _iterateFactories(const String &amp;factory_name, IFactoryVisitorFunctor *functor) const</div><div class="ttdoc">Itère sur les fabriques et applique le fonctor functor.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.cc:335</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1ProviderProperty_html"><div class="ttname"><a href="../../d5/dbb/classArcane_1_1DependencyInjection_1_1ProviderProperty.html">Arcane::DependencyInjection::ProviderProperty</a></div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:83</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html_a531230192cc80e673bdc12ca8b5434ec"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html#a531230192cc80e673bdc12ca8b5434ec">Arccore::String::empty</a></div><div class="ttdeci">bool empty() const</div><div class="ttdoc">Vrai si la chaîne est vide (nulle ou &quot;&quot;)</div><div class="ttdef"><b>Definition:</b> String.cc:306</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1Injector_1_1IFactoryVisitorFunctor_html"><div class="ttname"><a href="../../dd/d59/classArcane_1_1DependencyInjection_1_1Injector_1_1IFactoryVisitorFunctor.html">Arcane::DependencyInjection::Injector::IFactoryVisitorFunctor</a></div><div class="ttdoc">Interface d'un fonctor pour appliqué à chaque fabrique.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:571</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactory_html_a61a5247652d65c47f4715babb636ee5c"><div class="ttname"><a href="../../d5/d36/classArcane_1_1DependencyInjection_1_1impl_1_1ConcreteFactory.html#a61a5247652d65c47f4715babb636ee5c">Arcane::DependencyInjection::impl::ConcreteFactory::createReference</a></div><div class="ttdeci">Ref&lt; InterfaceType &gt; createReference(Injector &amp;injector) override</div><div class="ttdoc">Créé une instance du service .</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:800</div></div>
+<div class="ttc" id="aReferenceCounterImpl_8h_html_a88a0944e03e68e129032863e462b6b98"><div class="ttname"><a href="../../dc/d3c/ReferenceCounterImpl_8h.html#a88a0944e03e68e129032863e462b6b98">ARCCORE_DEFINE_REFERENCE_COUNTED_INCLASS_METHODS</a></div><div class="ttdeci">#define ARCCORE_DEFINE_REFERENCE_COUNTED_INCLASS_METHODS()</div><div class="ttdoc">Macro pour définir les méthodes gérant les compteurs de référence.</div><div class="ttdef"><b>Definition:</b> ReferenceCounterImpl.h:115</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1InjectionRegisterer_html_a64e48f69d521906f0eb1b123d7026d3e"><div class="ttname"><a href="../../d2/dd2/classArcane_1_1DependencyInjection_1_1impl_1_1InjectionRegisterer.html#a64e48f69d521906f0eb1b123d7026d3e">Arcane::DependencyInjection::impl::InjectionRegisterer::_create</a></div><div class="ttdeci">void _create(FactoryInfo *si, const ConstructorType &amp;)</div><div class="ttdoc">Surcharge pour 1 constructeur.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.h:891</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a9d85d5fb84c5371348dd56600999e564"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a></div><div class="ttdeci">#define ARCANE_FATAL(...)</div><div class="ttdoc">Macro envoyant une exception FatalErrorException.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:761</div></div>
+<div class="ttc" id="aclassArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer_html_ae513266950557940c09cb31b3ff88a02"><div class="ttname"><a href="../../df/dfc/classArcane_1_1DependencyInjection_1_1impl_1_1GlobalRegisterer.html#ae513266950557940c09cb31b3ff88a02">Arcane::DependencyInjection::impl::GlobalRegisterer::GlobalRegisterer</a></div><div class="ttdeci">GlobalRegisterer(FactoryCreateFunc func, const ProviderProperty &amp;property) ARCANE_NOEXCEPT</div><div class="ttdoc">Crée en enregistreur pour le service name et la fonction func.</div><div class="ttdef"><b>Definition:</b> DependencyInjection.cc:204</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:25 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

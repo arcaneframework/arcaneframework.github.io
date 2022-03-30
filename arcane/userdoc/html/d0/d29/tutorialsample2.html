@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane: L&#39;application &quot;Poisson&quot;</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d0/d29/tutorialsample2.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">L'application "Poisson" </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>Le deuxième exemple de cette formation permet le développement d'un module qui calcule une diffusion numérique de la chaleur suivant l'équation de Poisson dans un parallélépipéde. Le module doit initialiser toutes les mailles avec une temperature constante. Cette temperature est lue dans le jeu de données qui fournit également des températures limites sur les surfaces XMIN et ZMIN du maillage. La température sur les faces limites est prise en compte en initialisant la température des noeuds se trouvant sur ces faces. Puis, le module calcule la diffusion :</p><ul>
+<li>la température d'une maille au temps n+1 est la moyenne des températures de ses noeuds au temps n,</li>
+<li>la température d'un noeud au temps n+1 est la moyenne des températures de ses mailles au temps n+1.</li>
+</ul>
+<p>Le calcul doit s'arrêter quand le plus grand écart de températures (entre les temps n et n+1) sur une maille est inférieur à 0,2. Cet écart sera stocké dans une variable locale nommée <code>max_delta_cell_t</code>.</p>
+<h1><a class="anchor" id="tutorialsample2_variables"></a>
+Variables</h1>
+<dl class="section user"><dt>Prérequis</dt><dd><ul>
+<li>Avoir fait le premier exemple de ce didacticiel : <a class="el" href="../../d8/dd9/tutorialsample1.html">L'application "Hello World !"</a>.</li>
+<li>Lire la partie section <a class="el" href="../../d1/deb/arcanedoc_core.html#arcanedoc_variable">Les variables</a>. </li>
+</ul>
+</dd></dl>
+<dl class="section user"><dt>Actions à réaliser</dt><dd><ul>
+<li>Compléter le fichier <code>Poisson.axl</code> pour déclarer les variables <em>CellTemperature</em> et <em>NodeTemperature</em> représentant respectivement les températures aux mailles et aux noeuds.</li>
+<li>Compiler.</li>
+<li>Regarder la déclaration des variables <code>ArcanePoissonObject::m_cell_temperature</code> et <code>ArcanePoissonObject::m_node_temperature</code> dans le fichier <code>Poisson_axl.h</code> </li>
+</ul>
+</dd></dl>
+<h1><a class="anchor" id="tutorialsample1_datafile"></a>
+Fichier de données</h1>
+<dl class="section user"><dt>Pré-requis</dt><dd><ul>
+<li>Lire la section <a class="el" href="../../de/d26/arcanedoc_caseoptions.html">Configuration des options jeu de données (fichier AXL)</a>. </li>
+</ul>
+</dd></dl>
+<dl class="section user"><dt>Actions à réaliser</dt><dd><ul>
+<li>Editer le jeu de données <code>Poisson.arc</code> et observer les éléments <code>init-temperature</code> et <code>boundary-condition</code>.</li>
+<li>Définir la grammaire de ces données en complétant le descripteur du module <code>Poisson.axl</code> (élément <code>options</code>)</li>
+</ul>
+</dd></dl>
+<h1><a class="anchor" id="tutorialsample2_enumerator"></a>
+Parcourir les entités du maillage</h1>
+<dl class="section user"><dt>Pré-requis</dt><dd><ul>
+<li>Lire la section <a class="el" href="../../db/d2f/arcane_overview.html#arcane_overview_iteration">Itération</a> </li>
+</ul>
+</dd></dl>
+<dl class="section user"><dt>Actions à réaliser</dt><dd><ul>
+<li>Compléter le fichier <code>PoissonModule.cc</code> en effectuant les calculs décrits dans l'énoncé de l'exercice</li>
+<li>Compiler à l'aide des fichiers Makefile fournis</li>
+<li>Exécuter en séquentiel. Les fichiers de sortie sont au format Ensight Gold ; le visualiser (si possible !)</li>
+</ul>
+</dd></dl>
+<h1><a class="anchor" id="tutorialsample2_parallel"></a>
+Parallélisme</h1>
+<dl class="section user"><dt>Pré-requis</dt><dd><ul>
+<li>Lire la section <a class="el" href="../../df/d78/arcanedoc_parallel.html">Prise en compte du parallélisme dans ARCANE</a>. </li>
+</ul>
+</dd></dl>
+<dl class="section user"><dt>Actions à réaliser</dt><dd><ul>
+<li>Exécuter en parallèle et visualiser le résultat</li>
+<li>Corriger les erreurs de diffusion en synchronisant la température et la variable <code>max_delta_cell_t</code> </li>
+<li>Exécuter en parallèle et visualiser le résultat </li>
+</ul>
+</dd></dl>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li><li class="navelem"><a class="el" href="../../df/d55/arcanedoc_tutorial.html">Le didacticiel ARCANE</a></li>
+    <li class="footer">Généré le Mercredi 30 Mars 2022 12:59:39 pour Arcane par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

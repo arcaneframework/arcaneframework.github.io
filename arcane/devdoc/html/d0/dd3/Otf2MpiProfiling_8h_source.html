@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de Otf2MpiProfiling.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_0e0554a2c8be4f5ceff2916ad4772f76.html">std</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Otf2MpiProfiling.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* Otf2MpiProfiling.h                                          (C) 2000-2018 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Implementation de l&#39;interface IMpiProfiling permettant l&#39;instrumentation  */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/* au format OTF2                              .                             */</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#ifndef ARCANE_STD_OTF2MPIPROFILING_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define ARCANE_STD_OTF2MPIPROFILING_H</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/d12/BaseTypes_8h.html">arccore/base/BaseTypes.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;arccore/collections/CollectionsGlobal.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;arccore/message_passing/Request.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;arccore/message_passing_mpi/MessagePassingMpiGlobal.h&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;arccore/message_passing_mpi/IMpiProfiling.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;arccore/message_passing_mpi/MessagePassingMpiEnum.h&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;arcane/std/Otf2LibWrapper.h&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">using namespace </span>Arccore::MessagePassing::Mpi;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html">   41</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html">Otf2MpiProfiling</a></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d0/db7/classArccore_1_1MessagePassing_1_1Mpi_1_1IMpiProfiling.html">IMpiProfiling</a></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="comment">// Pour l&#39;instant void pour des raisons de compatibilité mais devra à terme</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="comment">// être IMpiProfiling::ReturnType</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keyword">using</span> ReturnType = void;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html">Otf2MpiProfiling</a>(<a class="code" href="../../d7/d79/classArcane_1_1Otf2LibWrapper.html">Otf2LibWrapper</a>* otf2_wrapper);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  ~<a class="code" href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html">Otf2MpiProfiling</a>() <span class="keyword">override</span> = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="comment">// Bcast</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  ReturnType broadcast(<span class="keywordtype">void</span>* buffer, <span class="keywordtype">int</span> count, MPI_Datatype datatype, <span class="keywordtype">int</span> root, MPI_Comm comm) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="comment">// Gather</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  ReturnType gather(<span class="keyword">const</span> <span class="keywordtype">void</span>* sendbuf, <span class="keywordtype">int</span> sendcount, MPI_Datatype sendtype, <span class="keywordtype">void</span>* recvbuf,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                    <span class="keywordtype">int</span> recvcount, MPI_Datatype recvtype, <span class="keywordtype">int</span> root, MPI_Comm comm) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="comment">// Gatherv</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  ReturnType gatherVariable(<span class="keyword">const</span> <span class="keywordtype">void</span>* sendbuf, <span class="keywordtype">int</span> sendcount, MPI_Datatype sendtype, <span class="keywordtype">void</span>* recvbuf,</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;                            <span class="keyword">const</span> <span class="keywordtype">int</span>* recvcounts, <span class="keyword">const</span> <span class="keywordtype">int</span>* displs, MPI_Datatype recvtype, <span class="keywordtype">int</span> root, MPI_Comm comm) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="comment">// Allgather</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  ReturnType allGather(<span class="keyword">const</span> <span class="keywordtype">void</span>* sendbuf, <span class="keywordtype">int</span> sendcount, MPI_Datatype sendtype, <span class="keywordtype">void</span>* recvbuf,</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;                       <span class="keywordtype">int</span> recvcount, MPI_Datatype recvtype, MPI_Comm comm) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="comment">// Allgatherv</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  ReturnType allGatherVariable(<span class="keyword">const</span> <span class="keywordtype">void</span>* sendbuf, <span class="keywordtype">int</span> sendcount, MPI_Datatype sendtype, <span class="keywordtype">void</span>* recvbuf,</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;                               <span class="keyword">const</span> <span class="keywordtype">int</span>* recvcounts, <span class="keyword">const</span> <span class="keywordtype">int</span>* displs, MPI_Datatype recvtype, MPI_Comm comm) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="comment">// Scatterv</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  ReturnType scatterVariable(<span class="keyword">const</span> <span class="keywordtype">void</span>* sendbuf, <span class="keyword">const</span> <span class="keywordtype">int</span>* sendcounts, <span class="keyword">const</span> <span class="keywordtype">int</span>* displs,</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                             MPI_Datatype sendtype, <span class="keywordtype">void</span>* recvbuf, <span class="keywordtype">int</span> recvcount, MPI_Datatype recvtype,</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                             <span class="keywordtype">int</span> root, MPI_Comm comm) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="comment">// Alltoall</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  ReturnType allToAll(<span class="keyword">const</span> <span class="keywordtype">void</span>* sendbuf, <span class="keywordtype">int</span> sendcount, MPI_Datatype sendtype, <span class="keywordtype">void</span>* recvbuf,</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                      <span class="keywordtype">int</span> recvcount, MPI_Datatype recvtype, MPI_Comm comm) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="comment">// Alltoallv</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  ReturnType allToAllVariable(<span class="keyword">const</span> <span class="keywordtype">void</span>* sendbuf, <span class="keyword">const</span> <span class="keywordtype">int</span>* sendcounts, <span class="keyword">const</span> <span class="keywordtype">int</span>* sdispls,</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                              MPI_Datatype sendtype, <span class="keywordtype">void</span>* recvbuf, <span class="keyword">const</span> <span class="keywordtype">int</span>* recvcounts,</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;                              <span class="keyword">const</span> <span class="keywordtype">int</span>* rdispls, MPI_Datatype recvtype, MPI_Comm comm) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="comment">// Barrier</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  ReturnType barrier(MPI_Comm comm) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="comment">// Reduce</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  ReturnType reduce(<span class="keyword">const</span> <span class="keywordtype">void</span>* sendbuf, <span class="keywordtype">void</span>* recvbuf, <span class="keywordtype">int</span> count, MPI_Datatype datatype,</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    MPI_Op op, <span class="keywordtype">int</span> root, MPI_Comm comm) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="comment">// Allreduce</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  ReturnType allReduce(<span class="keyword">const</span> <span class="keywordtype">void</span>* sendbuf, <span class="keywordtype">void</span>* recvbuf, <span class="keywordtype">int</span> count, MPI_Datatype datatype,</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;                       MPI_Op op, MPI_Comm comm) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="comment">// Scan</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  ReturnType scan(<span class="keyword">const</span> <span class="keywordtype">void</span>* sendbuf, <span class="keywordtype">void</span>* recvbuf, <span class="keywordtype">int</span> count, MPI_Datatype datatype, MPI_Op op, MPI_Comm comm) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <span class="comment">// Sendrecv</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  ReturnType sendRecv(<span class="keyword">const</span> <span class="keywordtype">void</span>* sendbuf, <span class="keywordtype">int</span> sendcount, MPI_Datatype sendtype, <span class="keywordtype">int</span> dest,</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                      <span class="keywordtype">int</span> sendtag, <span class="keywordtype">void</span>* recvbuf, <span class="keywordtype">int</span> recvcount, MPI_Datatype recvtype,</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;                      <span class="keywordtype">int</span> source, <span class="keywordtype">int</span> recvtag, MPI_Comm comm, MPI_Status* status) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="comment">// Isend</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  ReturnType iSend(<span class="keyword">const</span> <span class="keywordtype">void</span>* buf, <span class="keywordtype">int</span> count, MPI_Datatype datatype, <span class="keywordtype">int</span> dest, <span class="keywordtype">int</span> tag,</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;                   MPI_Comm comm, MPI_Request* request) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="comment">// Send</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  ReturnType send(<span class="keyword">const</span> <span class="keywordtype">void</span>* buf, <span class="keywordtype">int</span> count, MPI_Datatype datatype, <span class="keywordtype">int</span> dest, <span class="keywordtype">int</span> tag, MPI_Comm comm) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="comment">// Irecv</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  ReturnType iRecv(<span class="keywordtype">void</span>* buf, <span class="keywordtype">int</span> count, MPI_Datatype datatype, <span class="keywordtype">int</span> source, <span class="keywordtype">int</span> tag,</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;                   MPI_Comm comm, MPI_Request* request) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="comment">// recv</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  ReturnType recv(<span class="keywordtype">void</span>* buf, <span class="keywordtype">int</span> count, MPI_Datatype datatype, <span class="keywordtype">int</span> source, <span class="keywordtype">int</span> tag, MPI_Comm comm, MPI_Status* status) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="comment">// Test</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  ReturnType test(MPI_Request* request, <span class="keywordtype">int</span>* flag, MPI_Status* status) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="comment">// Probe</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  ReturnType probe(<span class="keywordtype">int</span> source, <span class="keywordtype">int</span> tag, MPI_Comm comm, MPI_Status* status) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="comment">// Get_count</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  ReturnType getCount(<span class="keyword">const</span> MPI_Status* status, MPI_Datatype datatype, <span class="keywordtype">int</span>* count) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="comment">// Wait</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  ReturnType wait(MPI_Request* request, MPI_Status* status) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="comment">// Waitall</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  ReturnType waitAll(<span class="keywordtype">int</span> count, MPI_Request array_of_requests[], MPI_Status array_of_statuses[]) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="comment">// Testsome</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  ReturnType testSome(<span class="keywordtype">int</span> incount, MPI_Request array_of_requests[], <span class="keywordtype">int</span>* outcount,</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;                      <span class="keywordtype">int</span> array_of_indices[], MPI_Status array_of_statuses[]) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="comment">// Waitsome</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  ReturnType waitSome(<span class="keywordtype">int</span> incount, MPI_Request array_of_requests[], <span class="keywordtype">int</span>* outcount,</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;                      <span class="keywordtype">int</span> array_of_indices[], MPI_Status array_of_statuses[]) <span class="keyword">final</span>;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <a class="code" href="../../d7/d79/classArcane_1_1Otf2LibWrapper.html">Otf2LibWrapper</a>* m_otf2_wrapper;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="keywordtype">void</span> _doEventEnter(eMpiName event_name);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  <span class="keywordtype">void</span> _doEventLeave(eMpiName event_name);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  ReturnType _ret(<span class="keywordtype">int</span> r)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    <span class="keywordflow">return</span> (ReturnType)(r);</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  }</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;};</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;} <span class="comment">// namespace Arcane</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="preprocessor">#endif  </span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1Mpi_1_1IMpiProfiling_html"><div class="ttname"><a href="../../d0/db7/classArccore_1_1MessagePassing_1_1Mpi_1_1IMpiProfiling.html">Arccore::MessagePassing::Mpi::IMpiProfiling</a></div><div class="ttdoc">Interface d'abstraction pour les operations MPI. Sert principalement a utiliser un decorateur pour le...</div><div class="ttdef"><b>Definition:</b> IMpiProfiling.h:39</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_aa21f6bda211693bf78d08d2ababf0d7b"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#aa21f6bda211693bf78d08d2ababf0d7b">Arcane::Otf2MpiProfiling::broadcast</a></div><div class="ttdeci">ReturnType broadcast(void *buffer, int count, MPI_Datatype datatype, int root, MPI_Comm comm) final</div><div class="ttdoc">MPI_Bcast.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:60</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_a19cd42bb2e29d99956915a5f81241b49"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#a19cd42bb2e29d99956915a5f81241b49">Arcane::Otf2MpiProfiling::testSome</a></div><div class="ttdeci">ReturnType testSome(int incount, MPI_Request array_of_requests[], int *outcount, int array_of_indices[], MPI_Status array_of_statuses[]) final</div><div class="ttdoc">MPI_Testsome.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:528</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_a13c35a9ab870dfdb3e3b1a9d3fb12968"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#a13c35a9ab870dfdb3e3b1a9d3fb12968">Arcane::Otf2MpiProfiling::waitAll</a></div><div class="ttdeci">ReturnType waitAll(int count, MPI_Request array_of_requests[], MPI_Status array_of_statuses[]) final</div><div class="ttdoc">MPI_Waitall.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:515</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_abd6b04918acc60ab613fe47a36a34f7d"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#abd6b04918acc60ab613fe47a36a34f7d">Arcane::Otf2MpiProfiling::gather</a></div><div class="ttdeci">ReturnType gather(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf, int recvcount, MPI_Datatype recvtype, int root, MPI_Comm comm) final</div><div class="ttdoc">MPI_Gather.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:85</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_aeacde91ed4fa8b43772fedcf1cc38e73"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#aeacde91ed4fa8b43772fedcf1cc38e73">Arcane::Otf2MpiProfiling::iRecv</a></div><div class="ttdeci">ReturnType iRecv(void *buf, int count, MPI_Datatype datatype, int source, int tag, MPI_Comm comm, MPI_Request *request) final</div><div class="ttdoc">MPI_Irecv.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:424</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_a8951f868dea269bb8ff231a9c02a043b"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#a8951f868dea269bb8ff231a9c02a043b">Arcane::Otf2MpiProfiling::scan</a></div><div class="ttdeci">ReturnType scan(const void *sendbuf, void *recvbuf, int count, MPI_Datatype datatype, MPI_Op op, MPI_Comm comm) final</div><div class="ttdoc">MPI_Scan.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:343</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_a50cd60ff2b223e80ca20eee9f2a99376"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#a50cd60ff2b223e80ca20eee9f2a99376">Arcane::Otf2MpiProfiling::reduce</a></div><div class="ttdeci">ReturnType reduce(const void *sendbuf, void *recvbuf, int count, MPI_Datatype datatype, MPI_Op op, int root, MPI_Comm comm) final</div><div class="ttdoc">MPI_Reduce.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:296</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_a2013cdcf7ad6b20a76aad0c317560211"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#a2013cdcf7ad6b20a76aad0c317560211">Arcane::Otf2MpiProfiling::probe</a></div><div class="ttdeci">ReturnType probe(int source, int tag, MPI_Comm comm, MPI_Status *status) final</div><div class="ttdoc">MPI_Probe.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:476</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2LibWrapper_html_a751699cb30eb467baf88e683d900e43e"><div class="ttname"><a href="../../d7/d79/classArcane_1_1Otf2LibWrapper.html#a751699cb30eb467baf88e683d900e43e">Arcane::Otf2LibWrapper::getMpiNbRank</a></div><div class="ttdeci">int getMpiNbRank() const</div><div class="ttdoc">Helper sur le nombre de rank MPI.</div><div class="ttdef"><b>Definition:</b> Otf2LibWrapper.cc:214</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2LibWrapper_html"><div class="ttname"><a href="../../d7/d79/classArcane_1_1Otf2LibWrapper.html">Arcane::Otf2LibWrapper</a></div><div class="ttdoc">Classe d'encapsulation des fonctions de la librairie OTF2.</div><div class="ttdef"><b>Definition:</b> Otf2LibWrapper.h:35</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_ae1aa65c1607ccb582ac3ebfc1ea39501"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#ae1aa65c1607ccb582ac3ebfc1ea39501">Arcane::Otf2MpiProfiling::iSend</a></div><div class="ttdeci">ReturnType iSend(const void *buf, int count, MPI_Datatype datatype, int dest, int tag, MPI_Comm comm, MPI_Request *request) final</div><div class="ttdoc">MPI_Isend.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:385</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_abfc14dc87045f8c71fef39f281970766"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#abfc14dc87045f8c71fef39f281970766">Arcane::Otf2MpiProfiling::wait</a></div><div class="ttdeci">ReturnType wait(MPI_Request *request, MPI_Status *status) final</div><div class="ttdoc">MPI_Wait.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:502</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_a8d03451df3512e1cf6605862280c16bd"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#a8d03451df3512e1cf6605862280c16bd">Arcane::Otf2MpiProfiling::waitSome</a></div><div class="ttdeci">ReturnType waitSome(int incount, MPI_Request array_of_requests[], int *outcount, int array_of_indices[], MPI_Status array_of_statuses[]) final</div><div class="ttdoc">MPI_Waitsome.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:542</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2LibWrapper_html_a83a5867b43f5d3ebfdc98392ed5ccd89"><div class="ttname"><a href="../../d7/d79/classArcane_1_1Otf2LibWrapper.html#a83a5867b43f5d3ebfdc98392ed5ccd89">Arcane::Otf2LibWrapper::getTime</a></div><div class="ttdeci">static OTF2_TimeStamp getTime()</div><div class="ttdoc">Méthode interne statique pour recuperer le timestamp.</div><div class="ttdef"><b>Definition:</b> Otf2LibWrapper.cc:241</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_a3973fbcd3c1a356a2cf1cea397480633"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#a3973fbcd3c1a356a2cf1cea397480633">Arcane::Otf2MpiProfiling::sendRecv</a></div><div class="ttdeci">ReturnType sendRecv(const void *sendbuf, int sendcount, MPI_Datatype sendtype, int dest, int sendtag, void *recvbuf, int recvcount, MPI_Datatype recvtype, int source, int recvtag, MPI_Comm comm, MPI_Status *status) final</div><div class="ttdoc">MPI_Sendrecv.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:367</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_a514e3b152904f2ee84c7b21b32333981"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#a514e3b152904f2ee84c7b21b32333981">Arcane::Otf2MpiProfiling::scatterVariable</a></div><div class="ttdeci">ReturnType scatterVariable(const void *sendbuf, const int *sendcounts, const int *displs, MPI_Datatype sendtype, void *recvbuf, int recvcount, MPI_Datatype recvtype, int root, MPI_Comm comm) final</div><div class="ttdoc">MPI_Scatterv.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:197</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2LibWrapper_html_ae184055189a200f9d605354625493a16"><div class="ttname"><a href="../../d7/d79/classArcane_1_1Otf2LibWrapper.html#ae184055189a200f9d605354625493a16">Arcane::Otf2LibWrapper::getMpiRank</a></div><div class="ttdeci">int getMpiRank() const</div><div class="ttdoc">Helper sur le numero de rank MPI.</div><div class="ttdef"><b>Definition:</b> Otf2LibWrapper.cc:205</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html">Arcane::Otf2MpiProfiling</a></div><div class="ttdoc">Implementation de l'interface des operations MPI. Decore chacun des appels MPI avec les fonctions de ...</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.h:41</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_a0e9b6d0ae5a90ac7af6d6e09a1417445"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#a0e9b6d0ae5a90ac7af6d6e09a1417445">Arcane::Otf2MpiProfiling::allGather</a></div><div class="ttdeci">ReturnType allGather(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf, int recvcount, MPI_Datatype recvtype, MPI_Comm comm) final</div><div class="ttdoc">MPI_Allgather.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:142</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_a24fb9e38959d4cc4a726b8f01101c9ef"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#a24fb9e38959d4cc4a726b8f01101c9ef">Arcane::Otf2MpiProfiling::Otf2MpiProfiling</a></div><div class="ttdeci">Otf2MpiProfiling(Otf2LibWrapper *otf2_wrapper)</div><div class="ttdoc">Constructeur.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:50</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2LibWrapper_html_a7037569a7858d96e4f609944d14ada10"><div class="ttname"><a href="../../d7/d79/classArcane_1_1Otf2LibWrapper.html#a7037569a7858d96e4f609944d14ada10">Arcane::Otf2LibWrapper::getEventWriter</a></div><div class="ttdeci">OTF2_EvtWriter * getEventWriter()</div><div class="ttdef"><b>Definition:</b> Otf2LibWrapper.cc:183</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_acab61663c7a736f9885e6e5cdbf731b3"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#acab61663c7a736f9885e6e5cdbf731b3">Arcane::Otf2MpiProfiling::test</a></div><div class="ttdeci">ReturnType test(MPI_Request *request, int *flag, MPI_Status *status) final</div><div class="ttdoc">MPI_Test.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:460</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_a8d9604b297897aa9ee86c81445ce43b1"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#a8d9604b297897aa9ee86c81445ce43b1">Arcane::Otf2MpiProfiling::getCount</a></div><div class="ttdeci">ReturnType getCount(const MPI_Status *status, MPI_Datatype datatype, int *count) final</div><div class="ttdoc">MPI_Get_count.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:489</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_a4ff9d5b1a417fd55aff94bba8970754a"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#a4ff9d5b1a417fd55aff94bba8970754a">Arcane::Otf2MpiProfiling::recv</a></div><div class="ttdeci">ReturnType recv(void *buf, int count, MPI_Datatype datatype, int source, int tag, MPI_Comm comm, MPI_Status *status) final</div><div class="ttdoc">MPI_recv.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:443</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_ad073bb4c4f4069d2dab2ec24ab92d7c1"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#ad073bb4c4f4069d2dab2ec24ab92d7c1">Arcane::Otf2MpiProfiling::allReduce</a></div><div class="ttdeci">ReturnType allReduce(const void *sendbuf, void *recvbuf, int count, MPI_Datatype datatype, MPI_Op op, MPI_Comm comm) final</div><div class="ttdoc">MPI_Allreduce.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:318</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_a82d0a45067d2cd7569110798f507039c"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#a82d0a45067d2cd7569110798f507039c">Arcane::Otf2MpiProfiling::allToAll</a></div><div class="ttdeci">ReturnType allToAll(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf, int recvcount, MPI_Datatype recvtype, MPI_Comm comm) final</div><div class="ttdoc">MPI_Alltoall.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:230</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_a66bb64de4cf16d17288c2a5f519d443b"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#a66bb64de4cf16d17288c2a5f519d443b">Arcane::Otf2MpiProfiling::allToAllVariable</a></div><div class="ttdeci">ReturnType allToAllVariable(const void *sendbuf, const int *sendcounts, const int *sdispls, MPI_Datatype sendtype, void *recvbuf, const int *recvcounts, const int *rdispls, MPI_Datatype recvtype, MPI_Comm comm) final</div><div class="ttdoc">MPI_Alltoallv.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:252</div></div>
+<div class="ttc" id="aBaseTypes_8h_html"><div class="ttname"><a href="../../d4/d12/BaseTypes_8h.html">BaseTypes.h</a></div><div class="ttdoc">Déclarations des types de la composante 'base' de Arccore.</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_acbd2a1464cd96b7f6db6d94e3c53c231"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#acbd2a1464cd96b7f6db6d94e3c53c231">Arcane::Otf2MpiProfiling::send</a></div><div class="ttdeci">ReturnType send(const void *buf, int count, MPI_Datatype datatype, int dest, int tag, MPI_Comm comm) final</div><div class="ttdoc">MPI_Send.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:406</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html">ArcaneGlobal.h</a></div><div class="ttdoc">Fichier de configuration d'Arcane.</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_a8580683cf069760f4c6e09046bdda5e9"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#a8580683cf069760f4c6e09046bdda5e9">Arcane::Otf2MpiProfiling::gatherVariable</a></div><div class="ttdeci">ReturnType gatherVariable(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf, const int *recvcounts, const int *displs, MPI_Datatype recvtype, int root, MPI_Comm comm) final</div><div class="ttdoc">MPI_Gatherv.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:111</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_a2f5dd144a336c057bd71403801c9fe61"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#a2f5dd144a336c057bd71403801c9fe61">Arcane::Otf2MpiProfiling::barrier</a></div><div class="ttdeci">ReturnType barrier(MPI_Comm comm) final</div><div class="ttdoc">MPI_Barrier.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:275</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aclassArcane_1_1Otf2MpiProfiling_html_a0aa763086a376dae8f04a73e9b862a6f"><div class="ttname"><a href="../../d6/de6/classArcane_1_1Otf2MpiProfiling.html#a0aa763086a376dae8f04a73e9b862a6f">Arcane::Otf2MpiProfiling::allGatherVariable</a></div><div class="ttdeci">ReturnType allGatherVariable(const void *sendbuf, int sendcount, MPI_Datatype sendtype, void *recvbuf, const int *recvcounts, const int *displs, MPI_Datatype recvtype, MPI_Comm comm) final</div><div class="ttdoc">MPI_Allgatherv.</div><div class="ttdef"><b>Definition:</b> Otf2MpiProfiling.cc:168</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:40 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

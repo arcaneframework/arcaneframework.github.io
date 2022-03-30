@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de GroupIndexTable.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">GroupIndexTable.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* GroupIndexTable.h                                           (C) 2000-2011 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Table de hachage entre un item et sa position dans la table.              */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/* Utile pour les variables partielles :                                     */</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">/*  la position des données d&#39;un item n&#39;est pas son localId                  */</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">/*  mais sa position dans l&#39;enumerateur du groupe (ie dans la table)         */</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifndef ARCANE_UTILS_GROUPINDEXTABLE_H</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define ARCANE_UTILS_GROUPINDEXTABLE_H</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/HashTable.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">class </span>ItemGroupImpl;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../d7/dbe/classArcane_1_1GroupIndexTable.html">   36</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../d7/dbe/classArcane_1_1GroupIndexTable.html">GroupIndexTable</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d8/d03/classArcane_1_1HashTableBase.html">HashTableBase</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">public</span>: </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">typedef</span> Integer KeyTypeValue;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">typedef</span> Integer ValueType;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../dc/d0b/classArcane_1_1HashTraitsT.html">HashTraitsT&lt;KeyTypeValue&gt;</a> <a class="code" href="../../dc/d0b/classArcane_1_1HashTraitsT.html">KeyTraitsType</a>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">typedef</span> KeyTraitsType::KeyTypeConstRef KeyTypeConstRef;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <a class="code" href="../../d7/dbe/classArcane_1_1GroupIndexTable.html">GroupIndexTable</a>(<a class="code" href="../../da/df1/classArcane_1_1ItemGroupImpl.html">ItemGroupImpl</a>* group_impl);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  ~<a class="code" href="../../d7/dbe/classArcane_1_1GroupIndexTable.html">GroupIndexTable</a>() {}</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordtype">void</span> update();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordtype">void</span> clear();</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordtype">void</span> compact(<span class="keyword">const</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a>* info);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  ValueType operator[](Integer i)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _lookup(i); }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  KeyTypeValue keyLocalId(Integer i)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_key_buffer[i]; }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  Integer size()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_key_buffer.size(); }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  Integer _hash(KeyTypeConstRef <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordtype">bool</span> _hasKey(KeyTypeConstRef <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  Integer _lookupBucket(Integer bucket, KeyTypeConstRef <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  Integer _lookup(KeyTypeConstRef <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordtype">bool</span> _initialized() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keywordtype">bool</span> _checkIntegrity(<span class="keywordtype">bool</span> full=<span class="keyword">true</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <a class="code" href="../../da/df1/classArcane_1_1ItemGroupImpl.html">ItemGroupImpl</a>* m_group_impl;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">UniqueArray&lt;KeyTypeValue&gt;</a> m_key_buffer; </div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../d7/dbe/classArcane_1_1GroupIndexTable.html#a6d8d3ba1aed21f0474803abdb59c13bf">   89</a></span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">UniqueArray&lt;Integer&gt;</a> <a class="code" href="../../d7/dbe/classArcane_1_1GroupIndexTable.html#a6d8d3ba1aed21f0474803abdb59c13bf">m_next_buffer</a>;     </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../d7/dbe/classArcane_1_1GroupIndexTable.html#a56dd1a9f8e11b37826cff663009d6831">   90</a></span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">UniqueArray&lt;Integer&gt;</a> <a class="code" href="../../d7/dbe/classArcane_1_1GroupIndexTable.html#a56dd1a9f8e11b37826cff663009d6831">m_buckets</a>;         </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#ifdef ARCANE_ASSERT</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keywordtype">bool</span> m_disable_check_integrity;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;ARCANE_END_NAMESPACE</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1GroupIndexTable_html_aa72bbc0da44ed15e3c3327f996f3f950"><div class="ttname"><a href="../../d7/dbe/classArcane_1_1GroupIndexTable.html#aa72bbc0da44ed15e3c3327f996f3f950">Arcane::GroupIndexTable::_lookup</a></div><div class="ttdeci">Integer _lookup(KeyTypeConstRef id) const</div><div class="ttdoc">Recherche d'une clef dans toute la table.</div><div class="ttdef"><b>Definition:</b> GroupIndexTable.cc:150</div></div>
+<div class="ttc" id="anamespaceArcane_html_a638ab0b5813a316efa87a4e382bedc59"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a638ab0b5813a316efa87a4e382bedc59">Arcane::Int32ConstArrayView</a></div><div class="ttdeci">ConstArrayView&lt; Int32 &gt; Int32ConstArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension d'entiers 32 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:532</div></div>
+<div class="ttc" id="anamespaceArccore_html_a19fea02f94d4da203710fd2070c0f2fb"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Arccore::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:232</div></div>
+<div class="ttc" id="aclassArcane_1_1GroupIndexTable_html_a9c73583bd56a68878356fa332046c205"><div class="ttname"><a href="../../d7/dbe/classArcane_1_1GroupIndexTable.html#a9c73583bd56a68878356fa332046c205">Arcane::GroupIndexTable::_hash</a></div><div class="ttdeci">Integer _hash(KeyTypeConstRef id) const</div><div class="ttdoc">Fonction de hachage.</div><div class="ttdef"><b>Definition:</b> GroupIndexTable.cc:107</div></div>
+<div class="ttc" id="aclassArccore_1_1UniqueArray_html"><div class="ttname"><a href="../../da/daa/classArccore_1_1UniqueArray.html">Arccore::UniqueArray</a></div><div class="ttdoc">Vecteur 1D de données avec sémantique par valeur (style STL).</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:1504</div></div>
+<div class="ttc" id="aclassArccore_1_1FatalErrorException_html"><div class="ttname"><a href="../../d9/d4e/classArccore_1_1FatalErrorException.html">Arccore::FatalErrorException</a></div><div class="ttdoc">Exception lorsqu'une erreur fatale est survenue.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/FatalErrorException.h:30</div></div>
+<div class="ttc" id="aclassArcane_1_1GroupIndexTable_html_a3b3d5c3fd331ba3221b3835bd160d78e"><div class="ttname"><a href="../../d7/dbe/classArcane_1_1GroupIndexTable.html#a3b3d5c3fd331ba3221b3835bd160d78e">Arcane::GroupIndexTable::_hasKey</a></div><div class="ttdeci">bool _hasKey(KeyTypeConstRef id) const</div><div class="ttdoc">true si une valeur avec la clé id est présente</div><div class="ttdef"><b>Definition:</b> GroupIndexTable.cc:118</div></div>
+<div class="ttc" id="aclassArcane_1_1GroupIndexTable_html_a6d8d3ba1aed21f0474803abdb59c13bf"><div class="ttname"><a href="../../d7/dbe/classArcane_1_1GroupIndexTable.html#a6d8d3ba1aed21f0474803abdb59c13bf">Arcane::GroupIndexTable::m_next_buffer</a></div><div class="ttdeci">UniqueArray&lt; Integer &gt; m_next_buffer</div><div class="ttdoc">Table des clés associées.</div><div class="ttdef"><b>Definition:</b> GroupIndexTable.h:89</div></div>
+<div class="ttc" id="aclassArcane_1_1GroupIndexTable_html_a5f0efee954cba9d9e1c48f3da0d4fee9"><div class="ttname"><a href="../../d7/dbe/classArcane_1_1GroupIndexTable.html#a5f0efee954cba9d9e1c48f3da0d4fee9">Arcane::GroupIndexTable::_checkIntegrity</a></div><div class="ttdeci">bool _checkIntegrity(bool full=true) const</div><div class="ttdoc">Test l'intégrité de la table relativement à son groupe.</div><div class="ttdef"><b>Definition:</b> GroupIndexTable.cc:171</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemGroupImpl_html"><div class="ttname"><a href="../../da/df1/classArcane_1_1ItemGroupImpl.html">Arcane::ItemGroupImpl</a></div><div class="ttdoc">Implémentation d'un groupe d'entités de maillage.</div><div class="ttdef"><b>Definition:</b> ItemGroupImpl.h:70</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemGroup_html"><div class="ttname"><a href="../../d9/d27/classArcane_1_1ItemGroup.html">Arcane::ItemGroup</a></div><div class="ttdoc">Groupe d'entités de maillage.</div><div class="ttdef"><b>Definition:</b> ItemGroup.h:48</div></div>
+<div class="ttc" id="aclassArccore_1_1StringBuilder_html_a3cd0a2a22cd6377ecfb888102f8232e7"><div class="ttname"><a href="../../d5/df4/classArccore_1_1StringBuilder.html#a3cd0a2a22cd6377ecfb888102f8232e7">Arccore::StringBuilder::toString</a></div><div class="ttdeci">String toString() const</div><div class="ttdoc">Retourne la chaîne de caractères construite.</div><div class="ttdef"><b>Definition:</b> StringBuilder.cc:221</div></div>
+<div class="ttc" id="aclassArcane_1_1GroupIndexTable_html_acdb90ce04b3c28d764ba0228a5363f16"><div class="ttname"><a href="../../d7/dbe/classArcane_1_1GroupIndexTable.html#acdb90ce04b3c28d764ba0228a5363f16">Arcane::GroupIndexTable::_initialized</a></div><div class="ttdeci">bool _initialized() const</div><div class="ttdoc">Teste l'initialisation de l'objet.</div><div class="ttdef"><b>Definition:</b> GroupIndexTable.cc:161</div></div>
+<div class="ttc" id="aItemEnumerator_8h_html_ad8a248a2dc99c27958e4670b9cb09aa3"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#ad8a248a2dc99c27958e4670b9cb09aa3">ENUMERATE_ITEM</a></div><div class="ttdeci">#define ENUMERATE_ITEM(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de noeuds.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:229</div></div>
+<div class="ttc" id="aclassArcane_1_1GroupIndexTable_html_a35981bce4d4643d4f4eba5b66073f504"><div class="ttname"><a href="../../d7/dbe/classArcane_1_1GroupIndexTable.html#a35981bce4d4643d4f4eba5b66073f504">Arcane::GroupIndexTable::_lookupBucket</a></div><div class="ttdeci">Integer _lookupBucket(Integer bucket, KeyTypeConstRef id) const</div><div class="ttdoc">Recherche d'une clef dans un bucket.</div><div class="ttdef"><b>Definition:</b> GroupIndexTable.cc:134</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:32</div></div>
+<div class="ttc" id="aclassArcane_1_1HashTraitsT_html"><div class="ttname"><a href="../../dc/d0b/classArcane_1_1HashTraitsT.html">Arcane::HashTraitsT</a></div><div class="ttdef"><b>Definition:</b> HashFunction.h:105</div></div>
+<div class="ttc" id="aclassArcane_1_1GroupIndexTable_html_a56dd1a9f8e11b37826cff663009d6831"><div class="ttname"><a href="../../d7/dbe/classArcane_1_1GroupIndexTable.html#a56dd1a9f8e11b37826cff663009d6831">Arcane::GroupIndexTable::m_buckets</a></div><div class="ttdeci">UniqueArray&lt; Integer &gt; m_buckets</div><div class="ttdoc">Table des index suivant associés.</div><div class="ttdef"><b>Definition:</b> GroupIndexTable.h:90</div></div>
+<div class="ttc" id="aclassArccore_1_1StringBuilder_html"><div class="ttname"><a href="../../d5/df4/classArccore_1_1StringBuilder.html">Arccore::StringBuilder</a></div><div class="ttdoc">Constructeur de chaîne de caractère unicode.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/StringBuilder.h:46</div></div>
+<div class="ttc" id="aclassArcane_1_1HashTableBase_html"><div class="ttname"><a href="../../d8/d03/classArcane_1_1HashTableBase.html">Arcane::HashTableBase</a></div><div class="ttdoc">Classe de base d'une table de hachage simple pour les entités.</div><div class="ttdef"><b>Definition:</b> HashTable.h:35</div></div>
+<div class="ttc" id="aclassArcane_1_1GroupIndexTable_html"><div class="ttname"><a href="../../d7/dbe/classArcane_1_1GroupIndexTable.html">Arcane::GroupIndexTable</a></div><div class="ttdoc">Classe de base d'une table de hachage entre les items d'un groupe et leurs positions dans la table.</div><div class="ttdef"><b>Definition:</b> GroupIndexTable.h:36</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:28 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

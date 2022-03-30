@@ -1,0 +1,156 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de MeshUniqueIdMng.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_73b81ab7f8087ecd4627c74229710b8a.html">mesh</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">MeshUniqueIdMng.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* MeshUniqueIdMng.h                                           (C) 2000-2021 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Gestionnaire de numérotation des uniqueId() d&#39;un maillage.                */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_MESH_MESHUNIQUEIDMNG_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_MESH_MESHUNIQUEIDMNG_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/TraceAccessor.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/IMeshUniqueIdMng.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;arcane/mesh/MeshGlobal.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d5/d7e/namespaceArcane_1_1mesh.html">Arcane::mesh</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="../../d1/dfc/classArcane_1_1mesh_1_1MeshUniqueIdMng.html">   32</a></span>&#160;<span class="keyword">class </span>ARCANE_MESH_EXPORT <a class="code" href="../../d1/dfc/classArcane_1_1mesh_1_1MeshUniqueIdMng.html">MeshUniqueIdMng</a></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d4/d0e/classArccore_1_1TraceAccessor.html">TraceAccessor</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;, <span class="keyword">public</span> <a class="code" href="../../d1/d1a/classArcane_1_1IMeshUniqueIdMng.html">IMeshUniqueIdMng</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d1/dfc/classArcane_1_1mesh_1_1MeshUniqueIdMng.html">MeshUniqueIdMng</a>(<a class="code" href="../../d0/df9/classArccore_1_1ITraceMng.html">ITraceMng</a>* tm);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keywordtype">void</span> setFaceBuilderVersion(Integer n) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d1/dfc/classArcane_1_1mesh_1_1MeshUniqueIdMng.html#a398b93e361be8a15af4dca4fc9186d25">   43</a></span>&#160;  Integer <a class="code" href="../../d1/dfc/classArcane_1_1mesh_1_1MeshUniqueIdMng.html#a398b93e361be8a15af4dca4fc9186d25">faceBuilderVersion</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_face_builder_version; }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordtype">void</span> setEdgeBuilderVersion(Integer n) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d1/dfc/classArcane_1_1mesh_1_1MeshUniqueIdMng.html#a52a38f353583f382b2952ff8341377a0">   46</a></span>&#160;  Integer <a class="code" href="../../d1/dfc/classArcane_1_1mesh_1_1MeshUniqueIdMng.html#a52a38f353583f382b2952ff8341377a0">edgeBuilderVersion</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_edge_builder_version; }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  Integer m_face_builder_version;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  Integer m_edge_builder_version;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordtype">void</span> _initFaceVersion();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;};</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;} <span class="comment">// End namespace Arcane::mesh</span></div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aArcaneGlobal_8h_html_a98dc7953a3cabcdf7e32826a9cc39da7"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a98dc7953a3cabcdf7e32826a9cc39da7">ARCANE_THROW</a></div><div class="ttdeci">#define ARCANE_THROW(exception_class,...)</div><div class="ttdoc">Macro pour envoyer une exception avec formattage.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:750</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html_ac15f4ee7396eaf404ab846d614d7bded"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html#ac15f4ee7396eaf404ab846d614d7bded">Arccore::String::null</a></div><div class="ttdeci">bool null() const</div><div class="ttdoc">Retourne true si la chaîne est nulle.</div><div class="ttdef"><b>Definition:</b> String.cc:295</div></div>
+<div class="ttc" id="aclassArccore_1_1ArgumentException_html"><div class="ttname"><a href="../../d8/d98/classArccore_1_1ArgumentException.html">Arccore::ArgumentException</a></div><div class="ttdoc">Exception lorsqu'un argument est invalide.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArgumentException.h:31</div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html">Arccore::TraceAccessor</a></div><div class="ttdoc">Classe d'accès aux traces.</div><div class="ttdef"><b>Definition:</b> arccore/src/trace/arccore/trace/TraceAccessor.h:38</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1MeshUniqueIdMng_html"><div class="ttname"><a href="../../d1/dfc/classArcane_1_1mesh_1_1MeshUniqueIdMng.html">Arcane::mesh::MeshUniqueIdMng</a></div><div class="ttdoc">Gestionnaire de numérotation des uniqueId() d'un maillage.</div><div class="ttdef"><b>Definition:</b> MeshUniqueIdMng.h:32</div></div>
+<div class="ttc" id="aclassArccore_1_1ITraceMng_html"><div class="ttname"><a href="../../d0/df9/classArccore_1_1ITraceMng.html">Arccore::ITraceMng</a></div><div class="ttdoc">Interface du gestionnaire de traces.</div><div class="ttdef"><b>Definition:</b> arccore/src/trace/arccore/trace/ITraceMng.h:155</div></div>
+<div class="ttc" id="anamespaceArcane_1_1mesh_html"><div class="ttname"><a href="../../d5/d7e/namespaceArcane_1_1mesh.html">Arcane::mesh</a></div><div class="ttdoc">AMR.</div><div class="ttdef"><b>Definition:</b> IItemFamily.h:47</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1MeshUniqueIdMng_html_a52a38f353583f382b2952ff8341377a0"><div class="ttname"><a href="../../d1/dfc/classArcane_1_1mesh_1_1MeshUniqueIdMng.html#a52a38f353583f382b2952ff8341377a0">Arcane::mesh::MeshUniqueIdMng::edgeBuilderVersion</a></div><div class="ttdeci">Integer edgeBuilderVersion() const override</div><div class="ttdoc">Version de la numérotation des arêtes.</div><div class="ttdef"><b>Definition:</b> MeshUniqueIdMng.h:46</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/String.h:68</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a9d85d5fb84c5371348dd56600999e564"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a></div><div class="ttdeci">#define ARCANE_FATAL(...)</div><div class="ttdoc">Macro envoyant une exception FatalErrorException.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:761</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshUniqueIdMng_html"><div class="ttname"><a href="../../d1/d1a/classArcane_1_1IMeshUniqueIdMng.html">Arcane::IMeshUniqueIdMng</a></div><div class="ttdef"><b>Definition:</b> IMeshUniqueIdMng.h:36</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1MeshUniqueIdMng_html_a398b93e361be8a15af4dca4fc9186d25"><div class="ttname"><a href="../../d1/dfc/classArcane_1_1mesh_1_1MeshUniqueIdMng.html#a398b93e361be8a15af4dca4fc9186d25">Arcane::mesh::MeshUniqueIdMng::faceBuilderVersion</a></div><div class="ttdeci">Integer faceBuilderVersion() const override</div><div class="ttdoc">Version de la numérotation des faces.</div><div class="ttdef"><b>Definition:</b> MeshUniqueIdMng.h:43</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:38 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

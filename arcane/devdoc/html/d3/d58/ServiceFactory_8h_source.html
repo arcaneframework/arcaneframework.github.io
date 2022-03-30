@@ -1,0 +1,615 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de ServiceFactory.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">ServiceFactory.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d3/d58/ServiceFactory_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* ServiceFactory.h                                            (C) 2000-2019 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Manufacture des services.                                                 */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_SERVICEFACTORY_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_SERVICEFACTORY_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/NotSupportedException.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/TraceInfo.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/ExternalRef.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;arcane/IApplication.h&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;arcane/ISession.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;arcane/ISubDomain.h&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;arcane/ServiceBuildInfo.h&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;arcane/IServiceFactory.h&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;arcane/ServiceRegisterer.h&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;arcane/ServiceInfo.h&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;arcane/IService.h&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d2/d54/ServiceProperty_8h.html">arcane/ServiceProperty.h</a>&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;arcane/ServiceInstance.h&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../df/dae/namespaceArcane_1_1Internal.html">Arcane::Internal</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d8/d82/classArcane_1_1Internal_1_1DotNetServiceInstance.html">   44</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d8/d82/classArcane_1_1Internal_1_1DotNetServiceInstance.html">DotNetServiceInstance</a></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../de/d12/classArcane_1_1IServiceInstance.html">IServiceInstance</a></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <a class="code" href="../../d8/d82/classArcane_1_1Internal_1_1DotNetServiceInstance.html">DotNetServiceInstance</a>(<a class="code" href="../../de/df8/classArcane_1_1IServiceInfo.html">IServiceInfo</a>* si)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  : m_service_info(si), m_handle(<span class="keyword">nullptr</span>){}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d8/d82/classArcane_1_1Internal_1_1DotNetServiceInstance.html#adcc13c550913b2a88f840bcbc0adc112">   51</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d8/d82/classArcane_1_1Internal_1_1DotNetServiceInstance.html#adcc13c550913b2a88f840bcbc0adc112">addReference</a>()<span class="keyword"> override </span>{ ++m_nb_ref; }</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../d8/d82/classArcane_1_1Internal_1_1DotNetServiceInstance.html#ac3d69783d1205d2bb64a555d431b5e6e">   52</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d8/d82/classArcane_1_1Internal_1_1DotNetServiceInstance.html#ac3d69783d1205d2bb64a555d431b5e6e">removeReference</a>()<span class="keyword"> override</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    Int32 v = std::atomic_fetch_add(&amp;m_nb_ref,-1);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordflow">if</span> (v==1)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="keyword">delete</span> <span class="keyword">this</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <a class="code" href="../../de/df8/classArcane_1_1IServiceInfo.html">IServiceInfo</a>* serviceInfo()<span class="keyword"> const override</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordflow">return</span> m_service_info;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordtype">void</span> setDotNetHandle(ExternalRef handle) { m_handle = handle; }</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="../../d8/d82/classArcane_1_1Internal_1_1DotNetServiceInstance.html#a0614bf287ecb072258562dfc6771b2f3">   64</a></span>&#160;  <a class="code" href="../../d3/d47/classArccore_1_1Internal_1_1ExternalRef.html">ExternalRef</a> <a class="code" href="../../d8/d82/classArcane_1_1Internal_1_1DotNetServiceInstance.html#a0614bf287ecb072258562dfc6771b2f3">_internalDotNetHandle</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_handle; }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  std::atomic&lt;Int32&gt; m_nb_ref = 0;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <a class="code" href="../../de/df8/classArcane_1_1IServiceInfo.html">IServiceInfo</a>* m_service_info;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <a class="code" href="../../d3/d47/classArccore_1_1Internal_1_1ExternalRef.html">ExternalRef</a> m_handle;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> InterfaceType&gt;</div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../d1/d95/classArcane_1_1Internal_1_1ServiceInstanceT.html">   78</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/d95/classArcane_1_1Internal_1_1ServiceInstanceT.html">ServiceInstanceT</a></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d1/de9/classArcane_1_1IServiceInstanceT.html">IServiceInstanceT</a>&lt;InterfaceType&gt;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <a class="code" href="../../d1/d95/classArcane_1_1Internal_1_1ServiceInstanceT.html">ServiceInstanceT</a>(<a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InterfaceType&gt;</a> i,<a class="code" href="../../de/df8/classArcane_1_1IServiceInfo.html">IServiceInfo</a>* si)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  : m_instance(i), m_service_info(si){}</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="../../d1/d95/classArcane_1_1Internal_1_1ServiceInstanceT.html#a5bb8d37b631225b2645c7b24c2894fff">   85</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d1/d95/classArcane_1_1Internal_1_1ServiceInstanceT.html#a5bb8d37b631225b2645c7b24c2894fff">addReference</a>()<span class="keyword"> override </span>{ ++m_nb_ref; }</div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../d1/d95/classArcane_1_1Internal_1_1ServiceInstanceT.html#a149cc3d7c7cfd57c79205215e2d3d3e2">   86</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d1/d95/classArcane_1_1Internal_1_1ServiceInstanceT.html#a149cc3d7c7cfd57c79205215e2d3d3e2">removeReference</a>()<span class="keyword"> override</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    Int32 v = std::atomic_fetch_add(&amp;m_nb_ref,-1);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">if</span> (v==1)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <span class="keyword">delete</span> <span class="keyword">this</span>;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InterfaceType&gt;</a> instance()<span class="keyword"> override</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;    <span class="keywordflow">return</span> m_instance;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <a class="code" href="../../de/df8/classArcane_1_1IServiceInfo.html">IServiceInfo</a>* serviceInfo()<span class="keyword"> const override</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> m_service_info;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  std::atomic&lt;Int32&gt; m_nb_ref = 0;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  Ref&lt;InterfaceType&gt; m_instance;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  IServiceInfo* m_service_info;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;};</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno"><a class="line" href="../../dc/d9a/classArcane_1_1Internal_1_1ServiceFactoryInfo.html">  113</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../dc/d9a/classArcane_1_1Internal_1_1ServiceFactoryInfo.html">ServiceFactoryInfo</a></div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d3/dd4/classArcane_1_1IServiceFactoryInfo.html">IServiceFactoryInfo</a></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;{</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../dc/d9a/classArcane_1_1Internal_1_1ServiceFactoryInfo.html">ServiceFactoryInfo</a>(<a class="code" href="../../de/df8/classArcane_1_1IServiceInfo.html">IServiceInfo</a>* si)</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  : m_service_info(si), m_is_autoload(<span class="keyword">false</span>), m_is_singleton(<span class="keyword">false</span>) {}</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  ~<a class="code" href="../../dc/d9a/classArcane_1_1Internal_1_1ServiceFactoryInfo.html">ServiceFactoryInfo</a>()<span class="keyword"> override </span>{}</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  </div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="../../dc/d9a/classArcane_1_1Internal_1_1ServiceFactoryInfo.html#a3cdd5cc24fdc07d1f6679cabe2f11b19">  124</a></span>&#160;  <a class="code" href="../../de/df8/classArcane_1_1IServiceInfo.html">IServiceInfo</a>* <a class="code" href="../../dc/d9a/classArcane_1_1Internal_1_1ServiceFactoryInfo.html#a3cdd5cc24fdc07d1f6679cabe2f11b19">serviceInfo</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_service_info; }</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno"><a class="line" href="../../dc/d9a/classArcane_1_1Internal_1_1ServiceFactoryInfo.html#af07bc0052a3c22ca4b24453d704484f3">  126</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="../../dc/d9a/classArcane_1_1Internal_1_1ServiceFactoryInfo.html#af07bc0052a3c22ca4b24453d704484f3">isAutoload</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_is_autoload; }</div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="../../dc/d9a/classArcane_1_1Internal_1_1ServiceFactoryInfo.html#aa3ca8fb0a1ca0849ab74ea99f0ef4883">  127</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="../../dc/d9a/classArcane_1_1Internal_1_1ServiceFactoryInfo.html#aa3ca8fb0a1ca0849ab74ea99f0ef4883">isSingleton</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_is_singleton; }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isModule()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; }</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> initializeModuleFactory(<a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html">ISubDomain</a>*) {}</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <span class="keyword">virtual</span> IModule* createModule(ISubDomain*,IMesh*) { <span class="keywordflow">return</span> <span class="keyword">nullptr</span>; }</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <span class="keywordtype">void</span> setAutoload(<span class="keywordtype">bool</span> v) { m_is_autoload = v; }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  <span class="keywordtype">void</span> setSingleton(<span class="keywordtype">bool</span> v) { m_is_singleton = v; }</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  <span class="keywordtype">void</span> initProperties(<span class="keywordtype">int</span> v)</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  {</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;    <span class="keywordflow">if</span> (v &amp; <a class="code" href="../../d0/d32/namespaceArcane.html#a1b581b9bc319ce066e9428b1fe2b9a83acbe0ca394319b1fd2c2ea7e516bec964">SFP_Singleton</a>)</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;      setSingleton(v);</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    <span class="keywordflow">if</span> (v &amp; <a class="code" href="../../d0/d32/namespaceArcane.html#a1b581b9bc319ce066e9428b1fe2b9a83a21d6b4fbb500a781121220beeb52a0c7">SFP_Autoload</a>)</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;      setAutoload(v);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  }</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  <span class="keywordtype">void</span> initProperties(){}</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  IServiceInfo* m_service_info;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <span class="keywordtype">bool</span> m_is_autoload;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  <span class="keywordtype">bool</span> m_is_singleton;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;};</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> InterfaceType&gt;</div>
+<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="../../d3/dcc/classArcane_1_1Internal_1_1IServiceInterfaceFactory.html">  161</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d3/dcc/classArcane_1_1Internal_1_1IServiceInterfaceFactory.html">IServiceInterfaceFactory</a></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;{</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../d3/dcc/classArcane_1_1Internal_1_1IServiceInterfaceFactory.html">IServiceInterfaceFactory</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InterfaceType&gt;</a> <a class="code" href="../../d3/dcc/classArcane_1_1Internal_1_1IServiceInterfaceFactory.html#a8d03faf21b9b6b2a42a71d03a919fff7">createReference</a>(<span class="keyword">const</span> <a class="code" href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">ServiceBuildInfo</a>&amp; sbi) =0;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;};</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> InterfaceType&gt;</div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="../../de/d3b/classArcane_1_1Internal_1_1ServiceFactory2TV2.html">  181</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d3b/classArcane_1_1Internal_1_1ServiceFactory2TV2.html">ServiceFactory2TV2</a></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d0/d8a/classArcane_1_1Internal_1_1IServiceFactory2T.html">IServiceFactory2T</a>&lt;InterfaceType&gt;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;{</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  <a class="code" href="../../de/d3b/classArcane_1_1Internal_1_1ServiceFactory2TV2.html">ServiceFactory2TV2</a>(<a class="code" href="../../de/df8/classArcane_1_1IServiceInfo.html">IServiceInfo</a>* si,<a class="code" href="../../d3/dcc/classArcane_1_1Internal_1_1IServiceInterfaceFactory.html">IServiceInterfaceFactory&lt;InterfaceType&gt;</a>* sub_factory)</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  : m_service_info(si), m_sub_factory(sub_factory), m_type_flags(si-&gt;<a class="code" href="../../de/df8/classArcane_1_1IServiceInfo.html#a1d69549779e3401ce3b1f0b434766c88">usageType</a>())</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  {</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  }</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  ~<a class="code" href="../../de/d3b/classArcane_1_1Internal_1_1ServiceFactory2TV2.html">ServiceFactory2TV2</a>()<span class="keyword"> override</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keyword">delete</span> m_sub_factory;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  }</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  <a class="code" href="../../df/d04/classArcane_1_1ServiceInstanceRef.html">ServiceInstanceRef</a> createServiceInstance(<span class="keyword">const</span> <a class="code" href="../../d1/dd8/classArcane_1_1ServiceBuildInfoBase.html">ServiceBuildInfoBase</a>&amp; sbi)<span class="keyword"> override</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;    <span class="keywordflow">return</span> _create(this-&gt;createServiceReference(sbi));</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  }</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InterfaceType&gt;</a> createServiceReference(<span class="keyword">const</span> <a class="code" href="../../d1/dd8/classArcane_1_1ServiceBuildInfoBase.html">ServiceBuildInfoBase</a>&amp; sbi)<span class="keyword"> override</span></div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keywordflow">if</span> (!(m_type_flags &amp; sbi.<a class="code" href="../../d1/dd8/classArcane_1_1ServiceBuildInfoBase.html#ad585414d49bbcac307a664bf4ae6e5b1">creationType</a>()))</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;      <span class="keywordflow">return</span> {};</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <span class="keywordflow">return</span> _createReference(sbi);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  }</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  <a class="code" href="../../de/df8/classArcane_1_1IServiceInfo.html">IServiceInfo</a>* serviceInfo()<span class="keyword"> const override</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    <span class="keywordflow">return</span> m_service_info;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  }</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  <a class="code" href="../../de/df8/classArcane_1_1IServiceInfo.html">IServiceInfo</a>* m_service_info;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  <a class="code" href="../../d3/dcc/classArcane_1_1Internal_1_1IServiceInterfaceFactory.html">IServiceInterfaceFactory&lt;InterfaceType&gt;</a>* m_sub_factory;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  <span class="keywordtype">int</span> m_type_flags;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  </div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  InterfaceType* _createInstance(<span class="keyword">const</span> <a class="code" href="../../d1/dd8/classArcane_1_1ServiceBuildInfoBase.html">ServiceBuildInfoBase</a>&amp; sbib)</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  {</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    InterfaceType* it = m_sub_factory-&gt;createInstance(<a class="code" href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">ServiceBuildInfo</a>(m_service_info,sbib));</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="keywordflow">return</span> it;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;  }</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InterfaceType&gt;</a> _createReference(<span class="keyword">const</span> <a class="code" href="../../d1/dd8/classArcane_1_1ServiceBuildInfoBase.html">ServiceBuildInfoBase</a>&amp; sbib)</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  {</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    <span class="keywordflow">return</span> m_sub_factory-&gt;<a class="code" href="../../d3/dcc/classArcane_1_1Internal_1_1IServiceInterfaceFactory.html#a8d03faf21b9b6b2a42a71d03a919fff7">createReference</a>(<a class="code" href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">ServiceBuildInfo</a>(m_service_info,sbib));</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  }</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;  <a class="code" href="../../df/d04/classArcane_1_1ServiceInstanceRef.html">ServiceInstanceRef</a> _create(<a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InterfaceType&gt;</a> it)</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  {</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <a class="code" href="../../de/d12/classArcane_1_1IServiceInstance.html">IServiceInstance</a>* x = (!it) ? <span class="keyword">nullptr</span> : <span class="keyword">new</span> <a class="code" href="../../d1/d95/classArcane_1_1Internal_1_1ServiceInstanceT.html">ServiceInstanceT&lt;InterfaceType&gt;</a>(it,m_service_info);</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="keywordflow">return</span> ServiceInstanceRef::createRef(x);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;  }</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;};</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> ServiceType,<span class="keyword">typename</span> InterfaceType&gt;</div>
+<div class="line"><a name="l00246"></a><span class="lineno"><a class="line" href="../../de/df9/classArcane_1_1Internal_1_1ServiceInterfaceFactory.html">  246</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/df9/classArcane_1_1Internal_1_1ServiceInterfaceFactory.html">ServiceInterfaceFactory</a></div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d3/dcc/classArcane_1_1Internal_1_1IServiceInterfaceFactory.html">IServiceInterfaceFactory</a>&lt;InterfaceType&gt;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;{</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
+<div class="line"><a name="l00251"></a><span class="lineno"><a class="line" href="../../de/df9/classArcane_1_1Internal_1_1ServiceInterfaceFactory.html#aa959da044fa33da3c988bb04cdca19de">  251</a></span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InterfaceType&gt;</a> <a class="code" href="../../de/df9/classArcane_1_1Internal_1_1ServiceInterfaceFactory.html#aa959da044fa33da3c988bb04cdca19de">createReference</a>(<span class="keyword">const</span> <a class="code" href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">ServiceBuildInfo</a>&amp; sbi)<span class="keyword"> override</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    ServiceType* st = <span class="keyword">new</span> ServiceType(sbi);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;    st-&gt;build();</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    <span class="keywordflow">return</span> makeRef&lt;InterfaceType&gt;(st);</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  }</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;};</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno"><a class="line" href="../../d1/d77/classArcane_1_1Internal_1_1IServiceInstanceAdder.html">  264</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../d1/d77/classArcane_1_1Internal_1_1IServiceInstanceAdder.html">IServiceInstanceAdder</a></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;{</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../d1/d77/classArcane_1_1Internal_1_1IServiceInstanceAdder.html">IServiceInstanceAdder</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> addInstance(<a class="code" href="../../df/d04/classArcane_1_1ServiceInstanceRef.html">ServiceInstanceRef</a> instance) =0;</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;};</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; </div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno"><a class="line" href="../../d0/da9/classArcane_1_1Internal_1_1SingletonServiceFactoryBase.html">  279</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../d0/da9/classArcane_1_1Internal_1_1SingletonServiceFactoryBase.html">SingletonServiceFactoryBase</a></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d5/d59/classArcane_1_1Internal_1_1ISingletonServiceFactory.html">ISingletonServiceFactory</a></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;{</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  <span class="keyword">class </span><a class="code" href="../../df/dce/classArcane_1_1Internal_1_1SingletonServiceFactoryBase_1_1ServiceInstance.html">ServiceInstance</a>;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d0/da9/classArcane_1_1Internal_1_1SingletonServiceFactoryBase.html">SingletonServiceFactoryBase</a>(<a class="code" href="../../de/df8/classArcane_1_1IServiceInfo.html">IServiceInfo</a>* si) : m_service_info(si){}</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;ISingletonServiceInstance&gt;</a> createSingletonServiceInstance(<span class="keyword">const</span> <a class="code" href="../../d1/dd8/classArcane_1_1ServiceBuildInfoBase.html">ServiceBuildInfoBase</a>&amp; sbib) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
+<div class="line"><a name="l00292"></a><span class="lineno"><a class="line" href="../../d0/da9/classArcane_1_1Internal_1_1SingletonServiceFactoryBase.html#aaaddcd08f292fe91926b6b255749afa7">  292</a></span>&#160;  <a class="code" href="../../de/df8/classArcane_1_1IServiceInfo.html">IServiceInfo</a>* <a class="code" href="../../d0/da9/classArcane_1_1Internal_1_1SingletonServiceFactoryBase.html#aaaddcd08f292fe91926b6b255749afa7">serviceInfo</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_service_info; }</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../df/d04/classArcane_1_1ServiceInstanceRef.html">ServiceInstanceRef</a> _createInstance(<span class="keyword">const</span> <a class="code" href="../../d1/dd8/classArcane_1_1ServiceBuildInfoBase.html">ServiceBuildInfoBase</a>&amp; sbi,<a class="code" href="../../d1/d77/classArcane_1_1Internal_1_1IServiceInstanceAdder.html">IServiceInstanceAdder</a>* instance_adder) =0;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  <a class="code" href="../../de/df8/classArcane_1_1IServiceInfo.html">IServiceInfo</a>* m_service_info;</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;};</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> ServiceType,<span class="keyword">typename</span> ... Interfaces&gt;</div>
+<div class="line"><a name="l00307"></a><span class="lineno"><a class="line" href="../../de/da0/classArcane_1_1Internal_1_1SingletonServiceFactory.html">  307</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/da0/classArcane_1_1Internal_1_1SingletonServiceFactory.html">SingletonServiceFactory</a></div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d0/da9/classArcane_1_1Internal_1_1SingletonServiceFactoryBase.html">SingletonServiceFactoryBase</a></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;{</div>
+<div class="line"><a name="l00314"></a><span class="lineno"><a class="line" href="../../db/d09/classArcane_1_1Internal_1_1SingletonServiceFactory_1_1Helper.html">  314</a></span>&#160;  <span class="keyword">class </span><a class="code" href="../../db/d09/classArcane_1_1Internal_1_1SingletonServiceFactory_1_1Helper.html">Helper</a></div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  {</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <a class="code" href="../../db/d09/classArcane_1_1Internal_1_1SingletonServiceFactory_1_1Helper.html">Helper</a>(ServiceType* service,<a class="code" href="../../de/df8/classArcane_1_1IServiceInfo.html">IServiceInfo</a>* si,<a class="code" href="../../d1/d77/classArcane_1_1Internal_1_1IServiceInstanceAdder.html">IServiceInstanceAdder</a>* adder)</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;    : m_service(service), m_service_info(si), m_adder(adder) {}</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00321"></a><span class="lineno"><a class="line" href="../../db/d09/classArcane_1_1Internal_1_1SingletonServiceFactory_1_1Helper.html#a8dcf401cd84acbe26a13e283487a5caa">  321</a></span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> InterfaceType&gt; <span class="keywordtype">void</span> <a class="code" href="../../db/d09/classArcane_1_1Internal_1_1SingletonServiceFactory_1_1Helper.html#a8dcf401cd84acbe26a13e283487a5caa">_create</a>()</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    {</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;      InterfaceType* x = m_service;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;      <span class="comment">// ATTENTION: la référence suivante ne doit pas détruire &#39;m_service&#39; car</span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;      <span class="comment">// ce dernier a déjà un ServiceReference qui a été construit lors de</span></div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;      <span class="comment">// l&#39;appel à _createInstance().</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;      <span class="keyword">auto</span> x_ref = <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InterfaceType&gt;::_createNoDestroy</a>(x);</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;      <span class="keyword">auto</span> instance = <span class="keyword">new</span> <a class="code" href="../../d1/d95/classArcane_1_1Internal_1_1ServiceInstanceT.html">ServiceInstanceT&lt;InterfaceType&gt;</a>(x_ref,m_service_info);</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;      <span class="comment">// TODO: indiquer qu&#39;il ne faut pas détruire la référence.</span></div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;      <span class="keyword">auto</span> instance_ref = ServiceInstanceRef::createRef(instance);</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;      m_adder-&gt;addInstance(instance_ref);</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    }</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> I1,<span class="keyword">typename</span> I2,<span class="keyword">typename</span> ... OtherInterfaces&gt;</div>
+<div class="line"><a name="l00335"></a><span class="lineno"><a class="line" href="../../db/d09/classArcane_1_1Internal_1_1SingletonServiceFactory_1_1Helper.html#a0c8cf587711a1d428f2f92702af3df68">  335</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../db/d09/classArcane_1_1Internal_1_1SingletonServiceFactory_1_1Helper.html#a0c8cf587711a1d428f2f92702af3df68">_create</a>()</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    {</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;      _create&lt;I1&gt;();</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;      <span class="comment">// Applique la récursivité sur les types restants</span></div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;      <a class="code" href="../../db/d09/classArcane_1_1Internal_1_1SingletonServiceFactory_1_1Helper.html#a8dcf401cd84acbe26a13e283487a5caa">_create</a>&lt;I2,OtherInterfaces...&gt;();</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    }</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="keywordtype">void</span> createInterfaceInstances()</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    {</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;      <a class="code" href="../../db/d09/classArcane_1_1Internal_1_1SingletonServiceFactory_1_1Helper.html#a8dcf401cd84acbe26a13e283487a5caa">_create</a>&lt;Interfaces...&gt;();</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;    }</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;    ServiceType* m_service;</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <a class="code" href="../../de/df8/classArcane_1_1IServiceInfo.html">IServiceInfo</a>* m_service_info;</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;    <a class="code" href="../../d1/d77/classArcane_1_1Internal_1_1IServiceInstanceAdder.html">IServiceInstanceAdder</a>* m_adder;</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;  };</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;  <span class="keyword">explicit</span> SingletonServiceFactory(<a class="code" href="../../de/df8/classArcane_1_1IServiceInfo.html">IServiceInfo</a>* si) : SingletonServiceFactoryBase(si){}</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;  ServiceInstanceRef _createInstance(<span class="keyword">const</span> ServiceBuildInfoBase&amp; sbib,IServiceInstanceAdder* instance_adder)<span class="keyword"> override</span></div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;    ServiceBuildInfo sbi(<a class="code" href="../../d0/da9/classArcane_1_1Internal_1_1SingletonServiceFactoryBase.html#aaaddcd08f292fe91926b6b255749afa7">serviceInfo</a>(),sbib);</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;    ServiceType* st = <span class="keyword">new</span> ServiceType(sbi);</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;    st-&gt;build();</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;    <span class="keyword">auto</span> st_ref = <a class="code" href="../../d5/d60/namespaceArccore.html#a7c7dbb1a4a565ffa1d5a02fb0bf6cb1b">makeRef</a>(st);</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;    Helper ssf(st,<a class="code" href="../../d0/da9/classArcane_1_1Internal_1_1SingletonServiceFactoryBase.html#aaaddcd08f292fe91926b6b255749afa7">serviceInfo</a>(),instance_adder);</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;    ssf.createInterfaceInstances();</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;    IServiceInstance* si = <span class="keyword">new</span> ServiceInstanceT&lt;ServiceType&gt;(st_ref,<a class="code" href="../../d0/da9/classArcane_1_1Internal_1_1SingletonServiceFactoryBase.html#aaaddcd08f292fe91926b6b255749afa7">serviceInfo</a>());</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;    <span class="keywordflow">return</span> ServiceInstanceRef::createRef(si);</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;  }</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;};</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> InterfaceType&gt;</div>
+<div class="line"><a name="l00375"></a><span class="lineno"><a class="line" href="../../d1/dbc/classArcane_1_1Internal_1_1ServiceInterfaceRegisterer.html">  375</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d1/dbc/classArcane_1_1Internal_1_1ServiceInterfaceRegisterer.html">ServiceInterfaceRegisterer</a></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;{</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;  <span class="keyword">typedef</span> InterfaceType Interface;</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; </div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d1/dbc/classArcane_1_1Internal_1_1ServiceInterfaceRegisterer.html">ServiceInterfaceRegisterer</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* name)</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;  : m_name(name), m_namespace_name(<span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;  {</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;  }</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160; </div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;  <a class="code" href="../../d1/dbc/classArcane_1_1Internal_1_1ServiceInterfaceRegisterer.html">ServiceInterfaceRegisterer</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* namespace_name,<span class="keyword">const</span> <span class="keywordtype">char</span>* name)</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;  : m_name(name), m_namespace_name(namespace_name)</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;  {</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;  }</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160; </div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160; </div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ServiceType&gt; <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00395"></a><span class="lineno"><a class="line" href="../../d1/dbc/classArcane_1_1Internal_1_1ServiceInterfaceRegisterer.html#a03e6b61517e4592574f40ea5bfd8669e">  395</a></span>&#160;  <a class="code" href="../../d1/dbc/classArcane_1_1Internal_1_1ServiceInterfaceRegisterer.html#a03e6b61517e4592574f40ea5bfd8669e">registerToServiceInfo</a>(<a class="code" href="../../d7/db6/classArcane_1_1Internal_1_1ServiceInfo.html">ServiceInfo</a>* si)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;    <a class="code" href="../../d3/dcc/classArcane_1_1Internal_1_1IServiceInterfaceFactory.html">IServiceInterfaceFactory&lt;InterfaceType&gt;</a>* factory = <span class="keyword">new</span> <a class="code" href="../../de/df9/classArcane_1_1Internal_1_1ServiceInterfaceFactory.html">ServiceInterfaceFactory&lt;ServiceType,InterfaceType&gt;</a>();</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;    <span class="keywordflow">if</span> (m_namespace_name)</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;      si-&gt;<a class="code" href="../../d7/db6/classArcane_1_1Internal_1_1ServiceInfo.html#aacf37d76490e74ad0454f30070eb7564">addImplementedInterface</a>(<a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>(m_namespace_name)+<a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>(<span class="stringliteral">&quot;::&quot;</span>)+<a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>(m_name));</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;      si-&gt;<a class="code" href="../../d7/db6/classArcane_1_1Internal_1_1ServiceInfo.html#aacf37d76490e74ad0454f30070eb7564">addImplementedInterface</a>(m_name);</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;    si-&gt;addFactory(<span class="keyword">new</span> <a class="code" href="../../de/d3b/classArcane_1_1Internal_1_1ServiceFactory2TV2.html">ServiceFactory2TV2&lt;InterfaceType&gt;</a>(si,factory));</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;  }</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; </div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160; </div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">char</span>* m_name;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">char</span>* m_namespace_name;</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;};</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160; </div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> ServiceType&gt;</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d73/classArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer.html">ServiceAllInterfaceRegisterer</a></div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;{</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160; </div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> InterfaceType&gt; <span class="keyword">static</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00424"></a><span class="lineno"><a class="line" href="../../d4/d73/classArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer.html#afa00cd87d0482e56d9a5e59b71cdad8f">  424</a></span>&#160;  <a class="code" href="../../d4/d73/classArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer.html#afa00cd87d0482e56d9a5e59b71cdad8f">_create</a>(<a class="code" href="../../d7/db6/classArcane_1_1Internal_1_1ServiceInfo.html">ServiceInfo</a>* si,<span class="keyword">const</span> InterfaceType&amp; i1)</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;  {</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    i1.template registerToServiceInfo&lt;ServiceType&gt;(si);</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;  }</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> I1,<span class="keyword">typename</span> I2,<span class="keyword">typename</span> ... OtherInterfaces&gt;</div>
+<div class="line"><a name="l00430"></a><span class="lineno"><a class="line" href="../../d4/d73/classArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer.html#a34a5c6c7fd13fad7d59e1b22f39d7b6a">  430</a></span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../d4/d73/classArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer.html#a34a5c6c7fd13fad7d59e1b22f39d7b6a">_create</a>(<a class="code" href="../../d7/db6/classArcane_1_1Internal_1_1ServiceInfo.html">ServiceInfo</a>* si,<span class="keyword">const</span> I1&amp; i1,<span class="keyword">const</span> I2&amp; i2,<span class="keyword">const</span> OtherInterfaces&amp; ... args)</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;  {</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    _create&lt;I1&gt;(si,i1);</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;    <span class="comment">// Applique la récursivité sur les types restants</span></div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;    <a class="code" href="../../d4/d73/classArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer.html#afa00cd87d0482e56d9a5e59b71cdad8f">_create</a>&lt;I2,OtherInterfaces...&gt;(si,i2,args...);</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;  }</div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160; </div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160; </div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> ... Interfaces&gt; <span class="keyword">static</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00441"></a><span class="lineno"><a class="line" href="../../d4/d73/classArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer.html#af124379edbbe94ba1489a9f1b7c2f94f">  441</a></span>&#160;  <a class="code" href="../../d4/d73/classArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer.html#af124379edbbe94ba1489a9f1b7c2f94f">registerToServiceInfo</a>(<a class="code" href="../../d7/db6/classArcane_1_1Internal_1_1ServiceInfo.html">ServiceInfo</a>* si, <span class="keyword">const</span> Interfaces&amp; ... args)</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;  {</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;    si-&gt;setSingletonFactory(<span class="keyword">new</span> <a class="code" href="../../de/da0/classArcane_1_1Internal_1_1SingletonServiceFactory.html">Internal::SingletonServiceFactory&lt;ServiceType,typename Interfaces::Interface ... &gt;</a>(si));</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;    <a class="code" href="../../d4/d73/classArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer.html#afa00cd87d0482e56d9a5e59b71cdad8f">_create</a>(si,args...);</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;  }</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;};</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160; </div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160; </div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;} <span class="comment">// End namespace Arcane::Internal</span></div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160; </div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00475"></a><span class="lineno"><a class="line" href="../../d3/d58/ServiceFactory_8h.html#aba44ad90916fb14522e59bab36dbf5f7">  475</a></span>&#160;<span class="preprocessor">#define ARCANE_SERVICE_INTERFACE(ainterface)\</span></div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;<span class="preprocessor">  Arcane::Internal::ServiceInterfaceRegisterer&lt; ainterface &gt;(#ainterface)</span></div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160; </div>
+<div class="line"><a name="l00479"></a><span class="lineno"><a class="line" href="../../d3/d58/ServiceFactory_8h.html#adb786938f6c47ffef682518ce1e08799">  479</a></span>&#160;<span class="preprocessor">#define ARCANE_SERVICE_INTERFACE_NS(ainterface_ns,ainterface) \</span></div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;<span class="preprocessor">  Arcane::Internal::ServiceInterfaceRegisterer&lt;ainterface_ns :: ainterface&gt;(#ainterface_ns,#ainterface)</span></div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160; </div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00516"></a><span class="lineno"><a class="line" href="../../d8/dff/group__Service.html#ga08ef55634029238ec40cbb93692033e8">  516</a></span>&#160;<span class="preprocessor">#define ARCANE_REGISTER_SERVICE(aclass,a_service_property,...) \</span></div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;<span class="preprocessor">namespace\</span></div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;<span class="preprocessor">{\</span></div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160;<span class="preprocessor">  Arcane::IServiceInfo*\</span></div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;<span class="preprocessor">  ARCANE_JOIN_WITH_LINE(arcaneCreateServiceInfo##aclass) (const Arcane::ServiceProperty&amp; property) \</span></div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;<span class="preprocessor">  {\</span></div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;<span class="preprocessor">    auto* si = Arcane::Internal::ServiceInfo::create(property,__FILE__,__LINE__); \</span></div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160;<span class="preprocessor">    Arcane::Internal::ServiceAllInterfaceRegisterer&lt;aclass&gt; :: registerToServiceInfo(si,__VA_ARGS__); \</span></div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;<span class="preprocessor">    return si;\</span></div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;<span class="preprocessor">  }\</span></div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160;<span class="preprocessor">}\</span></div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;<span class="preprocessor">Arcane::ServiceRegisterer ARCANE_EXPORT ARCANE_JOIN_WITH_LINE(globalServiceRegisterer##aclass) \</span></div>
+<div class="line"><a name="l00528"></a><span class="lineno">  528</span>&#160;<span class="preprocessor">  (&amp; ARCANE_JOIN_WITH_LINE(arcaneCreateServiceInfo##aclass),a_service_property)</span></div>
+<div class="line"><a name="l00529"></a><span class="lineno">  529</span>&#160; </div>
+<div class="line"><a name="l00530"></a><span class="lineno">  530</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00531"></a><span class="lineno">  531</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00538"></a><span class="lineno"><a class="line" href="../../d3/d58/ServiceFactory_8h.html#ad27d25e4491a8bc477104aa8bafadefd">  538</a></span>&#160;<span class="preprocessor">#define ARCANE_REGISTER_AXL_SERVICE(aclass,a_service_properties) \</span></div>
+<div class="line"><a name="l00539"></a><span class="lineno">  539</span>&#160;<span class="preprocessor">namespace\</span></div>
+<div class="line"><a name="l00540"></a><span class="lineno">  540</span>&#160;<span class="preprocessor">{\</span></div>
+<div class="line"><a name="l00541"></a><span class="lineno">  541</span>&#160;<span class="preprocessor">  Arcane::IServiceInfo*\</span></div>
+<div class="line"><a name="l00542"></a><span class="lineno">  542</span>&#160;<span class="preprocessor">  ARCANE_JOIN_WITH_LINE(arcaneCreateServiceInfo##aclass) (const Arcane::ServiceProperty&amp; properties) \</span></div>
+<div class="line"><a name="l00543"></a><span class="lineno">  543</span>&#160;<span class="preprocessor">  {\</span></div>
+<div class="line"><a name="l00544"></a><span class="lineno">  544</span>&#160;<span class="preprocessor">    Arcane::ServiceInfo* si = Arcane::ServiceInfo::create(properties,__FILE__,__LINE__); \</span></div>
+<div class="line"><a name="l00545"></a><span class="lineno">  545</span>&#160;<span class="preprocessor">    aclass :: fillServiceInfo&lt; aclass &gt;(si);                            \</span></div>
+<div class="line"><a name="l00546"></a><span class="lineno">  546</span>&#160;<span class="preprocessor">    return si;\</span></div>
+<div class="line"><a name="l00547"></a><span class="lineno">  547</span>&#160;<span class="preprocessor">  }\</span></div>
+<div class="line"><a name="l00548"></a><span class="lineno">  548</span>&#160;<span class="preprocessor">}\</span></div>
+<div class="line"><a name="l00549"></a><span class="lineno">  549</span>&#160;<span class="preprocessor">Arcane::ServiceRegisterer ARCANE_EXPORT ARCANE_JOIN_WITH_LINE(globalServiceRegisterer##aclass) \</span></div>
+<div class="line"><a name="l00550"></a><span class="lineno">  550</span>&#160;<span class="preprocessor">  (&amp; ARCANE_JOIN_WITH_LINE(arcaneCreateServiceInfo##aclass),a_service_properties)</span></div>
+<div class="line"><a name="l00551"></a><span class="lineno">  551</span>&#160; </div>
+<div class="line"><a name="l00552"></a><span class="lineno">  552</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00553"></a><span class="lineno">  553</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00554"></a><span class="lineno">  554</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00555"></a><span class="lineno">  555</span>&#160;<span class="comment"> * Les types et macros suivants sont obsolètes.</span></div>
+<div class="line"><a name="l00556"></a><span class="lineno">  556</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00557"></a><span class="lineno">  557</span>&#160;<span class="comment"> * A terme, seule la macro ARCANE_REGISTER_SERVICE sera utilisée.</span></div>
+<div class="line"><a name="l00558"></a><span class="lineno">  558</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00559"></a><span class="lineno">  559</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00560"></a><span class="lineno">  560</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00561"></a><span class="lineno">  561</span>&#160; </div>
+<div class="line"><a name="l00562"></a><span class="lineno">  562</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00563"></a><span class="lineno">  563</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00572"></a><span class="lineno"><a class="line" href="../../d3/d58/ServiceFactory_8h.html#affda8ed7dc6aad9ab1078939efe5d10a">  572</a></span>&#160;<span class="preprocessor">#define ARCANE_REGISTER_APPLICATION_FACTORY(aclass,ainterface,aname) \</span></div>
+<div class="line"><a name="l00573"></a><span class="lineno">  573</span>&#160;<span class="preprocessor">ARCANE_REGISTER_SERVICE ( aclass, Arcane::ServiceProperty(#aname,Arcane::ST_Application) ,\</span></div>
+<div class="line"><a name="l00574"></a><span class="lineno">  574</span>&#160;<span class="preprocessor">                          ARCANE_SERVICE_INTERFACE(ainterface) )</span></div>
+<div class="line"><a name="l00575"></a><span class="lineno">  575</span>&#160; </div>
+<div class="line"><a name="l00576"></a><span class="lineno">  576</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00577"></a><span class="lineno">  577</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00586"></a><span class="lineno"><a class="line" href="../../d3/d58/ServiceFactory_8h.html#a480db4972e53162abf799e425a4e73ad">  586</a></span>&#160;<span class="preprocessor">#define ARCANE_REGISTER_SUB_DOMAIN_FACTORY(aclass,ainterface,aname)  \</span></div>
+<div class="line"><a name="l00587"></a><span class="lineno">  587</span>&#160;<span class="preprocessor">ARCANE_REGISTER_SERVICE ( aclass, Arcane::ServiceProperty(#aname,Arcane::ST_SubDomain) ,\</span></div>
+<div class="line"><a name="l00588"></a><span class="lineno">  588</span>&#160;<span class="preprocessor">                          ARCANE_SERVICE_INTERFACE(ainterface) )</span></div>
+<div class="line"><a name="l00589"></a><span class="lineno">  589</span>&#160; </div>
+<div class="line"><a name="l00590"></a><span class="lineno">  590</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00591"></a><span class="lineno">  591</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00600"></a><span class="lineno"><a class="line" href="../../d3/d58/ServiceFactory_8h.html#ab079bdba65366880bad96f04a2b8cc0b">  600</a></span>&#160;<span class="preprocessor">#define ARCANE_REGISTER_SUB_DOMAIN_FACTORY4(aclass,ainterface_ns,ainterface,aname) \</span></div>
+<div class="line"><a name="l00601"></a><span class="lineno">  601</span>&#160;<span class="preprocessor">ARCANE_REGISTER_SERVICE ( aclass, Arcane::ServiceProperty(#aname,Arcane::ST_SubDomain) ,\</span></div>
+<div class="line"><a name="l00602"></a><span class="lineno">  602</span>&#160;<span class="preprocessor">                          ARCANE_SERVICE_INTERFACE_NS(ainterface_ns,ainterface) )</span></div>
+<div class="line"><a name="l00603"></a><span class="lineno">  603</span>&#160; </div>
+<div class="line"><a name="l00604"></a><span class="lineno">  604</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00614"></a><span class="lineno"><a class="line" href="../../d3/d58/ServiceFactory_8h.html#a94eac71c253673e421e9ae6e1800f901">  614</a></span>&#160;<span class="preprocessor">#define ARCANE_REGISTER_CASE_OPTIONS_NOAXL_FACTORY(aclass,ainterface,aname) \</span></div>
+<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;<span class="preprocessor">ARCANE_REGISTER_SERVICE ( aclass, Arcane::ServiceProperty(#aname,Arcane::ST_CaseOption) , \</span></div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;<span class="preprocessor">                          ARCANE_SERVICE_INTERFACE(ainterface) )</span></div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160; </div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00628"></a><span class="lineno"><a class="line" href="../../d3/d58/ServiceFactory_8h.html#aeb8b6bee8742ece9404f0b9e1bc42264">  628</a></span>&#160;<span class="preprocessor">#define ARCANE_REGISTER_CASE_OPTIONS_NOAXL_FACTORY4(aclass,ainterface_ns,ainterface,aname) \</span></div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;<span class="preprocessor">ARCANE_REGISTER_SERVICE ( aclass, Arcane::ServiceProperty(#aname,Arcane::ST_CaseOption) ,\</span></div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;<span class="preprocessor">                          ARCANE_SERVICE_INTERFACE_NS(ainterface_ns,ainterface) )</span></div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160; </div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160; </div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer_html"><div class="ttname"><a href="../../d4/d73/classArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer.html">Arcane::Internal::ServiceAllInterfaceRegisterer</a></div><div class="ttdoc">Classe permettant de créer et d'enregistrer les fabriques pour un service.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:95</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1SingletonServiceFactory_1_1Helper_html_a0c8cf587711a1d428f2f92702af3df68"><div class="ttname"><a href="../../db/d09/classArcane_1_1Internal_1_1SingletonServiceFactory_1_1Helper.html#a0c8cf587711a1d428f2f92702af3df68">Arcane::Internal::SingletonServiceFactory::Helper::_create</a></div><div class="ttdeci">void _create()</div><div class="ttdoc">Surcharge pour 2 interfaces ou plus.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:335</div></div>
+<div class="ttc" id="aclassArcane_1_1ServiceBuildInfoBase_html_ad585414d49bbcac307a664bf4ae6e5b1"><div class="ttname"><a href="../../d1/dd8/classArcane_1_1ServiceBuildInfoBase.html#ad585414d49bbcac307a664bf4ae6e5b1">Arcane::ServiceBuildInfoBase::creationType</a></div><div class="ttdeci">eServiceType creationType() const</div><div class="ttdoc">Type du service pouvant être créé par cette instance.</div><div class="ttdef"><b>Definition:</b> ServiceBuildInfo.h:104</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ServiceInterfaceFactory_html_aa959da044fa33da3c988bb04cdca19de"><div class="ttname"><a href="../../de/df9/classArcane_1_1Internal_1_1ServiceInterfaceFactory.html#aa959da044fa33da3c988bb04cdca19de">Arcane::Internal::ServiceInterfaceFactory::createReference</a></div><div class="ttdeci">Ref&lt; InterfaceType &gt; createReference(const ServiceBuildInfo &amp;sbi) override</div><div class="ttdoc">Créé une instance du service .</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:251</div></div>
+<div class="ttc" id="aclassArcane_1_1IServiceInfo_html_a1d69549779e3401ce3b1f0b434766c88"><div class="ttname"><a href="../../de/df8/classArcane_1_1IServiceInfo.html#a1d69549779e3401ce3b1f0b434766c88">Arcane::IServiceInfo::usageType</a></div><div class="ttdeci">virtual int usageType() const =0</div><div class="ttdoc">Indique où peut être utilisé le service.</div></div>
+<div class="ttc" id="aclassArcane_1_1IServiceInstanceT_html"><div class="ttname"><a href="../../d1/de9/classArcane_1_1IServiceInstanceT.html">Arcane::IServiceInstanceT</a></div><div class="ttdoc">Interface typée gérant l'instance d'un service.</div><div class="ttdef"><b>Definition:</b> IService.h:108</div></div>
+<div class="ttc" id="anamespaceArcane_html_a1b581b9bc319ce066e9428b1fe2b9a83acbe0ca394319b1fd2c2ea7e516bec964"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a1b581b9bc319ce066e9428b1fe2b9a83acbe0ca394319b1fd2c2ea7e516bec964">Arcane::SFP_Singleton</a></div><div class="ttdeci">@ SFP_Singleton</div><div class="ttdoc">Indique que le service est singleton.</div><div class="ttdef"><b>Definition:</b> ServiceProperty.h:39</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1SingletonServiceFactoryBase_1_1ServiceInstance_html_ae52a1d218746d6249ed8bdbc0217ee03"><div class="ttname"><a href="../../df/dce/classArcane_1_1Internal_1_1SingletonServiceFactoryBase_1_1ServiceInstance.html#ae52a1d218746d6249ed8bdbc0217ee03">Arcane::Internal::SingletonServiceFactoryBase::ServiceInstance::addReference</a></div><div class="ttdeci">void addReference() override</div><div class="ttdoc">Ajoute une référence.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.cc:89</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer_html_af124379edbbe94ba1489a9f1b7c2f94f"><div class="ttname"><a href="../../d4/d73/classArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer.html#af124379edbbe94ba1489a9f1b7c2f94f">Arcane::Internal::ServiceAllInterfaceRegisterer::registerToServiceInfo</a></div><div class="ttdeci">static void registerToServiceInfo(ServiceInfo *si, const Interfaces &amp;... args)</div><div class="ttdoc">Enregistre dans le service les fabriques pour les interfacs Interfaces.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:441</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ServiceInfo_html"><div class="ttname"><a href="../../d7/db6/classArcane_1_1Internal_1_1ServiceInfo.html">Arcane::Internal::ServiceInfo</a></div><div class="ttdoc">Informations d'un service.</div><div class="ttdef"><b>Definition:</b> ServiceInfo.h:44</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ServiceInterfaceRegisterer_html"><div class="ttname"><a href="../../d1/dbc/classArcane_1_1Internal_1_1ServiceInterfaceRegisterer.html">Arcane::Internal::ServiceInterfaceRegisterer</a></div><div class="ttdoc">Classe permettant d'enregistrer une fabrique pour un service implémentant l'interface InterfaceType.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:375</div></div>
+<div class="ttc" id="aclassArcane_1_1ServiceBuildInfo_html"><div class="ttname"><a href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">Arcane::ServiceBuildInfo</a></div><div class="ttdoc">Structure contenant les informations pour créer un service.</div><div class="ttdef"><b>Definition:</b> ServiceBuildInfo.h:122</div></div>
+<div class="ttc" id="aclassArcane_1_1ISingletonServiceInstance_html"><div class="ttname"><a href="../../d4/d41/classArcane_1_1ISingletonServiceInstance.html">Arcane::ISingletonServiceInstance</a></div><div class="ttdoc">Interface d'une instance de service singleton.</div><div class="ttdef"><b>Definition:</b> IService.h:93</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1IServiceInstanceAdder_html"><div class="ttname"><a href="../../d1/d77/classArcane_1_1Internal_1_1IServiceInstanceAdder.html">Arcane::Internal::IServiceInstanceAdder</a></div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:264</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1IServiceInterfaceFactory_html_a8d03faf21b9b6b2a42a71d03a919fff7"><div class="ttname"><a href="../../d3/dcc/classArcane_1_1Internal_1_1IServiceInterfaceFactory.html#a8d03faf21b9b6b2a42a71d03a919fff7">Arcane::Internal::IServiceInterfaceFactory::createReference</a></div><div class="ttdeci">virtual Ref&lt; InterfaceType &gt; createReference(const ServiceBuildInfo &amp;sbi)=0</div><div class="ttdoc">Créé une instance du service .</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1DotNetServiceInstance_html_ac3d69783d1205d2bb64a555d431b5e6e"><div class="ttname"><a href="../../d8/d82/classArcane_1_1Internal_1_1DotNetServiceInstance.html#ac3d69783d1205d2bb64a555d431b5e6e">Arcane::Internal::DotNetServiceInstance::removeReference</a></div><div class="ttdeci">void removeReference() override</div><div class="ttdoc">Supprime une référence.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:52</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1SingletonServiceFactory_html"><div class="ttname"><a href="../../de/da0/classArcane_1_1Internal_1_1SingletonServiceFactory.html">Arcane::Internal::SingletonServiceFactory</a></div><div class="ttdoc">Fabrique pour le service singleton de type ServiceType implémentant les interfaces Interfaces.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:307</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ServiceFactoryInfo_html_a3cdd5cc24fdc07d1f6679cabe2f11b19"><div class="ttname"><a href="../../dc/d9a/classArcane_1_1Internal_1_1ServiceFactoryInfo.html#a3cdd5cc24fdc07d1f6679cabe2f11b19">Arcane::Internal::ServiceFactoryInfo::serviceInfo</a></div><div class="ttdeci">IServiceInfo * serviceInfo() const override</div><div class="ttdoc">Informations sur le service pouvant être créé par cette fabrique.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:124</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html">Arcane::ISubDomain</a></div><div class="ttdoc">Interface du gestionnaire d'un sous-domaine.</div><div class="ttdef"><b>Definition:</b> ISubDomain.h:72</div></div>
+<div class="ttc" id="anamespaceArccore_html_a7c7dbb1a4a565ffa1d5a02fb0bf6cb1b"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a7c7dbb1a4a565ffa1d5a02fb0bf6cb1b">Arccore::makeRef</a></div><div class="ttdeci">auto makeRef(InstanceType *t) -&gt; Ref&lt; InstanceType &gt;</div><div class="ttdoc">Créé une référence sur un pointeur.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/Ref.h:286</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1AbstractServiceFactory_html_a3febb2ae554ca951a436fcd1a56d5675"><div class="ttname"><a href="../../d1/dec/classArcane_1_1Internal_1_1AbstractServiceFactory.html#a3febb2ae554ca951a436fcd1a56d5675">Arcane::Internal::AbstractServiceFactory::addReference</a></div><div class="ttdeci">void addReference() override</div><div class="ttdoc">Ajoute une référence.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.cc:135</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1SingletonServiceFactory_1_1Helper_html_a8dcf401cd84acbe26a13e283487a5caa"><div class="ttname"><a href="../../db/d09/classArcane_1_1Internal_1_1SingletonServiceFactory_1_1Helper.html#a8dcf401cd84acbe26a13e283487a5caa">Arcane::Internal::SingletonServiceFactory::Helper::_create</a></div><div class="ttdeci">void _create()</div><div class="ttdoc">Surcharge pour 1 interface.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:321</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1SingletonServiceFactory_1_1Helper_html"><div class="ttname"><a href="../../db/d09/classArcane_1_1Internal_1_1SingletonServiceFactory_1_1Helper.html">Arcane::Internal::SingletonServiceFactory::Helper</a></div><div class="ttdoc">Classe utilitaire permettant de créér une instance de IServiceInstance pour chaque interface de Inter...</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:314</div></div>
+<div class="ttc" id="aclassArcane_1_1ServiceBuildInfoBase_html"><div class="ttname"><a href="../../d1/dd8/classArcane_1_1ServiceBuildInfoBase.html">Arcane::ServiceBuildInfoBase</a></div><div class="ttdoc">Structure contenant les informations pour créer un service.</div><div class="ttdef"><b>Definition:</b> ServiceBuildInfo.h:47</div></div>
+<div class="ttc" id="aclassArccore_1_1Internal_1_1ExternalRef_html"><div class="ttname"><a href="../../d3/d47/classArccore_1_1Internal_1_1ExternalRef.html">Arccore::Internal::ExternalRef</a></div><div class="ttdoc">Gestion des références sur un objet externe.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ExternalRef.h:43</div></div>
+<div class="ttc" id="aServiceFactory_8h_html"><div class="ttname"><a href="../../d3/d58/ServiceFactory_8h.html">ServiceFactory.h</a></div><div class="ttdoc">Ce fichier contient les différentes fabriques de services et macro pour enregistrer les services.</div></div>
+<div class="ttc" id="aclassArcane_1_1Collection_html"><div class="ttname"><a href="../../d3/d5d/classArcane_1_1Collection.html">Arcane::Collection</a></div><div class="ttdoc">Classe de base d'une collection fortement typée.</div><div class="ttdef"><b>Definition:</b> Collection.h:33</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1DotNetServiceInstance_html"><div class="ttname"><a href="../../d8/d82/classArcane_1_1Internal_1_1DotNetServiceInstance.html">Arcane::Internal::DotNetServiceInstance</a></div><div class="ttdoc">Classe de base d'une instance de service en C#.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:44</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1SingletonServiceFactoryBase_1_1ServiceInstance_html_a0af75de66050b75fc08fbfe7b558f68a"><div class="ttname"><a href="../../df/dce/classArcane_1_1Internal_1_1SingletonServiceFactoryBase_1_1ServiceInstance.html#a0af75de66050b75fc08fbfe7b558f68a">Arcane::Internal::SingletonServiceFactoryBase::ServiceInstance::interfaceInstances</a></div><div class="ttdeci">ServiceInstanceCollection interfaceInstances() override</div><div class="ttdoc">Liste des instances des interfaces implémentées par le singleton.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.cc:97</div></div>
+<div class="ttc" id="aclassArcane_1_1ServiceInstanceRef_html"><div class="ttname"><a href="../../df/d04/classArcane_1_1ServiceInstanceRef.html">Arcane::ServiceInstanceRef</a></div><div class="ttdoc">Référence sur une instance de service.</div><div class="ttdef"><b>Definition:</b> ServiceInstance.h:37</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1IServiceInterfaceFactory_html"><div class="ttname"><a href="../../d3/dcc/classArcane_1_1Internal_1_1IServiceInterfaceFactory.html">Arcane::Internal::IServiceInterfaceFactory</a></div><div class="ttdoc">Interface d'un fonctor de création d'une instance de service correspondant à l'interface InterfaceTyp...</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:161</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ServiceInstanceT_html"><div class="ttname"><a href="../../d1/d95/classArcane_1_1Internal_1_1ServiceInstanceT.html">Arcane::Internal::ServiceInstanceT</a></div><div class="ttdoc">Instance d'un service.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:78</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ServiceInstanceT_html_a5bb8d37b631225b2645c7b24c2894fff"><div class="ttname"><a href="../../d1/d95/classArcane_1_1Internal_1_1ServiceInstanceT.html#a5bb8d37b631225b2645c7b24c2894fff">Arcane::Internal::ServiceInstanceT::addReference</a></div><div class="ttdeci">void addReference() override</div><div class="ttdoc">Ajoute une référence.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:85</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1SingletonServiceFactoryBase_1_1ServiceInstance_html_ad991ea069c75de15805b26c79b0ae2e4"><div class="ttname"><a href="../../df/dce/classArcane_1_1Internal_1_1SingletonServiceFactoryBase_1_1ServiceInstance.html#ad991ea069c75de15805b26c79b0ae2e4">Arcane::Internal::SingletonServiceFactoryBase::ServiceInstance::removeReference</a></div><div class="ttdeci">void removeReference() override</div><div class="ttdoc">Supprime une référence.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.cc:90</div></div>
+<div class="ttc" id="aclassArcane_1_1IServiceFactoryInfo_html"><div class="ttname"><a href="../../d3/dd4/classArcane_1_1IServiceFactoryInfo.html">Arcane::IServiceFactoryInfo</a></div><div class="ttdoc">Informations sur la fabrique d'un service.</div><div class="ttdef"><b>Definition:</b> IServiceFactory.h:43</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ServiceFactory2TV2_html"><div class="ttname"><a href="../../de/d3b/classArcane_1_1Internal_1_1ServiceFactory2TV2.html">Arcane::Internal::ServiceFactory2TV2</a></div><div class="ttdoc">Fabrique de service.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:181</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ISingletonServiceFactory_html"><div class="ttname"><a href="../../d5/d59/classArcane_1_1Internal_1_1ISingletonServiceFactory.html">Arcane::Internal::ISingletonServiceFactory</a></div><div class="ttdoc">internal.</div><div class="ttdef"><b>Definition:</b> IServiceFactory.h:143</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1SingletonServiceFactoryBase_html_aaaddcd08f292fe91926b6b255749afa7"><div class="ttname"><a href="../../d0/da9/classArcane_1_1Internal_1_1SingletonServiceFactoryBase.html#aaaddcd08f292fe91926b6b255749afa7">Arcane::Internal::SingletonServiceFactoryBase::serviceInfo</a></div><div class="ttdeci">IServiceInfo * serviceInfo() const override</div><div class="ttdoc">Retourne le IServiceInfo associé à cette fabrique.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:292</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1AbstractServiceFactory_html_a331c03d07da79699acad558e45a12787"><div class="ttname"><a href="../../d1/dec/classArcane_1_1Internal_1_1AbstractServiceFactory.html#a331c03d07da79699acad558e45a12787">Arcane::Internal::AbstractServiceFactory::removeReference</a></div><div class="ttdeci">void removeReference() override</div><div class="ttdoc">Supprime une référence.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.cc:141</div></div>
+<div class="ttc" id="aclassArccore_1_1Ref_html"><div class="ttname"><a href="../../de/d9f/classArccore_1_1Ref.html">Arccore::Ref</a></div><div class="ttdoc">Référence à une instance.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/Ref.h:127</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1DotNetServiceInstance_html_a0614bf287ecb072258562dfc6771b2f3"><div class="ttname"><a href="../../d8/d82/classArcane_1_1Internal_1_1DotNetServiceInstance.html#a0614bf287ecb072258562dfc6771b2f3">Arcane::Internal::DotNetServiceInstance::_internalDotNetHandle</a></div><div class="ttdeci">ExternalRef _internalDotNetHandle() const override</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:64</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ServiceInstanceT_html_a149cc3d7c7cfd57c79205215e2d3d3e2"><div class="ttname"><a href="../../d1/d95/classArcane_1_1Internal_1_1ServiceInstanceT.html#a149cc3d7c7cfd57c79205215e2d3d3e2">Arcane::Internal::ServiceInstanceT::removeReference</a></div><div class="ttdeci">void removeReference() override</div><div class="ttdoc">Supprime une référence.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:86</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer_html_a34a5c6c7fd13fad7d59e1b22f39d7b6a"><div class="ttname"><a href="../../d4/d73/classArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer.html#a34a5c6c7fd13fad7d59e1b22f39d7b6a">Arcane::Internal::ServiceAllInterfaceRegisterer::_create</a></div><div class="ttdeci">static void _create(ServiceInfo *si, const I1 &amp;i1, const I2 &amp;i2, const OtherInterfaces &amp;... args)</div><div class="ttdoc">Surcharge pour 2 interfaces ou plus.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:430</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1DotNetServiceInstance_html_adcc13c550913b2a88f840bcbc0adc112"><div class="ttname"><a href="../../d8/d82/classArcane_1_1Internal_1_1DotNetServiceInstance.html#adcc13c550913b2a88f840bcbc0adc112">Arcane::Internal::DotNetServiceInstance::addReference</a></div><div class="ttdeci">void addReference() override</div><div class="ttdoc">Ajoute une référence.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:51</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ServiceInterfaceRegisterer_html_a03e6b61517e4592574f40ea5bfd8669e"><div class="ttname"><a href="../../d1/dbc/classArcane_1_1Internal_1_1ServiceInterfaceRegisterer.html#a03e6b61517e4592574f40ea5bfd8669e">Arcane::Internal::ServiceInterfaceRegisterer::registerToServiceInfo</a></div><div class="ttdeci">void registerToServiceInfo(ServiceInfo *si) const</div><div class="ttdoc">Enregistre dans si une fabrique pour créer une instance du service ServiceType.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:395</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer_html_afa00cd87d0482e56d9a5e59b71cdad8f"><div class="ttname"><a href="../../d4/d73/classArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer.html#afa00cd87d0482e56d9a5e59b71cdad8f">Arcane::Internal::ServiceAllInterfaceRegisterer::_create</a></div><div class="ttdeci">static void _create(ServiceInfo *si, const InterfaceType &amp;i1)</div><div class="ttdoc">Surcharge pour 1 interface.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:424</div></div>
+<div class="ttc" id="anamespaceArcane_html_a1b581b9bc319ce066e9428b1fe2b9a83a21d6b4fbb500a781121220beeb52a0c7"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a1b581b9bc319ce066e9428b1fe2b9a83a21d6b4fbb500a781121220beeb52a0c7">Arcane::SFP_Autoload</a></div><div class="ttdeci">@ SFP_Autoload</div><div class="ttdoc">Indique que le service se charge automatiquement.</div><div class="ttdef"><b>Definition:</b> ServiceProperty.h:41</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1SingletonServiceFactoryBase_html_a5717e3da3fa1a0c98289790a48309a06"><div class="ttname"><a href="../../d0/da9/classArcane_1_1Internal_1_1SingletonServiceFactoryBase.html#a5717e3da3fa1a0c98289790a48309a06">Arcane::Internal::SingletonServiceFactoryBase::createSingletonServiceInstance</a></div><div class="ttdeci">Ref&lt; ISingletonServiceInstance &gt; createSingletonServiceInstance(const ServiceBuildInfoBase &amp;sbib) override</div><div class="ttdoc">Créé un service singleton.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.cc:122</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1SingletonServiceFactoryBase_1_1ServiceInstance_html"><div class="ttname"><a href="../../df/dce/classArcane_1_1Internal_1_1SingletonServiceFactoryBase_1_1ServiceInstance.html">Arcane::Internal::SingletonServiceFactoryBase::ServiceInstance</a></div><div class="ttdoc">Instances des services singletons.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.cc:77</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/String.h:68</div></div>
+<div class="ttc" id="aclassArcane_1_1IServiceInstance_html"><div class="ttname"><a href="../../de/d12/classArcane_1_1IServiceInstance.html">Arcane::IServiceInstance</a></div><div class="ttdoc">Interface d'une instance d'un service.</div><div class="ttdef"><b>Definition:</b> IService.h:72</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ServiceInfo_html_aacf37d76490e74ad0454f30070eb7564"><div class="ttname"><a href="../../d7/db6/classArcane_1_1Internal_1_1ServiceInfo.html#aacf37d76490e74ad0454f30070eb7564">Arcane::Internal::ServiceInfo::addImplementedInterface</a></div><div class="ttdeci">void addImplementedInterface(const String &amp;name) override</div><div class="ttdoc">Ajoute l'interface de nom name aux interfaces implémentées par ce service.</div><div class="ttdef"><b>Definition:</b> ServiceInfo.cc:164</div></div>
+<div class="ttc" id="aServiceProperty_8h_html"><div class="ttname"><a href="../../d2/d54/ServiceProperty_8h.html">ServiceProperty.h</a></div><div class="ttdoc">Ce fichier contient les différentes types et classes pour spécifier les propriétés d'un service.</div></div>
+<div class="ttc" id="anamespaceArcane_1_1Internal_html"><div class="ttname"><a href="../../df/dae/namespaceArcane_1_1Internal.html">Arcane::Internal</a></div><div class="ttdoc">Types interne à Arcane.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:86</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ServiceInterfaceFactory_html"><div class="ttname"><a href="../../de/df9/classArcane_1_1Internal_1_1ServiceInterfaceFactory.html">Arcane::Internal::ServiceInterfaceFactory</a></div><div class="ttdoc">Fabrique pour le service ServiceType pour l'interface InterfaceType.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:246</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ServiceFactoryInfo_html"><div class="ttname"><a href="../../dc/d9a/classArcane_1_1Internal_1_1ServiceFactoryInfo.html">Arcane::Internal::ServiceFactoryInfo</a></div><div class="ttdoc">Infos sur la fabrication d'un service ou d'un module.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:113</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ServiceFactoryInfo_html_af07bc0052a3c22ca4b24453d704484f3"><div class="ttname"><a href="../../dc/d9a/classArcane_1_1Internal_1_1ServiceFactoryInfo.html#af07bc0052a3c22ca4b24453d704484f3">Arcane::Internal::ServiceFactoryInfo::isAutoload</a></div><div class="ttdeci">bool isAutoload() const override</div><div class="ttdoc">vrai si le service est un module et doit être chargé automatiquement</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:126</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1SingletonServiceFactoryBase_html"><div class="ttname"><a href="../../d0/da9/classArcane_1_1Internal_1_1SingletonServiceFactoryBase.html">Arcane::Internal::SingletonServiceFactoryBase</a></div><div class="ttdoc">Classe de base des fabriques pour les services singleton.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:279</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ServiceFactoryInfo_html_aa3ca8fb0a1ca0849ab74ea99f0ef4883"><div class="ttname"><a href="../../dc/d9a/classArcane_1_1Internal_1_1ServiceFactoryInfo.html#aa3ca8fb0a1ca0849ab74ea99f0ef4883">Arcane::Internal::ServiceFactoryInfo::isSingleton</a></div><div class="ttdeci">bool isSingleton() const override</div><div class="ttdoc">vrai si le service est un service singleton (une seule instance)</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:127</div></div>
+<div class="ttc" id="aclassArcane_1_1IServiceInfo_html"><div class="ttname"><a href="../../de/df8/classArcane_1_1IServiceInfo.html">Arcane::IServiceInfo</a></div><div class="ttdoc">Interface des informations d'un service ou d'un module.</div><div class="ttdef"><b>Definition:</b> IServiceInfo.h:36</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1IServiceFactory2T_html"><div class="ttname"><a href="../../d0/d8a/classArcane_1_1Internal_1_1IServiceFactory2T.html">Arcane::Internal::IServiceFactory2T</a></div><div class="ttdoc">Fabrique pour un service implémentant l'interface InterfaceType.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:91</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:43 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

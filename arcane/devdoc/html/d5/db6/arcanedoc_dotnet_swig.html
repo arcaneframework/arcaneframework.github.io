@@ -1,0 +1,195 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane: Extensions C# avec Swig</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../d6/d06/arcanedoc_dotnet.html">Utilisation du C# avec %Arcane</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Extensions C# avec Swig </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="toc"><h3>Table des matières</h3>
+<ul><li class="level1"><a href="#autotoc_md35">Compilation du code généré par &lt;tt&gt;swig&lt;/tt&gt;</a></li>
+</ul>
+</div>
+<div class="textblock"><p>Swig est un outil open source permettant d'interfacer du code C/C++ avec un autre langage. Dans le cas d'<a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a>, on wrappe les classes C++ en C# pour qu'elles puissent être utilisée dans tout langage utilisant '.Net'.</p>
+<p>Il faut au moins la version 4.0 de swig.</p>
+<p>Le wrapping se fait en décrivant dans un fichier avec l'extension .i quels seront les fichiers wrappés et la manière de le faire. En générale, une classe C++ aura une classe C# de même nom. Par convention, les méthodes C# commencent pas une majuscule. Pour respecter cela, les méthodes des classes wrappées par <a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a> sont converties. Par exemple, la méthode C++ <a class="el" href="../../d9/d1e/classArcane_1_1ISubDomain.html#aad044c8bb89eb7f49b9ce8180096ebe2" title="Retourne le gestionnaire du jeu de données.">Arcane::ISubDomain::caseMng()</a> deviendra en C# la méthode <code>CaseMng()</code>.</p>
+<p>La classe <code>Arcane::String</code> est convertie en la classe <code>string</code> de '.Net'.</p>
+<p>A partir du fichier '.i', <code>swig</code> va généré un fichier <code>C++</code> et un ensemble de fichiers <code>C#</code>. Les premiers doivent être compilées comme un code <code>C++</code> normal sous forme de bibliothèque dynamique et les seconds comme un projet <code>C#</code> classique. La communication entre le <code>C++</code> et le <code>C#</code> se fait via un mécanisme de <code>.Net</code> appelé PInvoke (pour <code>Platform Invoke</code>). Lors de l'exécution, la bibliothèque compilée à partir du C++ doit être accessible. Pour cela, il faut qu'elle soit dans le même répertoire que l'assembly <code>C#</code> ou alors accessible via les variables d'environnement (LD_LIBRARY_PATH sous Unix ou PATH sous Windows).</p>
+<p>L'exemple 'eos/csharp' montre comment effectuer le wrapping et lancer le code C#.</p>
+<p>Arcane utilise l'outil <code>swig</code> pour rendre accessible en <code>C#</code> les différentes classes.</p>
+<p>Ce document décrit comment le développeur peut ajouter ces propres classes pour qu'elles soient accessibles en <code>C#</code>.</p>
+<p>L'outil <code>swig</code> utilise un fichier d'extension <code>.i</code> pour décrire les classes à wrapper.</p>
+<p>Par exemple, on suppose qu'on a une interface C++ représentant l'interface d'un service de calcul d'une équation d'était et qu'on souhaite pouvoir implémenter ce services en <code>C#</code>. L'interface est définie dans un fichier <code>IEquationOfState.h</code>:</p>
+<div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>EOS</div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">class </span>IEquationOfState</div>
+<div class="line">{</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keyword">virtual</span> ~IEquationOfState() = <span class="keywordflow">default</span>;</div>
+<div class="line">  </div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keyword">virtual</span> <span class="keywordtype">void</span> initEOS(<span class="keyword">const</span> <a class="code" href="../../d8/d8e/classArcane_1_1ItemGroupT.html">CellGroup</a>&amp; group,</div>
+<div class="line">                       <span class="keyword">const</span> <a class="code" href="../../d7/d20/classArcane_1_1MeshVariableScalarRefT.html">VariableCellReal</a>&amp; pressure,</div>
+<div class="line">                       <span class="keyword">const</span> <a class="code" href="../../d7/d20/classArcane_1_1MeshVariableScalarRefT.html">VariableCellReal</a>&amp; adiabatic_cst,</div>
+<div class="line">                       <span class="keyword">const</span> <a class="code" href="../../d7/d20/classArcane_1_1MeshVariableScalarRefT.html">VariableCellReal</a>&amp; density,</div>
+<div class="line">                       <a class="code" href="../../d7/d20/classArcane_1_1MeshVariableScalarRefT.html">VariableCellReal</a>&amp; internal_energy,</div>
+<div class="line">                       <a class="code" href="../../d7/d20/classArcane_1_1MeshVariableScalarRefT.html">VariableCellReal</a>&amp; sound_speed</div>
+<div class="line">                       ) =0;</div>
+<div class="line">  <span class="keyword">virtual</span> <span class="keywordtype">void</span> applyEOS(<span class="keyword">const</span> <a class="code" href="../../d8/d8e/classArcane_1_1ItemGroupT.html">CellGroup</a> &amp; group,</div>
+<div class="line">                        <span class="keyword">const</span> <a class="code" href="../../d7/d20/classArcane_1_1MeshVariableScalarRefT.html">VariableCellReal</a>&amp; adiabatic_cst,</div>
+<div class="line">                        <span class="keyword">const</span> <a class="code" href="../../d7/d20/classArcane_1_1MeshVariableScalarRefT.html">VariableCellReal</a>&amp; density,</div>
+<div class="line">                        <span class="keyword">const</span> <a class="code" href="../../d7/d20/classArcane_1_1MeshVariableScalarRefT.html">VariableCellReal</a>&amp; internal_energy,</div>
+<div class="line">                        <a class="code" href="../../d7/d20/classArcane_1_1MeshVariableScalarRefT.html">VariableCellReal</a>&amp; pressure,</div>
+<div class="line">                        <a class="code" href="../../d7/d20/classArcane_1_1MeshVariableScalarRefT.html">VariableCellReal</a>&amp; sound_speed</div>
+<div class="line">                        ) = 0;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">}</div>
+</div><!-- fragment --><p>L'interface définit deux méthodes <code>initEOS</code> et <code>applyEOS</code> qu'on souhaite rendre accessible en <code>C#</code>.</p>
+<p>Pour cela, il faut définir un fichier <code>EOSCSharp.i</code> contenant le code suivant:</p>
+<div class="fragment"><div class="line">// 1ère partie</div>
+<div class="line">%module(directors=&quot;1&quot;) EOSCharp</div>
+<div class="line"> </div>
+<div class="line">%import core/ArcaneSwigCore.i</div>
+<div class="line"> </div>
+<div class="line">%typemap(csimports) SWIGTYPE</div>
+<div class="line">%{</div>
+<div class="line">using Arcane;</div>
+<div class="line">%}</div>
+<div class="line"> </div>
+<div class="line">%{</div>
+<div class="line">#include &quot;ArcaneSwigUtils.h&quot;</div>
+<div class="line">#include &quot;arcane/ServiceFactory.h&quot;</div>
+<div class="line">#include &quot;arcane/ServiceBuilder.h&quot;</div>
+<div class="line">#include &quot;IEquationOfState.h&quot;</div>
+<div class="line">using namespace Arcane;</div>
+<div class="line">%}</div>
+<div class="line"> </div>
+<div class="line">/*---------------------------------------------------------------------------*/</div>
+<div class="line">// 2ème partie</div>
+<div class="line">ARCANE_DECLARE_INTERFACE(EOS,IEquationOfState)</div>
+<div class="line"> </div>
+<div class="line">%include IEquationOfState.h</div>
+<div class="line"> </div>
+<div class="line">/*---------------------------------------------------------------------------*/</div>
+<div class="line">// 3ème partie</div>
+<div class="line">ARCANE_SWIG_DEFINE_SERVICE(EOS,IEquationOfState,</div>
+<div class="line">                           public abstract void InitEOS(CellGroup group,</div>
+<div class="line">                                                        VariableCellReal pressure,</div>
+<div class="line">                                                        VariableCellReal adiabatic_cst,</div>
+<div class="line">                                                        VariableCellReal density,</div>
+<div class="line">                                                        VariableCellReal internal_energy,</div>
+<div class="line">                                                        VariableCellReal sound_speed);</div>
+<div class="line">                           public abstract void ApplyEOS(CellGroup group,</div>
+<div class="line">                                                         VariableCellReal adiabatic_cst,</div>
+<div class="line">                                                         VariableCellReal density,</div>
+<div class="line">                                                         VariableCellReal internal_energy,</div>
+<div class="line">                                                         VariableCellReal pressure,</div>
+<div class="line">                                                         VariableCellReal sound_speed);</div>
+<div class="line">                           );</div>
+</div><!-- fragment --><p>Ce fichier comporte trois parties:</p>
+<ol type="1">
+<li>La première partie commune à tous les wrappers qui décrit le nom du module et le code qui sera intégré au code généré. Il faut mettre dans cette partie tous les <code>.h</code> des classes qui seront wrappées par <code>swig</code>.</li>
+<li>La deuxième partie qui indique explicitement les classes à wrapper. Si une classe <code>C++</code> doit être considérée comme une interface <code>C#</code>, il faut utiliser la macro <code>ARCANE_DECLARE_INTERFACE</code> pour le spécifier. Le premier paramètre est le nom du <code>namespace</code> et le second le nom de la classe. A noter que si on souhaite définir plusieurs interfaces, il faut toutes les déclarer avant de faire d'éventuels <code>include</code>.</li>
+<li>La troisième partie qui définit les interfaces qu'on souhaite étendre sous forme de service. On utilise pour cela la macro <code>ARCANE_SWIG_DEFINE_SERVICE</code>. Cette macro contient 3 arguments. Les deux premiers sont équivalents à ceux de la macro <code>ARCANE_DECLARE_INTERFACE</code>. Le dernier contient la signature <code>C#</code> des méthodes de l'interface wrappée. Elle n'est pas obligatoire en théorie mais permet de s'assurer que l'utilisateur implémente bien les méthodes de l'interface. En effet, via le mécanisme <code>swig</code> cela n'est pas obligatoirement garanti et si l'utilisateur ne surcharge pas les méthodes cela provoque une erreur lors de l'exécution. Swig va alors généré une exception de type <code>DirectorPureVirtualException</code>.</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md35"></a>
+Compilation du code généré par &lt;tt&gt;swig&lt;/tt&gt;</h1>
+<p><code>swig</code> va générer deux types de fichiers:</p>
+<ul>
+<li>les fichiers 'C++' contenant le wrapping qui sera appelé directement depuis le <code>C#</code>.</li>
+<li>les fichiers <code>C#</code> qui contiennent les classes générés par <code>swig</code> et qui seront celles utilisées par le développeur.</li>
+</ul>
+<p>Pour que le wrapping fonctionne, il faut donc à la fois compiler les fichiers C++ sous la forme d'une bibliothèque dynamique et les fichiers <code>C#</code> sous la forme d'une assembly.</p>
+<dl class="section note"><dt>Note</dt><dd>Pour que le code <code>.Net</code> puisse appeler facilement du code natif (C/C++), il faut que ce dernier soit accessible sous la forme d'une bibliothèque dynamique. Il faut obligatoirement compiler le code généré C++ généré par swig sous la forme d'une bibliothèque dynamique. Pour être précis, il est possible de faire cela autrement mais cela nécessite l'écriture de code dépendant du runtime (<code>mono</code> ou <code>coreclr</code>) utilisé.</dd></dl>
+<p>Si le développeur utilise <code>cmake</code>, alors il existe un package qui gère à la fois la génération via swig et créé une cible pour le code C++ correspondant. Si notre fichier <code>.i</code> s'appelle <code>Wrapper.i</code> et que la cible est <code>arcane_wrapper</code>, alors on peut utiliser le code suivant:</p>
+<div class="fragment"><div class="line">set(UseSWIG_TARGET_NAME_PREFERENCE STANDARD)</div>
+<div class="line">set(UseSWIG_MODULE_VERSION 2)</div>
+<div class="line">include(UseSWIG)</div>
+<div class="line"> </div>
+<div class="line">swig_add_library(arcane_wrapper</div>
+<div class="line">  TYPE SHARED</div>
+<div class="line">  LANGUAGE CSHARP</div>
+<div class="line">  SOURCES Wrapper.i</div>
+<div class="line">  )</div>
+</div><!-- fragment --><p>TODO: ajouter infos sur le package CMake ArcaneSwigUtils.cmake</p>
+<p>Pour le code <code>C#</code>, il faut utiliser un fichier projet <code>C#</code> qui sera compilé via la commande <code>dotnet build</code> ou <code>dotnet publish</code>. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="aclassArcane_1_1MeshVariableScalarRefT_html"><div class="ttname"><a href="../../d7/d20/classArcane_1_1MeshVariableScalarRefT.html">Arcane::MeshVariableScalarRefT&lt; Cell, Real &gt;</a></div></div>
+<div class="ttc" id="aclassArcane_1_1ItemGroupT_html"><div class="ttname"><a href="../../d8/d8e/classArcane_1_1ItemGroupT.html">Arcane::ItemGroupT&lt; Cell &gt;</a></div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:55 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

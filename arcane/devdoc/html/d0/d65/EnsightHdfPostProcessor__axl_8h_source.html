@@ -1,0 +1,396 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de EnsightHdfPostProcessor_axl.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_d1044588885719d45c042c785350da40.html">arcane_build</a></li><li class="navelem"><a class="el" href="../../dir_2fb4e06df5f7b98c01809e789f934317.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_75685f80560bc0eb18fd226fca605d7b.html">std</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">EnsightHdfPostProcessor_axl.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// #WARNING#: This file has been generated automatically. Do not edit.</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// Arcane version 1.0 : 03/30/2022 12:51:32</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#ifndef ARCANE_CASEOPTION_ENSIGHTHDFPOSTPROCESSOR_H</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#define ARCANE_CASEOPTION_ENSIGHTHDFPOSTPROCESSOR_H</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/String.h&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;arcane/CaseOptions.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/CaseOptionsMulti.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/CaseOptionBuildInfo.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;arcane/XmlNodeList.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="../../d6/d0b/classArcane_1_1CaseOptionsEnsightHdfPostProcessor.html">   30</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d6/d0b/classArcane_1_1CaseOptionsEnsightHdfPostProcessor.html">CaseOptionsEnsightHdfPostProcessor</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="comment">/*-------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  <span class="comment">/*--------------------------- Complex Options -----------------------------*/</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="comment">/*-------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="comment">/*-------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="comment">/*--------------------------- Non Complex Options -------------------------*/</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="comment">/*-------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <a class="code" href="../../d6/d0b/classArcane_1_1CaseOptionsEnsightHdfPostProcessor.html">CaseOptionsEnsightHdfPostProcessor</a>(<a class="code" href="../../dd/d74/classArcane_1_1ICaseOptions.html">Arcane::ICaseOptions</a>* co)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    : m_case_options(co)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  {</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;addAlternativeNodeName(</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;          <span class="comment">/* language         */</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">Arcane::String</a>(<span class="stringliteral">&quot;fr&quot;</span>),</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;          <span class="comment">/* alternative name */</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">Arcane::String</a>(<span class="stringliteral">&quot;post-processeur-ensight-hdf&quot;</span>));</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="comment">// Interfaces for main CaseOptions</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;   <span class="comment">// Interfaces for complex options</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <a class="code" href="../../dd/d74/classArcane_1_1ICaseOptions.html">Arcane::ICaseOptions</a>* caseOptions()<span class="keyword"> const </span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;<span class="keyword">  </span>{ </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordflow">return</span> m_case_options.get();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <a class="code" href="../../de/d86/classArcane_1_1ICaseOptionList.html">Arcane::ICaseOptionList</a>* configList()<span class="keyword"> const </span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordflow">return</span> m_case_options-&gt;configList(); </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordtype">void</span> setCaseModule(<a class="code" href="../../d2/da2/classArcane_1_1IModule.html">Arcane::IModule</a>* m) </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  { </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    m_case_options-&gt;setCaseModule(m); </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keywordtype">void</span> setCaseServiceInfo(<a class="code" href="../../de/df8/classArcane_1_1IServiceInfo.html">Arcane::IServiceInfo</a>* si) </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  {</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    m_case_options-&gt;setCaseServiceInfo(si); </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordtype">void</span> addAlternativeNodeName(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">Arcane::String</a>&amp; lang,</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                              <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">Arcane::String</a>&amp; name)</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  { </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    m_case_options-&gt;addAlternativeNodeName(lang,name); </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <a class="code" href="../../de/d86/classArcane_1_1ICaseOptionList.html">Arcane::ICaseOptionList</a>* _configList()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> configList(); }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <a class="code" href="../../d9/dcc/classArcane_1_1XmlNode.html">Arcane::XmlNode</a> _element()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d9/dcc/classArcane_1_1XmlNode.html">Arcane::XmlNode</a>(); }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../dd/d74/classArcane_1_1ICaseOptions.html">Arcane::ICaseOptions</a>* _createCaseOption(<a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html">Arcane::ICaseMng</a>* cm,<a class="code" href="../../dd/d74/classArcane_1_1ICaseOptions.html">Arcane::ICaseOptions</a>* co);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <a class="code" href="../../d7/d42/classArccore_1_1ReferenceCounter.html">Arcane::ReferenceCounter&lt;Arcane::ICaseOptions&gt;</a> m_case_options;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;};</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;ARCANE_END_NAMESPACE</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment">// #WARNING#: This file has been generated automatically. Do not edit.</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">// Arcane version 1.0 : 03/30/2022 12:51:32</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">#ifndef ARCANE_MODULE_ENSIGHTHDFPOSTPROCESSOR_H</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor">#define ARCANE_MODULE_ENSIGHTHDFPOSTPROCESSOR_H</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="preprocessor">#include &quot;arcane/VariableTypes.h&quot;</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">#include &quot;arcane/ServiceInfo.h&quot;</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<span class="preprocessor">#include &quot;arcane/ISubDomain.h&quot;</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<span class="preprocessor">#include &quot;arcane/ServiceBuildInfo.h&quot;</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d3/d58/ServiceFactory_8h.html">arcane/ServiceFactory.h</a>&quot;</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor">#include &quot;arcane/ServiceRegisterer.h&quot;</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor">#include &quot;arcane/BasicService.h&quot;</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="keyword">class </span><a class="code" href="../../d6/d0b/classArcane_1_1CaseOptionsEnsightHdfPostProcessor.html">CaseOptionsEnsightHdfPostProcessor</a>;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="../../d0/d45/classArcane_1_1ArcaneEnsightHdfPostProcessorObject.html">  151</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d0/d45/classArcane_1_1ArcaneEnsightHdfPostProcessorObject.html">ArcaneEnsightHdfPostProcessorObject</a></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  : <span class="keyword">public</span> <a class="code" href="../../db/d67/classArcane_1_1PostProcessorWriterBase.html">PostProcessorWriterBase</a></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;{</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  <span class="comment">// NOTE GG: attention code dupliqué avec &#39;ServiceT4CaseAndStrong&#39;. Bien reporter les modifications</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> ServiceClassType&gt; <span class="keyword">static</span> <span class="keywordtype">void</span> fillServiceInfo(<a class="code" href="../../d7/db6/classArcane_1_1Internal_1_1ServiceInfo.html">Arcane::ServiceInfo</a>* si)</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  {</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    si-&gt;setCaseOptionsFileName(<span class="stringliteral">&quot;EnsightHdfPostProcessor_arcane_std&quot;</span>);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    si-&gt;setAxlVersion(0.0);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    si-&gt;setDefaultTagName(<span class="stringliteral">&quot;ensight-hdf-post-processor&quot;</span>);</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    si-&gt;setAxlContent(getAxlContent());</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    si-&gt;setTagName(<span class="stringliteral">&quot;post-processeur-ensight-hdf&quot;</span>,<span class="stringliteral">&quot;fr&quot;</span>);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <a class="code" href="../../d4/d73/classArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer.html#af124379edbbe94ba1489a9f1b7c2f94f">Arcane::ServiceAllInterfaceRegisterer&lt;ServiceClassType&gt;::registerToServiceInfo</a>(si</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    ,<a class="code" href="../../d3/d58/ServiceFactory_8h.html#aba44ad90916fb14522e59bab36dbf5f7">ARCANE_SERVICE_INTERFACE</a>(<a class="code" href="../../da/d6e/classArcane_1_1IPostProcessorWriter.html">Arcane::IPostProcessorWriter</a>)</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;);</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  }</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="../../d0/d45/classArcane_1_1ArcaneEnsightHdfPostProcessorObject.html#a92e92b85725a99ea5f7f710baebe86a1">  171</a></span>&#160;  <a class="code" href="../../d0/d45/classArcane_1_1ArcaneEnsightHdfPostProcessorObject.html#a92e92b85725a99ea5f7f710baebe86a1">ArcaneEnsightHdfPostProcessorObject</a>(<span class="keyword">const</span> <a class="code" href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">Arcane::ServiceBuildInfo</a>&amp; sbi)</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    : <a class="code" href="../../db/d67/classArcane_1_1PostProcessorWriterBase.html">PostProcessorWriterBase</a>(sbi)</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    , m_options(nullptr)</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  {</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <a class="code" href="../../dd/d74/classArcane_1_1ICaseOptions.html">Arcane::ICaseOptions</a>* co = sbi.<a class="code" href="../../d1/dd8/classArcane_1_1ServiceBuildInfoBase.html#a4f8bbf7653878454724ab0bd409c336e">caseOptions</a>();</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;    <span class="keywordflow">if</span> (co) {</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;      m_options = <span class="keyword">new</span> <a class="code" href="../../d6/d0b/classArcane_1_1CaseOptionsEnsightHdfPostProcessor.html">CaseOptionsEnsightHdfPostProcessor</a>(co);</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    }</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  }</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="../../d0/d45/classArcane_1_1ArcaneEnsightHdfPostProcessorObject.html#acff5814c1c3ed5d19ee54b898fde57e6">  183</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d0/d45/classArcane_1_1ArcaneEnsightHdfPostProcessorObject.html#acff5814c1c3ed5d19ee54b898fde57e6">~ArcaneEnsightHdfPostProcessorObject</a>()</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  {</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keyword">delete</span> m_options;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  }</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno"><a class="line" href="../../d0/d45/classArcane_1_1ArcaneEnsightHdfPostProcessorObject.html#acd10be7fb78ccd852e08c31ffcf9d009">  192</a></span>&#160;  <a class="code" href="../../d6/d0b/classArcane_1_1CaseOptionsEnsightHdfPostProcessor.html">CaseOptionsEnsightHdfPostProcessor</a>* <a class="code" href="../../d0/d45/classArcane_1_1ArcaneEnsightHdfPostProcessorObject.html#acd10be7fb78ccd852e08c31ffcf9d009">options</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_options; }</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        </div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="../../d0/d45/classArcane_1_1ArcaneEnsightHdfPostProcessorObject.html#a77ef552b7c6cd5eba899f49304452757">  197</a></span>&#160;  <a class="code" href="../../d6/d0b/classArcane_1_1CaseOptionsEnsightHdfPostProcessor.html">CaseOptionsEnsightHdfPostProcessor</a>* <a class="code" href="../../d0/d45/classArcane_1_1ArcaneEnsightHdfPostProcessorObject.html#a77ef552b7c6cd5eba899f49304452757">m_options</a>;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;      </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="../../d0/d45/classArcane_1_1ArcaneEnsightHdfPostProcessorObject.html#a38dcd9ae28d05060bcf965df552de4d6">  203</a></span>&#160;  <span class="keyword">static</span> <a class="code" href="../../da/da0/classArcane_1_1FileContent.html">Arcane::FileContent</a> <a class="code" href="../../d0/d45/classArcane_1_1ArcaneEnsightHdfPostProcessorObject.html#a38dcd9ae28d05060bcf965df552de4d6">getAxlContent</a>()</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; {</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;   <span class="keyword">const</span> <a class="code" href="../../d0/d32/namespaceArcane.html#ab8a647feabd759fae601d29f827568ec">Arcane::Byte</a>* content = (<span class="keyword">const</span> <a class="code" href="../../d0/d32/namespaceArcane.html#ab8a647feabd759fae601d29f827568ec">Arcane::Byte</a>*)<span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;   <a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Arcane::Span&lt;const Arcane::Byte&gt;</a> bytes(content,0);</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;   <span class="keywordtype">int</span> file_version = 1;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;   <span class="keywordflow">return</span> <a class="code" href="../../da/da0/classArcane_1_1FileContent.html">Arcane::FileContent</a>(bytes,file_version,<span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; }</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;};</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="preprocessor">#define ARCANE_REGISTER_SERVICE_ENSIGHTHDFPOSTPROCESSOR(service_name,class_name) \</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="preprocessor">  ARCANE_REGISTER_AXL_SERVICE(class_name,Arcane::ServiceProperty(#service_name,Arcane::ST_CaseOption,\</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="preprocessor">   Arcane::SFP_None ))</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;ARCANE_END_NAMESPACE</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160; </div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1IVariable_html"><div class="ttname"><a href="../../d5/d96/classArcane_1_1IVariable.html">Arcane::IVariable</a></div><div class="ttdoc">Interface d'une variable.</div><div class="ttdef"><b>Definition:</b> IVariable.h:53</div></div>
+<div class="ttc" id="aclassArcane_1_1Hdf5Utils_1_1HFile_html"><div class="ttname"><a href="../../d9/dc0/classArcane_1_1Hdf5Utils_1_1HFile.html">Arcane::Hdf5Utils::HFile</a></div><div class="ttdoc">Encapsule un hid_t pour un fichier.</div><div class="ttdef"><b>Definition:</b> Hdf5Utils.h:119</div></div>
+<div class="ttc" id="aclassArcane_1_1ArcaneEnsightHdfPostProcessorObject_html_a77ef552b7c6cd5eba899f49304452757"><div class="ttname"><a href="../../d0/d45/classArcane_1_1ArcaneEnsightHdfPostProcessorObject.html#a77ef552b7c6cd5eba899f49304452757">Arcane::ArcaneEnsightHdfPostProcessorObject::m_options</a></div><div class="ttdeci">CaseOptionsEnsightHdfPostProcessor * m_options</div><div class="ttdoc">Options du jeu de données du service.</div><div class="ttdef"><b>Definition:</b> EnsightHdfPostProcessor_axl.h:197</div></div>
+<div class="ttc" id="aclassArcane_1_1EnsightHdfPostProcessor_html_a4ab0e74bfd8261b147f5bad28d374dfd"><div class="ttname"><a href="../../dd/dd3/classArcane_1_1EnsightHdfPostProcessor.html#a4ab0e74bfd8261b147f5bad28d374dfd">Arcane::EnsightHdfPostProcessor::dataWriter</a></div><div class="ttdeci">virtual IDataWriter * dataWriter()</div><div class="ttdoc">Retourne l'écrivain associé à ce post-processeur.</div><div class="ttdef"><b>Definition:</b> EnsightHdfPostProcessor.cc:582</div></div>
+<div class="ttc" id="aclassArcane_1_1XmlNode_html"><div class="ttname"><a href="../../d9/dcc/classArcane_1_1XmlNode.html">Arcane::XmlNode</a></div><div class="ttdoc">Noeud d'un arbre DOM.</div><div class="ttdef"><b>Definition:</b> XmlNode.h:49</div></div>
+<div class="ttc" id="aclassArcane_1_1EnsightHdfPostProcessor_html_a354365f88744776fd34d0c05a23ab1ee"><div class="ttname"><a href="../../dd/dd3/classArcane_1_1EnsightHdfPostProcessor.html#a354365f88744776fd34d0c05a23ab1ee">Arcane::EnsightHdfPostProcessor::notifyEndWrite</a></div><div class="ttdeci">virtual void notifyEndWrite()</div><div class="ttdoc">Notifie qu'une sortie vient d'être effectuée.</div><div class="ttdef"><b>Definition:</b> EnsightHdfPostProcessor.cc:587</div></div>
+<div class="ttc" id="aclassArcane_1_1PostProcessorWriterBase_html"><div class="ttname"><a href="../../db/d67/classArcane_1_1PostProcessorWriterBase.html">Arcane::PostProcessorWriterBase</a></div><div class="ttdoc">Classe de base d'un écrivain pour les informations de post-traitement.</div><div class="ttdef"><b>Definition:</b> PostProcessorWriterBase.h:37</div></div>
+<div class="ttc" id="aclassArccore_1_1ArrayView_html"><div class="ttname"><a href="../../d7/d02/classArccore_1_1ArrayView.html">Arccore::ArrayView</a></div><div class="ttdoc">Vue modifiable d'un tableau d'un type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:95</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html_ac5e8bbd19d4d36583035b885c94d767d"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html#ac5e8bbd19d4d36583035b885c94d767d">Arcane::IMesh::toPrimaryMesh</a></div><div class="ttdeci">virtual IPrimaryMesh * toPrimaryMesh()=0</div><div class="ttdoc">Retourne l'instance sous la forme d'un IPrimaryMesh.</div></div>
+<div class="ttc" id="aclassArcane_1_1EnsightHdfDataWriter_html_a0ab1afb3815aa0899d7fceb5100095a1"><div class="ttname"><a href="../../dc/dab/classArcane_1_1EnsightHdfDataWriter.html#a0ab1afb3815aa0899d7fceb5100095a1">Arcane::EnsightHdfDataWriter::m_times</a></div><div class="ttdeci">RealConstArrayView m_times</div><div class="ttdoc">Liste des temps.</div><div class="ttdef"><b>Definition:</b> EnsightHdfPostProcessor.cc:102</div></div>
+<div class="ttc" id="aclassArcane_1_1EnsightHdfDataWriter_html_a2ceec225d813a13fd215afb561a57473"><div class="ttname"><a href="../../dc/dab/classArcane_1_1EnsightHdfDataWriter.html#a2ceec225d813a13fd215afb561a57473">Arcane::EnsightHdfDataWriter::m_file_id</a></div><div class="ttdeci">HFile m_file_id</div><div class="ttdoc">Identifiant HDF du fichier.</div><div class="ttdef"><b>Definition:</b> EnsightHdfPostProcessor.cc:110</div></div>
+<div class="ttc" id="anamespaceArcane_html_a3c7a9ed3103f665326d3ffd67fec7b75"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a3c7a9ed3103f665326d3ffd67fec7b75">Arcane::RealConstArrayView</a></div><div class="ttdeci">ConstArrayView&lt; Real &gt; RealConstArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension de réels.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:538</div></div>
+<div class="ttc" id="anamespaceArcane_html_a1b24b7dafa10abc75de484e5c7597bd3"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a1b24b7dafa10abc75de484e5c7597bd3">Arcane::Real3ConstArrayView</a></div><div class="ttdeci">ConstArrayView&lt; Real3 &gt; Real3ConstArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension de Real3.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:546</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer_html_af124379edbbe94ba1489a9f1b7c2f94f"><div class="ttname"><a href="../../d4/d73/classArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer.html#af124379edbbe94ba1489a9f1b7c2f94f">Arcane::Internal::ServiceAllInterfaceRegisterer::registerToServiceInfo</a></div><div class="ttdeci">static void registerToServiceInfo(ServiceInfo *si, const Interfaces &amp;... args)</div><div class="ttdoc">Enregistre dans le service les fabriques pour les interfacs Interfaces.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:441</div></div>
+<div class="ttc" id="aclassArcane_1_1Internal_1_1ServiceInfo_html"><div class="ttname"><a href="../../d7/db6/classArcane_1_1Internal_1_1ServiceInfo.html">Arcane::Internal::ServiceInfo</a></div><div class="ttdoc">Informations d'un service.</div><div class="ttdef"><b>Definition:</b> ServiceInfo.h:44</div></div>
+<div class="ttc" id="aclassArcane_1_1FileContent_html"><div class="ttname"><a href="../../da/da0/classArcane_1_1FileContent.html">Arcane::FileContent</a></div><div class="ttdoc">Description et contenu d'un fichier.</div><div class="ttdef"><b>Definition:</b> FileContent.h:31</div></div>
+<div class="ttc" id="aclassArcane_1_1IModule_html"><div class="ttname"><a href="../../d2/da2/classArcane_1_1IModule.html">Arcane::IModule</a></div><div class="ttdoc">Interface d'un module.</div><div class="ttdef"><b>Definition:</b> IModule.h:38</div></div>
+<div class="ttc" id="aclassArcane_1_1EnumeratorT_html"><div class="ttname"><a href="../../d7/dc8/classArcane_1_1EnumeratorT.html">Arcane::EnumeratorT</a></div><div class="ttdoc">Enumérateur typé.</div><div class="ttdef"><b>Definition:</b> Collection.h:34</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseOptions_html"><div class="ttname"><a href="../../dd/d74/classArcane_1_1ICaseOptions.html">Arcane::ICaseOptions</a></div><div class="ttdoc">Interface d'une liste d'options du jeu de données.</div><div class="ttdef"><b>Definition:</b> ICaseOptions.h:43</div></div>
+<div class="ttc" id="aclassArcane_1_1ServiceBuildInfo_html"><div class="ttname"><a href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">Arcane::ServiceBuildInfo</a></div><div class="ttdoc">Structure contenant les informations pour créer un service.</div><div class="ttdef"><b>Definition:</b> ServiceBuildInfo.h:122</div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html">Arccore::TraceAccessor</a></div><div class="ttdoc">Classe d'accès aux traces.</div><div class="ttdef"><b>Definition:</b> arccore/src/trace/arccore/trace/TraceAccessor.h:38</div></div>
+<div class="ttc" id="anamespaceArcane_html_a05c27a651d3da9ae112c75113fcf7426aeda5451f6cd0920142577c553f2b7369"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a05c27a651d3da9ae112c75113fcf7426aeda5451f6cd0920142577c553f2b7369">Arcane::DT_Real</a></div><div class="ttdeci">@ DT_Real</div><div class="ttdoc">Donnée de type réel.</div><div class="ttdef"><b>Definition:</b> DataTypes.h:38</div></div>
+<div class="ttc" id="aclassArcane_1_1IVariable_html_a655cd26bb86147f406eaf503beed64cb"><div class="ttname"><a href="../../d5/d96/classArcane_1_1IVariable.html#a655cd26bb86147f406eaf503beed64cb">Arcane::IVariable::dimension</a></div><div class="ttdeci">virtual Integer dimension() const =0</div><div class="ttdoc">Dimension de la variable.</div></div>
+<div class="ttc" id="aclassArcane_1_1EnsightHdfDataWriter_html"><div class="ttname"><a href="../../dc/dab/classArcane_1_1EnsightHdfDataWriter.html">Arcane::EnsightHdfDataWriter</a></div><div class="ttdef"><b>Definition:</b> EnsightHdfPostProcessor.cc:78</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseOptionList_html"><div class="ttname"><a href="../../de/d86/classArcane_1_1ICaseOptionList.html">Arcane::ICaseOptionList</a></div><div class="ttdoc">Interface d'une liste d'options du jeu de données.</div><div class="ttdef"><b>Definition:</b> ICaseOptionList.h:31</div></div>
+<div class="ttc" id="aclassArcane_1_1ArcaneEnsightHdfPostProcessorObject_html"><div class="ttname"><a href="../../d0/d45/classArcane_1_1ArcaneEnsightHdfPostProcessorObject.html">Arcane::ArcaneEnsightHdfPostProcessorObject</a></div><div class="ttdoc">Generation de la classe de base du Service.</div><div class="ttdef"><b>Definition:</b> EnsightHdfPostProcessor_axl.h:151</div></div>
+<div class="ttc" id="anamespaceArcane_html_a9705dd87194ca42d81d4da3d95a9acd7"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a9705dd87194ca42d81d4da3d95a9acd7">Arcane::Int32UniqueArray</a></div><div class="ttdeci">UniqueArray&lt; Int32 &gt; Int32UniqueArray</div><div class="ttdoc">Tableau dynamique à une dimension d'entiers 32 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:407</div></div>
+<div class="ttc" id="agroup__Variable_html_ga98c3f361d93bc122a383a05c80a966b7"><div class="ttname"><a href="../../d3/d00/group__Variable.html#ga98c3f361d93bc122a383a05c80a966b7">Arcane::VariableNodeReal3</a></div><div class="ttdeci">MeshVariableScalarRefT&lt; Node, Real3 &gt; VariableNodeReal3</div><div class="ttdoc">Grandeur au noeud de type coordonnées.</div><div class="ttdef"><b>Definition:</b> VariableTypedef.h:359</div></div>
+<div class="ttc" id="anamespaceArccore_html_a19fea02f94d4da203710fd2070c0f2fb"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Arccore::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:232</div></div>
+<div class="ttc" id="aclassArcane_1_1EnsightHdfPostProcessor_html_acefeedfbacf3bcf0b320bfdc06819e9e"><div class="ttname"><a href="../../dd/dd3/classArcane_1_1EnsightHdfPostProcessor.html#acefeedfbacf3bcf0b320bfdc06819e9e">Arcane::EnsightHdfPostProcessor::notifyBeginWrite</a></div><div class="ttdeci">virtual void notifyBeginWrite()</div><div class="ttdoc">Notifie qu'une sortie va être effectuée avec les paramètres courants.</div><div class="ttdef"><b>Definition:</b> EnsightHdfPostProcessor.cc:583</div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html_ac97ca3cda108d93dceb8e1a4800246a7"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html#ac97ca3cda108d93dceb8e1a4800246a7">Arccore::TraceAccessor::info</a></div><div class="ttdeci">TraceMessage info() const</div><div class="ttdoc">Flot pour un message d'information.</div><div class="ttdef"><b>Definition:</b> TraceAccessor.cc:101</div></div>
+<div class="ttc" id="aclassArcane_1_1Hdf5Utils_1_1HGroup_html"><div class="ttname"><a href="../../df/d6f/classArcane_1_1Hdf5Utils_1_1HGroup.html">Arcane::Hdf5Utils::HGroup</a></div><div class="ttdoc">Encapsule un hid_t pour un groupe.</div><div class="ttdef"><b>Definition:</b> Hdf5Utils.h:163</div></div>
+<div class="ttc" id="anamespaceArcane_1_1CheckedConvert_html_a0b4c4b43b7054b52a5c9b15083b2ae00"><div class="ttname"><a href="../../d6/d50/namespaceArcane_1_1CheckedConvert.html#a0b4c4b43b7054b52a5c9b15083b2ae00">Arcane::CheckedConvert::toInteger</a></div><div class="ttdeci">Integer toInteger(Real r)</div><div class="ttdoc">Converti un Int64 en un Integer.</div><div class="ttdef"><b>Definition:</b> CheckedConvert.h:44</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html_a35e2ae3274072999ba22018f2b50b167"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html#a35e2ae3274072999ba22018f2b50b167">Arcane::IMesh::nodeFamily</a></div><div class="ttdeci">virtual IItemFamily * nodeFamily()=0</div><div class="ttdoc">Retourne la famille des noeuds.</div></div>
+<div class="ttc" id="aclassArcane_1_1PostProcessorWriterBase_html_a277d7350c5ae9766e148810fe0183370"><div class="ttname"><a href="../../db/d67/classArcane_1_1PostProcessorWriterBase.html#a277d7350c5ae9766e148810fe0183370">Arcane::PostProcessorWriterBase::times</a></div><div class="ttdeci">virtual RealConstArrayView times()</div><div class="ttdoc">Liste des temps sauvés.</div><div class="ttdef"><b>Definition:</b> PostProcessorWriterBase.cc:144</div></div>
+<div class="ttc" id="aclassArccore_1_1UniqueArray_html"><div class="ttname"><a href="../../da/daa/classArccore_1_1UniqueArray.html">Arccore::UniqueArray</a></div><div class="ttdoc">Vecteur 1D de données avec sémantique par valeur (style STL).</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:1504</div></div>
+<div class="ttc" id="aclassArcane_1_1EnsightHdfDataWriter_html_a29268e7e8dc1ccd5a00fd97d3262c82c"><div class="ttname"><a href="../../dc/dab/classArcane_1_1EnsightHdfDataWriter.html#a29268e7e8dc1ccd5a00fd97d3262c82c">Arcane::EnsightHdfDataWriter::m_filename</a></div><div class="ttdeci">String m_filename</div><div class="ttdoc">Nom du fichier HDF courant.</div><div class="ttdef"><b>Definition:</b> EnsightHdfPostProcessor.cc:107</div></div>
+<div class="ttc" id="aclassArcane_1_1EnsightHdfDataWriter_html_a09f6471ec572b3a2bd9c32c9a18c67a8"><div class="ttname"><a href="../../dc/dab/classArcane_1_1EnsightHdfDataWriter.html#a09f6471ec572b3a2bd9c32c9a18c67a8">Arcane::EnsightHdfDataWriter::setMetaData</a></div><div class="ttdeci">virtual void setMetaData(const String &amp;meta_data)</div><div class="ttdoc">Positionne les infos des méta-données.</div><div class="ttdef"><b>Definition:</b> EnsightHdfPostProcessor.cc:417</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html">Arcane::IMesh</a></div><div class="ttdef"><b>Definition:</b> IMesh.h:57</div></div>
+<div class="ttc" id="anamespaceArcane_html_ab8a647feabd759fae601d29f827568ec"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ab8a647feabd759fae601d29f827568ec">Arcane::Byte</a></div><div class="ttdeci">unsigned char Byte</div><div class="ttdoc">Type d'un octet.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:138</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html_ac26e2b1441dbe2ce60c065d1b7840143"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html#ac26e2b1441dbe2ce60c065d1b7840143">Arccore::ConstArrayView::size</a></div><div class="ttdeci">constexpr Integer size() const noexcept</div><div class="ttdoc">Nombre d'éléments du tableau.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:632</div></div>
+<div class="ttc" id="agroup__Mesh_html_ga8270de1e7b8febe980cab11b992c47b5"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga8270de1e7b8febe980cab11b992c47b5">Arcane::NodeEnumerator</a></div><div class="ttdeci">ItemEnumeratorT&lt; Node &gt; NodeEnumerator</div><div class="ttdoc">Enumérateurs sur des noeuds.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:166</div></div>
+<div class="ttc" id="aclassArcane_1_1Hdf5Utils_1_1Hid_html"><div class="ttname"><a href="../../dd/d43/classArcane_1_1Hdf5Utils_1_1Hid.html">Arcane::Hdf5Utils::Hid</a></div><div class="ttdoc">Encapsule un hid_t.</div><div class="ttdef"><b>Definition:</b> Hdf5Utils.h:95</div></div>
+<div class="ttc" id="aclassArccore_1_1Span_html"><div class="ttname"><a href="../../dd/d9f/classArccore_1_1Span.html">Arccore::Span</a></div><div class="ttdoc">Vue d'un tableau d'éléments de type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:35</div></div>
+<div class="ttc" id="aServiceFactory_8h_html"><div class="ttname"><a href="../../d3/d58/ServiceFactory_8h.html">ServiceFactory.h</a></div><div class="ttdoc">Ce fichier contient les différentes fabriques de services et macro pour enregistrer les services.</div></div>
+<div class="ttc" id="aclassArcane_1_1Collection_html"><div class="ttname"><a href="../../d3/d5d/classArcane_1_1Collection.html">Arcane::Collection&lt; ItemGroup &gt;</a></div></div>
+<div class="ttc" id="aclassArcane_1_1IDataWriter_html"><div class="ttname"><a href="../../d2/d27/classArcane_1_1IDataWriter.html">Arcane::IDataWriter</a></div><div class="ttdoc">Interface d'écriture des données d'une variable.</div><div class="ttdef"><b>Definition:</b> IDataWriter.h:48</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemGroup_html_ae2a7e00396e5946eb9d836a6f8362f5d"><div class="ttname"><a href="../../d9/d27/classArcane_1_1ItemGroup.html#ae2a7e00396e5946eb9d836a6f8362f5d">Arcane::ItemGroup::name</a></div><div class="ttdeci">const String &amp; name() const</div><div class="ttdoc">Nom du groupe.</div><div class="ttdef"><b>Definition:</b> ItemGroup.h:76</div></div>
+<div class="ttc" id="aclassArcane_1_1Collection_html_a1008bef9aae2ebab34e6062f163134f1"><div class="ttname"><a href="../../d3/d5d/classArcane_1_1Collection.html#a1008bef9aae2ebab34e6062f163134f1">Arcane::Collection&lt; ItemGroup &gt;::Enumerator</a></div><div class="ttdeci">EnumeratorT&lt; ItemGroup &gt; Enumerator</div><div class="ttdoc">Type d'un itérateur sur toute la collection.</div><div class="ttdef"><b>Definition:</b> Collection.h:152</div></div>
+<div class="ttc" id="aclassArcane_1_1ArcaneEnsightHdfPostProcessorObject_html_a38dcd9ae28d05060bcf965df552de4d6"><div class="ttname"><a href="../../d0/d45/classArcane_1_1ArcaneEnsightHdfPostProcessorObject.html#a38dcd9ae28d05060bcf965df552de4d6">Arcane::ArcaneEnsightHdfPostProcessorObject::getAxlContent</a></div><div class="ttdeci">static Arcane::FileContent getAxlContent()</div><div class="ttdoc">Variables du service.</div><div class="ttdef"><b>Definition:</b> EnsightHdfPostProcessor_axl.h:203</div></div>
+<div class="ttc" id="aclassArcane_1_1FloatInfo_html"><div class="ttname"><a href="../../dd/d97/classArcane_1_1FloatInfo.html">Arcane::FloatInfo</a></div><div class="ttdoc">Informations sur le type flottant.</div><div class="ttdef"><b>Definition:</b> Limits.h:47</div></div>
+<div class="ttc" id="aclassArcane_1_1IVariable_html_a414fb79c38366c77e214ef6efab4a69a"><div class="ttname"><a href="../../d5/d96/classArcane_1_1IVariable.html#a414fb79c38366c77e214ef6efab4a69a">Arcane::IVariable::fullName</a></div><div class="ttdeci">virtual const String &amp; fullName() const =0</div><div class="ttdoc">Nom complet de la variable (avec le préfixe de la famille)</div></div>
+<div class="ttc" id="anamespaceArcane_html_aaa6951864e32e84c29b3cffca3d4b3f7"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7">Arcane::eItemKind</a></div><div class="ttdeci">eItemKind</div><div class="ttdoc">Genre d'entité de maillage.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:114</div></div>
+<div class="ttc" id="aclassArcane_1_1IData_html"><div class="ttname"><a href="../../d1/d15/classArcane_1_1IData.html">Arcane::IData</a></div><div class="ttdoc">Interface d'une donnée.</div><div class="ttdef"><b>Definition:</b> IData.h:30</div></div>
+<div class="ttc" id="aclassArcane_1_1EnsightHdfPostProcessor_html_ae557fe0e20e0d228b1590751ad71ab74"><div class="ttname"><a href="../../dd/dd3/classArcane_1_1EnsightHdfPostProcessor.html#ae557fe0e20e0d228b1590751ad71ab74">Arcane::EnsightHdfPostProcessor::close</a></div><div class="ttdeci">virtual void close()</div><div class="ttdoc">Ferme l'écrivain. Après fermeture, il ne peut plus être utilisé</div><div class="ttdef"><b>Definition:</b> EnsightHdfPostProcessor.cc:592</div></div>
+<div class="ttc" id="anamespaceArcane_1_1CStringUtils_html_a839cd64a4db50ad7de656f11128b1dd6"><div class="ttname"><a href="../../de/d06/namespaceArcane_1_1CStringUtils.html#a839cd64a4db50ad7de656f11128b1dd6">Arcane::CStringUtils::len</a></div><div class="ttdeci">Integer len(const char *s)</div><div class="ttdoc">Retourne la longueur de la chaîne s.</div><div class="ttdef"><b>Definition:</b> arcane/src/arcane/utils/CStringUtils.cc:90</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableCollection_html"><div class="ttname"><a href="../../d7/d1b/classArcane_1_1VariableCollection.html">Arcane::VariableCollection</a></div><div class="ttdoc">Collection de variables.</div><div class="ttdef"><b>Definition:</b> VariableCollection.h:80</div></div>
+<div class="ttc" id="aclassArcane_1_1EnsightHdfDataWriter_html_a84bdbe61c2ed1b17e8d4d4a2a34172c7"><div class="ttname"><a href="../../dc/dab/classArcane_1_1EnsightHdfDataWriter.html#a84bdbe61c2ed1b17e8d4d4a2a34172c7">Arcane::EnsightHdfDataWriter::m_groups</a></div><div class="ttdeci">ItemGroupCollection m_groups</div><div class="ttdoc">Liste des groupes à sauver.</div><div class="ttdef"><b>Definition:</b> EnsightHdfPostProcessor.cc:99</div></div>
+<div class="ttc" id="aServiceFactory_8h_html_a480db4972e53162abf799e425a4e73ad"><div class="ttname"><a href="../../d3/d58/ServiceFactory_8h.html#a480db4972e53162abf799e425a4e73ad">ARCANE_REGISTER_SUB_DOMAIN_FACTORY</a></div><div class="ttdeci">#define ARCANE_REGISTER_SUB_DOMAIN_FACTORY(aclass, ainterface, aname)</div><div class="ttdoc">Enregistre un service de fabrique pour la classe aclass.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:586</div></div>
+<div class="ttc" id="aclassArcane_1_1IVariable_html_ae357969d53c741270c298f92a878a770"><div class="ttname"><a href="../../d5/d96/classArcane_1_1IVariable.html#ae357969d53c741270c298f92a878a770">Arcane::IVariable::name</a></div><div class="ttdeci">virtual const String &amp; name() const =0</div><div class="ttdoc">Nom de la variable.</div></div>
+<div class="ttc" id="aclassArcane_1_1IData_html_ae1780c424650807f6e6747c168264d09"><div class="ttname"><a href="../../d1/d15/classArcane_1_1IData.html#ae1780c424650807f6e6747c168264d09">Arcane::IData::createSerializedDataRef</a></div><div class="ttdeci">virtual Ref&lt; ISerializedData &gt; createSerializedDataRef(bool use_basic_type) const =0</div><div class="ttdoc">Sérialise la donnée.</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemGroup_html"><div class="ttname"><a href="../../d9/d27/classArcane_1_1ItemGroup.html">Arcane::ItemGroup</a></div><div class="ttdoc">Groupe d'entités de maillage.</div><div class="ttdef"><b>Definition:</b> ItemGroup.h:48</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_aa6e9746ec369ff8d6c95c0ff006a3ed2"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#aa6e9746ec369ff8d6c95c0ff006a3ed2">Arccore::Array::fill</a></div><div class="ttdeci">void fill(ConstReferenceType value)</div><div class="ttdoc">Remplit le tableau avec la valeur value.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:1145</div></div>
+<div class="ttc" id="aclassArccore_1_1ReferenceCounter_html"><div class="ttname"><a href="../../d7/d42/classArccore_1_1ReferenceCounter.html">Arccore::ReferenceCounter</a></div><div class="ttdoc">Encapsulation d'un pointeur avec compteur de référence.</div><div class="ttdef"><b>Definition:</b> BaseTypes.h:84</div></div>
+<div class="ttc" id="aclassArcane_1_1IVariable_html_a51c262a3e29031b986319ed8d06516e3"><div class="ttname"><a href="../../d5/d96/classArcane_1_1IVariable.html#a51c262a3e29031b986319ed8d06516e3">Arcane::IVariable::itemKind</a></div><div class="ttdeci">virtual eItemKind itemKind() const =0</div><div class="ttdoc">Type des entités du maillage sur lequel repose la variable.</div></div>
+<div class="ttc" id="aclassArcane_1_1PostProcessorWriterBase_html_a59740f1cf75c47998804b8d50e2a8fb5"><div class="ttname"><a href="../../db/d67/classArcane_1_1PostProcessorWriterBase.html#a59740f1cf75c47998804b8d50e2a8fb5">Arcane::PostProcessorWriterBase::groups</a></div><div class="ttdeci">virtual ItemGroupCollection groups()</div><div class="ttdoc">Liste des groupes à sauver.</div><div class="ttdef"><b>Definition:</b> PostProcessorWriterBase.cc:162</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_ab3f2d332e7c412261b9199bb5454e31b"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#ab3f2d332e7c412261b9199bb5454e31b">Arccore::Array::add</a></div><div class="ttdeci">void add(ConstReferenceType val)</div><div class="ttdoc">Ajoute l'élément val à la fin du tableau.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:967</div></div>
+<div class="ttc" id="aclassArccore_1_1Ref_html"><div class="ttname"><a href="../../de/d9f/classArccore_1_1Ref.html">Arccore::Ref</a></div><div class="ttdoc">Référence à une instance.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/Ref.h:127</div></div>
+<div class="ttc" id="aclassArcane_1_1EnsightHdfPostProcessor_html"><div class="ttname"><a href="../../dd/dd3/classArcane_1_1EnsightHdfPostProcessor.html">Arcane::EnsightHdfPostProcessor</a></div><div class="ttdoc">Post-traitement au format Ensight Hdf.</div><div class="ttdef"><b>Definition:</b> EnsightHdfPostProcessor.cc:569</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_a3a6f8f4aa43d7236bc505b3695d71f21"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#a3a6f8f4aa43d7236bc505b3695d71f21">Arccore::Array::copy</a></div><div class="ttdeci">void copy(Span&lt; const T &gt; rhs)</div><div class="ttdoc">Copie les valeurs de rhs dans l'instance.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:1155</div></div>
+<div class="ttc" id="aItemEnumerator_8h_html_ad8a248a2dc99c27958e4670b9cb09aa3"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#ad8a248a2dc99c27958e4670b9cb09aa3">ENUMERATE_ITEM</a></div><div class="ttdeci">#define ENUMERATE_ITEM(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de noeuds.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:229</div></div>
+<div class="ttc" id="aclassArcane_1_1Hdf5Utils_1_1HDataset_html"><div class="ttname"><a href="../../d6/d91/classArcane_1_1Hdf5Utils_1_1HDataset.html">Arcane::Hdf5Utils::HDataset</a></div><div class="ttdoc">Encapsule un hid_t pour un dataset.</div><div class="ttdef"><b>Definition:</b> Hdf5Utils.h:212</div></div>
+<div class="ttc" id="aclassArcane_1_1IPostProcessorWriter_html"><div class="ttname"><a href="../../da/d6e/classArcane_1_1IPostProcessorWriter.html">Arcane::IPostProcessorWriter</a></div><div class="ttdoc">Interface d'un écrivain pour les informations de post-traitement.</div><div class="ttdef"><b>Definition:</b> IPostProcessorWriter.h:56</div></div>
+<div class="ttc" id="aclassArcane_1_1ArcaneEnsightHdfPostProcessorObject_html_a92e92b85725a99ea5f7f710baebe86a1"><div class="ttname"><a href="../../d0/d45/classArcane_1_1ArcaneEnsightHdfPostProcessorObject.html#a92e92b85725a99ea5f7f710baebe86a1">Arcane::ArcaneEnsightHdfPostProcessorObject::ArcaneEnsightHdfPostProcessorObject</a></div><div class="ttdeci">ArcaneEnsightHdfPostProcessorObject(const Arcane::ServiceBuildInfo &amp;sbi)</div><div class="ttdoc">Constructeur.</div><div class="ttdef"><b>Definition:</b> EnsightHdfPostProcessor_axl.h:171</div></div>
+<div class="ttc" id="aclassArcane_1_1EnsightHdfDataWriter_html_a94094deea8487e5274f49024242ac1eb"><div class="ttname"><a href="../../dc/dab/classArcane_1_1EnsightHdfDataWriter.html#a94094deea8487e5274f49024242ac1eb">Arcane::EnsightHdfDataWriter::write</a></div><div class="ttdeci">virtual void write(IVariable *var, IData *data)</div><div class="ttdoc">Ecrit les données data de la variable var.</div><div class="ttdef"><b>Definition:</b> EnsightHdfPostProcessor.cc:426</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:32</div></div>
+<div class="ttc" id="aclassArcane_1_1CaseOptionsEnsightHdfPostProcessor_html"><div class="ttname"><a href="../../d6/d0b/classArcane_1_1CaseOptionsEnsightHdfPostProcessor.html">Arcane::CaseOptionsEnsightHdfPostProcessor</a></div><div class="ttdoc">Options.</div><div class="ttdef"><b>Definition:</b> EnsightHdfPostProcessor_axl.h:30</div></div>
+<div class="ttc" id="aclassArccore_1_1AbstractArray_html_ad685072bdadeb6ada60185ce0283db8d"><div class="ttname"><a href="../../db/d34/classArccore_1_1AbstractArray.html#ad685072bdadeb6ada60185ce0283db8d">Arccore::AbstractArray::size</a></div><div class="ttdeci">Integer size() const</div><div class="ttdoc">Nombre d'éléments du vecteur.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:409</div></div>
+<div class="ttc" id="aclassArcane_1_1ServiceBuildInfoBase_html_a4f8bbf7653878454724ab0bd409c336e"><div class="ttname"><a href="../../d1/dd8/classArcane_1_1ServiceBuildInfoBase.html#a4f8bbf7653878454724ab0bd409c336e">Arcane::ServiceBuildInfoBase::caseOptions</a></div><div class="ttdeci">ICaseOptions * caseOptions() const</div><div class="ttdoc">Accès au ICaseOptions associé</div><div class="ttdef"><b>Definition:</b> ServiceBuildInfo.h:98</div></div>
+<div class="ttc" id="anamespaceArcane_html_aaa6951864e32e84c29b3cffca3d4b3f7a43a1d702aabd0a4063e61442d68d6fb0"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7a43a1d702aabd0a4063e61442d68d6fb0">Arcane::IK_Cell</a></div><div class="ttdeci">@ IK_Cell</div><div class="ttdoc">Entité de maillage de genre maille.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:119</div></div>
+<div class="ttc" id="aItemEnumerator_8h_html_aea36524754c129124072de38e045d6ba"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#aea36524754c129124072de38e045d6ba">ENUMERATE_NODE</a></div><div class="ttdeci">#define ENUMERATE_NODE(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de noeuds.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:234</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_ae0be5e019f1b4c50dd40de637e533c60"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#ae0be5e019f1b4c50dd40de637e533c60">Arccore::Array::data</a></div><div class="ttdeci">const T * data() const</div><div class="ttdoc">Accès à la racine du tableau hors toute protection.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:1175</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/String.h:68</div></div>
+<div class="ttc" id="aclassArcane_1_1ArcaneEnsightHdfPostProcessorObject_html_acff5814c1c3ed5d19ee54b898fde57e6"><div class="ttname"><a href="../../d0/d45/classArcane_1_1ArcaneEnsightHdfPostProcessorObject.html#acff5814c1c3ed5d19ee54b898fde57e6">Arcane::ArcaneEnsightHdfPostProcessorObject::~ArcaneEnsightHdfPostProcessorObject</a></div><div class="ttdeci">virtual ~ArcaneEnsightHdfPostProcessorObject()</div><div class="ttdoc">Destructeur.</div><div class="ttdef"><b>Definition:</b> EnsightHdfPostProcessor_axl.h:183</div></div>
+<div class="ttc" id="anamespaceArcane_html_a504f7d6d52d8180d8ff1af81c4ed5741"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a504f7d6d52d8180d8ff1af81c4ed5741">Arcane::Real3UniqueArray</a></div><div class="ttdeci">UniqueArray&lt; Real3 &gt; Real3UniqueArray</div><div class="ttdoc">Tableau dynamique à une dimension de vecteurs de rang 3.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:421</div></div>
+<div class="ttc" id="aclassArcane_1_1ArcaneEnsightHdfPostProcessorObject_html_acd10be7fb78ccd852e08c31ffcf9d009"><div class="ttname"><a href="../../d0/d45/classArcane_1_1ArcaneEnsightHdfPostProcessorObject.html#acd10be7fb78ccd852e08c31ffcf9d009">Arcane::ArcaneEnsightHdfPostProcessorObject::options</a></div><div class="ttdeci">CaseOptionsEnsightHdfPostProcessor * options() const</div><div class="ttdoc">Options du jeu de données du service.</div><div class="ttdef"><b>Definition:</b> EnsightHdfPostProcessor_axl.h:192</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html_ab9f88427a38ac95ab3cf53743f248cb7"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html#ab9f88427a38ac95ab3cf53743f248cb7">Arccore::String::localstr</a></div><div class="ttdeci">const char * localstr() const</div><div class="ttdoc">Retourne la conversion de l'instance dans l'encodage UTF-8.</div><div class="ttdef"><b>Definition:</b> String.cc:236</div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html_ab7819e9c2158bc8389f98db69bbdad02"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html#ab7819e9c2158bc8389f98db69bbdad02">Arccore::TraceAccessor::warning</a></div><div class="ttdeci">TraceMessage warning() const</div><div class="ttdoc">Flot pour un message d'avertissement.</div><div class="ttdef"><b>Definition:</b> TraceAccessor.cc:183</div></div>
+<div class="ttc" id="aServiceFactory_8h_html_aba44ad90916fb14522e59bab36dbf5f7"><div class="ttname"><a href="../../d3/d58/ServiceFactory_8h.html#aba44ad90916fb14522e59bab36dbf5f7">ARCANE_SERVICE_INTERFACE</a></div><div class="ttdeci">#define ARCANE_SERVICE_INTERFACE(ainterface)</div><div class="ttdoc">Macro pour déclarer une interface lors de l'enregistrement d'un service.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:475</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a9d85d5fb84c5371348dd56600999e564"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a></div><div class="ttdeci">#define ARCANE_FATAL(...)</div><div class="ttdoc">Macro envoyant une exception FatalErrorException.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:761</div></div>
+<div class="ttc" id="aclassArcane_1_1IServiceInfo_html"><div class="ttname"><a href="../../de/df8/classArcane_1_1IServiceInfo.html">Arcane::IServiceInfo</a></div><div class="ttdoc">Interface des informations d'un service ou d'un module.</div><div class="ttdef"><b>Definition:</b> IServiceInfo.h:36</div></div>
+<div class="ttc" id="aclassArcane_1_1IPrimaryMesh_html_a70b9e8f861ab33d41bbd10b7c5105dc7"><div class="ttname"><a href="../../d7/d89/classArcane_1_1IPrimaryMesh.html#a70b9e8f861ab33d41bbd10b7c5105dc7">Arcane::IPrimaryMesh::nodesCoordinates</a></div><div class="ttdeci">virtual VariableNodeReal3 &amp; nodesCoordinates()=0</div><div class="ttdoc">Coordonnées des noeuds.</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html">Arcane::ICaseMng</a></div><div class="ttdoc">Interface du gestionnaire de cas.</div><div class="ttdef"><b>Definition:</b> ICaseMng.h:56</div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html_a15637d98064c2991806fef1e1c187ef9"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html#a15637d98064c2991806fef1e1c187ef9">Arccore::TraceAccessor::pwarning</a></div><div class="ttdeci">TraceMessage pwarning() const</div><div class="ttdef"><b>Definition:</b> TraceAccessor.cc:192</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:26 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

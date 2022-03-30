@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de memorybuffer.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_2729d02b006c8e73197ea03fae7905d4.html">utils</a></li><li class="navelem"><a class="el" href="../../dir_26e53ffe2c84857ab7b0df08aa925c37.html">internal</a></li><li class="navelem"><a class="el" href="../../dir_441e97b616484c87d3f2036650c07c77.html">json</a></li><li class="navelem"><a class="el" href="../../dir_c0a5c61f11aef62740fa4bc9f7ff6ecb.html">rapidjson</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">memorybuffer.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Tencent is pleased to support the open source community by making RapidJSON available.</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// </span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// Copyright (C) 2015 THL A29 Limited, a Tencent company, and Milo Yip. All rights reserved.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// Licensed under the MIT License (the &quot;License&quot;); you may not use this file except</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">// in compliance with the License. You may obtain a copy of the License at</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// http://opensource.org/licenses/MIT</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// Unless required by applicable law or agreed to in writing, software distributed </span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR </span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// CONDITIONS OF ANY KIND, either express or implied. See the License for the </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// specific language governing permissions and limitations under the License.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#ifndef RAPIDJSON_MEMORYBUFFER_H_</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define RAPIDJSON_MEMORYBUFFER_H_</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;stream.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;internal/stack.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<a class="code" href="../../d2/d59/group__RAPIDJSON__CONFIG.html#gad3806c8251fdc7da9618b7e922674ffc">RAPIDJSON_NAMESPACE_BEGIN</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> Allocator = CrtAllocator&gt;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">struct </span><a class="code" href="../../d7/db3/structGenericMemoryBuffer.html">GenericMemoryBuffer</a> {</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keyword">typedef</span> <span class="keywordtype">char</span> Ch; <span class="comment">// byte</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="../../d7/db3/structGenericMemoryBuffer.html">GenericMemoryBuffer</a>(<a class="code" href="../../d4/d7e/classrapidjson_1_1Allocator.html">Allocator</a>* allocator = 0, <span class="keywordtype">size_t</span> capacity = kDefaultCapacity) : stack_(allocator, capacity) {}</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> Put(Ch c) { *stack_.template Push&lt;Ch&gt;() = c; }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> Flush() {}</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> Clear() { stack_.Clear(); }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> ShrinkToFit() { stack_.ShrinkToFit(); }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    Ch* Push(<span class="keywordtype">size_t</span> count) { <span class="keywordflow">return</span> stack_.template Push&lt;Ch&gt;(count); }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> Pop(<span class="keywordtype">size_t</span> count) { stack_.template Pop&lt;Ch&gt;(count); }</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keyword">const</span> Ch* GetBuffer()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;        <span class="keywordflow">return</span> stack_.template Bottom&lt;Ch&gt;();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">size_t</span> GetSize()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> stack_.GetSize(); }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">size_t</span> kDefaultCapacity = 256;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">mutable</span> <a class="code" href="../../d3/dab/classinternal_1_1Stack.html">internal::Stack&lt;Allocator&gt;</a> stack_;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">typedef</span> <a class="code" href="../../d7/db3/structGenericMemoryBuffer.html">GenericMemoryBuffer&lt;&gt;</a> <a class="code" href="../../d7/db3/structGenericMemoryBuffer.html">MemoryBuffer</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="keyword">template</span>&lt;&gt;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> PutN(<a class="code" href="../../d7/db3/structGenericMemoryBuffer.html">MemoryBuffer</a>&amp; memoryBuffer, <span class="keywordtype">char</span> c, <span class="keywordtype">size_t</span> n) {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    std::memset(memoryBuffer.stack_.Push&lt;<span class="keywordtype">char</span>&gt;(n), c, n * <span class="keyword">sizeof</span>(c));</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;}</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<a class="code" href="../../d2/d59/group__RAPIDJSON__CONFIG.html#gaf18f052a98b9f5df5448d39484b743c1">RAPIDJSON_NAMESPACE_END</a></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif // RAPIDJSON_MEMORYBUFFER_H_</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArccore_1_1DefaultMemoryAllocator_html_a08394d6530109beeb3974e9caf07edd8"><div class="ttname"><a href="../../db/d07/classArccore_1_1DefaultMemoryAllocator.html#a08394d6530109beeb3974e9caf07edd8">Arccore::DefaultMemoryAllocator::deallocate</a></div><div class="ttdeci">void deallocate(void *ptr) override</div><div class="ttdoc">Libère la mémoire dont l'adresse de base est ptr.</div><div class="ttdef"><b>Definition:</b> MemoryAllocator.cc:75</div></div>
+<div class="ttc" id="aclassArccore_1_1ArgumentException_html"><div class="ttname"><a href="../../d8/d98/classArccore_1_1ArgumentException.html">Arccore::ArgumentException</a></div><div class="ttdoc">Exception lorsqu'un argument est invalide.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArgumentException.h:31</div></div>
+<div class="ttc" id="aclassArccore_1_1AlignedMemoryAllocator_html_a7c4534fae1728c0e1d4f65c9088390d7"><div class="ttname"><a href="../../d0/d7e/classArccore_1_1AlignedMemoryAllocator.html#a7c4534fae1728c0e1d4f65c9088390d7">Arccore::AlignedMemoryAllocator::hasRealloc</a></div><div class="ttdeci">bool hasRealloc() const override</div><div class="ttdef"><b>Definition:</b> MemoryAllocator.cc:113</div></div>
+<div class="ttc" id="aclassArccore_1_1DefaultMemoryAllocator_html_a7f0f58e538c86cd40872034a13623a28"><div class="ttname"><a href="../../db/d07/classArccore_1_1DefaultMemoryAllocator.html#a7f0f58e538c86cd40872034a13623a28">Arccore::DefaultMemoryAllocator::hasRealloc</a></div><div class="ttdeci">bool hasRealloc() const override</div><div class="ttdoc">Indique si l'allocateur supporte la sémantique de realloc.</div><div class="ttdef"><b>Definition:</b> MemoryAllocator.cc:48</div></div>
+<div class="ttc" id="aclassArccore_1_1AlignedMemoryAllocator_html_a7fda3911add0c409796c3bca7e0d2fd0"><div class="ttname"><a href="../../d0/d7e/classArccore_1_1AlignedMemoryAllocator.html#a7fda3911add0c409796c3bca7e0d2fd0">Arccore::AlignedMemoryAllocator::simdAlignment</a></div><div class="ttdeci">static constexpr Integer simdAlignment()</div><div class="ttdoc">Alignement pour les structures utilisant la vectorisation.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/IMemoryAllocator.h:176</div></div>
+<div class="ttc" id="aclassArccore_1_1AlignedMemoryAllocator_html_aa14c5fe2f4dd0b07712b36dedb18e848"><div class="ttname"><a href="../../d0/d7e/classArccore_1_1AlignedMemoryAllocator.html#aa14c5fe2f4dd0b07712b36dedb18e848">Arccore::AlignedMemoryAllocator::cacheLineAlignment</a></div><div class="ttdeci">static constexpr Integer cacheLineAlignment()</div><div class="ttdoc">Alignement pour une ligne de cache.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/IMemoryAllocator.h:178</div></div>
+<div class="ttc" id="aclassArccore_1_1PrintableMemoryAllocator_html_a24487599e6fffee48ecacf3ab4c667f3"><div class="ttname"><a href="../../dc/d96/classArccore_1_1PrintableMemoryAllocator.html#a24487599e6fffee48ecacf3ab4c667f3">Arccore::PrintableMemoryAllocator::allocate</a></div><div class="ttdeci">void * allocate(size_t new_size) override</div><div class="ttdoc">Alloue de la mémoire pour new_size octets et retourne le pointeur.</div><div class="ttdef"><b>Definition:</b> MemoryAllocator.cc:220</div></div>
+<div class="ttc" id="aclassArccore_1_1PrintableMemoryAllocator_html_ae707d7510f0a5090d74579ae4b84e2be"><div class="ttname"><a href="../../dc/d96/classArccore_1_1PrintableMemoryAllocator.html#ae707d7510f0a5090d74579ae4b84e2be">Arccore::PrintableMemoryAllocator::reallocate</a></div><div class="ttdeci">void * reallocate(void *current_ptr, size_t new_size) override</div><div class="ttdoc">Réalloue de la mémoire pour new_size octets et retourne le pointeur.</div><div class="ttdef"><b>Definition:</b> MemoryAllocator.cc:231</div></div>
+<div class="ttc" id="aclassArccore_1_1PrintableMemoryAllocator_html_a29bfd2059f1786d8cecd91195e609032"><div class="ttname"><a href="../../dc/d96/classArccore_1_1PrintableMemoryAllocator.html#a29bfd2059f1786d8cecd91195e609032">Arccore::PrintableMemoryAllocator::deallocate</a></div><div class="ttdeci">void deallocate(void *ptr) override</div><div class="ttdoc">Libère la mémoire dont l'adresse de base est ptr.</div><div class="ttdef"><b>Definition:</b> MemoryAllocator.cc:244</div></div>
+<div class="ttc" id="aclassArccore_1_1AlignedMemoryAllocator_html_ab88a2e7594c02dff803df6adcd8043b1"><div class="ttname"><a href="../../d0/d7e/classArccore_1_1AlignedMemoryAllocator.html#ab88a2e7594c02dff803df6adcd8043b1">Arccore::AlignedMemoryAllocator::deallocate</a></div><div class="ttdeci">void deallocate(void *ptr) override</div><div class="ttdoc">Libère la mémoire dont l'adresse de base est ptr.</div><div class="ttdef"><b>Definition:</b> MemoryAllocator.cc:160</div></div>
+<div class="ttc" id="aclassArccore_1_1NotSupportedException_html"><div class="ttname"><a href="../../d6/ddb/classArccore_1_1NotSupportedException.html">Arccore::NotSupportedException</a></div><div class="ttdoc">Exception lorsqu'une opération n'est pas supportée.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/NotSupportedException.h:31</div></div>
+<div class="ttc" id="aclassArccore_1_1NotImplementedException_html"><div class="ttname"><a href="../../d6/d5e/classArccore_1_1NotImplementedException.html">Arccore::NotImplementedException</a></div><div class="ttdoc">Exception lorsqu'une fonction n'est pas implémentée.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/NotImplementedException.h:31</div></div>
+<div class="ttc" id="aclassinternal_1_1Stack_html"><div class="ttname"><a href="../../d3/dab/classinternal_1_1Stack.html">internal::Stack</a></div><div class="ttdoc">A type-unsafe stack for storing different types of data.</div><div class="ttdef"><b>Definition:</b> stack.h:38</div></div>
+<div class="ttc" id="aclassArccore_1_1AlignedMemoryAllocator_html"><div class="ttname"><a href="../../d0/d7e/classArccore_1_1AlignedMemoryAllocator.html">Arccore::AlignedMemoryAllocator</a></div><div class="ttdoc">Allocateur mémoire avec alignement mémoire spécifique.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/IMemoryAllocator.h:152</div></div>
+<div class="ttc" id="aclassArccore_1_1DefaultMemoryAllocator_html_a53484e7a0c56d57290edd133803404fd"><div class="ttname"><a href="../../db/d07/classArccore_1_1DefaultMemoryAllocator.html#a53484e7a0c56d57290edd133803404fd">Arccore::DefaultMemoryAllocator::allocate</a></div><div class="ttdeci">void * allocate(size_t new_size) override</div><div class="ttdoc">Alloue de la mémoire pour new_size octets et retourne le pointeur.</div><div class="ttdef"><b>Definition:</b> MemoryAllocator.cc:57</div></div>
+<div class="ttc" id="aclassArccore_1_1AlignedMemoryAllocator_html_a39ad208f7b9a974a2804435811ff2f83"><div class="ttname"><a href="../../d0/d7e/classArccore_1_1AlignedMemoryAllocator.html#a39ad208f7b9a974a2804435811ff2f83">Arccore::AlignedMemoryAllocator::adjustCapacity</a></div><div class="ttdeci">size_t adjustCapacity(size_t wanted_capacity, size_t element_size) override</div><div class="ttdoc">Ajuste la capacité suivant la taille d'élément.</div><div class="ttdef"><b>Definition:</b> MemoryAllocator.cc:178</div></div>
+<div class="ttc" id="agroup__RAPIDJSON__CONFIG_html_gaf18f052a98b9f5df5448d39484b743c1"><div class="ttname"><a href="../../d2/d59/group__RAPIDJSON__CONFIG.html#gaf18f052a98b9f5df5448d39484b743c1">RAPIDJSON_NAMESPACE_END</a></div><div class="ttdeci">#define RAPIDJSON_NAMESPACE_END</div><div class="ttdoc">provide custom rapidjson namespace (closing expression)</div><div class="ttdef"><b>Definition:</b> rapidjson.h:125</div></div>
+<div class="ttc" id="anamespaceArccore_html"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html">Arccore</a></div><div class="ttdoc">Espace de nom de Arccore.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:23</div></div>
+<div class="ttc" id="aclassrapidjson_1_1Allocator_html"><div class="ttname"><a href="../../d4/d7e/classrapidjson_1_1Allocator.html">Allocator</a></div><div class="ttdoc">Concept for allocating, resizing and freeing memory block.</div></div>
+<div class="ttc" id="agroup__RAPIDJSON__CONFIG_html_gad3806c8251fdc7da9618b7e922674ffc"><div class="ttname"><a href="../../d2/d59/group__RAPIDJSON__CONFIG.html#gad3806c8251fdc7da9618b7e922674ffc">RAPIDJSON_NAMESPACE_BEGIN</a></div><div class="ttdeci">#define RAPIDJSON_NAMESPACE_BEGIN</div><div class="ttdoc">provide custom rapidjson namespace (opening expression)</div><div class="ttdef"><b>Definition:</b> rapidjson.h:122</div></div>
+<div class="ttc" id="aclassArccore_1_1AlignedMemoryAllocator_html_a916298575c7855bb5632e74cf6b273e4"><div class="ttname"><a href="../../d0/d7e/classArccore_1_1AlignedMemoryAllocator.html#a916298575c7855bb5632e74cf6b273e4">Arccore::AlignedMemoryAllocator::allocate</a></div><div class="ttdeci">void * allocate(size_t new_size) override</div><div class="ttdoc">Alloue de la mémoire pour new_size octets et retourne le pointeur.</div><div class="ttdef"><b>Definition:</b> MemoryAllocator.cc:122</div></div>
+<div class="ttc" id="aclassArccore_1_1DefaultMemoryAllocator_html_a4953161c43403a07e119e7a8720bf248"><div class="ttname"><a href="../../db/d07/classArccore_1_1DefaultMemoryAllocator.html#a4953161c43403a07e119e7a8720bf248">Arccore::DefaultMemoryAllocator::adjustCapacity</a></div><div class="ttdeci">size_t adjustCapacity(size_t wanted_capacity, size_t element_size) override</div><div class="ttdoc">Ajuste la capacité suivant la taille d'élément.</div><div class="ttdef"><b>Definition:</b> MemoryAllocator.cc:84</div></div>
+<div class="ttc" id="astructGenericMemoryBuffer_html"><div class="ttname"><a href="../../d7/db3/structGenericMemoryBuffer.html">GenericMemoryBuffer</a></div><div class="ttdoc">Represents an in-memory output byte stream.</div><div class="ttdef"><b>Definition:</b> fwd.h:75</div></div>
+<div class="ttc" id="aclassArccore_1_1AlignedMemoryAllocator_html_a60ef90b794dc83c03af051fa0408eb6c"><div class="ttname"><a href="../../d0/d7e/classArccore_1_1AlignedMemoryAllocator.html#a60ef90b794dc83c03af051fa0408eb6c">Arccore::AlignedMemoryAllocator::reallocate</a></div><div class="ttdeci">void * reallocate(void *current_ptr, size_t new_size) override</div><div class="ttdoc">Réalloue de la mémoire pour new_size octets et retourne le pointeur.</div><div class="ttdef"><b>Definition:</b> MemoryAllocator.cc:143</div></div>
+<div class="ttc" id="aclassArccore_1_1DefaultMemoryAllocator_html_a1b565478e9a85935192c5640f820800e"><div class="ttname"><a href="../../db/d07/classArccore_1_1DefaultMemoryAllocator.html#a1b565478e9a85935192c5640f820800e">Arccore::DefaultMemoryAllocator::reallocate</a></div><div class="ttdeci">void * reallocate(void *current_ptr, size_t new_size) override</div><div class="ttdoc">Réalloue de la mémoire pour new_size octets et retourne le pointeur.</div><div class="ttdef"><b>Definition:</b> MemoryAllocator.cc:66</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:36 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

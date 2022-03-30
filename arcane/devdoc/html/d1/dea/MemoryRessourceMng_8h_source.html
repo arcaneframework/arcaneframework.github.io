@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de MemoryRessourceMng.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_2729d02b006c8e73197ea03fae7905d4.html">utils</a></li><li class="navelem"><a class="el" href="../../dir_26e53ffe2c84857ab7b0df08aa925c37.html">internal</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">MemoryRessourceMng.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* IMemoryRessourceMng.h                                       (C) 2000-2022 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Gestion des ressources mémoire pour les CPU et accélérateurs.             */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_UTILS_INTERNAL_MEMORYRESSOURCEMNG_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_UTILS_INTERNAL_MEMORYRESSOURCEMNG_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/IMemoryRessourceMng.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/internal/IMemoryRessourceMngInternal.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &lt;array&gt;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d0/d08/classArcane_1_1MemoryRessourceMng.html">   33</a></span>&#160;<span class="keyword">class </span>ARCANE_UTILS_EXPORT <a class="code" href="../../d0/d08/classArcane_1_1MemoryRessourceMng.html">MemoryRessourceMng</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../dc/df1/classArcane_1_1IMemoryRessourceMng.html">IMemoryRessourceMng</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;, <span class="keyword">public</span> <a class="code" href="../../d2/d8d/classArcane_1_1IMemoryRessourceMngInternal.html">IMemoryRessourceMngInternal</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="../../d0/d08/classArcane_1_1MemoryRessourceMng.html">MemoryRessourceMng</a>();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <a class="code" href="../../d1/dbb/classArccore_1_1IMemoryAllocator.html">IMemoryAllocator</a>* getAllocator(<a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> r) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordtype">void</span> copy(<a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;const std::byte&gt;</a> from, <a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> from_mem,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;            <a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;std::byte&gt;</a> to, <a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> to_mem) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordtype">void</span> setAllocator(<a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> r, <a class="code" href="../../d1/dbb/classArccore_1_1IMemoryAllocator.html">IMemoryAllocator</a>* allocator) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordtype">void</span> setCopier(<a class="code" href="../../d7/dec/classArcane_1_1IMemoryCopier.html">IMemoryCopier</a>* copier)<span class="keyword"> override </span>{ m_copier = copier; }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d0/d08/classArcane_1_1MemoryRessourceMng.html#a0a49d67cb6cebf1df93fb3b813e65017">   58</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d2/d8d/classArcane_1_1IMemoryRessourceMngInternal.html">IMemoryRessourceMngInternal</a>* <a class="code" href="../../d0/d08/classArcane_1_1MemoryRessourceMng.html#a0a49d67cb6cebf1df93fb3b813e65017">_internal</a>() { <span class="keywordflow">return</span> <span class="keyword">this</span>; }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  std::array&lt;IMemoryAllocator*, NB_MEMORY_RESSOURCE&gt; m_allocators;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <a class="code" href="../../d7/dec/classArcane_1_1IMemoryCopier.html">IMemoryCopier</a>* m_copier = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">int</span> _checkValidRessource(<a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> r);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="preprocessor">#endif  </span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="anamespaceArcane_html_a062109fbc830e3fc0bbf317a2ba566eeae0ac20adce6ffee48c7151b070aa5737"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566eeae0ac20adce6ffee48c7151b070aa5737">Arcane::eMemoryRessource::Device</a></div><div class="ttdeci">@ Device</div><div class="ttdoc">Alloue sur le device.</div></div>
+<div class="ttc" id="anamespaceArcane_html_a062109fbc830e3fc0bbf317a2ba566eea88183b946cc5f0e8c96b2e66e1c74a7e"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566eea88183b946cc5f0e8c96b2e66e1c74a7e">Arcane::eMemoryRessource::Unknown</a></div><div class="ttdeci">@ Unknown</div><div class="ttdoc">Valeur inconnue ou non initialisée.</div></div>
+<div class="ttc" id="aclassArccore_1_1AlignedMemoryAllocator_html_aa36776272470f04a8ed1a6245aed27e4"><div class="ttname"><a href="../../d0/d7e/classArccore_1_1AlignedMemoryAllocator.html#aa36776272470f04a8ed1a6245aed27e4">Arccore::AlignedMemoryAllocator::Simd</a></div><div class="ttdeci">static AlignedMemoryAllocator * Simd()</div><div class="ttdoc">Allocateur garantissant l'alignement pour utiliser la vectorisation sur la plateforme cible.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/IMemoryAllocator.h:187</div></div>
+<div class="ttc" id="anamespaceArcane_html_a062109fbc830e3fc0bbf317a2ba566ee"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">Arcane::eMemoryRessource</a></div><div class="ttdeci">eMemoryRessource</div><div class="ttdoc">Liste des ressources mémoire disponibles.</div><div class="ttdef"><b>Definition:</b> MemoryRessource.h:31</div></div>
+<div class="ttc" id="aclassArcane_1_1MemoryRessourceMng_html"><div class="ttname"><a href="../../d0/d08/classArcane_1_1MemoryRessourceMng.html">Arcane::MemoryRessourceMng</a></div><div class="ttdoc">Gestion des ressources mémoire pour les CPU et accélérateurs.</div><div class="ttdef"><b>Definition:</b> MemoryRessourceMng.h:33</div></div>
+<div class="ttc" id="aclassArcane_1_1IMemoryCopier_html_a868de16ff7933679313fa6301f0539b6"><div class="ttname"><a href="../../d7/dec/classArcane_1_1IMemoryCopier.html#a868de16ff7933679313fa6301f0539b6">Arcane::IMemoryCopier::copy</a></div><div class="ttdeci">virtual void copy(Span&lt; const std::byte &gt; from, eMemoryRessource from_mem, Span&lt; std::byte &gt; to, eMemoryRessource to_mem)=0</div><div class="ttdoc">Copie les données de from vers to.</div></div>
+<div class="ttc" id="anamespaceArcane_html_a062109fbc830e3fc0bbf317a2ba566eeac2ca16d048ec66e04bca283eab048ec2"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566eeac2ca16d048ec66e04bca283eab048ec2">Arcane::eMemoryRessource::Host</a></div><div class="ttdeci">@ Host</div><div class="ttdoc">Alloue sur l'hôte.</div></div>
+<div class="ttc" id="anamespaceArcane_html_ae7fe252d07667426958ff2a1aa634196"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ae7fe252d07667426958ff2a1aa634196">Arcane::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;ostr, eItemKind item_kind)</div><div class="ttdoc">Opérateur de sortie sur un flot.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.cc:71</div></div>
+<div class="ttc" id="aclassArccore_1_1Span_html"><div class="ttname"><a href="../../dd/d9f/classArccore_1_1Span.html">Arccore::Span</a></div><div class="ttdoc">Vue d'un tableau d'éléments de type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:35</div></div>
+<div class="ttc" id="anamespaceArcane_1_1platform_html_a936a81871d19afd16a210c6e6cf5af9e"><div class="ttname"><a href="../../dd/d27/namespaceArcane_1_1platform.html#a936a81871d19afd16a210c6e6cf5af9e">Arcane::platform::getAcceleratorHostMemoryAllocator</a></div><div class="ttdeci">IMemoryAllocator * getAcceleratorHostMemoryAllocator()</div><div class="ttdoc">Allocateur spécifique pour les accélérateurs.</div><div class="ttdef"><b>Definition:</b> arcane/src/arcane/utils/PlatformUtils.cc:202</div></div>
+<div class="ttc" id="aclassArcane_1_1IMemoryRessourceMng_html"><div class="ttname"><a href="../../dc/df1/classArcane_1_1IMemoryRessourceMng.html">Arcane::IMemoryRessourceMng</a></div><div class="ttdoc">Gestion des ressources mémoire pour les CPU et accélérateurs.</div><div class="ttdef"><b>Definition:</b> IMemoryRessourceMng.h:32</div></div>
+<div class="ttc" id="aclassArcane_1_1MemoryRessourceMng_html_a0a49d67cb6cebf1df93fb3b813e65017"><div class="ttname"><a href="../../d0/d08/classArcane_1_1MemoryRessourceMng.html#a0a49d67cb6cebf1df93fb3b813e65017">Arcane::MemoryRessourceMng::_internal</a></div><div class="ttdeci">virtual IMemoryRessourceMngInternal * _internal()</div><div class="ttdoc">Interface interne.</div><div class="ttdef"><b>Definition:</b> MemoryRessourceMng.h:58</div></div>
+<div class="ttc" id="anamespaceArcane_html_a062109fbc830e3fc0bbf317a2ba566eea81ae3c08d52b8047dba72e9b68a940dd"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566eea81ae3c08d52b8047dba72e9b68a940dd">Arcane::eMemoryRessource::HostPinned</a></div><div class="ttdeci">@ HostPinned</div><div class="ttdoc">Alloue sur l'hôte.</div></div>
+<div class="ttc" id="aclassArcane_1_1IMemoryRessourceMngInternal_html"><div class="ttname"><a href="../../d2/d8d/classArcane_1_1IMemoryRessourceMngInternal.html">Arcane::IMemoryRessourceMngInternal</a></div><div class="ttdoc">Partie interne à Arcane de 'IMemoryRessourceMng'.</div><div class="ttdef"><b>Definition:</b> IMemoryRessourceMngInternal.h:44</div></div>
+<div class="ttc" id="aclassArccore_1_1IMemoryAllocator_html"><div class="ttname"><a href="../../d1/dbb/classArccore_1_1IMemoryAllocator.html">Arccore::IMemoryAllocator</a></div><div class="ttdoc">Interface d'un allocateur pour la mémoire.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/IMemoryAllocator.h:36</div></div>
+<div class="ttc" id="aclassArcane_1_1MemoryRessourceMng_html_ab5556746013ea9aeb23b306817699cc2"><div class="ttname"><a href="../../d0/d08/classArcane_1_1MemoryRessourceMng.html#ab5556746013ea9aeb23b306817699cc2">Arcane::MemoryRessourceMng::getAllocator</a></div><div class="ttdeci">IMemoryAllocator * getAllocator(eMemoryRessource r) override</div><div class="ttdoc">Allocateur mémoire pour la ressource r.</div><div class="ttdef"><b>Definition:</b> MemoryRessourceMng.cc:85</div></div>
+<div class="ttc" id="anamespaceArcane_html_a062109fbc830e3fc0bbf317a2ba566eeac97222f7db0dd967373c61dfcf47e1df"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566eeac97222f7db0dd967373c61dfcf47e1df">Arcane::eMemoryRessource::UnifiedMemory</a></div><div class="ttdeci">@ UnifiedMemory</div><div class="ttdoc">Alloue en utilisant la mémoire unifiée.</div></div>
+<div class="ttc" id="aclassArcane_1_1IMemoryCopier_html"><div class="ttname"><a href="../../d7/dec/classArcane_1_1IMemoryCopier.html">Arcane::IMemoryCopier</a></div><div class="ttdef"><b>Definition:</b> IMemoryRessourceMngInternal.h:30</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a9d85d5fb84c5371348dd56600999e564"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a></div><div class="ttdeci">#define ARCANE_FATAL(...)</div><div class="ttdoc">Macro envoyant une exception FatalErrorException.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:761</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:36 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane: Les règles de codage</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Les règles de codage </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="toc"><h3>Table des matières</h3>
+<ul><li class="level1"><a href="#arcanedoc_codingrules_general">Général</a></li>
+<li class="level1"><a href="#arcanedoc_codingrules_source">Fichiers sources</a></li>
+<li class="level1"><a href="#arcanedoc_codingrules_variable">Variables</a></li>
+<li class="level1"><a href="#arcanedoc_codingrules_classe">Classes</a></li>
+<li class="level1"><a href="#arcanedoc_codingrules_method">Méthodes et fonctions</a></li>
+<li class="level1"><a href="#arcanedoc_codingrules_example">Exemple</a></li>
+</ul>
+</div>
+<div class="textblock"><p>Afin que les différents modules développés pour la plate-forme ARCANE aient une certaine homogénéité, ce document propose un ensemble de règles de codages.</p>
+<h1><a class="anchor" id="arcanedoc_codingrules_general"></a>
+Général</h1>
+<ul>
+<li>le langage utilisé est le C++14</li>
+<li>l'encodage des fichiers est obligatoire 'UTF-8' avec le BOM au début du fichier. La première ligne de chaque fichier doit être comme suit: <div class="fragment"><div class="line"><span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+</div><!-- fragment --></li>
+<li>tous les commentaires utilisent la syntaxe du produit <b>Doxygen</b> afin de pouvoir extraire directement du code source une documentation papier ou hypertextuelle,</li>
+<li>tous les identifiants sont écrits en <b>Anglais</b>.</li>
+<li>les indentations se font avec 2 espaces. Il ne doit pas y avoir de caractères de tabulation dans le code.</li>
+</ul>
+<h1><a class="anchor" id="arcanedoc_codingrules_source"></a>
+Fichiers sources</h1>
+<ul>
+<li>tous les fichiers sources sont formatés de la même manière et commencent tous par un en-tête décrivant le nom du fichier, la date de modification et le nom du ou des auteurs.</li>
+<li>vient ensuite le code proprement dit. Chaque identifiant doit être commenté et les fonctions doivent être séparées par deux lignes de commentaires. Par exemple : <pre class="fragment">/*!
+  \brief une fonction d'exemple.
+
+  Ceci est la description longue de la fonction d'exemple.
+
+  \param argc nombre d'arguments
+  \param argv tableau des valeurs des arguments
+  \return le nombre d'arguments divisés par 2
+*/
+int
+functionExample(int argc,char** argv)
+{
+  return argc/2;
+}
+</pre></li>
+</ul>
+<h1><a class="anchor" id="arcanedoc_codingrules_variable"></a>
+Variables</h1>
+<ul>
+<li>les noms des variables sont toujours en <b>minuscules</b>. Si le nom est composé de plusieurs mots logiques, chaque mot est séparé par le caractère souligné. Par exemple :<ul>
+<li><code>volume</code> </li>
+<li><code>list_of_element</code> </li>
+<li><code>cells</code> </li>
+</ul>
+</li>
+<li>Pour éviter toute ambiguité, les noms pluriels sont réservés pour les variables de type conteneur, tous les autres noms étant au <b>singulier</b>.</li>
+</ul>
+<h1><a class="anchor" id="arcanedoc_codingrules_classe"></a>
+Classes</h1>
+<ul>
+<li>Les noms des classes (<code>class</code>) commencent par une majusucule et continuent par des minuscules. Si le nom est composé de plusieurs mots logiques, la première lettre de chaque nouveau mot est en majuscule. Par exemple :<ul>
+<li><code>Component</code> </li>
+<li><code>ComponentMng</code> </li>
+<li><code>String</code> </li>
+</ul>
+</li>
+<li>Les membres des classes, en plus de respecter les mêmes conventions que n'importe quelle variable, seront toujours préfixés par les deux caractères <code>m_</code>. Par exemple :<ul>
+<li><code>m_volume</code> </li>
+<li><code>m_list_of_element</code> </li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="arcanedoc_codingrules_method"></a>
+Méthodes et fonctions</h1>
+<p>Dans ce qui suit, on utilisera le mot fonction pour désigner à la fois les fonctions et les méthodes de classe.</p>
+<ul>
+<li>les noms des fonctions sont toujours en <b>minuscules</b>. Si le nom est composé de plusieurs mots logiques, la première lettre de chaque nouveau mot est en majuscule. Par exemple :<ul>
+<li><code>numberOfElement()</code> </li>
+<li><code>assign()</code> </li>
+</ul>
+</li>
+<li>si le nom de la méthode correspond à la notion de propriété (c'est à dire équivalent sémantiquement à un champ de la classe) de nom <em>value</em>, l'accesseur doit être le nom de la propriété (<em>value()</em>) et la méthode pour changer la valeur doit être <em>setValue()</em>. <b>L'accesseur ne doit pas commencer par <code>get</code></b>. Si la propriété est booléenne, il est possible de préfixer l'accesseur par <em>is</em>. Par exemple <em>isEmpty()</em>.</li>
+<li>Pour éviter toute ambiguité, tous les noms sont au <b>singulier</b></li>
+<li>La définition des fonctions se fait sur au moins deux lignes:<ul>
+<li>la première comprend le type de retour et éventuellement le nom de la classe s'il s'agit d'une méthode.</li>
+<li>la deuxième comprend obligatoirement le nom de la fonction.</li>
+<li>viennent ensuite la liste des arguments sur la deuxième ligne et les suivantes.</li>
+</ul>
+</li>
+<li>L'accolade ouvrant le corps de la fonction et celle le fermant doivent être sur une ligne séparée : <div class="fragment"><div class="line"><span class="keywordtype">int</span></div>
+<div class="line">function1(<span class="keywordtype">int</span> argc,<span class="keywordtype">char</span>** argv)</div>
+<div class="line">{</div>
+<div class="line">  <span class="keywordflow">return</span> argc/2;</div>
+<div class="line">}</div>
+</div><!-- fragment --></li>
+</ul>
+<h1><a class="anchor" id="arcanedoc_codingrules_example"></a>
+Exemple</h1>
+<pre class="fragment">/*!
+ * \brief Tableau constant d'un type \a T.
+
+ Cette classe encapsule un tableau C constant standard (pointeur) et son nombre
+ d'éléments. L'accès à ses éléments se fait par l'opérateur operator[]().
+ La méthode base() permet d'obtenir le pointeur du tableau pour le passer
+ aux fonctions C standard.
+
+ L'instance conserve juste un pointeur sur le début du tableau C et ne fait
+ aucune gestion mémoire. Le développeur doit s'assurer que le pointeur
+ reste valide tant que l'instance existe.
+
+ Les éléments du tableau ne peuvent pas être modifiés.
+
+ En mode débug, une vérification de débordement est effectuée lors de l'accès
+ à l'opérateur operator[]().
+ */
+template&lt;typename T&gt;
+class ConstCArrayT
+{
+ private:
+
+ protected:
+
+ public:
+  
+  //! Type des éléments du tableau
+  typedef T value_type;
+  //! Type de l'itérateur constant sur un élément du tableau
+  typedef const value_type * key_restrict const_iterator;
+  //! Type pointeur constant d'un élément du tableau
+  typedef const value_type * key_restrict const_pointer;
+  //! Type référence constante d'un élément du tableau
+  typedef const value_type&amp; const_reference;
+  //! Type indexant le tableau
+  typedef Integer size_type;
+  //! Type d'une distance entre itérateur éléments du tableau
+  typedef ptrdiff_t difference_type;
+
+  //! Type d'un itérateur constant sur tout le tableau
+  typedef ConstIterT&lt; ConstCArrayT&lt;T&gt; &gt; const_iter;
+
+ public:
+
+  //! Construit un tableau vide.
+  ConstCArrayT() : m_size(0), m_ptr(0) {}
+  //! Construit un tableau avec \a s élément
+  explicit ConstCArrayT(Integer s,const T* ptr)
+  : m_size(s), m_ptr(ptr) {}
+  /*! \brief Constructeur par copie.
+   * \warning Seul le pointeur est copié. Aucune copie mémoire n'est effectuée.
+   */
+  ConstCArrayT(const ConstCArrayT&lt;T&gt;&amp; from)
+  : m_size(from.m_size), m_ptr(from.m_ptr) {}
+  /*! \brief Constructeur par copie.
+   * \warning Seul le pointeur est copié. Aucune copie mémoire n'est effectuée.
+   */
+  ConstCArrayT(const CArrayBaseT&lt;T&gt;&amp; from)
+  : m_size(from.size()), m_ptr(from.begin())
+    {
+    }
+
+  /*! \brief Opérateur de recopie.
+   * \warning Seul le pointeur est copié. Aucune copie mémoire n'est effectuée.
+   */
+  const ConstCArrayT&lt;T&gt;&amp; operator=(const ConstCArrayT&lt;T&gt;&amp; from)
+    { m_size=from.m_size; m_ptr=from.m_ptr; return *this; }
+  
+  /*! \brief Opérateur de recopie.
+   * \warning Seul le pointeur est copié. Aucune copie mémoire n'est effectuée.
+   */
+  const ConstCArrayT&lt;T&gt;&amp; operator=(const CArrayBaseT&lt;T&gt;&amp; from)
+    {
+      m_size = from.size();
+      m_ptr  = from.begin();
+      return (*this);
+    }
+
+ public:
+
+  /*!
+   * \brief i-ème élément du tableau.
+   *
+   * En mode \a check, vérifie les débordements.
+   */
+  const T&amp; operator[](Integer i) const
+    {
+      return m_ptr[i];
+    }
+
+  //! Nombre d'éléments du tableau
+  inline Integer size() const { return m_size; }
+  //! Iterateur sur le premier élément du tableau
+  inline const_iterator begin() const { return m_ptr; }
+  //! Iterateur sur le premier élément après la fin du tableau
+  inline const_iterator end() const { return m_ptr+m_size; }
+  //! \a true si le tableau est vide (size()==0)
+  inline bool empty() const { return m_size==0; }
+
+  //! Pointeur sur le début du tableau.
+  inline const T* base() const { return m_ptr; }
+
+ protected:
+
+ private:
+
+  Integer m_size; //!&lt; Nombre d'éléments 
+  const T* m_ptr; //!&lt; Pointeur sur le début du tableau
+};
+</pre> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:55 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

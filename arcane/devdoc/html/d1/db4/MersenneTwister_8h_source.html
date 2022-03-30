@@ -1,0 +1,330 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de MersenneTwister.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_6dbd5bf2f3be01407f1783fb80878917.html">random</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">MersenneTwister.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* MersenneTwister.h                                           (C) 2000-2006 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Ce fichier definit le patron de classe  MersenneTwister ainsi que deux    */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/* classes  associees mt19937 et mt11213b. Il est une version adapte a TROLL */</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">/* du fichier MersenneTwister.hpp provenant de la bibliotheque BOOST         */</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifndef ARCANE_RANDOM_MERSENNE_TWISTER_H</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define ARCANE_RANDOM_MERSENNE_TWISTER_H</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/FatalErrorException.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;arcane/random/RandomGlobal.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;RANDOM_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class </span>UIntType, <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> w, <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> n, <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> m, <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> r, UIntType a, <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> u,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> s, UIntType b, <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> t, UIntType c, <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> l, UIntType val&gt;</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d4/d3e/classArcane_1_1MersenneTwister.html">   45</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html">MersenneTwister</a></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keyword">typedef</span> UIntType result_type;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> Integer word_size = w;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> Integer state_size = n;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> Integer shift_size = m;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> Integer mask_bits = r;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> UIntType parameter_a = a;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> Integer output_u = u;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> Integer output_s = s;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> UIntType output_b = b;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> Integer output_t = t;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> UIntType output_c = c;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> Integer output_l = l;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> has_fixed_range = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a6369054747887dc65e9a3a2182eb56b5">   70</a></span>&#160;  <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a6369054747887dc65e9a3a2182eb56b5">MersenneTwister</a>() { seed(); }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a2adbb1daf8b6ad88a68221e160bb8b25">   79</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a2adbb1daf8b6ad88a68221e160bb8b25">MersenneTwister</a>(UIntType value)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  { seed(value); }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a4d2b4895353476051722ac436c563e63">   89</a></span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> It&gt; <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a4d2b4895353476051722ac436c563e63">MersenneTwister</a>(It&amp; first, It last) { seed(first,last); }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Generator&gt;</div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#add8de01dfb155a870cddc23a31da7174">  100</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#add8de01dfb155a870cddc23a31da7174">MersenneTwister</a>(Generator &amp; gen) { seed(gen); }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#ace0a87075d25ca9f835dbb96fb7a2956">  110</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#ace0a87075d25ca9f835dbb96fb7a2956">seed</a>() { <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#ace0a87075d25ca9f835dbb96fb7a2956">seed</a>(UIntType(5489)); }</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#afe338880719d288b94c0b09c0062c399">  119</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#afe338880719d288b94c0b09c0062c399">seed</a>(UIntType value)</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  {</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="comment">// http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/MT2002/emt19937ar.html</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    <span class="keyword">const</span> UIntType mask = ~0u;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    x[0] = value &amp; mask;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">for</span> (i = 1; i &lt; n; i++) {</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      <span class="comment">// See Knuth &quot;The Art of Computer Programming&quot; Vol. 2, 3rd ed., page 106</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;      x[i] = (1812433253UL * (x[i-1] ^ (x[i-1] &gt;&gt; (w-2))) + i) &amp; mask;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno"><a class="line" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#ae991f2c0ddb34c279c4db140209b2876">  137</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#ae991f2c0ddb34c279c4db140209b2876">seed</a>(UIntType *  state)</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  { <span class="keywordflow">for</span> (Integer i=0;i&lt;n;i++) x[i] = state[i];}</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Generator&gt;</div>
+<div class="line"><a name="l00149"></a><span class="lineno"><a class="line" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#af214c7b0095e025eef2b4214f3d5493d">  149</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#af214c7b0095e025eef2b4214f3d5493d">seed</a>(Generator &amp; gen)</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  {</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; <span class="comment">// For GCC, moving this function out-of-line prevents inlining, which may</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  <span class="comment">// reduce overall object code size.  However, MSVC does not grok</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  <span class="comment">// out-of-line definitions of member function templates.</span></div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordflow">for</span>(Integer j = 0; j &lt; n; j++)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;      x[j] = gen();</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    i = n;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  }</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#ae794650a2bb8f43941b6f8f13416c5d5">  167</a></span>&#160;  UIntType <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#ae794650a2bb8f43941b6f8f13416c5d5">getState</a>(Integer j) </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  {</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <span class="keywordflow">return</span> x[j];</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  }</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a5639e483c16f542a84e2956934481010">  178</a></span>&#160;  result_type <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a5639e483c16f542a84e2956934481010">min</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> 0; }</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#aa82f076456369c1294756aab4c6b0042">  186</a></span>&#160;  result_type <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#aa82f076456369c1294756aab4c6b0042">max</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <span class="comment">// avoid &quot;left shift count &gt;= with of type&quot; warning</span></div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    result_type res = 0;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keywordflow">for</span>(Integer i = 0; i &lt; w; ++i)</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;      res |= (1u &lt;&lt; i);</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="keywordflow">return</span> res;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  }</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  <span class="comment">/* déclaration de l&#39;opérateur () */</span></div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  result_type operator()();</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno"><a class="line" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#af5c0021e6096b8a7321ab1581187cd52">  205</a></span>&#160;  <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#af5c0021e6096b8a7321ab1581187cd52">validation</a>(result_type v) { <span class="keywordflow">return</span> val == v; }</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno"><a class="line" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a8285870c579ab13426f54d5723809010">  213</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a8285870c579ab13426f54d5723809010">operator==</a>(<span class="keyword">const</span> <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html">MersenneTwister</a>&amp; rhs)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  <span class="comment">// Use a member function; Streamable concept not supported.</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordflow">for</span>(Integer j = 0; j &lt; state_size; ++j)</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;      <span class="keywordflow">if</span>(compute(j) != rhs.<a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a47569d1d72053ddbd01ac17484541598">compute</a>(j))</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  }</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno"><a class="line" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a6b334a9d86516046dd138aa8adc95982">  228</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a6b334a9d86516046dd138aa8adc95982">operator!=</a>(<span class="keyword">const</span> <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html">MersenneTwister</a>&amp; rhs)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="keyword">  </span>{ <span class="keywordflow">return</span> !(*<span class="keyword">this</span> == rhs); }</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  <span class="comment">// returns x(i-n+index), where index is in 0..n-1</span></div>
+<div class="line"><a name="l00241"></a><span class="lineno"><a class="line" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a47569d1d72053ddbd01ac17484541598">  241</a></span>&#160;  UIntType <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a47569d1d72053ddbd01ac17484541598">compute</a>(UIntType index)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="comment">// equivalent to (i-n+index) % 2n, but doesn&#39;t produce negative numbers</span></div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    <span class="keywordflow">return</span> x[ (i + n + index) % (2*n) ];</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  }</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <span class="keywordtype">void</span> twist(Integer block);</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  <span class="comment">/* Membres du patron de classe */</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  <span class="comment">// state representation: next output is o(x(i))</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  <span class="comment">//   x[0]  ... x[k] x[k+1] ... x[n-1]     x[n]     ... x[2*n-1]   represents</span></div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  <span class="comment">//  x(i-k) ... x(i) x(i+1) ... x(i-k+n-1) x(i-k-n) ... x[i(i-k-1)]</span></div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  <span class="comment">// The goal is to always have x(i-n) ... x(i-1) available for</span></div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  <span class="comment">// operator== and save/restore.</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  UIntType x[2*n]; </div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  Integer i;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;};</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; </div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class </span>UIntType, Integer w, Integer n, Integer m, Integer r, UIntType a, Integer u,</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  Integer s, UIntType b, Integer t, UIntType c, Integer l, UIntType val&gt;</div>
+<div class="line"><a name="l00269"></a><span class="lineno"><a class="line" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a281bd222329970c98975b133867153da">  269</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html">MersenneTwister&lt;UIntType,w,n,m,r,a,u,s,b,t,c,l,val&gt;::twist</a>(<span class="keywordtype">int</span> block)</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;{</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  <span class="keyword">const</span> UIntType upper_mask = (~0u) &lt;&lt; r;</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <span class="keyword">const</span> UIntType lower_mask = ~upper_mask;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  <span class="keywordflow">if</span>(block == 0) {</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordflow">for</span>(Integer j = n; j &lt; 2*n; j++) {</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;      UIntType y = (x[j-n] &amp; upper_mask) | (x[j-(n-1)] &amp; lower_mask);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      x[j] = x[j-(n-m)] ^ (y &gt;&gt; 1) ^ (y&amp;1 ? a : 0);</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    }</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (block == 1) {</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;    <span class="comment">// split loop to avoid costly modulo operations</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;    {  <span class="comment">// extra scope for MSVC brokenness w.r.t. for scope</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      <span class="keywordflow">for</span>(Integer j = 0; j &lt; n-m; j++) {</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;        UIntType y = (x[j+n] &amp; upper_mask) | (x[j+n+1] &amp; lower_mask);</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;        x[j] = x[j+n+m] ^ (y &gt;&gt; 1) ^ (y&amp;1 ? a : 0);</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;      }</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    }</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    </div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordflow">for</span>(Integer j = n-m; j &lt; n-1; j++) {</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      UIntType y = (x[j+n] &amp; upper_mask) | (x[j+n+1] &amp; lower_mask);</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;      x[j] = x[j-(n-m)] ^ (y &gt;&gt; 1) ^ (y&amp;1 ? a : 0);</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    }</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;    <span class="comment">// last iteration</span></div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    UIntType y = (x[2*n-1] &amp; upper_mask) | (x[0] &amp; lower_mask);</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    x[n-1] = x[m-1] ^ (y &gt;&gt; 1) ^ (y&amp;1 ? a : 0);</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    i = 0;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  }</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;}</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class </span>UIntType, Integer w, Integer n, Integer m, Integer r, UIntType a, Integer u,</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  Integer s, UIntType b, Integer t, UIntType c, Integer l, UIntType val&gt;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="keyword">inline</span> <span class="keyword">typename</span> MersenneTwister&lt;UIntType,w,n,m,r,a,u,s,b,t,c,l,val&gt;::result_type</div>
+<div class="line"><a name="l00310"></a><span class="lineno"><a class="line" href="../../d4/d3e/classArcane_1_1MersenneTwister.html#af8e8030dc2a4b115dcb2a02c50e5b5a5">  310</a></span>&#160;<a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html">MersenneTwister&lt;UIntType,w,n,m,r,a,u,s,b,t,c,l,val&gt;::operator()</a>()</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;{</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  <span class="keywordflow">if</span>(i == n)</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;    twist(0);</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  <span class="keywordflow">else</span> <span class="keywordflow">if</span>(i &gt;= 2*n)</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    twist(1);</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  <span class="comment">// Step 4</span></div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  UIntType z = x[i];</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  ++i;</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;  z ^= (z &gt;&gt; u);</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  z ^= ((z &lt;&lt; s) &amp; b);</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  z ^= ((z &lt;&lt; t) &amp; c);</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  z ^= (z &gt;&gt; l);</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  <span class="keywordflow">return</span> z;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;}</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="comment">/* Définition de la classe mt11213b*/</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;<span class="keyword">typedef</span> <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html">MersenneTwister</a>&lt;UInt32,32,351,175,19,0xccab8ee7,11,</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;  7,0x31b6ab00,15,0xffe50000,17, 0xa37d3c92&gt; <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html">Mt11213b</a>;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;<span class="comment">/* Définition de la classe Mt19937*/</span></div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;<span class="keyword">typedef</span> <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html">MersenneTwister</a>&lt;UInt32,32,624,397,31,0x9908b0df,11,</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  7,0x9d2c5680,15,0xefc60000,18, 3346425566U&gt; <a class="code" href="../../d4/d3e/classArcane_1_1MersenneTwister.html">Mt19937</a>;</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160; </div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;RANDOM_END_NAMESPACE</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;ARCANE_END_NAMESPACE</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; </div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="preprocessor">#endif // ARCANE_RANDOM_MERSENNE_TWISTER_H</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1MersenneTwister_html_a47569d1d72053ddbd01ac17484541598"><div class="ttname"><a href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a47569d1d72053ddbd01ac17484541598">Arcane::MersenneTwister::compute</a></div><div class="ttdeci">UIntType compute(UIntType index) const</div><div class="ttdoc">Méthode privée qui retourne l'état du générateur pour l'index index.</div><div class="ttdef"><b>Definition:</b> MersenneTwister.h:241</div></div>
+<div class="ttc" id="aclassArcane_1_1MersenneTwister_html_a4d2b4895353476051722ac436c563e63"><div class="ttname"><a href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a4d2b4895353476051722ac436c563e63">Arcane::MersenneTwister::MersenneTwister</a></div><div class="ttdeci">MersenneTwister(It &amp;first, It last)</div><div class="ttdoc">Constructeur avec initialisation du tableau de graines à partir de la méthode seed(first,...</div><div class="ttdef"><b>Definition:</b> MersenneTwister.h:89</div></div>
+<div class="ttc" id="aclassArcane_1_1MersenneTwister_html_a5639e483c16f542a84e2956934481010"><div class="ttname"><a href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a5639e483c16f542a84e2956934481010">Arcane::MersenneTwister::min</a></div><div class="ttdeci">result_type min() const</div><div class="ttdoc">min() retourne la valeur minimum possible d'une séquence.</div><div class="ttdef"><b>Definition:</b> MersenneTwister.h:178</div></div>
+<div class="ttc" id="anamespaceArccore_html_a19fea02f94d4da203710fd2070c0f2fb"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Arccore::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:232</div></div>
+<div class="ttc" id="aclassArcane_1_1MersenneTwister_html_af5c0021e6096b8a7321ab1581187cd52"><div class="ttname"><a href="../../d4/d3e/classArcane_1_1MersenneTwister.html#af5c0021e6096b8a7321ab1581187cd52">Arcane::MersenneTwister::validation</a></div><div class="ttdeci">static bool validation(result_type v)</div><div class="ttdoc">Fonction de validation (je ne sais pas trop a quoi elle sert!)</div><div class="ttdef"><b>Definition:</b> MersenneTwister.h:205</div></div>
+<div class="ttc" id="aclassArcane_1_1MersenneTwister_html_a6369054747887dc65e9a3a2182eb56b5"><div class="ttname"><a href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a6369054747887dc65e9a3a2182eb56b5">Arcane::MersenneTwister::MersenneTwister</a></div><div class="ttdeci">MersenneTwister()</div><div class="ttdoc">Constructeur avec initialisation de la graine à partir de la méthode seed()</div><div class="ttdef"><b>Definition:</b> MersenneTwister.h:70</div></div>
+<div class="ttc" id="aclassArcane_1_1MersenneTwister_html_af214c7b0095e025eef2b4214f3d5493d"><div class="ttname"><a href="../../d4/d3e/classArcane_1_1MersenneTwister.html#af214c7b0095e025eef2b4214f3d5493d">Arcane::MersenneTwister::seed</a></div><div class="ttdeci">void seed(Generator &amp;gen)</div><div class="ttdoc">Initialisation du tableau de graines à partir du générateur gen. gen est une classe qui doit contenir...</div><div class="ttdef"><b>Definition:</b> MersenneTwister.h:149</div></div>
+<div class="ttc" id="aclassArcane_1_1MersenneTwister_html_aa82f076456369c1294756aab4c6b0042"><div class="ttname"><a href="../../d4/d3e/classArcane_1_1MersenneTwister.html#aa82f076456369c1294756aab4c6b0042">Arcane::MersenneTwister::max</a></div><div class="ttdeci">result_type max() const</div><div class="ttdoc">max() retourne la valeur maximum possible d'une séquence.</div><div class="ttdef"><b>Definition:</b> MersenneTwister.h:186</div></div>
+<div class="ttc" id="aclassArcane_1_1MersenneTwister_html_ace0a87075d25ca9f835dbb96fb7a2956"><div class="ttname"><a href="../../d4/d3e/classArcane_1_1MersenneTwister.html#ace0a87075d25ca9f835dbb96fb7a2956">Arcane::MersenneTwister::seed</a></div><div class="ttdeci">void seed()</div><div class="ttdoc">Initialisation du tableau de graines. L'appel à la méthode seed(5489) est réalisé.</div><div class="ttdef"><b>Definition:</b> MersenneTwister.h:110</div></div>
+<div class="ttc" id="aclassArcane_1_1MersenneTwister_html_a6b334a9d86516046dd138aa8adc95982"><div class="ttname"><a href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a6b334a9d86516046dd138aa8adc95982">Arcane::MersenneTwister::operator!=</a></div><div class="ttdeci">bool operator!=(const MersenneTwister &amp;rhs) const</div><div class="ttdoc">Surdéfinition de l'opérateur !=.</div><div class="ttdef"><b>Definition:</b> MersenneTwister.h:228</div></div>
+<div class="ttc" id="aclassArcane_1_1MersenneTwister_html_add8de01dfb155a870cddc23a31da7174"><div class="ttname"><a href="../../d4/d3e/classArcane_1_1MersenneTwister.html#add8de01dfb155a870cddc23a31da7174">Arcane::MersenneTwister::MersenneTwister</a></div><div class="ttdeci">MersenneTwister(Generator &amp;gen)</div><div class="ttdoc">Constructeur avec initialisation du tableau de graines à partir du générateur gen....</div><div class="ttdef"><b>Definition:</b> MersenneTwister.h:100</div></div>
+<div class="ttc" id="aclassArcane_1_1MersenneTwister_html_ae991f2c0ddb34c279c4db140209b2876"><div class="ttname"><a href="../../d4/d3e/classArcane_1_1MersenneTwister.html#ae991f2c0ddb34c279c4db140209b2876">Arcane::MersenneTwister::seed</a></div><div class="ttdeci">void seed(UIntType *state)</div><div class="ttdoc">Initialisation du tableau de graines à partir du tableau state. state doit être un tableau de n éléme...</div><div class="ttdef"><b>Definition:</b> MersenneTwister.h:137</div></div>
+<div class="ttc" id="aclassArcane_1_1MersenneTwister_html_ae794650a2bb8f43941b6f8f13416c5d5"><div class="ttname"><a href="../../d4/d3e/classArcane_1_1MersenneTwister.html#ae794650a2bb8f43941b6f8f13416c5d5">Arcane::MersenneTwister::getState</a></div><div class="ttdeci">UIntType getState(Integer j)</div><div class="ttdoc">Méthode qui retourne l'état du générateur pour l'index j. L'état complet du générateur est donnée par...</div><div class="ttdef"><b>Definition:</b> MersenneTwister.h:167</div></div>
+<div class="ttc" id="aclassArcane_1_1MersenneTwister_html_a8285870c579ab13426f54d5723809010"><div class="ttname"><a href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a8285870c579ab13426f54d5723809010">Arcane::MersenneTwister::operator==</a></div><div class="ttdeci">bool operator==(const MersenneTwister &amp;rhs) const</div><div class="ttdoc">Surdéfinition de l'opérateur ==.</div><div class="ttdef"><b>Definition:</b> MersenneTwister.h:213</div></div>
+<div class="ttc" id="aclassArcane_1_1MersenneTwister_html"><div class="ttname"><a href="../../d4/d3e/classArcane_1_1MersenneTwister.html">Arcane::MersenneTwister</a></div><div class="ttdef"><b>Definition:</b> MersenneTwister.h:45</div></div>
+<div class="ttc" id="aclassArcane_1_1MersenneTwister_html_a2adbb1daf8b6ad88a68221e160bb8b25"><div class="ttname"><a href="../../d4/d3e/classArcane_1_1MersenneTwister.html#a2adbb1daf8b6ad88a68221e160bb8b25">Arcane::MersenneTwister::MersenneTwister</a></div><div class="ttdeci">MersenneTwister(UIntType value)</div><div class="ttdoc">Constructeur avec initialisation du tableau de graines à partir de la valeur value....</div><div class="ttdef"><b>Definition:</b> MersenneTwister.h:79</div></div>
+<div class="ttc" id="aclassArcane_1_1MersenneTwister_html_afe338880719d288b94c0b09c0062c399"><div class="ttname"><a href="../../d4/d3e/classArcane_1_1MersenneTwister.html#afe338880719d288b94c0b09c0062c399">Arcane::MersenneTwister::seed</a></div><div class="ttdeci">void seed(UIntType value)</div><div class="ttdoc">Initialisation du tableau de graines à partir de la valeur value. Le tableau de graines de ce générat...</div><div class="ttdef"><b>Definition:</b> MersenneTwister.h:119</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:36 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

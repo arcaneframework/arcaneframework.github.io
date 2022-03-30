@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de AdiProjectionModule.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_e2458f50e5339d47a20a38c0df1545a0.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_26dae0a4978e5bfe223ce178a71702e2.html">tests</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">AdiProjectionModule.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;arcane/tests/AdiProjection_axl.h&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;arcane/MeshAreaAccessor.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;arcane/MeshArea.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;arcane/ISubDomain.h&quot;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;arcane/IMesh.h&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;arcane/cea/ICartesianMesh.h&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;arcane/cea/CellDirectionMng.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/cea/FaceDirectionMng.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/cea/NodeDirectionMng.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="../../db/d4f/classArcane_1_1AdiProjectionModule.html">   22</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../db/d4f/classArcane_1_1AdiProjectionModule.html">AdiProjectionModule</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;: <span class="keyword">public</span> ArcaneAdiProjectionObject</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{ </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;  <a class="code" href="../../db/d4f/classArcane_1_1AdiProjectionModule.html">AdiProjectionModule</a>(<span class="keyword">const</span> <a class="code" href="../../df/d86/classArcane_1_1ModuleBuildInfo.html">ModuleBuildInfo</a>&amp; mb);</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;  ~<a class="code" href="../../db/d4f/classArcane_1_1AdiProjectionModule.html">AdiProjectionModule</a>();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d5/d14/classArcane_1_1VersionInfo.html">VersionInfo</a> versionInfo()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d5/d14/classArcane_1_1VersionInfo.html">VersionInfo</a>(1,1,1); }</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keywordtype">void</span> copyEulerianCoordinates();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keywordtype">void</span> cartesianHydroMain();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> cartesianHydroStartInit();</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> staticInitialize(<a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html">ISubDomain</a>* sd);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <a class="code" href="../../d0/d9f/classArcane_1_1IMesh.html">IMesh</a>* m_mesh_copy;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <a class="code" href="../../d1/d62/classArcane_1_1ICartesianMesh.html">ICartesianMesh</a>* m_cartesian_mesh;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordtype">void</span> evolvePrimalUpwindedVariables(Integer direction);</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordtype">void</span> evolveDualUpwindedVariables(Integer direction);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keywordtype">void</span> computePressure();</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordtype">void</span> computePressureGradient(Integer direction);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordtype">void</span> checkNodalMassConservation();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordtype">void</span> copyCurrentVariablesToOldVariables();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordtype">void</span> computePrimalMassFluxInner(Integer direction);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordtype">void</span> computePrimalMassFluxBoundary(Integer direction);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordtype">void</span> computeDualMassFluxInner(Integer direction);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keywordtype">void</span> computeDualMassFluxBoundary(Integer direction);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordtype">void</span> prepareLagrangianVariables();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordtype">void</span> checkLagrangianVariablesConsistency();</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordtype">void</span> _evolveDualUpwindedVariables1();</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">void</span> _evolvePrimalUpwindedVariablesV2(Integer direction);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;ARCANE_END_NAMESPACE</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="agroup__Variable_html_ga135a2515548fbcacb89c3ce1a2410b79"><div class="ttname"><a href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">Arcane::VariableCellReal</a></div><div class="ttdeci">MeshVariableScalarRefT&lt; Cell, Real &gt; VariableCellReal</div><div class="ttdoc">Grandeur au centre des mailles de type réel.</div><div class="ttdef"><b>Definition:</b> VariableTypedef.h:290</div></div>
+<div class="ttc" id="aclassArcane_1_1ITimeLoop_html_af0e8afec9c7fe019e3584888a30f93a5"><div class="ttname"><a href="../../dd/dc9/classArcane_1_1ITimeLoop.html#af0e8afec9c7fe019e3584888a30f93a5">Arcane::ITimeLoop::WComputeLoop</a></div><div class="ttdeci">static const char * WComputeLoop</div><div class="ttdoc">appelé pendant la boucle de calcul</div><div class="ttdef"><b>Definition:</b> ITimeLoop.h:48</div></div>
+<div class="ttc" id="aclassArcane_1_1ModuleBuildInfo_html"><div class="ttname"><a href="../../df/d86/classArcane_1_1ModuleBuildInfo.html">Arcane::ModuleBuildInfo</a></div><div class="ttdoc">Informations pour construire un module.</div><div class="ttdef"><b>Definition:</b> ModuleBuildInfo.h:43</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemIndex_html"><div class="ttname"><a href="../../de/d84/classArcane_1_1ItemIndex.html">Arcane::ItemIndex</a></div><div class="ttdef"><b>Definition:</b> AdiProjectionModule.cc:593</div></div>
+<div class="ttc" id="anamespaceArcane_html_aead162b50f6ba79ca922c6893e23054f"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aead162b50f6ba79ca922c6893e23054f">Arcane::RealArrayView</a></div><div class="ttdeci">ArrayView&lt; Real &gt; RealArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension de réels.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:509</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html">Arcane::ISubDomain</a></div><div class="ttdoc">Interface du gestionnaire d'un sous-domaine.</div><div class="ttdef"><b>Definition:</b> ISubDomain.h:72</div></div>
+<div class="ttc" id="agroup__Variable_html_ga98c3f361d93bc122a383a05c80a966b7"><div class="ttname"><a href="../../d3/d00/group__Variable.html#ga98c3f361d93bc122a383a05c80a966b7">Arcane::VariableNodeReal3</a></div><div class="ttdeci">MeshVariableScalarRefT&lt; Node, Real3 &gt; VariableNodeReal3</div><div class="ttdoc">Grandeur au noeud de type coordonnées.</div><div class="ttdef"><b>Definition:</b> VariableTypedef.h:359</div></div>
+<div class="ttc" id="anamespaceArccore_html_a19fea02f94d4da203710fd2070c0f2fb"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Arccore::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:232</div></div>
+<div class="ttc" id="aclassArcane_1_1ITimeLoop_html_afdcfded6967d90359c5520deb6c87f3a"><div class="ttname"><a href="../../dd/dc9/classArcane_1_1ITimeLoop.html#afdcfded6967d90359c5520deb6c87f3a">Arcane::ITimeLoop::WInit</a></div><div class="ttdeci">static const char * WInit</div><div class="ttdoc">appelé pendant l'initialisation, l'initialisation d'une reprise ou d'un nouveau cas</div><div class="ttdef"><b>Definition:</b> ITimeLoop.h:52</div></div>
+<div class="ttc" id="aclassArcane_1_1AdiProjectionModule_html"><div class="ttname"><a href="../../db/d4f/classArcane_1_1AdiProjectionModule.html">Arcane::AdiProjectionModule</a></div><div class="ttdef"><b>Definition:</b> AdiProjectionModule.h:22</div></div>
+<div class="ttc" id="agroup__Mesh_html_gae8e2d4ae8f80b9d5b17e85e39d971eaa"><div class="ttname"><a href="../../de/db5/group__Mesh.html#gae8e2d4ae8f80b9d5b17e85e39d971eaa">Arcane::CellEnumerator</a></div><div class="ttdeci">ItemEnumeratorT&lt; Cell &gt; CellEnumerator</div><div class="ttdoc">Enumérateurs sur des mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:189</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html">Arcane::IMesh</a></div><div class="ttdef"><b>Definition:</b> IMesh.h:57</div></div>
+<div class="ttc" id="aclassArcane_1_1ICartesianMesh_html_ac538324a7b6d53031da839c54b3dc55c"><div class="ttname"><a href="../../d1/d62/classArcane_1_1ICartesianMesh.html#ac538324a7b6d53031da839c54b3dc55c">Arcane::ICartesianMesh::computeDirections</a></div><div class="ttdeci">virtual void computeDirections()=0</div><div class="ttdoc">Calcule les infos pour les accès par direction.</div></div>
+<div class="ttc" id="anamespaceArcane_html_a99f03efd932ce7e30877b63eebbb65e5"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a99f03efd932ce7e30877b63eebbb65e5">Arcane::StringList</a></div><div class="ttdeci">List&lt; String &gt; StringList</div><div class="ttdoc">Tableau de chaînes de caractères unicode.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:559</div></div>
+<div class="ttc" id="aclassArcane_1_1ICartesianMesh_html"><div class="ttname"><a href="../../d1/d62/classArcane_1_1ICartesianMesh.html">Arcane::ICartesianMesh</a></div><div class="ttdoc">Interface d'un maillage cartésien.</div><div class="ttdef"><b>Definition:</b> cartesianmesh/ICartesianMesh.h:33</div></div>
+<div class="ttc" id="aclassArcane_1_1ICartesianMesh_html_a21dfa9eb71d14501403b7b8e3ebd6d06"><div class="ttname"><a href="../../d1/d62/classArcane_1_1ICartesianMesh.html#a21dfa9eb71d14501403b7b8e3ebd6d06">Arcane::ICartesianMesh::cellDirection</a></div><div class="ttdeci">virtual CellDirectionMng cellDirection(eMeshDirection dir)=0</div><div class="ttdoc">Liste des mailles dans la direction dir.</div></div>
+<div class="ttc" id="aclassArcane_1_1VersionInfo_html"><div class="ttname"><a href="../../d5/d14/classArcane_1_1VersionInfo.html">Arcane::VersionInfo</a></div><div class="ttdoc">Informations sur une version.</div><div class="ttdef"><b>Definition:</b> VersionInfo.h:45</div></div>
+<div class="ttc" id="aclassArcane_1_1ICartesianMesh_html_ac33af7e6acb31e15e51ba468b4ac2633"><div class="ttname"><a href="../../d1/d62/classArcane_1_1ICartesianMesh.html#ac33af7e6acb31e15e51ba468b4ac2633">Arcane::ICartesianMesh::nodeDirection</a></div><div class="ttdeci">virtual NodeDirectionMng nodeDirection(eMeshDirection dir)=0</div><div class="ttdoc">Liste des noeuds dans la direction dir.</div></div>
+<div class="ttc" id="aItemEnumerator_8h_html_aea36524754c129124072de38e045d6ba"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#aea36524754c129124072de38e045d6ba">ENUMERATE_NODE</a></div><div class="ttdeci">#define ENUMERATE_NODE(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de noeuds.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:234</div></div>
+<div class="ttc" id="aItemEnumerator_8h_html_aaf5910d68ad8428248f844535ab071f3"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a></div><div class="ttdeci">#define ENUMERATE_CELL(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:243</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:15 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

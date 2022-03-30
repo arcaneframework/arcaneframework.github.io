@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de ParallelTopology.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_13edfb79ffc7ff12968bead7e2e82716.html">impl</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">ParallelTopology.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* ParallelTopology.h                                          (C) 2000-2011 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Informations sur la topologie d&#39;allocation des coeurs de calcul.          */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_IMPL_PARALLELTOPOLOGY_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_IMPL_PARALLELTOPOLOGY_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/IParallelTopology.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">class </span>IParallelMng;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../da/d82/classArcane_1_1ParallelTopology.html">   37</a></span>&#160;<span class="keyword">class </span>ARCANE_IMPL_EXPORT <a class="code" href="../../da/d82/classArcane_1_1ParallelTopology.html">ParallelTopology</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../da/d97/classArcane_1_1IParallelTopology.html">IParallelTopology</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <a class="code" href="../../da/d82/classArcane_1_1ParallelTopology.html">ParallelTopology</a>(<a class="code" href="../../dc/d5a/classArcane_1_1IParallelMng.html">IParallelMng</a>* pm);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../da/d82/classArcane_1_1ParallelTopology.html">ParallelTopology</a>() {} </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> initialize();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../dc/d5a/classArcane_1_1IParallelMng.html">IParallelMng</a>* <a class="code" href="../../da/d97/classArcane_1_1IParallelTopology.html#af74e22b9f97600d40ff84eb5dd210636">parallelMng</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../da/d97/classArcane_1_1IParallelTopology.html#a3d4267a7aa7489d80649c5348290b45f">isMasterMachine</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> <a class="code" href="../../da/d97/classArcane_1_1IParallelTopology.html#af14574903f0f947d1e8ad35c964ccbc1">machineRanks</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">virtual</span> Int32 <a class="code" href="../../da/d97/classArcane_1_1IParallelTopology.html#af2bf67cdfc42a10350f87aeac7e1c353">machineRank</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> <a class="code" href="../../da/d97/classArcane_1_1IParallelTopology.html#a2ba462ff5cacbb9c56a7c024fa54719d">masterMachineRanks</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../da/d97/classArcane_1_1IParallelTopology.html#a999037ef989dab9de4085df711e1bd89">isMasterProcess</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> <a class="code" href="../../da/d97/classArcane_1_1IParallelTopology.html#a8730e691a399e6efc4616d7f8b029079">processRanks</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">virtual</span> Int32 <a class="code" href="../../da/d97/classArcane_1_1IParallelTopology.html#aa750fa93151982adf1f1a01add61befb">processRank</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> <a class="code" href="../../da/d97/classArcane_1_1IParallelTopology.html#a346223cd1dc63cb3396059a617e79c15">masterProcessRanks</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <a class="code" href="../../dc/d5a/classArcane_1_1IParallelMng.html">IParallelMng</a>* m_parallel_mng;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">Int32UniqueArray</a> m_machine_ranks;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">Int32UniqueArray</a> m_process_ranks;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  Int32 m_machine_rank;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  Int32 m_process_rank;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordtype">bool</span> m_is_machine_master;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keywordtype">bool</span> m_is_process_master;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">Int32UniqueArray</a> m_master_machine_ranks;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">Int32UniqueArray</a> m_master_process_ranks;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keywordtype">void</span> _init();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;};</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;ARCANE_END_NAMESPACE</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1ParallelTopology_html_a2691d6eaea24bdda0ef2623044fce370"><div class="ttname"><a href="../../da/d82/classArcane_1_1ParallelTopology.html#a2691d6eaea24bdda0ef2623044fce370">Arcane::ParallelTopology::processRank</a></div><div class="ttdeci">virtual Int32 processRank() const</div><div class="ttdoc">Rang de cette instance dans la liste des processus.</div><div class="ttdef"><b>Definition:</b> ParallelTopology.cc:252</div></div>
+<div class="ttc" id="aclassArcane_1_1ParallelTopology_html_a63f7abac9c9d9b17d3062bf767039f3f"><div class="ttname"><a href="../../da/d82/classArcane_1_1ParallelTopology.html#a63f7abac9c9d9b17d3062bf767039f3f">Arcane::ParallelTopology::isMasterProcess</a></div><div class="ttdeci">virtual bool isMasterProcess() const</div><div class="ttdoc">Indique si ce rang est le maitre dans les rangs de ce processus.</div><div class="ttdef"><b>Definition:</b> ParallelTopology.cc:234</div></div>
+<div class="ttc" id="aclassArcane_1_1ParallelTopology_html_a2500532150913b77f78a5e75ef5e6394"><div class="ttname"><a href="../../da/d82/classArcane_1_1ParallelTopology.html#a2500532150913b77f78a5e75ef5e6394">Arcane::ParallelTopology::processRanks</a></div><div class="ttdeci">virtual Int32ConstArrayView processRanks() const</div><div class="ttdoc">Liste des rangs qui sont dans le même processus (en multi-threading)</div><div class="ttdef"><b>Definition:</b> ParallelTopology.cc:243</div></div>
+<div class="ttc" id="anamespaceArcane_html_a282d06cf0e8fd507e5b46b5189f7648d"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a282d06cf0e8fd507e5b46b5189f7648d">Arcane::Int64UniqueArray</a></div><div class="ttdeci">UniqueArray&lt; Int64 &gt; Int64UniqueArray</div><div class="ttdoc">Tableau dynamique à une dimension d'entiers 64 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:405</div></div>
+<div class="ttc" id="anamespaceArcane_html_a94d0dc2214c1be27126aa036eb95e579"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a94d0dc2214c1be27126aa036eb95e579">Arcane::ByteConstArrayView</a></div><div class="ttdeci">ConstArrayView&lt; Byte &gt; ByteConstArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension de caractères.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:526</div></div>
+<div class="ttc" id="aclassArcane_1_1ParallelTopology_html_a95bef047b0f0a55b326fc5e62d1ecb41"><div class="ttname"><a href="../../da/d82/classArcane_1_1ParallelTopology.html#a95bef047b0f0a55b326fc5e62d1ecb41">Arcane::ParallelTopology::initialize</a></div><div class="ttdeci">virtual void initialize()</div><div class="ttdoc">Initialise l'instance. Cette opération est collective.</div><div class="ttdef"><b>Definition:</b> ParallelTopology.cc:49</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_aeacee0657891fd1b10c2f73efd5bb086"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#aeacee0657891fd1b10c2f73efd5bb086">Arccore::Array::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Supprime les éléments du tableau.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:1139</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelMng_html"><div class="ttname"><a href="../../dc/d5a/classArcane_1_1IParallelMng.html">Arcane::IParallelMng</a></div><div class="ttdoc">Interface du gestionnaire de parallélisme pour un sous-domaine.</div><div class="ttdef"><b>Definition:</b> IParallelMng.h:70</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelTopology_html_a346223cd1dc63cb3396059a617e79c15"><div class="ttname"><a href="../../da/d97/classArcane_1_1IParallelTopology.html#a346223cd1dc63cb3396059a617e79c15">Arcane::IParallelTopology::masterProcessRanks</a></div><div class="ttdeci">virtual Int32ConstArrayView masterProcessRanks() const =0</div><div class="ttdoc">Liste des rangs maitres pour chaque processus.</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelTopology_html_af14574903f0f947d1e8ad35c964ccbc1"><div class="ttname"><a href="../../da/d97/classArcane_1_1IParallelTopology.html#af14574903f0f947d1e8ad35c964ccbc1">Arcane::IParallelTopology::machineRanks</a></div><div class="ttdeci">virtual Int32ConstArrayView machineRanks() const =0</div><div class="ttdoc">Liste des rangs qui sont sur la même machine.</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelTopology_html_a999037ef989dab9de4085df711e1bd89"><div class="ttname"><a href="../../da/d97/classArcane_1_1IParallelTopology.html#a999037ef989dab9de4085df711e1bd89">Arcane::IParallelTopology::isMasterProcess</a></div><div class="ttdeci">virtual bool isMasterProcess() const =0</div><div class="ttdoc">Indique si ce rang est le maitre dans les rangs de ce processus.</div></div>
+<div class="ttc" id="anamespaceArcane_html_ad52ea8220f052e503f802c64c81e0222"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ad52ea8220f052e503f802c64c81e0222">Arcane::Int64ConstArrayView</a></div><div class="ttdeci">ConstArrayView&lt; Int64 &gt; Int64ConstArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension d'entiers 64 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:530</div></div>
+<div class="ttc" id="anamespaceArccore_html_a19fea02f94d4da203710fd2070c0f2fb"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Arccore::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:232</div></div>
+<div class="ttc" id="aclassArcane_1_1ParallelTopology_html_ad09585ef3caebb995f857c0797059d79"><div class="ttname"><a href="../../da/d82/classArcane_1_1ParallelTopology.html#ad09585ef3caebb995f857c0797059d79">Arcane::ParallelTopology::parallelMng</a></div><div class="ttdeci">virtual IParallelMng * parallelMng() const</div><div class="ttdoc">Gestionnaire de parallélisme associé</div><div class="ttdef"><b>Definition:</b> ParallelTopology.cc:198</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelTopology_html"><div class="ttname"><a href="../../da/d97/classArcane_1_1IParallelTopology.html">Arcane::IParallelTopology</a></div><div class="ttdoc">Informations sur la topologie d'allocation des coeurs de calcul.</div><div class="ttdef"><b>Definition:</b> IParallelTopology.h:41</div></div>
+<div class="ttc" id="aclassArcane_1_1ParallelTopology_html_aea1211a44f4212432591034b1e90a22d"><div class="ttname"><a href="../../da/d82/classArcane_1_1ParallelTopology.html#aea1211a44f4212432591034b1e90a22d">Arcane::ParallelTopology::machineRank</a></div><div class="ttdeci">virtual Int32 machineRank() const</div><div class="ttdoc">Rang de cette instance dans la liste des machines (noeuds).</div><div class="ttdef"><b>Definition:</b> ParallelTopology.cc:225</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelTopology_html_aa750fa93151982adf1f1a01add61befb"><div class="ttname"><a href="../../da/d97/classArcane_1_1IParallelTopology.html#aa750fa93151982adf1f1a01add61befb">Arcane::IParallelTopology::processRank</a></div><div class="ttdeci">virtual Int32 processRank() const =0</div><div class="ttdoc">Rang de cette instance dans la liste des processus.</div></div>
+<div class="ttc" id="aclassArccore_1_1UniqueArray_html"><div class="ttname"><a href="../../da/daa/classArccore_1_1UniqueArray.html">Arccore::UniqueArray</a></div><div class="ttdoc">Vecteur 1D de données avec sémantique par valeur (style STL).</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:1504</div></div>
+<div class="ttc" id="aclassArcane_1_1ParallelTopology_html_aa0b29c6d2e9c6a874fefc493de6bf37a"><div class="ttname"><a href="../../da/d82/classArcane_1_1ParallelTopology.html#aa0b29c6d2e9c6a874fefc493de6bf37a">Arcane::ParallelTopology::masterProcessRanks</a></div><div class="ttdeci">virtual Int32ConstArrayView masterProcessRanks() const</div><div class="ttdoc">Liste des rangs maitres pour chaque processus.</div><div class="ttdef"><b>Definition:</b> ParallelTopology.cc:270</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelTopology_html_a2ba462ff5cacbb9c56a7c024fa54719d"><div class="ttname"><a href="../../da/d97/classArcane_1_1IParallelTopology.html#a2ba462ff5cacbb9c56a7c024fa54719d">Arcane::IParallelTopology::masterMachineRanks</a></div><div class="ttdeci">virtual Int32ConstArrayView masterMachineRanks() const =0</div><div class="ttdoc">Liste des rangs maîtres pour chaque machine (noeud).</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelMng_html_a5f99a4c0466f9aaea57f34a387f8a0e2"><div class="ttname"><a href="../../dc/d5a/classArcane_1_1IParallelMng.html#a5f99a4c0466f9aaea57f34a387f8a0e2">Arcane::IParallelMng::traceMng</a></div><div class="ttdeci">virtual ITraceMng * traceMng() const =0</div><div class="ttdoc">Gestionnaire de traces.</div></div>
+<div class="ttc" id="aclassArcane_1_1ParallelTopology_html_a5098b85d3b6945f8e5901a4573c421a6"><div class="ttname"><a href="../../da/d82/classArcane_1_1ParallelTopology.html#a5098b85d3b6945f8e5901a4573c421a6">Arcane::ParallelTopology::masterMachineRanks</a></div><div class="ttdeci">virtual Int32ConstArrayView masterMachineRanks() const</div><div class="ttdoc">Liste des rangs maîtres pour chaque machine (noeud).</div><div class="ttdef"><b>Definition:</b> ParallelTopology.cc:261</div></div>
+<div class="ttc" id="anamespaceArcane_1_1CStringUtils_html_a839cd64a4db50ad7de656f11128b1dd6"><div class="ttname"><a href="../../de/d06/namespaceArcane_1_1CStringUtils.html#a839cd64a4db50ad7de656f11128b1dd6">Arcane::CStringUtils::len</a></div><div class="ttdeci">Integer len(const char *s)</div><div class="ttdoc">Retourne la longueur de la chaîne s.</div><div class="ttdef"><b>Definition:</b> arcane/src/arcane/utils/CStringUtils.cc:90</div></div>
+<div class="ttc" id="anamespaceArcane_html_a68906f65154dc335b4a77e443e4f4a1b"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a68906f65154dc335b4a77e443e4f4a1b">Arcane::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const Item &amp;item1, const Item &amp;item2)</div><div class="ttdoc">Compare deux entités.</div><div class="ttdef"><b>Definition:</b> Item.h:352</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelTopology_html_a3d4267a7aa7489d80649c5348290b45f"><div class="ttname"><a href="../../da/d97/classArcane_1_1IParallelTopology.html#a3d4267a7aa7489d80649c5348290b45f">Arcane::IParallelTopology::isMasterMachine</a></div><div class="ttdeci">virtual bool isMasterMachine() const =0</div><div class="ttdoc">Indique si ce rang est le rang maître pour une machine (noeud)</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelTopology_html_af2bf67cdfc42a10350f87aeac7e1c353"><div class="ttname"><a href="../../da/d97/classArcane_1_1IParallelTopology.html#af2bf67cdfc42a10350f87aeac7e1c353">Arcane::IParallelTopology::machineRank</a></div><div class="ttdeci">virtual Int32 machineRank() const =0</div><div class="ttdoc">Rang de cette instance dans la liste des machines (noeuds).</div></div>
+<div class="ttc" id="aclassArcane_1_1ParallelTopology_html"><div class="ttname"><a href="../../da/d82/classArcane_1_1ParallelTopology.html">Arcane::ParallelTopology</a></div><div class="ttdoc">Informations sur la topologie d'allocation des coeurs de calcul.</div><div class="ttdef"><b>Definition:</b> ParallelTopology.h:37</div></div>
+<div class="ttc" id="aclassArcane_1_1ParallelTopology_html_abd13af4fc3ebf8d47177f64ae8bc20c3"><div class="ttname"><a href="../../da/d82/classArcane_1_1ParallelTopology.html#abd13af4fc3ebf8d47177f64ae8bc20c3">Arcane::ParallelTopology::isMasterMachine</a></div><div class="ttdeci">virtual bool isMasterMachine() const</div><div class="ttdoc">Indique si ce rang est le rang maître pour une machine (noeud)</div><div class="ttdef"><b>Definition:</b> ParallelTopology.cc:207</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_ab3f2d332e7c412261b9199bb5454e31b"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#ab3f2d332e7c412261b9199bb5454e31b">Arccore::Array::add</a></div><div class="ttdeci">void add(ConstReferenceType val)</div><div class="ttdoc">Ajoute l'élément val à la fin du tableau.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:967</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelMng_html_af7c4f789cba5c7b73fe7079d7d74336d"><div class="ttname"><a href="../../dc/d5a/classArcane_1_1IParallelMng.html#af7c4f789cba5c7b73fe7079d7d74336d">Arcane::IParallelMng::barrier</a></div><div class="ttdeci">virtual void barrier()=0</div><div class="ttdoc">Effectue une barière.</div></div>
+<div class="ttc" id="anamespaceArccore_1_1MessagePassing_html_aaf52c72596590e6ea65e9e03e1adf3eaa8e2e6c3f405ec7aa2e4bc05f93d7d6d4"><div class="ttname"><a href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3eaa8e2e6c3f405ec7aa2e4bc05f93d7d6d4">Arccore::MessagePassing::ReduceMax</a></div><div class="ttdeci">@ ReduceMax</div><div class="ttdoc">Maximum des valeurs.</div><div class="ttdef"><b>Definition:</b> MessagePassingGlobal.h:74</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:32</div></div>
+<div class="ttc" id="aclassArccore_1_1AbstractArray_html_ad685072bdadeb6ada60185ce0283db8d"><div class="ttname"><a href="../../db/d34/classArccore_1_1AbstractArray.html#ad685072bdadeb6ada60185ce0283db8d">Arccore::AbstractArray::size</a></div><div class="ttdeci">Integer size() const</div><div class="ttdoc">Nombre d'éléments du vecteur.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:409</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelTopology_html_af74e22b9f97600d40ff84eb5dd210636"><div class="ttname"><a href="../../da/d97/classArcane_1_1IParallelTopology.html#af74e22b9f97600d40ff84eb5dd210636">Arcane::IParallelTopology::parallelMng</a></div><div class="ttdeci">virtual IParallelMng * parallelMng() const =0</div><div class="ttdoc">Gestionnaire de parallélisme associé</div></div>
+<div class="ttc" id="anamespaceArcane_html_a840b7e3da1e74ea2e3afc0160a94f2bd"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a840b7e3da1e74ea2e3afc0160a94f2bd">Arcane::ByteUniqueArray</a></div><div class="ttdeci">UniqueArray&lt; Byte &gt; ByteUniqueArray</div><div class="ttdoc">Tableau dynamique à une dimension de caractères.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:401</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelTopology_html_a8730e691a399e6efc4616d7f8b029079"><div class="ttname"><a href="../../da/d97/classArcane_1_1IParallelTopology.html#a8730e691a399e6efc4616d7f8b029079">Arcane::IParallelTopology::processRanks</a></div><div class="ttdeci">virtual Int32ConstArrayView processRanks() const =0</div><div class="ttdoc">Liste des rangs qui sont dans le même processus (en multi-threading)</div></div>
+<div class="ttc" id="aclassArcane_1_1ParallelTopology_html_ac2176ed91515e1916226e866facaa970"><div class="ttname"><a href="../../da/d82/classArcane_1_1ParallelTopology.html#ac2176ed91515e1916226e866facaa970">Arcane::ParallelTopology::machineRanks</a></div><div class="ttdeci">virtual Int32ConstArrayView machineRanks() const</div><div class="ttdoc">Liste des rangs qui sont sur la même machine.</div><div class="ttdef"><b>Definition:</b> ParallelTopology.cc:216</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:41 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

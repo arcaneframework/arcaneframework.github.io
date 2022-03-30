@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arcane/utils/HPReal.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d4/d3c/HPReal_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">HPReal.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* HPReal.h                                                    (C) 2000-2019 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Réel haute-précision.                                                     */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_UTILS_HPREAL_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_UTILS_HPREAL_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/Numeric.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;iosfwd&gt;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="../../d4/d2e/classArcane_1_1HPReal.html">  160</a></span>&#160;<span class="keyword">class </span>ARCANE_UTILS_EXPORT <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html">HPReal</a></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;{</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="../../d4/d2e/classArcane_1_1HPReal.html#a2e33f4ba147c3d2d385c7836254f5e36">  166</a></span>&#160;  <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html#a2e33f4ba147c3d2d385c7836254f5e36">HPReal</a>() {}</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno"><a class="line" href="../../d4/d2e/classArcane_1_1HPReal.html#a7343c5a0468f279629d675e5b92a4a2a">  169</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html#a7343c5a0468f279629d675e5b92a4a2a">HPReal</a>(<span class="keywordtype">double</span> avalue)</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  : m_value(avalue)</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  , m_correction(0.0)</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  {}</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="../../d4/d2e/classArcane_1_1HPReal.html#aa7d3d12ba42dee0b400e8be6244a354b">  175</a></span>&#160;  <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html#aa7d3d12ba42dee0b400e8be6244a354b">HPReal</a>(<span class="keywordtype">double</span> avalue, <span class="keywordtype">double</span> acorrection)</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  : m_value(avalue)</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  , m_correction(acorrection)</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  {}</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="../../d4/d2e/classArcane_1_1HPReal.html#ac2afce4e5cd3330bf6a4ee85b3caae24">  181</a></span>&#160;  Real <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html#ac2afce4e5cd3330bf6a4ee85b3caae24">value</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_value; }</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="../../d4/d2e/classArcane_1_1HPReal.html#ab4ffbf840948a738c8eb6d0e50bba5a7">  184</a></span>&#160;  Real <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html#ab4ffbf840948a738c8eb6d0e50bba5a7">correction</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_correction; }</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="../../d4/d2e/classArcane_1_1HPReal.html#a6ab7f7d09297b0bd5d480e53576bbe47">  187</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html#a6ab7f7d09297b0bd5d480e53576bbe47">operator+=</a>(Real v)</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  {</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    *<span class="keyword">this</span> = accumulate(v, *<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  }</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00193"></a><span class="lineno"><a class="line" href="../../d4/d2e/classArcane_1_1HPReal.html#a7c18abe06110bbc5c84d94280fcb2b21">  193</a></span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html#a7c18abe06110bbc5c84d94280fcb2b21">operator+=</a>(<a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html">HPReal</a> v)</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  {</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    *<span class="keyword">this</span> = reduce(*<span class="keyword">this</span>, v);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  }</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="../../d4/d2e/classArcane_1_1HPReal.html#a574fc474b9e7999cfb9f97bea8747d7d">  199</a></span>&#160;  <span class="keyword">inline</span> Real <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html#a574fc474b9e7999cfb9f97bea8747d7d">toReal</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keywordflow">return</span> value() + correction();</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  }</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno"><a class="line" href="../../d4/d2e/classArcane_1_1HPReal.html#a44fc610a963c1cc50c54edbc96f03e60">  205</a></span>&#160;  <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html">HPReal</a> <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html#a44fc610a963c1cc50c54edbc96f03e60">reduce</a>(<a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html">HPReal</a> b)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="keywordflow">return</span> reduce(*<span class="keyword">this</span>, b);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  }</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00211"></a><span class="lineno"><a class="line" href="../../d4/d2e/classArcane_1_1HPReal.html#abd510c44dfd940a3bc2453db47572468">  211</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html#abd510c44dfd940a3bc2453db47572468">operator*=</a>(Real v)</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  {</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    *<span class="keyword">this</span> = product(v, *<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  }</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
+<div class="line"><a name="l00217"></a><span class="lineno"><a class="line" href="../../d4/d2e/classArcane_1_1HPReal.html#a1111effc6fa91fe35524f6034250058d">  217</a></span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html#a1111effc6fa91fe35524f6034250058d">operator*=</a>(<a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html">HPReal</a> v)</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;  {</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;    *<span class="keyword">this</span> = product(*<span class="keyword">this</span>, v);</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  }</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160; </div>
+<div class="line"><a name="l00223"></a><span class="lineno"><a class="line" href="../../d4/d2e/classArcane_1_1HPReal.html#a758a87efe1f183b98ca7974cb3ae15f7">  223</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html#a758a87efe1f183b98ca7974cb3ae15f7">operator/=</a>(Real v)</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  {</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    *<span class="keyword">this</span> = div2(v, *<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  }</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00229"></a><span class="lineno"><a class="line" href="../../d4/d2e/classArcane_1_1HPReal.html#ac1ae75ab0bc17c63eb60e592a26f5cc3">  229</a></span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html#ac1ae75ab0bc17c63eb60e592a26f5cc3">operator/=</a>(<a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html">HPReal</a> v)</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  {</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    *<span class="keyword">this</span> = div2(*<span class="keyword">this</span>, v);</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;  }</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;  std::istream&amp; assign(std::istream&amp; i);</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  std::ostream&amp; print(std::ostream&amp; o) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  std::ostream&amp; printPretty(std::ostream&amp; o) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00246"></a><span class="lineno"><a class="line" href="../../d4/d2e/classArcane_1_1HPReal.html#a419f9cdeb41676b997f54b292d1e3b9d">  246</a></span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html">HPReal</a> <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html#a419f9cdeb41676b997f54b292d1e3b9d">zero</a>() { <span class="keywordflow">return</span> <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html">HPReal</a>(0.0); }</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; </div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html">HPReal</a> accumulate(Real a, <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html">HPReal</a> b)</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  {</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html">HPReal</a> x(_doTwoSum(a, b.<a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html#ac2afce4e5cd3330bf6a4ee85b3caae24">value</a>()));</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    Real c = x.correction() + b.<a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html#ab4ffbf840948a738c8eb6d0e50bba5a7">correction</a>();</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    <span class="keywordflow">return</span> _doQuickTwoSum(x.value(), c);</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  }</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  <span class="comment">// Mpi passe par la</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  <span class="keyword">static</span> HPReal reduce(HPReal a, HPReal b)</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  {</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    HPReal x(_doTwoSum(a.value(), b.value()));</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    Real c = x.correction() + a.correction() + b.correction();</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    <span class="keywordflow">return</span> _doQuickTwoSum(x.value(), c);</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  }</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;  <span class="comment">// algo 11 de AC_TWOPRODUCTS  Ref 2</span></div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;  <span class="keyword">static</span> HPReal product(HPReal a, HPReal b)</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  {</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    HPReal x(_doTwoProducts(a.value(), b.value()));</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> w = x.correction() + (a.value() * b.correction() + b.value() * a.correction());</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    <span class="keywordflow">return</span> HPReal(x.value(), w);</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  }</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  <span class="comment">// algo 11 de AC_TWOPRODUCTS  Ref 2</span></div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <span class="keyword">static</span> HPReal product(Real a, HPReal b)</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  {</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    HPReal x(_doTwoProducts(a, b.value()));</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> w = x.correction() + (a * b.correction());</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    <span class="keywordflow">return</span> HPReal(x.value(), w);</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  }</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160; </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  <span class="comment">// algo div2  Ref 6    div2 =  a/b</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  <span class="comment">// j&#39;ai mis des parentheses dans l&#39;evaluation de w pour forcer un ordre quelque soir les options de compil</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  <span class="comment">// ATTENTION les 2 dernieres lignes de l&#39;algo div2 ne sont pas mises (on ne renormalise pas)</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  <span class="comment">// l&#39;algo  &quot;mul2&quot; les contient aussi et ne les a pas mises aussi pour &quot;product&quot; car l&#39;algo 11 de la Ref 2 n&#39;en n&#39;a pas (a mon humble avis)</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  <span class="keyword">static</span> HPReal div2(HPReal a, HPReal b)</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  {</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> c = a.value() / b.value();</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;    HPReal u(_doTwoProducts(c, b.value()));</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> w = ((((a.value() - u.value()) + -u.correction()) + a.correction()) - c * b.correction()) / b.value();</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordflow">return</span> HPReal(c, w);</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  }</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  <span class="comment">// algo div2  Ref 6     div2 =  a/b</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  <span class="keyword">static</span> HPReal div2(Real b, HPReal a)</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  {</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> c = a.value() / b;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    HPReal u(_doTwoProducts(c, b));</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> w = (((a.value() - u.value()) + -u.correction()) + a.correction()) / b;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;    <span class="keywordflow">return</span> HPReal(c, w);</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;  }</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;  <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> m_value;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> m_correction;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  <span class="comment">// correction des ()</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  <span class="keyword">static</span> HPReal _doTwoSum(Real a, Real b)</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  {</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> value = a + b;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> approx_b = value - a;</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> sum_error = (a - (value - approx_b)) + (b - approx_b);</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;    <span class="keywordflow">return</span> HPReal(value, sum_error);</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  }</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  <span class="comment">//  correction tests de la valeur de a et b et on mets des valeurs absolues</span></div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  <span class="keyword">static</span> HPReal _doQuickTwoSum(Real a1, Real b1)</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  {</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> a = a1;</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> b = b1;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#gaff723e00b8e31ff9dfca9fc551ae7062">std::abs</a>(b1) &gt; <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#gaff723e00b8e31ff9dfca9fc551ae7062">std::abs</a>(a1)) {</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;      a = b1;</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;      b = a1;</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;    }</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> value = a + b;</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> error_value = (b - (value - a));</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;    <span class="keywordflow">return</span> HPReal(value, error_value);</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  }</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  <span class="comment">// algo 4 ref 2 ou algo 2.4 ref 3 ou  algo 6 p.4</span></div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  <span class="keyword">static</span> HPReal _doTwoProducts(Real a, Real b)</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  {</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> x = a * b;</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;    HPReal aw = SPLIT(a);</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;    HPReal bw = SPLIT(b);</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> y = aw.correction() * bw.correction() - (((x - aw.value() * bw.value()) - aw.correction() * bw.value()) - aw.value() * bw.correction());</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;    <span class="keywordflow">return</span> HPReal(x, y);</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;  }</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;  <span class="keyword">static</span> HPReal SPLIT(Real a)</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  {</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;    <span class="keyword">const</span> <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> f = 134217729; <span class="comment">// 1+ 2^ceil(52/2);</span></div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> c = f * a;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> x = c - (c - a);</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> y = a - x;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    <span class="keywordflow">return</span> HPReal(x, y);</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;  }</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;};</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160; </div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<a class="code" href="../../d0/d32/namespaceArcane.html#a68906f65154dc335b4a77e443e4f4a1b">operator&lt;</a>(<span class="keyword">const</span> HPReal&amp; a, <span class="keyword">const</span> HPReal&amp; b)</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;{</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;  <span class="keywordflow">return</span> a.toReal() &lt; b.toReal();</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;}</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;operator&gt;(<span class="keyword">const</span> HPReal&amp; a, <span class="keyword">const</span> HPReal&amp; b)</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;{</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;  <span class="keywordflow">return</span> a.toReal() &gt; b.toReal();</div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;}</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160; </div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;operator==(<span class="keyword">const</span> HPReal&amp; a, <span class="keyword">const</span> HPReal&amp; b)</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;{</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;  <span class="keywordflow">return</span> a.value() == b.value() &amp;&amp; a.correction() == b.correction();</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;}</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160; </div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;operator!=(<span class="keyword">const</span> HPReal&amp; a, <span class="keyword">const</span> HPReal&amp; b)</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;{</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;  <span class="keywordflow">return</span> !operator==(a, b);</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;}</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160; </div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="keyword">inline</span> HPReal</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;operator+(<span class="keyword">const</span> HPReal&amp; a, <span class="keyword">const</span> HPReal&amp; b)</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;{</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../d4/d2e/classArcane_1_1HPReal.html#a44fc610a963c1cc50c54edbc96f03e60">HPReal::reduce</a>(a, b);</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;}</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160; </div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160; </div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;<span class="keyword">inline</span> std::ostream&amp;</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<a class="code" href="../../d0/d32/namespaceArcane.html#ae7fe252d07667426958ff2a1aa634196">operator&lt;&lt;</a>(std::ostream&amp; o, HPReal t)</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;{</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;  <span class="keywordflow">return</span> t.printPretty(o);</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;}</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160; </div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;<span class="keyword">inline</span> std::istream&amp;</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;<a class="code" href="../../d0/d32/namespaceArcane.html#aa398f04a05da5630f0908ce76733c6ae">operator&gt;&gt;</a>(std::istream&amp; i, HPReal&amp; t)</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;{</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;  <span class="keywordflow">return</span> t.assign(i);</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;}</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; </div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160; </div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160; </div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclassArcane_1_1HPReal_html_a7c18abe06110bbc5c84d94280fcb2b21"><div class="ttname"><a href="../../d4/d2e/classArcane_1_1HPReal.html#a7c18abe06110bbc5c84d94280fcb2b21">Arcane::HPReal::operator+=</a></div><div class="ttdeci">void operator+=(HPReal v)</div><div class="ttdoc">Ajoute un HPReal v en conservant l'erreur (réduction)</div><div class="ttdef"><b>Definition:</b> HPReal.h:193</div></div>
+<div class="ttc" id="aclassArcane_1_1HPReal_html_abd510c44dfd940a3bc2453db47572468"><div class="ttname"><a href="../../d4/d2e/classArcane_1_1HPReal.html#abd510c44dfd940a3bc2453db47572468">Arcane::HPReal::operator*=</a></div><div class="ttdeci">void operator*=(Real v)</div><div class="ttdoc">multiplie un Real en conservant l'erreur.</div><div class="ttdef"><b>Definition:</b> HPReal.h:211</div></div>
+<div class="ttc" id="aclassArcane_1_1HPReal_html_a7343c5a0468f279629d675e5b92a4a2a"><div class="ttname"><a href="../../d4/d2e/classArcane_1_1HPReal.html#a7343c5a0468f279629d675e5b92a4a2a">Arcane::HPReal::HPReal</a></div><div class="ttdeci">HPReal(double avalue)</div><div class="ttdoc">Créé un réel HP avec la valeur value et la correction correction.</div><div class="ttdef"><b>Definition:</b> HPReal.h:169</div></div>
+<div class="ttc" id="aclassArcane_1_1HPReal_html_a6ab7f7d09297b0bd5d480e53576bbe47"><div class="ttname"><a href="../../d4/d2e/classArcane_1_1HPReal.html#a6ab7f7d09297b0bd5d480e53576bbe47">Arcane::HPReal::operator+=</a></div><div class="ttdeci">void operator+=(Real v)</div><div class="ttdoc">Ajoute un Real en conservant l'erreur.</div><div class="ttdef"><b>Definition:</b> HPReal.h:187</div></div>
+<div class="ttc" id="aclassArcane_1_1HPReal_html_a419f9cdeb41676b997f54b292d1e3b9d"><div class="ttname"><a href="../../d4/d2e/classArcane_1_1HPReal.html#a419f9cdeb41676b997f54b292d1e3b9d">Arcane::HPReal::zero</a></div><div class="ttdeci">static HPReal zero()</div><div class="ttdoc">Valeur zéro.</div><div class="ttdef"><b>Definition:</b> HPReal.h:246</div></div>
+<div class="ttc" id="aclassArcane_1_1HPReal_html_a1111effc6fa91fe35524f6034250058d"><div class="ttname"><a href="../../d4/d2e/classArcane_1_1HPReal.html#a1111effc6fa91fe35524f6034250058d">Arcane::HPReal::operator*=</a></div><div class="ttdeci">void operator*=(HPReal v)</div><div class="ttdoc">multiplie un HPReal v en conservant l'erreur (réduction)</div><div class="ttdef"><b>Definition:</b> HPReal.h:217</div></div>
+<div class="ttc" id="anamespaceArcane_html_ae7fe252d07667426958ff2a1aa634196"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ae7fe252d07667426958ff2a1aa634196">Arcane::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;ostr, eItemKind item_kind)</div><div class="ttdoc">Opérateur de sortie sur un flot.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.cc:71</div></div>
+<div class="ttc" id="aclassArcane_1_1HPReal_html_ab4ffbf840948a738c8eb6d0e50bba5a7"><div class="ttname"><a href="../../d4/d2e/classArcane_1_1HPReal.html#ab4ffbf840948a738c8eb6d0e50bba5a7">Arcane::HPReal::correction</a></div><div class="ttdeci">Real correction() const</div><div class="ttdoc">Correction interne.</div><div class="ttdef"><b>Definition:</b> HPReal.h:184</div></div>
+<div class="ttc" id="agroup__GroupMathUtils_html_gaff723e00b8e31ff9dfca9fc551ae7062"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#gaff723e00b8e31ff9dfca9fc551ae7062">Arcane::math::abs</a></div><div class="ttdeci">__host__ __device__ long double abs(long double a)</div><div class="ttdoc">Retourne la valeur absolue d'un réel.</div><div class="ttdef"><b>Definition:</b> Math.h:417</div></div>
+<div class="ttc" id="aclassArcane_1_1HPReal_html_a574fc474b9e7999cfb9f97bea8747d7d"><div class="ttname"><a href="../../d4/d2e/classArcane_1_1HPReal.html#a574fc474b9e7999cfb9f97bea8747d7d">Arcane::HPReal::toReal</a></div><div class="ttdeci">Real toReal() const</div><div class="ttdoc">Converti l'instance en un Real.</div><div class="ttdef"><b>Definition:</b> HPReal.h:199</div></div>
+<div class="ttc" id="aclassArcane_1_1HPReal_html_a44fc610a963c1cc50c54edbc96f03e60"><div class="ttname"><a href="../../d4/d2e/classArcane_1_1HPReal.html#a44fc610a963c1cc50c54edbc96f03e60">Arcane::HPReal::reduce</a></div><div class="ttdeci">HPReal reduce(HPReal b) const</div><div class="ttdoc">Ajoute un HPReal v en conservant l'erreur (réduction)</div><div class="ttdef"><b>Definition:</b> HPReal.h:205</div></div>
+<div class="ttc" id="aclassArcane_1_1HPReal_html"><div class="ttname"><a href="../../d4/d2e/classArcane_1_1HPReal.html">Arcane::HPReal</a></div><div class="ttdoc">Classe implémentant un réel Haute Précision.</div><div class="ttdef"><b>Definition:</b> HPReal.h:160</div></div>
+<div class="ttc" id="anamespaceArcane_html_a68906f65154dc335b4a77e443e4f4a1b"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a68906f65154dc335b4a77e443e4f4a1b">Arcane::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const Item &amp;item1, const Item &amp;item2)</div><div class="ttdoc">Compare deux entités.</div><div class="ttdef"><b>Definition:</b> Item.h:352</div></div>
+<div class="ttc" id="aclassArcane_1_1HPReal_html_ac2afce4e5cd3330bf6a4ee85b3caae24"><div class="ttname"><a href="../../d4/d2e/classArcane_1_1HPReal.html#ac2afce4e5cd3330bf6a4ee85b3caae24">Arcane::HPReal::value</a></div><div class="ttdeci">Real value() const</div><div class="ttdoc">Valeur interne. En général, il faut utiliser toReal()</div><div class="ttdef"><b>Definition:</b> HPReal.h:181</div></div>
+<div class="ttc" id="aclassArcane_1_1HPReal_html_aa7d3d12ba42dee0b400e8be6244a354b"><div class="ttname"><a href="../../d4/d2e/classArcane_1_1HPReal.html#aa7d3d12ba42dee0b400e8be6244a354b">Arcane::HPReal::HPReal</a></div><div class="ttdeci">HPReal(double avalue, double acorrection)</div><div class="ttdoc">Créé un réel HP avec la valeur value et la correction correction.</div><div class="ttdef"><b>Definition:</b> HPReal.h:175</div></div>
+<div class="ttc" id="anamespaceArcane_html_aa398f04a05da5630f0908ce76733c6ae"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aa398f04a05da5630f0908ce76733c6ae">Arcane::operator&gt;&gt;</a></div><div class="ttdeci">std::istream &amp; operator&gt;&gt;(std::istream &amp;istr, eItemKind &amp;item_kind)</div><div class="ttdoc">Opérateur d'entrée depuis un flot.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.cc:78</div></div>
+<div class="ttc" id="aclassArcane_1_1HPReal_html_a758a87efe1f183b98ca7974cb3ae15f7"><div class="ttname"><a href="../../d4/d2e/classArcane_1_1HPReal.html#a758a87efe1f183b98ca7974cb3ae15f7">Arcane::HPReal::operator/=</a></div><div class="ttdeci">void operator/=(Real v)</div><div class="ttdoc">multiplie un Real en conservant l'erreur.</div><div class="ttdef"><b>Definition:</b> HPReal.h:223</div></div>
+<div class="ttc" id="aclassArcane_1_1HPReal_html_ac1ae75ab0bc17c63eb60e592a26f5cc3"><div class="ttname"><a href="../../d4/d2e/classArcane_1_1HPReal.html#ac1ae75ab0bc17c63eb60e592a26f5cc3">Arcane::HPReal::operator/=</a></div><div class="ttdeci">void operator/=(HPReal v)</div><div class="ttdoc">multiplie un HPReal v en conservant l'erreur (réduction)</div><div class="ttdef"><b>Definition:</b> HPReal.h:229</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aclassArcane_1_1HPReal_html_a2e33f4ba147c3d2d385c7836254f5e36"><div class="ttname"><a href="../../d4/d2e/classArcane_1_1HPReal.html#a2e33f4ba147c3d2d385c7836254f5e36">Arcane::HPReal::HPReal</a></div><div class="ttdeci">HPReal()</div><div class="ttdoc">Constructeur par défaut sans initialisation.</div><div class="ttdef"><b>Definition:</b> HPReal.h:166</div></div>
+<div class="ttc" id="anamespaceArccore_html_a5ab7f6a9c189227a5006d3f222aa61f6"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Arccore::Real</a></div><div class="ttdeci">double Real</div><div class="ttdoc">Type représentant un réel.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:214</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_2729d02b006c8e73197ea03fae7905d4.html">utils</a></li><li class="navelem"><b>HPReal.h</b></li>
+    <li class="footer">Généré le Mercredi 30 Mars 2022 12:59:36 pour Arcane par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

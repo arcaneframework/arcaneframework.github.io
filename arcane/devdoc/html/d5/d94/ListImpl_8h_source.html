@@ -1,0 +1,558 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de ListImpl.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_2729d02b006c8e73197ea03fae7905d4.html">utils</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">ListImpl.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* ListImpl.h                                                  (C) 2000-2018 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Implémentation de la classe Tableau.                                      */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_UTILS_LISTIMPL_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_UTILS_LISTIMPL_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/CollectionImpl.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/Enumerator.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/DefaultAllocator.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> ARCANE_UTILS_EXPORT <span class="keywordtype">void</span> throwOutOfRangeException();</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> ARCANE_UTILS_EXPORT <span class="keywordtype">void</span> throwNullReference();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span>IRessourceMng;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html">   44</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html">ListImplBase</a></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d0/d2c/classArcane_1_1CollectionImplT.html">CollectionImplT</a>&lt;T&gt;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;{</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d0/d2c/classArcane_1_1CollectionImplT.html">CollectionImplT&lt;T&gt;</a> <a class="code" href="../../d0/d2c/classArcane_1_1CollectionImplT.html">BaseClass</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">typedef</span> <span class="keyword">const</span> T&amp; ObjectRef;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#a40e7e29e3da9f7d00d34960bb80de13e">   56</a></span>&#160;  <span class="keyword">typedef</span> T <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a40e7e29e3da9f7d00d34960bb80de13e">value_type</a>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#a2e2d4aa4aac38c7833bfb311eda338ce">   58</a></span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a40e7e29e3da9f7d00d34960bb80de13e">value_type</a>* <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a2e2d4aa4aac38c7833bfb311eda338ce">iterator</a>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#a9d00b491e2a81f98c97a97f4a00306fc">   60</a></span>&#160;  <span class="keyword">typedef</span> <span class="keyword">const</span> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a40e7e29e3da9f7d00d34960bb80de13e">value_type</a>* <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a9d00b491e2a81f98c97a97f4a00306fc">const_iterator</a>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#acc1ed6136698d2d9beec11d3639d29b4">   62</a></span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a40e7e29e3da9f7d00d34960bb80de13e">value_type</a>* <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#acc1ed6136698d2d9beec11d3639d29b4">pointer</a>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#ae34dd5f9bf990bf7f4575f6fcb787178">   64</a></span>&#160;  <span class="keyword">typedef</span> <span class="keyword">const</span> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a40e7e29e3da9f7d00d34960bb80de13e">value_type</a>* <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#ae34dd5f9bf990bf7f4575f6fcb787178">const_pointer</a>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#a1e91bb36f1566edcb3da0b76b434a196">   66</a></span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a40e7e29e3da9f7d00d34960bb80de13e">value_type</a>&amp; <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a1e91bb36f1566edcb3da0b76b434a196">reference</a>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#a1fcbc3ac0000b4a387a9449fcc3eede6">   68</a></span>&#160;  <span class="keyword">typedef</span> <span class="keyword">const</span> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a40e7e29e3da9f7d00d34960bb80de13e">value_type</a>&amp; <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a1fcbc3ac0000b4a387a9449fcc3eede6">const_reference</a>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#ae8fae65abb7edaedd20bd2bca5b1cc84">   71</a></span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d1/d4f/classArccore_1_1IterT.html">IterT&lt; ListImplBase&lt;T&gt;</a> &gt; <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#ae8fae65abb7edaedd20bd2bca5b1cc84">iter</a>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#a0dbfaa6712378eca3940c57ea592abb1">   73</a></span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d7/d4a/classArccore_1_1ConstIterT.html">ConstIterT&lt; ListImplBase&lt;T&gt;</a> &gt; <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a0dbfaa6712378eca3940c57ea592abb1">const_iter</a>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#a852958ea1f97b2c3a62f979b6ecd514c">   78</a></span>&#160;  <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a852958ea1f97b2c3a62f979b6ecd514c">ListImplBase</a>() : <a class="code" href="../../d0/d2c/classArcane_1_1CollectionImplT.html">BaseClass</a>(), m_capacity(0), m_ptr(0), m_allocator(0) {}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#a3fc5a4f376e6ba826f2c5e02be307f82">   81</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a3fc5a4f376e6ba826f2c5e02be307f82">~ListImplBase</a>() ARCANE_NOEXCEPT { _deallocate(_ptr()); m_allocator-&gt;destroy(); }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#a90964fb860f77cd080a3154011ff6b36">   86</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a90964fb860f77cd080a3154011ff6b36">assign</a>(<span class="keyword">const</span> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html">ListImplBase&lt;T&gt;</a>&amp; s)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    { _arrayCopy(s); }</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#aec840df71dbff27f332761d7e68bd5f0">   89</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#aec840df71dbff27f332761d7e68bd5f0">assign</a>(<span class="keyword">const</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;T&gt;</a>&amp; s)</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    { _arrayCopy(s); }</div>
+<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#ac4e3742b7856f53896d73e19cdb8e5b6">   92</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#ac4e3742b7856f53896d73e19cdb8e5b6">assign</a>(<span class="keyword">const</span> <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayView&lt;T&gt;</a>&amp; s)</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    { _arrayCopy(s); }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keywordtype">void</span> setList(<span class="keyword">const</span> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html">ListImplBase&lt;T&gt;</a>&amp; v)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;    { m_ptr = v.<a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a20cf26cbee03cb8619321c062968a088">m_ptr</a>; _setCount(v.<a class="code" href="../../d3/daf/classArcane_1_1CollectionImplBase.html#a41e763cd719e87f234862da6595f8745">count</a>()); }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00107"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#afa8b4db64b4b7e7b8739b056ff04b6c9">  107</a></span>&#160;  T&amp; <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#afa8b4db64b4b7e7b8739b056ff04b6c9">operator[]</a>(Integer i)</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    {</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="preprocessor">#ifdef ARCANE_CHECK</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      Arcane::arcaneCheckAt(i,this-&gt;count());</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;      <span class="keywordflow">return</span> m_ptr[i];</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#a948dff195f2c8dc5ddace498a1d2d276">  120</a></span>&#160;  <span class="keyword">const</span> T&amp;  <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a948dff195f2c8dc5ddace498a1d2d276">operator[]</a>(Integer i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="preprocessor">#ifdef ARCANE_CHECK</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;      Arcane::arcaneCheckAt(i,this-&gt;count());</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;      <span class="keywordflow">return</span> m_ptr[i];</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    }</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#ab6e6033a389461de13aa111fb6abcda7">  129</a></span>&#160;  <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a2e2d4aa4aac38c7833bfb311eda338ce">iterator</a> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#ab6e6033a389461de13aa111fb6abcda7">begin</a>() { <span class="keywordflow">return</span> m_ptr; }</div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#a6292f7168a4c58a282d7d76279a25407">  131</a></span>&#160;  <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a2e2d4aa4aac38c7833bfb311eda338ce">iterator</a> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a6292f7168a4c58a282d7d76279a25407">end</a>() { <span class="keywordflow">return</span> m_ptr+this-&gt;count(); }</div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#acdcbe54d9f0d26f20041cac00e098b4c">  133</a></span>&#160;  const_iterator <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#acdcbe54d9f0d26f20041cac00e098b4c">begin</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_ptr; }</div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#aeb25f457abe45044848970f06a711389">  135</a></span>&#160;  const_iterator <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#aeb25f457abe45044848970f06a711389">end</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_ptr+this-&gt;count(); }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#ad47c2176d8e1243c81d1d4dfad14bc92">  138</a></span>&#160;  T* <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#ad47c2176d8e1243c81d1d4dfad14bc92">begin2</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_ptr; }</div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#a20db7abed030ff0f206bb72049281acc">  140</a></span>&#160;  T* <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a20db7abed030ff0f206bb72049281acc">end2</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_ptr+this-&gt;count(); }</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">class</span> Function&gt; Function</div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#ad3cda1a42dde75c5423d654b9e31f1d8">  146</a></span>&#160;  <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#ad3cda1a42dde75c5423d654b9e31f1d8">each</a>(Function f)</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  {</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    std::for_each(begin(),end(),f);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="keywordflow">return</span> f;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  }</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  <span class="keywordtype">void</span> setAllocator(<a class="code" href="../../db/d00/classArcane_1_1IAllocatorT.html">IAllocatorT&lt;T&gt;</a>* allocator)</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  {</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    m_allocator = allocator;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  }</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  </div>
+<div class="line"><a name="l00165"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#a2c4cd325b8030b71b787ba5a0cfc66e3">  165</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a2c4cd325b8030b71b787ba5a0cfc66e3">reserve</a>(Integer new_capacity)</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  {</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    T* new_ptr = _allocate(new_capacity);</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    _setPtr(new_ptr);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  }</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#a8e302c61db33630927276ac1db387bd2">  175</a></span>&#160;  Integer <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a8e302c61db33630927276ac1db387bd2">capacity</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="keyword">  </span>{ <span class="keywordflow">return</span> m_capacity; }</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00179"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#a619653599d50737a4751cfabbbdef6f6">  179</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a619653599d50737a4751cfabbbdef6f6">add</a>(ObjectRef elem)</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  {</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    this-&gt;onInsert();</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;    Integer s = this-&gt;count();</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;    <span class="keywordflow">if</span> (s&gt;=m_capacity){</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;      _resize(_ptr(),s+1);</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    }</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;      this-&gt;_setCount(s+1);</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    _ptr()[s] = elem;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    this-&gt;onInsertComplete(_ptr()+s,s);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  }</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> remove(ObjectRef element)</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  {</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    Integer i = 0;</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    Integer s = this-&gt;count();</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    <span class="keywordflow">for</span>( ; i&lt;s; ++i )</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;      <span class="keywordflow">if</span> (_ptr()[i]==element){</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;        _removeAt(i);</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;      }</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    throwOutOfRangeException();</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> removeAt(Integer index)</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  {</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> s = this-&gt;count();</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keywordflow">if</span> (index&gt;=s)</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;      throwOutOfRangeException();</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    _removeAt(index);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  }</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  <span class="keyword">virtual</span> iterator find(ObjectRef element)</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  {</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> i = 0;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> s = this-&gt;count();</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;    <span class="keywordflow">for</span>( ; i&lt;s; ++i )</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      <span class="keywordflow">if</span> (_ptr()[i]==element)</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <span class="keywordflow">return</span> begin()+i;</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;    <span class="keywordflow">return</span> end();</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  }</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;  <span class="keyword">virtual</span> const_iterator find(ObjectRef element)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> i = 0;</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> s = this-&gt;count();</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <span class="keywordflow">for</span>( ; i&lt;s; ++i )</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;      <span class="keywordflow">if</span> (_ptr()[i]==element)</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <span class="keywordflow">return</span> begin()+i;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordflow">return</span> end();</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  }</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> contains(ObjectRef element)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    const_iterator i = find(element);</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="keywordflow">return</span> (i!=end());</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  }</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  <span class="keyword">virtual</span> EnumeratorImplBase* enumerator() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <span class="keywordtype">void</span> _removeAt(Integer index)</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  {</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> s = this-&gt;count();</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    T* ptr = _ptr();</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    T* remove_ob = ptr+index;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    this-&gt;onRemove();</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    <span class="keywordflow">for</span>( Integer i=index+1; i&lt;s; ++i )</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;      ptr[i-1] = ptr[i];</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    resize(s-1);</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    this-&gt;onRemoveComplete(remove_ob,index);</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  }</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160; </div>
+<div class="line"><a name="l00260"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#aa0e201443f2a799c5c64fd607c1fe537">  260</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#aa0e201443f2a799c5c64fd607c1fe537">resize</a>(Integer new_size)</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  {</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    _resize(_ptr(),new_size);</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  }</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; </div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;  <span class="keywordtype">void</span> _setCapacity(Integer v) { m_capacity = v; }</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  Integer _capacity()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_capacity; }</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; </div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <span class="keywordtype">void</span> _arrayCopy(<span class="keyword">const</span> ListImplBase&lt;T&gt;&amp; array)</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  {</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    _arrayCopy(array.data(),array.count());</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  }</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  </div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  <span class="keywordtype">void</span> _arrayCopy(<span class="keyword">const</span> ConstArrayView&lt;T&gt;&amp; array)</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  {</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    _arrayCopy(array.data(),array.size());</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  }</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  <span class="keywordtype">void</span> _arrayCopy(<span class="keyword">const</span> ArrayView&lt;T&gt;&amp; array)</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  {</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;    _arrayCopy(array.data(),array.size());</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  }</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  <span class="keywordtype">void</span> _arrayCopy(<span class="keyword">const</span> T* from_ptr,Integer from_size)</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;  {</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;    <span class="keywordflow">if</span> (from_size==0){</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;      this-&gt;clear();</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    }</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;      <span class="keywordflow">if</span> (from_size&lt;capacity()){</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        this-&gt;_unguardedCopy(_ptr(),from_ptr,from_size);</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        this-&gt;_setCount(from_size);</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;      }</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;      <span class="keywordflow">else</span>{</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;        T* new_ptr = _resize(from_ptr,from_size);</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;        this-&gt;_setList(new_ptr,from_size);</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;      }</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    }</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  }</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
+<div class="line"><a name="l00314"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#a6f59c056b7e428395abdeda0f7dd7d82">  314</a></span>&#160;  <span class="keyword">inline</span> T* <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a6f59c056b7e428395abdeda0f7dd7d82">_ptr</a>() { <span class="keywordflow">return</span> m_ptr; }</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  <span class="keyword">inline</span> T* _ptr()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_ptr; }</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160; </div>
+<div class="line"><a name="l00324"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#a82ef4c4799a1ed9b0ec97be061b91ed8">  324</a></span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a82ef4c4799a1ed9b0ec97be061b91ed8">_setList</a>(T* v,Integer s){ m_ptr = v; this-&gt;_setCount(s); }</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
+<div class="line"><a name="l00332"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#a7ce74a24f9eb1e341a3e37a1aa38b482">  332</a></span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a7ce74a24f9eb1e341a3e37a1aa38b482">_setPtr</a>(T* v)</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;    { m_ptr = v; }</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160; </div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160; </div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  <span class="keywordtype">void</span> _unguardedCopy(T* to_ptr,<span class="keyword">const</span> T* from_ptr,Integer s)</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;  {</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    T* p = to_ptr;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    _setPtr(to_ptr);</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    Integer z = s;</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="keyword">const</span> T* optr = from_ptr;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;    <span class="keywordflow">while</span> (z--)</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;      *p++ = *optr++;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;  }</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;  </div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;  Integer m_capacity;</div>
+<div class="line"><a name="l00350"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#a20cf26cbee03cb8619321c062968a088">  350</a></span>&#160;  T* <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a20cf26cbee03cb8619321c062968a088">m_ptr</a>;  </div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;  <a class="code" href="../../db/d00/classArcane_1_1IAllocatorT.html">IAllocatorT&lt;T&gt;</a>* m_allocator;</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160; </div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;  </div>
+<div class="line"><a name="l00366"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#a12092eec737e0edbfc540479c55702a9">  366</a></span>&#160;  T* <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#a12092eec737e0edbfc540479c55702a9">_resize</a>(<span class="keyword">const</span> T* from_ptr,Integer new_size)</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;  {</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;    Integer c = _capacity();</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    <span class="keywordflow">while</span>(new_size&gt;c)</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;      c = (c==0) ? 4 : (c*2);</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;    _setCapacity(c);</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;    T* old_ptr = _ptr();</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;    T* new_ptr = _allocate(c);</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;    <span class="keywordflow">if</span> (from_ptr){</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;      this-&gt;_unguardedCopy(new_ptr,from_ptr,this-&gt;count());</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;      this-&gt;_setCount(new_size);</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;      <span class="keywordflow">if</span> (from_ptr==old_ptr)</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;        _deallocate(old_ptr);</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;    }</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;      _setList(new_ptr,new_size);</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;    <span class="keywordflow">return</span> new_ptr;</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;  }</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;  </div>
+<div class="line"><a name="l00388"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#ae3ae6821e1bf4d45efb3b1c86a3a3373">  388</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html#ae3ae6821e1bf4d45efb3b1c86a3a3373">_deallocate</a>(T* ptr)</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;    { m_allocator-&gt;<a class="code" href="../../db/d00/classArcane_1_1IAllocatorT.html#a2f362661b8dfc3cb9e45510314de65f1">deallocate</a>(ptr,m_capacity); }</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160; </div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;  T* _allocate(Integer new_capacity)</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;    { <span class="keywordflow">return</span> m_allocator-&gt;<a class="code" href="../../db/d00/classArcane_1_1IAllocatorT.html#a7a8f7b50f97a766ee42d31cdc6cc2565">allocate</a>(new_capacity); }</div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;};</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160; </div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00402"></a><span class="lineno"><a class="line" href="../../d8/da0/classArcane_1_1ListImplT.html">  402</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d8/da0/classArcane_1_1ListImplT.html">ListImplT</a></div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html">ListImplBase</a>&lt;T&gt;</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;{</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160; </div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d4/de3/classArcane_1_1ListImplBase.html">ListImplBase&lt;T&gt;</a> <a class="code" href="../../d0/d2c/classArcane_1_1CollectionImplT.html">BaseClass</a>;</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160; </div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;  <a class="code" href="../../d8/da0/classArcane_1_1ListImplT.html">ListImplT</a>() { _setAllocator(); }</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;  <a class="code" href="../../d8/da0/classArcane_1_1ListImplT.html">ListImplT</a>(<span class="keyword">const</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;T&gt;</a>&amp; array)</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;    { _setAllocator(); this-&gt;_arrayCopy(array); }</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160;  <a class="code" href="../../d8/da0/classArcane_1_1ListImplT.html">ListImplT</a>(<span class="keyword">const</span> <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayView&lt;T&gt;</a>&amp; array)</div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;    { _setAllocator(); this-&gt;_arrayCopy(array); }</div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;  <a class="code" href="../../d8/da0/classArcane_1_1ListImplT.html">ListImplT</a>(<span class="keyword">const</span> <a class="code" href="../../d8/da0/classArcane_1_1ListImplT.html">ListImplT&lt;T&gt;</a>&amp; array)</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160;  : <a class="code" href="../../d0/d2c/classArcane_1_1CollectionImplT.html">BaseClass</a>() { _setAllocator(); _arrayCopy(array); }</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;  <a class="code" href="../../d8/da0/classArcane_1_1ListImplT.html">ListImplT</a>(<span class="keyword">const</span> <a class="code" href="../../d3/d5d/classArcane_1_1Collection.html">Collection&lt;T&gt;</a>&amp; array)</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;  : <a class="code" href="../../d0/d2c/classArcane_1_1CollectionImplT.html">BaseClass</a>()</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;  {</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    _setAllocator();</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;    <span class="keywordflow">for</span>( <span class="keyword">typename</span> <a class="code" href="../../d7/dc8/classArcane_1_1EnumeratorT.html">Collection&lt;T&gt;::Enumerator</a> i(array); ++i; ){</div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;      <a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#af75b3ca6a0540e52218f747f910ee866">BaseClass::add</a>(*i);</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160;    }</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;  }</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;  <a class="code" href="../../d8/da0/classArcane_1_1ListImplT.html">ListImplT</a>(<span class="keyword">const</span> <a class="code" href="../../d7/dc8/classArcane_1_1EnumeratorT.html">EnumeratorT&lt;T&gt;</a>&amp; enumerator)</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;  : <a class="code" href="../../d0/d2c/classArcane_1_1CollectionImplT.html">BaseClass</a>()</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;  {</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;    _setAllocator();</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;    <span class="keywordflow">for</span>( <a class="code" href="../../d7/dc8/classArcane_1_1EnumeratorT.html">EnumeratorT&lt;T&gt;</a> i(enumerator); ++i; ){</div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;      <a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#af75b3ca6a0540e52218f747f910ee866">BaseClass::add</a>(*i);</div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160;    }</div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;  }</div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../d8/da0/classArcane_1_1ListImplT.html">ListImplT</a>() ARCANE_NOEXCEPT {}</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160; </div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;  <span class="keywordtype">void</span> assign(<span class="keyword">const</span> <a class="code" href="../../d3/d5d/classArcane_1_1Collection.html">Collection&lt;T&gt;</a>&amp; array)</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;  {</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;    this-&gt;clear();</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;    <span class="keywordflow">for</span>( <span class="keyword">typename</span> <a class="code" href="../../d7/dc8/classArcane_1_1EnumeratorT.html">Collection&lt;T&gt;::Enumerator</a> i(array); ++i; ){</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;      this-&gt;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#af75b3ca6a0540e52218f747f910ee866">add</a>(*i);</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160;    }</div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;  }</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160;  <span class="keywordtype">void</span> assign(<span class="keyword">const</span> <a class="code" href="../../d7/dc8/classArcane_1_1EnumeratorT.html">EnumeratorT&lt;T&gt;</a>&amp; enumerator)</div>
+<div class="line"><a name="l00444"></a><span class="lineno">  444</span>&#160;  {</div>
+<div class="line"><a name="l00445"></a><span class="lineno">  445</span>&#160;    this-&gt;clear();</div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;    <span class="keywordflow">for</span>( <a class="code" href="../../d7/dc8/classArcane_1_1EnumeratorT.html">EnumeratorT&lt;T&gt;</a> i(enumerator); ++i; ){</div>
+<div class="line"><a name="l00447"></a><span class="lineno">  447</span>&#160;      this-&gt;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#af75b3ca6a0540e52218f747f910ee866">add</a>(*i);</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;    }</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;  }</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160;  </div>
+<div class="line"><a name="l00452"></a><span class="lineno">  452</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00453"></a><span class="lineno">  453</span>&#160; </div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;  <span class="keywordtype">void</span> _setAllocator()</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160;  {</div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;    this-&gt;setAllocator(<span class="keyword">new</span> <a class="code" href="../../d1/d45/classArcane_1_1DefaultAllocatorT.html">DefaultAllocatorT&lt;T&gt;</a>());</div>
+<div class="line"><a name="l00457"></a><span class="lineno">  457</span>&#160;  }</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;};</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160; </div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00462"></a><span class="lineno">  462</span>&#160; </div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00467"></a><span class="lineno"><a class="line" href="../../d4/d37/classArcane_1_1ListEnumeratorImplT.html">  467</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d37/classArcane_1_1ListEnumeratorImplT.html">ListEnumeratorImplT</a></div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../da/dc1/classArcane_1_1EnumeratorImplBase.html">EnumeratorImplBase</a></div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;{</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160; </div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;  <span class="keyword">typedef</span> T* Ptr;</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160; </div>
+<div class="line"><a name="l00474"></a><span class="lineno">  474</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00475"></a><span class="lineno">  475</span>&#160; </div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;  <a class="code" href="../../d4/d37/classArcane_1_1ListEnumeratorImplT.html">ListEnumeratorImplT</a>(Ptr begin,Ptr end)</div>
+<div class="line"><a name="l00477"></a><span class="lineno">  477</span>&#160;  : m_begin(begin), m_current(begin-1), m_end(end) {}</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../d4/d37/classArcane_1_1ListEnumeratorImplT.html">ListEnumeratorImplT</a>() {}</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160; </div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160; </div>
+<div class="line"><a name="l00482"></a><span class="lineno"><a class="line" href="../../d4/d37/classArcane_1_1ListEnumeratorImplT.html#a7794b4a4ec7bf9182e285739ee223ca4">  482</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d4/d37/classArcane_1_1ListEnumeratorImplT.html#a7794b4a4ec7bf9182e285739ee223ca4">reset</a>() { m_current = m_begin-1; }</div>
+<div class="line"><a name="l00483"></a><span class="lineno"><a class="line" href="../../d4/d37/classArcane_1_1ListEnumeratorImplT.html#ac0675a514ace71871d1b53d009eb3856">  483</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../d4/d37/classArcane_1_1ListEnumeratorImplT.html#ac0675a514ace71871d1b53d009eb3856">moveNext</a>() { ++m_current; <span class="keywordflow">return</span> m_current&lt;m_end; }</div>
+<div class="line"><a name="l00484"></a><span class="lineno"><a class="line" href="../../d4/d37/classArcane_1_1ListEnumeratorImplT.html#a84e9ecf85ff2a741867d3bcf48a375ed">  484</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span>* <a class="code" href="../../d4/d37/classArcane_1_1ListEnumeratorImplT.html#a84e9ecf85ff2a741867d3bcf48a375ed">current</a>() { <span class="keywordflow">return</span> m_current; }</div>
+<div class="line"><a name="l00485"></a><span class="lineno"><a class="line" href="../../d4/d37/classArcane_1_1ListEnumeratorImplT.html#a088664197c922c3ac9d119e1809a5ced">  485</a></span>&#160;  <span class="keyword">virtual</span> <span class="keyword">const</span> <span class="keywordtype">void</span>* <a class="code" href="../../d4/d37/classArcane_1_1ListEnumeratorImplT.html#a088664197c922c3ac9d119e1809a5ced">current</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_current; }</div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160; </div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00488"></a><span class="lineno">  488</span>&#160; </div>
+<div class="line"><a name="l00489"></a><span class="lineno">  489</span>&#160;  Ptr m_begin;</div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;  Ptr m_current;</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;  Ptr m_end;</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;};</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160; </div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160; </div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; EnumeratorImplBase* ListImplBase&lt;T&gt;::</div>
+<div class="line"><a name="l00498"></a><span class="lineno"><a class="line" href="../../d4/de3/classArcane_1_1ListImplBase.html#adcd4b14524e517b2844aa2518cc85ea0">  498</a></span>&#160;enumerator()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code" href="../../d4/d37/classArcane_1_1ListEnumeratorImplT.html">ListEnumeratorImplT&lt;T&gt;</a>(begin2(),end2());</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;}</div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160; </div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160; </div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160;ARCANE_END_NAMESPACE</div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160; </div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160; </div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160;<span class="preprocessor">#endif  </span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArccore_1_1ArrayView_html"><div class="ttname"><a href="../../d7/d02/classArccore_1_1ArrayView.html">Arccore::ArrayView</a></div><div class="ttdoc">Vue modifiable d'un tableau d'un type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:95</div></div>
+<div class="ttc" id="aclassArcane_1_1IAllocatorT_html_a2f362661b8dfc3cb9e45510314de65f1"><div class="ttname"><a href="../../db/d00/classArcane_1_1IAllocatorT.html#a2f362661b8dfc3cb9e45510314de65f1">Arcane::IAllocatorT::deallocate</a></div><div class="ttdeci">virtual void deallocate(const T *ptr, Integer capacity)=0</div><div class="ttdoc">Libère la mémoire.</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_ad47c2176d8e1243c81d1d4dfad14bc92"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#ad47c2176d8e1243c81d1d4dfad14bc92">Arcane::ListImplBase::begin2</a></div><div class="ttdeci">T * begin2() const</div><div class="ttdoc">Retourne un iterateur sur le premier élément du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:138</div></div>
+<div class="ttc" id="aclassArcane_1_1ListEnumeratorImplT_html"><div class="ttname"><a href="../../d4/d37/classArcane_1_1ListEnumeratorImplT.html">Arcane::ListEnumeratorImplT</a></div><div class="ttdef"><b>Definition:</b> ListImpl.h:467</div></div>
+<div class="ttc" id="anamespaceArcane_1_1math_html_af75b3ca6a0540e52218f747f910ee866"><div class="ttname"><a href="../../d8/d68/namespaceArcane_1_1math.html#af75b3ca6a0540e52218f747f910ee866">Arcane::math::add</a></div><div class="ttdeci">void add(ArrayView&lt; T &gt; lhs, ConstArrayView&lt; T &gt; copy_array)</div><div class="ttdoc">Ajoute le tableau copy_array dans l'instance.</div><div class="ttdef"><b>Definition:</b> MathUtils.h:1068</div></div>
+<div class="ttc" id="aclassArcane_1_1EnumeratorT_html"><div class="ttname"><a href="../../d7/dc8/classArcane_1_1EnumeratorT.html">Arcane::EnumeratorT</a></div><div class="ttdoc">Enumérateur typé.</div><div class="ttdef"><b>Definition:</b> Collection.h:34</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_a619653599d50737a4751cfabbbdef6f6"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#a619653599d50737a4751cfabbbdef6f6">Arcane::ListImplBase::add</a></div><div class="ttdeci">virtual void add(ObjectRef elem)</div><div class="ttdoc">Ajoute l'élément elem à la fin du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:179</div></div>
+<div class="ttc" id="aclassArcane_1_1EnumeratorImplBase_html"><div class="ttname"><a href="../../da/dc1/classArcane_1_1EnumeratorImplBase.html">Arcane::EnumeratorImplBase</a></div><div class="ttdoc">Interface d'un énumérateur.</div><div class="ttdef"><b>Definition:</b> Enumerator.h:44</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstIterT_html"><div class="ttname"><a href="../../d7/d4a/classArccore_1_1ConstIterT.html">Arccore::ConstIterT</a></div><div class="ttdoc">interval d'itérateurs constant</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:33</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_a90964fb860f77cd080a3154011ff6b36"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#a90964fb860f77cd080a3154011ff6b36">Arcane::ListImplBase::assign</a></div><div class="ttdeci">void assign(const ListImplBase&lt; T &gt; &amp;s)</div><div class="ttdoc">Recopie le tableau s.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:86</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_a6f59c056b7e428395abdeda0f7dd7d82"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#a6f59c056b7e428395abdeda0f7dd7d82">Arcane::ListImplBase::_ptr</a></div><div class="ttdeci">T * _ptr()</div><div class="ttdoc">Retourne un pointeur sur le tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:314</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_aec840df71dbff27f332761d7e68bd5f0"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#aec840df71dbff27f332761d7e68bd5f0">Arcane::ListImplBase::assign</a></div><div class="ttdeci">void assign(const ConstArrayView&lt; T &gt; &amp;s)</div><div class="ttdoc">Recopie le tableau s.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:89</div></div>
+<div class="ttc" id="aclassArcane_1_1ListEnumeratorImplT_html_ac0675a514ace71871d1b53d009eb3856"><div class="ttname"><a href="../../d4/d37/classArcane_1_1ListEnumeratorImplT.html#ac0675a514ace71871d1b53d009eb3856">Arcane::ListEnumeratorImplT::moveNext</a></div><div class="ttdeci">virtual bool moveNext()</div><div class="ttdoc">Avance l'énumérateur sur l'élément suivant de la collection.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:483</div></div>
+<div class="ttc" id="aclassArcane_1_1IAllocatorT_html"><div class="ttname"><a href="../../db/d00/classArcane_1_1IAllocatorT.html">Arcane::IAllocatorT</a></div><div class="ttdoc">Interface d'un allocateur typé</div><div class="ttdef"><b>Definition:</b> IAllocator.h:34</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_a1fcbc3ac0000b4a387a9449fcc3eede6"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#a1fcbc3ac0000b4a387a9449fcc3eede6">Arcane::ListImplBase::const_reference</a></div><div class="ttdeci">const typedef value_type &amp; const_reference</div><div class="ttdoc">Type référence constante d'un élément du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:68</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_afa8b4db64b4b7e7b8739b056ff04b6c9"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#afa8b4db64b4b7e7b8739b056ff04b6c9">Arcane::ListImplBase::operator[]</a></div><div class="ttdeci">T &amp; operator[](Integer i)</div><div class="ttdoc">i-ème élément du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:107</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_aeb25f457abe45044848970f06a711389"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#aeb25f457abe45044848970f06a711389">Arcane::ListImplBase::end</a></div><div class="ttdeci">const_iterator end() const</div><div class="ttdoc">Retourne un iterateur constant sur le premier élément après la fin du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:135</div></div>
+<div class="ttc" id="anamespaceArccore_html_a19fea02f94d4da203710fd2070c0f2fb"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Arccore::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:232</div></div>
+<div class="ttc" id="aclassArcane_1_1IAllocatorT_html_a7a8f7b50f97a766ee42d31cdc6cc2565"><div class="ttname"><a href="../../db/d00/classArcane_1_1IAllocatorT.html#a7a8f7b50f97a766ee42d31cdc6cc2565">Arcane::IAllocatorT::allocate</a></div><div class="ttdeci">virtual T * allocate(Integer new_capacity)=0</div><div class="ttdoc">Alloue de la mémoire pour new_capacity objets.</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_a20cf26cbee03cb8619321c062968a088"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#a20cf26cbee03cb8619321c062968a088">Arcane::ListImplBase::m_ptr</a></div><div class="ttdeci">T * m_ptr</div><div class="ttdoc">Pointeur sur le tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:350</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_aa0e201443f2a799c5c64fd607c1fe537"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#aa0e201443f2a799c5c64fd607c1fe537">Arcane::ListImplBase::resize</a></div><div class="ttdeci">void resize(Integer new_size)</div><div class="ttdoc">Modifie la taille du tableau. new_size est le nouveau nombre d'éléments du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:260</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_a2c4cd325b8030b71b787ba5a0cfc66e3"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#a2c4cd325b8030b71b787ba5a0cfc66e3">Arcane::ListImplBase::reserve</a></div><div class="ttdeci">void reserve(Integer new_capacity)</div><div class="ttdoc">Signale qu'il faut réserver de la mémoire pour new_capacity éléments Il s'agit juste d'une indication...</div><div class="ttdef"><b>Definition:</b> ListImpl.h:165</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_a1e91bb36f1566edcb3da0b76b434a196"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#a1e91bb36f1566edcb3da0b76b434a196">Arcane::ListImplBase::reference</a></div><div class="ttdeci">value_type &amp; reference</div><div class="ttdoc">Type référence d'un élément du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:66</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_a6292f7168a4c58a282d7d76279a25407"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#a6292f7168a4c58a282d7d76279a25407">Arcane::ListImplBase::end</a></div><div class="ttdeci">iterator end()</div><div class="ttdoc">Retourne un iterateur sur le premier élément après la fin du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:131</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_a82ef4c4799a1ed9b0ec97be061b91ed8"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#a82ef4c4799a1ed9b0ec97be061b91ed8">Arcane::ListImplBase::_setList</a></div><div class="ttdeci">void _setList(T *v, Integer s)</div><div class="ttdoc">Modifie le pointeur et la taille du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:324</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_ab6e6033a389461de13aa111fb6abcda7"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#ab6e6033a389461de13aa111fb6abcda7">Arcane::ListImplBase::begin</a></div><div class="ttdeci">iterator begin()</div><div class="ttdoc">Retourne un iterateur sur le premier élément du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:129</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html">Arcane::ListImplBase</a></div><div class="ttdoc">Tableau avec allocateur virtuel.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:44</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_ac4e3742b7856f53896d73e19cdb8e5b6"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#ac4e3742b7856f53896d73e19cdb8e5b6">Arcane::ListImplBase::assign</a></div><div class="ttdeci">void assign(const ArrayView&lt; T &gt; &amp;s)</div><div class="ttdoc">Recopie le tableau s.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:92</div></div>
+<div class="ttc" id="aclassArcane_1_1CollectionImplT_html"><div class="ttname"><a href="../../d0/d2c/classArcane_1_1CollectionImplT.html">Arcane::CollectionImplT</a></div><div class="ttdoc">classe de base d'implémentation d'une collection typée.</div><div class="ttdef"><b>Definition:</b> CollectionImpl.h:200</div></div>
+<div class="ttc" id="aclassArcane_1_1Collection_html"><div class="ttname"><a href="../../d3/d5d/classArcane_1_1Collection.html">Arcane::Collection</a></div><div class="ttdoc">Classe de base d'une collection fortement typée.</div><div class="ttdef"><b>Definition:</b> Collection.h:33</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_a3fc5a4f376e6ba826f2c5e02be307f82"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#a3fc5a4f376e6ba826f2c5e02be307f82">Arcane::ListImplBase::~ListImplBase</a></div><div class="ttdeci">virtual ~ListImplBase() ARCANE_NOEXCEPT</div><div class="ttdoc">Libère les éléments du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:81</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_a2e2d4aa4aac38c7833bfb311eda338ce"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#a2e2d4aa4aac38c7833bfb311eda338ce">Arcane::ListImplBase::iterator</a></div><div class="ttdeci">value_type * iterator</div><div class="ttdoc">Type de l'itérateur sur un élément du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:58</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_acc1ed6136698d2d9beec11d3639d29b4"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#acc1ed6136698d2d9beec11d3639d29b4">Arcane::ListImplBase::pointer</a></div><div class="ttdeci">value_type * pointer</div><div class="ttdoc">Type pointeur d'un élément du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:62</div></div>
+<div class="ttc" id="aclassArcane_1_1CollectionImplBase_html_a41e763cd719e87f234862da6595f8745"><div class="ttname"><a href="../../d3/daf/classArcane_1_1CollectionImplBase.html#a41e763cd719e87f234862da6595f8745">Arcane::CollectionImplBase::count</a></div><div class="ttdeci">Integer count() const</div><div class="ttdoc">Retourne le nombre d'éléments de la collection.</div><div class="ttdef"><b>Definition:</b> CollectionImpl.h:136</div></div>
+<div class="ttc" id="aclassArcane_1_1ListEnumeratorImplT_html_a7794b4a4ec7bf9182e285739ee223ca4"><div class="ttname"><a href="../../d4/d37/classArcane_1_1ListEnumeratorImplT.html#a7794b4a4ec7bf9182e285739ee223ca4">Arcane::ListEnumeratorImplT::reset</a></div><div class="ttdeci">virtual void reset()</div><div class="ttdoc">Remet à zéro l'énumérateur.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:482</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_ad3cda1a42dde75c5423d654b9e31f1d8"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#ad3cda1a42dde75c5423d654b9e31f1d8">Arcane::ListImplBase::each</a></div><div class="ttdeci">Function each(Function f)</div><div class="ttdoc">Applique le fonctor f à tous les éléments du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:146</div></div>
+<div class="ttc" id="aclassArcane_1_1DefaultAllocatorT_html"><div class="ttname"><a href="../../d1/d45/classArcane_1_1DefaultAllocatorT.html">Arcane::DefaultAllocatorT</a></div><div class="ttdoc">Allocateur par défaut (utilise new[] et delete[])</div><div class="ttdef"><b>Definition:</b> DefaultAllocator.h:36</div></div>
+<div class="ttc" id="aclassArccore_1_1IterT_html"><div class="ttname"><a href="../../d1/d4f/classArccore_1_1IterT.html">Arccore::IterT</a></div><div class="ttdoc">interval d'itérateurs</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:34</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_a20db7abed030ff0f206bb72049281acc"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#a20db7abed030ff0f206bb72049281acc">Arcane::ListImplBase::end2</a></div><div class="ttdeci">T * end2() const</div><div class="ttdoc">Retourne un iterateur sur le premier élément après la fin du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:140</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_a40e7e29e3da9f7d00d34960bb80de13e"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#a40e7e29e3da9f7d00d34960bb80de13e">Arcane::ListImplBase::value_type</a></div><div class="ttdeci">T value_type</div><div class="ttdoc">Type des éléments du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:56</div></div>
+<div class="ttc" id="aclassArcane_1_1ListEnumeratorImplT_html_a088664197c922c3ac9d119e1809a5ced"><div class="ttname"><a href="../../d4/d37/classArcane_1_1ListEnumeratorImplT.html#a088664197c922c3ac9d119e1809a5ced">Arcane::ListEnumeratorImplT::current</a></div><div class="ttdeci">virtual const void * current() const</div><div class="ttdoc">Objet courant de l'énumérateur.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:485</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_ae8fae65abb7edaedd20bd2bca5b1cc84"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#ae8fae65abb7edaedd20bd2bca5b1cc84">Arcane::ListImplBase::iter</a></div><div class="ttdeci">IterT&lt; ListImplBase&lt; T &gt; &gt; iter</div><div class="ttdoc">Type d'un itérateur sur tout le tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:71</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_a7ce74a24f9eb1e341a3e37a1aa38b482"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#a7ce74a24f9eb1e341a3e37a1aa38b482">Arcane::ListImplBase::_setPtr</a></div><div class="ttdeci">void _setPtr(T *v)</div><div class="ttdoc">Modifie le pointeur du début du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:332</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_a12092eec737e0edbfc540479c55702a9"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#a12092eec737e0edbfc540479c55702a9">Arcane::ListImplBase::_resize</a></div><div class="ttdeci">T * _resize(const T *from_ptr, Integer new_size)</div><div class="ttdoc">Modifie la taille du tableau. Cette méthode doit retourner un pointeur sur un tableau alloué par la c...</div><div class="ttdef"><b>Definition:</b> ListImpl.h:366</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:32</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_a8e302c61db33630927276ac1db387bd2"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#a8e302c61db33630927276ac1db387bd2">Arcane::ListImplBase::capacity</a></div><div class="ttdeci">Integer capacity() const</div><div class="ttdoc">Retourne le nombre d'éléments alloués du tableau. Il s'agit juste d'une indication....</div><div class="ttdef"><b>Definition:</b> ListImpl.h:175</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_ae3ae6821e1bf4d45efb3b1c86a3a3373"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#ae3ae6821e1bf4d45efb3b1c86a3a3373">Arcane::ListImplBase::_deallocate</a></div><div class="ttdeci">void _deallocate(T *ptr)</div><div class="ttdoc">Signale qu'il faut libérer la mémoire associée au pointeur.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:388</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_a9d00b491e2a81f98c97a97f4a00306fc"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#a9d00b491e2a81f98c97a97f4a00306fc">Arcane::ListImplBase::const_iterator</a></div><div class="ttdeci">const typedef value_type * const_iterator</div><div class="ttdoc">Type de l'itérateur constant sur un élément du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:60</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplT_html"><div class="ttname"><a href="../../d8/da0/classArcane_1_1ListImplT.html">Arcane::ListImplT</a></div><div class="ttdef"><b>Definition:</b> ListImpl.h:402</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_a852958ea1f97b2c3a62f979b6ecd514c"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#a852958ea1f97b2c3a62f979b6ecd514c">Arcane::ListImplBase::ListImplBase</a></div><div class="ttdeci">ListImplBase()</div><div class="ttdoc">Construit un tableau vide.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:78</div></div>
+<div class="ttc" id="aclassArcane_1_1ListEnumeratorImplT_html_a84e9ecf85ff2a741867d3bcf48a375ed"><div class="ttname"><a href="../../d4/d37/classArcane_1_1ListEnumeratorImplT.html#a84e9ecf85ff2a741867d3bcf48a375ed">Arcane::ListEnumeratorImplT::current</a></div><div class="ttdeci">virtual void * current()</div><div class="ttdoc">Objet courant de l'énumérateur.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:484</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_ae34dd5f9bf990bf7f4575f6fcb787178"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#ae34dd5f9bf990bf7f4575f6fcb787178">Arcane::ListImplBase::const_pointer</a></div><div class="ttdeci">const typedef value_type * const_pointer</div><div class="ttdoc">Type pointeur constant d'un élément du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:64</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_a948dff195f2c8dc5ddace498a1d2d276"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#a948dff195f2c8dc5ddace498a1d2d276">Arcane::ListImplBase::operator[]</a></div><div class="ttdeci">const T &amp; operator[](Integer i) const</div><div class="ttdoc">i-ème élément du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:120</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_a0dbfaa6712378eca3940c57ea592abb1"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#a0dbfaa6712378eca3940c57ea592abb1">Arcane::ListImplBase::const_iter</a></div><div class="ttdeci">ConstIterT&lt; ListImplBase&lt; T &gt; &gt; const_iter</div><div class="ttdoc">Type d'un itérateur constant sur tout le tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:73</div></div>
+<div class="ttc" id="aclassArcane_1_1ListImplBase_html_acdcbe54d9f0d26f20041cac00e098b4c"><div class="ttname"><a href="../../d4/de3/classArcane_1_1ListImplBase.html#acdcbe54d9f0d26f20041cac00e098b4c">Arcane::ListImplBase::begin</a></div><div class="ttdeci">const_iterator begin() const</div><div class="ttdoc">Retourne un iterateur constant sur le premier élément du tableau.</div><div class="ttdef"><b>Definition:</b> ListImpl.h:133</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:35 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane: Variables et dépendances</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Variables et dépendances </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p><a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a> dispose d'un mécanisme de gestion des dépendances entre variables permettant de mettre automatiquement à jour une variable ci nécessaire. Ce mécanisme est optionnel et il n'est pas nécessaire de l'utiliser.</p>
+<p>Le principe est le suivant:</p><ul>
+<li>chaque variable contient une liste des variables dont elle dépend</li>
+<li>chaque variable possède une fonction de calcul, qui sera appelée automatiquement par <a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a> pour recalculer la variable si nécessaire. Cette fonction de calcul doit appeler la méthode VariableRef::setUpToDate() pour la ou les variables qu'elle a mise à jour.</li>
+<li>la méthode VariableRef::update() est appelée lorsqu'on souhaite mettre à jour la valeur d'une variable. Cette méthode suit la chaîne de dépendance et met à jour toutes les variables nécessaires en appelant leur fonction de calcul.</li>
+</ul>
+<h3>Ajout des dépendances</h3>
+<p>La gestion des dépendances est la clé de la bonne mise à jour des variables. Il faut faire attention de ne pas faire de boucles dans les dépendances (deux variables qui dépendent l'une de l'autre directement ou indirectement), ce qui provoquerait des récursions infinies. De même, il ne faut pas oublier une dépendance, ce qui produirait des calculs faux car certaines variables ne serait pas mises à jour au bon moment.</p>
+<p>Il existe deux types de dépendances:</p><ul>
+<li>dépendance d'une autre variable au même temps physique. Pour ajouter une dépendance de ce type, il faut appeler la méthode VariableRef::addDependCurrentTime()</li>
+<li>dépendance d'une autre variable au temps physique précédent. Pour ajouter une dépendance de ce type, il faut appeler la méthode VariableRef::addDependPreviousTime()</li>
+</ul>
+<p>Dans le module hydro simplifiée du didacticiel, le calcul de la vitesse lagrangienne (vitesse avant l'application des conditions aux limites) dépend de la force au temps courant et de la masse aux noeuds du temps précendent, soit:</p>
+<div class="fragment"><div class="line">m_lagrangian_velocity.addDependPreviousTime(m_node_mass);</div>
+<div class="line">m_lagrangian_velocity.addDependCurrentTime(m_force);</div>
+</div><!-- fragment --><h3>Fonction de calcul</h3>
+<p>Chaque variable qui possède des dépendances doit fournir une fonction de calcul, qui est une méthode d'une instance de classe. La méthode VariableRef::setComputeFunction() positionne cette fonction. Par exemple:</p>
+<div class="fragment"><div class="line">m_lagrangian_velocity.setComputeFunction(<span class="keyword">this</span>,&amp;ModuleSimpleHydroDepend::computeLagrangianVelocity);</div>
+</div><!-- fragment --><p>Une fonction de calcul doit mettre à jour la variable qui lui est associée mais peut aussi mettre à jour d'autres variables. La seule condition est que pour toutes les variables mises à jour, il faut appeler la méthode VariableRef::setUpToDate().</p>
+<p>Par exemple, la fonction de calcul de vitesse langrangienne: </p><div class="fragment"><div class="line">*<span class="keywordtype">void</span> ModuleSimpleHydroDepend::</div>
+<div class="line">*computeLagrangianVelocity()</div>
+<div class="line"> {</div>
+<div class="line">   <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aea36524754c129124072de38e045d6ba">ENUMERATE_NODE</a>(i_node,ownNodes()){</div>
+<div class="line">     Node node = *i_node;</div>
+<div class="line">     Real node_mass  = m_node_mass[i_node];</div>
+<div class="line"> </div>
+<div class="line">     Real3 old_velocity = m_velocity[i_node];</div>
+<div class="line">     Real3 new_velocity = old_velocity + (m_delta_t_n() / node_mass) * m_force[i_node];</div>
+<div class="line"> </div>
+<div class="line">     m_lagrangian_velocity[i_node] = new_velocity;</div>
+<div class="line">   }</div>
+<div class="line"> </div>
+<div class="line">   m_lagrangian_velocity.setUpToDate();</div>
+<div class="line">   m_lagrangian_velocity.synchronize();</div>
+<div class="line"> }</div>
+</div><!-- fragment --><h3>Exemple complet</h3>
+<p>Pour un exemple complet de code utilisant des dépendances, se reporter au fichier arcane/tests/ModuleSimpleHydroDepend.cc </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="aItemEnumerator_8h_html_aea36524754c129124072de38e045d6ba"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#aea36524754c129124072de38e045d6ba">ENUMERATE_NODE</a></div><div class="ttdeci">#define ENUMERATE_NODE(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de noeuds.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:234</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:55 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

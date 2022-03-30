@@ -1,0 +1,217 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de ParallelSuperMngDispatcher.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">ParallelSuperMngDispatcher.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* ParallelSuperMngDispatcher.h                                (C) 2000-2006 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Interface du gestionnaire du parallélisme sur un domaine.                 */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_PARALLELSUPERMNGDISPATCHER_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_PARALLELSUPERMNGDISPATCHER_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/IParallelSuperMng.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; <span class="keyword">class </span>IParallelDispatchT;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../de/d43/classArcane_1_1ParallelSuperMngDispatcher.html">   36</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../de/d43/classArcane_1_1ParallelSuperMngDispatcher.html">ParallelSuperMngDispatcher</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html">IParallelSuperMng</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <a class="code" href="../../de/d43/classArcane_1_1ParallelSuperMngDispatcher.html">ParallelSuperMngDispatcher</a>();</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../de/d43/classArcane_1_1ParallelSuperMngDispatcher.html">ParallelSuperMngDispatcher</a>();</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordtype">void</span> _setDispatchers(<a class="code" href="../../d4/d8b/classArcane_1_1IParallelDispatchT.html">IParallelDispatchT&lt;Byte&gt;</a>* b,<a class="code" href="../../d4/d8b/classArcane_1_1IParallelDispatchT.html">IParallelDispatchT&lt;Int32&gt;</a>* i32,</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;                       <a class="code" href="../../d4/d8b/classArcane_1_1IParallelDispatchT.html">IParallelDispatchT&lt;Int64&gt;</a>* i64,<a class="code" href="../../d4/d8b/classArcane_1_1IParallelDispatchT.html">IParallelDispatchT&lt;Real&gt;</a>* r);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keywordtype">void</span> _finalize();</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> allGather(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ByteConstArrayView</a> send_buf,<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ByteArrayView</a> recv_buf);</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> allGather(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> send_buf,<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int32ArrayView</a> recv_buf);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> allGather(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int64ConstArrayView</a> send_buf,<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int64ArrayView</a> recv_buf);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> allGather(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">RealConstArrayView</a> send_buf,<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">RealArrayView</a> recv_buf);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">virtual</span> Int32 reduce(<a class="code" href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3ea">eReduceType</a> rt,Int32 v);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keyword">virtual</span> Int64 reduce(<a class="code" href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3ea">eReduceType</a> rt,Int64 v);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">virtual</span> Real reduce(<a class="code" href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3ea">eReduceType</a> rt,Real v);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> reduce(<a class="code" href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3ea">eReduceType</a> rt,<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int32ArrayView</a> v);</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> reduce(<a class="code" href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3ea">eReduceType</a> rt,<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int64ArrayView</a> v);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> reduce(<a class="code" href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3ea">eReduceType</a> rt,<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">RealArrayView</a> v);</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a353b77df4f6ccdaeef6f508078d0d5f6">broadcast</a>(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ByteArrayView</a> send_buf,Integer <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a353b77df4f6ccdaeef6f508078d0d5f6">broadcast</a>(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int32ArrayView</a> send_buf,Integer <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a353b77df4f6ccdaeef6f508078d0d5f6">broadcast</a>(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int64ArrayView</a> send_buf,Integer <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a353b77df4f6ccdaeef6f508078d0d5f6">broadcast</a>(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">RealArrayView</a> send_buf,Integer <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> send(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ByteConstArrayView</a> values,Integer <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> send(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> values,Integer <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> send(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int64ConstArrayView</a> values,Integer <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> send(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">RealConstArrayView</a> values,Integer <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> recv(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ByteArrayView</a> values,Integer <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> recv(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int32ArrayView</a> values,Integer <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> recv(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int64ArrayView</a> values,Integer <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> recv(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">RealArrayView</a> values,Integer <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d1/d72/classArccore_1_1MessagePassing_1_1Request.html">Request</a> send(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ByteConstArrayView</a> values,Integer <span class="keywordtype">id</span>,<span class="keywordtype">bool</span> is_blocked);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d1/d72/classArccore_1_1MessagePassing_1_1Request.html">Request</a> send(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> values,Integer <span class="keywordtype">id</span>,<span class="keywordtype">bool</span> is_blocked);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d1/d72/classArccore_1_1MessagePassing_1_1Request.html">Request</a> send(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int64ConstArrayView</a> values,Integer <span class="keywordtype">id</span>,<span class="keywordtype">bool</span> is_blocked);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d1/d72/classArccore_1_1MessagePassing_1_1Request.html">Request</a> send(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">RealConstArrayView</a> values,Integer <span class="keywordtype">id</span>,<span class="keywordtype">bool</span> is_blocked);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;          </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d1/d72/classArccore_1_1MessagePassing_1_1Request.html">Request</a> recv(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ByteArrayView</a> values,Integer <span class="keywordtype">id</span>,<span class="keywordtype">bool</span> is_blocked);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d1/d72/classArccore_1_1MessagePassing_1_1Request.html">Request</a> recv(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int32ArrayView</a> values,Integer <span class="keywordtype">id</span>,<span class="keywordtype">bool</span> is_blocked);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d1/d72/classArccore_1_1MessagePassing_1_1Request.html">Request</a> recv(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int64ArrayView</a> values,Integer <span class="keywordtype">id</span>,<span class="keywordtype">bool</span> is_blocked);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d1/d72/classArccore_1_1MessagePassing_1_1Request.html">Request</a> recv(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">RealArrayView</a> values,Integer <span class="keywordtype">id</span>,<span class="keywordtype">bool</span> is_blocked);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> sendRecv(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ByteConstArrayView</a> send_buf,<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ByteArrayView</a> recv_buf,Integer <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> sendRecv(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> send_buf,<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int32ArrayView</a> recv_buf,Integer <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> sendRecv(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int64ConstArrayView</a> send_buf,<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int64ArrayView</a> recv_buf,Integer <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> sendRecv(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">RealConstArrayView</a> send_buf,<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">RealArrayView</a> recv_buf,Integer <span class="keywordtype">id</span>);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> allToAll(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ByteConstArrayView</a> send_buf,<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ByteArrayView</a> recv_buf,Integer count);</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> allToAll(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> send_buf,<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int32ArrayView</a> recv_buf,Integer count);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> allToAll(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int64ConstArrayView</a> send_buf,<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int64ArrayView</a> recv_buf,Integer count);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> allToAll(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">RealConstArrayView</a> send_buf,<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">RealArrayView</a> recv_buf,Integer count);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="keyword">virtual</span> Int32 scan(<a class="code" href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3ea">eReduceType</a> rt,Int32 v);</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keyword">virtual</span> Int64 scan(<a class="code" href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3ea">eReduceType</a> rt,Int64 v);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keyword">virtual</span> Real scan(<a class="code" href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3ea">eReduceType</a> rt,Real v);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> scan(<a class="code" href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3ea">eReduceType</a> rt,<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int32ArrayView</a> v);</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> scan(<a class="code" href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3ea">eReduceType</a> rt,<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int64ArrayView</a> v);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> scan(<a class="code" href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3ea">eReduceType</a> rt,<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">RealArrayView</a> v);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  <a class="code" href="../../d4/d8b/classArcane_1_1IParallelDispatchT.html">IParallelDispatchT&lt;Byte&gt;</a>* m_byte;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <a class="code" href="../../d4/d8b/classArcane_1_1IParallelDispatchT.html">IParallelDispatchT&lt;Int32&gt;</a>* m_int32;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <a class="code" href="../../d4/d8b/classArcane_1_1IParallelDispatchT.html">IParallelDispatchT&lt;Int64&gt;</a>* m_int64;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <a class="code" href="../../d4/d8b/classArcane_1_1IParallelDispatchT.html">IParallelDispatchT&lt;Real&gt;</a>* m_real;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;};</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;ARCANE_END_NAMESPACE</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor">#endif  </span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1IParallelDispatchT_html"><div class="ttname"><a href="../../d4/d8b/classArcane_1_1IParallelDispatchT.html">Arcane::IParallelDispatchT&lt; Byte &gt;</a></div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html_a353b77df4f6ccdaeef6f508078d0d5f6"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a353b77df4f6ccdaeef6f508078d0d5f6">Arcane::IParallelSuperMng::broadcast</a></div><div class="ttdeci">virtual void broadcast(ByteArrayView send_buf, Integer process_id)=0</div><div class="ttdoc">Envoie un tableau de valeurs sur tous les processus Cette opération synchronise le tableau de valeur ...</div></div>
+<div class="ttc" id="aclassArccore_1_1ArrayView_html"><div class="ttname"><a href="../../d7/d02/classArccore_1_1ArrayView.html">Arccore::ArrayView</a></div><div class="ttdoc">Vue modifiable d'un tableau d'un type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:95</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1Request_html"><div class="ttname"><a href="../../d1/d72/classArccore_1_1MessagePassing_1_1Request.html">Arccore::MessagePassing::Request</a></div><div class="ttdoc">Requête d'un message.</div><div class="ttdef"><b>Definition:</b> Request.h:68</div></div>
+<div class="ttc" id="anamespaceArcane_html_a94d0dc2214c1be27126aa036eb95e579"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a94d0dc2214c1be27126aa036eb95e579">Arcane::ByteConstArrayView</a></div><div class="ttdeci">ConstArrayView&lt; Byte &gt; ByteConstArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension de caractères.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:526</div></div>
+<div class="ttc" id="anamespaceArcane_html_a3c7a9ed3103f665326d3ffd67fec7b75"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a3c7a9ed3103f665326d3ffd67fec7b75">Arcane::RealConstArrayView</a></div><div class="ttdeci">ConstArrayView&lt; Real &gt; RealConstArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension de réels.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:538</div></div>
+<div class="ttc" id="anamespaceArcane_html_aac3ba81b262849e245c89dd3c70293cb"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aac3ba81b262849e245c89dd3c70293cb">Arcane::ByteArrayView</a></div><div class="ttdeci">ArrayView&lt; Byte &gt; ByteArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension de caractères.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:497</div></div>
+<div class="ttc" id="aclassArcane_1_1ParallelSuperMngDispatcher_html_a3ebdc5e9147c630ce6cf14b1f02f06ad"><div class="ttname"><a href="../../de/d43/classArcane_1_1ParallelSuperMngDispatcher.html#a3ebdc5e9147c630ce6cf14b1f02f06ad">Arcane::ParallelSuperMngDispatcher::broadcast</a></div><div class="ttdeci">virtual void broadcast(ByteArrayView send_buf, Integer id)</div><div class="ttdoc">Envoie un tableau de valeurs sur tous les processus Cette opération synchronise le tableau de valeur ...</div><div class="ttdef"><b>Definition:</b> ParallelSuperMngDispatcher.cc:118</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html">Arcane::IParallelSuperMng</a></div><div class="ttdoc">Classe abstraite du superviseur de parallélisme.</div><div class="ttdef"><b>Definition:</b> IParallelSuperMng.h:40</div></div>
+<div class="ttc" id="anamespaceArccore_1_1MessagePassing_html_aaf52c72596590e6ea65e9e03e1adf3ea"><div class="ttname"><a href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3ea">Arccore::MessagePassing::eReduceType</a></div><div class="ttdeci">eReduceType</div><div class="ttdoc">Types des réductions supportées.</div><div class="ttdef"><b>Definition:</b> MessagePassingGlobal.h:71</div></div>
+<div class="ttc" id="anamespaceArcane_html_ad52ea8220f052e503f802c64c81e0222"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ad52ea8220f052e503f802c64c81e0222">Arcane::Int64ConstArrayView</a></div><div class="ttdeci">ConstArrayView&lt; Int64 &gt; Int64ConstArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension d'entiers 64 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:530</div></div>
+<div class="ttc" id="anamespaceArcane_html_aead162b50f6ba79ca922c6893e23054f"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aead162b50f6ba79ca922c6893e23054f">Arcane::RealArrayView</a></div><div class="ttdeci">ArrayView&lt; Real &gt; RealArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension de réels.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:509</div></div>
+<div class="ttc" id="anamespaceArcane_html_a638ab0b5813a316efa87a4e382bedc59"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a638ab0b5813a316efa87a4e382bedc59">Arcane::Int32ConstArrayView</a></div><div class="ttdeci">ConstArrayView&lt; Int32 &gt; Int32ConstArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension d'entiers 32 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:532</div></div>
+<div class="ttc" id="anamespaceArcane_html_a7332a70f38a2f4925865259192b0fac3"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a7332a70f38a2f4925865259192b0fac3">Arcane::Int64ArrayView</a></div><div class="ttdeci">ArrayView&lt; Int64 &gt; Int64ArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension d'entiers 64 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:501</div></div>
+<div class="ttc" id="anamespaceArcane_html_afec99f57f5dac88c46422be9cd3d3224"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#afec99f57f5dac88c46422be9cd3d3224">Arcane::Int32ArrayView</a></div><div class="ttdeci">ArrayView&lt; Int32 &gt; Int32ArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension d'entiers 32 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:503</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:32</div></div>
+<div class="ttc" id="aclassArcane_1_1ParallelSuperMngDispatcher_html"><div class="ttname"><a href="../../de/d43/classArcane_1_1ParallelSuperMngDispatcher.html">Arcane::ParallelSuperMngDispatcher</a></div><div class="ttdoc">Redirige la gestion des messages des sous-domaines suivant le type de l'argument.</div><div class="ttdef"><b>Definition:</b> ParallelSuperMngDispatcher.h:36</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:41 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

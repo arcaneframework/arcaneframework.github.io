@@ -1,0 +1,318 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arcane/ItemPrinter.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('de/dbf/ItemPrinter_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">ItemPrinter.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* ItemPrinter.h                                               (C) 2000-2004 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Routines d&#39;impressions d&#39;une entité.                                      */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_ITEMPRINTER_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_ITEMPRINTER_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/Iostream.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d7e/ArcaneTypes_8h.html">arcane/ArcaneTypes.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;arcane/Item.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d7/dcb/classArcane_1_1ItemPrinter.html">   37</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../d7/dcb/classArcane_1_1ItemPrinter.html">ItemPrinter</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <a class="code" href="../../d7/dcb/classArcane_1_1ItemPrinter.html">ItemPrinter</a>(<a class="code" href="../../dd/df1/classArcane_1_1ItemInternal.html">ItemInternal</a>* item,<a class="code" href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7">eItemKind</a> ik) </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  : m_item(item), m_item_kind(ik), m_has_item_kind(<span class="keyword">true</span>)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    {}</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <a class="code" href="../../d7/dcb/classArcane_1_1ItemPrinter.html">ItemPrinter</a>(<a class="code" href="../../dd/df1/classArcane_1_1ItemInternal.html">ItemInternal</a>* item)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  : m_item(item), m_item_kind(<a class="code" href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7a8801e4f56cb20372e75f70d514b6e968">IK_Unknown</a>), m_has_item_kind(<span class="keyword">false</span>)</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    {}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <a class="code" href="../../d7/dcb/classArcane_1_1ItemPrinter.html">ItemPrinter</a>(<span class="keyword">const</span> <a class="code" href="../../df/d5f/classArcane_1_1Item.html">Item</a>&amp; item)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  : m_item(item.<a class="code" href="../../df/d5f/classArcane_1_1Item.html#a9beb17a99adcdd450f9327004ea060eb">internal</a>()), m_item_kind(<a class="code" href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7a8801e4f56cb20372e75f70d514b6e968">IK_Unknown</a>), m_has_item_kind(<span class="keyword">false</span>)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {}</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <a class="code" href="../../d7/dcb/classArcane_1_1ItemPrinter.html">ItemPrinter</a>(<span class="keyword">const</span> <a class="code" href="../../df/d5f/classArcane_1_1Item.html">Item</a>&amp; item,<a class="code" href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7">eItemKind</a> ik)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  : m_item(item.<a class="code" href="../../df/d5f/classArcane_1_1Item.html#a9beb17a99adcdd450f9327004ea060eb">internal</a>()), m_item_kind(ik), m_has_item_kind(<span class="keyword">true</span>)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    {}</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <a class="code" href="../../d7/dcb/classArcane_1_1ItemPrinter.html">ItemPrinter</a>(<span class="keyword">const</span> <a class="code" href="../../d8/dd7/classArcane_1_1Node.html">Node</a>&amp; item)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  : m_item(item.internal()), m_item_kind(<a class="code" href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7a3d45b1f47e66f750d23ef4fac749558d">IK_Node</a>), m_has_item_kind(<span class="keyword">true</span>)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    {}</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <a class="code" href="../../d7/dcb/classArcane_1_1ItemPrinter.html">ItemPrinter</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d16/classArcane_1_1Edge.html">Edge</a>&amp; item)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  : m_item(item.<a class="code" href="../../df/d5f/classArcane_1_1Item.html#a9beb17a99adcdd450f9327004ea060eb">internal</a>()), m_item_kind(<a class="code" href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7adab840c7bc62b7527ab88c4f97503005">IK_Edge</a>), m_has_item_kind(<span class="keyword">true</span>)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    {}</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <a class="code" href="../../d7/dcb/classArcane_1_1ItemPrinter.html">ItemPrinter</a>(<span class="keyword">const</span> <a class="code" href="../../d1/db1/classArcane_1_1Face.html">Face</a>&amp; item)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  : m_item(item.<a class="code" href="../../df/d5f/classArcane_1_1Item.html#a9beb17a99adcdd450f9327004ea060eb">internal</a>()), m_item_kind(<a class="code" href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7a970214a4f93b95c7ff1c00d2d4438dee">IK_Face</a>), m_has_item_kind(<span class="keyword">true</span>)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    {}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="code" href="../../d7/dcb/classArcane_1_1ItemPrinter.html">ItemPrinter</a>(<span class="keyword">const</span> <a class="code" href="../../d9/db2/classArcane_1_1Cell.html">Cell</a>&amp; item)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  : m_item(item.<a class="code" href="../../df/d5f/classArcane_1_1Item.html#a9beb17a99adcdd450f9327004ea060eb">internal</a>()), m_item_kind(<a class="code" href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7a43a1d702aabd0a4063e61442d68d6fb0">IK_Cell</a>), m_has_item_kind(<span class="keyword">true</span>)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    {}</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <a class="code" href="../../d7/dcb/classArcane_1_1ItemPrinter.html">ItemPrinter</a>(<span class="keyword">const</span> <a class="code" href="../../dd/d6c/classArcane_1_1Particle.html">Particle</a>&amp; item)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  : m_item(item.<a class="code" href="../../df/d5f/classArcane_1_1Item.html#a9beb17a99adcdd450f9327004ea060eb">internal</a>()), m_item_kind(<a class="code" href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7a257d132ec593a7ae8940b84b70184b94">IK_Particle</a>), m_has_item_kind(<span class="keyword">true</span>)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    {}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keywordtype">void</span> print(std::ostream&amp; o) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <a class="code" href="../../dd/df1/classArcane_1_1ItemInternal.html">ItemInternal</a>* m_item;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <a class="code" href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7">eItemKind</a> m_item_kind;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keywordtype">bool</span> m_has_item_kind;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keyword">struct </span><a class="code" href="../../d6/d9a/structArcane_1_1ItemPrinter_1_1Internal.html">Internal</a>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;};</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="../../da/d57/classArcane_1_1FullItemPrinter.html">   84</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../da/d57/classArcane_1_1FullItemPrinter.html">FullItemPrinter</a> {</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../da/d57/classArcane_1_1FullItemPrinter.html">FullItemPrinter</a>(<span class="keyword">const</span> <a class="code" href="../../df/d5f/classArcane_1_1Item.html">Item</a>&amp; item)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    : m_item(item.<a class="code" href="../../df/d5f/classArcane_1_1Item.html#a9beb17a99adcdd450f9327004ea060eb">internal</a>())</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  {}</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keywordtype">void</span> print(std::ostream&amp; o) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;   <a class="code" href="../../dd/df1/classArcane_1_1ItemInternal.html">ItemInternal</a>* m_item;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;};</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno"><a class="line" href="../../d7/dd2/classArcane_1_1NeighborItemPrinter.html">  100</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../d7/dd2/classArcane_1_1NeighborItemPrinter.html">NeighborItemPrinter</a></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;{</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d7/dd2/classArcane_1_1NeighborItemPrinter.html">NeighborItemPrinter</a>(<a class="code" href="../../df/d5f/classArcane_1_1Item.html">Item</a> item, <span class="keyword">const</span> Integer levelmax=1)</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  : m_item(item.<a class="code" href="../../df/d5f/classArcane_1_1Item.html#a9beb17a99adcdd450f9327004ea060eb">internal</a>()), m_level_max(levelmax)</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  {}</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="../../d7/dd2/classArcane_1_1NeighborItemPrinter.html#ae06fd94699b72052edb936eb2096db0c">  108</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d7/dd2/classArcane_1_1NeighborItemPrinter.html#ae06fd94699b72052edb936eb2096db0c">print</a>(std::ostream&amp; o)<span class="keyword"> const </span>{ <a class="code" href="../../d7/dd2/classArcane_1_1NeighborItemPrinter.html#ae06fd94699b72052edb936eb2096db0c">print</a>(o,m_item,m_level_max,m_level_max); }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;   <a class="code" href="../../dd/df1/classArcane_1_1ItemInternal.html">ItemInternal</a>* m_item;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;   Integer m_level_max;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;   <span class="keyword">static</span> std::ostream&amp; indent(std::ostream&amp; o, Integer n);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;   <span class="keyword">static</span> <span class="keywordtype">void</span> print(std::ostream&amp; o, <a class="code" href="../../dd/df1/classArcane_1_1ItemInternal.html">ItemInternal</a> * item, Integer level, Integer levelmax);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;   <span class="keyword">static</span> <span class="keywordtype">void</span> _printSubItems(std::ostream&amp; ostr,Integer level, Integer levelmax,</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;                              <a class="code" href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html">ItemInternalVectorView</a> sub_items,<span class="keyword">const</span> <span class="keywordtype">char</span>* name);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;};</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="keyword">inline</span> std::ostream&amp;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<a class="code" href="../../d6/d24/classArcane_1_1Real2.html#a36183e3cdb88bbb418f60678da812ddd">operator&lt;&lt;</a>(std::ostream&amp; o,<span class="keyword">const</span> ItemPrinter&amp; ip)</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;{</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  ip.print(o);</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="keywordflow">return</span> o;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;<span class="keyword">inline</span> std::ostream&amp;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<a class="code" href="../../d6/d24/classArcane_1_1Real2.html#a36183e3cdb88bbb418f60678da812ddd">operator&lt;&lt;</a>(std::ostream&amp; o,<span class="keyword">const</span> FullItemPrinter&amp; ip)</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;{</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  ip.print(o);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="keywordflow">return</span> o;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;}</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keyword">inline</span> std::ostream&amp;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<a class="code" href="../../d6/d24/classArcane_1_1Real2.html#a36183e3cdb88bbb418f60678da812ddd">operator&lt;&lt;</a>(std::ostream&amp; o,<span class="keyword">const</span> NeighborItemPrinter&amp; ip)</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;{</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  ip.print(o);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <span class="keywordflow">return</span> o;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;}</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;ARCANE_END_NAMESPACE</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclassArcane_1_1FullItemPrinter_html"><div class="ttname"><a href="../../da/d57/classArcane_1_1FullItemPrinter.html">Arcane::FullItemPrinter</a></div><div class="ttdef"><b>Definition:</b> ItemPrinter.h:84</div></div>
+<div class="ttc" id="aclassArcane_1_1Particle_html"><div class="ttname"><a href="../../dd/d6c/classArcane_1_1Particle.html">Arcane::Particle</a></div><div class="ttdoc">Particule.</div><div class="ttdef"><b>Definition:</b> Item.h:967</div></div>
+<div class="ttc" id="anamespaceArcane_html_aaa6951864e32e84c29b3cffca3d4b3f7a257d132ec593a7ae8940b84b70184b94"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7a257d132ec593a7ae8940b84b70184b94">Arcane::IK_Particle</a></div><div class="ttdeci">@ IK_Particle</div><div class="ttdoc">Entité de maillage de genre particule.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:121</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a2a1ff3e6ae954292a56c9300958857f2"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a2a1ff3e6ae954292a56c9300958857f2">Arcane::ItemInternal::nbNode</a></div><div class="ttdeci">Integer nbNode() const</div><div class="ttdoc">Nombre de noeuds de l'entité</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:430</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_abd362504822813a9eb216611530042d3"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#abd362504822813a9eb216611530042d3">Arcane::ItemInternal::internalNodes</a></div><div class="ttdeci">ItemInternalVectorView internalNodes() const</div><div class="ttdoc">Méthodes utilisant les nouvelles connectivités pour acceéder aux informations de connectivité....</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:678</div></div>
+<div class="ttc" id="anamespaceArcane_html_aaa6951864e32e84c29b3cffca3d4b3f7a8801e4f56cb20372e75f70d514b6e968"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7a8801e4f56cb20372e75f70d514b6e968">Arcane::IK_Unknown</a></div><div class="ttdeci">@ IK_Unknown</div><div class="ttdoc">Entité de maillage de genre inconnu ou non initialisé</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:122</div></div>
+<div class="ttc" id="aclassArcane_1_1Edge_html"><div class="ttname"><a href="../../d1/d16/classArcane_1_1Edge.html">Arcane::Edge</a></div><div class="ttdoc">Arête d'une maille.</div><div class="ttdef"><b>Definition:</b> Item.h:550</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html">Arcane::ItemInternal</a></div><div class="ttdef"><b>Definition:</b> ItemInternal.h:307</div></div>
+<div class="ttc" id="aclassArcane_1_1Face_html"><div class="ttname"><a href="../../d1/db1/classArcane_1_1Face.html">Arcane::Face</a></div><div class="ttdoc">Face d'une maille.</div><div class="ttdef"><b>Definition:</b> Item.h:638</div></div>
+<div class="ttc" id="aclassArcane_1_1NeighborItemPrinter_html_ae06fd94699b72052edb936eb2096db0c"><div class="ttname"><a href="../../d7/dd2/classArcane_1_1NeighborItemPrinter.html#ae06fd94699b72052edb936eb2096db0c">Arcane::NeighborItemPrinter::print</a></div><div class="ttdeci">void print(std::ostream &amp;o) const</div><div class="ttdoc">Ecriture sur flux de l'Item courant et de ses sous-items.</div><div class="ttdef"><b>Definition:</b> ItemPrinter.h:108</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a797d43779687460b8fcf9f6e8d9a4c73a018bd542095f37b2a2f0372bc1689333"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a797d43779687460b8fcf9f6e8d9a4c73a018bd542095f37b2a2f0372bc1689333">Arcane::ItemInternal::II_HasTrace</a></div><div class="ttdeci">@ II_HasTrace</div><div class="ttdoc">L'entité est marquée pour trace (pour débug)</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:332</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a64b29582b0196196fbd2bdb5558511e9"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a64b29582b0196196fbd2bdb5558511e9">Arcane::ItemInternal::nbEdge</a></div><div class="ttdeci">Integer nbEdge() const</div><div class="ttdoc">Nombre d'arêtes de l'entité ou nombre d'arêtes connectés à l'entités (pour les noeuds)</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:432</div></div>
+<div class="ttc" id="aclassArcane_1_1Node_html"><div class="ttname"><a href="../../d8/dd7/classArcane_1_1Node.html">Arcane::Node</a></div><div class="ttdoc">Noeud d'un maillage.</div><div class="ttdef"><b>Definition:</b> Dom.h:203</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a797d43779687460b8fcf9f6e8d9a4c73a54b87b08b9b165702e5b3fce055b52af"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a797d43779687460b8fcf9f6e8d9a4c73a54b87b08b9b165702e5b3fce055b52af">Arcane::ItemInternal::II_FrontCellIsFirst</a></div><div class="ttdeci">@ II_FrontCellIsFirst</div><div class="ttdoc">La première maille de l'entité est la maille devant.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:319</div></div>
+<div class="ttc" id="astructArcane_1_1ItemPrinter_1_1Internal_html_a809d7308ac117d0d25d5c2eeddd85b56"><div class="ttname"><a href="../../d6/d9a/structArcane_1_1ItemPrinter_1_1Internal.html#a809d7308ac117d0d25d5c2eeddd85b56">Arcane::ItemPrinter::Internal::_printFlags</a></div><div class="ttdeci">static void _printFlags(std::ostream &amp;o, Integer flags)</div><div class="ttdoc">Ecrit les flags de l'item de manière explicite.</div><div class="ttdef"><b>Definition:</b> ItemPrinter.cc:196</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a1eb7f2a76c60b6167b7f7e6f6f0ef5b3"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a1eb7f2a76c60b6167b7f7e6f6f0ef5b3">Arcane::ItemInternal::nbFace</a></div><div class="ttdeci">Integer nbFace() const</div><div class="ttdoc">Nombre de faces de l'entité ou nombre de faces connectés à l'entités (pour les noeuds et arêtes)</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:434</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a386eedf8cc274288a47e8e90c28e64d6"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a386eedf8cc274288a47e8e90c28e64d6">Arcane::ItemInternal::family</a></div><div class="ttdeci">IItemFamily * family() const</div><div class="ttdoc">Famille dont est issue l'entité</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:507</div></div>
+<div class="ttc" id="anamespaceArcane_html_aaa6951864e32e84c29b3cffca3d4b3f7adab840c7bc62b7527ab88c4f97503005"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7adab840c7bc62b7527ab88c4f97503005">Arcane::IK_Edge</a></div><div class="ttdeci">@ IK_Edge</div><div class="ttdoc">Entité de maillage de genre arête.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:117</div></div>
+<div class="ttc" id="aArcaneTypes_8h_html"><div class="ttname"><a href="../../d0/d7e/ArcaneTypes_8h.html">ArcaneTypes.h</a></div><div class="ttdoc">Déclarations des types généraux de Arcane.</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfo_html_a162eb24d1a2387e74a37c6538a1e9c99"><div class="ttname"><a href="../../dc/d74/classArcane_1_1ItemTypeInfo.html#a162eb24d1a2387e74a37c6538a1e9c99">Arcane::ItemTypeInfo::typeName</a></div><div class="ttdeci">const String typeName() const</div><div class="ttdoc">Nom du type.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfo.h:108</div></div>
+<div class="ttc" id="aclassArcane_1_1Real2_html_a36183e3cdb88bbb418f60678da812ddd"><div class="ttname"><a href="../../d6/d24/classArcane_1_1Real2.html#a36183e3cdb88bbb418f60678da812ddd">Arcane::Real2::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;o, Real2 t)</div><div class="ttdoc">Ecrit le couple t sur le flot o.</div><div class="ttdef"><b>Definition:</b> Real2.h:297</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a797d43779687460b8fcf9f6e8d9a4c73a703947c2cae872a59bf17618e5e3834d"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a797d43779687460b8fcf9f6e8d9a4c73a703947c2cae872a59bf17618e5e3834d">Arcane::ItemInternal::II_UserMark2</a></div><div class="ttdeci">@ II_UserMark2</div><div class="ttdoc">Marque utilisateur old_value 1&lt;&lt;25.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:343</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a797d43779687460b8fcf9f6e8d9a4c73adf39efd18b525b57bbfb75deb49c3abe"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a797d43779687460b8fcf9f6e8d9a4c73adf39efd18b525b57bbfb75deb49c3abe">Arcane::ItemInternal::II_Added</a></div><div class="ttdeci">@ II_Added</div><div class="ttdoc">L'entité vient d'être ajoutée.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:322</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a0bc5b25fcd222a6a16d71a83229351c2"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a0bc5b25fcd222a6a16d71a83229351c2">Arcane::ItemInternal::flags</a></div><div class="ttdeci">Int32 flags() const</div><div class="ttdoc">Flags de l'entité</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:408</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemPrinter_html_ab4742e4a3e3ff85e7bf91c061b62decb"><div class="ttname"><a href="../../d7/dcb/classArcane_1_1ItemPrinter.html#ab4742e4a3e3ff85e7bf91c061b62decb">Arcane::ItemPrinter::print</a></div><div class="ttdeci">void print(std::ostream &amp;o) const</div><div class="ttdoc">Ecriture sur flux de l'Item courant.</div><div class="ttdef"><b>Definition:</b> ItemPrinter.cc:58</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a797d43779687460b8fcf9f6e8d9a4c73adc6cdacedbf1b530ac1a4a96feabde49"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a797d43779687460b8fcf9f6e8d9a4c73adc6cdacedbf1b530ac1a4a96feabde49">Arcane::ItemInternal::II_Suppressed</a></div><div class="ttdeci">@ II_Suppressed</div><div class="ttdoc">L'entité vient d'être supprimée.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:323</div></div>
+<div class="ttc" id="aclassArcane_1_1Cell_html"><div class="ttname"><a href="../../d9/db2/classArcane_1_1Cell.html">Arcane::Cell</a></div><div class="ttdoc">Maille d'un maillage.</div><div class="ttdef"><b>Definition:</b> Item.h:822</div></div>
+<div class="ttc" id="astructArcane_1_1ItemPrinter_1_1Internal_html_af943fa1ca6cc162cec954f439b17a2ba"><div class="ttname"><a href="../../d6/d9a/structArcane_1_1ItemPrinter_1_1Internal.html#af943fa1ca6cc162cec954f439b17a2ba">Arcane::ItemPrinter::Internal::_printParents</a></div><div class="ttdeci">static void _printParents(std::ostream &amp;o, ItemInternal *item)</div><div class="ttdoc">Ecrit les infos sur les parents.</div><div class="ttdef"><b>Definition:</b> ItemPrinter.cc:247</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemPrinter_html"><div class="ttname"><a href="../../d7/dcb/classArcane_1_1ItemPrinter.html">Arcane::ItemPrinter</a></div><div class="ttdoc">Classe utilitaire pour imprimer les infos sur une entité.</div><div class="ttdef"><b>Definition:</b> ItemPrinter.h:37</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_ac96a6e629129a27345a80e31c994e1d1"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#ac96a6e629129a27345a80e31c994e1d1">Arcane::ItemInternal::nbParent</a></div><div class="ttdeci">Integer nbParent() const</div><div class="ttdoc">Nombre de parent.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:442</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a797d43779687460b8fcf9f6e8d9a4c73afbf115f3359f5ace882ee27cf2de9c16"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a797d43779687460b8fcf9f6e8d9a4c73afbf115f3359f5ace882ee27cf2de9c16">Arcane::ItemInternal::II_HasFrontCell</a></div><div class="ttdeci">@ II_HasFrontCell</div><div class="ttdoc">L'entité a une maille devant.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:317</div></div>
+<div class="ttc" id="anamespaceArcane_html_aae2e860eadb932c0e614ed16f6368917"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aae2e860eadb932c0e614ed16f6368917">Arcane::itemKindName</a></div><div class="ttdeci">const char * itemKindName(eItemKind kind)</div><div class="ttdoc">Nom du genre d'entité.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.cc:37</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_abc13bc4235cbea2632f859b2e3c69b83"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#abc13bc4235cbea2632f859b2e3c69b83">Arcane::ItemInternal::uniqueId</a></div><div class="ttdeci">ItemUniqueId uniqueId() const</div><div class="ttdoc">Numéro unique de l'entité</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:363</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a797d43779687460b8fcf9f6e8d9a4c73a573c5e38501d5aeae6e58b15e0aebdea"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a797d43779687460b8fcf9f6e8d9a4c73a573c5e38501d5aeae6e58b15e0aebdea">Arcane::ItemInternal::II_Shared</a></div><div class="ttdeci">@ II_Shared</div><div class="ttdoc">L'entité est partagée par un autre sous-domaine.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:324</div></div>
+<div class="ttc" id="anamespaceArcane_html_aaa6951864e32e84c29b3cffca3d4b3f7"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7">Arcane::eItemKind</a></div><div class="ttdeci">eItemKind</div><div class="ttdoc">Genre d'entité de maillage.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:114</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternalVectorView_html_ac6fe119e7710fa902e893aa6213155c8"><div class="ttname"><a href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html#ac6fe119e7710fa902e893aa6213155c8">Arcane::ItemInternalVectorView::size</a></div><div class="ttdeci">Integer size() const</div><div class="ttdoc">Nombre d'éléments du vecteur.</div><div class="ttdef"><b>Definition:</b> ItemInternalVectorView.h:132</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a26ef80f33f195cac7e508413007a589e"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a26ef80f33f195cac7e508413007a589e">Arcane::ItemInternal::typeInfo</a></div><div class="ttdeci">ItemTypeInfo * typeInfo() const</div><div class="ttdoc">Type de l'entité.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:503</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html_ac03dd6aadc0f22a51096167b1bb8694f"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html#ac03dd6aadc0f22a51096167b1bb8694f">Arcane::IMesh::meshPartInfo</a></div><div class="ttdeci">virtual const MeshPartInfo &amp; meshPartInfo() const =0</div><div class="ttdoc">Informations sur les parties du maillage.</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_aff4147c14e3da784563a3b8ee022474a"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#aff4147c14e3da784563a3b8ee022474a">Arcane::ItemInternal::localId</a></div><div class="ttdeci">Integer localId() const</div><div class="ttdoc">Numéro local (au sous-domaine) de l'entité</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:361</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_ae2c10031921e535bd8a4f00a708aa32e"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#ae2c10031921e535bd8a4f00a708aa32e">Arcane::ItemInternal::kind</a></div><div class="ttdeci">eItemKind kind() const</div><div class="ttdoc">Genre de l'entité</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:509</div></div>
+<div class="ttc" id="astructArcane_1_1ItemPrinter_1_1Internal_html_a85a5998043b4e04a400aa4b86d89d070"><div class="ttname"><a href="../../d6/d9a/structArcane_1_1ItemPrinter_1_1Internal.html#a85a5998043b4e04a400aa4b86d89d070">Arcane::ItemPrinter::Internal::_printErrors</a></div><div class="ttdeci">static void _printErrors(std::ostream &amp;o, ItemInternal *item)</div><div class="ttdoc">Ecrit les infos sur les parents.</div><div class="ttdef"><b>Definition:</b> ItemPrinter.cc:263</div></div>
+<div class="ttc" id="anamespaceArcane_html_aaa6951864e32e84c29b3cffca3d4b3f7a3d45b1f47e66f750d23ef4fac749558d"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7a3d45b1f47e66f750d23ef4fac749558d">Arcane::IK_Node</a></div><div class="ttdeci">@ IK_Node</div><div class="ttdoc">Entité de maillage de genre noeud.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:116</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a797d43779687460b8fcf9f6e8d9a4c73afd9994eb1d18b315964af6d96cc4970a"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a797d43779687460b8fcf9f6e8d9a4c73afd9994eb1d18b315964af6d96cc4970a">Arcane::ItemInternal::II_SubDomainBoundary</a></div><div class="ttdeci">@ II_SubDomainBoundary</div><div class="ttdoc">L'entité est à la frontière de deux sous-domaines.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:325</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a797d43779687460b8fcf9f6e8d9a4c73a64d8466c301f61914e535b683e9d8728"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a797d43779687460b8fcf9f6e8d9a4c73a64d8466c301f61914e535b683e9d8728">Arcane::ItemInternal::II_Boundary</a></div><div class="ttdeci">@ II_Boundary</div><div class="ttdoc">L'entité est sur la frontière.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:316</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a797d43779687460b8fcf9f6e8d9a4c73a1ec80ad2dd333f36b51716eb53f1ab4d"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a797d43779687460b8fcf9f6e8d9a4c73a1ec80ad2dd333f36b51716eb53f1ab4d">Arcane::ItemInternal::II_MasterFace</a></div><div class="ttdeci">@ II_MasterFace</div><div class="ttdoc">L'entité est une face maître d'une interface.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:330</div></div>
+<div class="ttc" id="astructArcane_1_1ItemPrinter_1_1Internal_html_a26dfe09f30e512b4e99667ff7e4d3b05"><div class="ttname"><a href="../../d6/d9a/structArcane_1_1ItemPrinter_1_1Internal.html#a26dfe09f30e512b4e99667ff7e4d3b05">Arcane::ItemPrinter::Internal::_printBasics</a></div><div class="ttdeci">static void _printBasics(std::ostream &amp;o, ItemInternal *item)</div><div class="ttdoc">Ecrit les informations basiques de l'item.</div><div class="ttdef"><b>Definition:</b> ItemPrinter.cc:183</div></div>
+<div class="ttc" id="aclassArcane_1_1Item_html_a9beb17a99adcdd450f9327004ea060eb"><div class="ttname"><a href="../../df/d5f/classArcane_1_1Item.html#a9beb17a99adcdd450f9327004ea060eb">Arcane::Item::internal</a></div><div class="ttdeci">ItemInternal * internal() const</div><div class="ttdoc">Partie interne de l'entité.</div><div class="ttdef"><b>Definition:</b> Item.h:278</div></div>
+<div class="ttc" id="astructArcane_1_1ItemPrinter_1_1Internal_html_a52ad2da574afd5842ba57fb199df94f2"><div class="ttname"><a href="../../d6/d9a/structArcane_1_1ItemPrinter_1_1Internal.html#a52ad2da574afd5842ba57fb199df94f2">Arcane::ItemPrinter::Internal::_printItemSubItems</a></div><div class="ttdeci">static void _printItemSubItems(std::ostream &amp;ostr, String name, const ItemInternalVectorView &amp;enumerator)</div><div class="ttdoc">Ecrit les informations d'une énumération d'items.</div><div class="ttdef"><b>Definition:</b> ItemPrinter.cc:288</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a1969ab26bf4bd15b87cd3fba27b7da72"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a1969ab26bf4bd15b87cd3fba27b7da72">Arcane::ItemInternal::isOwn</a></div><div class="ttdeci">bool isOwn() const</div><div class="ttdoc">Vrai si l'entité appartient au sous-domaine.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:513</div></div>
+<div class="ttc" id="aclassArcane_1_1NeighborItemPrinter_html"><div class="ttname"><a href="../../d7/dd2/classArcane_1_1NeighborItemPrinter.html">Arcane::NeighborItemPrinter</a></div><div class="ttdef"><b>Definition:</b> ItemPrinter.h:100</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a5a2db3d9fcd8f888fe5026175974d3df"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a5a2db3d9fcd8f888fe5026175974d3df">Arcane::IItemFamily::mesh</a></div><div class="ttdeci">virtual IMesh * mesh() const =0</div><div class="ttdoc">Maillage associé</div></div>
+<div class="ttc" id="anamespaceArcane_html_aaa6951864e32e84c29b3cffca3d4b3f7a970214a4f93b95c7ff1c00d2d4438dee"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7a970214a4f93b95c7ff1c00d2d4438dee">Arcane::IK_Face</a></div><div class="ttdeci">@ IK_Face</div><div class="ttdoc">Entité de maillage de genre face.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:118</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a797d43779687460b8fcf9f6e8d9a4c73a3e67957ef7e15b88b51b16ec104ea884"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a797d43779687460b8fcf9f6e8d9a4c73a3e67957ef7e15b88b51b16ec104ea884">Arcane::ItemInternal::II_SlaveFace</a></div><div class="ttdeci">@ II_SlaveFace</div><div class="ttdoc">L'entité est une face esclave d'une interface.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:329</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a726ba1bd7454d63e65d3004f4afb98c4"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a726ba1bd7454d63e65d3004f4afb98c4">Arcane::ItemInternal::owner</a></div><div class="ttdeci">Int32 owner() const</div><div class="ttdoc">Numéro du sous-domaine propriétaire de l'entité</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:405</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a797d43779687460b8fcf9f6e8d9a4c73ab0d77b20db2ec4eeacdba8f340cf7f99"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a797d43779687460b8fcf9f6e8d9a4c73ab0d77b20db2ec4eeacdba8f340cf7f99">Arcane::ItemInternal::II_UserMark1</a></div><div class="ttdeci">@ II_UserMark1</div><div class="ttdoc">Marque utilisateur old_value 1&lt;&lt;24.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:342</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a797d43779687460b8fcf9f6e8d9a4c73aaf0aa660d5f5180ce7ef4a9d130e1a90"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a797d43779687460b8fcf9f6e8d9a4c73aaf0aa660d5f5180ce7ef4a9d130e1a90">Arcane::ItemInternal::II_Own</a></div><div class="ttdeci">@ II_Own</div><div class="ttdoc">L'entité est une entité propre au sous-domaine.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:321</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternalVectorView_html"><div class="ttname"><a href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html">Arcane::ItemInternalVectorView</a></div><div class="ttdef"><b>Definition:</b> ItemInternalVectorView.h:111</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a797d43779687460b8fcf9f6e8d9a4c73aac4a7b356640e761d31bef113b785c1a"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a797d43779687460b8fcf9f6e8d9a4c73aac4a7b356640e761d31bef113b785c1a">Arcane::ItemInternal::II_BackCellIsFirst</a></div><div class="ttdeci">@ II_BackCellIsFirst</div><div class="ttdoc">La première maille de l'entité est la maille derrière.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:320</div></div>
+<div class="ttc" id="anamespaceArcane_html_aaa6951864e32e84c29b3cffca3d4b3f7a43a1d702aabd0a4063e61442d68d6fb0"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7a43a1d702aabd0a4063e61442d68d6fb0">Arcane::IK_Cell</a></div><div class="ttdeci">@ IK_Cell</div><div class="ttdoc">Entité de maillage de genre maille.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:119</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> String.h:68</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a797d43779687460b8fcf9f6e8d9a4c73a54bb482c7cfb0d7e0065f0cc0c24ce89"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a797d43779687460b8fcf9f6e8d9a4c73a54bb482c7cfb0d7e0065f0cc0c24ce89">Arcane::ItemInternal::II_NeedRemove</a></div><div class="ttdeci">@ II_NeedRemove</div><div class="ttdoc">L'entité doit être supprimé</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:328</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_abed941ffdf62e153018af331a6f2ce72"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#abed941ffdf62e153018af331a6f2ce72">Arcane::ItemInternal::nbCell</a></div><div class="ttdeci">Integer nbCell() const</div><div class="ttdoc">Nombre de mailles connectées à l'entité (pour les noeuds, arêtes et faces)</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:436</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html_ab7473ee509cb0d5fe52986e4c6474a45"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html#ab7473ee509cb0d5fe52986e4c6474a45">Arccore::String::plural</a></div><div class="ttdeci">static String plural(const Integer n, const String &amp;str, const bool with_number=true)</div><div class="ttdoc">Forme standard du pluriel par ajout d'un 's'.</div><div class="ttdef"><b>Definition:</b> String.cc:1028</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_afe42473e8d62a130e32681063a94f910"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#afe42473e8d62a130e32681063a94f910">Arcane::ItemInternal::null</a></div><div class="ttdeci">bool null() const</div><div class="ttdoc">Vrai si l'entité est l'entité nulle.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:511</div></div>
+<div class="ttc" id="aclassArcane_1_1FullItemPrinter_html_af75cf4627e562836fd55981bd649219d"><div class="ttname"><a href="../../da/d57/classArcane_1_1FullItemPrinter.html#af75cf4627e562836fd55981bd649219d">Arcane::FullItemPrinter::print</a></div><div class="ttdeci">void print(std::ostream &amp;o) const</div><div class="ttdoc">Ecriture sur flux de l'Item courant et de ses sous-items.</div><div class="ttdef"><b>Definition:</b> ItemPrinter.cc:84</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="astructArcane_1_1ItemPrinter_1_1Internal_html"><div class="ttname"><a href="../../d6/d9a/structArcane_1_1ItemPrinter_1_1Internal.html">Arcane::ItemPrinter::Internal</a></div><div class="ttdef"><b>Definition:</b> ItemPrinter.cc:40</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a797d43779687460b8fcf9f6e8d9a4c73a2d6afb74fcf04c8b4d8580fe84470c22"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a797d43779687460b8fcf9f6e8d9a4c73a2d6afb74fcf04c8b4d8580fe84470c22">Arcane::ItemInternal::II_JustAdded</a></div><div class="ttdeci">@ II_JustAdded</div><div class="ttdoc">L'entité vient d'être ajoutée.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:327</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a797d43779687460b8fcf9f6e8d9a4c73a2cc1dc789089b89731ba3fb564ec9e2c"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a797d43779687460b8fcf9f6e8d9a4c73a2cc1dc789089b89731ba3fb564ec9e2c">Arcane::ItemInternal::II_HasBackCell</a></div><div class="ttdeci">@ II_HasBackCell</div><div class="ttdoc">L'entité a une maille derrière.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:318</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a39a27405014a98c73a1986133a0102d7"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a39a27405014a98c73a1986133a0102d7">Arcane::ItemInternal::isSuppressed</a></div><div class="ttdeci">bool isSuppressed() const</div><div class="ttdoc">Vrai si l'entité est supprimée.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:523</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html_a797d43779687460b8fcf9f6e8d9a4c73a899cd19597fb0940a4983e7a49deff0e"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html#a797d43779687460b8fcf9f6e8d9a4c73a899cd19597fb0940a4983e7a49deff0e">Arcane::ItemInternal::II_Detached</a></div><div class="ttdeci">@ II_Detached</div><div class="ttdoc">L'entité est détachée du maillage.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:331</div></div>
+<div class="ttc" id="aclassArcane_1_1Item_html"><div class="ttname"><a href="../../df/d5f/classArcane_1_1Item.html">Arcane::Item</a></div><div class="ttdoc">Classe de base d'un élément de maillage.</div><div class="ttdef"><b>Definition:</b> Item.h:71</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><b>ItemPrinter.h</b></li>
+    <li class="footer">Généré le Mercredi 30 Mars 2022 12:59:32 pour Arcane par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

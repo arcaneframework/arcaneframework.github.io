@@ -1,0 +1,441 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arcane/utils/MDSpan.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('df/dc5/MDSpan_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">MDSpan.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* MDSpan.h                                                    (C) 2000-2022 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Vue sur un tableaux multi-dimensionnel pour les types numériques.         */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_UTILS_MDSPAN_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_UTILS_MDSPAN_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/ArrayExtents.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/ArrayBounds.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> * ATTENTION:</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> * Toutes les classes de ce fichier sont expérimentales et l&#39;API n&#39;est pas</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> * figée. A NE PAS UTILISER EN DEHORS DE ARCANE.</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> DataType,<span class="keywordtype">int</span> RankValue,<span class="keyword">typename</span> LayoutType&gt;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../d8/df1/classArcane_1_1MDSpanBase.html">   55</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html">MDSpanBase</a></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">using</span> UnqualifiedValueType = std::remove_cv_t&lt;DataType&gt;;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">NumArrayBase</a>&lt;UnqualifiedValueType,RankValue,LayoutType&gt;;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="comment">// Pour que MDSpan&lt;const T&gt; ait accès à MDSpan&lt;T&gt;</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html">MDSpanBase</a>&lt;const UnqualifiedValueType,RankValue,LayoutType&gt;;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html">MDSpanBase</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html">MDSpanBase</a>(DataType* ptr,<a class="code" href="../../d8/db2/classArcane_1_1ArrayExtentsWithOffset.html">ArrayExtentsWithOffset&lt;RankValue,LayoutType&gt;</a> extents)</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  : m_ptr(ptr), m_extents(extents)</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="comment">// Constructeur MDSpan&lt;const T&gt; à partir d&#39;un MDSpan&lt;T&gt;</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> X,<span class="keyword">typename</span> = std::enable_if_t&lt;std::is_same_v&lt;X,UnqualifiedValueType&gt;&gt;&gt;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html">MDSpanBase</a>(<span class="keyword">const</span> <a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html">MDSpanBase&lt;X,RankValue&gt;</a>&amp; rhs)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  : m_ptr(rhs.m_ptr), m_extents(rhs.m_extents){}</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  ARCCORE_HOST_DEVICE DataType* _internalData() { <span class="keywordflow">return</span> m_ptr; }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  ARCCORE_HOST_DEVICE <span class="keyword">const</span> DataType* _internalData()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_ptr; }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <a class="code" href="../../da/d2e/classArcane_1_1ArrayExtents.html">ArrayExtents&lt;RankValue&gt;</a> extents()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    <span class="keywordflow">return</span> m_extents.extents();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <a class="code" href="../../d8/db2/classArcane_1_1ArrayExtentsWithOffset.html">ArrayExtentsWithOffset&lt;RankValue,LayoutType&gt;</a> extentsWithOffset()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> m_extents;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  Int32 extent(<span class="keywordtype">int</span> i)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_extents(i); }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  ARCCORE_HOST_DEVICE Int64 offset(<a class="code" href="../../d9/dd0/classArcane_1_1ArrayBoundsIndex.html">ArrayBoundsIndex&lt;RankValue&gt;</a> idx)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">return</span> m_extents.offset(idx);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  }</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../d8/df1/classArcane_1_1MDSpanBase.html#a14122d865d1383c39e6df7e0d49eb1bd">   90</a></span>&#160;  ARCCORE_HOST_DEVICE DataType&amp; <a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html#a14122d865d1383c39e6df7e0d49eb1bd">operator()</a>(<a class="code" href="../../d9/dd0/classArcane_1_1ArrayBoundsIndex.html">ArrayBoundsIndex&lt;RankValue&gt;</a> idx)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">return</span> m_ptr[offset(idx)];</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  }</div>
+<div class="line"><a name="l00095"></a><span class="lineno"><a class="line" href="../../d8/df1/classArcane_1_1MDSpanBase.html#a4f3188b45049074b39be593b2f0e3fcb">   95</a></span>&#160;  ARCCORE_HOST_DEVICE DataType* <a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html#a4f3188b45049074b39be593b2f0e3fcb">ptrAt</a>(<a class="code" href="../../d9/dd0/classArcane_1_1ArrayBoundsIndex.html">ArrayBoundsIndex&lt;RankValue&gt;</a> idx)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span> m_ptr+offset(idx);</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html">MDSpanBase&lt;const DataType,RankValue&gt;</a> constSpan()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword">  </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html">MDSpanBase&lt;const DataType,RankValue&gt;</a>(m_ptr,m_extents); }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  Span&lt;DataType&gt; to1DSpan() { <span class="keywordflow">return</span> { m_ptr, m_extents.totalNbElement() }; }</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  Span&lt;const DataType&gt; to1DSpan()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> { m_ptr, m_extents.totalNbElement() }; }</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="comment">// Utilisé uniquement par NumArrayBase pour la copie</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  Span2&lt;const DataType&gt; _internalTo2DSpan()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    Int64 dim1_size = m_extents(0);</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    Int64 dim2_size = 1;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;RankValue; ++i )</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;      dim2_size *= m_extents(i);</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">return</span> { m_ptr, dim1_size, dim2_size };</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  DataType* m_ptr = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  ArrayExtentsWithOffset&lt;RankValue,LayoutType&gt; m_extents;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;};</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> DataType,<span class="keyword">typename</span> LayoutType&gt;</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="../../d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html">  128</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan</a>&lt;DataType,1,LayoutType&gt;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html">MDSpanBase</a>&lt;DataType,1,LayoutType&gt;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;{</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <span class="keyword">using</span> UnqualifiedValueType = std::remove_cv_t&lt;DataType&gt;;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">NumArrayBase</a>&lt;UnqualifiedValueType,1,LayoutType&gt;;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html">BaseClass</a> = <a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html">MDSpanBase&lt;DataType,1,LayoutType&gt;</a>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  <span class="keyword">using</span> BaseClass::m_extents;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <span class="keyword">using</span> BaseClass::m_ptr;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  <span class="keyword">using</span> BaseClass::offset;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <span class="keyword">using</span> BaseClass::ptrAt;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <span class="keyword">using</span> BaseClass::operator();</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="../../d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html#a88d828fc362df67ea0335476512ed534">  144</a></span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html#a88d828fc362df67ea0335476512ed534">MDSpan</a>(DataType* ptr,Int32 dim1_size)</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  {</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    m_extents.setSize(dim1_size);</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;    m_ptr = ptr;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  }</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan</a>(DataType* ptr,<a class="code" href="../../dd/d3c/classArcane_1_1ArrayExtentsWithOffset_3_011_00_01LayoutType_01_4.html">ArrayExtentsWithOffset&lt;1,LayoutType&gt;</a> extents_and_offset)</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  : BaseClass(ptr,extents_and_offset) {}</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="../../d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html#a93d4786058a5058886385867ae9d43c6">  154</a></span>&#160;  ARCCORE_HOST_DEVICE Int64 dim1Size()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_extents(0); }</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  ARCCORE_HOST_DEVICE Int64 offset(Int32 i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    <span class="keywordflow">return</span> m_extents.offset(i);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  }</div>
+<div class="line"><a name="l00161"></a><span class="lineno"><a class="line" href="../../d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html#a60c713cc5682274f758e96a5c7f806b2">  161</a></span>&#160;  ARCCORE_HOST_DEVICE DataType&amp; <a class="code" href="../../d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html#a60c713cc5682274f758e96a5c7f806b2">operator()</a>(Int32 i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordflow">return</span> m_ptr[offset(i)];</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  }</div>
+<div class="line"><a name="l00166"></a><span class="lineno"><a class="line" href="../../d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html#a25956adb25c679184866b365e478b04a">  166</a></span>&#160;  ARCCORE_HOST_DEVICE DataType* <a class="code" href="../../d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html#a25956adb25c679184866b365e478b04a">ptrAt</a>(Int32 i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;    <span class="keywordflow">return</span> m_ptr+offset(i);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  }</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan&lt;const DataType,1,LayoutType&gt;</a> constSpan()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="keyword">  </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan&lt;const DataType,1,LayoutType&gt;</a>(m_ptr,m_extents); }</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;};</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> DataType,<span class="keyword">typename</span> LayoutType&gt;</div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="../../d5/de8/classArcane_1_1MDSpan_3_01DataType_00_012_00_01LayoutType_01_4.html">  181</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan</a>&lt;DataType,2,LayoutType&gt;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html">MDSpanBase</a>&lt;DataType,2,LayoutType&gt;</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;{</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  <span class="keyword">using</span> UnqualifiedValueType = std::remove_cv_t&lt;DataType&gt;;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">NumArrayBase</a>&lt;UnqualifiedValueType,2,LayoutType&gt;;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html">BaseClass</a> = <a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html">MDSpanBase&lt;DataType,2,LayoutType&gt;</a>;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  <span class="keyword">using</span> BaseClass::m_extents;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  <span class="keyword">using</span> BaseClass::m_ptr;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  <span class="keyword">using</span> BaseClass::offset;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  <span class="keyword">using</span> BaseClass::ptrAt;</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  <span class="keyword">using</span> BaseClass::operator();</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00195"></a><span class="lineno"><a class="line" href="../../d5/de8/classArcane_1_1MDSpan_3_01DataType_00_012_00_01LayoutType_01_4.html#a9ecb53a89f12b799d28c154d0a0294ec">  195</a></span>&#160;  <a class="code" href="../../d5/de8/classArcane_1_1MDSpan_3_01DataType_00_012_00_01LayoutType_01_4.html#a9ecb53a89f12b799d28c154d0a0294ec">MDSpan</a>() : <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan</a>(nullptr,0,0){}</div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="../../d5/de8/classArcane_1_1MDSpan_3_01DataType_00_012_00_01LayoutType_01_4.html#adb99ec28708f0e018fab18b7d2dcebf4">  197</a></span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d5/de8/classArcane_1_1MDSpan_3_01DataType_00_012_00_01LayoutType_01_4.html#adb99ec28708f0e018fab18b7d2dcebf4">MDSpan</a>(DataType* ptr,Int32 dim1_size,Int32 dim2_size)</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  {</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    m_extents.setSize(dim1_size,dim2_size);</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    m_ptr = ptr;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  }</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan</a>(DataType* ptr,<a class="code" href="../../d3/d85/classArcane_1_1ArrayExtentsWithOffset_3_012_00_01LayoutType_01_4.html">ArrayExtentsWithOffset&lt;2,LayoutType&gt;</a> extents_and_offset)</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  : BaseClass(ptr,extents_and_offset) {}</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00207"></a><span class="lineno"><a class="line" href="../../d5/de8/classArcane_1_1MDSpan_3_01DataType_00_012_00_01LayoutType_01_4.html#adfc0a7307f3f885f31b8713a24aae4b1">  207</a></span>&#160;  ARCCORE_HOST_DEVICE Int32 dim1Size()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_extents(0); }</div>
+<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="../../d5/de8/classArcane_1_1MDSpan_3_01DataType_00_012_00_01LayoutType_01_4.html#a5b6abb1a0c5f14a5d486f56981558b7a">  209</a></span>&#160;  ARCCORE_HOST_DEVICE Int32 dim2Size()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_extents(1); }</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  ARCCORE_HOST_DEVICE Int64 offset(Int32 i,Int32 j)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordflow">return</span> m_extents.offset(i,j);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  }</div>
+<div class="line"><a name="l00216"></a><span class="lineno"><a class="line" href="../../d5/de8/classArcane_1_1MDSpan_3_01DataType_00_012_00_01LayoutType_01_4.html#a74694bb5f7c1760190c05f07fd3df884">  216</a></span>&#160;  ARCCORE_HOST_DEVICE DataType&amp; <a class="code" href="../../d5/de8/classArcane_1_1MDSpan_3_01DataType_00_012_00_01LayoutType_01_4.html#a74694bb5f7c1760190c05f07fd3df884">operator()</a>(Int32 i,Int32 j)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;    <span class="keywordflow">return</span> m_ptr[offset(i,j)];</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;  }</div>
+<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="../../d5/de8/classArcane_1_1MDSpan_3_01DataType_00_012_00_01LayoutType_01_4.html#ab3de6bb90d9af474916802c752b91781">  221</a></span>&#160;  ARCCORE_HOST_DEVICE DataType* <a class="code" href="../../d5/de8/classArcane_1_1MDSpan_3_01DataType_00_012_00_01LayoutType_01_4.html#ab3de6bb90d9af474916802c752b91781">ptrAt</a>(Int32 i,Int32 j)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="keywordflow">return</span> m_ptr + offset(i,j);</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  }</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;  <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan&lt;const DataType,2,LayoutType&gt;</a> constSpan()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="keyword">  </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan&lt;const DataType,2,LayoutType&gt;</a>(m_ptr,m_extents); }</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;};</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> DataType,<span class="keyword">typename</span> LayoutType&gt;</div>
+<div class="line"><a name="l00236"></a><span class="lineno"><a class="line" href="../../d3/dfd/classArcane_1_1MDSpan_3_01DataType_00_013_00_01LayoutType_01_4.html">  236</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan</a>&lt;DataType,3,LayoutType&gt;</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html">MDSpanBase</a>&lt;DataType,3,LayoutType&gt;</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;{</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  <span class="keyword">using</span> UnqualifiedValueType = std::remove_cv_t&lt;DataType&gt;;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">NumArrayBase</a>&lt;UnqualifiedValueType,3,LayoutType&gt;;</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html">BaseClass</a> = <a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html">MDSpanBase&lt;DataType,3,LayoutType&gt;</a>;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  <span class="keyword">using</span> BaseClass::m_extents;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <span class="keyword">using</span> BaseClass::m_ptr;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  <span class="keyword">using</span> value_type = <span class="keyword">typename</span> std::remove_cv&lt;DataType&gt;::type;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <span class="keyword">using</span> BaseClass::offset;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  <span class="keyword">using</span> BaseClass::ptrAt;</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  <span class="keyword">using</span> BaseClass::operator();</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00253"></a><span class="lineno"><a class="line" href="../../d3/dfd/classArcane_1_1MDSpan_3_01DataType_00_013_00_01LayoutType_01_4.html#adbe48e97a9bfa19f7b1a34e827f325d2">  253</a></span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d3/dfd/classArcane_1_1MDSpan_3_01DataType_00_013_00_01LayoutType_01_4.html#adbe48e97a9bfa19f7b1a34e827f325d2">MDSpan</a>(DataType* ptr,Int32 dim1_size,Int32 dim2_size,Int32 dim3_size)</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  {</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;    _setSize(ptr,dim1_size,dim2_size,dim3_size);</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  }</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan</a>(DataType* ptr,<a class="code" href="../../d6/da5/classArcane_1_1ArrayExtentsWithOffset_3_013_00_01LayoutType_01_4.html">ArrayExtentsWithOffset&lt;3,LayoutType&gt;</a> extents_and_offset)</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  : BaseClass(ptr,extents_and_offset) {}</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> X,<span class="keyword">typename</span> = std::enable_if_t&lt;std::is_same_v&lt;X,UnqualifiedValueType&gt;&gt;&gt;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;  ARCCORE_HOST_DEVICE MDSpan(<span class="keyword">const</span> MDSpan&lt;X,3&gt;&amp; rhs) : BaseClass(rhs){}</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;  <span class="keywordtype">void</span> _setSize(DataType* ptr,Int32 dim1_size,Int32 dim2_size,Int32 dim3_size)</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  {</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    m_extents.setSize(dim1_size,dim2_size,dim3_size);</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    m_ptr = ptr;</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  }</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00269"></a><span class="lineno"><a class="line" href="../../d3/dfd/classArcane_1_1MDSpan_3_01DataType_00_013_00_01LayoutType_01_4.html#a222a2ac472c4035ac81ed5764dcfa1ce">  269</a></span>&#160;  ARCCORE_HOST_DEVICE Int32 dim1Size()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_extents(0); }</div>
+<div class="line"><a name="l00271"></a><span class="lineno"><a class="line" href="../../d3/dfd/classArcane_1_1MDSpan_3_01DataType_00_013_00_01LayoutType_01_4.html#a8dd595ba43d8932bfbcb84e57e78b313">  271</a></span>&#160;  ARCCORE_HOST_DEVICE Int32 dim2Size()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_extents(1); }</div>
+<div class="line"><a name="l00273"></a><span class="lineno"><a class="line" href="../../d3/dfd/classArcane_1_1MDSpan_3_01DataType_00_013_00_01LayoutType_01_4.html#aff485bc9c6aff502b3990f2a42cb3bf5">  273</a></span>&#160;  ARCCORE_HOST_DEVICE Int32 dim3Size()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_extents(2); }</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  ARCCORE_HOST_DEVICE Int64 offset(Int32 i,Int32 j,Int32 k)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    <span class="keywordflow">return</span> m_extents.offset(i,j,k);</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  }</div>
+<div class="line"><a name="l00280"></a><span class="lineno"><a class="line" href="../../d3/dfd/classArcane_1_1MDSpan_3_01DataType_00_013_00_01LayoutType_01_4.html#a812baaa730164f2bf767baec3639c1bf">  280</a></span>&#160;  ARCCORE_HOST_DEVICE DataType&amp; <a class="code" href="../../d3/dfd/classArcane_1_1MDSpan_3_01DataType_00_013_00_01LayoutType_01_4.html#a812baaa730164f2bf767baec3639c1bf">operator()</a>(Int32 i,Int32 j,Int32 k)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;    <span class="keywordflow">return</span> m_ptr[offset(i,j,k)];</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  }</div>
+<div class="line"><a name="l00285"></a><span class="lineno"><a class="line" href="../../d3/dfd/classArcane_1_1MDSpan_3_01DataType_00_013_00_01LayoutType_01_4.html#ac46ad05232ec684f90ce817957cbc5a9">  285</a></span>&#160;  ARCCORE_HOST_DEVICE DataType* <a class="code" href="../../d3/dfd/classArcane_1_1MDSpan_3_01DataType_00_013_00_01LayoutType_01_4.html#ac46ad05232ec684f90ce817957cbc5a9">ptrAt</a>(Int32 i,Int32 j,Int32 k)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    <span class="keywordflow">return</span> m_ptr+offset(i,j,k);</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  }</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan&lt;const DataType,3,LayoutType&gt;</a> constSpan()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="keyword">  </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan&lt;const DataType,3,LayoutType&gt;</a>(m_ptr,m_extents); }</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;};</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> DataType,<span class="keyword">typename</span> LayoutType&gt;</div>
+<div class="line"><a name="l00300"></a><span class="lineno"><a class="line" href="../../d7/d56/classArcane_1_1MDSpan_3_01DataType_00_014_00_01LayoutType_01_4.html">  300</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan</a>&lt;DataType,4,LayoutType&gt;</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html">MDSpanBase</a>&lt;DataType,4,LayoutType&gt;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;{</div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;  <span class="keyword">using</span> UnqualifiedValueType = std::remove_cv_t&lt;DataType&gt;;</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">NumArrayBase</a>&lt;UnqualifiedValueType,4,LayoutType&gt;;</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html">BaseClass</a> = <a class="code" href="../../d8/df1/classArcane_1_1MDSpanBase.html">MDSpanBase&lt;DataType,4,LayoutType&gt;</a>;</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  <span class="keyword">using</span> BaseClass::m_extents;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  <span class="keyword">using</span> BaseClass::m_ptr;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;  <span class="keyword">using</span> BaseClass::offset;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;  <span class="keyword">using</span> BaseClass::ptrAt;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  <span class="keyword">using</span> BaseClass::operator();</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00316"></a><span class="lineno"><a class="line" href="../../d7/d56/classArcane_1_1MDSpan_3_01DataType_00_014_00_01LayoutType_01_4.html#a4b92ecaa49df53992142ed78a47160be">  316</a></span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d7/d56/classArcane_1_1MDSpan_3_01DataType_00_014_00_01LayoutType_01_4.html#a4b92ecaa49df53992142ed78a47160be">MDSpan</a>(DataType* ptr,Int32 dim1_size,Int32 dim2_size,</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;                             Int32 dim3_size,Int32 dim4_size)</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  {</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    _setSize(ptr,dim1_size,dim2_size,dim3_size,dim4_size);</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  }</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  ARCCORE_HOST_DEVICE <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan</a>(DataType* ptr,<a class="code" href="../../da/d9a/classArcane_1_1ArrayExtentsWithOffset_3_014_00_01LayoutType_01_4.html">ArrayExtentsWithOffset&lt;4,LayoutType&gt;</a> extents_and_offset)</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  : BaseClass(ptr,extents_and_offset) {}</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  <span class="keywordtype">void</span> _setSize(DataType* ptr,Int32 dim1_size,Int32 dim2_size,Int32 dim3_size,Int32 dim4_size)</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  {</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;    m_extents.setSize(dim1_size,dim2_size,dim3_size,dim4_size);</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;    m_ptr = ptr;</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;  }</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00332"></a><span class="lineno"><a class="line" href="../../d7/d56/classArcane_1_1MDSpan_3_01DataType_00_014_00_01LayoutType_01_4.html#acb2e6e8c726ccd905243c98afe0732c7">  332</a></span>&#160;  Int32 dim1Size()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_extents(0); }</div>
+<div class="line"><a name="l00334"></a><span class="lineno"><a class="line" href="../../d7/d56/classArcane_1_1MDSpan_3_01DataType_00_014_00_01LayoutType_01_4.html#ace16e82cef928d40d6f613233f37bd67">  334</a></span>&#160;  Int32 dim2Size()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_extents(1); }</div>
+<div class="line"><a name="l00336"></a><span class="lineno"><a class="line" href="../../d7/d56/classArcane_1_1MDSpan_3_01DataType_00_014_00_01LayoutType_01_4.html#a685cc03790248f8f0fcdc89c6e84870c">  336</a></span>&#160;  Int32 dim3Size()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_extents(2); }</div>
+<div class="line"><a name="l00338"></a><span class="lineno"><a class="line" href="../../d7/d56/classArcane_1_1MDSpan_3_01DataType_00_014_00_01LayoutType_01_4.html#a1cf6ed336917835ebeda88570562c2b7">  338</a></span>&#160;  Int32 dim4Size()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_extents(3); }</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;  ARCCORE_HOST_DEVICE Int64 offset(Int32 i,Int32 j,Int32 k,Int32 l)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    <span class="keywordflow">return</span> m_extents.offset(i,j,k,l);</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;  }</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00346"></a><span class="lineno"><a class="line" href="../../d7/d56/classArcane_1_1MDSpan_3_01DataType_00_014_00_01LayoutType_01_4.html#ad7d8a2b2fb9d518f0696555a29cbcd5e">  346</a></span>&#160;  ARCCORE_HOST_DEVICE DataType&amp; <a class="code" href="../../d7/d56/classArcane_1_1MDSpan_3_01DataType_00_014_00_01LayoutType_01_4.html#ad7d8a2b2fb9d518f0696555a29cbcd5e">operator()</a>(Int32 i,Int32 j,Int32 k,Int32 l)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;    <span class="keywordflow">return</span> m_ptr[offset(i,j,k,l)];</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;  }</div>
+<div class="line"><a name="l00351"></a><span class="lineno"><a class="line" href="../../d7/d56/classArcane_1_1MDSpan_3_01DataType_00_014_00_01LayoutType_01_4.html#ae52456027750ae5479f7df974e2a2631">  351</a></span>&#160;  ARCCORE_HOST_DEVICE DataType* <a class="code" href="../../d7/d56/classArcane_1_1MDSpan_3_01DataType_00_014_00_01LayoutType_01_4.html#ae52456027750ae5479f7df974e2a2631">ptrAt</a>(Int32 i,Int32 j,Int32 k,Int32 l)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;    <span class="keywordflow">return</span> m_ptr + offset(i,j,k,l);</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;  }</div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160;  <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan&lt;const DataType,4,LayoutType&gt;</a> constSpan()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160;<span class="keyword">  </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan&lt;const DataType,4,LayoutType&gt;</a>(m_ptr,m_extents); }</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;};</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160; </div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160; </div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160; </div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; </div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160; </div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;<span class="preprocessor">#endif  </span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclassArcane_1_1MDSpan_3_01DataType_00_012_00_01LayoutType_01_4_html_adb99ec28708f0e018fab18b7d2dcebf4"><div class="ttname"><a href="../../d5/de8/classArcane_1_1MDSpan_3_01DataType_00_012_00_01LayoutType_01_4.html#adb99ec28708f0e018fab18b7d2dcebf4">Arcane::MDSpan&lt; DataType, 2, LayoutType &gt;::MDSpan</a></div><div class="ttdeci">__host__ __device__ MDSpan(DataType *ptr, Int32 dim1_size, Int32 dim2_size)</div><div class="ttdoc">Construit une vue.</div><div class="ttdef"><b>Definition:</b> MDSpan.h:197</div></div>
+<div class="ttc" id="aclassArcane_1_1ArrayExtentsWithOffset_3_011_00_01LayoutType_01_4_html"><div class="ttname"><a href="../../dd/d3c/classArcane_1_1ArrayExtentsWithOffset_3_011_00_01LayoutType_01_4.html">Arcane::ArrayExtentsWithOffset&lt; 1, LayoutType &gt;</a></div><div class="ttdef"><b>Definition:</b> ArrayExtents.h:323</div></div>
+<div class="ttc" id="aclassArcane_1_1MDSpanBase_html_a4f3188b45049074b39be593b2f0e3fcb"><div class="ttname"><a href="../../d8/df1/classArcane_1_1MDSpanBase.html#a4f3188b45049074b39be593b2f0e3fcb">Arcane::MDSpanBase::ptrAt</a></div><div class="ttdeci">__host__ __device__ DataType * ptrAt(ArrayBoundsIndex&lt; RankValue &gt; idx) const</div><div class="ttdoc">Pointeur sur la valeur pour l'élément i.</div><div class="ttdef"><b>Definition:</b> MDSpan.h:95</div></div>
+<div class="ttc" id="aclassArcane_1_1MDSpanBase_html_a14122d865d1383c39e6df7e0d49eb1bd"><div class="ttname"><a href="../../d8/df1/classArcane_1_1MDSpanBase.html#a14122d865d1383c39e6df7e0d49eb1bd">Arcane::MDSpanBase::operator()</a></div><div class="ttdeci">__host__ __device__ DataType &amp; operator()(ArrayBoundsIndex&lt; RankValue &gt; idx) const</div><div class="ttdoc">Valeur pour l'élément i.</div><div class="ttdef"><b>Definition:</b> MDSpan.h:90</div></div>
+<div class="ttc" id="aclassArcane_1_1MDSpan_3_01DataType_00_012_00_01LayoutType_01_4_html_a74694bb5f7c1760190c05f07fd3df884"><div class="ttname"><a href="../../d5/de8/classArcane_1_1MDSpan_3_01DataType_00_012_00_01LayoutType_01_4.html#a74694bb5f7c1760190c05f07fd3df884">Arcane::MDSpan&lt; DataType, 2, LayoutType &gt;::operator()</a></div><div class="ttdeci">__host__ __device__ DataType &amp; operator()(Int32 i, Int32 j) const</div><div class="ttdoc">Valeur pour l'élément i,j.</div><div class="ttdef"><b>Definition:</b> MDSpan.h:216</div></div>
+<div class="ttc" id="aclassArcane_1_1MDSpan_html"><div class="ttname"><a href="../../d8/d5d/classArcane_1_1MDSpan.html">Arcane::MDSpan</a></div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:190</div></div>
+<div class="ttc" id="aclassArcane_1_1ArrayExtentsWithOffset_3_012_00_01LayoutType_01_4_html"><div class="ttname"><a href="../../d3/d85/classArcane_1_1ArrayExtentsWithOffset_3_012_00_01LayoutType_01_4.html">Arcane::ArrayExtentsWithOffset&lt; 2, LayoutType &gt;</a></div><div class="ttdef"><b>Definition:</b> ArrayExtents.h:365</div></div>
+<div class="ttc" id="aclassArcane_1_1MDSpan_3_01DataType_00_014_00_01LayoutType_01_4_html_ad7d8a2b2fb9d518f0696555a29cbcd5e"><div class="ttname"><a href="../../d7/d56/classArcane_1_1MDSpan_3_01DataType_00_014_00_01LayoutType_01_4.html#ad7d8a2b2fb9d518f0696555a29cbcd5e">Arcane::MDSpan&lt; DataType, 4, LayoutType &gt;::operator()</a></div><div class="ttdeci">__host__ __device__ DataType &amp; operator()(Int32 i, Int32 j, Int32 k, Int32 l) const</div><div class="ttdoc">Valeur pour l'élément i,j,k,l.</div><div class="ttdef"><b>Definition:</b> MDSpan.h:346</div></div>
+<div class="ttc" id="aclassArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4_html_a88d828fc362df67ea0335476512ed534"><div class="ttname"><a href="../../d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html#a88d828fc362df67ea0335476512ed534">Arcane::MDSpan&lt; DataType, 1, LayoutType &gt;::MDSpan</a></div><div class="ttdeci">__host__ __device__ MDSpan(DataType *ptr, Int32 dim1_size)</div><div class="ttdoc">Construit un tableau.</div><div class="ttdef"><b>Definition:</b> MDSpan.h:144</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArrayBase_html"><div class="ttname"><a href="../../d8/d39/classArcane_1_1NumArrayBase.html">Arcane::NumArrayBase</a></div><div class="ttdoc">Classe de base des tableaux multi-dimensionnels pour les types numériques sur accélérateur.</div><div class="ttdef"><b>Definition:</b> NumArray.h:106</div></div>
+<div class="ttc" id="aclassArcane_1_1ArrayExtentsWithOffset_html"><div class="ttname"><a href="../../d8/db2/classArcane_1_1ArrayExtentsWithOffset.html">Arcane::ArrayExtentsWithOffset</a></div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:201</div></div>
+<div class="ttc" id="aclassArcane_1_1MDSpan_3_01DataType_00_012_00_01LayoutType_01_4_html_ab3de6bb90d9af474916802c752b91781"><div class="ttname"><a href="../../d5/de8/classArcane_1_1MDSpan_3_01DataType_00_012_00_01LayoutType_01_4.html#ab3de6bb90d9af474916802c752b91781">Arcane::MDSpan&lt; DataType, 2, LayoutType &gt;::ptrAt</a></div><div class="ttdeci">__host__ __device__ DataType * ptrAt(Int32 i, Int32 j) const</div><div class="ttdoc">Pointeur sur la valeur pour l'élément i,j.</div><div class="ttdef"><b>Definition:</b> MDSpan.h:221</div></div>
+<div class="ttc" id="aclassArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4_html_a25956adb25c679184866b365e478b04a"><div class="ttname"><a href="../../d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html#a25956adb25c679184866b365e478b04a">Arcane::MDSpan&lt; DataType, 1, LayoutType &gt;::ptrAt</a></div><div class="ttdeci">__host__ __device__ DataType * ptrAt(Int32 i) const</div><div class="ttdoc">Pointeur sur la valeur pour l'élément i.</div><div class="ttdef"><b>Definition:</b> MDSpan.h:166</div></div>
+<div class="ttc" id="aclassArcane_1_1MDSpan_3_01DataType_00_013_00_01LayoutType_01_4_html_ac46ad05232ec684f90ce817957cbc5a9"><div class="ttname"><a href="../../d3/dfd/classArcane_1_1MDSpan_3_01DataType_00_013_00_01LayoutType_01_4.html#ac46ad05232ec684f90ce817957cbc5a9">Arcane::MDSpan&lt; DataType, 3, LayoutType &gt;::ptrAt</a></div><div class="ttdeci">__host__ __device__ DataType * ptrAt(Int32 i, Int32 j, Int32 k) const</div><div class="ttdoc">Pointeur sur la valeur pour l'élément i,j,k.</div><div class="ttdef"><b>Definition:</b> MDSpan.h:285</div></div>
+<div class="ttc" id="aclassArcane_1_1MDSpan_3_01DataType_00_012_00_01LayoutType_01_4_html_a9ecb53a89f12b799d28c154d0a0294ec"><div class="ttname"><a href="../../d5/de8/classArcane_1_1MDSpan_3_01DataType_00_012_00_01LayoutType_01_4.html#a9ecb53a89f12b799d28c154d0a0294ec">Arcane::MDSpan&lt; DataType, 2, LayoutType &gt;::MDSpan</a></div><div class="ttdeci">MDSpan()</div><div class="ttdoc">Construit un tableau vide.</div><div class="ttdef"><b>Definition:</b> MDSpan.h:195</div></div>
+<div class="ttc" id="aclassArcane_1_1MDSpanBase_html"><div class="ttname"><a href="../../d8/df1/classArcane_1_1MDSpanBase.html">Arcane::MDSpanBase</a></div><div class="ttdoc">Classe de base des vues multi-dimensionnelles.</div><div class="ttdef"><b>Definition:</b> MDSpan.h:55</div></div>
+<div class="ttc" id="aclassArcane_1_1ArrayExtents_html"><div class="ttname"><a href="../../da/d2e/classArcane_1_1ArrayExtents.html">Arcane::ArrayExtents</a></div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:199</div></div>
+<div class="ttc" id="aclassArcane_1_1MDSpan_3_01DataType_00_014_00_01LayoutType_01_4_html_ae52456027750ae5479f7df974e2a2631"><div class="ttname"><a href="../../d7/d56/classArcane_1_1MDSpan_3_01DataType_00_014_00_01LayoutType_01_4.html#ae52456027750ae5479f7df974e2a2631">Arcane::MDSpan&lt; DataType, 4, LayoutType &gt;::ptrAt</a></div><div class="ttdeci">__host__ __device__ DataType * ptrAt(Int32 i, Int32 j, Int32 k, Int32 l) const</div><div class="ttdoc">Pointeur sur la valeur pour l'élément i,j,k.</div><div class="ttdef"><b>Definition:</b> MDSpan.h:351</div></div>
+<div class="ttc" id="aclassArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4_html_a60c713cc5682274f758e96a5c7f806b2"><div class="ttname"><a href="../../d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html#a60c713cc5682274f758e96a5c7f806b2">Arcane::MDSpan&lt; DataType, 1, LayoutType &gt;::operator()</a></div><div class="ttdeci">__host__ __device__ DataType &amp; operator()(Int32 i) const</div><div class="ttdoc">Valeur pour l'élément i.</div><div class="ttdef"><b>Definition:</b> MDSpan.h:161</div></div>
+<div class="ttc" id="aclassArcane_1_1MDSpan_3_01DataType_00_014_00_01LayoutType_01_4_html_a4b92ecaa49df53992142ed78a47160be"><div class="ttname"><a href="../../d7/d56/classArcane_1_1MDSpan_3_01DataType_00_014_00_01LayoutType_01_4.html#a4b92ecaa49df53992142ed78a47160be">Arcane::MDSpan&lt; DataType, 4, LayoutType &gt;::MDSpan</a></div><div class="ttdeci">__host__ __device__ MDSpan(DataType *ptr, Int32 dim1_size, Int32 dim2_size, Int32 dim3_size, Int32 dim4_size)</div><div class="ttdoc">Construit une vue.</div><div class="ttdef"><b>Definition:</b> MDSpan.h:316</div></div>
+<div class="ttc" id="aclassArcane_1_1ArrayBoundsIndex_html"><div class="ttname"><a href="../../d9/dd0/classArcane_1_1ArrayBoundsIndex.html">Arcane::ArrayBoundsIndex</a></div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:197</div></div>
+<div class="ttc" id="aclassArcane_1_1ArrayExtentsWithOffset_3_014_00_01LayoutType_01_4_html"><div class="ttname"><a href="../../da/d9a/classArcane_1_1ArrayExtentsWithOffset_3_014_00_01LayoutType_01_4.html">Arcane::ArrayExtentsWithOffset&lt; 4, LayoutType &gt;</a></div><div class="ttdef"><b>Definition:</b> ArrayExtents.h:456</div></div>
+<div class="ttc" id="aclassArcane_1_1ArrayExtentsWithOffset_3_013_00_01LayoutType_01_4_html"><div class="ttname"><a href="../../d6/da5/classArcane_1_1ArrayExtentsWithOffset_3_013_00_01LayoutType_01_4.html">Arcane::ArrayExtentsWithOffset&lt; 3, LayoutType &gt;</a></div><div class="ttdef"><b>Definition:</b> ArrayExtents.h:406</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aclassArcane_1_1MDSpan_3_01DataType_00_013_00_01LayoutType_01_4_html_a812baaa730164f2bf767baec3639c1bf"><div class="ttname"><a href="../../d3/dfd/classArcane_1_1MDSpan_3_01DataType_00_013_00_01LayoutType_01_4.html#a812baaa730164f2bf767baec3639c1bf">Arcane::MDSpan&lt; DataType, 3, LayoutType &gt;::operator()</a></div><div class="ttdeci">__host__ __device__ DataType &amp; operator()(Int32 i, Int32 j, Int32 k) const</div><div class="ttdoc">Valeur pour l'élément i,j,k.</div><div class="ttdef"><b>Definition:</b> MDSpan.h:280</div></div>
+<div class="ttc" id="aclassArcane_1_1MDSpan_3_01DataType_00_013_00_01LayoutType_01_4_html_adbe48e97a9bfa19f7b1a34e827f325d2"><div class="ttname"><a href="../../d3/dfd/classArcane_1_1MDSpan_3_01DataType_00_013_00_01LayoutType_01_4.html#adbe48e97a9bfa19f7b1a34e827f325d2">Arcane::MDSpan&lt; DataType, 3, LayoutType &gt;::MDSpan</a></div><div class="ttdeci">__host__ __device__ MDSpan(DataType *ptr, Int32 dim1_size, Int32 dim2_size, Int32 dim3_size)</div><div class="ttdoc">Construit une vue.</div><div class="ttdef"><b>Definition:</b> MDSpan.h:253</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_2729d02b006c8e73197ea03fae7905d4.html">utils</a></li><li class="navelem"><b>MDSpan.h</b></li>
+    <li class="footer">Généré le Mercredi 30 Mars 2022 12:59:37 pour Arcane par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

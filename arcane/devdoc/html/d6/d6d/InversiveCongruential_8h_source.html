@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de InversiveCongruential.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_6dbd5bf2f3be01407f1783fb80878917.html">random</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">InversiveCongruential.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* InversiveCongruential.h                                     (C) 2000-2006 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Ce fichier définit le patron de classe InversiveCongruential ainsi qu&#39;une */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/* classe associée Hellekalek1995.  Il est une version adaptée du fichier    */</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">/* InversiveCongruential.hpp provenant de la bibliothèque BOOST              */</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifndef ARCANE_RANDOM_INVERSIVECONGRUENTIAL_H</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define ARCANE_RANDOM_INVERSIVECONGRUENTIAL_H</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/FatalErrorException.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;arcane/random/RandomGlobal.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;RANDOM_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> IntType, IntType a, IntType c, IntType m, IntType val&gt;</div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../d9/d18/classArcane_1_1InversiveCongruential.html">   55</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/d18/classArcane_1_1InversiveCongruential.html">InversiveCongruential</a></div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;{</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keyword">typedef</span> IntType result_type;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> has_fixed_range = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> result_type min_value = ( c == 0 ? 1 : 0 );</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> result_type max_value = m-1;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno"><a class="line" href="../../d9/d18/classArcane_1_1InversiveCongruential.html#a39b6c4fd18d13e0500892fd48a89f398">   69</a></span>&#160;  result_type <a class="code" href="../../d9/d18/classArcane_1_1InversiveCongruential.html#a39b6c4fd18d13e0500892fd48a89f398">min</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> c == 0 ? 1 : 0; }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d9/d18/classArcane_1_1InversiveCongruential.html#a04ff399734ea4f4c8578f41e52c45ba7">   77</a></span>&#160;  result_type <a class="code" href="../../d9/d18/classArcane_1_1InversiveCongruential.html#a04ff399734ea4f4c8578f41e52c45ba7">max</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m-1; }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../d9/d18/classArcane_1_1InversiveCongruential.html#a948d73444604bdb40827e9954c7641c9">   86</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d9/d18/classArcane_1_1InversiveCongruential.html#a948d73444604bdb40827e9954c7641c9">InversiveCongruential</a>(IntType x0 = 1)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    : _x(x0)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  { </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="../../d9/d18/classArcane_1_1InversiveCongruential.html#a37ad94b2a783434bfd8f95e883568aa7">   97</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d9/d18/classArcane_1_1InversiveCongruential.html#a37ad94b2a783434bfd8f95e883568aa7">seed</a>(IntType x0) { _x = x0; }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="../../d9/d18/classArcane_1_1InversiveCongruential.html#ab4389428ce70c2b4a05f4234d6b07b1c">  105</a></span>&#160;  IntType <a class="code" href="../../d9/d18/classArcane_1_1InversiveCongruential.html#ab4389428ce70c2b4a05f4234d6b07b1c">getState</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> _x; }</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="../../d9/d18/classArcane_1_1InversiveCongruential.html#abd986e5651fb3c7b6ce4457282457b80">  114</a></span>&#160;  IntType <a class="code" href="../../d9/d18/classArcane_1_1InversiveCongruential.html#abd986e5651fb3c7b6ce4457282457b80">operator()</a>()</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    _x = apply(_x);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    <span class="keywordflow">return</span> _x;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="../../d9/d18/classArcane_1_1InversiveCongruential.html#ae0825b908e09dd0a6e8ee4f0b231dd55">  128</a></span>&#160;  <span class="keyword">static</span> IntType <a class="code" href="../../d9/d18/classArcane_1_1InversiveCongruential.html#ae0825b908e09dd0a6e8ee4f0b231dd55">apply</a>(IntType x)</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    <span class="keyword">typedef</span> <a class="code" href="../../d5/da5/classArcane_1_1utils_1_1const__mod.html">utils::const_mod&lt;IntType, m&gt;</a> do_mod;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">return</span> x = do_mod::mult_add(a,do_mod::invert(x), c);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  }</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="../../d9/d18/classArcane_1_1InversiveCongruential.html#a12c87bd55d8ae9170c211e4872c4533e">  140</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="../../d9/d18/classArcane_1_1InversiveCongruential.html#a12c87bd55d8ae9170c211e4872c4533e">validation</a>(IntType x)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> val == x; }</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno"><a class="line" href="../../d9/d18/classArcane_1_1InversiveCongruential.html#adfe62bc3c0be5fb3e55dc1d9a5791ad3">  148</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="../../d9/d18/classArcane_1_1InversiveCongruential.html#adfe62bc3c0be5fb3e55dc1d9a5791ad3">operator==</a>(<span class="keyword">const</span> <a class="code" href="../../d9/d18/classArcane_1_1InversiveCongruential.html">InversiveCongruential</a>&amp; rhs)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="keyword">    </span>{ <span class="keywordflow">return</span> _x == rhs._x; }</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  IntType _x;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;};</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="keyword">typedef</span> InversiveCongruential&lt;Int32, 9102, 2147483647-36884165,</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  2147483647, 0&gt; Hellekalek1995;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;RANDOM_END_NAMESPACE</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;ARCANE_END_NAMESPACE</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1InversiveCongruential_html_a39b6c4fd18d13e0500892fd48a89f398"><div class="ttname"><a href="../../d9/d18/classArcane_1_1InversiveCongruential.html#a39b6c4fd18d13e0500892fd48a89f398">Arcane::InversiveCongruential::min</a></div><div class="ttdeci">result_type min() const</div><div class="ttdoc">Retourne la valeur minimum possible d'une séquence.</div><div class="ttdef"><b>Definition:</b> InversiveCongruential.h:69</div></div>
+<div class="ttc" id="aclassArcane_1_1InversiveCongruential_html_ae0825b908e09dd0a6e8ee4f0b231dd55"><div class="ttname"><a href="../../d9/d18/classArcane_1_1InversiveCongruential.html#ae0825b908e09dd0a6e8ee4f0b231dd55">Arcane::InversiveCongruential::apply</a></div><div class="ttdeci">static IntType apply(IntType x)</div><div class="ttdoc">Retourne la valeur pseudo aléatoire à partir de l'état x. Le membre privée _x du générateur n'est pas...</div><div class="ttdef"><b>Definition:</b> InversiveCongruential.h:128</div></div>
+<div class="ttc" id="aclassArcane_1_1InversiveCongruential_html_a37ad94b2a783434bfd8f95e883568aa7"><div class="ttname"><a href="../../d9/d18/classArcane_1_1InversiveCongruential.html#a37ad94b2a783434bfd8f95e883568aa7">Arcane::InversiveCongruential::seed</a></div><div class="ttdeci">void seed(IntType x0)</div><div class="ttdoc">Initialisation de la graine du générateur à partir de la valeur x0.</div><div class="ttdef"><b>Definition:</b> InversiveCongruential.h:97</div></div>
+<div class="ttc" id="aclassArcane_1_1InversiveCongruential_html_ab4389428ce70c2b4a05f4234d6b07b1c"><div class="ttname"><a href="../../d9/d18/classArcane_1_1InversiveCongruential.html#ab4389428ce70c2b4a05f4234d6b07b1c">Arcane::InversiveCongruential::getState</a></div><div class="ttdeci">IntType getState() const</div><div class="ttdoc">Méthode qui retourne l'état générateur.</div><div class="ttdef"><b>Definition:</b> InversiveCongruential.h:105</div></div>
+<div class="ttc" id="aclassArcane_1_1InversiveCongruential_html"><div class="ttname"><a href="../../d9/d18/classArcane_1_1InversiveCongruential.html">Arcane::InversiveCongruential</a></div><div class="ttdef"><b>Definition:</b> InversiveCongruential.h:55</div></div>
+<div class="ttc" id="aclassArcane_1_1InversiveCongruential_html_a12c87bd55d8ae9170c211e4872c4533e"><div class="ttname"><a href="../../d9/d18/classArcane_1_1InversiveCongruential.html#a12c87bd55d8ae9170c211e4872c4533e">Arcane::InversiveCongruential::validation</a></div><div class="ttdeci">bool validation(IntType x) const</div><div class="ttdoc">Fonction de validation (je ne sais pas trop a quoi elle sert!)</div><div class="ttdef"><b>Definition:</b> InversiveCongruential.h:140</div></div>
+<div class="ttc" id="aclassArcane_1_1utils_1_1const__mod_html"><div class="ttname"><a href="../../d5/da5/classArcane_1_1utils_1_1const__mod.html">Arcane::utils::const_mod</a></div><div class="ttdef"><b>Definition:</b> RandomGlobal.h:138</div></div>
+<div class="ttc" id="aclassArcane_1_1InversiveCongruential_html_abd986e5651fb3c7b6ce4457282457b80"><div class="ttname"><a href="../../d9/d18/classArcane_1_1InversiveCongruential.html#abd986e5651fb3c7b6ce4457282457b80">Arcane::InversiveCongruential::operator()</a></div><div class="ttdeci">IntType operator()()</div><div class="ttdoc">Surdéfinition de l'opérateur () qui retourne la valeur pseudo aléatoire du générateur....</div><div class="ttdef"><b>Definition:</b> InversiveCongruential.h:114</div></div>
+<div class="ttc" id="aclassArcane_1_1InversiveCongruential_html_a948d73444604bdb40827e9954c7641c9"><div class="ttname"><a href="../../d9/d18/classArcane_1_1InversiveCongruential.html#a948d73444604bdb40827e9954c7641c9">Arcane::InversiveCongruential::InversiveCongruential</a></div><div class="ttdeci">InversiveCongruential(IntType x0=1)</div><div class="ttdoc">Constructeur avec initialisation de la graine à partir de la valeur x0.</div><div class="ttdef"><b>Definition:</b> InversiveCongruential.h:86</div></div>
+<div class="ttc" id="aclassArcane_1_1InversiveCongruential_html_adfe62bc3c0be5fb3e55dc1d9a5791ad3"><div class="ttname"><a href="../../d9/d18/classArcane_1_1InversiveCongruential.html#adfe62bc3c0be5fb3e55dc1d9a5791ad3">Arcane::InversiveCongruential::operator==</a></div><div class="ttdeci">bool operator==(const InversiveCongruential &amp;rhs) const</div><div class="ttdoc">Surdéfinition de l'opérateur ==.</div><div class="ttdef"><b>Definition:</b> InversiveCongruential.h:148</div></div>
+<div class="ttc" id="aclassArcane_1_1InversiveCongruential_html_a04ff399734ea4f4c8578f41e52c45ba7"><div class="ttname"><a href="../../d9/d18/classArcane_1_1InversiveCongruential.html#a04ff399734ea4f4c8578f41e52c45ba7">Arcane::InversiveCongruential::max</a></div><div class="ttdeci">result_type max() const</div><div class="ttdoc">Retourne la valeur maximum possible d'une séquence.</div><div class="ttdef"><b>Definition:</b> InversiveCongruential.h:77</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:29 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

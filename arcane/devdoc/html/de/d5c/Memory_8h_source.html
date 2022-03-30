@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de Memory.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_52cc22ec9cd8ac6032825375cb174efe.html">accelerator</a></li><li class="navelem"><a class="el" href="../../dir_1085a764e7e71541af68897ace96fd11.html">core</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Memory.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* Memory.h                                                    (C) 2000-2022 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Classes ayant trait à la gestion mémoire.                                 */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_ACCELERATOR_CORE_MEMORY_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_ACCELERATOR_CORE_MEMORY_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/accelerator/core/AcceleratorCoreGlobal.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/da8/UtilsTypes_8h.html">arcane/utils/UtilsTypes.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;arccore/base/Span.h&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html">Arcane::Accelerator</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../de/d00/classArcane_1_1Accelerator_1_1MemoryCopyArgs.html">   34</a></span>&#160;<span class="keyword">class </span>ARCANE_ACCELERATOR_CORE_EXPORT <a class="code" href="../../de/d00/classArcane_1_1Accelerator_1_1MemoryCopyArgs.html">MemoryCopyArgs</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;const std::byte&gt;</a> _toSpan(<span class="keyword">const</span> <span class="keywordtype">void</span>* ptr, <a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> length)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  {</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordflow">return</span> { <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span>std::byte*<span class="keyword">&gt;</span>(ptr), length };</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  }</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;std::byte&gt;</a> _toSpan(<span class="keywordtype">void</span>* ptr, <a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> length)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  {</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> { <span class="keyword">reinterpret_cast&lt;</span>std::byte*<span class="keyword">&gt;</span>(ptr), length };</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../de/d00/classArcane_1_1Accelerator_1_1MemoryCopyArgs.html#a825070d75568242b1864ec9a5f297ef7">   50</a></span>&#160;  <a class="code" href="../../de/d00/classArcane_1_1Accelerator_1_1MemoryCopyArgs.html#a825070d75568242b1864ec9a5f297ef7">MemoryCopyArgs</a>(<span class="keywordtype">void</span>* destination, <span class="keyword">const</span> <span class="keywordtype">void</span>* source, <a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> length)</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  : m_source(_toSpan(source, length))</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  , m_destination(_toSpan(destination, length))</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  {}</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../de/d00/classArcane_1_1Accelerator_1_1MemoryCopyArgs.html#aee84d006bccf457d6f0876b472728608">   56</a></span>&#160;  <a class="code" href="../../de/d00/classArcane_1_1Accelerator_1_1MemoryCopyArgs.html#aee84d006bccf457d6f0876b472728608">MemoryCopyArgs</a>(<a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;std::byte&gt;</a> destination, <a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;const std::byte&gt;</a> source)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  : m_source(source)</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  , m_destination(destination)</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  {}</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <a class="code" href="../../de/d00/classArcane_1_1Accelerator_1_1MemoryCopyArgs.html">MemoryCopyArgs</a>&amp; addAsync()</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  {</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    m_is_async = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keywordflow">return</span> (*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  MemoryCopyArgs&amp; addAsync(<span class="keywordtype">bool</span> v)</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  {</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    m_is_async = v;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">return</span> (*<span class="keyword">this</span>);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  Span&lt;const std::byte&gt; source()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_source; }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  Span&lt;std::byte&gt; destination()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_destination; }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keywordtype">bool</span> isAsync()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_is_async; }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  Span&lt;const std::byte&gt; m_source;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  Span&lt;std::byte&gt; m_destination;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordtype">bool</span> m_is_async = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;} <span class="comment">// End namespace Arcane::Accelerator</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif  </span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1Array_html"><div class="ttname"><a href="../../d1/dfb/classArcane_1_1Array.html">Arcane::Array</a></div><div class="ttdoc">Tableau d'items de types quelconques.</div><div class="ttdef"><b>Definition:</b> AnyItemArray.h:54</div></div>
+<div class="ttc" id="aclassArcane_1_1XmlNode_html"><div class="ttname"><a href="../../d9/dcc/classArcane_1_1XmlNode.html">Arcane::XmlNode</a></div><div class="ttdoc">Noeud d'un arbre DOM.</div><div class="ttdef"><b>Definition:</b> XmlNode.h:49</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a98dc7953a3cabcdf7e32826a9cc39da7"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a98dc7953a3cabcdf7e32826a9cc39da7">ARCANE_THROW</a></div><div class="ttdeci">#define ARCANE_THROW(exception_class,...)</div><div class="ttdoc">Macro pour envoyer une exception avec formattage.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:750</div></div>
+<div class="ttc" id="astructArcane_1_1MEDMeshReaderService_1_1AutoCloseMED_html"><div class="ttname"><a href="../../d0/db7/structArcane_1_1MEDMeshReaderService_1_1AutoCloseMED.html">Arcane::MEDMeshReaderService::AutoCloseMED</a></div><div class="ttdef"><b>Definition:</b> MEDMeshReaderService.cc:87</div></div>
+<div class="ttc" id="aclassArcane_1_1IPrimaryMesh_html_a20388e004bece51246f03d3fc0b54f64"><div class="ttname"><a href="../../d7/d89/classArcane_1_1IPrimaryMesh.html#a20388e004bece51246f03d3fc0b54f64">Arcane::IPrimaryMesh::allocateCells</a></div><div class="ttdeci">virtual void allocateCells(Integer nb_cell, Int64ConstArrayView cells_infos, bool one_alloc=true)=0</div><div class="ttdoc">Allocation d'un maillage.</div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1MemoryCopyArgs_html"><div class="ttname"><a href="../../de/d00/classArcane_1_1Accelerator_1_1MemoryCopyArgs.html">Arcane::Accelerator::MemoryCopyArgs</a></div><div class="ttdoc">Arguments pour la copie mémoire.</div><div class="ttdef"><b>Definition:</b> Memory.h:34</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_aeacee0657891fd1b10c2f73efd5bb086"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#aeacee0657891fd1b10c2f73efd5bb086">Arccore::Array::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Supprime les éléments du tableau.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:1139</div></div>
+<div class="ttc" id="aclassArcane_1_1ServiceBuildInfo_html"><div class="ttname"><a href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">Arcane::ServiceBuildInfo</a></div><div class="ttdoc">Structure contenant les informations pour créer un service.</div><div class="ttdef"><b>Definition:</b> ServiceBuildInfo.h:122</div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1MemoryCopyArgs_html_aee84d006bccf457d6f0876b472728608"><div class="ttname"><a href="../../de/d00/classArcane_1_1Accelerator_1_1MemoryCopyArgs.html#aee84d006bccf457d6f0876b472728608">Arcane::Accelerator::MemoryCopyArgs::MemoryCopyArgs</a></div><div class="ttdeci">MemoryCopyArgs(Span&lt; std::byte &gt; destination, Span&lt; const std::byte &gt; source)</div><div class="ttdoc">Copie depuis source vers destination.</div><div class="ttdef"><b>Definition:</b> Memory.h:56</div></div>
+<div class="ttc" id="aclassArcane_1_1IPrimaryMesh_html"><div class="ttname"><a href="../../d7/d89/classArcane_1_1IPrimaryMesh.html">Arcane::IPrimaryMesh</a></div><div class="ttdef"><b>Definition:</b> IPrimaryMesh.h:41</div></div>
+<div class="ttc" id="aclassArcane_1_1MEDMeshReaderService_html_a46c067b02b62e062bd6a891ed8342af4"><div class="ttname"><a href="../../d2/ddc/classArcane_1_1MEDMeshReaderService.html#a46c067b02b62e062bd6a891ed8342af4">Arcane::MEDMeshReaderService::readMeshFromFile</a></div><div class="ttdeci">eReturnType readMeshFromFile(IPrimaryMesh *mesh, const XmlNode &amp;mesh_element, const String &amp;file_name, const String &amp;dir_name, bool use_internal_partition) override</div><div class="ttdoc">Lit un maillage à partir d'un fichier.</div><div class="ttdef"><b>Definition:</b> MEDMeshReaderService.cc:182</div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html_a86a8c15c146724b331c8aa10e2027f08"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html#a86a8c15c146724b331c8aa10e2027f08">Arccore::TraceAccessor::error</a></div><div class="ttdeci">TraceMessage error() const</div><div class="ttdoc">Flot pour un message d'erreur.</div><div class="ttdef"><b>Definition:</b> TraceAccessor.cc:201</div></div>
+<div class="ttc" id="agroup__Variable_html_ga98c3f361d93bc122a383a05c80a966b7"><div class="ttname"><a href="../../d3/d00/group__Variable.html#ga98c3f361d93bc122a383a05c80a966b7">Arcane::VariableNodeReal3</a></div><div class="ttdeci">MeshVariableScalarRefT&lt; Node, Real3 &gt; VariableNodeReal3</div><div class="ttdoc">Grandeur au noeud de type coordonnées.</div><div class="ttdef"><b>Definition:</b> VariableTypedef.h:359</div></div>
+<div class="ttc" id="anamespaceArccore_html_a19fea02f94d4da203710fd2070c0f2fb"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Arccore::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:232</div></div>
+<div class="ttc" id="anamespaceArcane_1_1Accelerator_html"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html">Arcane::Accelerator</a></div><div class="ttdoc">Espace de nom pour l'utilisation des accélérateurs.</div><div class="ttdef"><b>Definition:</b> AcceleratorGlobal.h:34</div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html_ac97ca3cda108d93dceb8e1a4800246a7"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html#ac97ca3cda108d93dceb8e1a4800246a7">Arccore::TraceAccessor::info</a></div><div class="ttdeci">TraceMessage info() const</div><div class="ttdoc">Flot pour un message d'information.</div><div class="ttdef"><b>Definition:</b> TraceAccessor.cc:101</div></div>
+<div class="ttc" id="aclassArccore_1_1UniqueArray_html"><div class="ttname"><a href="../../da/daa/classArccore_1_1UniqueArray.html">Arccore::UniqueArray</a></div><div class="ttdoc">Vecteur 1D de données avec sémantique par valeur (style STL).</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:1504</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshReader_html_aa5759e2881cc9fec93f3d2dbcb28004ca891d767ba5df9e8c5f93a49fffbbf194"><div class="ttname"><a href="../../d7/d2c/classArcane_1_1IMeshReader.html#aa5759e2881cc9fec93f3d2dbcb28004ca891d767ba5df9e8c5f93a49fffbbf194">Arcane::IMeshReader::RTOk</a></div><div class="ttdeci">@ RTOk</div><div class="ttdoc">Opération effectuée avec succès.</div><div class="ttdef"><b>Definition:</b> IMeshReader.h:43</div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1MemoryCopyArgs_html_a825070d75568242b1864ec9a5f297ef7"><div class="ttname"><a href="../../de/d00/classArcane_1_1Accelerator_1_1MemoryCopyArgs.html#a825070d75568242b1864ec9a5f297ef7">Arcane::Accelerator::MemoryCopyArgs::MemoryCopyArgs</a></div><div class="ttdeci">MemoryCopyArgs(void *destination, const void *source, Int64 length)</div><div class="ttdoc">Copie length octets depuis source vers destination.</div><div class="ttdef"><b>Definition:</b> Memory.h:50</div></div>
+<div class="ttc" id="aclassArcane_1_1MEDMeshReaderService_html_a4ca4f7a82cda8fb21f09e03396f6a8ba"><div class="ttname"><a href="../../d2/ddc/classArcane_1_1MEDMeshReaderService.html#a4ca4f7a82cda8fb21f09e03396f6a8ba">Arcane::MEDMeshReaderService::allowExtension</a></div><div class="ttdeci">bool allowExtension(const String &amp;str) override</div><div class="ttdoc">Vérifie si le service supporte les fichiers avec l'extension str.</div><div class="ttdef"><b>Definition:</b> MEDMeshReaderService.cc:74</div></div>
+<div class="ttc" id="aUtilsTypes_8h_html"><div class="ttname"><a href="../../d4/da8/UtilsTypes_8h.html">UtilsTypes.h</a></div><div class="ttdoc">Déclarations des types utilisés dans Arcane.</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshReader_html"><div class="ttname"><a href="../../d7/d2c/classArcane_1_1IMeshReader.html">Arcane::IMeshReader</a></div><div class="ttdoc">Interface du service gérant la lecture d'un maillage.</div><div class="ttdef"><b>Definition:</b> IMeshReader.h:36</div></div>
+<div class="ttc" id="aclassArccore_1_1Span_html"><div class="ttname"><a href="../../dd/d9f/classArccore_1_1Span.html">Arccore::Span&lt; const std::byte &gt;</a></div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html_a8a988ade617f508cd842bcd9b5ab2bc1"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html#a8a988ade617f508cd842bcd9b5ab2bc1">Arcane::IMesh::allNodes</a></div><div class="ttdeci">virtual NodeGroup allNodes()=0</div><div class="ttdoc">Groupe de tous les noeuds.</div></div>
+<div class="ttc" id="aServiceFactory_8h_html"><div class="ttname"><a href="../../d3/d58/ServiceFactory_8h.html">ServiceFactory.h</a></div><div class="ttdoc">Ce fichier contient les différentes fabriques de services et macro pour enregistrer les services.</div></div>
+<div class="ttc" id="aclassArccore_1_1NotImplementedException_html"><div class="ttname"><a href="../../d6/d5e/classArccore_1_1NotImplementedException.html">Arccore::NotImplementedException</a></div><div class="ttdoc">Exception lorsqu'une fonction n'est pas implémentée.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/NotImplementedException.h:31</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshReader_html_aa5759e2881cc9fec93f3d2dbcb28004c"><div class="ttname"><a href="../../d7/d2c/classArcane_1_1IMeshReader.html#aa5759e2881cc9fec93f3d2dbcb28004c">Arcane::IMeshReader::eReturnType</a></div><div class="ttdeci">eReturnType</div><div class="ttdoc">Types des codes de retour d'une lecture ou écriture.</div><div class="ttdef"><b>Definition:</b> IMeshReader.h:41</div></div>
+<div class="ttc" id="aclassArcane_1_1IPrimaryMesh_html_a6768749be29cc23ed6764c5f6b612618"><div class="ttname"><a href="../../d7/d89/classArcane_1_1IPrimaryMesh.html#a6768749be29cc23ed6764c5f6b612618">Arcane::IPrimaryMesh::endAllocate</a></div><div class="ttdeci">virtual void endAllocate()=0</div><div class="ttdoc">Indique une fin d'allocation de mailles.</div></div>
+<div class="ttc" id="astructArcane_1_1MEDMeshReaderService_1_1MEDToArcaneItemInfo_html"><div class="ttname"><a href="../../d6/d90/structArcane_1_1MEDMeshReaderService_1_1MEDToArcaneItemInfo.html">Arcane::MEDMeshReaderService::MEDToArcaneItemInfo</a></div><div class="ttdoc">Informations pour passer des types MED aux types Arcane pour les entités.</div><div class="ttdef"><b>Definition:</b> MEDMeshReaderService.cc:43</div></div>
+<div class="ttc" id="aclassArcane_1_1IPrimaryMesh_html_ad9fc773b1e7dddf645ce42e89feeb43d"><div class="ttname"><a href="../../d7/d89/classArcane_1_1IPrimaryMesh.html#ad9fc773b1e7dddf645ce42e89feeb43d">Arcane::IPrimaryMesh::setDimension</a></div><div class="ttdeci">virtual void setDimension(Integer dim)=0</div><div class="ttdoc">Positionne la dimension du maillage (1D, 2D ou 3D).</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshReader_html_aa5759e2881cc9fec93f3d2dbcb28004ca3816c6372931032e4493be43848ec314"><div class="ttname"><a href="../../d7/d2c/classArcane_1_1IMeshReader.html#aa5759e2881cc9fec93f3d2dbcb28004ca3816c6372931032e4493be43848ec314">Arcane::IMeshReader::RTError</a></div><div class="ttdeci">@ RTError</div><div class="ttdoc">Erreur lors de l'opération.</div><div class="ttdef"><b>Definition:</b> IMeshReader.h:44</div></div>
+<div class="ttc" id="anamespaceArcane_html_a76d8edd5679322dbbea6dd06488a0db4a9997b517d3c4ecb309d952431399bd2f"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a76d8edd5679322dbbea6dd06488a0db4a9997b517d3c4ecb309d952431399bd2f">Arcane::ST_SubDomain</a></div><div class="ttdeci">@ ST_SubDomain</div><div class="ttdoc">Le service s'utilise au niveau du sous-domaine.</div><div class="ttdef"><b>Definition:</b> ServiceProperty.h:68</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_ab3f2d332e7c412261b9199bb5454e31b"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#ab3f2d332e7c412261b9199bb5454e31b">Arccore::Array::add</a></div><div class="ttdeci">void add(ConstReferenceType val)</div><div class="ttdoc">Ajoute l'élément val à la fin du tableau.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:967</div></div>
+<div class="ttc" id="agroup__Service_html_ga08ef55634029238ec40cbb93692033e8"><div class="ttname"><a href="../../d8/dff/group__Service.html#ga08ef55634029238ec40cbb93692033e8">ARCANE_REGISTER_SERVICE</a></div><div class="ttdeci">#define ARCANE_REGISTER_SERVICE(aclass, a_service_property,...)</div><div class="ttdoc">Macro pour enregistrer un service.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:516</div></div>
+<div class="ttc" id="anamespaceArccore_html_a7cde9b16416e2271fa90d200e7c9e276"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Arccore::Int64</a></div><div class="ttdeci">std::int64_t Int64</div><div class="ttdoc">Type entier signé sur 64 bits.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:179</div></div>
+<div class="ttc" id="aclassArcane_1_1MEDMeshReaderService_html"><div class="ttname"><a href="../../d2/ddc/classArcane_1_1MEDMeshReaderService.html">Arcane::MEDMeshReaderService</a></div><div class="ttdoc">Lecteur de maillages au format MED.</div><div class="ttdef"><b>Definition:</b> MEDMeshReaderService.cc:32</div></div>
+<div class="ttc" id="aclassArcane_1_1MEDMeshReaderService_html_a551f4af5499527d271f8cb9838f8d333"><div class="ttname"><a href="../../d2/ddc/classArcane_1_1MEDMeshReaderService.html#a551f4af5499527d271f8cb9838f8d333">Arcane::MEDMeshReaderService::build</a></div><div class="ttdeci">void build() override</div><div class="ttdoc">Construction de niveau build du service.</div><div class="ttdef"><b>Definition:</b> MEDMeshReaderService.cc:73</div></div>
+<div class="ttc" id="aclassArcane_1_1BasicService_html"><div class="ttname"><a href="../../d1/d5e/classArcane_1_1BasicService.html">Arcane::BasicService</a></div><div class="ttdoc">Classe de base de service lié à un sous-domaine.</div><div class="ttdef"><b>Definition:</b> BasicService.h:39</div></div>
+<div class="ttc" id="aItemEnumerator_8h_html_aea36524754c129124072de38e045d6ba"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#aea36524754c129124072de38e045d6ba">ENUMERATE_NODE</a></div><div class="ttdeci">#define ENUMERATE_NODE(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de noeuds.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:234</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/String.h:68</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html_ab9f88427a38ac95ab3cf53743f248cb7"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html#ab9f88427a38ac95ab3cf53743f248cb7">Arccore::String::localstr</a></div><div class="ttdeci">const char * localstr() const</div><div class="ttdoc">Retourne la conversion de l'instance dans l'encodage UTF-8.</div><div class="ttdef"><b>Definition:</b> String.cc:236</div></div>
+<div class="ttc" id="aServiceFactory_8h_html_aba44ad90916fb14522e59bab36dbf5f7"><div class="ttname"><a href="../../d3/d58/ServiceFactory_8h.html#aba44ad90916fb14522e59bab36dbf5f7">ARCANE_SERVICE_INTERFACE</a></div><div class="ttdeci">#define ARCANE_SERVICE_INTERFACE(ainterface)</div><div class="ttdoc">Macro pour déclarer une interface lors de l'enregistrement d'un service.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:475</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a9d85d5fb84c5371348dd56600999e564"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a></div><div class="ttdeci">#define ARCANE_FATAL(...)</div><div class="ttdoc">Macro envoyant une exception FatalErrorException.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:761</div></div>
+<div class="ttc" id="aclassArcane_1_1IPrimaryMesh_html_a70b9e8f861ab33d41bbd10b7c5105dc7"><div class="ttname"><a href="../../d7/d89/classArcane_1_1IPrimaryMesh.html#a70b9e8f861ab33d41bbd10b7c5105dc7">Arcane::IPrimaryMesh::nodesCoordinates</a></div><div class="ttdeci">virtual VariableNodeReal3 &amp; nodesCoordinates()=0</div><div class="ttdoc">Coordonnées des noeuds.</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:36 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

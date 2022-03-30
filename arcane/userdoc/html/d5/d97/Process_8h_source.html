@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arcane/utils/Process.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d5/d97/Process_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Process.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* Process.h                                                   (C) 2000-2016 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Gestion des processus.                                                    */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_UTILS_PROCESS_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_UTILS_PROCESS_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/Array.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/String.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno"><a class="line" href="../../d4/d73/classArcane_1_1ProcessExecArgs.html">   28</a></span>&#160;<span class="keyword">class </span>ARCANE_UTILS_EXPORT <a class="code" href="../../d4/d73/classArcane_1_1ProcessExecArgs.html">ProcessExecArgs</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../d5/d2e/classArcane_1_1Process.html">Process</a>;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d4/d73/classArcane_1_1ProcessExecArgs.html#a52a6be178e5f209518d760f676452d55">   33</a></span>&#160;  <span class="keyword">enum class</span> <a class="code" href="../../d4/d73/classArcane_1_1ProcessExecArgs.html#a52a6be178e5f209518d760f676452d55">ExecStatus</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    {</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      <span class="comment">// Le processus fils a terminé correctement (mais peut être en erreur)</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      OK,</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      CanNotFork,</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;      CanNotCreatePipe,</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      <span class="comment">// Le processus fils n&#39;a pas terminé correctement (void waitpid())</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      AbnormalExit</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    };</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d4/d73/classArcane_1_1ProcessExecArgs.html#a5b70c85572b16000f239a21d8c4b93e5">   46</a></span>&#160;  <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> <a class="code" href="../../d4/d73/classArcane_1_1ProcessExecArgs.html#a5b70c85572b16000f239a21d8c4b93e5">command</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_command; }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keywordtype">void</span> setCommand(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; v) { m_command = v; }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d4/d73/classArcane_1_1ProcessExecArgs.html#adaebe653888aef52dbd7caf28b30990e">   50</a></span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">StringConstArrayView</a> <a class="code" href="../../d4/d73/classArcane_1_1ProcessExecArgs.html#adaebe653888aef52dbd7caf28b30990e">arguments</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_arguments; }</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keywordtype">void</span> addArguments(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; v) { m_arguments.add(v); }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keywordtype">void</span> setArguments(<span class="keyword">const</span> <a class="code" href="../../d0/d32/namespaceArcane.html#a2b0d1c04c9a16a7cd5b90d4f2caca7dd">StringArray</a>&amp; v) { m_arguments = v; }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../d4/d73/classArcane_1_1ProcessExecArgs.html#a859683e8f641c00fe8b1f4411f64ea28">   55</a></span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ByteConstArrayView</a> <a class="code" href="../../d4/d73/classArcane_1_1ProcessExecArgs.html#a859683e8f641c00fe8b1f4411f64ea28">inputBytes</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_input_bytes; }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordtype">void</span> setInputBytes(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ByteConstArrayView</a> s) { m_input_bytes = s; }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno"><a class="line" href="../../d4/d73/classArcane_1_1ProcessExecArgs.html#ad07edf5c3700090688228f68169abb04">   59</a></span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ByteConstArrayView</a> <a class="code" href="../../d4/d73/classArcane_1_1ProcessExecArgs.html#ad07edf5c3700090688228f68169abb04">outputBytes</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_output_bytes; }</div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../d4/d73/classArcane_1_1ProcessExecArgs.html#a80450237d3d6779e72a3246c5f81e8c7">   61</a></span>&#160;  <span class="keywordtype">int</span> <a class="code" href="../../d4/d73/classArcane_1_1ProcessExecArgs.html#a80450237d3d6779e72a3246c5f81e8c7">exitCode</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_exit_code; }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> m_command;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">StringUniqueArray</a> m_arguments;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">UniqueArray&lt;Byte&gt;</a> m_input_bytes;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">UniqueArray&lt;Byte&gt;</a> m_output_bytes;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordtype">int</span> m_exit_code;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;};</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d5/d2e/classArcane_1_1Process.html">   77</a></span>&#160;<span class="keyword">class </span>ARCANE_UTILS_EXPORT <a class="code" href="../../d5/d2e/classArcane_1_1Process.html">Process</a></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;{</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d4/d73/classArcane_1_1ProcessExecArgs.html#a52a6be178e5f209518d760f676452d55">ProcessExecArgs::ExecStatus</a> execute(<a class="code" href="../../d4/d73/classArcane_1_1ProcessExecArgs.html">ProcessExecArgs</a>&amp; args);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;ARCANE_END_NAMESPACE</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="anamespaceArcane_html_a2b0d1c04c9a16a7cd5b90d4f2caca7dd"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a2b0d1c04c9a16a7cd5b90d4f2caca7dd">Arcane::StringArray</a></div><div class="ttdeci">Array&lt; String &gt; StringArray</div><div class="ttdoc">Tableau dynamique à une dimension de chaînes de caractères.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:229</div></div>
+<div class="ttc" id="anamespaceArcane_html_a94d0dc2214c1be27126aa036eb95e579"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a94d0dc2214c1be27126aa036eb95e579">Arcane::ByteConstArrayView</a></div><div class="ttdeci">ConstArrayView&lt; Byte &gt; ByteConstArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension de caractères.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:526</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_aeacee0657891fd1b10c2f73efd5bb086"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#aeacee0657891fd1b10c2f73efd5bb086">Arccore::Array::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Supprime les éléments du tableau.</div><div class="ttdef"><b>Definition:</b> Array.h:1139</div></div>
+<div class="ttc" id="aclassArcane_1_1ProcessExecArgs_html"><div class="ttname"><a href="../../d4/d73/classArcane_1_1ProcessExecArgs.html">Arcane::ProcessExecArgs</a></div><div class="ttdef"><b>Definition:</b> Process.h:28</div></div>
+<div class="ttc" id="aclassArcane_1_1Process_html"><div class="ttname"><a href="../../d5/d2e/classArcane_1_1Process.html">Arcane::Process</a></div><div class="ttdoc">Classe permettant d'exécuter un processus externe.</div><div class="ttdef"><b>Definition:</b> Process.h:77</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_a94249fef4a3985c22340ac9477e685d8"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#a94249fef4a3985c22340ac9477e685d8">Arccore::Array::addRange</a></div><div class="ttdeci">void addRange(ConstReferenceType val, Int64 n)</div><div class="ttdoc">Ajoute n élément de valeur val à la fin du tableau.</div><div class="ttdef"><b>Definition:</b> Array.h:975</div></div>
+<div class="ttc" id="aclassArccore_1_1UniqueArray_html"><div class="ttname"><a href="../../da/daa/classArccore_1_1UniqueArray.html">Arccore::UniqueArray</a></div><div class="ttdoc">Vecteur 1D de données avec sémantique par valeur (style STL).</div><div class="ttdef"><b>Definition:</b> Array.h:1504</div></div>
+<div class="ttc" id="anamespaceArcane_html_ab8a647feabd759fae601d29f827568ec"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ab8a647feabd759fae601d29f827568ec">Arcane::Byte</a></div><div class="ttdeci">unsigned char Byte</div><div class="ttdoc">Type d'un octet.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:138</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html_ac26e2b1441dbe2ce60c065d1b7840143"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html#ac26e2b1441dbe2ce60c065d1b7840143">Arccore::ConstArrayView::size</a></div><div class="ttdeci">constexpr Integer size() const noexcept</div><div class="ttdoc">Nombre d'éléments du tableau.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:632</div></div>
+<div class="ttc" id="aclassArcane_1_1ProcessExecArgs_html_a859683e8f641c00fe8b1f4411f64ea28"><div class="ttname"><a href="../../d4/d73/classArcane_1_1ProcessExecArgs.html#a859683e8f641c00fe8b1f4411f64ea28">Arcane::ProcessExecArgs::inputBytes</a></div><div class="ttdeci">ByteConstArrayView inputBytes() const</div><div class="ttdoc">Chaîne de caractère à envoyer sur l'entrée standard (STDIN) du processsus.</div><div class="ttdef"><b>Definition:</b> Process.h:55</div></div>
+<div class="ttc" id="aclassArccore_1_1NotImplementedException_html"><div class="ttname"><a href="../../d6/d5e/classArccore_1_1NotImplementedException.html">Arccore::NotImplementedException</a></div><div class="ttdef"><b>Definition:</b> NotImplementedException.h:31</div></div>
+<div class="ttc" id="aclassArcane_1_1ProcessExecArgs_html_a80450237d3d6779e72a3246c5f81e8c7"><div class="ttname"><a href="../../d4/d73/classArcane_1_1ProcessExecArgs.html#a80450237d3d6779e72a3246c5f81e8c7">Arcane::ProcessExecArgs::exitCode</a></div><div class="ttdeci">int exitCode() const</div><div class="ttdoc">Code de retour du processus exécuté.</div><div class="ttdef"><b>Definition:</b> Process.h:61</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_ab3f2d332e7c412261b9199bb5454e31b"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#ab3f2d332e7c412261b9199bb5454e31b">Arccore::Array::add</a></div><div class="ttdeci">void add(ConstReferenceType val)</div><div class="ttdoc">Ajoute l'élément val à la fin du tableau.</div><div class="ttdef"><b>Definition:</b> Array.h:967</div></div>
+<div class="ttc" id="aclassArcane_1_1ProcessExecArgs_html_ad07edf5c3700090688228f68169abb04"><div class="ttname"><a href="../../d4/d73/classArcane_1_1ProcessExecArgs.html#ad07edf5c3700090688228f68169abb04">Arcane::ProcessExecArgs::outputBytes</a></div><div class="ttdeci">ByteConstArrayView outputBytes() const</div><div class="ttdoc">Contient le résultat de la sortie standard (STDOUT) du processus.</div><div class="ttdef"><b>Definition:</b> Process.h:59</div></div>
+<div class="ttc" id="aclassArcane_1_1ProcessExecArgs_html_a5b70c85572b16000f239a21d8c4b93e5"><div class="ttname"><a href="../../d4/d73/classArcane_1_1ProcessExecArgs.html#a5b70c85572b16000f239a21d8c4b93e5">Arcane::ProcessExecArgs::command</a></div><div class="ttdeci">String command() const</div><div class="ttdoc">Commande à exécuter. Doit correspondre à un exécutable.</div><div class="ttdef"><b>Definition:</b> Process.h:46</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:32</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_ae0be5e019f1b4c50dd40de637e533c60"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#ae0be5e019f1b4c50dd40de637e533c60">Arccore::Array::data</a></div><div class="ttdeci">const T * data() const</div><div class="ttdoc">Accès à la racine du tableau hors toute protection.</div><div class="ttdef"><b>Definition:</b> Array.h:1175</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> String.h:68</div></div>
+<div class="ttc" id="aclassArcane_1_1ProcessExecArgs_html_adaebe653888aef52dbd7caf28b30990e"><div class="ttname"><a href="../../d4/d73/classArcane_1_1ProcessExecArgs.html#adaebe653888aef52dbd7caf28b30990e">Arcane::ProcessExecArgs::arguments</a></div><div class="ttdeci">StringConstArrayView arguments() const</div><div class="ttdoc">Liste des arguments.</div><div class="ttdef"><b>Definition:</b> Process.h:50</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html_ab9f88427a38ac95ab3cf53743f248cb7"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html#ab9f88427a38ac95ab3cf53743f248cb7">Arccore::String::localstr</a></div><div class="ttdeci">const char * localstr() const</div><div class="ttdoc">Retourne la conversion de l'instance dans l'encodage UTF-8.</div><div class="ttdef"><b>Definition:</b> String.cc:236</div></div>
+<div class="ttc" id="aclassArcane_1_1ProcessExecArgs_html_a52a6be178e5f209518d760f676452d55"><div class="ttname"><a href="../../d4/d73/classArcane_1_1ProcessExecArgs.html#a52a6be178e5f209518d760f676452d55">Arcane::ProcessExecArgs::ExecStatus</a></div><div class="ttdeci">ExecStatus</div><div class="ttdef"><b>Definition:</b> Process.h:33</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html_ad4cea3b710626d977d328485119df6f0"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html#ad4cea3b710626d977d328485119df6f0">Arccore::ConstArrayView::data</a></div><div class="ttdeci">constexpr const_pointer data() const noexcept</div><div class="ttdoc">Pointeur sur la mémoire allouée.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:678</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_2729d02b006c8e73197ea03fae7905d4.html">utils</a></li><li class="navelem"><b>Process.h</b></li>
+    <li class="footer">Généré le Mercredi 30 Mars 2022 12:59:37 pour Arcane par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

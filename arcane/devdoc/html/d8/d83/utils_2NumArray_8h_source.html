@@ -1,0 +1,494 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de NumArray.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_2729d02b006c8e73197ea03fae7905d4.html">utils</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">utils/NumArray.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* NumArray.h                                                  (C) 2000-2022 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Tableaux multi-dimensionnel pour les types numériques.                    */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_UTILS_NUMARRAY_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_UTILS_NUMARRAY_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/Array2.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/PlatformUtils.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/MemoryRessource.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/MDSpan.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> * ATTENTION:</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> *</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> * Toutes les classes de ce fichier sont expérimentales et l&#39;API n&#39;est pas</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> * figée. A NE PAS UTILISER EN DEHORS DE ARCANE.</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"> */</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d1/dc3/classArcane_1_1NumArrayBaseCommon.html">   37</a></span>&#160;<span class="keyword">class </span>ARCANE_UTILS_EXPORT <a class="code" href="../../d1/dc3/classArcane_1_1NumArrayBaseCommon.html">NumArrayBaseCommon</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d1/dbb/classArccore_1_1IMemoryAllocator.html">IMemoryAllocator</a>* _getDefaultAllocator();</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d1/dbb/classArccore_1_1IMemoryAllocator.html">IMemoryAllocator</a>* _getDefaultAllocator(<a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> r);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> _checkHost(<a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> r);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> _copy(<a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;const std::byte&gt;</a> from, <a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> from_mem,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;                    <a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;std::byte&gt;</a> to, <a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> to_mem);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">namespace </span>impl</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="comment">// Wrapper de Arccore::Array pour la classe NumArray</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> DataType&gt;</div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html">   51</a></span>&#160;  <span class="keyword">class </span><a class="code" href="../../de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html">NumArrayContainer</a></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  : <span class="keyword">private</span> <a class="code" href="../../d9/d09/classArccore_1_1Array.html">Arccore::Array</a>&lt;DataType&gt;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  {</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keyword">using</span> <a class="code" href="../../d9/d09/classArccore_1_1Array.html">BaseClass</a> = <a class="code" href="../../d9/d09/classArccore_1_1Array.html">Arccore::Array&lt;DataType&gt;</a>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <span class="keyword">using</span> <a class="code" href="../../db/d34/classArccore_1_1AbstractArray.html#a759a836da0d8a9fad3ce66c914c0ec31">BaseClass::capacity</a>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keyword">using</span> <a class="code" href="../../d9/d09/classArccore_1_1Array.html#aa6e9746ec369ff8d6c95c0ff006a3ed2">BaseClass::fill</a>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    <span class="keyword">explicit</span> <a class="code" href="../../de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html">NumArrayContainer</a>(<a class="code" href="../../d1/dbb/classArccore_1_1IMemoryAllocator.html">IMemoryAllocator</a>* a)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      this-&gt;<a class="code" href="../../db/d34/classArccore_1_1AbstractArray.html#a3b65bdf8938fdb802efa71446adaccba">_initFromAllocator</a>(a,0);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <a class="code" href="../../de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html">NumArrayContainer</a>(<span class="keyword">const</span> <a class="code" href="../../de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html">NumArrayContainer&lt;DataType&gt;</a>&amp; rhs) : <a class="code" href="../../d9/d09/classArccore_1_1Array.html">BaseClass</a>()</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    {</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      this-&gt;<a class="code" href="../../db/d34/classArccore_1_1AbstractArray.html#a4b7ff33920c01d8ca6b71b1d7918bc9f">_initFromSpan</a>(rhs.to1DSpan());</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <span class="keywordtype">void</span> resize(Int64 new_size) { BaseClass::_resize(new_size); }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;DataType&gt;</a> to1DSpan() { <span class="keywordflow">return</span> <a class="code" href="../../d9/d09/classArccore_1_1Array.html#a4b0b44be9a899c17583b2c6ba4ee4a40">BaseClass::span</a>(); }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;const DataType&gt;</a> to1DSpan()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d9/d09/classArccore_1_1Array.html#a103e0fec274525363e2ab99b58c3d9fc">BaseClass::constSpan</a>(); }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;    <a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;std::byte&gt;</a> bytes() { <span class="keywordflow">return</span> asWritableBytes(<a class="code" href="../../d9/d09/classArccore_1_1Array.html#a4b0b44be9a899c17583b2c6ba4ee4a40">BaseClass::span</a>()); }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;const std::byte&gt;</a> bytes()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> asBytes(<a class="code" href="../../d9/d09/classArccore_1_1Array.html#a103e0fec274525363e2ab99b58c3d9fc">BaseClass::constSpan</a>()); }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordtype">void</span> swap(<a class="code" href="../../de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html">NumArrayContainer&lt;DataType&gt;</a>&amp; rhs) { <a class="code" href="../../db/d34/classArccore_1_1AbstractArray.html#afc91780ff11e2093929f8921021bf599">BaseClass::_swap</a>(rhs); }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordtype">void</span> copy(<a class="code" href="../../dd/d9f/classArccore_1_1Span.html">Span&lt;const DataType&gt;</a> rhs) { BaseClass::_copy(rhs.data()); }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  };</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> DataType,<span class="keywordtype">int</span> RankValue,<span class="keyword">typename</span> LayoutType&gt;</div>
+<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="../../d8/d39/classArcane_1_1NumArrayBase.html">  106</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">NumArrayBase</a></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d1/dc3/classArcane_1_1NumArrayBaseCommon.html">NumArrayBaseCommon</a></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;{</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">ConstSpanType</a> = <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan&lt;const DataType,RankValue,LayoutType&gt;</a>;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">SpanType</a> = <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan&lt;DataType,RankValue,LayoutType&gt;</a>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html">ArrayWrapper</a> = <a class="code" href="../../de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html">impl::NumArrayContainer&lt;DataType&gt;</a>;</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="../../d8/d39/classArcane_1_1NumArrayBase.html#aae6fa16ab76c08eb17e3896897bbfa73">  118</a></span>&#160;  Int64 <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html#aae6fa16ab76c08eb17e3896897bbfa73">totalNbElement</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_total_nb_element; }</div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="../../d8/d39/classArcane_1_1NumArrayBase.html#a02860d362171436f556a86c5900f0c34">  120</a></span>&#160;  Int32 <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html#a02860d362171436f556a86c5900f0c34">extent</a>(<span class="keywordtype">int</span> i)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_span.extent(i); }</div>
+<div class="line"><a name="l00125"></a><span class="lineno"><a class="line" href="../../d8/d39/classArcane_1_1NumArrayBase.html#a6f49951e0db31ba054d8d3a5d68f31ef">  125</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html#a6f49951e0db31ba054d8d3a5d68f31ef">resize</a>(<a class="code" href="../../da/d2e/classArcane_1_1ArrayExtents.html">ArrayExtents&lt;RankValue&gt;</a> extents)</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    m_span.m_extents.setSize(extents);</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;    _resize();</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  }</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">NumArrayBase</a>() : m_data(_getDefaultAllocator()){}</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="keyword">explicit</span> NumArrayBase(<a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> r) : m_data(_getDefaultAllocator(r)), m_memory_ressource(r){}</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  <span class="keyword">explicit</span> NumArrayBase(ArrayExtents&lt;RankValue&gt; extents)</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  : m_data(_getDefaultAllocator()), m_memory_ressource(<a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a>::<a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566eeac97222f7db0dd967373c61dfcf47e1df">UnifiedMemory</a>)</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  {</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html#a6f49951e0db31ba054d8d3a5d68f31ef">resize</a>(extents);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  }</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  NumArrayBase(ArrayExtents&lt;RankValue&gt; extents,<a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> r)</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  : m_data(_getDefaultAllocator(r)), m_memory_ressource(r)</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  {</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html#a6f49951e0db31ba054d8d3a5d68f31ef">resize</a>(extents);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  }</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  <span class="keywordtype">void</span> _resize()</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  {</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    Int32 dim1_size = <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html#a02860d362171436f556a86c5900f0c34">extent</a>(0);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    Int32 dim2_size = 1;</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="comment">// TODO: vérifier débordement.</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i=1; i&lt;RankValue; ++i )</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;      dim2_size *= <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html#a02860d362171436f556a86c5900f0c34">extent</a>(i);</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    m_total_nb_element = dim1_size * dim2_size;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    m_data.resize(m_total_nb_element);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    m_span.m_ptr = m_data.to1DSpan().data();</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  }</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="keywordtype">void</span> fill(<span class="keyword">const</span> DataType&amp; v) { m_data.<a class="code" href="../../d9/d09/classArccore_1_1Array.html#aa6e9746ec369ff8d6c95c0ff006a3ed2">fill</a>(v); }</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  Int32 nbDimension()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> RankValue; }</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  ArrayExtents&lt;RankValue&gt; extents()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_span.extents(); }</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  ArrayExtentsWithOffset&lt;RankValue,LayoutType&gt; extentsWithOffset()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    <span class="keywordflow">return</span> m_span.extentsWithOffset();</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  }</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  SpanType span() { <span class="keywordflow">return</span> m_span; }</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  ConstSpanType span()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_span.constSpan(); }</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  ConstSpanType constSpan()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_span.constSpan(); }</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  Span&lt;const DataType&gt; to1DSpan()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_span.to1DSpan(); }</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  Span&lt;DataType&gt; to1DSpan() { <span class="keywordflow">return</span> m_span.to1DSpan(); }</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  <span class="keywordtype">void</span> copy(ConstSpanType rhs)</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  {</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    _checkHost(m_memory_ressource);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    m_data.copy(rhs.to1DSpan());</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  }</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  <span class="keywordtype">void</span> copy(<span class="keyword">const</span> NumArrayBase&lt;DataType,RankValue,LayoutType&gt;&amp; rhs)</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  {</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    this-&gt;<a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html#a6f49951e0db31ba054d8d3a5d68f31ef">resize</a>(rhs.extents());</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    _copy(<a class="code" href="../../d5/d60/namespaceArccore.html#ab5aa97331ef394d3fe9a838d85d41d70">asBytes</a>(rhs.to1DSpan()),rhs.m_memory_ressource,</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;          <a class="code" href="../../d5/d60/namespaceArccore.html#acc2769b4416dee74d273c292ec1a6f53">asWritableBytes</a>(to1DSpan()),m_memory_ressource);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  }</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;  <span class="keyword">const</span> DataType&amp; operator()(ArrayBoundsIndex&lt;RankValue&gt; idx)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;    <span class="keywordflow">return</span> m_span(idx);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  }</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  DataType&amp; s(ArrayBoundsIndex&lt;RankValue&gt; idx)</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  {</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordflow">return</span> m_span(idx);</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  }</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  <span class="keywordtype">void</span> swap(NumArrayBase&lt;DataType,RankValue&gt;&amp; rhs)</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  {</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    m_data.swap(rhs.m_data);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    std::swap(m_span,rhs.m_span);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    std::swap(m_total_nb_element,rhs.m_total_nb_element);</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;    std::swap(m_memory_ressource,rhs.m_memory_ressource);</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  }</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  Int64 capacity()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_data.<a class="code" href="../../db/d34/classArccore_1_1AbstractArray.html#a759a836da0d8a9fad3ce66c914c0ec31">capacity</a>(); }</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  <a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> memoryRessource()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_memory_ressource; }</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  Span&lt;std::byte&gt; bytes() { <span class="keywordflow">return</span> <a class="code" href="../../d5/d60/namespaceArccore.html#acc2769b4416dee74d273c292ec1a6f53">asWritableBytes</a>(to1DSpan()); }</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;  Span&lt;const std::byte&gt; bytes()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d5/d60/namespaceArccore.html#ab5aa97331ef394d3fe9a838d85d41d70">asBytes</a>(to1DSpan()); }</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00204"></a><span class="lineno"><a class="line" href="../../d8/d39/classArcane_1_1NumArrayBase.html#af097c9fb3d77fd6f6c20375aae428f2c">  204</a></span>&#160;  DataType* <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html#af097c9fb3d77fd6f6c20375aae428f2c">_internalData</a>() { <span class="keywordflow">return</span> m_span._internalData(); }</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  SpanType m_span;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  ArrayWrapper m_data;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  Int64 m_total_nb_element = 0;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> m_memory_ressource = <a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566eea88183b946cc5f0e8c96b2e66e1c74a7e">eMemoryRessource::Unknown</a>;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;};</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> DataType,<span class="keyword">typename</span> LayoutType&gt;</div>
+<div class="line"><a name="l00223"></a><span class="lineno"><a class="line" href="../../d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html">  223</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">NumArray</a>&lt;DataType,1,LayoutType&gt;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">NumArrayBase</a>&lt;DataType,1,LayoutType&gt;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;{</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">BaseClass</a> = <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">NumArrayBase&lt;DataType,1,LayoutType&gt;</a>;</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;  <span class="keyword">using</span> BaseClass::extent;</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  <span class="keyword">using</span> BaseClass::resize;</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;  <span class="keyword">using</span> BaseClass::operator();</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;  <span class="keyword">using</span> BaseClass::s;</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">ConstSpanType</a> = <a class="code" href="../../d8/d5d/classArcane_1_1MDSpan.html">MDSpan&lt;const DataType,1,LayoutType&gt;</a>;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html">SpanType</a> = <a class="code" href="../../d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html">MDSpan&lt;DataType,1,LayoutType&gt;</a>;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;  <span class="keyword">using</span> BaseClass::m_span;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00238"></a><span class="lineno"><a class="line" href="../../d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#aa69b0ae5aa7281b4e4caa957c4ebd136">  238</a></span>&#160;  <a class="code" href="../../d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#aa69b0ae5aa7281b4e4caa957c4ebd136">NumArray</a>() : <a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">NumArray</a>(0){}</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">NumArray</a>(<a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> r) : BaseClass(r){}</div>
+<div class="line"><a name="l00241"></a><span class="lineno"><a class="line" href="../../d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#a35a5a172c59c928900f543e16a37d574">  241</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#a35a5a172c59c928900f543e16a37d574">NumArray</a>(Int32 dim1_size)</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  : <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">BaseClass</a>(<a class="code" href="../../da/d2e/classArcane_1_1ArrayExtents.html">ArrayExtents</a>&lt;1&gt;(dim1_size)){}</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  <a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">NumArray</a>(Int32 dim1_size,<a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> r)</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  : BaseClass(<a class="code" href="../../da/d2e/classArcane_1_1ArrayExtents.html">ArrayExtents</a>&lt;1&gt;{dim1_size},r){}</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <span class="keywordtype">void</span> resize(Int32 dim1_size)</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  {</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    this-&gt;resize(ArrayExtents&lt;1&gt;(dim1_size));</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  }</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="../../d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#a5e1a92b139b1a8a179e30f35c334e41a">  252</a></span>&#160;  Int32 <a class="code" href="../../d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#a5e1a92b139b1a8a179e30f35c334e41a">dim1Size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;extent(0); }</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00255"></a><span class="lineno"><a class="line" href="../../d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#adff1aaa3f12b4c0ccc6eeb4ac06324fb">  255</a></span>&#160;  DataType <a class="code" href="../../d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#adff1aaa3f12b4c0ccc6eeb4ac06324fb">operator()</a>(Int32 i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    <span class="keywordflow">return</span> m_span(i);</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  }</div>
+<div class="line"><a name="l00260"></a><span class="lineno"><a class="line" href="../../d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#a642b9bb8ff36d3d2770f4d3088994e36">  260</a></span>&#160;  DataType&amp; <a class="code" href="../../d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#a642b9bb8ff36d3d2770f4d3088994e36">s</a>(Int32 i)</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  {</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    <span class="keywordflow">return</span> m_span(i);</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  }</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;  <span class="keyword">operator</span> SpanType () { <span class="keywordflow">return</span> this-&gt;span(); }</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  <span class="keyword">operator</span> ConstSpanType ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> this-&gt;constSpan(); }</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;};</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; </div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> DataType,<span class="keyword">typename</span> LayoutType&gt;</div>
+<div class="line"><a name="l00277"></a><span class="lineno"><a class="line" href="../../d5/d2e/classArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4.html">  277</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">NumArray</a>&lt;DataType,2,LayoutType&gt;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">NumArrayBase</a>&lt;DataType,2,LayoutType&gt;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;{</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">BaseClass</a> = <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">NumArrayBase&lt;DataType,2,LayoutType&gt;</a>;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  <span class="keyword">using</span> BaseClass::extent;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  <span class="keyword">using</span> BaseClass::resize;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  <span class="keyword">using</span> BaseClass::operator();</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  <span class="keyword">using</span> BaseClass::s;</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;  <span class="keyword">using</span> BaseClass::m_span;</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  <a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">NumArray</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">NumArray</a>(<a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> r) : <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">BaseClass</a>(r){}</div>
+<div class="line"><a name="l00293"></a><span class="lineno"><a class="line" href="../../d5/d2e/classArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4.html#a6216684edf7862dfd9a6ad561b23fb1f">  293</a></span>&#160;  <a class="code" href="../../d5/d2e/classArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4.html#a6216684edf7862dfd9a6ad561b23fb1f">NumArray</a>(Int32 dim1_size,Int32 dim2_size)</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  : <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">BaseClass</a>(<a class="code" href="../../da/d2e/classArcane_1_1ArrayExtents.html">ArrayExtents</a>&lt;2&gt;{dim1_size,dim2_size}){}</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  NumArray(Int32 dim1_size,Int32 dim2_size,<a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> r)</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  : BaseClass(ArrayExtents&lt;2&gt;{dim1_size,dim2_size},r){}</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  <span class="keywordtype">void</span> resize(Int32 dim1_size,Int32 dim2_size)</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;  {</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    this-&gt;resize(ArrayExtents&lt;2&gt;(dim1_size,dim2_size));</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  }</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00305"></a><span class="lineno"><a class="line" href="../../d5/d2e/classArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4.html#addb7d0ed9d243fac5a9b702132e66e52">  305</a></span>&#160;  Int32 <a class="code" href="../../d5/d2e/classArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4.html#addb7d0ed9d243fac5a9b702132e66e52">dim1Size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> extent(0); }</div>
+<div class="line"><a name="l00307"></a><span class="lineno"><a class="line" href="../../d5/d2e/classArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4.html#a01cab0a08aae7b50d67535f4b12b346f">  307</a></span>&#160;  Int32 <a class="code" href="../../d5/d2e/classArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4.html#a01cab0a08aae7b50d67535f4b12b346f">dim2Size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> extent(1); }</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00310"></a><span class="lineno"><a class="line" href="../../d5/d2e/classArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4.html#a5a09630eba053d499b7bcaa9708d0f58">  310</a></span>&#160;  DataType <a class="code" href="../../d5/d2e/classArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4.html#a5a09630eba053d499b7bcaa9708d0f58">operator()</a>(Int32 i,Int32 j)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;    <span class="keywordflow">return</span> m_span(i,j);</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  }</div>
+<div class="line"><a name="l00315"></a><span class="lineno"><a class="line" href="../../d5/d2e/classArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4.html#a06e68608c5c5c75e491983416bde3704">  315</a></span>&#160;  DataType&amp; <a class="code" href="../../d5/d2e/classArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4.html#a06e68608c5c5c75e491983416bde3704">s</a>(Int32 i,Int32 j)</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  {</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;    <span class="keywordflow">return</span> m_span(i,j);</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  }</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;};</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> DataType,<span class="keyword">typename</span> LayoutType&gt;</div>
+<div class="line"><a name="l00329"></a><span class="lineno"><a class="line" href="../../d0/dfa/classArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4.html">  329</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">NumArray</a>&lt;DataType,3,LayoutType&gt;</div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">NumArrayBase</a>&lt;DataType,3,LayoutType&gt;</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;{</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">BaseClass</a> = <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">NumArrayBase&lt;DataType,3,LayoutType&gt;</a>;</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;  <span class="keyword">using</span> BaseClass::extent;</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  <span class="keyword">using</span> BaseClass::resize;</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  <span class="keyword">using</span> BaseClass::operator();</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  <span class="keyword">using</span> BaseClass::s;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;  <span class="keyword">using</span> BaseClass::m_span;</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;  <a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">NumArray</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">NumArray</a>(<a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> r) : <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">BaseClass</a>(r){}</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;  <a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">NumArray</a>(Int32 dim1_size,Int32 dim2_size,Int32 dim3_size)</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;  : <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">BaseClass</a>(<a class="code" href="../../dc/dd8/classArcane_1_1ArrayExtents_3_013_01_4.html">ArrayExtents&lt;3&gt;</a>(dim1_size,dim2_size,dim3_size)){}</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160;  <a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">NumArray</a>(Int32 dim1_size,Int32 dim2_size,Int32 dim3_size,<a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> r)</div>
+<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;  : <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">BaseClass</a>(<a class="code" href="../../dc/dd8/classArcane_1_1ArrayExtents_3_013_01_4.html">ArrayExtents&lt;3&gt;</a>{dim1_size,dim2_size,dim3_size},r){}</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;  <span class="keywordtype">void</span> resize(Int32 dim1_size,Int32 dim2_size,Int32 dim3_size)</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;  {</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;    this-&gt;resize(<a class="code" href="../../dc/dd8/classArcane_1_1ArrayExtents_3_013_01_4.html">ArrayExtents&lt;3&gt;</a>(dim1_size,dim2_size,dim3_size));</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;  }</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00355"></a><span class="lineno"><a class="line" href="../../d0/dfa/classArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4.html#a8d6ca80d7b0b31f5433dbb4873aca0d4">  355</a></span>&#160;  Int32 <a class="code" href="../../d0/dfa/classArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4.html#a8d6ca80d7b0b31f5433dbb4873aca0d4">dim1Size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> extent(0); }</div>
+<div class="line"><a name="l00357"></a><span class="lineno"><a class="line" href="../../d0/dfa/classArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4.html#ab635471530c89ee200de4e8646714498">  357</a></span>&#160;  Int32 <a class="code" href="../../d0/dfa/classArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4.html#ab635471530c89ee200de4e8646714498">dim2Size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> extent(1); }</div>
+<div class="line"><a name="l00359"></a><span class="lineno"><a class="line" href="../../d0/dfa/classArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4.html#a83a510bd17ee1ac1fb297f51b1efa666">  359</a></span>&#160;  Int32 <a class="code" href="../../d0/dfa/classArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4.html#a83a510bd17ee1ac1fb297f51b1efa666">dim3Size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> extent(2); }</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00362"></a><span class="lineno"><a class="line" href="../../d0/dfa/classArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4.html#a0e174110f43335e7ccf689823d00b89b">  362</a></span>&#160;  DataType <a class="code" href="../../d0/dfa/classArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4.html#a0e174110f43335e7ccf689823d00b89b">operator()</a>(Int32 i,Int32 j,Int32 k)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;    <span class="keywordflow">return</span> m_span(i,j,k);</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;  }</div>
+<div class="line"><a name="l00367"></a><span class="lineno"><a class="line" href="../../d0/dfa/classArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4.html#ae9f8d0dfcfc03738d999bd1f74fd1ac0">  367</a></span>&#160;  DataType&amp; <a class="code" href="../../d0/dfa/classArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4.html#ae9f8d0dfcfc03738d999bd1f74fd1ac0">s</a>(Int32 i,Int32 j,Int32 k)</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;  {</div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;    <span class="keywordflow">return</span> m_span(i,j,k);</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;  }</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;};</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160; </div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> DataType,<span class="keyword">typename</span> LayoutType&gt;</div>
+<div class="line"><a name="l00381"></a><span class="lineno"><a class="line" href="../../de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html">  381</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">NumArray</a>&lt;DataType,4,LayoutType&gt;</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">NumArrayBase</a>&lt;DataType,4,LayoutType&gt;</div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;{</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">BaseClass</a> = <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">NumArrayBase&lt;DataType,4,LayoutType&gt;</a>;</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;  <span class="keyword">using</span> BaseClass::extent;</div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;  <span class="keyword">using</span> BaseClass::resize;</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;  <span class="keyword">using</span> BaseClass::operator();</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;  <span class="keyword">using</span> BaseClass::s;</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;  <span class="keyword">using</span> BaseClass::m_span;</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160;  <a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">NumArray</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">NumArray</a>(<a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> r) : <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">BaseClass</a>(r){}</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160;  <a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">NumArray</a>(Int32 dim1_size,Int32 dim2_size,</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;           Int32 dim3_size,Int32 dim4_size)</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;  : <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">BaseClass</a>(<a class="code" href="../../d2/d3c/classArcane_1_1ArrayExtents_3_014_01_4.html">ArrayExtents&lt;4&gt;</a>(dim1_size,dim2_size,dim3_size,dim4_size)){}</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;  <a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">NumArray</a>(Int32 dim1_size,Int32 dim2_size,</div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;           Int32 dim3_size,Int32 dim4_size,<a class="code" href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">eMemoryRessource</a> r)</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;  : <a class="code" href="../../d8/d39/classArcane_1_1NumArrayBase.html">BaseClass</a>(<a class="code" href="../../d2/d3c/classArcane_1_1ArrayExtents_3_014_01_4.html">ArrayExtents&lt;4&gt;</a>{dim1_size,dim2_size,dim3_size,dim4_size},r){}</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;  <span class="keywordtype">void</span> resize(Int32 dim1_size,Int32 dim2_size,Int32 dim3_size,Int32 dim4_size)</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;  {</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;    this-&gt;resize(<a class="code" href="../../d2/d3c/classArcane_1_1ArrayExtents_3_014_01_4.html">ArrayExtents&lt;4&gt;</a>(dim1_size,dim2_size,dim3_size,dim4_size));</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;  }</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160; </div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00410"></a><span class="lineno"><a class="line" href="../../de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html#a4a25e14ed0f2ddead9bb54a966bca9cf">  410</a></span>&#160;  Int32 <a class="code" href="../../de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html#a4a25e14ed0f2ddead9bb54a966bca9cf">dim1Size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> extent(0); }</div>
+<div class="line"><a name="l00412"></a><span class="lineno"><a class="line" href="../../de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html#a3ebd9e8a31c4d1d70336d2893d39f8f9">  412</a></span>&#160;  Int32 <a class="code" href="../../de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html#a3ebd9e8a31c4d1d70336d2893d39f8f9">dim2Size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> extent(1); }</div>
+<div class="line"><a name="l00414"></a><span class="lineno"><a class="line" href="../../de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html#a72414db4feb85ff3c184f4d388584350">  414</a></span>&#160;  Int32 <a class="code" href="../../de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html#a72414db4feb85ff3c184f4d388584350">dim3Size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> extent(2); }</div>
+<div class="line"><a name="l00416"></a><span class="lineno"><a class="line" href="../../de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html#a565ec196a17e0dae2bd9bb783e548d46">  416</a></span>&#160;  Int32 <a class="code" href="../../de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html#a565ec196a17e0dae2bd9bb783e548d46">dim4Size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> extent(3); }</div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00419"></a><span class="lineno"><a class="line" href="../../de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html#a48ad04a50efd65b0c655c1ae0c724a2c">  419</a></span>&#160;  DataType <a class="code" href="../../de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html#a48ad04a50efd65b0c655c1ae0c724a2c">operator()</a>(Int32 i,Int32 j,Int32 k,Int32 l)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;    <span class="keywordflow">return</span> m_span(i,j,k,l);</div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160;  }</div>
+<div class="line"><a name="l00424"></a><span class="lineno"><a class="line" href="../../de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html#ac262da8386c3441032990b651ee200af">  424</a></span>&#160;  DataType&amp; <a class="code" href="../../de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html#ac262da8386c3441032990b651ee200af">s</a>(Int32 i,Int32 j,Int32 k,Int32 l)</div>
+<div class="line"><a name="l00425"></a><span class="lineno">  425</span>&#160;  {</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;    <span class="keywordflow">return</span> m_span(i,j,k,l);</div>
+<div class="line"><a name="l00427"></a><span class="lineno">  427</span>&#160;  }</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;};</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160; </div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00431"></a><span class="lineno">  431</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00432"></a><span class="lineno">  432</span>&#160; </div>
+<div class="line"><a name="l00433"></a><span class="lineno">  433</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00434"></a><span class="lineno">  434</span>&#160; </div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00436"></a><span class="lineno">  436</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160; </div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;<span class="preprocessor">#endif  </span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4_html_ab635471530c89ee200de4e8646714498"><div class="ttname"><a href="../../d0/dfa/classArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4.html#ab635471530c89ee200de4e8646714498">Arcane::NumArray&lt; DataType, 3, LayoutType &gt;::dim2Size</a></div><div class="ttdeci">Int32 dim2Size() const</div><div class="ttdoc">Valeur de la deuxième dimension.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:357</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4_html_a642b9bb8ff36d3d2770f4d3088994e36"><div class="ttname"><a href="../../d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#a642b9bb8ff36d3d2770f4d3088994e36">Arcane::NumArray&lt; DataType, 1, LayoutType &gt;::s</a></div><div class="ttdeci">DataType &amp; s(Int32 i)</div><div class="ttdoc">Positionne la valeur pour l'élément i.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:260</div></div>
+<div class="ttc" id="anamespaceArcane_html_a062109fbc830e3fc0bbf317a2ba566eea88183b946cc5f0e8c96b2e66e1c74a7e"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566eea88183b946cc5f0e8c96b2e66e1c74a7e">Arcane::eMemoryRessource::Unknown</a></div><div class="ttdeci">@ Unknown</div><div class="ttdoc">Valeur inconnue ou non initialisée.</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4_html_a3ebd9e8a31c4d1d70336d2893d39f8f9"><div class="ttname"><a href="../../de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html#a3ebd9e8a31c4d1d70336d2893d39f8f9">Arcane::NumArray&lt; DataType, 4, LayoutType &gt;::dim2Size</a></div><div class="ttdeci">Int32 dim2Size() const</div><div class="ttdoc">Valeur de la deuxième dimension.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:412</div></div>
+<div class="ttc" id="aclassArcane_1_1ArrayExtents_3_014_01_4_html"><div class="ttname"><a href="../../d2/d3c/classArcane_1_1ArrayExtents_3_014_01_4.html">Arcane::ArrayExtents&lt; 4 &gt;</a></div><div class="ttdef"><b>Definition:</b> ArrayExtents.h:288</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4_html_a6216684edf7862dfd9a6ad561b23fb1f"><div class="ttname"><a href="../../d5/d2e/classArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4.html#a6216684edf7862dfd9a6ad561b23fb1f">Arcane::NumArray&lt; DataType, 2, LayoutType &gt;::NumArray</a></div><div class="ttdeci">NumArray(Int32 dim1_size, Int32 dim2_size)</div><div class="ttdoc">Construit une vue.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:293</div></div>
+<div class="ttc" id="aclassArcane_1_1MDSpan_html"><div class="ttname"><a href="../../d8/d5d/classArcane_1_1MDSpan.html">Arcane::MDSpan</a></div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:190</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4_html_a0e174110f43335e7ccf689823d00b89b"><div class="ttname"><a href="../../d0/dfa/classArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4.html#a0e174110f43335e7ccf689823d00b89b">Arcane::NumArray&lt; DataType, 3, LayoutType &gt;::operator()</a></div><div class="ttdeci">DataType operator()(Int32 i, Int32 j, Int32 k) const</div><div class="ttdoc">Valeur pour l'élément i,j,k.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:362</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4_html_a35a5a172c59c928900f543e16a37d574"><div class="ttname"><a href="../../d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#a35a5a172c59c928900f543e16a37d574">Arcane::NumArray&lt; DataType, 1, LayoutType &gt;::NumArray</a></div><div class="ttdeci">NumArray(Int32 dim1_size)</div><div class="ttdoc">Construit un tableau.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:241</div></div>
+<div class="ttc" id="anamespaceArcane_html_a062109fbc830e3fc0bbf317a2ba566ee"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566ee">Arcane::eMemoryRessource</a></div><div class="ttdeci">eMemoryRessource</div><div class="ttdoc">Liste des ressources mémoire disponibles.</div><div class="ttdef"><b>Definition:</b> MemoryRessource.h:31</div></div>
+<div class="ttc" id="aclassArccore_1_1AbstractArray_html_a759a836da0d8a9fad3ce66c914c0ec31"><div class="ttname"><a href="../../db/d34/classArccore_1_1AbstractArray.html#a759a836da0d8a9fad3ce66c914c0ec31">Arccore::AbstractArray&lt; DataType &gt;::capacity</a></div><div class="ttdeci">Integer capacity() const</div><div class="ttdoc">Capacité (nombre d'éléments alloués) du vecteur.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:413</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4_html_a5a09630eba053d499b7bcaa9708d0f58"><div class="ttname"><a href="../../d5/d2e/classArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4.html#a5a09630eba053d499b7bcaa9708d0f58">Arcane::NumArray&lt; DataType, 2, LayoutType &gt;::operator()</a></div><div class="ttdeci">DataType operator()(Int32 i, Int32 j) const</div><div class="ttdoc">Valeur pour l'élément i,j.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:310</div></div>
+<div class="ttc" id="anamespaceArccore_html_ab5aa97331ef394d3fe9a838d85d41d70"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#ab5aa97331ef394d3fe9a838d85d41d70">Arccore::asBytes</a></div><div class="ttdeci">Span&lt; const std::byte &gt; asBytes(SpanImpl&lt; const DataType, SizeType &gt; s)</div><div class="ttdoc">Converti la vue en un tableau d'octets non modifiables.</div><div class="ttdef"><b>Definition:</b> Span.h:710</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_html"><div class="ttname"><a href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray</a></div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:194</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_a4b0b44be9a899c17583b2c6ba4ee4a40"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#a4b0b44be9a899c17583b2c6ba4ee4a40">Arccore::Array&lt; DataType &gt;::span</a></div><div class="ttdeci">Span&lt; const DataType &gt; span() const</div><div class="ttdoc">Vue immutable sur ce tableau.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:929</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4_html_a5e1a92b139b1a8a179e30f35c334e41a"><div class="ttname"><a href="../../d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#a5e1a92b139b1a8a179e30f35c334e41a">Arcane::NumArray&lt; DataType, 1, LayoutType &gt;::dim1Size</a></div><div class="ttdeci">Int32 dim1Size() const</div><div class="ttdoc">Valeur de la première dimension.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:252</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArrayBase_html_aae6fa16ab76c08eb17e3896897bbfa73"><div class="ttname"><a href="../../d8/d39/classArcane_1_1NumArrayBase.html#aae6fa16ab76c08eb17e3896897bbfa73">Arcane::NumArrayBase::totalNbElement</a></div><div class="ttdeci">Int64 totalNbElement() const</div><div class="ttdoc">Nombre total d'éléments du tableau.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:118</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArrayBase_html"><div class="ttname"><a href="../../d8/d39/classArcane_1_1NumArrayBase.html">Arcane::NumArrayBase</a></div><div class="ttdoc">Classe de base des tableaux multi-dimensionnels pour les types numériques sur accélérateur.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:106</div></div>
+<div class="ttc" id="aclassArccore_1_1Span_html"><div class="ttname"><a href="../../dd/d9f/classArccore_1_1Span.html">Arccore::Span</a></div><div class="ttdoc">Vue d'un tableau d'éléments de type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:35</div></div>
+<div class="ttc" id="aclassArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4_html"><div class="ttname"><a href="../../d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html">Arcane::MDSpan&lt; DataType, 1, LayoutType &gt;</a></div><div class="ttdoc">Vue multi-dimensionnelle à 1 dimension.</div><div class="ttdef"><b>Definition:</b> MDSpan.h:128</div></div>
+<div class="ttc" id="aclassArccore_1_1AbstractArray_html_a4b7ff33920c01d8ca6b71b1d7918bc9f"><div class="ttname"><a href="../../db/d34/classArccore_1_1AbstractArray.html#a4b7ff33920c01d8ca6b71b1d7918bc9f">Arccore::AbstractArray&lt; DataType &gt;::_initFromSpan</a></div><div class="ttdeci">void _initFromSpan(const Span&lt; const DataType &gt; &amp;view)</div><div class="ttdoc">Initialise le tableau avec la vue view.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:349</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4_html_ae9f8d0dfcfc03738d999bd1f74fd1ac0"><div class="ttname"><a href="../../d0/dfa/classArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4.html#ae9f8d0dfcfc03738d999bd1f74fd1ac0">Arcane::NumArray&lt; DataType, 3, LayoutType &gt;::s</a></div><div class="ttdeci">DataType &amp; s(Int32 i, Int32 j, Int32 k)</div><div class="ttdoc">Positionne la valeur pour l'élément i,j,k.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:367</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4_html_addb7d0ed9d243fac5a9b702132e66e52"><div class="ttname"><a href="../../d5/d2e/classArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4.html#addb7d0ed9d243fac5a9b702132e66e52">Arcane::NumArray&lt; DataType, 2, LayoutType &gt;::dim1Size</a></div><div class="ttdeci">Int32 dim1Size() const</div><div class="ttdoc">Valeur de la première dimension.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:305</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html">Arccore::Array</a></div><div class="ttdoc">Classe de base des vecteurs 1D de données.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:833</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4_html_aa69b0ae5aa7281b4e4caa957c4ebd136"><div class="ttname"><a href="../../d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#aa69b0ae5aa7281b4e4caa957c4ebd136">Arcane::NumArray&lt; DataType, 1, LayoutType &gt;::NumArray</a></div><div class="ttdeci">NumArray()</div><div class="ttdoc">Construit un tableau vide.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:238</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4_html_ac262da8386c3441032990b651ee200af"><div class="ttname"><a href="../../de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html#ac262da8386c3441032990b651ee200af">Arcane::NumArray&lt; DataType, 4, LayoutType &gt;::s</a></div><div class="ttdeci">DataType &amp; s(Int32 i, Int32 j, Int32 k, Int32 l)</div><div class="ttdoc">Positionne la valeur pour l'élément i,j,k,l.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:424</div></div>
+<div class="ttc" id="aclassArccore_1_1IMemoryAllocator_html"><div class="ttname"><a href="../../d1/dbb/classArccore_1_1IMemoryAllocator.html">Arccore::IMemoryAllocator</a></div><div class="ttdoc">Interface d'un allocateur pour la mémoire.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/IMemoryAllocator.h:36</div></div>
+<div class="ttc" id="anamespaceArccore_html_acc2769b4416dee74d273c292ec1a6f53"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#acc2769b4416dee74d273c292ec1a6f53">Arccore::asWritableBytes</a></div><div class="ttdeci">Span&lt; std::byte &gt; asWritableBytes(SpanImpl&lt; DataType, SizeType &gt; s)</div><div class="ttdoc">Converti la vue en un tableau d'octets modifiables.</div><div class="ttdef"><b>Definition:</b> Span.h:725</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4_html_a8d6ca80d7b0b31f5433dbb4873aca0d4"><div class="ttname"><a href="../../d0/dfa/classArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4.html#a8d6ca80d7b0b31f5433dbb4873aca0d4">Arcane::NumArray&lt; DataType, 3, LayoutType &gt;::dim1Size</a></div><div class="ttdeci">Int32 dim1Size() const</div><div class="ttdoc">Valeur de la première dimension.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:355</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArrayBase_html_af097c9fb3d77fd6f6c20375aae428f2c"><div class="ttname"><a href="../../d8/d39/classArcane_1_1NumArrayBase.html#af097c9fb3d77fd6f6c20375aae428f2c">Arcane::NumArrayBase::_internalData</a></div><div class="ttdeci">DataType * _internalData()</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:204</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4_html_a01cab0a08aae7b50d67535f4b12b346f"><div class="ttname"><a href="../../d5/d2e/classArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4.html#a01cab0a08aae7b50d67535f4b12b346f">Arcane::NumArray&lt; DataType, 2, LayoutType &gt;::dim2Size</a></div><div class="ttdeci">Int32 dim2Size() const</div><div class="ttdoc">Valeur de la deuxième dimension.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:307</div></div>
+<div class="ttc" id="aclassArccore_1_1AbstractArray_html_a3b65bdf8938fdb802efa71446adaccba"><div class="ttname"><a href="../../db/d34/classArccore_1_1AbstractArray.html#a3b65bdf8938fdb802efa71446adaccba">Arccore::AbstractArray&lt; DataType &gt;::_initFromAllocator</a></div><div class="ttdeci">void _initFromAllocator(IMemoryAllocator *a, Int64 acapacity)</div><div class="ttdoc">Construit un vecteur vide avec un allocateur spécifique a.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:367</div></div>
+<div class="ttc" id="aclassArcane_1_1ArrayExtents_html"><div class="ttname"><a href="../../da/d2e/classArcane_1_1ArrayExtents.html">Arcane::ArrayExtents</a></div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:199</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_aa6e9746ec369ff8d6c95c0ff006a3ed2"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#aa6e9746ec369ff8d6c95c0ff006a3ed2">Arccore::Array&lt; DataType &gt;::fill</a></div><div class="ttdeci">void fill(ConstReferenceType value)</div><div class="ttdoc">Remplit le tableau avec la valeur value.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:1145</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4_html_adff1aaa3f12b4c0ccc6eeb4ac06324fb"><div class="ttname"><a href="../../d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#adff1aaa3f12b4c0ccc6eeb4ac06324fb">Arcane::NumArray&lt; DataType, 1, LayoutType &gt;::operator()</a></div><div class="ttdeci">DataType operator()(Int32 i) const</div><div class="ttdoc">Valeur pour l'élément i.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:255</div></div>
+<div class="ttc" id="aclassArcane_1_1impl_1_1NumArrayContainer_html"><div class="ttname"><a href="../../de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html">Arcane::impl::NumArrayContainer</a></div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:51</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4_html_a83a510bd17ee1ac1fb297f51b1efa666"><div class="ttname"><a href="../../d0/dfa/classArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4.html#a83a510bd17ee1ac1fb297f51b1efa666">Arcane::NumArray&lt; DataType, 3, LayoutType &gt;::dim3Size</a></div><div class="ttdeci">Int32 dim3Size() const</div><div class="ttdoc">Valeur de la troisième dimension.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:359</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_a103e0fec274525363e2ab99b58c3d9fc"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#a103e0fec274525363e2ab99b58c3d9fc">Arccore::Array&lt; DataType &gt;::constSpan</a></div><div class="ttdeci">Span&lt; const DataType &gt; constSpan() const</div><div class="ttdoc">Vue constante sur ce tableau.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:908</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4_html_a06e68608c5c5c75e491983416bde3704"><div class="ttname"><a href="../../d5/d2e/classArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4.html#a06e68608c5c5c75e491983416bde3704">Arcane::NumArray&lt; DataType, 2, LayoutType &gt;::s</a></div><div class="ttdeci">DataType &amp; s(Int32 i, Int32 j)</div><div class="ttdoc">Positionne la valeur pour l'élément i,j.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:315</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4_html_a48ad04a50efd65b0c655c1ae0c724a2c"><div class="ttname"><a href="../../de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html#a48ad04a50efd65b0c655c1ae0c724a2c">Arcane::NumArray&lt; DataType, 4, LayoutType &gt;::operator()</a></div><div class="ttdeci">DataType operator()(Int32 i, Int32 j, Int32 k, Int32 l) const</div><div class="ttdoc">Valeur pour l'élément i,j,k,l.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:419</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4_html_a72414db4feb85ff3c184f4d388584350"><div class="ttname"><a href="../../de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html#a72414db4feb85ff3c184f4d388584350">Arcane::NumArray&lt; DataType, 4, LayoutType &gt;::dim3Size</a></div><div class="ttdeci">Int32 dim3Size() const</div><div class="ttdoc">Valeur de la troisième dimension.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:414</div></div>
+<div class="ttc" id="aclassArcane_1_1ArrayExtents_3_013_01_4_html"><div class="ttname"><a href="../../dc/dd8/classArcane_1_1ArrayExtents_3_013_01_4.html">Arcane::ArrayExtents&lt; 3 &gt;</a></div><div class="ttdef"><b>Definition:</b> ArrayExtents.h:252</div></div>
+<div class="ttc" id="anamespaceArcane_html_a062109fbc830e3fc0bbf317a2ba566eeac97222f7db0dd967373c61dfcf47e1df"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a062109fbc830e3fc0bbf317a2ba566eeac97222f7db0dd967373c61dfcf47e1df">Arcane::eMemoryRessource::UnifiedMemory</a></div><div class="ttdeci">@ UnifiedMemory</div><div class="ttdoc">Alloue en utilisant la mémoire unifiée.</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4_html_a565ec196a17e0dae2bd9bb783e548d46"><div class="ttname"><a href="../../de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html#a565ec196a17e0dae2bd9bb783e548d46">Arcane::NumArray&lt; DataType, 4, LayoutType &gt;::dim4Size</a></div><div class="ttdeci">Int32 dim4Size() const</div><div class="ttdoc">Valeur de la quatrième dimension.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:416</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArrayBase_html_a6f49951e0db31ba054d8d3a5d68f31ef"><div class="ttname"><a href="../../d8/d39/classArcane_1_1NumArrayBase.html#a6f49951e0db31ba054d8d3a5d68f31ef">Arcane::NumArrayBase::resize</a></div><div class="ttdeci">void resize(ArrayExtents&lt; RankValue &gt; extents)</div><div class="ttdoc">Modifie la taille du tableau.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:125</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4_html_a4a25e14ed0f2ddead9bb54a966bca9cf"><div class="ttname"><a href="../../de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html#a4a25e14ed0f2ddead9bb54a966bca9cf">Arcane::NumArray&lt; DataType, 4, LayoutType &gt;::dim1Size</a></div><div class="ttdeci">Int32 dim1Size() const</div><div class="ttdoc">Valeur de la première dimension.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:410</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArrayBase_html_a02860d362171436f556a86c5900f0c34"><div class="ttname"><a href="../../d8/d39/classArcane_1_1NumArrayBase.html#a02860d362171436f556a86c5900f0c34">Arcane::NumArrayBase::extent</a></div><div class="ttdeci">Int32 extent(int i) const</div><div class="ttdoc">Nombre d'éléments du rang i.</div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:120</div></div>
+<div class="ttc" id="aclassArccore_1_1AbstractArray_html_afc91780ff11e2093929f8921021bf599"><div class="ttname"><a href="../../db/d34/classArccore_1_1AbstractArray.html#afc91780ff11e2093929f8921021bf599">Arccore::AbstractArray&lt; DataType &gt;::_swap</a></div><div class="ttdeci">void _swap(ThatClassType &amp;rhs) ARCCORE_NOEXCEPT</div><div class="ttdoc">Échange les valeurs de l'instance avec celles de rhs.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:751</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArrayBaseCommon_html"><div class="ttname"><a href="../../d1/dc3/classArcane_1_1NumArrayBaseCommon.html">Arcane::NumArrayBaseCommon</a></div><div class="ttdef"><b>Definition:</b> utils/NumArray.h:37</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:40 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

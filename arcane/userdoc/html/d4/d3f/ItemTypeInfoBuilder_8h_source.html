@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arcane/ItemTypeInfoBuilder.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d4/d3f/ItemTypeInfoBuilder_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">ItemTypeInfoBuilder.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* ItemTypeInfoBuilder.h                                       (C) 2000-2019 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Construction d&#39;un type d&#39;entité du maillage.                              */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_ITEMTYPEINFOBUILDER_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_ITEMTYPEINFOBUILDER_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/ItemTypeInfo.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html">   46</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html">ItemTypeInfoBuilder</a></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../dc/d74/classArcane_1_1ItemTypeInfo.html">ItemTypeInfo</a></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a9112f57cb6e160714f211d3e11bbb590">   52</a></span>&#160;  <a class="code" href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a9112f57cb6e160714f211d3e11bbb590">ItemTypeInfoBuilder</a>() : <a class="code" href="../../dc/d74/classArcane_1_1ItemTypeInfo.html">ItemTypeInfo</a>() {}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordtype">void</span> setInfos(<a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">ItemTypeMng</a>* mng,</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;                Integer type_id, <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> type_name,</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;                Integer nb_node, Integer nb_edge, Integer nb_face);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a1387212c78072b721f95d69b46388101">addEdge</a>(Integer edge_index,Integer n0,Integer n1,Integer f_left,Integer f_right);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a88d1ad07b83898fa71aaf860fd28b1ae">addFaceVertex</a>(Integer face_index,Integer n0);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#ad3e37087c01593be11e111b9b6c0886e">addFaceLine</a>(Integer face_index,Integer n0,Integer n1);</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a6a1f5b93b8f87bbd6de720ef53308d5a">addFaceLine3</a>(Integer face_index,Integer n0,Integer n1,Integer n2);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a9a5ae69e0906c827055e75ff6791affe">addFaceTriangle</a>(Integer face_index,Integer n0,Integer n1,Integer n2);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#afea9c20943dd9aaae4d419d78822ac01">addFaceTriangle6</a>(Integer face_index,Integer n0,Integer n1,Integer n2,</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;                        Integer n3, Integer n4, Integer n5);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#aba0a31cf6335a362180f29251a8a2ebb">addFaceQuad</a>(Integer face_index,Integer n0,Integer n1,Integer n2,Integer n3);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a67b82afc626d74eebfa7c661eca7fb49">addFaceQuad8</a>(Integer face_index,Integer n0,Integer n1,Integer n2,Integer n3,</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;                    Integer n4,Integer n5,Integer n6,Integer n7);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a2d972d0a20dd699e0167ff9315b620b7">addFacePentagon</a>(Integer face_index,Integer n0,Integer n1,Integer n2,Integer n3,Integer n4);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a0930113b92a238d1fc1b39e6fb147583">addFaceHexagon</a>(Integer face_index,Integer n0,Integer n1,Integer n2,Integer n3,</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;                      Integer n4,Integer n5);</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a425f2438c961be8ec49f281e694c27e1">addFaceHeptagon</a>(Integer face_index,Integer n0,Integer n1,Integer n2,Integer n3,</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;                       Integer n4,Integer n5, Integer n6);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a713a0ae8950d4006d1fe87eae1bd3cb6">addFaceOctogon</a>(Integer face_index,Integer n0,Integer n1,Integer n2,Integer n3,</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;                      Integer n4,Integer n5, Integer n6, Integer n7);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a734cd1dcc32fae59092f5f69aa3106ba">addFaceGeneric</a>(Integer face_index,Integer type_id,<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;Integer&gt;</a> n);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#ab29a82192dfdb7b3bbfc7cdeb5caed5d">computeFaceEdgeInfos</a>();</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <span class="keywordtype">void</span> _setNbEdgeAndFace(Integer nb_edge,Integer nb_face);</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;};</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclassArccore_1_1Array_html_a8862daca9dff6b892bda6cb42d241712"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#a8862daca9dff6b892bda6cb42d241712">Arccore::Array::resize</a></div><div class="ttdeci">void resize(Int64 s)</div><div class="ttdoc">Change le nombre d'élément du tableau à s. Si le nouveau tableau est plus grand que l'ancien,...</div><div class="ttdef"><b>Definition:</b> Array.h:1009</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfoBuilder_html_a425f2438c961be8ec49f281e694c27e1"><div class="ttname"><a href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a425f2438c961be8ec49f281e694c27e1">Arcane::ItemTypeInfoBuilder::addFaceHeptagon</a></div><div class="ttdeci">void addFaceHeptagon(Integer face_index, Integer n0, Integer n1, Integer n2, Integer n3, Integer n4, Integer n5, Integer n6)</div><div class="ttdoc">Ajoute un heptagone à la liste des faces.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfoBuilder.cc:227</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfoBuilder_html_a9a5ae69e0906c827055e75ff6791affe"><div class="ttname"><a href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a9a5ae69e0906c827055e75ff6791affe">Arcane::ItemTypeInfoBuilder::addFaceTriangle</a></div><div class="ttdeci">void addFaceTriangle(Integer face_index, Integer n0, Integer n1, Integer n2)</div><div class="ttdoc">Ajoute un triangle à la liste des faces.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfoBuilder.cc:102</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfoBuilder_html_ad3e37087c01593be11e111b9b6c0886e"><div class="ttname"><a href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#ad3e37087c01593be11e111b9b6c0886e">Arcane::ItemTypeInfoBuilder::addFaceLine</a></div><div class="ttdeci">void addFaceLine(Integer face_index, Integer n0, Integer n1)</div><div class="ttdoc">Ajoute une ligne à la liste des faces (pour les elements 2D)</div><div class="ttdef"><b>Definition:</b> ItemTypeInfoBuilder.cc:73</div></div>
+<div class="ttc" id="aArcaneTypes_8h_html"><div class="ttname"><a href="../../d0/d7e/ArcaneTypes_8h.html">ArcaneTypes.h</a></div><div class="ttdoc">Déclarations des types généraux de Arcane.</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfo_html_a162eb24d1a2387e74a37c6538a1e9c99"><div class="ttname"><a href="../../dc/d74/classArcane_1_1ItemTypeInfo.html#a162eb24d1a2387e74a37c6538a1e9c99">Arcane::ItemTypeInfo::typeName</a></div><div class="ttdeci">const String typeName() const</div><div class="ttdoc">Nom du type.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfo.h:108</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfoBuilder_html_a6a1f5b93b8f87bbd6de720ef53308d5a"><div class="ttname"><a href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a6a1f5b93b8f87bbd6de720ef53308d5a">Arcane::ItemTypeInfoBuilder::addFaceLine3</a></div><div class="ttdeci">void addFaceLine3(Integer face_index, Integer n0, Integer n1, Integer n2)</div><div class="ttdoc">Ajoute une ligne quadratique à la liste des faces (pour les elements 2D)</div><div class="ttdef"><b>Definition:</b> ItemTypeInfoBuilder.cc:86</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfoBuilder_html_a1387212c78072b721f95d69b46388101"><div class="ttname"><a href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a1387212c78072b721f95d69b46388101">Arcane::ItemTypeInfoBuilder::addEdge</a></div><div class="ttdeci">void addEdge(Integer edge_index, Integer n0, Integer n1, Integer f_left, Integer f_right)</div><div class="ttdoc">Ajoute une arête à la liste des arêtes.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfoBuilder.cc:45</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfo_html_a1bf6a0517a9090940144043dd19d70fd"><div class="ttname"><a href="../../dc/d74/classArcane_1_1ItemTypeInfo.html#a1bf6a0517a9090940144043dd19d70fd">Arcane::ItemTypeInfo::localEdge</a></div><div class="ttdeci">LocalEdge localEdge(Integer id) const</div><div class="ttdoc">Connectivité locale de la i-ème arête de la maille.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfo.h:113</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html_a41d406f126a781d05ff73d946aa3d4b4"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a41d406f126a781d05ff73d946aa3d4b4">Arcane::ItemTypeMng::m_ids_buffer</a></div><div class="ttdeci">UniqueArray&lt; Integer &gt; m_ids_buffer</div><div class="ttdoc">Tampon d'allocation des données de type.</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:170</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfoBuilder_html_aba0a31cf6335a362180f29251a8a2ebb"><div class="ttname"><a href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#aba0a31cf6335a362180f29251a8a2ebb">Arcane::ItemTypeInfoBuilder::addFaceQuad</a></div><div class="ttdeci">void addFaceQuad(Integer face_index, Integer n0, Integer n1, Integer n2, Integer n3)</div><div class="ttdoc">Ajoute un quadrilatère à la liste des faces.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfoBuilder.cc:142</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html_ac26e2b1441dbe2ce60c065d1b7840143"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html#ac26e2b1441dbe2ce60c065d1b7840143">Arccore::ConstArrayView::size</a></div><div class="ttdeci">constexpr Integer size() const noexcept</div><div class="ttdoc">Nombre d'éléments du tableau.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:632</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfoBuilder_html_a9112f57cb6e160714f211d3e11bbb590"><div class="ttname"><a href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a9112f57cb6e160714f211d3e11bbb590">Arcane::ItemTypeInfoBuilder::ItemTypeInfoBuilder</a></div><div class="ttdeci">ItemTypeInfoBuilder()</div><div class="ttdoc">Constructeur par défaut.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfoBuilder.h:52</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfoBuilder_html_a2d972d0a20dd699e0167ff9315b620b7"><div class="ttname"><a href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a2d972d0a20dd699e0167ff9315b620b7">Arcane::ItemTypeInfoBuilder::addFacePentagon</a></div><div class="ttdeci">void addFacePentagon(Integer face_index, Integer n0, Integer n1, Integer n2, Integer n3, Integer n4)</div><div class="ttdoc">Ajoute un pentagone à la liste des faces.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfoBuilder.cc:185</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfoBuilder_html_afea9c20943dd9aaae4d419d78822ac01"><div class="ttname"><a href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#afea9c20943dd9aaae4d419d78822ac01">Arcane::ItemTypeInfoBuilder::addFaceTriangle6</a></div><div class="ttdeci">void addFaceTriangle6(Integer face_index, Integer n0, Integer n1, Integer n2, Integer n3, Integer n4, Integer n5)</div><div class="ttdoc">Ajoute un triangle quadratique à la liste des faces.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfoBuilder.cc:120</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfo_1_1LocalFace_html_adad6db3fad20322a89c6cb1be3be4a2b"><div class="ttname"><a href="../../d3/ded/classArcane_1_1ItemTypeInfo_1_1LocalFace.html#adad6db3fad20322a89c6cb1be3be4a2b">Arcane::ItemTypeInfo::LocalFace::edge</a></div><div class="ttdeci">Integer edge(Integer i) const</div><div class="ttdoc">Arête de la face.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfo.h:64</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfo_1_1LocalFace_html_a0c4ba76959718c6d6557c8a9b2fa1abf"><div class="ttname"><a href="../../d3/ded/classArcane_1_1ItemTypeInfo_1_1LocalFace.html#a0c4ba76959718c6d6557c8a9b2fa1abf">Arcane::ItemTypeInfo::LocalFace::node</a></div><div class="ttdeci">Integer node(Integer i) const</div><div class="ttdoc">Indice locale dans la maille du i-ème noeud de la face.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfo.h:60</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfo_1_1LocalEdge_html_a42e9527730c9c76f2b742b20ce9f40c2"><div class="ttname"><a href="../../d9/db5/classArcane_1_1ItemTypeInfo_1_1LocalEdge.html#a42e9527730c9c76f2b742b20ce9f40c2">Arcane::ItemTypeInfo::LocalEdge::endNode</a></div><div class="ttdeci">Integer endNode() const</div><div class="ttdoc">Indice local à la maille du sommet extrémité de l'arête.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfo.h:83</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html">Arccore::Array</a></div><div class="ttdoc">Classe de base des vecteurs 1D de données.</div><div class="ttdef"><b>Definition:</b> Array.h:833</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfoBuilder_html"><div class="ttname"><a href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html">Arcane::ItemTypeInfoBuilder</a></div><div class="ttdef"><b>Definition:</b> ItemTypeInfoBuilder.h:46</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfo_html_ac54318dd2542772550c41c66a6072b01"><div class="ttname"><a href="../../dc/d74/classArcane_1_1ItemTypeInfo.html#ac54318dd2542772550c41c66a6072b01">Arcane::ItemTypeInfo::nbLocalFace</a></div><div class="ttdeci">Integer nbLocalFace() const</div><div class="ttdoc">Nombre de faces de l'entité</div><div class="ttdef"><b>Definition:</b> ItemTypeInfo.h:104</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfo_html"><div class="ttname"><a href="../../dc/d74/classArcane_1_1ItemTypeInfo.html">Arcane::ItemTypeInfo</a></div><div class="ttdoc">Infos sur un type d'entité du maillage.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfo.h:43</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfoBuilder_html_a0930113b92a238d1fc1b39e6fb147583"><div class="ttname"><a href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a0930113b92a238d1fc1b39e6fb147583">Arcane::ItemTypeInfoBuilder::addFaceHexagon</a></div><div class="ttdeci">void addFaceHexagon(Integer face_index, Integer n0, Integer n1, Integer n2, Integer n3, Integer n4, Integer n5)</div><div class="ttdoc">Ajoute un hexagone à la liste des faces.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfoBuilder.cc:205</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfoBuilder_html_a734cd1dcc32fae59092f5f69aa3106ba"><div class="ttname"><a href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a734cd1dcc32fae59092f5f69aa3106ba">Arcane::ItemTypeInfoBuilder::addFaceGeneric</a></div><div class="ttdeci">void addFaceGeneric(Integer face_index, Integer type_id, ConstArrayView&lt; Integer &gt; n)</div><div class="ttdoc">Ajoute une face générique à la liste des faces.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfoBuilder.cc:274</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfo_html_a776f478162a7f77ff58d62db61dce72c"><div class="ttname"><a href="../../dc/d74/classArcane_1_1ItemTypeInfo.html#a776f478162a7f77ff58d62db61dce72c">Arcane::ItemTypeInfo::nbLocalEdge</a></div><div class="ttdeci">Integer nbLocalEdge() const</div><div class="ttdoc">Nombre d'arêtes de l'entité</div><div class="ttdef"><b>Definition:</b> ItemTypeInfo.h:106</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">Arcane::ItemTypeMng</a></div><div class="ttdoc">Gestionnaire des types d'entités de maillage.</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:62</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfo_1_1LocalFace_html_a8e92d50804347fa7e248c4068f77ca2f"><div class="ttname"><a href="../../d3/ded/classArcane_1_1ItemTypeInfo_1_1LocalFace.html#a8e92d50804347fa7e248c4068f77ca2f">Arcane::ItemTypeInfo::LocalFace::nbEdge</a></div><div class="ttdeci">Integer nbEdge() const</div><div class="ttdoc">Nombre d'arête de la face.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfo.h:62</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfo_1_1LocalEdge_html"><div class="ttname"><a href="../../d9/db5/classArcane_1_1ItemTypeInfo_1_1LocalEdge.html">Arcane::ItemTypeInfo::LocalEdge</a></div><div class="ttdoc">Informations locales sur une arête d'une maille.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfo.h:75</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_ab3f2d332e7c412261b9199bb5454e31b"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#ab3f2d332e7c412261b9199bb5454e31b">Arccore::Array::add</a></div><div class="ttdeci">void add(ConstReferenceType val)</div><div class="ttdoc">Ajoute l'élément val à la fin du tableau.</div><div class="ttdef"><b>Definition:</b> Array.h:967</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfo_html_acaba304949243bc930408358fd1e0d76"><div class="ttname"><a href="../../dc/d74/classArcane_1_1ItemTypeInfo.html#acaba304949243bc930408358fd1e0d76">Arcane::ItemTypeInfo::typeId</a></div><div class="ttdeci">Integer typeId() const</div><div class="ttdoc">Numéro du type.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfo.h:100</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfoBuilder_html_a713a0ae8950d4006d1fe87eae1bd3cb6"><div class="ttname"><a href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a713a0ae8950d4006d1fe87eae1bd3cb6">Arcane::ItemTypeInfoBuilder::addFaceOctogon</a></div><div class="ttdeci">void addFaceOctogon(Integer face_index, Integer n0, Integer n1, Integer n2, Integer n3, Integer n4, Integer n5, Integer n6, Integer n7)</div><div class="ttdoc">Ajoute un heptagone à la liste des faces.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfoBuilder.cc:250</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfo_1_1LocalFace_html"><div class="ttname"><a href="../../d3/ded/classArcane_1_1ItemTypeInfo_1_1LocalFace.html">Arcane::ItemTypeInfo::LocalFace</a></div><div class="ttdoc">Informations locales sur une face d'une maille.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfo.h:50</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:32</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfoBuilder_html_a67b82afc626d74eebfa7c661eca7fb49"><div class="ttname"><a href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a67b82afc626d74eebfa7c661eca7fb49">Arcane::ItemTypeInfoBuilder::addFaceQuad8</a></div><div class="ttdeci">void addFaceQuad8(Integer face_index, Integer n0, Integer n1, Integer n2, Integer n3, Integer n4, Integer n5, Integer n6, Integer n7)</div><div class="ttdoc">Ajoute un quadrilatère quadratique à la liste des faces.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfoBuilder.cc:161</div></div>
+<div class="ttc" id="aclassArccore_1_1AbstractArray_html_ad685072bdadeb6ada60185ce0283db8d"><div class="ttname"><a href="../../db/d34/classArccore_1_1AbstractArray.html#ad685072bdadeb6ada60185ce0283db8d">Arccore::AbstractArray::size</a></div><div class="ttdeci">Integer size() const</div><div class="ttdoc">Nombre d'éléments du vecteur.</div><div class="ttdef"><b>Definition:</b> Array.h:409</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> String.h:68</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfo_1_1LocalFace_html_afb46ad05213ab955aeb5de19631d5012"><div class="ttname"><a href="../../d3/ded/classArcane_1_1ItemTypeInfo_1_1LocalFace.html#afb46ad05213ab955aeb5de19631d5012">Arcane::ItemTypeInfo::LocalFace::nbNode</a></div><div class="ttdeci">Integer nbNode() const</div><div class="ttdoc">Nombre de noeuds de la face.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfo.h:58</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfoBuilder_html_ab29a82192dfdb7b3bbfc7cdeb5caed5d"><div class="ttname"><a href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#ab29a82192dfdb7b3bbfc7cdeb5caed5d">Arcane::ItemTypeInfoBuilder::computeFaceEdgeInfos</a></div><div class="ttdeci">void computeFaceEdgeInfos()</div><div class="ttdoc">Calcule les relations face-&gt;arêtes.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfoBuilder.cc:292</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfo_1_1LocalEdge_html_a9f799048ff908118d63234ab2fbdae66"><div class="ttname"><a href="../../d9/db5/classArcane_1_1ItemTypeInfo_1_1LocalEdge.html#a9f799048ff908118d63234ab2fbdae66">Arcane::ItemTypeInfo::LocalEdge::beginNode</a></div><div class="ttdeci">Integer beginNode() const</div><div class="ttdoc">Indice local à la maille du sommet origine de l'arête.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfo.h:81</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a9d85d5fb84c5371348dd56600999e564"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a></div><div class="ttdeci">#define ARCANE_FATAL(...)</div><div class="ttdoc">Macro envoyant une exception FatalErrorException.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:761</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeInfoBuilder_html_a88d1ad07b83898fa71aaf860fd28b1ae"><div class="ttname"><a href="../../da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a88d1ad07b83898fa71aaf860fd28b1ae">Arcane::ItemTypeInfoBuilder::addFaceVertex</a></div><div class="ttdeci">void addFaceVertex(Integer face_index, Integer n0)</div><div class="ttdoc">Ajoute un sommet à la liste des faces (pour les elements 1D)</div><div class="ttdef"><b>Definition:</b> ItemTypeInfoBuilder.cc:59</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><b>ItemTypeInfoBuilder.h</b></li>
+    <li class="footer">Généré le Mercredi 30 Mars 2022 12:59:32 pour Arcane par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

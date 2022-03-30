@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de MeshFactoryMng.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_13edfb79ffc7ff12968bead7e2e82716.html">impl</a></li><li class="navelem"><a class="el" href="../../dir_9ab699c24705fca8000121631ba622d6.html">internal</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">impl/internal/MeshFactoryMng.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* MeshFactoryMng.h                                            (C) 2000-2020 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Gestionnaire de fabriques de maillages.                                   */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_IMPL_INTERNAL_MESHFACTORYMNG_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_IMPL_INTERNAL_MESHFACTORYMNG_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/IMeshFactoryMng.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">class </span>MeshMng;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="../../db/d04/classArcane_1_1MeshFactoryMng.html">   29</a></span>&#160;<span class="keyword">class </span>ARCANE_IMPL_EXPORT <a class="code" href="../../db/d04/classArcane_1_1MeshFactoryMng.html">MeshFactoryMng</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d0/d24/classArcane_1_1IMeshFactoryMng.html">IMeshFactoryMng</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <a class="code" href="../../db/d04/classArcane_1_1MeshFactoryMng.html">MeshFactoryMng</a>(<a class="code" href="../../d9/d7f/classArcane_1_1IApplication.html">IApplication</a>* app,<a class="code" href="../../da/dde/classArcane_1_1MeshMng.html">MeshMng</a>* mesh_mng);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="../../d1/d4e/classArcane_1_1IMeshMng.html">IMeshMng</a>* meshMng() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="../../d7/d89/classArcane_1_1IPrimaryMesh.html">IPrimaryMesh</a>* createMesh(<span class="keyword">const</span> <a class="code" href="../../d8/db4/classArcane_1_1MeshBuildInfo.html">MeshBuildInfo</a>&amp; build_info) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <a class="code" href="../../d9/d7f/classArcane_1_1IApplication.html">IApplication</a>* m_application;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <a class="code" href="../../da/dde/classArcane_1_1MeshMng.html">MeshMng</a>* m_mesh_mng;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <a class="code" href="../../d7/d89/classArcane_1_1IPrimaryMesh.html">IPrimaryMesh</a>* _createMesh(<span class="keyword">const</span> <a class="code" href="../../d8/db4/classArcane_1_1MeshBuildInfo.html">MeshBuildInfo</a>&amp; build_info);</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <a class="code" href="../../d7/d89/classArcane_1_1IPrimaryMesh.html">IPrimaryMesh</a>* _createSubMesh(<span class="keyword">const</span> <a class="code" href="../../d8/db4/classArcane_1_1MeshBuildInfo.html">MeshBuildInfo</a>&amp; build_info);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keywordtype">void</span> _checkValidBuildInfo(<span class="keyword">const</span> <a class="code" href="../../d8/db4/classArcane_1_1MeshBuildInfo.html">MeshBuildInfo</a>&amp; build_info);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif  </span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1MeshBuildInfo_html_a355b12d59bc5dad6eb542f0af5cbc42f"><div class="ttname"><a href="../../d8/db4/classArcane_1_1MeshBuildInfo.html#a355b12d59bc5dad6eb542f0af5cbc42f">Arcane::MeshBuildInfo::addParallelMng</a></div><div class="ttdeci">MeshBuildInfo &amp; addParallelMng(Ref&lt; IParallelMng &gt; pm)</div><div class="ttdoc">Positionne le gestionnaire de parallélisme pour créér la maillage.</div><div class="ttdef"><b>Definition:</b> MeshBuildInfo.cc:46</div></div>
+<div class="ttc" id="aclassArcane_1_1IApplication_html"><div class="ttname"><a href="../../d9/d7f/classArcane_1_1IApplication.html">Arcane::IApplication</a></div><div class="ttdoc">Interface de l'application.</div><div class="ttdef"><b>Definition:</b> IApplication.h:55</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemGroup_html_ac254583641d87f94267385604b3554b2"><div class="ttname"><a href="../../d9/d27/classArcane_1_1ItemGroup.html#ac254583641d87f94267385604b3554b2">Arcane::ItemGroup::null</a></div><div class="ttdeci">bool null() const</div><div class="ttdoc">true is le groupe est le groupe nul</div><div class="ttdef"><b>Definition:</b> ItemGroup.h:70</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshBuildInfo_html_a10ae4fb9e7069f7bbaa5813f90308e6f"><div class="ttname"><a href="../../d8/db4/classArcane_1_1MeshBuildInfo.html#a10ae4fb9e7069f7bbaa5813f90308e6f">Arcane::MeshBuildInfo::parallelMngRef</a></div><div class="ttdeci">Ref&lt; IParallelMng &gt; parallelMngRef() const</div><div class="ttdoc">Gestionnaire de parallélisme dans le cas d'un nouveau maillage.</div><div class="ttdef"><b>Definition:</b> MeshBuildInfo.h:75</div></div>
+<div class="ttc" id="aclassArcane_1_1IPrimaryMesh_html"><div class="ttname"><a href="../../d7/d89/classArcane_1_1IPrimaryMesh.html">Arcane::IPrimaryMesh</a></div><div class="ttdef"><b>Definition:</b> IPrimaryMesh.h:41</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshBuildInfo_html_ae5a5091c465fbc9f9d2b64d445644bfd"><div class="ttname"><a href="../../d8/db4/classArcane_1_1MeshBuildInfo.html#ae5a5091c465fbc9f9d2b64d445644bfd">Arcane::MeshBuildInfo::parentGroup</a></div><div class="ttdeci">const ItemGroup &amp; parentGroup() const</div><div class="ttdoc">Groupe parent dans le cas d'un sous-maillage, null sinon.</div><div class="ttdef"><b>Definition:</b> MeshBuildInfo.h:77</div></div>
+<div class="ttc" id="anamespaceArccore_html_a7c7dbb1a4a565ffa1d5a02fb0bf6cb1b"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a7c7dbb1a4a565ffa1d5a02fb0bf6cb1b">Arccore::makeRef</a></div><div class="ttdeci">auto makeRef(InstanceType *t) -&gt; Ref&lt; InstanceType &gt;</div><div class="ttdoc">Créé une référence sur un pointeur.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/Ref.h:286</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshFactoryMng_html_af119f03c277611811cd5fb552a0898b6"><div class="ttname"><a href="../../db/d04/classArcane_1_1MeshFactoryMng.html#af119f03c277611811cd5fb552a0898b6">Arcane::MeshFactoryMng::createMesh</a></div><div class="ttdeci">IPrimaryMesh * createMesh(const MeshBuildInfo &amp;build_info) override</div><div class="ttdoc">Créé un maillage ou un sous-maillage.</div><div class="ttdef"><b>Definition:</b> MeshFactoryMng.cc:84</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshMng_html_a087d3772cd746fe27647b32042e4d229"><div class="ttname"><a href="../../d1/d4e/classArcane_1_1IMeshMng.html#a087d3772cd746fe27647b32042e4d229">Arcane::IMeshMng::findMeshHandle</a></div><div class="ttdeci">virtual MeshHandle * findMeshHandle(const String &amp;name, bool throw_exception)=0</div><div class="ttdoc">Recherche le maillage de nom name.</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html">Arcane::IMesh</a></div><div class="ttdef"><b>Definition:</b> IMesh.h:57</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshFactoryMng_html_a818ec9ebb507612fca6bca5a7473b795"><div class="ttname"><a href="../../db/d04/classArcane_1_1MeshFactoryMng.html#a818ec9ebb507612fca6bca5a7473b795">Arcane::MeshFactoryMng::meshMng</a></div><div class="ttdeci">IMeshMng * meshMng() const override</div><div class="ttdoc">Gestionnaire de maillage associé</div><div class="ttdef"><b>Definition:</b> MeshFactoryMng.cc:63</div></div>
+<div class="ttc" id="anamespaceArcane_html_a210fbc18d7d51d7fd5ada9711e986760ad89f44f4a594b512e0e0fb465f5cef9a"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a210fbc18d7d51d7fd5ada9711e986760ad89f44f4a594b512e0e0fb465f5cef9a">Arcane::SB_AllowNull</a></div><div class="ttdeci">@ SB_AllowNull</div><div class="ttdoc">Autorise l'absence du service.</div><div class="ttdef"><b>Definition:</b> ServiceBuilder.h:48</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshHandle_html"><div class="ttname"><a href="../../d7/d6f/classArcane_1_1MeshHandle.html">Arcane::MeshHandle</a></div><div class="ttdoc">Handle sur un maillage.</div><div class="ttdef"><b>Definition:</b> MeshHandle.h:54</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshMng_html_a82be33d84f5059e4dadfd6584b5351ce"><div class="ttname"><a href="../../d1/d4e/classArcane_1_1IMeshMng.html#a82be33d84f5059e4dadfd6584b5351ce">Arcane::IMeshMng::createMeshHandle</a></div><div class="ttdeci">virtual MeshHandle createMeshHandle(const String &amp;name)=0</div><div class="ttdoc">Créé et retourne un handle pour un maillage de nom name.</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshFactoryMng_html"><div class="ttname"><a href="../../d0/d24/classArcane_1_1IMeshFactoryMng.html">Arcane::IMeshFactoryMng</a></div><div class="ttdoc">Interface du gestionnaire de fabriques de maillages.</div><div class="ttdef"><b>Definition:</b> IMeshFactoryMng.h:30</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshBuildInfo_html_a0e67c58017c494d3e4917ed2428ae9c1"><div class="ttname"><a href="../../d8/db4/classArcane_1_1MeshBuildInfo.html#a0e67c58017c494d3e4917ed2428ae9c1">Arcane::MeshBuildInfo::name</a></div><div class="ttdeci">const String &amp; name() const</div><div class="ttdoc">Nom du nouveau maillage.</div><div class="ttdef"><b>Definition:</b> MeshBuildInfo.h:71</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemGroup_html"><div class="ttname"><a href="../../d9/d27/classArcane_1_1ItemGroup.html">Arcane::ItemGroup</a></div><div class="ttdoc">Groupe d'entités de maillage.</div><div class="ttdef"><b>Definition:</b> ItemGroup.h:48</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshHandle_html_a0bd2a5718b4e5741b2ea409dca61948e"><div class="ttname"><a href="../../d7/d6f/classArcane_1_1MeshHandle.html#a0bd2a5718b4e5741b2ea409dca61948e">Arcane::MeshHandle::_internalMeshOrNull</a></div><div class="ttdeci">IMesh * _internalMeshOrNull() const</div><div class="ttdef"><b>Definition:</b> MeshHandle.h:169</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a3fb196870fc917614437a98517be2ed4"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a3fb196870fc917614437a98517be2ed4">ARCANE_CHECK_POINTER</a></div><div class="ttdeci">#define ARCANE_CHECK_POINTER(ptr)</div><div class="ttdoc">Macro retournant le pointeur ptr s'il est non nul ou lancant une exception s'il est nul.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:820</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshFactoryMng_html"><div class="ttname"><a href="../../db/d04/classArcane_1_1MeshFactoryMng.html">Arcane::MeshFactoryMng</a></div><div class="ttdef"><b>Definition:</b> impl/internal/MeshFactoryMng.h:29</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshHandle_html_a7b31d224556f6c703eb114dabafaf5cd"><div class="ttname"><a href="../../d7/d6f/classArcane_1_1MeshHandle.html#a7b31d224556f6c703eb114dabafaf5cd">Arcane::MeshHandle::mesh</a></div><div class="ttdeci">IMesh * mesh() const</div><div class="ttdoc">Maillage associé.</div><div class="ttdef"><b>Definition:</b> MeshHandle.cc:144</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshBuildInfo_html"><div class="ttname"><a href="../../d8/db4/classArcane_1_1MeshBuildInfo.html">Arcane::MeshBuildInfo</a></div><div class="ttdoc">Paramètres nécessaires à la construction d'un maillage.</div><div class="ttdef"><b>Definition:</b> MeshBuildInfo.h:45</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshMng_html"><div class="ttname"><a href="../../d1/d4e/classArcane_1_1IMeshMng.html">Arcane::IMeshMng</a></div><div class="ttdoc">Interface du gestionnaire des maillages.</div><div class="ttdef"><b>Definition:</b> IMeshMng.h:39</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/String.h:68</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html_a531230192cc80e673bdc12ca8b5434ec"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html#a531230192cc80e673bdc12ca8b5434ec">Arccore::String::empty</a></div><div class="ttdeci">bool empty() const</div><div class="ttdoc">Vrai si la chaîne est vide (nulle ou &quot;&quot;)</div><div class="ttdef"><b>Definition:</b> String.cc:306</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a9d85d5fb84c5371348dd56600999e564"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a></div><div class="ttdeci">#define ARCANE_FATAL(...)</div><div class="ttdoc">Macro envoyant une exception FatalErrorException.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:761</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshMng_html"><div class="ttname"><a href="../../da/dde/classArcane_1_1MeshMng.html">Arcane::MeshMng</a></div><div class="ttdef"><b>Definition:</b> MeshMng.h:34</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshBuildInfo_html_a5e3d4b84bd23e9d9ecee93bd3b76bd82"><div class="ttname"><a href="../../d8/db4/classArcane_1_1MeshBuildInfo.html#a5e3d4b84bd23e9d9ecee93bd3b76bd82">Arcane::MeshBuildInfo::factoryName</a></div><div class="ttdeci">const String &amp; factoryName() const</div><div class="ttdoc">Nom de la fabrique pour créer le maillage (via IMeshFactory)</div><div class="ttdef"><b>Definition:</b> MeshBuildInfo.h:73</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:36 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arcane/VariableFactoryRegisterer.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d7/d27/VariableFactoryRegisterer_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">VariableFactoryRegisterer.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* VariableFactoryRegisterer.h                                 (C) 2000-2020 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Singleton permettant d&#39;enregister une fabrique de variable.               */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_VARIABLEFACTORYREGISTERER_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_VARIABLEFACTORYREGISTERER_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/VariableTypeInfo.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html">   40</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html">VariableFactoryRegisterer</a></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">using</span> VariableFactoryFunc = VariableFactoryVariableRefCreateFunc;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <a class="code" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html">VariableFactoryRegisterer</a>(VariableFactoryFunc func,<span class="keyword">const</span> <a class="code" href="../../df/d46/classArcane_1_1VariableTypeInfo.html">VariableTypeInfo</a>&amp; var_type_info);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <a class="code" href="../../db/d51/classArcane_1_1IVariableFactory.html">IVariableFactory</a>* createFactory();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#af34e9bf8bc9950699eb2d7c87da9c86b">   62</a></span>&#160;  <a class="code" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html">VariableFactoryRegisterer</a>* <a class="code" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#af34e9bf8bc9950699eb2d7c87da9c86b">previousVariableFactory</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_previous; }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#a6556775cb55215f80f820a86e36229dc">   65</a></span>&#160;  <a class="code" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html">VariableFactoryRegisterer</a>* <a class="code" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#a6556775cb55215f80f820a86e36229dc">nextVariableFactory</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_next; }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#ad422e175e1fc9b4eaeed2a63f20c4247">   68</a></span>&#160;  <a class="code" href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7">eItemKind</a> <a class="code" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#ad422e175e1fc9b4eaeed2a63f20c4247">itemKind</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_variable_type_info.itemKind(); }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#a936080722c91ed64863d6062caf57a5a">   71</a></span>&#160;  <a class="code" href="../../d0/d32/namespaceArcane.html#a05c27a651d3da9ae112c75113fcf7426">eDataType</a> <a class="code" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#a936080722c91ed64863d6062caf57a5a">dataType</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_variable_type_info.dataType(); }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#a119fba30c9aa400d45940b38cac26b7d">   74</a></span>&#160;  Integer <a class="code" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#a119fba30c9aa400d45940b38cac26b7d">dimension</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_variable_type_info.dimension(); }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#a7c59303249d60c314f8de6c39bc62cb6">   77</a></span>&#160;  Integer <a class="code" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#a7c59303249d60c314f8de6c39bc62cb6">multiTag</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_variable_type_info.multiTag(); }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#ab119912226a13290d8a2d0461fbb8bc1">   80</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#ab119912226a13290d8a2d0461fbb8bc1">isPartial</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_variable_type_info.isPartial(); }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#a714d34615c8c8e457321109e0822f87a">   83</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="../../df/d46/classArcane_1_1VariableTypeInfo.html">VariableTypeInfo</a>&amp; <a class="code" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#a714d34615c8c8e457321109e0822f87a">variableTypeInfo</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_variable_type_info; }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#aea42852025b84100009061a306338842">   90</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#aea42852025b84100009061a306338842">setPreviousVariableFactory</a>(<a class="code" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html">VariableFactoryRegisterer</a>* s) { m_previous = s; }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#a779098a3a07949ba949c9393e43470a7">   97</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#a779098a3a07949ba949c9393e43470a7">setNextVariableFactory</a>(<a class="code" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html">VariableFactoryRegisterer</a>* s) { m_next = s; }</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html">VariableFactoryRegisterer</a>* firstVariableFactory();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  VariableFactoryFunc m_function;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  <a class="code" href="../../df/d46/classArcane_1_1VariableTypeInfo.html">VariableTypeInfo</a> m_variable_type_info;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <a class="code" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html">VariableFactoryRegisterer</a>* m_previous;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  <a class="code" href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html">VariableFactoryRegisterer</a>* m_next;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;};</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclassArcane_1_1VariableTypeInfo_html"><div class="ttname"><a href="../../df/d46/classArcane_1_1VariableTypeInfo.html">Arcane::VariableTypeInfo</a></div><div class="ttdoc">Informations caractérisant le type d'une variable.</div><div class="ttdef"><b>Definition:</b> VariableTypeInfo.h:34</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableFactoryRegisterer_html_a119fba30c9aa400d45940b38cac26b7d"><div class="ttname"><a href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#a119fba30c9aa400d45940b38cac26b7d">Arcane::VariableFactoryRegisterer::dimension</a></div><div class="ttdeci">Integer dimension() const</div><div class="ttdoc">Dimension de la variable créée par cette fabrique.</div><div class="ttdef"><b>Definition:</b> VariableFactoryRegisterer.h:74</div></div>
+<div class="ttc" id="anamespaceArcane_html_a05c27a651d3da9ae112c75113fcf7426"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a05c27a651d3da9ae112c75113fcf7426">Arcane::eDataType</a></div><div class="ttdeci">eDataType</div><div class="ttdoc">Type d'une donnée.</div><div class="ttdef"><b>Definition:</b> DataTypes.h:34</div></div>
+<div class="ttc" id="aclassArcane_1_1IVariableFactory_html_a1b1fe1aaee85df922d87ed213574fd77"><div class="ttname"><a href="../../db/d51/classArcane_1_1IVariableFactory.html#a1b1fe1aaee85df922d87ed213574fd77">Arcane::IVariableFactory::VariableFactoryFunc</a></div><div class="ttdeci">VariableFactoryVariableRefCreateFunc VariableFactoryFunc</div><div class="ttdoc">Type de la fonction créant la variable.</div><div class="ttdef"><b>Definition:</b> IVariableFactory.h:45</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableFactory_html"><div class="ttname"><a href="../../dc/d0a/classArcane_1_1VariableFactory.html">Arcane::VariableFactory</a></div><div class="ttdef"><b>Definition:</b> VariableFactory.h:34</div></div>
+<div class="ttc" id="aclassArcane_1_1IVariableFactory_html"><div class="ttname"><a href="../../db/d51/classArcane_1_1IVariableFactory.html">Arcane::IVariableFactory</a></div><div class="ttdef"><b>Definition:</b> IVariableFactory.h:40</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableFactoryRegisterer_html_af34e9bf8bc9950699eb2d7c87da9c86b"><div class="ttname"><a href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#af34e9bf8bc9950699eb2d7c87da9c86b">Arcane::VariableFactoryRegisterer::previousVariableFactory</a></div><div class="ttdeci">VariableFactoryRegisterer * previousVariableFactory() const</div><div class="ttdoc">VariableFactory précédent (0 si le premier)</div><div class="ttdef"><b>Definition:</b> VariableFactoryRegisterer.h:62</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableFactoryRegisterer_html_a23380a259be8a662b225138a07e564f7"><div class="ttname"><a href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#a23380a259be8a662b225138a07e564f7">Arcane::VariableFactoryRegisterer::createFactory</a></div><div class="ttdeci">IVariableFactory * createFactory()</div><div class="ttdoc">Créé une fabrique pour ce type de variable.</div><div class="ttdef"><b>Definition:</b> VariableFactoryRegisterer.cc:58</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableFactoryRegisterer_html_a779098a3a07949ba949c9393e43470a7"><div class="ttname"><a href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#a779098a3a07949ba949c9393e43470a7">Arcane::VariableFactoryRegisterer::setNextVariableFactory</a></div><div class="ttdeci">void setNextVariableFactory(VariableFactoryRegisterer *s)</div><div class="ttdoc">Positionne le VariableFactory suivant.</div><div class="ttdef"><b>Definition:</b> VariableFactoryRegisterer.h:97</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableFactoryRegisterer_html_a6556775cb55215f80f820a86e36229dc"><div class="ttname"><a href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#a6556775cb55215f80f820a86e36229dc">Arcane::VariableFactoryRegisterer::nextVariableFactory</a></div><div class="ttdeci">VariableFactoryRegisterer * nextVariableFactory() const</div><div class="ttdoc">VariableFactory suivant (0 si le dernier)</div><div class="ttdef"><b>Definition:</b> VariableFactoryRegisterer.h:65</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableFactoryRegisterer_html_ab119912226a13290d8a2d0461fbb8bc1"><div class="ttname"><a href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#ab119912226a13290d8a2d0461fbb8bc1">Arcane::VariableFactoryRegisterer::isPartial</a></div><div class="ttdeci">bool isPartial() const</div><div class="ttdoc">indique si la fabrique est pour une variable partielle.</div><div class="ttdef"><b>Definition:</b> VariableFactoryRegisterer.h:80</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableFactoryRegisterer_html_a714d34615c8c8e457321109e0822f87a"><div class="ttname"><a href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#a714d34615c8c8e457321109e0822f87a">Arcane::VariableFactoryRegisterer::variableTypeInfo</a></div><div class="ttdeci">const VariableTypeInfo &amp; variableTypeInfo() const</div><div class="ttdoc">Informations sur le type de la variable.</div><div class="ttdef"><b>Definition:</b> VariableFactoryRegisterer.h:83</div></div>
+<div class="ttc" id="anamespaceArcane_html_aaa6951864e32e84c29b3cffca3d4b3f7"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aaa6951864e32e84c29b3cffca3d4b3f7">Arcane::eItemKind</a></div><div class="ttdeci">eItemKind</div><div class="ttdoc">Genre d'entité de maillage.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:114</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableFactoryRegisterer_html"><div class="ttname"><a href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html">Arcane::VariableFactoryRegisterer</a></div><div class="ttdef"><b>Definition:</b> VariableFactoryRegisterer.h:40</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableFactoryRegisterer_html_aea42852025b84100009061a306338842"><div class="ttname"><a href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#aea42852025b84100009061a306338842">Arcane::VariableFactoryRegisterer::setPreviousVariableFactory</a></div><div class="ttdeci">void setPreviousVariableFactory(VariableFactoryRegisterer *s)</div><div class="ttdoc">Positionne le VariableFactory précédent.</div><div class="ttdef"><b>Definition:</b> VariableFactoryRegisterer.h:90</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableFactoryRegisterer_html_a7c59303249d60c314f8de6c39bc62cb6"><div class="ttname"><a href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#a7c59303249d60c314f8de6c39bc62cb6">Arcane::VariableFactoryRegisterer::multiTag</a></div><div class="ttdeci">Integer multiTag() const</div><div class="ttdoc">Tag indiquant le type multiple (0 si non multiple, 1 si multiple, 2 si multiple deprecated)</div><div class="ttdef"><b>Definition:</b> VariableFactoryRegisterer.h:77</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableFactoryRegisterer_html_ad422e175e1fc9b4eaeed2a63f20c4247"><div class="ttname"><a href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#ad422e175e1fc9b4eaeed2a63f20c4247">Arcane::VariableFactoryRegisterer::itemKind</a></div><div class="ttdeci">eItemKind itemKind() const</div><div class="ttdoc">Genre des variables de données de la variable créée par cette fabrique.</div><div class="ttdef"><b>Definition:</b> VariableFactoryRegisterer.h:68</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableFactoryRegisterer_html_a936080722c91ed64863d6062caf57a5a"><div class="ttname"><a href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#a936080722c91ed64863d6062caf57a5a">Arcane::VariableFactoryRegisterer::dataType</a></div><div class="ttdeci">eDataType dataType() const</div><div class="ttdoc">Type de données de la variable créée par cette fabrique.</div><div class="ttdef"><b>Definition:</b> VariableFactoryRegisterer.h:71</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableFactoryRegisterer_html_a98d7a85652e28e32c8e2b904219ae593"><div class="ttname"><a href="../../d5/d86/classArcane_1_1VariableFactoryRegisterer.html#a98d7a85652e28e32c8e2b904219ae593">Arcane::VariableFactoryRegisterer::VariableFactoryRegisterer</a></div><div class="ttdeci">VariableFactoryRegisterer(VariableFactoryFunc func, const VariableTypeInfo &amp;var_type_info)</div><div class="ttdoc">Crée un enregistreur pour une VariableFactory pour le type var_type_info et pour fonction de création...</div><div class="ttdef"><b>Definition:</b> VariableFactoryRegisterer.cc:34</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><b>VariableFactoryRegisterer.h</b></li>
+    <li class="footer">Généré le Mercredi 30 Mars 2022 12:59:38 pour Arcane par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

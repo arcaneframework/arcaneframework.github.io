@@ -1,0 +1,223 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de ItemConnectivitySynchronizer.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_73b81ab7f8087ecd4627c74229710b8a.html">mesh</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">ItemConnectivitySynchronizer.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* ItemConnectivitySynchronizer.h                              (C) 2000-2021 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Synchronization des connectivités.                                        */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_DOF_CONNECTIVITYSYNCHRONIZER_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_DOF_CONNECTIVITYSYNCHRONIZER_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/IItemConnectivity.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/IItemConnectivitySynchronizer.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;arcane/mesh/ItemConnectivity.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;arcane/mesh/ExtraGhostItemsManager.h&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span>IItemConnectivityGhostPolicy;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html">   37</a></span>&#160;<span class="keyword">class </span>ARCANE_MESH_EXPORT <a class="code" href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html">ItemConnectivitySynchronizer</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../df/dee/classArcane_1_1IItemConnectivitySynchronizer.html">IItemConnectivitySynchronizer</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;, <span class="keyword">public</span> <a class="code" href="../../d9/d0f/classArcane_1_1IExtraGhostItemsBuilder.html">IExtraGhostItemsBuilder</a></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;, <span class="keyword">public</span> mesh::IExtraGhostItemsAdder</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html">ItemConnectivitySynchronizer</a>(<a class="code" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html">IItemConnectivity</a>* connectivity,</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;                               <a class="code" href="../../d3/d32/classArcane_1_1IItemConnectivityGhostPolicy.html">IItemConnectivityGhostPolicy</a>* ghost_policy);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordtype">void</span> synchronize();</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <a class="code" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html">IItemConnectivity</a>* getConnectivity() {<span class="keywordflow">return</span> m_connectivity;}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordtype">void</span> computeExtraItemsToSend();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">IntegerConstArrayView</a> extraItemsToSend(Integer sid)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_data_to_send[sid];}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordtype">void</span> serializeGhostItems(<a class="code" href="../../dd/dcd/classArccore_1_1ISerializer.html">ISerializer</a>* buffer,<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> ghost_item_lids);</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordtype">void</span> addExtraGhostItems (<a class="code" href="../../dd/dcd/classArccore_1_1ISerializer.html">ISerializer</a>* buffer);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keywordtype">void</span> updateSynchronizationInfo(){ m_connectivity-&gt;targetFamily()-&gt;computeSynchronizeInfos(); }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  [[deprecated(<span class="stringliteral">&quot;Y2021: Do not use this method. Try to get &#39;ISubDomain&#39; from another way&quot;</span>)]]</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html">ISubDomain</a>* subDomain();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html">IItemFamily</a>* itemFamily() { <span class="keywordflow">return</span> m_connectivity-&gt;targetFamily(); }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <a class="code" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html">IItemConnectivity</a>* m_connectivity;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <a class="code" href="../../d3/d32/classArcane_1_1IItemConnectivityGhostPolicy.html">IItemConnectivityGhostPolicy</a>* m_ghost_policy;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <a class="code" href="../../dc/d5a/classArcane_1_1IParallelMng.html">IParallelMng</a>* m_parallel_mng;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <a class="code" href="../../d4/dee/classArccore_1_1SharedArray.html">SharedArray&lt;Int32SharedArray&gt;</a> m_data_to_send;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <a class="code" href="../../d4/dee/classArccore_1_1SharedArray.html">SharedArray&lt;std::set&lt;Int64&gt;</a> &gt; m_added_ghost;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keywordtype">void</span> _removeDuplicatedValues(<a class="code" href="../../d4/dee/classArccore_1_1SharedArray.html">Int64SharedArray</a>&amp; shared_item_uids,</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;                               <a class="code" href="../../d4/dee/classArccore_1_1SharedArray.html">IntegerSharedArray</a>&amp; owners);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keywordtype">void</span> _getItemToSend(<a class="code" href="../../d4/dee/classArccore_1_1SharedArray.html">Int32SharedArray</a>&amp; shared_items,</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;                      <a class="code" href="../../d4/dee/classArccore_1_1SharedArray.html">Int32SharedArray</a>&amp; shared_items_connected_items,</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;                      <span class="keyword">const</span> Integer rank);</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;};</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* CONNECTIVITYSYNCHRONIZER_H */</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1Array_html"><div class="ttname"><a href="../../d1/dfb/classArcane_1_1Array.html">Arcane::Array&lt; Int32 &gt;</a></div></div>
+<div class="ttc" id="aclassArcane_1_1ItemConnectivitySynchronizer_html"><div class="ttname"><a href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html">Arcane::ItemConnectivitySynchronizer</a></div><div class="ttdef"><b>Definition:</b> ItemConnectivitySynchronizer.h:37</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_a8fa9ed15b139b0a1f54205eab6820275"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#a8fa9ed15b139b0a1f54205eab6820275">Arccore::Array::remove</a></div><div class="ttdeci">void remove(Int64 index)</div><div class="ttdoc">Supprime l'entité ayant l'indice index.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:1061</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivityGhostPolicy_html_a4d68e7e74b8e1601181085aebb3c4ab8"><div class="ttname"><a href="../../d3/d32/classArcane_1_1IItemConnectivityGhostPolicy.html#a4d68e7e74b8e1601181085aebb3c4ab8">Arcane::IItemConnectivityGhostPolicy::sharedItemsConnectedItems</a></div><div class="ttdeci">virtual Int32ConstArrayView sharedItemsConnectedItems(const Integer rank, const String &amp;family_name)=0</div><div class="ttdoc">donne les local_ids des items de la famille family_name connectés avec les sharedItems(rank).</div></div>
+<div class="ttc" id="anamespaceArcane_html_a0610c32aa60d0285a594969e83881bb1"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a0610c32aa60d0285a594969e83881bb1">Arcane::Int64SharedArray</a></div><div class="ttdeci">SharedArray&lt; Int64 &gt; Int64SharedArray</div><div class="ttdoc">Tableau dynamique à une dimension d'entiers 64 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:437</div></div>
+<div class="ttc" id="aclassArcane_1_1IExtraGhostItemsBuilder_html"><div class="ttname"><a href="../../d9/d0f/classArcane_1_1IExtraGhostItemsBuilder.html">Arcane::IExtraGhostItemsBuilder</a></div><div class="ttdoc">Interface d'un constructeur d'item fantômes &quot;extraordinaires&quot;.</div><div class="ttdef"><b>Definition:</b> IExtraGhostItemsBuilder.h:43</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivityGhostPolicy_html"><div class="ttname"><a href="../../d3/d32/classArcane_1_1IItemConnectivityGhostPolicy.html">Arcane::IItemConnectivityGhostPolicy</a></div><div class="ttdef"><b>Definition:</b> IItemConnectivityGhostPolicy.h:27</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelMng_html"><div class="ttname"><a href="../../dc/d5a/classArcane_1_1IParallelMng.html">Arcane::IParallelMng</a></div><div class="ttdoc">Interface du gestionnaire de parallélisme pour un sous-domaine.</div><div class="ttdef"><b>Definition:</b> IParallelMng.h:70</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivity_html_ab2fdb5b11c4f294323140baecb671ce4"><div class="ttname"><a href="../../d0/dc0/classArcane_1_1IItemConnectivity.html#ab2fdb5b11c4f294323140baecb671ce4">Arcane::IItemConnectivity::targetFamily</a></div><div class="ttdeci">virtual IItemFamily * targetFamily() const =0</div><div class="ttdoc">Famille cible.</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html_a2ea6372819d879ec960505f1d666382a"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html#a2ea6372819d879ec960505f1d666382a">Arccore::ConstArrayView::subConstView</a></div><div class="ttdeci">constexpr ConstArrayView&lt; T &gt; subConstView(Integer abegin, Integer asize) const noexcept</div><div class="ttdoc">Sous-vue (constante) à partir de l'élément abegin et contenant asize éléments.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:591</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a394933b94f2a6f4fa41779f04dcb2ace"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a394933b94f2a6f4fa41779f04dcb2ace">Arcane::IItemFamily::name</a></div><div class="ttdeci">virtual const String &amp; name() const =0</div><div class="ttdoc">Nom de la famille.</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a385668fa398234b71c9339970002754a"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a385668fa398234b71c9339970002754a">Arccore::ISerializer::reserveSpan</a></div><div class="ttdeci">virtual void reserveSpan(eDataType dt, Int64 n)=0</div><div class="ttdoc">Réserve de la mémoire pour n valeurs de dt.</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_ab4546935b3a84b08c78a7aabcd075968"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#ab4546935b3a84b08c78a7aabcd075968">Arccore::ISerializer::setMode</a></div><div class="ttdeci">virtual void setMode(eMode new_mode)=0</div><div class="ttdoc">Positionne le fonctionnement actuel.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html">Arcane::ISubDomain</a></div><div class="ttdoc">Interface du gestionnaire d'un sous-domaine.</div><div class="ttdef"><b>Definition:</b> ISubDomain.h:72</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelMng_html_a26fc7494a02a7370d3be787fcc742b04"><div class="ttname"><a href="../../dc/d5a/classArcane_1_1IParallelMng.html#a26fc7494a02a7370d3be787fcc742b04">Arcane::IParallelMng::commRank</a></div><div class="ttdeci">virtual Int32 commRank() const =0</div><div class="ttdoc">Rang de cette instance dans le communicateur.</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a64fb5a0df6b1bbf59e04eda2691db386"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a64fb5a0df6b1bbf59e04eda2691db386">Arccore::ISerializer::getSpan</a></div><div class="ttdeci">virtual void getSpan(Span&lt; Real &gt; values)</div><div class="ttdoc">Récupère le tableau values.</div><div class="ttdef"><b>Definition:</b> SerializeGlobal.cc:91</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a803d1e7683571a15ceaf723b215c7a53"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a803d1e7683571a15ceaf723b215c7a53">Arccore::ISerializer::getInt64</a></div><div class="ttdeci">virtual Int64 getInt64()=0</div><div class="ttdoc">Récupère une taille.</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemConnectivitySynchronizer_html_a2c6beb189703165ffaa9e0e87295d5af"><div class="ttname"><a href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html#a2c6beb189703165ffaa9e0e87295d5af">Arcane::ItemConnectivitySynchronizer::computeExtraItemsToSend</a></div><div class="ttdeci">void computeExtraItemsToSend()</div><div class="ttdoc">Interface IExtraGhostItemsBuilder.</div><div class="ttdef"><b>Definition:</b> ItemConnectivitySynchronizer.cc:51</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelMng_html_a7c5831fb289f8aa3fac3b05cdbb3d194"><div class="ttname"><a href="../../dc/d5a/classArcane_1_1IParallelMng.html#a7c5831fb289f8aa3fac3b05cdbb3d194">Arcane::IParallelMng::commSize</a></div><div class="ttdeci">virtual Int32 commSize() const =0</div><div class="ttdoc">Nombre d'instance dans le communicateur.</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html_ac26e2b1441dbe2ce60c065d1b7840143"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html#ac26e2b1441dbe2ce60c065d1b7840143">Arccore::ConstArrayView::size</a></div><div class="ttdeci">constexpr Integer size() const noexcept</div><div class="ttdoc">Nombre d'éléments du tableau.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:632</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemConnectivitySynchronizer_html_abc6c8c31f549a0b9ac052a9da12ebbb5"><div class="ttname"><a href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html#abc6c8c31f549a0b9ac052a9da12ebbb5">Arcane::ItemConnectivitySynchronizer::synchronize</a></div><div class="ttdeci">void synchronize()</div><div class="ttdoc">Interface IConnectivitySynchronizer.</div><div class="ttdef"><b>Definition:</b> ItemConnectivitySynchronizer.cc:42</div></div>
+<div class="ttc" id="aclassArccore_1_1SharedArray_html"><div class="ttname"><a href="../../d4/dee/classArccore_1_1SharedArray.html">Arccore::SharedArray</a></div><div class="ttdoc">Vecteur 1D de données avec sémantique par référence.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:1266</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html">Arcane::IItemFamily</a></div><div class="ttdoc">Interface d'une famille d'entités.</div><div class="ttdef"><b>Definition:</b> IItemFamily.h:106</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivity_html"><div class="ttname"><a href="../../d0/dc0/classArcane_1_1IItemConnectivity.html">Arcane::IItemConnectivity</a></div><div class="ttdoc">Interface pour gérer une connectivité.</div><div class="ttdef"><b>Definition:</b> IItemConnectivity.h:55</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivityGhostPolicy_html_ad50e092f38a893167212536ab3845223"><div class="ttname"><a href="../../d3/d32/classArcane_1_1IItemConnectivityGhostPolicy.html#ad50e092f38a893167212536ab3845223">Arcane::IItemConnectivityGhostPolicy::updateConnectivity</a></div><div class="ttdeci">virtual void updateConnectivity(Int32ConstArrayView ghost_items, Int64ConstArrayView ghost_items_connected_items)=0</div><div class="ttdoc">mets à jour la connectivité en connectant les items fantômes ajoutés..</div></div>
+<div class="ttc" id="anamespaceArcane_html_ac12d45d58297ede9278d4055609d1413"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ac12d45d58297ede9278d4055609d1413">Arcane::IntegerSharedArray</a></div><div class="ttdeci">SharedArray&lt; Integer &gt; IntegerSharedArray</div><div class="ttdoc">Tableau dynamique à une dimension d'entiers.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:443</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a22210a97ce04ff12a5cda68b22766d7a"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a22210a97ce04ff12a5cda68b22766d7a">Arccore::ISerializer::allocateBuffer</a></div><div class="ttdeci">virtual void allocateBuffer()=0</div><div class="ttdoc">Alloue la mémoire du sérialiseur.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivityGhostPolicy_html_a4338bcb9f2124d6c6326431d39cc1361"><div class="ttname"><a href="../../d3/d32/classArcane_1_1IItemConnectivityGhostPolicy.html#a4338bcb9f2124d6c6326431d39cc1361">Arcane::IItemConnectivityGhostPolicy::communicatingRanks</a></div><div class="ttdeci">virtual Int32ConstArrayView communicatingRanks()=0</div><div class="ttdoc">Rangs des sous-domaines avec lesquels on communique.</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html">Arccore::ISerializer</a></div><div class="ttdoc">Interface d'un sérialiseur.</div><div class="ttdef"><b>Definition:</b> arccore/src/serialize/arccore/serialize/ISerializer.h:52</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemConnectivitySynchronizer_html_abb04f6bdf4f5ba2d9da04aa7172cdb7d"><div class="ttname"><a href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html#abb04f6bdf4f5ba2d9da04aa7172cdb7d">Arcane::ItemConnectivitySynchronizer::serializeGhostItems</a></div><div class="ttdeci">void serializeGhostItems(ISerializer *buffer, Int32ConstArrayView ghost_item_lids)</div><div class="ttdoc">Interface IExtraGhostItemsAdder : add extra ghost in TargetFamily.</div><div class="ttdef"><b>Definition:</b> ItemConnectivitySynchronizer.cc:75</div></div>
+<div class="ttc" id="anamespaceArcane_html_a05c27a651d3da9ae112c75113fcf7426aa59e9732cc990f1f9ce0bc74ccfac735"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a05c27a651d3da9ae112c75113fcf7426aa59e9732cc990f1f9ce0bc74ccfac735">Arcane::DT_Int64</a></div><div class="ttdeci">@ DT_Int64</div><div class="ttdoc">Donnée de type entier 64 bits.</div><div class="ttdef"><b>Definition:</b> DataTypes.h:41</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_af228f05a9fbf2af7709973fd08e756cd"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#af228f05a9fbf2af7709973fd08e756cd">Arccore::ISerializer::putInt64</a></div><div class="ttdeci">virtual void putInt64(Int64 value)=0</div><div class="ttdoc">Ajoute l'entier value.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivity_html_a9ef5789c85f7dcf65486f14b9b77c17f"><div class="ttname"><a href="../../d0/dc0/classArcane_1_1IItemConnectivity.html#a9ef5789c85f7dcf65486f14b9b77c17f">Arcane::IItemConnectivity::sourceFamily</a></div><div class="ttdeci">virtual IItemFamily * sourceFamily() const =0</div><div class="ttdoc">Famille source.</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a8dbfd965ccbe8fe5515dd74ffdba0cf3"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a8dbfd965ccbe8fe5515dd74ffdba0cf3">Arccore::ISerializer::reserve</a></div><div class="ttdeci">virtual void reserve(eDataType dt, Int64 n)=0</div><div class="ttdoc">Réserve de la mémoire pour n objets de type dt.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_af038a7ecc0e0d64855014d5427db0f31"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#af038a7ecc0e0d64855014d5427db0f31">Arcane::IItemFamily::endUpdate</a></div><div class="ttdeci">virtual void endUpdate()=0</div><div class="ttdoc">Notifie la fin de modification de la liste des entités.</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a23c5d407e4d9b703fe595ce0725f913fa56b149b45802cff6c857903ddb92664e"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a23c5d407e4d9b703fe595ce0725f913fa56b149b45802cff6c857903ddb92664e">Arccore::ISerializer::ModeGet</a></div><div class="ttdeci">@ ModeGet</div><div class="ttdoc">Le sérialiseur attend des get()</div><div class="ttdef"><b>Definition:</b> arccore/src/serialize/arccore/serialize/ISerializer.h:61</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivitySynchronizer_html"><div class="ttname"><a href="../../df/dee/classArcane_1_1IItemConnectivitySynchronizer.html">Arcane::IItemConnectivitySynchronizer</a></div><div class="ttdef"><b>Definition:</b> IItemConnectivitySynchronizer.h:32</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a5a2db3d9fcd8f888fe5026175974d3df"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a5a2db3d9fcd8f888fe5026175974d3df">Arcane::IItemFamily::mesh</a></div><div class="ttdeci">virtual IMesh * mesh() const =0</div><div class="ttdoc">Maillage associé</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemConnectivitySynchronizer_html_a5c53d0aced3b37a29808a20a308a98c2"><div class="ttname"><a href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html#a5c53d0aced3b37a29808a20a308a98c2">Arcane::ItemConnectivitySynchronizer::ItemConnectivitySynchronizer</a></div><div class="ttdeci">ItemConnectivitySynchronizer(IItemConnectivity *connectivity, IItemConnectivityGhostPolicy *ghost_policy)</div><div class="ttdef"><b>Definition:</b> ItemConnectivitySynchronizer.cc:29</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a23c5d407e4d9b703fe595ce0725f913fa4533cfad45026c0cba50982578168e52"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a23c5d407e4d9b703fe595ce0725f913fa4533cfad45026c0cba50982578168e52">Arccore::ISerializer::ModePut</a></div><div class="ttdeci">@ ModePut</div><div class="ttdoc">Le sérialiseur attend des reserve()</div><div class="ttdef"><b>Definition:</b> arccore/src/serialize/arccore/serialize/ISerializer.h:60</div></div>
+<div class="ttc" id="aItemEnumerator_8h_html_ad8a248a2dc99c27958e4670b9cb09aa3"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#ad8a248a2dc99c27958e4670b9cb09aa3">ENUMERATE_ITEM</a></div><div class="ttdeci">#define ENUMERATE_ITEM(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de noeuds.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:229</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:32</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_ac84615ed0ea22a2104fdae7d9c8c5179"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#ac84615ed0ea22a2104fdae7d9c8c5179">Arcane::IItemFamily::itemsUniqueIdToLocalId</a></div><div class="ttdeci">virtual void itemsUniqueIdToLocalId(Int32ArrayView local_ids, Int64ConstArrayView unique_ids, bool do_fatal=true) const =0</div><div class="ttdoc">Converti un tableau de numéros uniques en numéros locaux.</div></div>
+<div class="ttc" id="anamespaceArcane_html_a938629183dac9847551e352185e6ca0f"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a938629183dac9847551e352185e6ca0f">Arcane::Int32SharedArray</a></div><div class="ttdeci">SharedArray&lt; Int32 &gt; Int32SharedArray</div><div class="ttdoc">Tableau dynamique à une dimension d'entiers 32 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:439</div></div>
+<div class="ttc" id="aclassArccore_1_1AbstractArray_html_ad685072bdadeb6ada60185ce0283db8d"><div class="ttname"><a href="../../db/d34/classArccore_1_1AbstractArray.html#ad685072bdadeb6ada60185ce0283db8d">Arccore::AbstractArray::size</a></div><div class="ttdeci">Integer size() const</div><div class="ttdoc">Nombre d'éléments du vecteur.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:409</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_abc753f399dac28be54b4a7f6073dadb4"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#abc753f399dac28be54b4a7f6073dadb4">Arcane::IItemFamily::view</a></div><div class="ttdeci">virtual ItemVectorView view(Int32ConstArrayView local_ids)=0</div><div class="ttdoc">Vue sur les entités.</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html_ae5b62f0f173784a37d47cb61574e9b69"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html#ae5b62f0f173784a37d47cb61574e9b69">Arcane::IMesh::subDomain</a></div><div class="ttdeci">virtual ISubDomain * subDomain()=0</div><div class="ttdoc">Sous-domaine associé</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a431ea55fb97b19619f00f248509abedf"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a431ea55fb97b19619f00f248509abedf">Arccore::ISerializer::putSpan</a></div><div class="ttdeci">virtual void putSpan(Span&lt; const Real &gt; values)</div><div class="ttdoc">Ajoute le tableau values.</div><div class="ttdef"><b>Definition:</b> SerializeGlobal.cc:25</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivityGhostPolicy_html_a0bb32e5e51b568a385ae203e5239fce1"><div class="ttname"><a href="../../d3/d32/classArcane_1_1IItemConnectivityGhostPolicy.html#a0bb32e5e51b568a385ae203e5239fce1">Arcane::IItemConnectivityGhostPolicy::sharedItems</a></div><div class="ttdeci">virtual Int32ConstArrayView sharedItems(const Integer rank, const String &amp;family_name)=0</div><div class="ttdoc">donne les local_ids des items de la famille family_name partagés pour la connectivité avec le process...</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_aeac9eb57c4e561e15f3b96e5f0b930e3"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#aeac9eb57c4e561e15f3b96e5f0b930e3">Arcane::IItemFamily::addGhostItems</a></div><div class="ttdeci">virtual void addGhostItems(Int64ConstArrayView unique_ids, Int32ArrayView items, Int32ConstArrayView owners)=0</div><div class="ttdoc">Alloue des entités fantômes.</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:30 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

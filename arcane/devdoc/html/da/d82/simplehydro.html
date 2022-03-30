@@ -1,0 +1,1194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane: Implémentation d&#39;un module d&#39;hydrodynamique</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Implémentation d'un module d'hydrodynamique </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p> 
+  (Gilles Grospellier - 30/10/2002)
+  </p>
+<p>Le module numérique retenu pour cette exemple est une version simplifiée du schéma numérique décrit dans le document de spécification de l'hydrodynamique du projet. En particulier, on restreindra l'implémentation sur les points suivants:</p>
+<ul>
+<li>
+le seul type de maille supporté est l'hexaèdre; </li>
+<li>
+le seul type de pseudo viscosité supporté est la pseudo-viscosité aux mailles; </li>
+<li>
+le seul type de calcul de longueur caractéristique supporté est celui utilisant les médianes; </li>
+<li>
+le seul type de condition aux limites supporté sera d'imposer une composante de la vitesse sur une surface; </li>
+<li>
+la masse nodale est supposé constante et n'est pas recalculée à chaque itération; </li>
+<li>
+seul les gaz parfaits sont traités. </li>
+</ul>
+<p>Afin de ne pas surchargé l'exemple, les tests de cohérences des valeurs (pression positive, volume positif, ...) seront supprimés.</p>
+<ol>
+<li>
+<a class="el" href="../../da/d82/simplehydro.html#simplehydro_specifs">Spécifications</a> </li>
+<li>
+<a class="el" href="../../da/d82/simplehydro.html#simplehydro_conception">Conception</a> </li>
+<li>
+<a class="el" href="../../da/d82/simplehydro.html#simplehydro_moduledefinition">Définition de la classe ModuleSimpleHydro</a> </li>
+<li>
+<a class="el" href="../../da/d82/simplehydro.html#simplehydro_describeentrypoints">Description des points d'entrée</a> </li>
+</ol>
+<h1><a class="anchor" id="simplehydro_specifs"></a>
+Spécifications</h1>
+<p>La première chose à faire avant de coder est de bien spécifier ce que fera notre module et comment il le fera, c'est à dire la liste des <b>opérations</b> et la liste des <b>valeurs</b> manipulées.</p>
+<h2><a class="anchor" id="simplehydro_specifs_operations"></a>
+Opérations</h2>
+<p>Les opérations sont les suivantes:</p>
+<ol>
+<li>
+le calcul des forces de pression </li>
+<li>
+le calcul de la pseudo-viscosité </li>
+<li>
+le calcul de l'impulsion </li>
+<li>
+la prise en compte des conditions aux limites </li>
+<li>
+le déplacement des noeuds </li>
+<li>
+le calcul des nouvelles valeurs géométriques: <ul>
+<li>
+volume des mailles </li>
+<li>
+longueur caractéristique des mailles </li>
+<li>
+resultantes aux sommets de chaque maille </li>
+</ul>
+</li>
+<li>
+le calcul de la densité </li>
+<li>
+le calcul de la pression et de l'énergie par l'équation d'état </li>
+<li>
+le calcul du nouveau pas de temps. </li>
+</ol>
+<p>De manière naturelle, le module disposera d'un point d'entrée pour chaque phase.</p>
+<h2><a class="anchor" id="simplehydro_specifs_values"></a>
+Liste des valeurs</h2>
+<p>Pour traiter ce problème, nous aurons besoin des valeurs suivantes:</p>
+<center> <small> <table class="doxtable">
+<tr>
+<td><b>Nom</b></td><td><b>Elément</b></td><td><b>Type</b></td><td><b>Description</b> </td></tr>
+<tr>
+<td>Density </td><td>Maille </td><td>Réel </td><td>Densité par maille  </td></tr>
+<tr>
+<td>Pressure </td><td>Maille </td><td>Réel </td><td>Pression par maille  </td></tr>
+<tr>
+<td>CellMass </td><td>Maille </td><td>Réel </td><td>Masse par maille  </td></tr>
+<tr>
+<td>InternalEnergy </td><td>Maille </td><td>Réel </td><td>Energie interne par maille  </td></tr>
+<tr>
+<td>SoundSpeed </td><td>Maille </td><td>Réel </td><td>Vitesse du son dans la maille  </td></tr>
+<tr>
+<td>Volume </td><td>Maille </td><td>Réel </td><td>Volume de la maille  </td></tr>
+<tr>
+<td>OldVolume </td><td>Maille </td><td>Réel </td><td>Volume de la maille à l'itération précédente  </td></tr>
+<tr>
+<td>ViscosityForce </td><td>Maille </td><td>Tableau de coordonnées </td><td>Contribution des forces de viscosité aux sommets des mailles  </td></tr>
+<tr>
+<td>ViscosityWork </td><td>Maille </td><td>Réel </td><td>Travail des forces de viscosité  </td></tr>
+<tr>
+<td>AdiabaticCst </td><td>Maille </td><td>Réel </td><td>Constante adiabatique du gaz parfait par maille  </td></tr>
+<tr>
+<td>CaracteristicLength </td><td>Maille </td><td>Réel </td><td>Longueur caractéristique par maille  </td></tr>
+<tr>
+<td>CellCQs </td><td>Maille </td><td>Tableau de coordonnées</td><td>Résultante aux sommets de  </td></tr>
+<tr>
+<td>Forces </td><td>noeud </td><td>Coordonnée </td><td>Force aux noeuds  </td></tr>
+<tr>
+<td>Velocity </td><td>noeud </td><td>Coordonnée </td><td>Vitesse aux noeuds  </td></tr>
+<tr>
+<td>NodeMass </td><td>noeud </td><td>Réel </td><td>Masse nodale  </td></tr>
+<tr>
+<td>NodeCoord </td><td>noeud </td><td>Coordonnée </td><td>Coordonnées des noeuds  </td></tr>
+<tr>
+<td>DensityRatioMaximum </td><td>Scalaire </td><td>Réel </td><td>Maximum de l'acroissement de densité </td></tr>
+<tr>
+<td>DeltaT_F </td><td>Scalaire </td><td>Réel </td><td><img class="formulaInl" alt="$\Delta t_{n+1_2}$" src="../../form_0.png"/> entre <img class="formulaInl" alt="$t^{n}$" src="../../form_1.png"/> et <img class="formulaInl" alt="$t^{n+1}$" src="../../form_2.png"/>  </td></tr>
+<tr>
+<td>DeltaT_N </td><td>Scalaire </td><td>Réel </td><td><img class="formulaInl" alt="$\Delta t_{n}$" src="../../form_3.png"/> entre <img class="formulaInl" alt="$t^{n-1_2}$" src="../../form_4.png"/> et <img class="formulaInl" alt="$t^{n+1_2}$" src="../../form_5.png"/>  </td></tr>
+<tr>
+<td>OldDeltaT </td><td>Scalaire </td><td>Réel </td><td><img class="formulaInl" alt="$\Delta t_{n+1_2}$" src="../../form_0.png"/> entre <img class="formulaInl" alt="$t^{n-1}$" src="../../form_6.png"/> et <img class="formulaInl" alt="$t^{1}$" src="../../form_7.png"/>  </td></tr>
+</table>
+</small> </center><h1><a class="anchor" id="simplehydro_conception"></a>
+Conception</h1>
+<p>A chaque opération définit précédemment sera associé un <b>point d'entrée</b> d'ARCANE et à chaque valeur une <b>variable</b>.</p>
+<h2><a class="anchor" id="simplehydro_conception_entrypoints"></a>
+Points d'entrée</h2>
+<p>Un point d'entrée est une <b>méthode</b> de la classe, dont la signature est du type suivant: <code>void</code> <code>func()</code>.</p>
+<p>La boucle de calcul est découpé en 9 opérations, chacune définissant un point d'entrée. On ajoutera un point d'entrée pour l'initialisation (<code>SH_HydroStartInit</code>).</p>
+<table class="doxtable">
+<tr>
+<td><b>Nom du point d'entrée</b></td><td><b>Méthode</b></td><td><b>Description</b> </td></tr>
+<tr>
+<td><code>SH_HydroStartInit</code> </td><td><code>hydroStartInit()</code> </td><td>Initialisation  </td></tr>
+<tr>
+<td><code>SH_ComputePressureForce</code> </td><td><code>computePressureForces()</code> </td><td>calcul des forces de pression  </td></tr>
+<tr>
+<td><code>SH_ComputePseudoViscosity</code> </td><td><code>computePseudoViscosity()</code> </td><td>calcul de la pseudo-viscosité  </td></tr>
+<tr>
+<td><code>SH_ComputeImpulsion</code> </td><td><code>computeImpulsion()</code> </td><td>calcul de l'impulsion  </td></tr>
+<tr>
+<td><code>SH_ApplyBoundaryCondition</code> </td><td><code>applyBoundaryCondition()</code> </td><td>prise en compte des conditions aux limites  </td></tr>
+<tr>
+<td><code>SH_MoveNodes</code> </td><td><code>moveNodes()</code> </td><td>déplacement des noeuds  </td></tr>
+<tr>
+<td><code>SH_ComputeGeometricValues</code> </td><td><code>computeGeometricValues()</code> </td><td>calcul des nouvelles valeurs géométriques  </td></tr>
+<tr>
+<td><code>SH_UpdateDensity</code> </td><td><code>updateDensity()</code> </td><td>mise à jour de la densité </td></tr>
+<tr>
+<td><code>SH_ApplyEquationOfState</code> </td><td><code>applyEquationOfState()</code> </td><td>applique l'équation d'état  </td></tr>
+<tr>
+<td><code>SH_ComputeDeltaT</code> </td><td><code>computeDeltaT()</code> </td><td>calcul du nouveau pas de temps  </td></tr>
+</table>
+<h2><a class="anchor" id="simplehydro_conception_variables"></a>
+Variables</h2>
+<p>La liste des variables est la suivante:</p>
+<table class="doxtable">
+<tr>
+<td><b>Nom</b></td><td><b>Type informatique</b></td><td><b>Nom imformatique</b> </td></tr>
+<tr>
+<td>Density </td><td>VariableCellReal </td><td><code>m_density</code>  </td></tr>
+<tr>
+<td>Pressure </td><td>VariableCellReal </td><td><code>m_pressure</code>  </td></tr>
+<tr>
+<td>CellMass </td><td>VariableCellReal </td><td><code>m_cell_mass</code>  </td></tr>
+<tr>
+<td>InternalEnergy </td><td>VariableCellReal </td><td><code>m_internal_energy</code>  </td></tr>
+<tr>
+<td>SoundSpeed </td><td>VariableCellReal </td><td><code>m_sound_speed</code>  </td></tr>
+<tr>
+<td>Volume </td><td>VariableCellReal </td><td><code>m_volume</code>  </td></tr>
+<tr>
+<td>OldVolume </td><td>VariableCellReal </td><td><code>m_old_volume</code>  </td></tr>
+<tr>
+<td>ViscosityForce </td><td>VariableCellArrayReal3 </td><td><code>m_viscosity_force</code>  </td></tr>
+<tr>
+<td>ViscosityWork </td><td>VariableCellReal </td><td><code>m_viscosity_work</code>  </td></tr>
+<tr>
+<td>AdiabaticCst </td><td>VariableCellReal </td><td><code>m_adiabatic_cst</code>  </td></tr>
+<tr>
+<td>CaracteristicLength </td><td>VariableCellReal </td><td><code>m_caracteristic_length</code>  </td></tr>
+<tr>
+<td>CellCQs </td><td>VariableCellReal </td><td><code>m_cell_cqs</code>  </td></tr>
+<tr>
+<td>Forces </td><td>VariableNodeReal3 </td><td><code>m_force</code>  </td></tr>
+<tr>
+<td>Velocity </td><td>VariableNodeReal3 </td><td><code>m_velocity</code>  </td></tr>
+<tr>
+<td>NodeMass </td><td>VariableNodeReal </td><td><code>m_node_mass</code>  </td></tr>
+<tr>
+<td>NodeCoord </td><td>VariableNodeReal3 </td><td><code>m_node_coord</code>  </td></tr>
+<tr>
+<td>DensityRatioMaximum </td><td>VariableScalarReal </td><td><code>m_density_ratio_maximum</code>  </td></tr>
+<tr>
+<td>DeltaT_F </td><td>VariableScalarReal </td><td><code>m_delta_t_f</code>  </td></tr>
+<tr>
+<td>DeltaT_N </td><td>VariableScalarReal </td><td><code>m_delta_t_n</code>  </td></tr>
+<tr>
+<td>OldDeltaT </td><td>VariableScalarReal </td><td><code>m_old_deltat</code>  </td></tr>
+</table>
+<h1><a class="anchor" id="simplehydro_moduledefinition"></a>
+Définition de la classe ModuleSimpleHydro</h1>
+<p>Dans ARCANE, un module est une classe du langage C++. Dans notre exemple, cette classe aura pour nom <code>ModuleSimpleHydro</code> (par convention, tous les classes module ont un nom qui commence par <code>Module</code>). Maintenant que nous connaissons la liste des variables et des points d'entrées du module, il est possible de définir cette classe: </p><ul>
+<li>
+un module dérive toujours de la classe de base <code>Module</code>. Dans notre cas, comme nous voulant accéder aux informations du maillage, nous utilisons une classe dérivée de <code>Module</code> qui est <code>BasicModule</code>; </li>
+<li>
+chaque variable sera un champ de cette classe; </li>
+<li>
+chaque point d'entrée sera une méthode de cette classe. </li>
+</ul>
+<p>Comme il dérive de la classe de base <code>Module</code>, tous les modules doivent respecter les contraintes suivantes: </p><ul>
+<li>
+définir un constructeur ayant le prototype suivant: <div class="fragment"><div class="line">ModuleSimpleHydro(<span class="keyword">const</span> ModuleBuilder&amp; mb)</div>
+</div><!-- fragment -->  </li>
+<li>
+définir une méthode retournant le numéro de version de module, ayant la signature suivante: <div class="fragment"><div class="line"><span class="keyword">virtual</span> VersionInfo versionInfo()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> VersionInfo(1,0,1,0,0); }</div>
+</div><!-- fragment -->  </li>
+</ul>
+<p>En respectant ces contraintes, cela donne la définition suivante pour notre module d'hydrodynamique:</p>
+<div class="fragment"><div class="line"><span class="keyword">class </span>ModuleSimpleHydro</div>
+<div class="line">: <span class="keyword">public</span> BasicModule</div>
+<div class="line">{</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line"> </div>
+<div class="line">  ModuleSimpleHydro(<span class="keyword">const</span> ModuleBuilder&amp; cb);</div>
+<div class="line">  ~ModuleSimpleHydro(); </div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  </div>
+<div class="line">  <span class="keyword">virtual</span> VersionInfo  versionInfo()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> VersionInfo(1,0,1,0,0); }</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">void</span> hydroStartInit ();</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">void</span> computePressureForce();</div>
+<div class="line">  <span class="keywordtype">void</span> computePseudoViscosity();</div>
+<div class="line">  <span class="keywordtype">void</span> computeImpulsion();</div>
+<div class="line">  <span class="keywordtype">void</span> applyBoundaryCondition();</div>
+<div class="line">  <span class="keywordtype">void</span> moveNodes();</div>
+<div class="line">  <span class="keywordtype">void</span> computeGeometricValues();</div>
+<div class="line">  <span class="keywordtype">void</span> updateDensity();</div>
+<div class="line">  <span class="keywordtype">void</span> applyEquationOfState();</div>
+<div class="line">  <span class="keywordtype">void</span> computeDeltaT();</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_density; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_pressure; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_cell_mass; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_internal_energy;  </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_volume; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_old_volume; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga98c3f361d93bc122a383a05c80a966b7">VariableNodeReal3</a> m_force;  </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga98c3f361d93bc122a383a05c80a966b7">VariableNodeReal3</a> m_velocity; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga50e313bc663c5f4fd459ffbe2a2432b8">VariableNodeReal</a> m_node_mass; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_cell_viscosity_force;  </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_viscosity_work;  </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_adiabatic_cst; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_caracteristic_length; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_sound_speed; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga98c3f361d93bc122a383a05c80a966b7">VariableNodeReal3</a> m_node_coord; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#gaf7f4a257c36daa5cc99309395e330d81">VariableCellArrayReal3</a> m_cell_cqs; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#gae100d56dd1a1231ec970073bcf0572da">VariableScalarReal</a> m_density_ratio_maximum; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#gae100d56dd1a1231ec970073bcf0572da">VariableScalarReal</a> m_delta_t_n; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#gae100d56dd1a1231ec970073bcf0572da">VariableScalarReal</a> m_delta_t_f; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#gae100d56dd1a1231ec970073bcf0572da">VariableScalarReal</a> m_old_dt_f; </div>
+<div class="line">};</div>
+</div><!-- fragment --><p>Le constructeur de la classe se charge ensuite: </p><ol>
+<li>
+d'associer à chaque champ variable un nom; </li>
+<li>
+d'associer à chaque méthode un nom de point d'entrée; </li>
+<li>
+éventuellement de construire une boucle en temps. En général, la boucle en temps est spécifiée dans un fichier annexe mais pour simplifier l'exemple, elle sera directement créée dans le constructeur du module. </li>
+</ol>
+<h2><a class="anchor" id="simplehydro_moduledefinition_associate_variable"></a>
+Associer une variable</h2>
+<p>Pour associer un champ, par exemple <code>m_density</code> à la variable correspondante, il faut insérer la ligne suivante dans le constructeur: </p><div class="fragment"><div class="line">m_density(VariableBuilder(<span class="keyword">this</span>,<span class="stringliteral">&quot;Density&quot;</span>))</div>
+</div><!-- fragment --><p> L'exemple précédent associe le champ <code>m_density</code> avec la variable de nom <code>Density</code> pour le module (mot clé <code>this</code>). En suivant la syntaxe de construction du C++, cela donne pour l'ensemble des variables:</p>
+<div class="fragment"><div class="line">ModuleSimpleHydro::</div>
+<div class="line">ModuleSimpleHydro(<span class="keyword">const</span> ModuleBuilder&amp; mb)</div>
+<div class="line">: BasicModule(mb)</div>
+<div class="line">, m_density(VariableBuilder(this,<span class="stringliteral">&quot;Density&quot;</span>))</div>
+<div class="line">, m_pressure(VariableBuilder(this,<span class="stringliteral">&quot;Pressure&quot;</span>))</div>
+<div class="line">, m_cell_mass(VariableBuilder(this,<span class="stringliteral">&quot;CellMass&quot;</span>))  </div>
+<div class="line">, m_internal_energy(VariableBuilder(this,<span class="stringliteral">&quot;InternalEnergy&quot;</span>))  </div>
+<div class="line">, m_volume(VariableBuilder(this,<span class="stringliteral">&quot;CellVolume&quot;</span>))</div>
+<div class="line">, m_old_volume(VariableBuilder(this,<span class="stringliteral">&quot;OldCellVolume&quot;</span>))</div>
+<div class="line">, m_force(VariableBuilder(this,<span class="stringliteral">&quot;Force&quot;</span>))</div>
+<div class="line">, m_velocity(VariableBuilder(this,<span class="stringliteral">&quot;Velocity&quot;</span>))</div>
+<div class="line">, m_node_mass(VariableBuilder(this,<span class="stringliteral">&quot;NodeMass&quot;</span>))</div>
+<div class="line">, m_cell_viscosity_force(VariableBuilder(this,<span class="stringliteral">&quot;CellViscosityForce&quot;</span>))</div>
+<div class="line">, m_viscosity_work(VariableBuilder(this,<span class="stringliteral">&quot;ViscosityWork&quot;</span>))</div>
+<div class="line">, m_adiabatic_cst(VariableBuilder(this,<span class="stringliteral">&quot;AdiabaticCst&quot;</span>))</div>
+<div class="line">, m_caracteristic_length(VariableBuilder(this,<span class="stringliteral">&quot;CaracteristicLength&quot;</span>))</div>
+<div class="line">, m_sound_speed(VariableBuilder(this,<span class="stringliteral">&quot;SoundSpeed&quot;</span>))</div>
+<div class="line">, m_node_coord(VariableBuilder(this,<span class="stringliteral">&quot;NodeCoord&quot;</span>))</div>
+<div class="line">, m_cell_cqs(VariableBuilder(this,<span class="stringliteral">&quot;CellCQS&quot;</span>))</div>
+<div class="line">, m_density_ratio_maximum(VariableBuilder(this,<span class="stringliteral">&quot;DensityRatioMaximum&quot;</span>))</div>
+<div class="line">, m_delta_t_n(VariableBuilder(this,<span class="stringliteral">&quot;CenteredDeltaT&quot;</span>))</div>
+<div class="line">, m_delta_t_f(VariableBuilder(this,<span class="stringliteral">&quot;SplitDeltaT&quot;</span>))</div>
+<div class="line">, m_old_dt_f(VariableBuilder(this,<span class="stringliteral">&quot;OldDTf&quot;</span>))</div>
+<div class="line">{</div>
+<div class="line">   ...</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="simplehydro_moduledefinition_associate_entrypoint"></a>
+Associer un point d'entrée</h2>
+<p>Pour associer à une méthode de la classe un point d'entrée, par exemple à la méthode <code>hydroStartInit()</code> le point d'entrée de nom <code>SH_HydroStartInit</code>, il faut insérer la ligne suivante dans le constructeur: </p><div class="fragment"><div class="line"><a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_HydroStartInit&quot;</span>,</div>
+<div class="line">  &amp;ModuleSimpleHydro::hydroStartInit,</div>
+<div class="line">  IEntryPoint::WStartInit);</div>
+</div><!-- fragment --><p> L'exemple précédent associe la méthode <code>ModuleSimpleHydro::hydroStartInit</code> au point d'entrée SH_HydroStartInit du module (mot clé <code>this</code>). Le dernier argument indique que le point d'entrée n'est exécuté qu'à l'initialisation, au démarrage du cas. Si ce dernier argument est omis, le point d'entrée sera exécuté à chaque itération de la boucle de calcul.</p>
+<p>Pour l'ensemble des points d'entrée, cela donne le code suivant:</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_HydroStartInit&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::hydroStartInit,</div>
+<div class="line">    IEntryPoint::WStartInit);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ComputePressureForce&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::computePressureForce);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ComputePseudoViscosity&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::computePseudoViscosity);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ComputeImpulsion&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::computeImpulsion);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ApplyBoundaryCondition&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::applyBoundaryCondition);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_MoveNodes&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::moveNodes);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ComputeGeometricValues&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::computeGeometricValues);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_UpdateDensity&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::updateDensity);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ApplyEquationOfState&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::applyEquationOfState);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ComputeDeltaT&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::computeDeltaT);</div>
+<div class="line">  ...</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="simplehydro_moduledefinition_timeloop"></a>
+Création d'une boucle en temps</h2>
+<p>Le code suivant permet de créer une boucle en temps de nom <code>HydroSimple</code> comportant l'ensemble des points d'entrée du module. Comme ce genre d'opération n'est pas utilisé couramment dans ARCANE car la boucle en temps est définie dans un fichier externe, on se contentera juste de donner le code source:</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">  ...</div>
+<div class="line">  ITimeLoopMng* tlm = subDomain()-&gt;timeLoopMng();</div>
+<div class="line">  BufferT&lt;CString&gt; clist;</div>
+<div class="line">  clist.add(<span class="stringliteral">&quot;SH_HydroStartInit&quot;</span>);</div>
+<div class="line">  clist.add(<span class="stringliteral">&quot;SH_ComputePressureForce&quot;</span>);</div>
+<div class="line">  clist.add(<span class="stringliteral">&quot;SH_ComputePseudoViscosity&quot;</span>);</div>
+<div class="line">  clist.add(<span class="stringliteral">&quot;SH_ComputeImpulsion&quot;</span>);</div>
+<div class="line">  clist.add(<span class="stringliteral">&quot;SH_ApplyBoundaryCondition&quot;</span>);</div>
+<div class="line">  clist.add(<span class="stringliteral">&quot;SH_MoveNodes&quot;</span>);</div>
+<div class="line">  clist.add(<span class="stringliteral">&quot;SH_ComputeGeometricValues&quot;</span>);</div>
+<div class="line">  clist.add(<span class="stringliteral">&quot;SH_UpdateDensity&quot;</span>);</div>
+<div class="line">  clist.add(<span class="stringliteral">&quot;SH_ApplyEquationOfState&quot;</span>);</div>
+<div class="line">  clist.add(<span class="stringliteral">&quot;SH_ComputeDeltaT&quot;</span>);</div>
+<div class="line">  ITimeLoop* time_loop = ITimeLoop::createDefault(subDomain()-&gt;superMng(),<span class="stringliteral">&quot;HydroSimple&quot;</span>);</div>
+<div class="line">  time_loop-&gt;setEntryPointsName(clist);</div>
+<div class="line">  tlm-&gt;registerTimeLoop(time_loop);</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Nous avons donc maintenant le constructeur complet de notre module:</p>
+<div class="fragment"><div class="line">ModuleSimpleHydro::</div>
+<div class="line">ModuleSimpleHydro(<span class="keyword">const</span> ModuleBuilder&amp; mb)</div>
+<div class="line">: BasicModule(mb)</div>
+<div class="line">, m_group_mng(mb.m_sub_domain-&gt;groupMng())</div>
+<div class="line">, m_density (VariableBuilder(this,<span class="stringliteral">&quot;Density&quot;</span>))</div>
+<div class="line">, m_pressure(VariableBuilder(this,<span class="stringliteral">&quot;Pressure&quot;</span>))</div>
+<div class="line">, m_cell_mass(VariableBuilder(this,<span class="stringliteral">&quot;CellMass&quot;</span>))  </div>
+<div class="line">, m_internal_energy(VariableBuilder(this,<span class="stringliteral">&quot;InternalEnergy&quot;</span>))  </div>
+<div class="line">, m_volume(VariableBuilder(this,<span class="stringliteral">&quot;CellVolume&quot;</span>))</div>
+<div class="line">, m_old_volume(VariableBuilder(this,<span class="stringliteral">&quot;OldCellVolume&quot;</span>))</div>
+<div class="line">, m_force(VariableBuilder(this,<span class="stringliteral">&quot;Force&quot;</span>))</div>
+<div class="line">, m_velocity(VariableBuilder(this,<span class="stringliteral">&quot;Velocity&quot;</span>))</div>
+<div class="line">, m_node_mass(VariableBuilder(this,<span class="stringliteral">&quot;NodeMass&quot;</span>))</div>
+<div class="line">, m_cell_viscosity_force(VariableBuilder(this,<span class="stringliteral">&quot;CellViscosityForce&quot;</span>))</div>
+<div class="line">, m_viscosity_work(VariableBuilder(this,<span class="stringliteral">&quot;ViscosityWork&quot;</span>))</div>
+<div class="line">, m_adiabatic_cst(VariableBuilder(this,<span class="stringliteral">&quot;AdiabaticCst&quot;</span>))</div>
+<div class="line">, m_caracteristic_length(VariableBuilder(this,<span class="stringliteral">&quot;CaracteristicLength&quot;</span>))</div>
+<div class="line">, m_sound_speed(VariableBuilder(this,<span class="stringliteral">&quot;SoundSpeed&quot;</span>))</div>
+<div class="line">, m_node_coord(VariableBuilder(this,<span class="stringliteral">&quot;NodeCoord&quot;</span>))</div>
+<div class="line">, m_cell_cqs(VariableBuilder(this,<span class="stringliteral">&quot;CellCQS&quot;</span>))</div>
+<div class="line">, m_density_ratio_maximum(VariableBuilder(this,<span class="stringliteral">&quot;DensityRatioMaximum&quot;</span>))</div>
+<div class="line">, m_delta_t_n(VariableBuilder(this,<span class="stringliteral">&quot;CenteredDeltaT&quot;</span>))</div>
+<div class="line">, m_delta_t_f(VariableBuilder(this,<span class="stringliteral">&quot;SplitDeltaT&quot;</span>))</div>
+<div class="line">, m_old_dt_f(VariableBuilder(this,<span class="stringliteral">&quot;OldDTf&quot;</span>))</div>
+<div class="line">{</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_HydroStartInit&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::hydroStartInit,</div>
+<div class="line">    <a class="code" href="../../de/dd7/classArcane_1_1IEntryPoint.html#a9bc3721444fad0a03834707b6313af7b">IEntryPoint::WStartInit</a>);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ComputePressureForce&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::computePressureForce);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ComputePseudoViscosity&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::computePseudoViscosity);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ComputeImpulsion&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::computeImpulsion);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ApplyBoundaryCondition&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::applyBoundaryCondition);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_MoveNodes&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::moveNodes);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ComputeGeometricValues&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::computeGeometricValues);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_UpdateDensity&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::updateDensity);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ApplyEquationOfState&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::applyEquationOfState);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ComputeDeltaT&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::computeDeltaT);</div>
+<div class="line"> </div>
+<div class="line">  {</div>
+<div class="line">    ITimeLoopMng* tlm = subDomain()-&gt;<a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a32bf8a6f8318a7fed96e4abaf60cf9f5">timeLoopMng</a>();</div>
+<div class="line">    BufferT&lt;CString&gt; clist;</div>
+<div class="line">    clist.add(<span class="stringliteral">&quot;SH_HydroStartInit&quot;</span>);</div>
+<div class="line">    clist.add(<span class="stringliteral">&quot;SH_ComputePressureForce&quot;</span>);</div>
+<div class="line">    clist.add(<span class="stringliteral">&quot;SH_ComputePseudoViscosity&quot;</span>);</div>
+<div class="line">    clist.add(<span class="stringliteral">&quot;SH_ComputeImpulsion&quot;</span>);</div>
+<div class="line">    clist.add(<span class="stringliteral">&quot;SH_ApplyBoundaryCondition&quot;</span>);</div>
+<div class="line">    clist.add(<span class="stringliteral">&quot;SH_MoveNodes&quot;</span>);</div>
+<div class="line">    clist.add(<span class="stringliteral">&quot;SH_ComputeGeometricValues&quot;</span>);</div>
+<div class="line">    clist.add(<span class="stringliteral">&quot;SH_UpdateDensity&quot;</span>);</div>
+<div class="line">    clist.add(<span class="stringliteral">&quot;SH_ApplyEquationOfState&quot;</span>);</div>
+<div class="line">    clist.add(<span class="stringliteral">&quot;SH_ComputeDeltaT&quot;</span>);</div>
+<div class="line">    ITimeLoop* time_loop = ITimeLoop::createDefault(subDomain()-&gt;superMng(),<span class="stringliteral">&quot;HydroSimple&quot;</span>);</div>
+<div class="line">    time_loop-&gt;setEntryPointsName(clist);</div>
+<div class="line">    tlm-&gt;registerTimeLoop(time_loop);</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Le fait de dériver de la classe <code>Module</code> nous donne accès aux méthodes suivantes:</p>
+<table class="doxtable">
+<tr>
+<td><b>Méthode</b></td><td><b>Action</b> </td></tr>
+<tr>
+<td><code>info()</code> </td><td>flot pour un message d'information  </td></tr>
+<tr>
+<td><code>fatal()</code> </td><td>flot pour un message signalant une erreur fatale et provoque l'arrêt du code  </td></tr>
+</table>
+<p>Le fait de dériver de la classe <code>BasicModule</code> nous donne accès aux méthodes suivantes:</p>
+<table class="doxtable">
+<tr>
+<td><b>Méthode</b></td><td><b>Action</b> </td></tr>
+<tr>
+<td><code>allCells()</code> </td><td>retourne le groupe de toutes les mailles  </td></tr>
+<tr>
+<td><code>allNodes()</code> </td><td>retourne le groupe de tous les noeuds  </td></tr>
+<tr>
+<td><code>allFaces()</code> </td><td>retourne le groupe de toutes les faces  </td></tr>
+<tr>
+<td><code>ownCells()</code> </td><td>retourne le groupe des mailles propres au sous-domaine  </td></tr>
+<tr>
+<td><code>ownNodes()</code> </td><td>retourne le groupe des noeuds propres au </td></tr>
+<tr>
+<td><code>ownFaces()</code> </td><td>retourne le groupe de toutes les faces propres au sous-domaine  </td></tr>
+</table>
+<h2><a class="anchor" id="simplehydro_moduledefinition_caseoptions"></a>
+Jeu de données</h2>
+<p>Afin de rendre plus souple l'utilisation du module, il est commode de paramétrer certaines valeurs dans un fichier externe au code qui est lu à l'éxécution. Dans ARCANE, ce fichier s'appelle le jeu de données. Les détails d'un tel fichier sont décrit dans les annexes <a class="el" href="../../de/d26/arcanedoc_caseoptions.html">configuration du jeu de données</a> et <a class="el" href="../../d6/d57/simplehydro_caseoptions.html">jeu de données du module hydro</a>. Pour le moment, il est seulement utile de savoir que l'accès au jeu de données se fait par une classe, de nom <code>CaseOptionsSimpleHydro</code>. Pour l'utiliser, il faut ajouter un membre de ce type dans <code>ModuleSimpleHydro</code> et le créé dans le constructeur:</p>
+<div class="fragment"><div class="line"><span class="keyword">class </span>ModuleSimpleHydro</div>
+<div class="line">: <span class="keyword">public</span> BasicModule</div>
+<div class="line">{</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  ...</div>
+<div class="line"> <span class="keyword">private</span>:</div>
+<div class="line">  CaseOptionsSimpleHydro* m_options; <span class="comment">// Options de configuration</span></div>
+<div class="line">};</div>
+</div><!-- fragment --><p>Et pour la construction:</p>
+<div class="fragment"><div class="line">ModuleSimpleHydro::</div>
+<div class="line">ModuleSimpleHydro(<span class="keyword">const</span> ModuleBuilder&amp; mb)</div>
+<div class="line">: BasicModule(mb)</div>
+<div class="line">....</div>
+<div class="line">{</div>
+<div class="line">  <a class="code" href="../../d3/d64/classArcane_1_1ArcaneZoltanMeshPartitionerObject.html#a5bd879575f57ec024cb45071ad75bc66">m_options</a> = <span class="keyword">new</span> CaseOptionsSimpleHydro(mb.m_sub_domain-&gt;caseMng());</div>
+<div class="line">  <a class="code" href="../../d3/d64/classArcane_1_1ArcaneZoltanMeshPartitionerObject.html#a5bd879575f57ec024cb45071ad75bc66">m_options</a>-&gt;setCaseModule(<span class="keyword">this</span>);</div>
+<div class="line">  ...</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Par la suite, la récupération des valeurs du jeu de données se fera par l'appel à des méthodes de <code>m_options</code>.</p>
+<h2><a class="anchor" id="simplehydro_moduledefinition_complete"></a>
+Code complet de la classe et du constructeur</h2>
+<p>Compte tenu des éléments précédent, cela donne la définition suivante de la classe:</p>
+<div class="fragment"><div class="line"><span class="keyword">class </span>ModuleSimpleHydro</div>
+<div class="line">: <span class="keyword">public</span> BasicModule</div>
+<div class="line">{</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line"> </div>
+<div class="line">  ModuleSimpleHydro(<span class="keyword">const</span> ModuleBuilder&amp; cb);</div>
+<div class="line">  ~ModuleSimpleHydro(); </div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  </div>
+<div class="line">  <span class="keyword">virtual</span> VersionInfo  versionInfo()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> VersionInfo(1,0,1,0,0); }</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">void</span> hydroStartInit ();</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">void</span> computePressureForce();</div>
+<div class="line">  <span class="keywordtype">void</span> computePseudoViscosity();</div>
+<div class="line">  <span class="keywordtype">void</span> computeImpulsion();</div>
+<div class="line">  <span class="keywordtype">void</span> applyBoundaryCondition();</div>
+<div class="line">  <span class="keywordtype">void</span> moveNodes();</div>
+<div class="line">  <span class="keywordtype">void</span> computeGeometricValues();</div>
+<div class="line">  <span class="keywordtype">void</span> updateDensity();</div>
+<div class="line">  <span class="keywordtype">void</span> applyEquationOfState();</div>
+<div class="line">  <span class="keywordtype">void</span> computeDeltaT();</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">private</span>:</div>
+<div class="line"> </div>
+<div class="line">  CaseOptionsSimpleHydro* m_options; <span class="comment">// Options de configuration</span></div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_density; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_pressure; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_cell_mass; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_internal_energy;  </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_volume; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_old_volume; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga98c3f361d93bc122a383a05c80a966b7">VariableNodeReal3</a> m_force;  </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga98c3f361d93bc122a383a05c80a966b7">VariableNodeReal3</a> m_velocity; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga50e313bc663c5f4fd459ffbe2a2432b8">VariableNodeReal</a> m_node_mass; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_cell_viscosity_force;  </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_viscosity_work;  </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_adiabatic_cst; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_caracteristic_length; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> m_sound_speed; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#ga98c3f361d93bc122a383a05c80a966b7">VariableNodeReal3</a> m_node_coord; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#gaf7f4a257c36daa5cc99309395e330d81">VariableCellArrayReal3</a> m_cell_cqs; </div>
+<div class="line"> </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#gae100d56dd1a1231ec970073bcf0572da">VariableScalarReal</a> m_density_ratio_maximum; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#gae100d56dd1a1231ec970073bcf0572da">VariableScalarReal</a> m_delta_t_n; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#gae100d56dd1a1231ec970073bcf0572da">VariableScalarReal</a> m_delta_t_f; </div>
+<div class="line">  <a class="code" href="../../d3/d00/group__Variable.html#gae100d56dd1a1231ec970073bcf0572da">VariableScalarReal</a> m_old_dt_f; </div>
+<div class="line">};</div>
+</div><!-- fragment --><p>Et le constructeur de la classe est donc:</p>
+<div class="fragment"><div class="line">ModuleSimpleHydro::</div>
+<div class="line">ModuleSimpleHydro(<span class="keyword">const</span> ModuleBuilder&amp; mb)</div>
+<div class="line">: BasicModule(mb)</div>
+<div class="line">, m_density (VariableBuilder(this,<span class="stringliteral">&quot;Density&quot;</span>))</div>
+<div class="line">, m_pressure(VariableBuilder(this,<span class="stringliteral">&quot;Pressure&quot;</span>))</div>
+<div class="line">, m_cell_mass(VariableBuilder(this,<span class="stringliteral">&quot;CellMass&quot;</span>))  </div>
+<div class="line">, m_internal_energy(VariableBuilder(this,<span class="stringliteral">&quot;InternalEnergy&quot;</span>))  </div>
+<div class="line">, m_volume(VariableBuilder(this,<span class="stringliteral">&quot;CellVolume&quot;</span>))</div>
+<div class="line">, m_old_volume(VariableBuilder(this,<span class="stringliteral">&quot;OldCellVolume&quot;</span>))</div>
+<div class="line">, m_force(VariableBuilder(this,<span class="stringliteral">&quot;Force&quot;</span>,IVariable::PNoDump|IVariable::PNoNeedSync))</div>
+<div class="line">, m_velocity(VariableBuilder(this,<span class="stringliteral">&quot;Velocity&quot;</span>))</div>
+<div class="line">, m_node_mass(VariableBuilder(this,<span class="stringliteral">&quot;NodeMass&quot;</span>))</div>
+<div class="line">, m_cell_viscosity_force(VariableBuilder(this,<span class="stringliteral">&quot;CellViscosityForce&quot;</span>,IVariable::PNoDump))</div>
+<div class="line">, m_viscosity_work(VariableBuilder(this,<span class="stringliteral">&quot;ViscosityWork&quot;</span>))</div>
+<div class="line">, m_adiabatic_cst(VariableBuilder(this,<span class="stringliteral">&quot;AdiabaticCst&quot;</span>))</div>
+<div class="line">, m_caracteristic_length(VariableBuilder(this,<span class="stringliteral">&quot;CaracteristicLength&quot;</span>,IVariable::PNoDump))</div>
+<div class="line">, m_sound_speed(VariableBuilder(this,<span class="stringliteral">&quot;SoundSpeed&quot;</span>))</div>
+<div class="line">, m_node_coord(VariableBuilder(this,<span class="stringliteral">&quot;NodeCoord&quot;</span>))</div>
+<div class="line">, m_cell_cqs(VariableBuilder(this,<span class="stringliteral">&quot;CellCQS&quot;</span>))</div>
+<div class="line">, m_density_ratio_maximum(VariableBuilder(this,<span class="stringliteral">&quot;DensityRatioMaximum&quot;</span>))</div>
+<div class="line">, m_delta_t_n(VariableBuilder(this,<span class="stringliteral">&quot;CenteredDeltaT&quot;</span>))</div>
+<div class="line">, m_delta_t_f(VariableBuilder(this,<span class="stringliteral">&quot;SplitDeltaT&quot;</span>))</div>
+<div class="line">, m_old_dt_f(VariableBuilder(this,<span class="stringliteral">&quot;OldDTf&quot;</span>))</div>
+<div class="line">{</div>
+<div class="line">  <a class="code" href="../../d3/d64/classArcane_1_1ArcaneZoltanMeshPartitionerObject.html#a5bd879575f57ec024cb45071ad75bc66">m_options</a> = <span class="keyword">new</span> CaseOptionsSimpleHydro(mb.m_sub_domain-&gt;caseMng());</div>
+<div class="line">  <a class="code" href="../../d3/d64/classArcane_1_1ArcaneZoltanMeshPartitionerObject.html#a5bd879575f57ec024cb45071ad75bc66">m_options</a>-&gt;setCaseModule(<span class="keyword">this</span>);</div>
+<div class="line"> </div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_HydroStartInit&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::hydroStartInit,</div>
+<div class="line">    <a class="code" href="../../de/dd7/classArcane_1_1IEntryPoint.html#a9bc3721444fad0a03834707b6313af7b">IEntryPoint::WStartInit</a>);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ComputePressureForce&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::computePressureForce);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ComputePseudoViscosity&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::computePseudoViscosity);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ComputeImpulsion&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::computeImpulsion);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ApplyBoundaryCondition&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::applyBoundaryCondition);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_MoveNodes&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::moveNodes);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ComputeGeometricValues&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::computeGeometricValues);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_UpdateDensity&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::updateDensity);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ApplyEquationOfState&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::applyEquationOfState);</div>
+<div class="line">  <a class="code" href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">addEntryPoint</a>(<span class="keyword">this</span>,<span class="stringliteral">&quot;SH_ComputeDeltaT&quot;</span>,</div>
+<div class="line">    &amp;ModuleSimpleHydro::computeDeltaT);</div>
+<div class="line"> </div>
+<div class="line">  {</div>
+<div class="line">    ITimeLoopMng* tlm = subDomain()-&gt;<a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a32bf8a6f8318a7fed96e4abaf60cf9f5">timeLoopMng</a>();</div>
+<div class="line">    BufferT&lt;CString&gt; clist;</div>
+<div class="line">    clist.add(<span class="stringliteral">&quot;SH_HydroStartInit&quot;</span>);</div>
+<div class="line">    clist.add(<span class="stringliteral">&quot;SH_ComputePressureForce&quot;</span>);</div>
+<div class="line">    clist.add(<span class="stringliteral">&quot;SH_ComputePseudoViscosity&quot;</span>);</div>
+<div class="line">    clist.add(<span class="stringliteral">&quot;SH_ComputeImpulsion&quot;</span>);</div>
+<div class="line">    clist.add(<span class="stringliteral">&quot;SH_ApplyBoundaryCondition&quot;</span>);</div>
+<div class="line">    clist.add(<span class="stringliteral">&quot;SH_MoveNodes&quot;</span>);</div>
+<div class="line">    clist.add(<span class="stringliteral">&quot;SH_ComputeGeometricValues&quot;</span>);</div>
+<div class="line">    clist.add(<span class="stringliteral">&quot;SH_UpdateDensity&quot;</span>);</div>
+<div class="line">    clist.add(<span class="stringliteral">&quot;SH_ApplyEquationOfState&quot;</span>);</div>
+<div class="line">    clist.add(<span class="stringliteral">&quot;SH_ComputeDeltaT&quot;</span>);</div>
+<div class="line">    ITimeLoop* time_loop = ITimeLoop::createDefault(subDomain()-&gt;superMng(),<span class="stringliteral">&quot;HydroSimple&quot;</span>);</div>
+<div class="line">    time_loop-&gt;setEntryPointsName(clist);</div>
+<div class="line">    tlm-&gt;registerTimeLoop(time_loop);</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Une fois le constructeur appelé, l'architecture possède toutes les informations utiles sur le module, à savoir la liste et le type de ses variables et de ses points d'entrée.</p>
+<h1><a class="anchor" id="simplehydro_describeentrypoints"></a>
+Description des points d'entrée</h1>
+<h2><a class="anchor" id="simplehydro_describeentrypoints_init"></a>
+Initialisation</h2>
+<p>L'initialisation comporte deux parties distinctes: </p><ul>
+<li>
+la première partie où il faut indiquer la taille des variables tableaux. Dans notre cas, il s'agit de <code>m_cell_cqs</code> et <code>m_viscosity_force</code>, qui sont toutes deux des variables aux mailles possédant une valeur pour chaque noeud de chaque maille. Comme on ne supporte que les héxaèdres, il y aura 8 valeurs par mailles; </li>
+<li>
+la deuxième partie qui consiste à initialiser les variables avec leur valeur de départ. Pour les variables <code>Pressure</code>, <code>Density</code> et <code>AdiabaticCst</code>, c'est l'architecture qui les initialisent directement à partir du jeu de donnée. La variable <code>NodeCoord</code> est aussi initialisée par l'architecture lors de la lecture du maillage. Les autres variables sont calculées comme suit: <ul>
+<li>
+le pas de temps initial est donné par le jeu de donnée; </li>
+<li>
+les valeurs géométriques (longueur caractéristique, volume et résultantes aux sommets) sont calculées à partir des coordonnées des noeuds; </li>
+<li>
+la masse des mailles est calculée à partir de sa densité et de son volume. </li>
+<li>
+la masse des mailles et la masse nodale. La masse d'une maille est calculé à partir de sa densité et de son volume. Chaque maille contribut pour 1/8ème de sa masse à la masse nodale de chacun de ses sommets. La masse d'une maille et la masse nodale sont constantes au cours du temps; </li>
+<li>
+la masse nodale est calculéé en ajoutant les contributions de chaque maille connecté à un noeud donné. Chaque maille contribut pour 1/8ème de sa masse à la masse nodale de chacun de ses sommets; </li>
+<li>
+l'énergie interne et la vitesse du son sont calculées en prenant une équation d'état du type gaz parfait. </li>
+</ul>
+</li>
+</ul>
+<p>Compte tenu de ces indications, voici le code de l'initialisation:</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> ModuleSimpleHydro::</div>
+<div class="line">hydroStartInit()</div>
+<div class="line">{</div>
+<div class="line">  <span class="comment">// Dimensionne les variables tableaux</span></div>
+<div class="line">  m_cell_cqs.resize(8);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Initialise le delta-t</span></div>
+<div class="line">  Real deltat_init = m_options-&gt;deltatInit();</div>
+<div class="line">  m_delta_t_n = deltat_init;</div>
+<div class="line">  m_delta_t_f = deltat_init;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Initialise les données géométriques: volume, cqs, longueurs caractéristiques</span></div>
+<div class="line">  computeGeometricValues();</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Initialisation de la masses des mailles et des masses nodale</span></div>
+<div class="line">  <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(i_cell,allCells()){</div>
+<div class="line">    <span class="keyword">const</span> Cell&amp; cell = *i_cell;</div>
+<div class="line"> </div>
+<div class="line">    m_cell_mass[cell] = m_density[cell] * m_volume[cell];</div>
+<div class="line"> </div>
+<div class="line">    Real contrib_node_mass = 0.125 * m_cell_mass[cell];</div>
+<div class="line">    <span class="keywordflow">for</span>( Integer i_node=0, nb_node=cell.nbNode(); i_node&lt;nb_node; ++i_node){</div>
+<div class="line">      m_node_mass[cell.node(i_node)] += contrib_node_mass;</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  m_node_mass.synchronize();</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Initialise l&#39;énergie et la vitesse du son</span></div>
+<div class="line">  <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(i_cell,allCells()){</div>
+<div class="line">    <span class="keyword">const</span> Cell&amp;  cell = *i_cell;</div>
+<div class="line">    Real pressure      = m_pressure[cell];</div>
+<div class="line">    Real adiabatic_cst = m_adiabatic_cst[cell];</div>
+<div class="line">    Real density       = m_density[cell];</div>
+<div class="line">    m_internal_energy[cell] = pressure / ((adiabatic_cst-1.) * density);</div>
+<div class="line">    m_sound_speed[cell]     = <a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#ae6722a616f091a53b80d6ffa44d325a3">sqrt</a>(adiabatic_cst*pressure/density);</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="simplehydro_describeentrypoints_forces"></a>
+Calcul de la contribution des forces de pression</h2>
+<p>Ce point d'entrée calcule la contribution des forces de pression par noeud. Pour chaque noeud de chaque maille, il s'agit de la pression multipliée par la résultante en ce noeud.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> ModuleSimpleHydro::</div>
+<div class="line">computePressureForce()</div>
+<div class="line">{</div>
+<div class="line">  <span class="comment">// Remise à zéro du vecteur des forces.</span></div>
+<div class="line">  m_force.fill(Real3::null());</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Calcul pour chaque noeud de chaque maille la contribution</span></div>
+<div class="line">  <span class="comment">// des forces de pression</span></div>
+<div class="line">  <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(i_cell,allCells()){</div>
+<div class="line">    <span class="keyword">const</span> Cell&amp; cell = *i_cell;</div>
+<div class="line">    <span class="keywordflow">for</span>( Integer i_node=0, nb_node=cell.nbNode(); i_node&lt;nb_node; ++i_node )</div>
+<div class="line">      m_force[cell.node(i_node)] += m_pressure[cell] * m_cell_cqs[cell][i_node];</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="simplehydro_describeentrypoints_pseudo"></a>
+Calcul de la pseudo-viscosité</h2>
+<p>Le seul type de pseudo-viscosité possible est une pseudo-viscosité aux mailles. Le choix de la pseudo-viscosité est contrôlé par une option du jeu de données (section <a class="el" href="../../d6/d57/simplehydro_caseoptions.html">jeu de données du module hydro</a>) appelée <code>viscosity()</code> qui vaut <code>ViscosityCellScalar</code> pour une viscosité aux mailles ou <code>ViscosityNo</code> pour un calcul sans pseudo-viscosité. La contribution de la viscosité aux forces est stockée dans la variable <code>m_cell_viscosity_force</code>.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> ModuleSimpleHydro::</div>
+<div class="line">computePseudoViscosity()</div>
+<div class="line">{</div>
+<div class="line">  <span class="keywordflow">if</span> (m_options-&gt;viscosity()==ViscosityCellScalar)</div>
+<div class="line">    cellScalarPseudoViscosity();</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">void</span> ModuleSimpleHydro::</div>
+<div class="line">cellScalarPseudoViscosity()</div>
+<div class="line">{</div>
+<div class="line">  <span class="comment">// Boucle sur les mailles du maillage</span></div>
+<div class="line">  <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(i_cell,allCells()){</div>
+<div class="line">    <span class="keyword">const</span> Cell&amp; cell = *i_cell;</div>
+<div class="line">    <span class="keyword">const</span> Natural cell_nb_node = cell.nbNode();</div>
+<div class="line">    <span class="keyword">const</span> Real rho = m_density[cell];</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Calcul de la divergence de la vitesse</span></div>
+<div class="line">    Real delta_speed = 0.;</div>
+<div class="line">    <span class="keywordflow">for</span>( Natural i_node=0; i_node&lt;cell_nb_node; ++i_node )</div>
+<div class="line">      delta_speed += <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga3ef4740d8d03399c8be478b2544d3d63">math::scaMul</a>(m_velocity[cell.node(i_node)],m_cell_cqs[cell][i_node]);</div>
+<div class="line">    delta_speed /= m_volume[cell];</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Capture uniquement les chocs</span></div>
+<div class="line">    <span class="keywordtype">bool</span> shock = (<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga278e42edf5a6086340fc5d8c97bfc4ef">math::min</a>(Real(0.),delta_speed)&lt;0.);</div>
+<div class="line">    <span class="keywordflow">if</span> (shock){</div>
+<div class="line">      Real sound_speed         = m_sound_speed[cell];</div>
+<div class="line">      Real dx                  = m_caracteristic_length[cell];</div>
+<div class="line">      Real quadratic_viscosity =   rho * dx * dx * delta_speed * delta_speed;</div>
+<div class="line">      Real linear_viscosity    =   -rho*sound_speed* dx * delta_speed;</div>
+<div class="line">      Real scalar_viscosity    =   m_options-&gt;viscosityLinearCoef()*linear_viscosity</div>
+<div class="line">      + m_options-&gt;viscosityQuadraticCoef()*quadratic_viscosity;</div>
+<div class="line">      m_cell_viscosity_force[cell] = scalar_viscosity;</div>
+<div class="line"> </div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">else</span></div>
+<div class="line">      m_cell_viscosity_force[cell] = 0.;</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="simplehydro_describeentrypoints_impulsion"></a>
+Calcul de l'impulsion</h2>
+<p>Ce point d'entrée calcule la force (<code>m_force</code>) qui s'applique aux noeuds en ajoutant l'éventuelle contribution de la pseudo-viscosité. Il calcule ensuite la nouvelle vitesse (<code>m_velocity</code>) aux noeuds et le travail des forces de viscosité qui sera utilisé lors du calcul de l'énergie interne.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> ModuleSimpleHydro::</div>
+<div class="line">computeImpulsion()</div>
+<div class="line">{</div>
+<div class="line">  <span class="comment">// Prise en compte des forces de viscosité si demandé</span></div>
+<div class="line">  <span class="keywordtype">bool</span> add_viscosity_force = (!m_options-&gt;viscosity()==ViscosityNo);</div>
+<div class="line">  <span class="keywordflow">if</span> (add_viscosity_force){</div>
+<div class="line">    <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(i_cell,allCells()){</div>
+<div class="line">      <span class="keyword">const</span> Cell&amp; cell = *i_cell;</div>
+<div class="line">      Real scalar_viscosity = m_cell_viscosity_force[cell];</div>
+<div class="line">      <span class="keywordflow">for</span>( Natural i_node=0, nb_node=cell.nbNode(); i_node&lt;nb_node; ++i_node )</div>
+<div class="line">  m_force[cell.node(i_node)] += scalar_viscosity*m_cell_cqs[cell][i_node];</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Calcule l&#39;impulsion aux noeuds</span></div>
+<div class="line">  <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aea36524754c129124072de38e045d6ba">ENUMERATE_NODE</a>(i_node,ownNodes()){</div>
+<div class="line">    <span class="keyword">const</span> Node&amp; node = *i_node;</div>
+<div class="line">    Real node_mass  = m_node_mass[node];</div>
+<div class="line"> </div>
+<div class="line">    Real3 old_velocity = m_velocity[node];</div>
+<div class="line">    Real3 new_velocity = old_velocity + (m_delta_t_n() / node_mass) * m_force[node];</div>
+<div class="line"> </div>
+<div class="line">    m_velocity[node] = new_velocity;</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Synchronise la vitesse</span></div>
+<div class="line">  m_velocity.synchronize();</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Calcul du travail des forces de viscosité dans une maille</span></div>
+<div class="line">  <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(i_cell,allCells()){</div>
+<div class="line">    <span class="keyword">const</span> Cell&amp; cell = *i_cell; </div>
+<div class="line">    Real work = 0.;</div>
+<div class="line">    Real scalar_viscosity = m_cell_viscosity_force[cell];</div>
+<div class="line">    <span class="keywordflow">for</span>( Natural i=0, n=cell.nbNode(); i&lt;n; ++i )</div>
+<div class="line">      work += <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga3ef4740d8d03399c8be478b2544d3d63">math::scaMul</a>(scalar_viscosity*m_cell_cqs[cell][i],m_velocity[cell.node(i)]);</div>
+<div class="line">    m_viscosity_work[cell] = work;</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="simplehydro_describeentrypoints_boundary"></a>
+Prise en compte des conditions aux limites</h2>
+<p>Les conditions aux limites à appliquer dépendent des options du jeu de données (section <a class="el" href="../../d6/d57/simplehydro_caseoptions.html">jeu de données du module hydro</a>). Dans cette implémentation, une condition aux limites possède les propriétés suivantes: </p><ul>
+<li>
+un type: trois types sont supportés: contraindre la composante <img class="formulaInl" alt="$x$" src="../../form_8.png"/> du vecteur vitesse, contraindre la composante <img class="formulaInl" alt="$y$" src="../../form_9.png"/> du vecteur vitesse ou contraindre la composante <img class="formulaInl" alt="$z$" src="../../form_10.png"/> du vecteur vitesse; </li>
+<li>
+une valeur: il s'agit d'un réel indiquant la valeur de la contrainte; </li>
+<li>
+une surface: il s'agit de la surface sur laquelle s'applique la contrainte. </li>
+</ul>
+<p>Appliquer les conditions aux limites consiste donc à fixer une composante d'un vecteur vitesse pour chaque noeud de chaque face de chaque surface sur laquelle on impose une condition aux limites.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> ModuleSimpleHydro::</div>
+<div class="line">applyBoundaryCondition()</div>
+<div class="line">{</div>
+<div class="line">  <span class="keywordflow">for</span>( Natural i=0, nb=m_options-&gt;boundaryCondition.size(); i&lt;nb; ++i){</div>
+<div class="line">    GroupFace face_group = m_options-&gt;boundaryCondition[i]-&gt;surface();</div>
+<div class="line">    Real value = m_options-&gt;boundaryCondition[i]-&gt;value();</div>
+<div class="line">    eBoundaryCondition type = m_options-&gt;boundaryCondition[i]-&gt;type();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// boucle sur les faces de la surface</span></div>
+<div class="line">    <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#a2301a57310b51190d331e08b4220e9e4">ENUMERATE_FACE</a>(j,face_group){</div>
+<div class="line">      <span class="keyword">const</span> Face&amp; face = *j;</div>
+<div class="line">      Natural nb_node = face.nbNode();        </div>
+<div class="line"> </div>
+<div class="line">      <span class="comment">// boucle sur les noeuds de la face</span></div>
+<div class="line">      <span class="keywordflow">for</span>( Natural k=0; k&lt;nb_node; ++k ){</div>
+<div class="line">  <span class="keyword">const</span> Node&amp; node = face.node(k);</div>
+<div class="line">  Real3&amp; velocity = m_velocity[node];</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordflow">switch</span>(type) {</div>
+<div class="line">   <span class="keywordflow">case</span> VelocityX: velocity.x = value; <span class="keywordflow">break</span>;</div>
+<div class="line">   <span class="keywordflow">case</span> VelocityY: velocity.y = value; <span class="keywordflow">break</span>;</div>
+<div class="line">   <span class="keywordflow">case</span> VelocityZ: velocity.z = value; <span class="keywordflow">break</span>;</div>
+<div class="line">  }</div>
+<div class="line">      }</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+</div><!-- fragment --><h2><a class="anchor" id="simplehydro_describeentrypoints_move"></a>
+Déplacement des noeuds</h2>
+<p>Il s'agit simplement de modifier les coordonnées (<code>m_node_coord</code>) des noeuds d'après la valeur du vecteur vitesse et du pas de temps.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> ModuleSimpleHydro::</div>
+<div class="line">moveNodes()</div>
+<div class="line">{</div>
+<div class="line">  <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aea36524754c129124072de38e045d6ba">ENUMERATE_NODE</a>(i_node,allNodes()){</div>
+<div class="line">    <span class="keyword">const</span> Node&amp; node = *i_node;</div>
+<div class="line">    m_node_coord[node] += m_delta_t_f() * m_velocity[node];</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="simplehydro_describeentrypoints_geom"></a>
+Calcul des nouvelles valeurs géométriques</h2>
+<p>On regroupe dans ce point d'entrée l'ensemble des calculs géométriques utiles pour le schéma. Dans notre cas, il s'agit pour chaque maille: </p><ul>
+<li>
+de calculer sa longueur caractéristique; </li>
+<li>
+de calculer les résultantes à ses sommets; </li>
+<li>
+de calculer son volume. </li>
+</ul>
+<p>Pour optimiser le calcul (utilisation du cache), à chaque itération sur une maille, on stocke localement les coordonnées de ses noeuds et celles du centre de chaqu'une de ses faces.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> ModuleSimpleHydro::</div>
+<div class="line">computeGeometricValues()</div>
+<div class="line">{</div>
+<div class="line">  m_old_volume.copy(m_volume);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Copie locale des coordonnées des sommets d&#39;une maille</span></div>
+<div class="line">  Real3 coord[8];</div>
+<div class="line">  <span class="comment">// Coordonnées des centres des faces</span></div>
+<div class="line">  Real3 face_coord[6];</div>
+<div class="line"> </div>
+<div class="line">  <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(i_cell,allCells()){</div>
+<div class="line">    <span class="keyword">const</span> Cell&amp; cell = *i_cell;</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Recopie les coordonnées locales (pour le cache)</span></div>
+<div class="line">    <span class="keywordflow">for</span>( Natural i = 0; i&lt;8; ++i )</div>
+<div class="line">      coord[i] = m_node_coord[cell.node(i)];</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Calcul les coordonnées des centres des faces</span></div>
+<div class="line">    face_coord[0] = 0.25 * ( coord[0] + coord[3] + coord[2] + coord[1] );</div>
+<div class="line">    face_coord[1] = 0.25 * ( coord[0] + coord[4] + coord[7] + coord[3] );</div>
+<div class="line">    face_coord[2] = 0.25 * ( coord[0] + coord[1] + coord[5] + coord[4] );</div>
+<div class="line">    face_coord[3] = 0.25 * ( coord[4] + coord[5] + coord[6] + coord[7] );</div>
+<div class="line">    face_coord[4] = 0.25 * ( coord[1] + coord[2] + coord[6] + coord[5] );</div>
+<div class="line">    face_coord[5] = 0.25 * ( coord[2] + coord[3] + coord[7] + coord[6] );</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Calcule la longueur caractéristique de la maille.</span></div>
+<div class="line">    {</div>
+<div class="line">      Real3 median1 = face_coord[0]-face_coord[3];</div>
+<div class="line">      Real3 median2 = face_coord[2]-face_coord[5];</div>
+<div class="line">      Real3 median3 = face_coord[1]-face_coord[4];</div>
+<div class="line">      Real d1 = median1.abs();</div>
+<div class="line">      Real d2 = median2.abs();</div>
+<div class="line">      Real d3 = median3.abs();</div>
+<div class="line"> </div>
+<div class="line">      Real dx_numerator   = d1*d2*d3;</div>
+<div class="line">      Real dx_denominator = d1*d2 + d1*d3 + d2*d3;</div>
+<div class="line">      m_caracteristic_length[cell] = dx_numerator / dx_denominator;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Calcule les résultantes aux sommets</span></div>
+<div class="line">    computeCQs(coord,face_coord,cell);</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Calcule le volume de la maille</span></div>
+<div class="line">    {</div>
+<div class="line">      Real volume = 0.;</div>
+<div class="line">      <span class="keywordflow">for</span>( Natural i_node=0, nb_node=cell.nbNode(); i_node&lt;nb_node; ++i_node )</div>
+<div class="line">  volume += <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga3ef4740d8d03399c8be478b2544d3d63">math::scaMul</a>(coord[i_node],m_cell_cqs[cell][i_node]);</div>
+<div class="line">      volume /= 3.;</div>
+<div class="line"> </div>
+<div class="line">      m_volume[cell] = volume;</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">  }</div>
+</div><!-- fragment --><div class="fragment"><div class="line"><span class="keyword">inline</span> <span class="keywordtype">void</span> ModuleSimpleHydro::</div>
+<div class="line">computeCQs(Real3 node_coord[8],Real3 face_coord[6],<span class="keyword">const</span> Cell&amp; cell)</div>
+<div class="line">{</div>
+<div class="line">  <span class="keyword">const</span> Real3 c0 = face_coord[0];</div>
+<div class="line">  <span class="keyword">const</span> Real3 c1 = face_coord[1];</div>
+<div class="line">  <span class="keyword">const</span> Real3 c2 = face_coord[2];</div>
+<div class="line">  <span class="keyword">const</span> Real3 c3 = face_coord[3];</div>
+<div class="line">  <span class="keyword">const</span> Real3 c4 = face_coord[4];</div>
+<div class="line">  <span class="keyword">const</span> Real3 c5 = face_coord[5];</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Calcul des normales face 1 :</span></div>
+<div class="line">  <span class="keyword">const</span> Real3 n1a04 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[0] - c0 , node_coord[3] - c0);</div>
+<div class="line">  <span class="keyword">const</span> Real3 n1a03 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[3] - c0 , node_coord[2] - c0);</div>
+<div class="line">  <span class="keyword">const</span> Real3 n1a02 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[2] - c0 , node_coord[1] - c0);</div>
+<div class="line">  <span class="keyword">const</span> Real3 n1a01 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[1] - c0 , node_coord[0] - c0);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Calcul des normales face 2 :</span></div>
+<div class="line">  <span class="keyword">const</span> Real3 n2a05 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[0] - c1 , node_coord[4] - c1);</div>
+<div class="line">  <span class="keyword">const</span> Real3 n2a12 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[4] - c1 , node_coord[7] - c1);</div>
+<div class="line">  <span class="keyword">const</span> Real3 n2a08 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[7] - c1 , node_coord[3] - c1);</div>
+<div class="line">  <span class="keyword">const</span> Real3 n2a04 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[3] - c1 , node_coord[0] - c1);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Calcul des normales face 3 :</span></div>
+<div class="line">  <span class="keyword">const</span> Real3 n3a01 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[0] - c2 , node_coord[1] - c2);</div>
+<div class="line">  <span class="keyword">const</span> Real3 n3a06 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[1] - c2 , node_coord[5] - c2);</div>
+<div class="line">  <span class="keyword">const</span> Real3 n3a09 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[5] - c2 , node_coord[4] - c2);</div>
+<div class="line">  <span class="keyword">const</span> Real3 n3a05 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[4] - c2 , node_coord[0] - c2);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Calcul des normales face 4 :</span></div>
+<div class="line">  <span class="keyword">const</span> Real3 n4a09 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[4] - c3 , node_coord[5] - c3);</div>
+<div class="line">  <span class="keyword">const</span> Real3 n4a10 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[5] - c3 , node_coord[6] - c3);</div>
+<div class="line">  <span class="keyword">const</span> Real3 n4a11 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[6] - c3 , node_coord[7] - c3);</div>
+<div class="line">  <span class="keyword">const</span> Real3 n4a12 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[7] - c3 , node_coord[4] - c3);</div>
+<div class="line">  </div>
+<div class="line">  <span class="comment">// Calcul des normales face 5 :</span></div>
+<div class="line">  <span class="keyword">const</span> Real3 n5a02 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[1] - c4 , node_coord[2] - c4);</div>
+<div class="line">  <span class="keyword">const</span> Real3 n5a07 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[2] - c4 , node_coord[6] - c4);</div>
+<div class="line">  <span class="keyword">const</span> Real3 n5a10 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[6] - c4 , node_coord[5] - c4);</div>
+<div class="line">  <span class="keyword">const</span> Real3 n5a06 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[5] - c4 , node_coord[1] - c4);</div>
+<div class="line">      </div>
+<div class="line">  <span class="comment">// Calcul des normales face 6 :</span></div>
+<div class="line">  <span class="keyword">const</span> Real3 n6a03 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[2] - c5 , node_coord[3] - c5);</div>
+<div class="line">  <span class="keyword">const</span> Real3 n6a08 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[3] - c5 , node_coord[7] - c5);</div>
+<div class="line">  <span class="keyword">const</span> Real3 n6a11 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[7] - c5 , node_coord[6] - c5);</div>
+<div class="line">  <span class="keyword">const</span> Real3 n6a07 = 0.5 * <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">math::vecMul</a>(node_coord[6] - c5 , node_coord[2] - c5);</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Calcul des résultantes aux sommets :</span></div>
+<div class="line">  m_cell_cqs[cell][0] = (5.*(n1a01 + n1a04 + n2a04 + n2a05 + n3a05 + n3a01) +</div>
+<div class="line">     (n1a02 + n1a03 + n2a08 + n2a12 + n3a06 + n3a09))*(1./12.);</div>
+<div class="line">  m_cell_cqs[cell][1] = (5.*(n1a01 + n1a02 + n3a01 + n3a06 + n5a06 + n5a02) +</div>
+<div class="line">     (n1a04 + n1a03 + n3a09 + n3a05 + n5a10 + n5a07))*(1./12.);</div>
+<div class="line">  m_cell_cqs[cell][2] = (5.*(n1a02 + n1a03 + n5a07 + n5a02 + n6a07 + n6a03) +</div>
+<div class="line">     (n1a01 + n1a04 + n5a06 + n5a10 + n6a11 + n6a08))*(1./12.);</div>
+<div class="line">  m_cell_cqs[cell][3] = (5.*(n1a03 + n1a04 + n2a08 + n2a04 + n6a08 + n6a03) +</div>
+<div class="line">     (n1a01 + n1a02 + n2a05 + n2a12 + n6a07 + n6a11))*(1./12.);</div>
+<div class="line">  m_cell_cqs[cell][4] = (5.*(n2a05 + n2a12 + n3a05 + n3a09 + n4a09 + n4a12) +</div>
+<div class="line">     (n2a08 + n2a04 + n3a01 + n3a06 + n4a10 + n4a11))*(1./12.);</div>
+<div class="line">  m_cell_cqs[cell][5] = (5.*(n3a06 + n3a09 + n4a09 + n4a10 + n5a10 + n5a06) +</div>
+<div class="line">     (n3a01 + n3a05 + n4a12 + n4a11 + n5a07 + n5a02))*(1./12.);</div>
+<div class="line">  m_cell_cqs[cell][6] = (5.*(n4a11 + n4a10 + n5a10 + n5a07 + n6a07 + n6a11) +</div>
+<div class="line">     (n4a12 + n4a09 + n5a06 + n5a02 + n6a03 + n6a08))*(1./12.);</div>
+<div class="line">  m_cell_cqs[cell][7] = (5.*(n2a08 + n2a12 + n4a12 + n4a11 + n6a11 + n6a08) +</div>
+<div class="line">     (n2a04 + n2a05 + n4a09 + n4a10 + n6a07 + n6a03))*(1./12.);</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="simplehydro_describeentrypoints_density"></a>
+Mise à jour de la densité</h2>
+<p>Ce point d'entrée calcule la nouvelle valeur de la densité des mailles, en considérant que la masse d'une maille est constante au cours du temps. Dans ce cas, la nouvelle densité est égal à la masse divisée par le nouveau volume. Cette routine sauve aussi la valeur maximale de l'acroissement de densité (<code>m_density_ratio_maximum</code>) qui sera utilisée pour contraindre le pas de temps.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> ModuleSimpleHydro::</div>
+<div class="line">updateDensity()</div>
+<div class="line">{</div>
+<div class="line">  m_density_ratio_maximum = 0.;</div>
+<div class="line"> </div>
+<div class="line">  <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(i,ownCells()){</div>
+<div class="line">    <span class="keyword">const</span> Cell&amp;  cell = *i;</div>
+<div class="line"> </div>
+<div class="line">    Real  old_density = m_density[cell];</div>
+<div class="line">    Real  new_density = m_cell_mass[cell] / m_volume[cell];</div>
+<div class="line"> </div>
+<div class="line">    m_density[cell] = new_density;</div>
+<div class="line"> </div>
+<div class="line">    Real density_ratio = (new_density - old_density) / new_density;</div>
+<div class="line"> </div>
+<div class="line">    m_density_ratio_maximum = <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">math::max</a>(m_density_ratio_maximum(),density_ratio);</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  m_density_ratio_maximum.reduce(<a class="code" href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3eaa8e2e6c3f405ec7aa2e4bc05f93d7d6d4">Parallel::ReduceMax</a>);</div>
+<div class="line"> </div>
+<div class="line">  m_density.synchronize();</div>
+</div><!-- fragment --><h2><a class="anchor" id="simplehydro_describeentrypoints_eos"></a>
+Equation d'état</h2>
+<p>Ce point d'entrée calcule l'énergie interne, la pression et la vitesse du son dans la maille en considérant une équation d'état du gaz parfait.</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> ModuleSimpleHydro::</div>
+<div class="line">applyEquationOfState()</div>
+<div class="line">{</div>
+<div class="line">  <span class="keyword">const</span> Real deltatf = m_delta_t_f();</div>
+<div class="line">  </div>
+<div class="line">  <span class="comment">// Calcul de l&#39;énergie interne</span></div>
+<div class="line">  <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(i_cell,ownCells()){</div>
+<div class="line">    <span class="keyword">const</span> Cell&amp; cell = *i_cell;</div>
+<div class="line">    Real  adiabatic_cst     = m_adiabatic_cst[cell];</div>
+<div class="line">    Real  volume_ratio      = m_volume[cell] / m_old_volume[cell];</div>
+<div class="line">    Real  x                 = 0.5*(adiabatic_cst-1.);</div>
+<div class="line">    Real  numer_accrois_nrj = 1. + x*(1.-volume_ratio);</div>
+<div class="line">    Real  denom_accrois_nrj = 1. + x*(1.-1./volume_ratio);</div>
+<div class="line"> </div>
+<div class="line">    m_internal_energy[cell] *= numer_accrois_nrj/denom_accrois_nrj;</div>
+<div class="line">  </div>
+<div class="line">    <span class="comment">// Prise en compte du travail des forces de viscosité </span></div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">bool</span> add_viscosity_force = (!m_options-&gt;viscosity()==ViscosityNo);</div>
+<div class="line">    <span class="keywordflow">if</span> (add_viscosity_force)</div>
+<div class="line">      m_internal_energy[cell] -= deltatf*m_viscosity_work[cell] / </div>
+<div class="line">  (m_cell_mass[cell]*denom_accrois_nrj);</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Synchronise l&#39;énergie</span></div>
+<div class="line">  m_internal_energy.synchronize();</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Calcul de la pression et de la vitesse du son</span></div>
+<div class="line">  <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(i_cell,allCells()){</div>
+<div class="line">    <span class="keyword">const</span> Cell&amp; cell = *i_cell;</div>
+<div class="line">    Real internal_energy = m_internal_energy[cell];</div>
+<div class="line">    Real density         = m_density[cell];</div>
+<div class="line">    Real adiabatic_cst   = m_adiabatic_cst[cell];</div>
+<div class="line">    Real pressure        = (adiabatic_cst-1.) * density * internal_energy; </div>
+<div class="line">    m_pressure[cell]     = pressure;</div>
+<div class="line">    m_sound_speed[cell]  = <a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#ae6722a616f091a53b80d6ffa44d325a3">sqrt</a>(adiabatic_cst*pressure/density);</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="simplehydro_describeentrypoints_deltat"></a>
+Calcul du nouveau pas de temps</h2>
+<p>Ce point d'entrée qui est le dernier de la boucle de calcul détermine la valeur du pas de temps pour l'itération suivante. Le pas de temps est contraint par la prise en compte des valeurs suivantes: </p><ul>
+<li>
+la valeur de la CFL; </li>
+<li>
+la valeur de l'acroissement maximal de densité; </li>
+<li>
+les valeurs <code>deltatMin()</code> et <code>deltatMax()</code> du jeu de données; </li>
+<li>
+la valeur du temps final. Lors de la dernière itération, le pas de temps doit être tel qu'on s'arrête exactement au temps spécifié dans le jeu de données (<code>finalTime()</code>).  </li>
+</ul>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> ModuleSimpleHydro::</div>
+<div class="line">computeDeltaT()</div>
+<div class="line">{</div>
+<div class="line">  <span class="keyword">const</span> Real old_dt = m_global_deltat();</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Calcul du pas de temps pour le respect du critère de CFL</span></div>
+<div class="line">  </div>
+<div class="line">  Real minimum_aux = float_info&lt;Real&gt;::maxValue();</div>
+<div class="line">  Real new_dt      = float_info&lt;Real&gt;::maxValue();</div>
+<div class="line"> </div>
+<div class="line">  <span class="keyword">const</span> <span class="keywordtype">bool</span> new_test_cfl = <span class="keyword">true</span>;</div>
+<div class="line"> </div>
+<div class="line">  <a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a>(i,ownCells()){</div>
+<div class="line">    <span class="keyword">const</span> Cell&amp; cell  = *i;</div>
+<div class="line">    Real  cell_dx     = m_caracteristic_length[cell];</div>
+<div class="line">    Real  density     = m_density[cell];</div>
+<div class="line">    Real  pressure    = m_pressure[cell];</div>
+<div class="line">    Real  sound_speed = m_sound_speed[cell];</div>
+<div class="line">    Real  dx_sound    = cell_dx / sound_speed;</div>
+<div class="line">    minimum_aux = <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga278e42edf5a6086340fc5d8c97bfc4ef">math::min</a>(minimum_aux,dx_sound);</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  new_dt = m_options-&gt;cfl()*minimum_aux;</div>
+<div class="line"> </div>
+<div class="line">  Real cfl_dt = new_dt;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Pas de variations trop brutales à la hausse comme à la baisse</span></div>
+<div class="line">  Real max_dt = (1.+m_options-&gt;variationSup())*old_dt;</div>
+<div class="line">  Real min_dt = (1.-m_options-&gt;variationInf())*old_dt;</div>
+<div class="line"> </div>
+<div class="line">  new_dt = <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga278e42edf5a6086340fc5d8c97bfc4ef">math::min</a>(new_dt,max_dt);</div>
+<div class="line">  new_dt = <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">math::max</a>(new_dt,min_dt);</div>
+<div class="line"> </div>
+<div class="line">  Real variation_min_max_dt = new_dt;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// control de l&#39;accroissement relatif de la densité</span></div>
+<div class="line">  Real dgr = m_options-&gt;densityGlobalRatio();</div>
+<div class="line">  <span class="keywordflow">if</span> (m_density_ratio_maximum()&gt;dgr)</div>
+<div class="line">    new_dt = <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga278e42edf5a6086340fc5d8c97bfc4ef">math::min</a>(old_dt*dgr/m_density_ratio_maximum(),new_dt);</div>
+<div class="line"> </div>
+<div class="line">  new_dt = parallelMng()-&gt;reduce(<a class="code" href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3eaa1839cd07dd2977f344de25f1de3102b1">Parallel::ReduceMin</a>,new_dt);</div>
+<div class="line"> </div>
+<div class="line">  Real density_ratio_dt = new_dt;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// respect des valeurs min et max imposées par le fichier de données .plt</span></div>
+<div class="line">  new_dt = <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga278e42edf5a6086340fc5d8c97bfc4ef">math::min</a>(new_dt,m_options-&gt;deltatMax());</div>
+<div class="line">  new_dt = <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">math::max</a>(new_dt,m_options-&gt;deltatMin());</div>
+<div class="line"> </div>
+<div class="line">  Real data_min_max_dt = new_dt;</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Le dernier calcul se fait exactement au temps stopTime()</span></div>
+<div class="line">  {</div>
+<div class="line">    Real stop_time  = m_options-&gt;finalTime();</div>
+<div class="line">    <span class="keywordtype">bool</span> not_yet_finish = ( m_global_time() &lt; stop_time);</div>
+<div class="line">    <span class="keywordtype">bool</span> too_much = ( (m_global_time()+new_dt) &gt; stop_time);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> ( not_yet_finish &amp;&amp; too_much ){</div>
+<div class="line">      new_dt = stop_time - m_global_time();</div>
+<div class="line">      subDomain()-&gt;timeLoopMng()-&gt;stopComputeLoop();</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line"> </div>
+<div class="line">  <span class="comment">// Mise à jour des variables</span></div>
+<div class="line">  m_old_dt_f.assign(old_dt);</div>
+<div class="line">  m_delta_t_n.assign(0.5*(old_dt+new_dt));</div>
+<div class="line">  m_delta_t_f.assign(new_dt);</div>
+<div class="line">  m_global_deltat.assign(new_dt);</div>
+<div class="line">}</div>
+</div><!-- fragment --><h1><a class="anchor" id="simplehydro_parallel"></a>
+Prise en compte du parallélisme</h1>
+<p>En parallèle, le maillage est partitionné en plusieurs sous-domaines, et chaque sous-domaine fait ces calculs séparément. Il faut donc pour prendre en compte correctement le parallélisme synchroniser entre sous-domaines certaines valeurs. En règle général, il n'y a pas de solution unique à ce problème: </p><ul>
+<li>
+pour certaines variables, il est possible soit de faire le calcul sur tout le sous-domaine, c'est à dire à la fois sur les entités fantômes et les entités propres, soit de faire le calcul uniquement sur les entités propres et synchroniser ensuite les valeurs calculées. C'est le cas par exemple du calcul des valeurs géométriques. Le choix de l'une ou l'autre des solutions dépend globalement de deux paramètres qui sont le temps nécessaire pour effectuer le calcul et le temps nécessaire pour effectuer la synchronisation. Chacun de ses paramètres dépend lui même d'autres paramètre comme la puissance du processeur, la bande passante du réseau d'interconnexion, ...; </li>
+<li>
+lorsqu'on augmente le nombre de couches d'entités fantômes, certaines variables qui ne sont utilisés que temporairement lors d'une itération n'ont plus besoin d'être synchronisées. Cela permet donc de réduire le nombre de synchronisations mais en contre-partie chaque synchronisation concernera plus de processeurs et d'entités fantômes. </li>
+</ul>
+<p>Afin de ne pas compliquer inutilement la prise en compte du parallélisme, l'exemple précédent fonctionne en utilisant une couche de maille fantômes et privilégie le calcul au détriment du nombre de synchronisations.</p>
+<p>L'exemple précédent utilise deux opérations parallèles: </p><ul>
+<li>
+la synchronisation d'une variable. Elle se fait simplement par l'appel à la méthode <code>synchronize()</code> de la variable. Par exemple <code>m_velocity.synchronize()</code>;  </li>
+<li>
+la réduction d'une variable. Elle se fait par l'appel à la méthode <code>reduce()</code> avec comme argument le type de réduction (somme, minimum ou maximum).  </li>
+</ul>
+<p>Dans notre exemple, on utilise trois synchronisations et deux réductions qui apparaissent dans cet ordre dans la boucle de calcul: </p><ol>
+<li>
+synchronisation de la vitesse (dans <code>computeImpulsion()</code>); </li>
+<li>
+réduction sur <code>m_density_ratio_maximum</code> qui doit être le maximum sur l'ensemble des sous-domaines (dans <code>updateDensity()</code>);  </li>
+<li>
+synchronisation de la densité (dans <code>updateDensity()</code>);  </li>
+<li>
+synchronisation de l'énergie interne (dans <code>applyEquationOfState()</code>);  </li>
+<li>
+réduction sur le pas de temps (dans <code>computeDeltaT()</code>) qui doit être le minimum sur l'ensemble des sous-domaines. </li>
+</ol>
+<p>Le fait d'utiliser le même ordre de numérotation dans chaque sous-domaine permet de limiter au maximum le nombre de synchronisations. Par exemple, comme la vitesse est synchronisée, la position des noeuds l'est aussi et le volume aussi, car il est calculé en parcourant l'ensemble des noeuds d'une maille, ces noeuds étant toujours décrits dans le même ordre quel que soit le sous-domaine (et aussi quel que soit le découpage). De plus, si toutes les opérations se font en itérant sur un groupe de noeuds ou de mailles, il est alors garantit que le résultat sera identique en séquentiel et en parallèle, et ce quel que le découpage.</p>
+<h1><a class="anchor" id="simplehydro_checkpoint"></a>
+Prise en compte des protections/reprises</h1>
+<p>Ce module n'utilisant pas de structures de donnée internes autre que les variables, il n'a rien à faire pour prendre en compte les protections reprises. En cas de reprise, les mêmes points d'entrée seront appelés sauf <code>hydroStartInit()</code> car sa déclaration indique que c'est un point d'entrée appelé uniquement lors du démarrage d'un nouveau cas. Le seul endroit du code ou l'aspect protection/reprise est pris en compte est dans le contructeur du module, lorsqu'une variable utilise la propriété <code>IVariable::PNoDump</code>, qui indique qu'on ne souhaite pas la protégée. Cet attribut est utilisé lorsque la valeur d'une variable n'est pas utile d'une itération à l'autre. C'est le cas par exemple de la force <code>m_force</code>. On peut aussi utiliser cet attribut pour des variables dîtes secondaires et qui se calculent facilement à partir d'autres variables. Par exemple, la longueur caractéristique et le volume peuvent facilement être recalculés à partir de la position des noeuds. Si on ne souhaite pas sauver ces deux variables, il suffit alors d'ajouter un point d'entrée d'initialisation en reprise qui se chargera de recalculer ces valeurs. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="agroup__GroupMathUtils_html_ga5d790fa25c5ae828b63d2f26cb4b1b7d"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">Arcane::math::vecMul</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE Real3 vecMul(Real3 u, Real3 v)</div><div class="ttdoc">Produit vectoriel de u par v. dans .</div><div class="ttdef"><b>Definition:</b> MathUtils.h:51</div></div>
+<div class="ttc" id="agroup__Variable_html_ga135a2515548fbcacb89c3ce1a2410b79"><div class="ttname"><a href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">Arcane::VariableCellReal</a></div><div class="ttdeci">MeshVariableScalarRefT&lt; Cell, Real &gt; VariableCellReal</div><div class="ttdoc">Grandeur au centre des mailles de type réel.</div><div class="ttdef"><b>Definition:</b> VariableTypedef.h:290</div></div>
+<div class="ttc" id="agroup__Variable_html_gaf7f4a257c36daa5cc99309395e330d81"><div class="ttname"><a href="../../d3/d00/group__Variable.html#gaf7f4a257c36daa5cc99309395e330d81">Arcane::VariableCellArrayReal3</a></div><div class="ttdeci">MeshVariableArrayRefT&lt; Cell, Real3 &gt; VariableCellArrayReal3</div><div class="ttdoc">Grandeur au centre des mailles de type tableau de coordonnées.</div><div class="ttdef"><b>Definition:</b> VariableTypedef.h:851</div></div>
+<div class="ttc" id="anamespaceArcane_1_1math_html_ae6722a616f091a53b80d6ffa44d325a3"><div class="ttname"><a href="../../d8/d68/namespaceArcane_1_1math.html#ae6722a616f091a53b80d6ffa44d325a3">Arcane::math::sqrt</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE double sqrt(double v)</div><div class="ttdoc">Racine carrée de v.</div><div class="ttdef"><b>Definition:</b> Math.h:133</div></div>
+<div class="ttc" id="aclassArcane_1_1ArcaneZoltanMeshPartitionerObject_html_a5bd879575f57ec024cb45071ad75bc66"><div class="ttname"><a href="../../d3/d64/classArcane_1_1ArcaneZoltanMeshPartitionerObject.html#a5bd879575f57ec024cb45071ad75bc66">Arcane::ArcaneZoltanMeshPartitionerObject::m_options</a></div><div class="ttdeci">CaseOptionsZoltanMeshPartitioner * m_options</div><div class="ttdoc">Options du jeu de données du service.</div><div class="ttdef"><b>Definition:</b> ZoltanMeshPartitioner_axl.h:265</div></div>
+<div class="ttc" id="agroup__Variable_html_ga98c3f361d93bc122a383a05c80a966b7"><div class="ttname"><a href="../../d3/d00/group__Variable.html#ga98c3f361d93bc122a383a05c80a966b7">Arcane::VariableNodeReal3</a></div><div class="ttdeci">MeshVariableScalarRefT&lt; Node, Real3 &gt; VariableNodeReal3</div><div class="ttdoc">Grandeur au noeud de type coordonnées.</div><div class="ttdef"><b>Definition:</b> VariableTypedef.h:359</div></div>
+<div class="ttc" id="agroup__Variable_html_gae100d56dd1a1231ec970073bcf0572da"><div class="ttname"><a href="../../d3/d00/group__Variable.html#gae100d56dd1a1231ec970073bcf0572da">Arcane::VariableScalarReal</a></div><div class="ttdeci">VariableRefScalarT&lt; Real &gt; VariableScalarReal</div><div class="ttdoc">Variable scalaire de type réel.</div><div class="ttdef"><b>Definition:</b> VariableTypedef.h:58</div></div>
+<div class="ttc" id="agroup__GroupMathUtils_html_ga1fdb520cf182e9f868193f653daf3e2f"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">Arcane::math::max</a></div><div class="ttdeci">T max(const T &amp;a, const T &amp;b, const T &amp;c)</div><div class="ttdoc">Retourne le maximum de trois éléments.</div><div class="ttdef"><b>Definition:</b> MathUtils.h:430</div></div>
+<div class="ttc" id="agroup__Variable_html_ga50e313bc663c5f4fd459ffbe2a2432b8"><div class="ttname"><a href="../../d3/d00/group__Variable.html#ga50e313bc663c5f4fd459ffbe2a2432b8">Arcane::VariableNodeReal</a></div><div class="ttdeci">MeshVariableScalarRefT&lt; Node, Real &gt; VariableNodeReal</div><div class="ttdoc">Grandeur au noeud de type réel.</div><div class="ttdef"><b>Definition:</b> VariableTypedef.h:272</div></div>
+<div class="ttc" id="agroup__GroupMathUtils_html_ga278e42edf5a6086340fc5d8c97bfc4ef"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#ga278e42edf5a6086340fc5d8c97bfc4ef">Arcane::math::min</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE Real2 min(Real2 a, Real2 b)</div><div class="ttdoc">Retourne le minimum de deux Real2.</div><div class="ttdef"><b>Definition:</b> MathUtils.h:374</div></div>
+<div class="ttc" id="anamespaceArccore_1_1MessagePassing_html_aaf52c72596590e6ea65e9e03e1adf3eaa1839cd07dd2977f344de25f1de3102b1"><div class="ttname"><a href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3eaa1839cd07dd2977f344de25f1de3102b1">Arccore::MessagePassing::ReduceMin</a></div><div class="ttdeci">@ ReduceMin</div><div class="ttdoc">Minimum des valeurs.</div><div class="ttdef"><b>Definition:</b> MessagePassingGlobal.h:73</div></div>
+<div class="ttc" id="aclassArcane_1_1IEntryPoint_html_a9bc3721444fad0a03834707b6313af7b"><div class="ttname"><a href="../../de/dd7/classArcane_1_1IEntryPoint.html#a9bc3721444fad0a03834707b6313af7b">Arcane::IEntryPoint::WStartInit</a></div><div class="ttdeci">static const char * WStartInit</div><div class="ttdoc">appelé pendant l'initialisation d'un nouveau cas</div><div class="ttdef"><b>Definition:</b> IEntryPoint.h:52</div></div>
+<div class="ttc" id="anamespaceArcane_html_aef0256063d2fb1df3a1ba29f56dedee1"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aef0256063d2fb1df3a1ba29f56dedee1">Arcane::addEntryPoint</a></div><div class="ttdeci">void addEntryPoint(ModuleType *module, const char *name, void(ModuleType::*func)(), const String &amp;where=IEntryPoint::WComputeLoop, int property=IEntryPoint::PNone)</div><div class="ttdoc">Routine template permettant de référencer un point d'entrée dans un module.</div><div class="ttdef"><b>Definition:</b> EntryPoint.h:182</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a32bf8a6f8318a7fed96e4abaf60cf9f5"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a32bf8a6f8318a7fed96e4abaf60cf9f5">Arcane::ISubDomain::timeLoopMng</a></div><div class="ttdeci">virtual ITimeLoopMng * timeLoopMng()=0</div><div class="ttdoc">Retourne le gestionnaire de la boucle en temps.</div></div>
+<div class="ttc" id="agroup__GroupMathUtils_html_ga3ef4740d8d03399c8be478b2544d3d63"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#ga3ef4740d8d03399c8be478b2544d3d63">Arcane::math::scaMul</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE Real scaMul(Real2 u, Real2 v)</div><div class="ttdoc">Produit scalaire de u par v dans .</div><div class="ttdef"><b>Definition:</b> MathUtils.h:112</div></div>
+<div class="ttc" id="aItemEnumerator_8h_html_a2301a57310b51190d331e08b4220e9e4"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#a2301a57310b51190d331e08b4220e9e4">ENUMERATE_FACE</a></div><div class="ttdeci">#define ENUMERATE_FACE(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de faces.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:240</div></div>
+<div class="ttc" id="anamespaceArccore_1_1MessagePassing_html_aaf52c72596590e6ea65e9e03e1adf3eaa8e2e6c3f405ec7aa2e4bc05f93d7d6d4"><div class="ttname"><a href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3eaa8e2e6c3f405ec7aa2e4bc05f93d7d6d4">Arccore::MessagePassing::ReduceMax</a></div><div class="ttdeci">@ ReduceMax</div><div class="ttdoc">Maximum des valeurs.</div><div class="ttdef"><b>Definition:</b> MessagePassingGlobal.h:74</div></div>
+<div class="ttc" id="aItemEnumerator_8h_html_aea36524754c129124072de38e045d6ba"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#aea36524754c129124072de38e045d6ba">ENUMERATE_NODE</a></div><div class="ttdeci">#define ENUMERATE_NODE(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de noeuds.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:234</div></div>
+<div class="ttc" id="aItemEnumerator_8h_html_aaf5910d68ad8428248f844535ab071f3"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a></div><div class="ttdeci">#define ENUMERATE_CELL(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:243</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:55 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

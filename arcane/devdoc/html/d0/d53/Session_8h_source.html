@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de Session.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_13edfb79ffc7ff12968bead7e2e82716.html">impl</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Session.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* Session.h                                                   (C) 2000-2014 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Classe implémentant une session.                                          */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_IMPL_SESSION_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_IMPL_SESSION_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/TraceAccessor.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;arcane/ISession.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">class </span>IApplication;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../de/d76/classArcane_1_1Session.html">   36</a></span>&#160;<span class="keyword">class </span>ARCANE_IMPL_EXPORT <a class="code" href="../../de/d76/classArcane_1_1Session.html">Session</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d4/d0e/classArccore_1_1TraceAccessor.html">TraceAccessor</a></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;, <span class="keyword">public</span> <a class="code" href="../../db/d9b/classArcane_1_1ISession.html">ISession</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">class </span><a class="code" href="../../dc/dbd/classArcane_1_1Session_1_1Impl.html">Impl</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <a class="code" href="../../de/d76/classArcane_1_1Session.html">Session</a>(<a class="code" href="../../d9/d7f/classArcane_1_1IApplication.html">IApplication</a>*);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../de/d76/classArcane_1_1Session.html">Session</a>();</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d3/d96/classArcane_1_1IBase.html#a164ebab270d18543569bd2c4d283f139">build</a>();</div>
+<div class="line"><a name="l00052"></a><span class="lineno"><a class="line" href="../../de/d76/classArcane_1_1Session.html#aa91e7f55b8994a500d638d9861acfe6b">   52</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../de/d76/classArcane_1_1Session.html#aa91e7f55b8994a500d638d9861acfe6b">initialize</a>() {}</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d3/d96/classArcane_1_1IBase.html">IBase</a>* <a class="code" href="../../d3/d96/classArcane_1_1IBase.html#a0a4893ce53d4688e6612d5739f5e9fb4">objectParent</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> <a class="code" href="../../d3/d96/classArcane_1_1IBase.html#adf0d25e7e1f7aeeef4ffebe9a905945d">objectNamespaceURI</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> <a class="code" href="../../d3/d96/classArcane_1_1IBase.html#a65c3abd77f0c82025e8c18c5702e494a">objectLocalName</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d5/d14/classArcane_1_1VersionInfo.html">VersionInfo</a> <a class="code" href="../../d3/d96/classArcane_1_1IBase.html#a381286d7652994add26dc5835a2647d8">objectVersion</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d6/d35/classArcane_1_1IServiceMng.html">IServiceMng</a>* <a class="code" href="../../d3/d96/classArcane_1_1IBase.html#a2bf1bf6af011e65414ff8a6581b1f3ce">serviceMng</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d4/d81/classArcane_1_1IRessourceMng.html">IRessourceMng</a>* <a class="code" href="../../d3/d96/classArcane_1_1IBase.html#a1d81561508b39964645ba9354620bb92">ressourceMng</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d9/d7f/classArcane_1_1IApplication.html">IApplication</a>* <a class="code" href="../../db/d9b/classArcane_1_1ISession.html#a5b0aff0f12ad2be3e02cd1debaaf07cc">application</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d0/df9/classArccore_1_1ITraceMng.html">ITraceMng</a>* <a class="code" href="../../d3/d96/classArcane_1_1IBase.html#a6f9ec4aec923221a364a4d22598c5022">traceMng</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; fileName() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html">ISubDomain</a>* <a class="code" href="../../db/d9b/classArcane_1_1ISession.html#aa848e16687ef9010229086d3e5dafd55">createSubDomain</a>(<span class="keyword">const</span> <a class="code" href="../../d9/de6/classArcane_1_1SubDomainBuildInfo.html">SubDomainBuildInfo</a>&amp; sdbi);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d3/d5d/classArcane_1_1Collection.html">SubDomainCollection</a> <a class="code" href="../../db/d9b/classArcane_1_1ISession.html#ac4c725b54b85e5b85ad2fa959efd96a2">subDomains</a>();</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../db/d9b/classArcane_1_1ISession.html#a64de7d77821231f55f41e76cbb7a47d2">doAbort</a>();</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="../../de/d76/classArcane_1_1Session.html#ad926ae97f389d34435f07e8f0b2b8ef2">   67</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../de/d76/classArcane_1_1Session.html#ad926ae97f389d34435f07e8f0b2b8ef2">endSession</a>(<span class="keywordtype">int</span> ret_val)</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  {</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    ARCANE_UNUSED(ret_val);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  }</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../de/d76/classArcane_1_1Session.html#a631acfcfcd5ed455f77d46fe85cfa65d">   71</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../de/d76/classArcane_1_1Session.html#a631acfcfcd5ed455f77d46fe85cfa65d">writeExecInfoFile</a>() {}</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../db/d9b/classArcane_1_1ISession.html#a2400fc59791d8b0cbfbc685b7fcf9c53">checkIsValidCaseVersion</a>(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; version);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  </div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keyword">const</span> <span class="keywordtype">char</span>* msgClassName()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <span class="stringliteral">&quot;Session&quot;</span>; }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  IApplication* _application() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> _initSubDomain(ISubDomain* sd)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  {</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    ARCANE_UNUSED(sd);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno"><a class="line" href="../../de/d76/classArcane_1_1Session.html#a8d0aacced6e0edaef3ef94ee6e338ebe">   88</a></span>&#160;  <a class="code" href="../../dc/dbd/classArcane_1_1Session_1_1Impl.html">Impl</a>* <a class="code" href="../../de/d76/classArcane_1_1Session.html#a8d0aacced6e0edaef3ef94ee6e338ebe">m_p</a>; </div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keywordtype">void</span> _readCaseDocument();</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;};</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;ARCANE_END_NAMESPACE</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1Session_html_a73e0c6599dc2b17168f6de9cd95e588b"><div class="ttname"><a href="../../de/d76/classArcane_1_1Session.html#a73e0c6599dc2b17168f6de9cd95e588b">Arcane::Session::createSubDomain</a></div><div class="ttdeci">virtual ISubDomain * createSubDomain(const SubDomainBuildInfo &amp;sdbi)</div><div class="ttdoc">Créé un sous-domaine avec les paramètres contenus dans sdbi.</div><div class="ttdef"><b>Definition:</b> Session.cc:140</div></div>
+<div class="ttc" id="aclassArcane_1_1IServiceMng_html"><div class="ttname"><a href="../../d6/d35/classArcane_1_1IServiceMng.html">Arcane::IServiceMng</a></div><div class="ttdoc">Interface du gestionnaire de services.</div><div class="ttdef"><b>Definition:</b> IServiceMng.h:30</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_html_a93cea3eee4d8cc7938ba01e3993fc644"><div class="ttname"><a href="../../de/d76/classArcane_1_1Session.html#a93cea3eee4d8cc7938ba01e3993fc644">Arcane::Session::traceMng</a></div><div class="ttdeci">virtual ITraceMng * traceMng() const</div><div class="ttdoc">Gestionnaire de traces.</div><div class="ttdef"><b>Definition:</b> Session.cc:182</div></div>
+<div class="ttc" id="aclassArcane_1_1IBase_html_a0a4893ce53d4688e6612d5739f5e9fb4"><div class="ttname"><a href="../../d3/d96/classArcane_1_1IBase.html#a0a4893ce53d4688e6612d5739f5e9fb4">Arcane::IBase::objectParent</a></div><div class="ttdeci">virtual IBase * objectParent() const =0</div><div class="ttdoc">Parent de cet objet.</div></div>
+<div class="ttc" id="aclassArcane_1_1IBase_html_adf0d25e7e1f7aeeef4ffebe9a905945d"><div class="ttname"><a href="../../d3/d96/classArcane_1_1IBase.html#adf0d25e7e1f7aeeef4ffebe9a905945d">Arcane::IBase::objectNamespaceURI</a></div><div class="ttdeci">virtual String objectNamespaceURI() const =0</div><div class="ttdoc">Namespace de l'objet.</div></div>
+<div class="ttc" id="aclassArcane_1_1IApplication_html"><div class="ttname"><a href="../../d9/d7f/classArcane_1_1IApplication.html">Arcane::IApplication</a></div><div class="ttdoc">Interface de l'application.</div><div class="ttdef"><b>Definition:</b> IApplication.h:55</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_html_a52df04b6357b2745062552b71410a8c0"><div class="ttname"><a href="../../de/d76/classArcane_1_1Session.html#a52df04b6357b2745062552b71410a8c0">Arcane::Session::subDomains</a></div><div class="ttdeci">virtual SubDomainCollection subDomains()</div><div class="ttdoc">Liste des sous-domaines de la session.</div><div class="ttdef"><b>Definition:</b> Session.cc:184</div></div>
+<div class="ttc" id="aclassArcane_1_1ISession_html_a5b0aff0f12ad2be3e02cd1debaaf07cc"><div class="ttname"><a href="../../db/d9b/classArcane_1_1ISession.html#a5b0aff0f12ad2be3e02cd1debaaf07cc">Arcane::ISession::application</a></div><div class="ttdeci">virtual IApplication * application() const =0</div><div class="ttdoc">Application.</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_html_a8e8594f42bc0407264cdb64aee5e5efe"><div class="ttname"><a href="../../de/d76/classArcane_1_1Session.html#a8e8594f42bc0407264cdb64aee5e5efe">Arcane::Session::serviceMng</a></div><div class="ttdeci">virtual IServiceMng * serviceMng() const</div><div class="ttdoc">Gestionnaire de services.</div><div class="ttdef"><b>Definition:</b> Session.cc:179</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html">Arcane::IParallelSuperMng</a></div><div class="ttdoc">Classe abstraite du superviseur de parallélisme.</div><div class="ttdef"><b>Definition:</b> IParallelSuperMng.h:40</div></div>
+<div class="ttc" id="aclassArcane_1_1IBase_html_a381286d7652994add26dc5835a2647d8"><div class="ttname"><a href="../../d3/d96/classArcane_1_1IBase.html#a381286d7652994add26dc5835a2647d8">Arcane::IBase::objectVersion</a></div><div class="ttdeci">virtual VersionInfo objectVersion() const =0</div><div class="ttdoc">Numéro de version du service.</div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html">Arccore::TraceAccessor</a></div><div class="ttdoc">Classe d'accès aux traces.</div><div class="ttdef"><b>Definition:</b> arccore/src/trace/arccore/trace/TraceAccessor.h:38</div></div>
+<div class="ttc" id="aclassArcane_1_1ListEnumeratorT_html"><div class="ttname"><a href="../../d3/d2a/classArcane_1_1ListEnumeratorT.html">Arcane::ListEnumeratorT</a></div><div class="ttdoc">Enumérateur typé pour un tableau.</div><div class="ttdef"><b>Definition:</b> List.h:120</div></div>
+<div class="ttc" id="aclassArcane_1_1IBase_html_a164ebab270d18543569bd2c4d283f139"><div class="ttname"><a href="../../d3/d96/classArcane_1_1IBase.html#a164ebab270d18543569bd2c4d283f139">Arcane::IBase::build</a></div><div class="ttdeci">virtual void build()=0</div><div class="ttdoc">Construit les membres de l'instance. L'instance n'est pas utilisable tant que cette méthode n'a pas é...</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_1_1Impl_html_a6a59744e3a635ef3e62783df3f1a419f"><div class="ttname"><a href="../../dc/dbd/classArcane_1_1Session_1_1Impl.html#a6a59744e3a635ef3e62783df3f1a419f">Arcane::Session::Impl::m_application</a></div><div class="ttdeci">IApplication * m_application</div><div class="ttdoc">Superviseur.</div><div class="ttdef"><b>Definition:</b> Session.cc:77</div></div>
+<div class="ttc" id="aclassArccore_1_1ITraceMng_html"><div class="ttname"><a href="../../d0/df9/classArccore_1_1ITraceMng.html">Arccore::ITraceMng</a></div><div class="ttdoc">Interface du gestionnaire de traces.</div><div class="ttdef"><b>Definition:</b> arccore/src/trace/arccore/trace/ITraceMng.h:155</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_html_a690b1b07c7d209ede428159726f51fb2"><div class="ttname"><a href="../../de/d76/classArcane_1_1Session.html#a690b1b07c7d209ede428159726f51fb2">Arcane::Session::application</a></div><div class="ttdeci">virtual IApplication * application() const</div><div class="ttdoc">Application.</div><div class="ttdef"><b>Definition:</b> Session.cc:181</div></div>
+<div class="ttc" id="aclassArcane_1_1IBase_html_a6f9ec4aec923221a364a4d22598c5022"><div class="ttname"><a href="../../d3/d96/classArcane_1_1IBase.html#a6f9ec4aec923221a364a4d22598c5022">Arcane::IBase::traceMng</a></div><div class="ttdeci">virtual ITraceMng * traceMng() const =0</div><div class="ttdoc">Gestionnaire de traces.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html">Arcane::ISubDomain</a></div><div class="ttdoc">Interface du gestionnaire d'un sous-domaine.</div><div class="ttdef"><b>Definition:</b> ISubDomain.h:72</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_html_a1711b9aae9e901ae7b7dffcb1b56956a"><div class="ttname"><a href="../../de/d76/classArcane_1_1Session.html#a1711b9aae9e901ae7b7dffcb1b56956a">Arcane::Session::objectLocalName</a></div><div class="ttdeci">virtual String objectLocalName() const</div><div class="ttdoc">Nom local de l'objet.</div><div class="ttdef"><b>Definition:</b> Session.cc:177</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_html_a8ef12f7e1d3912ac2e95dbf98e563695"><div class="ttname"><a href="../../de/d76/classArcane_1_1Session.html#a8ef12f7e1d3912ac2e95dbf98e563695">Arcane::Session::objectNamespaceURI</a></div><div class="ttdeci">virtual String objectNamespaceURI() const</div><div class="ttdoc">Namespace de l'objet.</div><div class="ttdef"><b>Definition:</b> Session.cc:176</div></div>
+<div class="ttc" id="aclassArcane_1_1ISession_html_ac4c725b54b85e5b85ad2fa959efd96a2"><div class="ttname"><a href="../../db/d9b/classArcane_1_1ISession.html#ac4c725b54b85e5b85ad2fa959efd96a2">Arcane::ISession::subDomains</a></div><div class="ttdeci">virtual SubDomainCollection subDomains()=0</div><div class="ttdoc">Liste des sous-domaines de la session.</div></div>
+<div class="ttc" id="aclassArcane_1_1SubDomainBuildInfo_html"><div class="ttname"><a href="../../d9/de6/classArcane_1_1SubDomainBuildInfo.html">Arcane::SubDomainBuildInfo</a></div><div class="ttdoc">Paramètres nécessaires à la construction d'un sous-domaine.</div><div class="ttdef"><b>Definition:</b> SubDomainBuildInfo.h:52</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_html"><div class="ttname"><a href="../../de/d76/classArcane_1_1Session.html">Arcane::Session</a></div><div class="ttdoc">Session.</div><div class="ttdef"><b>Definition:</b> Session.h:36</div></div>
+<div class="ttc" id="aclassArcane_1_1ISession_html"><div class="ttname"><a href="../../db/d9b/classArcane_1_1ISession.html">Arcane::ISession</a></div><div class="ttdoc">Interface d'une session d'exécution d'un cas.</div><div class="ttdef"><b>Definition:</b> ISession.h:42</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_html_aebb9dec23763af12b2c1aff3171f7d5a"><div class="ttname"><a href="../../de/d76/classArcane_1_1Session.html#aebb9dec23763af12b2c1aff3171f7d5a">Arcane::Session::objectParent</a></div><div class="ttdeci">virtual IBase * objectParent() const</div><div class="ttdoc">Parent de cet objet.</div><div class="ttdef"><b>Definition:</b> Session.cc:171</div></div>
+<div class="ttc" id="aclassArcane_1_1IApplication_html_ad397a4c7591d0932e0ce33b3a7ff80bb"><div class="ttname"><a href="../../d9/d7f/classArcane_1_1IApplication.html#ad397a4c7591d0932e0ce33b3a7ff80bb">Arcane::IApplication::parallelSuperMng</a></div><div class="ttdeci">virtual IParallelSuperMng * parallelSuperMng()=0</div><div class="ttdoc">Gestionnaire superviseur du parallélisme.</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_1_1Impl_html"><div class="ttname"><a href="../../dc/dbd/classArcane_1_1Session_1_1Impl.html">Arcane::Session::Impl</a></div><div class="ttdoc">Session.</div><div class="ttdef"><b>Definition:</b> Session.cc:66</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_html_ad926ae97f389d34435f07e8f0b2b8ef2"><div class="ttname"><a href="../../de/d76/classArcane_1_1Session.html#ad926ae97f389d34435f07e8f0b2b8ef2">Arcane::Session::endSession</a></div><div class="ttdeci">virtual void endSession(int ret_val)</div><div class="ttdoc">Termine la session avec le code de retour ret_val.</div><div class="ttdef"><b>Definition:</b> Session.h:67</div></div>
+<div class="ttc" id="aclassArcane_1_1Collection_html"><div class="ttname"><a href="../../d3/d5d/classArcane_1_1Collection.html">Arcane::Collection</a></div><div class="ttdoc">Classe de base d'une collection fortement typée.</div><div class="ttdef"><b>Definition:</b> Collection.h:33</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_html_a7e08004cc9010f1d67237efcd76e6749"><div class="ttname"><a href="../../de/d76/classArcane_1_1Session.html#a7e08004cc9010f1d67237efcd76e6749">Arcane::Session::ressourceMng</a></div><div class="ttdeci">virtual IRessourceMng * ressourceMng() const</div><div class="ttdoc">Gestionnaire de ressources.</div><div class="ttdef"><b>Definition:</b> Session.cc:180</div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html_a75c624a02bc7d3a224b158010018b753"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html#a75c624a02bc7d3a224b158010018b753">Arccore::TraceAccessor::traceMng</a></div><div class="ttdeci">ITraceMng * traceMng() const</div><div class="ttdoc">Gestionnaire de trace.</div><div class="ttdef"><b>Definition:</b> TraceAccessor.cc:72</div></div>
+<div class="ttc" id="aclassArcane_1_1IBase_html_a9b2f7e51012d385a1f529c1011b96331"><div class="ttname"><a href="../../d3/d96/classArcane_1_1IBase.html#a9b2f7e51012d385a1f529c1011b96331">Arcane::IBase::initialize</a></div><div class="ttdeci">virtual void initialize()=0</div><div class="ttdoc">Initialise l'instance. L'instance n'est pas utilisable tant que cette méthode n'a pas été appelée.</div></div>
+<div class="ttc" id="aclassArcane_1_1ScopedPtrT_html"><div class="ttname"><a href="../../db/d19/classArcane_1_1ScopedPtrT.html">Arcane::ScopedPtrT</a></div><div class="ttdoc">Encapsulation d'un pointeur qui se détruit automatiquement.</div><div class="ttdef"><b>Definition:</b> ScopedPtr.h:42</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_1_1Impl_html_ac71217bda91f8f9a71110157948e2685"><div class="ttname"><a href="../../dc/dbd/classArcane_1_1Session_1_1Impl.html#ac71217bda91f8f9a71110157948e2685">Arcane::Session::Impl::m_service_mng</a></div><div class="ttdeci">ScopedPtrT&lt; IServiceMng &gt; m_service_mng</div><div class="ttdoc">Gestionnaire des services.</div><div class="ttdef"><b>Definition:</b> Session.cc:80</div></div>
+<div class="ttc" id="aclassArcane_1_1ISession_html_a2400fc59791d8b0cbfbc685b7fcf9c53"><div class="ttname"><a href="../../db/d9b/classArcane_1_1ISession.html#a2400fc59791d8b0cbfbc685b7fcf9c53">Arcane::ISession::checkIsValidCaseVersion</a></div><div class="ttdeci">virtual bool checkIsValidCaseVersion(const String &amp;version)=0</div><div class="ttdoc">Vérifie que la version version du jeu de données est valide.</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_1_1Impl_html_a7414ad93a154b90b211729d5cf7b86ce"><div class="ttname"><a href="../../dc/dbd/classArcane_1_1Session_1_1Impl.html#a7414ad93a154b90b211729d5cf7b86ce">Arcane::Session::Impl::m_filename</a></div><div class="ttdeci">String m_filename</div><div class="ttdoc">Fichier de configuration.</div><div class="ttdef"><b>Definition:</b> Session.cc:78</div></div>
+<div class="ttc" id="aclassArcane_1_1VersionInfo_html"><div class="ttname"><a href="../../d5/d14/classArcane_1_1VersionInfo.html">Arcane::VersionInfo</a></div><div class="ttdoc">Informations sur une version.</div><div class="ttdef"><b>Definition:</b> VersionInfo.h:45</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_html_a00f078024856f67c125b471c38d0587b"><div class="ttname"><a href="../../de/d76/classArcane_1_1Session.html#a00f078024856f67c125b471c38d0587b">Arcane::Session::objectVersion</a></div><div class="ttdeci">virtual VersionInfo objectVersion() const</div><div class="ttdoc">Numéro de version du service.</div><div class="ttdef"><b>Definition:</b> Session.cc:178</div></div>
+<div class="ttc" id="aclassArcane_1_1IBase_html_a1d81561508b39964645ba9354620bb92"><div class="ttname"><a href="../../d3/d96/classArcane_1_1IBase.html#a1d81561508b39964645ba9354620bb92">Arcane::IBase::ressourceMng</a></div><div class="ttdeci">virtual IRessourceMng * ressourceMng() const =0</div><div class="ttdoc">Gestionnaire de ressources.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISession_html_a64de7d77821231f55f41e76cbb7a47d2"><div class="ttname"><a href="../../db/d9b/classArcane_1_1ISession.html#a64de7d77821231f55f41e76cbb7a47d2">Arcane::ISession::doAbort</a></div><div class="ttdeci">virtual void doAbort()=0</div><div class="ttdoc">Effectue un abort.</div></div>
+<div class="ttc" id="aclassArcane_1_1IMainFactory_html"><div class="ttname"><a href="../../d2/dae/classArcane_1_1IMainFactory.html">Arcane::IMainFactory</a></div><div class="ttdoc">Manufacture des classes d'Arcane.</div><div class="ttdef"><b>Definition:</b> IMainFactory.h:92</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_html_abf209baf2dc98784f2530ebbb4cc9aa8"><div class="ttname"><a href="../../de/d76/classArcane_1_1Session.html#abf209baf2dc98784f2530ebbb4cc9aa8">Arcane::Session::doAbort</a></div><div class="ttdeci">virtual void doAbort()</div><div class="ttdoc">Effectue un abort.</div><div class="ttdef"><b>Definition:</b> Session.cc:160</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html_a522aaf04c6c4a1b07e764181893f044a"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#a522aaf04c6c4a1b07e764181893f044a">Arcane::IParallelSuperMng::tryAbort</a></div><div class="ttdeci">virtual void tryAbort()=0</div><div class="ttdoc">Tente de faire un abort.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISession_html_aa848e16687ef9010229086d3e5dafd55"><div class="ttname"><a href="../../db/d9b/classArcane_1_1ISession.html#aa848e16687ef9010229086d3e5dafd55">Arcane::ISession::createSubDomain</a></div><div class="ttdeci">virtual ISubDomain * createSubDomain(const SubDomainBuildInfo &amp;sdbi)=0</div><div class="ttdoc">Créé un sous-domaine avec les paramètres contenus dans sdbi.</div></div>
+<div class="ttc" id="aclassArcane_1_1IApplication_html_aa21026cf46dac5995c7700ea58ea3201"><div class="ttname"><a href="../../d9/d7f/classArcane_1_1IApplication.html#aa21026cf46dac5995c7700ea58ea3201">Arcane::IApplication::mainFactory</a></div><div class="ttdeci">virtual IMainFactory * mainFactory() const =0</div><div class="ttdoc">Manufacture principale.</div></div>
+<div class="ttc" id="aclassArcane_1_1IBase_html"><div class="ttname"><a href="../../d3/d96/classArcane_1_1IBase.html">Arcane::IBase</a></div><div class="ttdoc">Interface de la classe de base des objets principaux arcane.</div><div class="ttdef"><b>Definition:</b> IBase.h:37</div></div>
+<div class="ttc" id="aclassArcane_1_1IRessourceMng_html"><div class="ttname"><a href="../../d4/d81/classArcane_1_1IRessourceMng.html">Arcane::IRessourceMng</a></div><div class="ttdoc">Interface d'un gestionnaire de ressource.</div><div class="ttdef"><b>Definition:</b> IRessourceMng.h:36</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_html_a8d0aacced6e0edaef3ef94ee6e338ebe"><div class="ttname"><a href="../../de/d76/classArcane_1_1Session.html#a8d0aacced6e0edaef3ef94ee6e338ebe">Arcane::Session::m_p</a></div><div class="ttdeci">Impl * m_p</div><div class="ttdoc">Implémentation.</div><div class="ttdef"><b>Definition:</b> Session.h:88</div></div>
+<div class="ttc" id="aclassArcane_1_1IBase_html_a65c3abd77f0c82025e8c18c5702e494a"><div class="ttname"><a href="../../d3/d96/classArcane_1_1IBase.html#a65c3abd77f0c82025e8c18c5702e494a">Arcane::IBase::objectLocalName</a></div><div class="ttdeci">virtual String objectLocalName() const =0</div><div class="ttdoc">Nom local de l'objet.</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_html_a631acfcfcd5ed455f77d46fe85cfa65d"><div class="ttname"><a href="../../de/d76/classArcane_1_1Session.html#a631acfcfcd5ed455f77d46fe85cfa65d">Arcane::Session::writeExecInfoFile</a></div><div class="ttdeci">virtual void writeExecInfoFile()</div><div class="ttdoc">Ecrit le fichier des informations sur l'exécution.</div><div class="ttdef"><b>Definition:</b> Session.h:71</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_html_aa91e7f55b8994a500d638d9861acfe6b"><div class="ttname"><a href="../../de/d76/classArcane_1_1Session.html#aa91e7f55b8994a500d638d9861acfe6b">Arcane::Session::initialize</a></div><div class="ttdeci">virtual void initialize()</div><div class="ttdoc">Initialise l'instance. L'instance n'est pas utilisable tant que cette méthode n'a pas été appelée.</div><div class="ttdef"><b>Definition:</b> Session.h:52</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/String.h:68</div></div>
+<div class="ttc" id="aclassArcane_1_1IMainFactory_html_a5c6e7493296fdb031b781c790794f7c9"><div class="ttname"><a href="../../d2/dae/classArcane_1_1IMainFactory.html#a5c6e7493296fdb031b781c790794f7c9">Arcane::IMainFactory::createServiceMng</a></div><div class="ttdeci">virtual IServiceMng * createServiceMng(IBase *)=0</div><div class="ttdoc">Crée une instance du gestionnaire de services.</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_html_add590587797bf6a6a0c3303375eb94ac"><div class="ttname"><a href="../../de/d76/classArcane_1_1Session.html#add590587797bf6a6a0c3303375eb94ac">Arcane::Session::checkIsValidCaseVersion</a></div><div class="ttdeci">virtual bool checkIsValidCaseVersion(const String &amp;version)</div><div class="ttdef"><b>Definition:</b> Session.cc:130</div></div>
+<div class="ttc" id="aclassArcane_1_1CriticalSection_html"><div class="ttname"><a href="../../d6/dd3/classArcane_1_1CriticalSection.html">Arcane::CriticalSection</a></div><div class="ttdoc">Section critique en multi-thread.</div><div class="ttdef"><b>Definition:</b> CriticalSection.h:29</div></div>
+<div class="ttc" id="aclassArcane_1_1Session_html_a2c12e025a59ff2eeff4b443553a117ca"><div class="ttname"><a href="../../de/d76/classArcane_1_1Session.html#a2c12e025a59ff2eeff4b443553a117ca">Arcane::Session::build</a></div><div class="ttdeci">virtual void build()</div><div class="ttdoc">Construit les membres de l'instance. L'instance n'est pas utilisable tant que cette méthode n'a pas é...</div><div class="ttdef"><b>Definition:</b> Session.cc:113</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html_adaa1d3bb75dc1a0f5f2a8aca6b63076e"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html#adaa1d3bb75dc1a0f5f2a8aca6b63076e">Arcane::IParallelSuperMng::threadMng</a></div><div class="ttdeci">virtual IThreadMng * threadMng() const =0</div><div class="ttdoc">Gestionnaire de thread.</div></div>
+<div class="ttc" id="aclassArcane_1_1IBase_html_a2bf1bf6af011e65414ff8a6581b1f3ce"><div class="ttname"><a href="../../d3/d96/classArcane_1_1IBase.html#a2bf1bf6af011e65414ff8a6581b1f3ce">Arcane::IBase::serviceMng</a></div><div class="ttdeci">virtual IServiceMng * serviceMng() const =0</div><div class="ttdoc">Gestionnaire de services.</div></div>
+<div class="ttc" id="aclassArcane_1_1List_html"><div class="ttname"><a href="../../d2/ddc/classArcane_1_1List.html">Arcane::List&lt; ISubDomain * &gt;</a></div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:43 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

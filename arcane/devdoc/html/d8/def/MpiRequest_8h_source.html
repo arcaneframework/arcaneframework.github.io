@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de MpiRequest.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_90686cb73891e294385707444a7d1a86.html">arccore</a></li><li class="navelem"><a class="el" href="../../dir_a396a323408582bab33d0cbda4d2ea74.html">src</a></li><li class="navelem"><a class="el" href="../../dir_da33d373b690bf346ca2218262b070d3.html">message_passing_mpi</a></li><li class="navelem"><a class="el" href="../../dir_d3f150bcea2fd08de2425c87c031bdda.html">arccore</a></li><li class="navelem"><a class="el" href="../../dir_be39da54f73346190af54f8e5a4015a4.html">message_passing_mpi</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">MpiRequest.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* MpiRequest.h                                                (C) 2000-2020 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Spécialisation de &#39;Request&#39; pour MPI.                                     */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCCORE_MESSAGEPASSINGMPI_MPIREQUEST_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCCORE_MESSAGEPASSINGMPI_MPIREQUEST_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arccore/message_passing_mpi/MessagePassingMpiGlobal.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;arccore/message_passing/Request.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span>Arccore::MessagePassing::Mpi</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">class </span>MpiAdapter;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../de/d2a/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiRequest.html">   33</a></span>&#160;<span class="keyword">class </span>ARCCORE_MESSAGEPASSINGMPI_EXPORT <a class="code" href="../../de/d2a/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiRequest.html">MpiRequest</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d1/d72/classArccore_1_1MessagePassing_1_1Request.html">Request</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  <a class="code" href="../../de/d2a/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiRequest.html">MpiRequest</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <a class="code" href="../../de/d2a/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiRequest.html">MpiRequest</a>(<span class="keywordtype">int</span> ret_value,<a class="code" href="../../d5/d11/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiAdapter.html">MpiAdapter</a>* creator,MPI_Request mpi_request)</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  : <a class="code" href="../../d1/d72/classArccore_1_1MessagePassing_1_1Request.html">Request</a>(ret_value,creator,mpi_request){}</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;} <span class="comment">// End namespace Arccore::MessagePassing</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1NullThreadMng_html"><div class="ttname"><a href="../../d0/deb/classArcane_1_1NullThreadMng.html">Arcane::NullThreadMng</a></div><div class="ttdoc">Gestionnaire de thread en mode mono-thread.</div><div class="ttdef"><b>Definition:</b> NullThreadMng.h:31</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a98dc7953a3cabcdf7e32826a9cc39da7"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a98dc7953a3cabcdf7e32826a9cc39da7">ARCANE_THROW</a></div><div class="ttdeci">#define ARCANE_THROW(exception_class,...)</div><div class="ttdoc">Macro pour envoyer une exception avec formattage.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:750</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_af9bdb505a9341fa2c856383cf934bb14"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#af9bdb505a9341fa2c856383cf934bb14">Arcane::MpiParallelSuperMng::communicator</a></div><div class="ttdeci">Parallel::Communicator communicator() const override</div><div class="ttdoc">Communicateur MPI associé à ce gestionnaire.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:66</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1Request_html"><div class="ttname"><a href="../../d1/d72/classArccore_1_1MessagePassing_1_1Request.html">Arccore::MessagePassing::Request</a></div><div class="ttdoc">Requête d'un message.</div><div class="ttdef"><b>Definition:</b> Request.h:68</div></div>
+<div class="ttc" id="aclassArcane_1_1IApplication_html"><div class="ttname"><a href="../../d9/d7f/classArcane_1_1IApplication.html">Arcane::IApplication</a></div><div class="ttdoc">Interface de l'application.</div><div class="ttdef"><b>Definition:</b> IApplication.h:55</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_a13b2f2a34b8cb2529694dba942665c54"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#a13b2f2a34b8cb2529694dba942665c54">Arcane::MpiParallelSuperMng::initialize</a></div><div class="ttdeci">void initialize() override</div><div class="ttdoc">Initialise l'instance.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:151</div></div>
+<div class="ttc" id="aclassArccore_1_1ArgumentException_html"><div class="ttname"><a href="../../d8/d98/classArccore_1_1ArgumentException.html">Arccore::ArgumentException</a></div><div class="ttdoc">Exception lorsqu'un argument est invalide.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArgumentException.h:31</div></div>
+<div class="ttc" id="aclassArcane_1_1ServiceBuildInfo_html"><div class="ttname"><a href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">Arcane::ServiceBuildInfo</a></div><div class="ttdoc">Structure contenant les informations pour créer un service.</div><div class="ttdef"><b>Definition:</b> ServiceBuildInfo.h:122</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1Mpi_1_1MpiAdapter_html_ad078f3aa1ee6414ee38373e1c3ca50f7"><div class="ttname"><a href="../../d5/d11/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiAdapter.html#ad078f3aa1ee6414ee38373e1c3ca50f7">Arccore::MessagePassing::Mpi::MpiAdapter::destroy</a></div><div class="ttdeci">void destroy()</div><div class="ttdoc">Détruit l'instance. Elle ne doit plus être utilisée par la suite.</div><div class="ttdef"><b>Definition:</b> MpiAdapter.cc:338</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_a10053a5c85ba24d830efa2d084c13816"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#a10053a5c85ba24d830efa2d084c13816">Arcane::MpiParallelSuperMng::isParallel</a></div><div class="ttdeci">bool isParallel() const override</div><div class="ttdoc">Retourne true si l'exécution est parallèle.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:61</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiSequentialParallelSuperMng_html_aab9b45d64a48037723a461ea16c5e971"><div class="ttname"><a href="../../da/d10/classArcane_1_1MpiSequentialParallelSuperMng.html#aab9b45d64a48037723a461ea16c5e971">Arcane::MpiSequentialParallelSuperMng::build</a></div><div class="ttdeci">void build() override</div><div class="ttdoc">Construction de niveau build du service.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:329</div></div>
+<div class="ttc" id="aclassArccore_1_1ITraceMng_html"><div class="ttname"><a href="../../d0/df9/classArccore_1_1ITraceMng.html">Arccore::ITraceMng</a></div><div class="ttdoc">Interface du gestionnaire de traces.</div><div class="ttdef"><b>Definition:</b> arccore/src/trace/arccore/trace/ITraceMng.h:155</div></div>
+<div class="ttc" id="aclassArcane_1_1SequentialParallelSuperMng_html"><div class="ttname"><a href="../../d1/de4/classArcane_1_1SequentialParallelSuperMng.html">Arcane::SequentialParallelSuperMng</a></div><div class="ttdoc">Superviseur du parallélisme en mode séquentiel.</div><div class="ttdef"><b>Definition:</b> SequentialParallelSuperMng.h:37</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelMng_html"><div class="ttname"><a href="../../d8/da0/classArcane_1_1MpiParallelMng.html">Arcane::MpiParallelMng</a></div><div class="ttdoc">Gestionnaire du parallélisme utilisant MPI.</div><div class="ttdef"><b>Definition:</b> MpiParallelMng.h:79</div></div>
+<div class="ttc" id="aclassArcane_1_1IBase_html_a6f9ec4aec923221a364a4d22598c5022"><div class="ttname"><a href="../../d3/d96/classArcane_1_1IBase.html#a6f9ec4aec923221a364a4d22598c5022">Arcane::IBase::traceMng</a></div><div class="ttdeci">virtual ITraceMng * traceMng() const =0</div><div class="ttdoc">Gestionnaire de traces.</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_a44eb75747b7b24159f86a13f2f2f1ce2"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#a44eb75747b7b24159f86a13f2f2f1ce2">Arcane::MpiParallelSuperMng::nbLocalSubDomain</a></div><div class="ttdeci">Integer nbLocalSubDomain() override</div><div class="ttdoc">Nombre de sous-domaines à créér localement.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:71</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_a8d26156a68e15418bc426cc6f2a17b3c"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#a8d26156a68e15418bc426cc6f2a17b3c">Arcane::MpiParallelSuperMng::m_main_communicator</a></div><div class="ttdeci">MP::Communicator m_main_communicator</div><div class="ttdoc">Communicateur MPI.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:88</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiSequentialParallelSuperMng_html"><div class="ttname"><a href="../../da/d10/classArcane_1_1MpiSequentialParallelSuperMng.html">Arcane::MpiSequentialParallelSuperMng</a></div><div class="ttdoc">Superviseur en mode MPI avec un seul process alloué pour se comporter comme en séqentiel mais avec un...</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:315</div></div>
+<div class="ttc" id="aclassArcane_1_1IThreadMng_html"><div class="ttname"><a href="../../d3/db0/classArcane_1_1IThreadMng.html">Arcane::IThreadMng</a></div><div class="ttdoc">Interface d'un gestionnaire de thread.</div><div class="ttdef"><b>Definition:</b> IThreadMng.h:29</div></div>
+<div class="ttc" id="aclassArccore_1_1ITraceMng_html_a8c08ff68d12afe104bf9500b674c44ab"><div class="ttname"><a href="../../d0/df9/classArccore_1_1ITraceMng.html#a8c08ff68d12afe104bf9500b674c44ab">Arccore::ITraceMng::error</a></div><div class="ttdeci">virtual TraceMessage error()=0</div><div class="ttdoc">Flot pour un message d'erreur.</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_a1e71147412b7e67e3f2c6a764ca2e3af"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#a1e71147412b7e67e3f2c6a764ca2e3af">Arcane::MpiParallelSuperMng::application</a></div><div class="ttdeci">IApplication * application() const override</div><div class="ttdoc">Retourne le gestionnaire principal.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:59</div></div>
+<div class="ttc" id="anamespaceArcane_html_af8d92f53e9fe2339ec6ff02739603d3a"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#af8d92f53e9fe2339ec6ff02739603d3a">Arcane::arcaneFinalizeMPI</a></div><div class="ttdeci">ARCANE_MPI_EXPORT void arcaneFinalizeMPI()</div><div class="ttdef"><b>Definition:</b> ArcaneMpi.cc:156</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_ade3473902c82653f30e0fb795406ed30"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#ade3473902c82653f30e0fb795406ed30">Arcane::MpiParallelSuperMng::tryAbort</a></div><div class="ttdeci">void tryAbort() override</div><div class="ttdoc">Tente de faire un abort.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:292</div></div>
+<div class="ttc" id="aclassArcane_1_1SequentialParallelSuperMng_html_a92b54d987d5883e5d319e117bea5d7ff"><div class="ttname"><a href="../../d1/de4/classArcane_1_1SequentialParallelSuperMng.html#a92b54d987d5883e5d319e117bea5d7ff">Arcane::SequentialParallelSuperMng::build</a></div><div class="ttdeci">void build() override</div><div class="ttdoc">Construction de niveau build du service.</div><div class="ttdef"><b>Definition:</b> SequentialParallelMng.cc:771</div></div>
+<div class="ttc" id="anamespaceArcane_html_a2ca25515b5971e12e2632b1824235a01"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a2ca25515b5971e12e2632b1824235a01">Arcane::arcaneInitializeMPI</a></div><div class="ttdeci">ARCANE_MPI_EXPORT void arcaneInitializeMPI(int *argc, char ***argv, int wanted_thread_level)</div><div class="ttdef"><b>Definition:</b> ArcaneMpi.cc:150</div></div>
+<div class="ttc" id="aclassArccore_1_1ITraceMng_html_a0922508c09ab4fe5b60dc9d72361b627"><div class="ttname"><a href="../../d0/df9/classArccore_1_1ITraceMng.html#a0922508c09ab4fe5b60dc9d72361b627">Arccore::ITraceMng::debug</a></div><div class="ttdeci">virtual TraceMessageDbg debug(Trace::eDebugLevel=Trace::Medium)=0</div><div class="ttdoc">Flot pour un message de debug.</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_affb86095a8c1fd3448e0096e845b4210"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#affb86095a8c1fd3448e0096e845b4210">Arcane::MpiParallelSuperMng::m_application</a></div><div class="ttdeci">IApplication * m_application</div><div class="ttdoc">Gestionnaire principal.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:80</div></div>
+<div class="ttc" id="aclassArccore_1_1ITraceMng_html_a5487c834570278c27f5614e8cb7b3f0d"><div class="ttname"><a href="../../d0/df9/classArccore_1_1ITraceMng.html#a5487c834570278c27f5614e8cb7b3f0d">Arccore::ITraceMng::info</a></div><div class="ttdeci">virtual TraceMessage info()=0</div><div class="ttdoc">Flot pour un message d'information.</div></div>
+<div class="ttc" id="aclassArcane_1_1CommandLineArguments_html"><div class="ttname"><a href="../../d8/d5c/classArcane_1_1CommandLineArguments.html">Arcane::CommandLineArguments</a></div><div class="ttdoc">Arguments de la ligne de commande.</div><div class="ttdef"><b>Definition:</b> CommandLineArguments.h:48</div></div>
+<div class="ttc" id="aclassArcane_1_1IApplication_html_a61e540d0816f8f1e52f4a666fb99a3ad"><div class="ttname"><a href="../../d9/d7f/classArcane_1_1IApplication.html#a61e540d0816f8f1e52f4a666fb99a3ad">Arcane::IApplication::applicationInfo</a></div><div class="ttdeci">virtual const ApplicationInfo &amp; applicationInfo() const =0</div><div class="ttdoc">Informations sur l'exécutable.</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_a857db78138e257f731612667c9fd7a1e"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#a857db78138e257f731612667c9fd7a1e">Arcane::MpiParallelSuperMng::masterIORank</a></div><div class="ttdeci">Integer masterIORank() const override</div><div class="ttdoc">Rang de l'instance gérant les entrées/sorties (pour laquelle isMasterIO() est vrai)</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:70</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1Mpi_1_1MpiAdapter_html"><div class="ttname"><a href="../../d5/d11/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiAdapter.html">Arccore::MessagePassing::Mpi::MpiAdapter</a></div><div class="ttdoc">Adapteur pour MPI.</div><div class="ttdef"><b>Definition:</b> arccore/src/message_passing_mpi/arccore/message_passing_mpi/MpiAdapter.h:47</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_ac253598fd7b67a5f4a9d41cffc09f9be"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#ac253598fd7b67a5f4a9d41cffc09f9be">Arcane::MpiParallelSuperMng::m_nb_local_sub_domain</a></div><div class="ttdeci">Integer m_nb_local_sub_domain</div><div class="ttdoc">Nombre de sous-domaines locaux.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:86</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_a8c1137c7619e79d8151b25feb1848d85"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#a8c1137c7619e79d8151b25feb1848d85">Arcane::MpiParallelSuperMng::barrier</a></div><div class="ttdeci">void barrier() override</div><div class="ttdoc">Gestionnaire de parallèlisme pour l'ensemble des ressources allouées.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:303</div></div>
+<div class="ttc" id="astructArcane_1_1MpiParallelMngBuildInfo_html"><div class="ttname"><a href="../../df/d63/structArcane_1_1MpiParallelMngBuildInfo.html">Arcane::MpiParallelMngBuildInfo</a></div><div class="ttdoc">Infos pour construire un MpiParallelMng.</div><div class="ttdef"><b>Definition:</b> MpiParallelMng.h:43</div></div>
+<div class="ttc" id="anamespaceArcane_html_a76d8edd5679322dbbea6dd06488a0db4a09dd398037bf48b78100bf8b538c5ea3"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a76d8edd5679322dbbea6dd06488a0db4a09dd398037bf48b78100bf8b538c5ea3">Arcane::ST_Application</a></div><div class="ttdeci">@ ST_Application</div><div class="ttdoc">Le service s'utilise au niveau de l'application.</div><div class="ttdef"><b>Definition:</b> ServiceProperty.h:64</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_a1c63afefc45331849986913da8e88529"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#a1c63afefc45331849986913da8e88529">Arcane::MpiParallelSuperMng::threadMng</a></div><div class="ttdeci">IThreadMng * threadMng() const override</div><div class="ttdoc">Gestionnaire de thread.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:60</div></div>
+<div class="ttc" id="aclassArcane_1_1ApplicationInfo_html_ab252e04b38c5a22cf30713f7cec2c13a"><div class="ttname"><a href="../../d0/d68/classArcane_1_1ApplicationInfo.html#ab252e04b38c5a22cf30713f7cec2c13a">Arcane::ApplicationInfo::commandLineArguments</a></div><div class="ttdeci">const CommandLineArguments &amp; commandLineArguments() const</div><div class="ttdoc">Arguments de la ligne de commande.</div><div class="ttdef"><b>Definition:</b> ApplicationInfo.cc:365</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiErrorHandler_html"><div class="ttname"><a href="../../d4/df5/classArcane_1_1MpiErrorHandler.html">Arcane::MpiErrorHandler</a></div><div class="ttdoc">Interface des messages pour le type Type.</div><div class="ttdef"><b>Definition:</b> MpiErrorHandler.h:30</div></div>
+<div class="ttc" id="aclassArccore_1_1Ref_html"><div class="ttname"><a href="../../de/d9f/classArccore_1_1Ref.html">Arccore::Ref</a></div><div class="ttdoc">Référence à une instance.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/Ref.h:127</div></div>
+<div class="ttc" id="agroup__Service_html_ga08ef55634029238ec40cbb93692033e8"><div class="ttname"><a href="../../d8/dff/group__Service.html#ga08ef55634029238ec40cbb93692033e8">ARCANE_REGISTER_SERVICE</a></div><div class="ttdeci">#define ARCANE_REGISTER_SERVICE(aclass, a_service_property,...)</div><div class="ttdoc">Macro pour enregistrer un service.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:516</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiDatatypeList_html"><div class="ttname"><a href="../../d9/d44/classArcane_1_1MpiDatatypeList.html">Arcane::MpiDatatypeList</a></div><div class="ttdoc">Gère les MPI_Datatype associées aux types Arcane.</div><div class="ttdef"><b>Definition:</b> MpiDatatypeList.h:31</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_acbfab9220957fcafb02acfaaf2ff3e0a"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#acbfab9220957fcafb02acfaaf2ff3e0a">Arcane::MpiParallelSuperMng::isMasterIO</a></div><div class="ttdeci">bool isMasterIO() const override</div><div class="ttdoc">true si l'instance est un gestionnaire maître des entrées/sorties.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:69</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_a1ca0ac7d25263ae8eb5e690f483b78bd"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#a1ca0ac7d25263ae8eb5e690f483b78bd">Arcane::MpiParallelSuperMng::getMPICommunicator</a></div><div class="ttdeci">void * getMPICommunicator() override</div><div class="ttdoc">Adresse du communicateur MPI associé à ce gestionnaire.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:65</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_a13a5bd18868909bacae2e148e0735173"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#a13a5bd18868909bacae2e148e0735173">Arcane::MpiParallelSuperMng::m_rank</a></div><div class="ttdeci">Integer m_rank</div><div class="ttdoc">Rang MPI dans le communicateur global de ce processus.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:84</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_ab487abb2755364e1ee930e29fa929cb4"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#ab487abb2755364e1ee930e29fa929cb4">Arcane::MpiParallelSuperMng::internalCreateWorldParallelMng</a></div><div class="ttdeci">Ref&lt; IParallelMng &gt; internalCreateWorldParallelMng(Int32 local_rank) override</div><div class="ttdoc">Créé un gestionnaire de parallélisme pour l'ensemble des coeurs alloués.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:257</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1Communicator_html"><div class="ttname"><a href="../../d0/d0f/classArccore_1_1MessagePassing_1_1Communicator.html">Arccore::MessagePassing::Communicator</a></div><div class="ttdoc">Communicateur pour l'échange de message.</div><div class="ttdef"><b>Definition:</b> Communicator.h:44</div></div>
+<div class="ttc" id="aclassArcane_1_1SequentialParallelSuperMng_html_a073ae9128d382abe33b3417d1c4b5742"><div class="ttname"><a href="../../d1/de4/classArcane_1_1SequentialParallelSuperMng.html#a073ae9128d382abe33b3417d1c4b5742">Arcane::SequentialParallelSuperMng::application</a></div><div class="ttdeci">IApplication * application() const override</div><div class="ttdoc">Retourne le gestionnaire principal.</div><div class="ttdef"><b>Definition:</b> SequentialParallelSuperMng.h:50</div></div>
+<div class="ttc" id="aclassArcane_1_1IStat_html"><div class="ttname"><a href="../../d9/d24/classArcane_1_1IStat.html">Arcane::IStat</a></div><div class="ttdoc">Statistiques sur le parallélisme.</div><div class="ttdef"><b>Definition:</b> arcane/src/arcane/parallel/IStat.h:41</div></div>
+<div class="ttc" id="aclassArccore_1_1ITraceMng_html_a60e7b2f917722f9b02838efc4196739d"><div class="ttname"><a href="../../d0/df9/classArccore_1_1ITraceMng.html#a60e7b2f917722f9b02838efc4196739d">Arccore::ITraceMng::flush</a></div><div class="ttdeci">virtual void flush()=0</div><div class="ttdoc">Flush tous les flots.</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1Mpi_1_1MpiRequest_html"><div class="ttname"><a href="../../de/d2a/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiRequest.html">Arccore::MessagePassing::Mpi::MpiRequest</a></div><div class="ttdoc">Spécialisation MPI d'une 'Request'.</div><div class="ttdef"><b>Definition:</b> MpiRequest.h:33</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_a40c8d61e17b7921f499ec07c943c33b7"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#a40c8d61e17b7921f499ec07c943c33b7">Arcane::MpiParallelSuperMng::commSize</a></div><div class="ttdeci">Int32 commSize() const override</div><div class="ttdoc">Retourne le nombre total de process utilisés.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:63</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_a6be2f29b80f0c4de35c2ea6a2e8ec856"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#a6be2f29b80f0c4de35c2ea6a2e8ec856">Arcane::MpiParallelSuperMng::commRank</a></div><div class="ttdeci">Int32 commRank() const override</div><div class="ttdoc">Retourne le numéro du process (compris entre 0 et nbProcess()-1)</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:62</div></div>
+<div class="ttc" id="aServiceFactory_8h_html_aba44ad90916fb14522e59bab36dbf5f7"><div class="ttname"><a href="../../d3/d58/ServiceFactory_8h.html#aba44ad90916fb14522e59bab36dbf5f7">ARCANE_SERVICE_INTERFACE</a></div><div class="ttdeci">#define ARCANE_SERVICE_INTERFACE(ainterface)</div><div class="ttdoc">Macro pour déclarer une interface lors de l'enregistrement d'un service.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:475</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_a96d5fb17a784f317b9c1a20c0255b0c0"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#a96d5fb17a784f317b9c1a20c0255b0c0">Arcane::MpiParallelSuperMng::m_nb_rank</a></div><div class="ttdeci">Integer m_nb_rank</div><div class="ttdoc">Nombre de processus MPI dans le communicateur global.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:85</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html">Arcane::MpiParallelSuperMng</a></div><div class="ttdoc">Superviseur du parallélisme utilisant MPI.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:48</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a9d85d5fb84c5371348dd56600999e564"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a></div><div class="ttdeci">#define ARCANE_FATAL(...)</div><div class="ttdoc">Macro envoyant une exception FatalErrorException.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:761</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_af073c16b86be9f7f034edf09668a4786"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#af073c16b86be9f7f034edf09668a4786">Arcane::MpiParallelSuperMng::build</a></div><div class="ttdeci">void build() override</div><div class="ttdoc">Construit les membres l'instance.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:219</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_ae6d7f724fffc636199fe094546defa23"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#ae6d7f724fffc636199fe094546defa23">Arcane::MpiParallelSuperMng::m_is_parallel</a></div><div class="ttdeci">bool m_is_parallel</div><div class="ttdoc">Statistiques.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:83</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_ac8d7c0230cb2f94987d6274b3bfc971d"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#ac8d7c0230cb2f94987d6274b3bfc971d">Arcane::MpiParallelSuperMng::traceRank</a></div><div class="ttdeci">Int32 traceRank() const override</div><div class="ttdoc">Rang de cette instance pour les traces.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:64</div></div>
+<div class="ttc" id="aclassArcane_1_1ParallelSuperMngDispatcher_html"><div class="ttname"><a href="../../de/d43/classArcane_1_1ParallelSuperMngDispatcher.html">Arcane::ParallelSuperMngDispatcher</a></div><div class="ttdoc">Redirige la gestion des messages des sous-domaines suivant le type de l'argument.</div><div class="ttdef"><b>Definition:</b> ParallelSuperMngDispatcher.h:36</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelSuperMng_html_aab762b99ea768754e55432c80917aa1c"><div class="ttname"><a href="../../d5/dee/classArcane_1_1MpiParallelSuperMng.html#aab762b99ea768754e55432c80917aa1c">Arcane::MpiParallelSuperMng::m_mpi_main_communicator</a></div><div class="ttdeci">MPI_Comm m_mpi_main_communicator</div><div class="ttdoc">Communicateur MPI.</div><div class="ttdef"><b>Definition:</b> MpiParallelSuperMng.cc:87</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:39 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

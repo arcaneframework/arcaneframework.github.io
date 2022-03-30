@@ -1,0 +1,347 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de MapCoordToUid.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_73b81ab7f8087ecd4627c74229710b8a.html">mesh</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">MapCoordToUid.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* MapCoordToUid.cc                                            (C) 2000-2017 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Recherche d&#39;entités à partir de ses coordonnées.                          */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_MESH_MAPCOORDTOUID_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_MESH_MAPCOORDTOUID_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/ITraceMng.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/TraceAccessor.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/Real3.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/Math.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;arcane/mesh/MeshGlobal.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;arcane/mesh/DynamicMeshKindInfos.h&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;arcane/SharedVariable.h&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d3e/MathUtils_8h.html">arcane/MathUtils.h</a>&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &lt;unordered_set&gt;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/PerfCounterMng.h&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;ARCANE_MESH_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d0/d2f/classArcane_1_1MapCoordToUid.html">   50</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d0/d2f/classArcane_1_1MapCoordToUid.html">MapCoordToUid</a></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">typedef</span> DynamicMeshKindInfos::ItemInternalMap ItemInternalMap;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">typedef</span> ItemInternalMap::Data ItemInternalMapData;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">typedef</span> std::unordered_multimap&lt;Int32, std::pair&lt;const Real3,Int64&gt; &gt; map_type;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">//  typedef std::unordered_multimap&lt;Int64, std::pair&lt;const Real3,Int64&gt; &gt; map_type; // This (needed !) correction introduces a bug in a IFPEN application...investigation in progress (Scarab Arc356@IFPEN)</span></div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">typedef</span> std::unordered_set&lt;Int64&gt; set_type;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> Real TOLERANCE;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../d6/d9c/classArcane_1_1MapCoordToUid_1_1Box.html">   62</a></span>&#160;  <span class="keyword">class </span><a class="code" href="../../d6/d9c/classArcane_1_1MapCoordToUid_1_1Box.html">Box</a></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  public :</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <a class="code" href="../../d6/d9c/classArcane_1_1MapCoordToUid_1_1Box.html">Box</a>() ;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="../../d6/d9c/classArcane_1_1MapCoordToUid_1_1Box.html">Box</a>(){}</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> init(<a class="code" href="../../d0/d9f/classArcane_1_1IMesh.html">IMesh</a>* mesh) ;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">void</span> init2(<a class="code" href="../../d0/d9f/classArcane_1_1IMesh.html">IMesh</a>* mesh) ;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;    <a class="code" href="../../d1/da6/classArcane_1_1Real3.html">Real3</a> m_lower_bound;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="../../d1/da6/classArcane_1_1Real3.html">Real3</a> m_upper_bound;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="../../d1/da6/classArcane_1_1Real3.html">Real3</a> m_size;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  };</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="preprocessor">#ifdef ACTIVATE_PERF_COUNTER</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keyword">struct </span>PerfCounter</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      <span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;        Clear,</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;        Fill,</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        Fill2,</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;        Insert,</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        Find,</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;        Key,</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;        NbCounters</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      }  eType ;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <span class="keyword">static</span> <span class="keyword">const</span> std::string m_names[NbCounters] ;</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  } ;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  MapCoordToUid(IMesh* mesh) ;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <span class="keywordtype">void</span> setBox(Box* box) {</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    m_box=box ;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <span class="keywordtype">void</span> clear() { m_map.clear(); }</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keywordtype">void</span> _clear() ;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keywordtype">void</span> updateNodeData(ArrayView&lt;ItemInternal*&gt; coarsen_cells) ;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="keywordtype">void</span> updateFaceData(ArrayView&lt;ItemInternal*&gt; coarsen_cells) ;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keywordtype">void</span> clearNodeData(ArrayView&lt;ItemInternal*&gt; coarsen_cells) ;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keywordtype">void</span> clearFaceData(ArrayView&lt;ItemInternal*&gt; coarsen_cells) ;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  Int64 insert(<span class="keyword">const</span> Real3,<span class="keyword">const</span> Int64, <span class="keyword">const</span> Real tol = TOLERANCE);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <span class="keywordtype">void</span> erase(<span class="keyword">const</span> Real3,<span class="keyword">const</span> Real tol = TOLERANCE);</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keywordtype">bool</span> empty()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_map.empty(); }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  Int64 find(<span class="keyword">const</span> Real3, <span class="keyword">const</span> Real tol = TOLERANCE);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  <span class="keywordtype">bool</span> areClose(Real3 <span class="keyword">const</span>&amp; p1, Real3 <span class="keyword">const</span>&amp; p2, Real tol)</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  {</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5ba280d9732f7e91b92afc27db680c13">Arcane::math::abs</a>(p1.x - p2.x) +</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;           <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5ba280d9732f7e91b92afc27db680c13">Arcane::math::abs</a>(p1.y - p2.y) +</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;           <a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga5ba280d9732f7e91b92afc27db680c13">Arcane::math::abs</a>(p1.z - p2.z) &lt;= tol ;</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#ifdef ACTIVATE_PERF_COUNTER</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  PerfCounterMng&lt;PerfCounter&gt;&amp; getPerfCounter() {</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    <span class="keywordflow">return</span> m_perf_counter ;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  Int64 key(<span class="keyword">const</span> Real3);</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  IMesh* m_mesh;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  map_type m_map;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  Box* m_box;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <a class="code" href="../../d3/d00/group__Variable.html#ga98c3f361d93bc122a383a05c80a966b7">VariableNodeReal3</a>&amp; m_nodes_coords;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="preprocessor">#ifdef ACTIVATE_PERF_COUNTER</span></div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  PerfCounterMng&lt;PerfCounter&gt; m_perf_counter ;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;};</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno"><a class="line" href="../../db/d1c/classArcane_1_1NodeMapCoordToUid.html">  142</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../db/d1c/classArcane_1_1NodeMapCoordToUid.html">NodeMapCoordToUid</a></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d0/d2f/classArcane_1_1MapCoordToUid.html">MapCoordToUid</a></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;{</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; public :</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d0/d2f/classArcane_1_1MapCoordToUid.html">MapCoordToUid</a> <a class="code" href="../../d0/d2f/classArcane_1_1MapCoordToUid.html">BaseType</a>;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <a class="code" href="../../db/d1c/classArcane_1_1NodeMapCoordToUid.html">NodeMapCoordToUid</a>(<a class="code" href="../../d0/d9f/classArcane_1_1IMesh.html">IMesh</a>* mesh) : <a class="code" href="../../d0/d2f/classArcane_1_1MapCoordToUid.html">MapCoordToUid</a>(mesh) {}</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="keywordtype">void</span> init();</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <span class="keywordtype">void</span> check();</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  <span class="keywordtype">bool</span> insert(<span class="keyword">const</span> <a class="code" href="../../d1/da6/classArcane_1_1Real3.html">Real3</a> center,<span class="keyword">const</span> Int64 uid, <span class="keyword">const</span> Real tol = TOLERANCE)</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  {</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordflow">return</span> BaseType::insert(center,uid,tol) != uid;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  }</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  <span class="keywordtype">void</span> init2();</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  <span class="keywordtype">void</span> check2();</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  <span class="keywordtype">void</span> clearData(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayView&lt;ItemInternal*&gt;</a> coarsen_cells) ;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  <span class="keywordtype">void</span> updateData(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayView&lt;ItemInternal*&gt;</a> refine_cells) ;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">bool</span> isItemToSuppress(<a class="code" href="../../d8/dd7/classArcane_1_1Node.html">Node</a> node, <span class="keyword">const</span> Int64 parent_uid) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  <span class="keywordtype">void</span> fill();</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  <span class="keywordtype">void</span> fill2();</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;};</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="../../d9/ddc/classArcane_1_1FaceMapCoordToUid.html">  173</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d9/ddc/classArcane_1_1FaceMapCoordToUid.html">FaceMapCoordToUid</a> : <span class="keyword">public</span> <a class="code" href="../../d0/d2f/classArcane_1_1MapCoordToUid.html">MapCoordToUid</a></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;{</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;public :</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d0/d2f/classArcane_1_1MapCoordToUid.html">MapCoordToUid</a> <a class="code" href="../../d0/d2f/classArcane_1_1MapCoordToUid.html">BaseType</a> ;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  <a class="code" href="../../d9/ddc/classArcane_1_1FaceMapCoordToUid.html">FaceMapCoordToUid</a>(<a class="code" href="../../d0/d9f/classArcane_1_1IMesh.html">IMesh</a>* mesh)</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  : <a class="code" href="../../d0/d2f/classArcane_1_1MapCoordToUid.html">MapCoordToUid</a>(mesh)</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  , m_face_center(<a class="code" href="../../df/d8a/classArcane_1_1VariableBuildInfo.html">VariableBuildInfo</a>(mesh,<span class="stringliteral">&quot;AMRFaceCenter&quot;</span>))</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  {}</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  <span class="keywordtype">void</span> init();</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  <span class="keywordtype">void</span> check();</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  <span class="keywordtype">void</span> init2();</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  <span class="keywordtype">void</span> check2();</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  <span class="keywordtype">bool</span> insert(<span class="keyword">const</span> <a class="code" href="../../d1/da6/classArcane_1_1Real3.html">Real3</a>&amp; center,<span class="keyword">const</span> Int64&amp; uid, <span class="keyword">const</span> Real tol = TOLERANCE)</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  {</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    Int64 old_uid = BaseType::insert(center,uid,tol) ;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    <span class="keywordflow">if</span>(uid!=old_uid)</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    {</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;      m_new_uids.insert(uid) ;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;      <span class="keywordflow">return</span> true ;</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    }</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">return</span> false ;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  }</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  <span class="keywordtype">void</span> clearNewUids() {</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    m_new_uids.clear() ;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;  }</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  <span class="keywordtype">bool</span> isNewUid(Int64 uid) {</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    <span class="keywordflow">return</span> m_new_uids.find(uid) != m_new_uids.end() ;</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  }</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;  <span class="keywordtype">void</span> clearData(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayView&lt;ItemInternal*&gt;</a> coarsen_cells) ;</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  <span class="keywordtype">void</span> updateData(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayView&lt;ItemInternal*&gt;</a> refine_cells) ;</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <span class="keywordtype">void</span> initFaceCenter() ;</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  <span class="keywordtype">void</span> updateFaceCenter(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayView&lt;ItemInternal*&gt;</a> refine_cells) ;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;protected :</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;  <span class="keywordtype">void</span> fill();</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  <span class="keywordtype">void</span> fill2();</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;  <a class="code" href="../../d1/da6/classArcane_1_1Real3.html">Real3</a> faceCenter(<a class="code" href="../../d1/db1/classArcane_1_1Face.html">Face</a> face) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  <span class="keywordtype">bool</span> isItemToSuppress(<a class="code" href="../../d1/db1/classArcane_1_1Face.html">Face</a> face) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; private :</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  <a class="code" href="../../d7/d20/classArcane_1_1MeshVariableScalarRefT.html">VariableFaceReal3</a> m_face_center ;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  set_type m_new_uids ;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;};</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;ARCANE_MESH_END_NAMESPACE</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;ARCANE_END_NAMESPACE</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* MapCoordToUid_H_ */</span><span class="preprocessor"></span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="agroup__GroupMathUtils_html_ga5ba280d9732f7e91b92afc27db680c13"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#ga5ba280d9732f7e91b92afc27db680c13">Arcane::math::abs</a></div><div class="ttdeci">apfloat abs(apfloat a)</div><div class="ttdoc">Retourne la valeur absolue d'un réel.</div><div class="ttdef"><b>Definition:</b> MathApfloat.h:125</div></div>
+<div class="ttc" id="aclassArccore_1_1ArrayView_html"><div class="ttname"><a href="../../d7/d02/classArccore_1_1ArrayView.html">Arccore::ArrayView</a></div><div class="ttdoc">Vue modifiable d'un tableau d'un type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:95</div></div>
+<div class="ttc" id="aMathUtils_8h_html"><div class="ttname"><a href="../../dc/d3e/MathUtils_8h.html">MathUtils.h</a></div><div class="ttdoc">Fonctions mathématiques diverses.</div></div>
+<div class="ttc" id="astructArcane_1_1Real3POD_html_a47536d1587ccd16c2693638cd935fa66"><div class="ttname"><a href="../../d0/d3d/structArcane_1_1Real3POD.html#a47536d1587ccd16c2693638cd935fa66">Arcane::Real3POD::z</a></div><div class="ttdeci">Real z</div><div class="ttdoc">troisième composante du triplet</div><div class="ttdef"><b>Definition:</b> Real3.h:35</div></div>
+<div class="ttc" id="aclassArcane_1_1Face_html"><div class="ttname"><a href="../../d1/db1/classArcane_1_1Face.html">Arcane::Face</a></div><div class="ttdoc">Face d'une maille.</div><div class="ttdef"><b>Definition:</b> Item.h:638</div></div>
+<div class="ttc" id="anamespaceArcane_html_a6a4f52b485f081d421dc145e122e792b"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a6a4f52b485f081d421dc145e122e792b">Arcane::SharedVariableNodeReal3</a></div><div class="ttdeci">SharedMeshVariableScalarRefT&lt; Node, Real3 &gt; SharedVariableNodeReal3</div><div class="ttdoc">Grandeur au noeud de type coordonnées.</div><div class="ttdef"><b>Definition:</b> VariableTypedef.h:2224</div></div>
+<div class="ttc" id="aclassArcane_1_1FaceMapCoordToUid_html"><div class="ttname"><a href="../../d9/ddc/classArcane_1_1FaceMapCoordToUid.html">Arcane::FaceMapCoordToUid</a></div><div class="ttdef"><b>Definition:</b> MapCoordToUid.h:173</div></div>
+<div class="ttc" id="aclassArcane_1_1Node_html"><div class="ttname"><a href="../../d8/dd7/classArcane_1_1Node.html">Arcane::Node</a></div><div class="ttdoc">Noeud d'un maillage.</div><div class="ttdef"><b>Definition:</b> Dom.h:203</div></div>
+<div class="ttc" id="astructArcane_1_1Real3POD_html_a2b3df161ba01f6d46c9c9158b6c41c95"><div class="ttname"><a href="../../d0/d3d/structArcane_1_1Real3POD.html#a2b3df161ba01f6d46c9c9158b6c41c95">Arcane::Real3POD::y</a></div><div class="ttdeci">Real y</div><div class="ttdoc">deuxième composante du triplet</div><div class="ttdef"><b>Definition:</b> Real3.h:34</div></div>
+<div class="ttc" id="agroup__Variable_html_ga98c3f361d93bc122a383a05c80a966b7"><div class="ttname"><a href="../../d3/d00/group__Variable.html#ga98c3f361d93bc122a383a05c80a966b7">Arcane::VariableNodeReal3</a></div><div class="ttdeci">MeshVariableScalarRefT&lt; Node, Real3 &gt; VariableNodeReal3</div><div class="ttdoc">Grandeur au noeud de type coordonnées.</div><div class="ttdef"><b>Definition:</b> VariableTypedef.h:359</div></div>
+<div class="ttc" id="anamespaceArccore_html_a19fea02f94d4da203710fd2070c0f2fb"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Arccore::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:232</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshBase_html_aca2d5baf61929e64f6da56448fce9980"><div class="ttname"><a href="../../de/d4a/classArcane_1_1IMeshBase.html#aca2d5baf61929e64f6da56448fce9980">Arcane::IMeshBase::traceMng</a></div><div class="ttdeci">virtual ITraceMng * traceMng()=0</div><div class="ttdoc">Gestionnaire de message associé</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html_a275a98487df90f0baabcf2c5144a8060"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html#a275a98487df90f0baabcf2c5144a8060">Arcane::IMesh::allFaces</a></div><div class="ttdeci">virtual FaceGroup allFaces()=0</div><div class="ttdoc">Groupe de toutes les faces.</div></div>
+<div class="ttc" id="aclassArccore_1_1ITraceMng_html_a8c08ff68d12afe104bf9500b674c44ab"><div class="ttname"><a href="../../d0/df9/classArccore_1_1ITraceMng.html#a8c08ff68d12afe104bf9500b674c44ab">Arccore::ITraceMng::error</a></div><div class="ttdeci">virtual TraceMessage error()=0</div><div class="ttdoc">Flot pour un message d'erreur.</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableBuildInfo_html"><div class="ttname"><a href="../../df/d8a/classArcane_1_1VariableBuildInfo.html">Arcane::VariableBuildInfo</a></div><div class="ttdoc">Paramètres nécessaires à la construction d'une variable.</div><div class="ttdef"><b>Definition:</b> VariableBuildInfo.h:42</div></div>
+<div class="ttc" id="agroup__GroupMathUtils_html_ga1fdb520cf182e9f868193f653daf3e2f"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">Arcane::math::max</a></div><div class="ttdeci">T max(const T &amp;a, const T &amp;b, const T &amp;c)</div><div class="ttdoc">Retourne le maximum de trois éléments.</div><div class="ttdef"><b>Definition:</b> MathUtils.h:430</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html">Arcane::IMesh</a></div><div class="ttdef"><b>Definition:</b> IMesh.h:57</div></div>
+<div class="ttc" id="aclassArccore_1_1ITraceMng_html_a0922508c09ab4fe5b60dc9d72361b627"><div class="ttname"><a href="../../d0/df9/classArccore_1_1ITraceMng.html#a0922508c09ab4fe5b60dc9d72361b627">Arccore::ITraceMng::debug</a></div><div class="ttdeci">virtual TraceMessageDbg debug(Trace::eDebugLevel=Trace::Medium)=0</div><div class="ttdoc">Flot pour un message de debug.</div></div>
+<div class="ttc" id="aUtilsTypes_8h_html"><div class="ttname"><a href="../../d4/da8/UtilsTypes_8h.html">UtilsTypes.h</a></div><div class="ttdoc">Déclarations des types utilisés dans Arcane.</div></div>
+<div class="ttc" id="agroup__Mesh_html_ga8270de1e7b8febe980cab11b992c47b5"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga8270de1e7b8febe980cab11b992c47b5">Arcane::NodeEnumerator</a></div><div class="ttdeci">ItemEnumeratorT&lt; Node &gt; NodeEnumerator</div><div class="ttdoc">Enumérateurs sur des noeuds.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:166</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html_a8a988ade617f508cd842bcd9b5ab2bc1"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html#a8a988ade617f508cd842bcd9b5ab2bc1">Arcane::IMesh::allNodes</a></div><div class="ttdeci">virtual NodeGroup allNodes()=0</div><div class="ttdoc">Groupe de tous les noeuds.</div></div>
+<div class="ttc" id="aclassArcane_1_1MapCoordToUid_html"><div class="ttname"><a href="../../d0/d2f/classArcane_1_1MapCoordToUid.html">Arcane::MapCoordToUid</a></div><div class="ttdoc">structure de recherche d'un noeud à partir de ses coords La clef de hashage est la position geometriq...</div><div class="ttdef"><b>Definition:</b> MapCoordToUid.h:50</div></div>
+<div class="ttc" id="astructArcane_1_1Real3POD_html_affa41c7059c883d6f4f29dd4e572f027"><div class="ttname"><a href="../../d0/d3d/structArcane_1_1Real3POD.html#affa41c7059c883d6f4f29dd4e572f027">Arcane::Real3POD::x</a></div><div class="ttdeci">Real x</div><div class="ttdoc">première composante du triplet</div><div class="ttdef"><b>Definition:</b> Real3.h:33</div></div>
+<div class="ttc" id="agroup__GroupMathUtils_html_ga278e42edf5a6086340fc5d8c97bfc4ef"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#ga278e42edf5a6086340fc5d8c97bfc4ef">Arcane::math::min</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE Real2 min(Real2 a, Real2 b)</div><div class="ttdoc">Retourne le minimum de deux Real2.</div><div class="ttdef"><b>Definition:</b> MathUtils.h:374</div></div>
+<div class="ttc" id="aclassArcane_1_1MapCoordToUid_1_1Box_html"><div class="ttname"><a href="../../d6/d9c/classArcane_1_1MapCoordToUid_1_1Box.html">Arcane::MapCoordToUid::Box</a></div><div class="ttdef"><b>Definition:</b> MapCoordToUid.h:62</div></div>
+<div class="ttc" id="anamespaceArccore_1_1MessagePassing_html_aaf52c72596590e6ea65e9e03e1adf3eaa1839cd07dd2977f344de25f1de3102b1"><div class="ttname"><a href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3eaa1839cd07dd2977f344de25f1de3102b1">Arccore::MessagePassing::ReduceMin</a></div><div class="ttdeci">@ ReduceMin</div><div class="ttdoc">Minimum des valeurs.</div><div class="ttdef"><b>Definition:</b> MessagePassingGlobal.h:73</div></div>
+<div class="ttc" id="aclassArcane_1_1NodeMapCoordToUid_html"><div class="ttname"><a href="../../db/d1c/classArcane_1_1NodeMapCoordToUid.html">Arcane::NodeMapCoordToUid</a></div><div class="ttdef"><b>Definition:</b> MapCoordToUid.h:142</div></div>
+<div class="ttc" id="aclassArcane_1_1Real3_html"><div class="ttname"><a href="../../d1/da6/classArcane_1_1Real3.html">Arcane::Real3</a></div><div class="ttdoc">Classe gérant un vecteur de réel de dimension 3.</div><div class="ttdef"><b>Definition:</b> Real3.h:91</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshVariableScalarRefT_html"><div class="ttname"><a href="../../d7/d20/classArcane_1_1MeshVariableScalarRefT.html">Arcane::MeshVariableScalarRefT&lt; Face, Real3 &gt;</a></div></div>
+<div class="ttc" id="aItemEnumerator_8h_html_a2301a57310b51190d331e08b4220e9e4"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#a2301a57310b51190d331e08b4220e9e4">ENUMERATE_FACE</a></div><div class="ttdeci">#define ENUMERATE_FACE(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de faces.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:240</div></div>
+<div class="ttc" id="anamespaceArccore_1_1MessagePassing_html_aaf52c72596590e6ea65e9e03e1adf3eaa8e2e6c3f405ec7aa2e4bc05f93d7d6d4"><div class="ttname"><a href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3eaa8e2e6c3f405ec7aa2e4bc05f93d7d6d4">Arccore::MessagePassing::ReduceMax</a></div><div class="ttdeci">@ ReduceMax</div><div class="ttdoc">Maximum des valeurs.</div><div class="ttdef"><b>Definition:</b> MessagePassingGlobal.h:74</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemGroup_html_a5e13f5b3aed43db2383db28d8036c193"><div class="ttname"><a href="../../d9/d27/classArcane_1_1ItemGroup.html#a5e13f5b3aed43db2383db28d8036c193">Arcane::ItemGroup::size</a></div><div class="ttdeci">Integer size() const</div><div class="ttdoc">Nombre d'éléments du groupe.</div><div class="ttdef"><b>Definition:</b> ItemGroup.h:88</div></div>
+<div class="ttc" id="aItemEnumerator_8h_html_aea36524754c129124072de38e045d6ba"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#aea36524754c129124072de38e045d6ba">ENUMERATE_NODE</a></div><div class="ttdeci">#define ENUMERATE_NODE(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de noeuds.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:234</div></div>
+<div class="ttc" id="aclassArccore_1_1ITraceMng_html_a71c2e1ee50c22f23230276dd72a40934"><div class="ttname"><a href="../../d0/df9/classArccore_1_1ITraceMng.html#a71c2e1ee50c22f23230276dd72a40934">Arccore::ITraceMng::fatal</a></div><div class="ttdeci">virtual TraceMessage fatal()=0</div><div class="ttdoc">Flot pour un message d'erreur fatale.</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a9d85d5fb84c5371348dd56600999e564"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a></div><div class="ttdeci">#define ARCANE_FATAL(...)</div><div class="ttdoc">Macro envoyant une exception FatalErrorException.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:761</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:35 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

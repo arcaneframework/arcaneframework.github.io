@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arcane/utils/Math.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('db/d8a/Math_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Math.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* Math.h                                                      (C) 2000-2020 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Fonctions mathématiques diverses.                                         */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_UTILS_MATH_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_UTILS_MATH_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/Convert.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/da8/UtilsTypes_8h.html">arcane/utils/UtilsTypes.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/StdHeader.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d8/d68/namespaceArcane_1_1math.html">Arcane::math</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#a7fe9259cb85108740dfaa663c4099fe8">   38</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#a7fe9259cb85108740dfaa663c4099fe8">log</a>(<span class="keywordtype">double</span> v)</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="preprocessor">#ifdef ARCANE_CHECK_MATH</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordflow">if</span> (v==0.0 || v&lt;0.0)</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <a class="code" href="../../d0/d32/namespaceArcane.html#aca9f9ecfcafa49aa493d0e07ef7fec34">arcaneMathError</a>(v,<span class="stringliteral">&quot;log&quot;</span>);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  return ::log(v);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#ac698c1cf7438a88f57b06d549184f17f">   51</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#a7fe9259cb85108740dfaa663c4099fe8">log</a>(<span class="keywordtype">long</span> <span class="keywordtype">double</span> v)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;{</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="preprocessor">#ifdef ARCANE_CHECK_MATH</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordflow">if</span> (v==0.0 || v&lt;0.0)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="../../d0/d32/namespaceArcane.html#aca9f9ecfcafa49aa493d0e07ef7fec34">arcaneMathError</a>(v,<span class="stringliteral">&quot;log&quot;</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  return ::logl(v);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;}</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#a9471c7740f6db4a3acfc11785323fb9c">   66</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#a9471c7740f6db4a3acfc11785323fb9c">log10</a>(<span class="keywordtype">double</span> v)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;{</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;<span class="preprocessor">#ifdef ARCANE_CHECK_MATH</span></div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordflow">if</span> (v==0.0 || v&lt;0.0)</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;    <a class="code" href="../../d0/d32/namespaceArcane.html#aca9f9ecfcafa49aa493d0e07ef7fec34">arcaneMathError</a>(v,<span class="stringliteral">&quot;log&quot;</span>);</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  return ::log10(v);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;}</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#a855f6c48b9ec506fdd0cd86ac70238e2">   79</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#a9471c7740f6db4a3acfc11785323fb9c">log10</a>(<span class="keywordtype">long</span> <span class="keywordtype">double</span> v)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="preprocessor">#ifdef ARCANE_CHECK_MATH</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordflow">if</span> (v==0.0 || v&lt;0.0)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <a class="code" href="../../d0/d32/namespaceArcane.html#aca9f9ecfcafa49aa493d0e07ef7fec34">arcaneMathError</a>(v,<span class="stringliteral">&quot;log&quot;</span>);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  return ::log10l(v);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;}</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#a2aadbf3e2ee653fd079aee22f3e458a5">   94</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#a2aadbf3e2ee653fd079aee22f3e458a5">floor</a>(<span class="keywordtype">double</span> v)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;{</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  return ::floor(v);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#a143a093091d3614257f4009ca65c0b3c">  103</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#a2aadbf3e2ee653fd079aee22f3e458a5">floor</a>(<span class="keywordtype">long</span> <span class="keywordtype">double</span> v)</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;{</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  return ::floorl(v);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#ae556564cadf8453f326c1997fe7b81dd">  114</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#ae556564cadf8453f326c1997fe7b81dd">exp</a>(<span class="keywordtype">double</span> v)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;{</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  return ::exp(v);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;}</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#ad5fc11497672457c7b6ca715b8d4ef20">  122</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#ae556564cadf8453f326c1997fe7b81dd">exp</a>(<span class="keywordtype">long</span> <span class="keywordtype">double</span> v)</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;{</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  return ::expl(v);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;}</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00133"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#a4f7e7462cb507fd3c6b2f1fe1b14b007">  133</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#a4f7e7462cb507fd3c6b2f1fe1b14b007">sqrt</a>(<span class="keywordtype">double</span> v)</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;{</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="preprocessor">#ifdef ARCANE_CHECK_MATH</span></div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  <span class="keywordflow">if</span> (v&lt;0.)</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <a class="code" href="../../d0/d32/namespaceArcane.html#aca9f9ecfcafa49aa493d0e07ef7fec34">arcaneMathError</a>(v,<span class="stringliteral">&quot;sqrt&quot;</span>);</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  return ::sqrt(v);</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;}</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#a876bccc9e81ebf0b95b9b9b341b42491">  145</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#a4f7e7462cb507fd3c6b2f1fe1b14b007">sqrt</a>(<span class="keywordtype">long</span> <span class="keywordtype">double</span> v)</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;{</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="preprocessor">#ifdef ARCANE_CHECK_MATH</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="keywordflow">if</span> (v&lt;0.)</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <a class="code" href="../../d0/d32/namespaceArcane.html#aca9f9ecfcafa49aa493d0e07ef7fec34">arcaneMathError</a>(v,<span class="stringliteral">&quot;sqrt&quot;</span>);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  return ::sqrtl(v);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;}</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#a0cb5b459b8e24cfe1e1410a904dc8b17">  164</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#a0cb5b459b8e24cfe1e1410a904dc8b17">pow</a>(<span class="keywordtype">double</span> x,<span class="keywordtype">double</span> y)</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;{</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor">#ifdef ARCANE_CHECK_MATH</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  <span class="comment">// Arguments invalides si x est négatif et y non entier</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  <span class="keywordflow">if</span> (x&lt;0.0 &amp;&amp; ::<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#a2aadbf3e2ee653fd079aee22f3e458a5">floor</a>(y)!=y)</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    <a class="code" href="../../d0/d32/namespaceArcane.html#aca9f9ecfcafa49aa493d0e07ef7fec34">arcaneMathError</a>(x,y,<span class="stringliteral">&quot;pow&quot;</span>);</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  return ::pow(x,y);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;}</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00183"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#a27d85fa15e0b9b8ccfb02ba9e6bf99ba">  183</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#a0cb5b459b8e24cfe1e1410a904dc8b17">pow</a>(<span class="keywordtype">long</span> <span class="keywordtype">double</span> x,<span class="keywordtype">long</span> <span class="keywordtype">double</span> y)</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;{</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;<span class="preprocessor">#ifdef ARCANE_CHECK_MATH</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;  <span class="comment">// Arguments invalides si x est négatif et y non entier</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  <span class="keywordflow">if</span> (x&lt;0.0 &amp;&amp; ::floorl(y)!=y)</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    <a class="code" href="../../d0/d32/namespaceArcane.html#aca9f9ecfcafa49aa493d0e07ef7fec34">arcaneMathError</a>(x,y,<span class="stringliteral">&quot;pow&quot;</span>);</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  return ::powl(x,y);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;}</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#aecee3aa3d7b674a3d8b2cb6e910e0c30">  200</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#a0cb5b459b8e24cfe1e1410a904dc8b17">pow</a>(<span class="keywordtype">double</span> x,<span class="keywordtype">long</span> <span class="keywordtype">double</span> y)</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;{</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;<span class="preprocessor">#ifdef ARCANE_CHECK_MATH</span></div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  <span class="comment">// Arguments invalides si x est négatif et y non entier</span></div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;  <span class="keywordflow">if</span> (x&lt;0.0 &amp;&amp; ::floorl(y)!=y)</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    <a class="code" href="../../d0/d32/namespaceArcane.html#aca9f9ecfcafa49aa493d0e07ef7fec34">arcaneMathError</a>(x,y,<span class="stringliteral">&quot;pow&quot;</span>);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;  return ::powl(x,y);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;}</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00217"></a><span class="lineno"><a class="line" href="../../d8/d68/namespaceArcane_1_1math.html#a547a50a5f5bb6cf3233f4d7c868c651c">  217</a></span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#a0cb5b459b8e24cfe1e1410a904dc8b17">pow</a>(<span class="keywordtype">long</span> <span class="keywordtype">double</span> x,<span class="keywordtype">double</span> y)</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;{</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="preprocessor">#ifdef ARCANE_CHECK_MATH</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;  <span class="comment">// Arguments invalides si x est négatif et y non entier</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  <span class="keywordflow">if</span> (x&lt;0.0 &amp;&amp; ::<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#a2aadbf3e2ee653fd079aee22f3e458a5">floor</a>(y)!=y)</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;    <a class="code" href="../../d0/d32/namespaceArcane.html#aca9f9ecfcafa49aa493d0e07ef7fec34">arcaneMathError</a>(x,y,<span class="stringliteral">&quot;pow&quot;</span>);</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  return ::powl(x,y);</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;}</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; ARCCORE_HOST_DEVICE <span class="keyword">inline</span> T</div>
+<div class="line"><a name="l00237"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#ga9f954fc7f7b7e921be0a0254ffd9c940">  237</a></span>&#160;<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1a837fe3ed2b3189ec13fa1d8e851fed">min</a>(<span class="keyword">const</span> T&amp; a,<span class="keyword">const</span> T&amp; b)</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;{</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  <span class="keywordflow">return</span> ( (a&lt;b) ? a : b );</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;}</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00246"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#ga2922398893627c561b8b9e35e3394190">  246</a></span>&#160;<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1a837fe3ed2b3189ec13fa1d8e851fed">min</a>(<span class="keywordtype">long</span> <span class="keywordtype">double</span> a,<span class="keywordtype">long</span> <span class="keywordtype">double</span> b)</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;{</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;  <span class="keywordflow">return</span> ( (a&lt;b) ? a : b );</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;}</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00255"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#ga18c9c17f04e642ab14fa52d414b1ec7f">  255</a></span>&#160;<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1a837fe3ed2b3189ec13fa1d8e851fed">min</a>(<span class="keywordtype">double</span> a,<span class="keywordtype">long</span> <span class="keywordtype">double</span> b)</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;{</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;  <span class="keywordflow">return</span> ( (a&lt;b) ? a : b );</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;}</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00264"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#ga0951ba1617f80ef3241b09a660b9a23f">  264</a></span>&#160;<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1a837fe3ed2b3189ec13fa1d8e851fed">min</a>(<span class="keywordtype">long</span> <span class="keywordtype">double</span> a,<span class="keywordtype">double</span> b)</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;{</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  <span class="keywordflow">return</span> ( (a&lt;b) ? a : b );</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;}</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#gad255053de19544d3292606a9a18ab76e">  273</a></span>&#160;<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1a837fe3ed2b3189ec13fa1d8e851fed">min</a>(<span class="keywordtype">double</span> a,<span class="keywordtype">double</span> b)</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;{</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  <span class="keywordflow">return</span> ( (a&lt;b) ? a : b );</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;}</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">float</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#ga9d1ce1ca3c1ecaf0b75b8f67019d851d">  282</a></span>&#160;<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1a837fe3ed2b3189ec13fa1d8e851fed">min</a>(<span class="keywordtype">float</span> a,<span class="keywordtype">float</span> b)</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;{</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  <span class="keywordflow">return</span> ( (a&lt;b) ? a : b );</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;}</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">int</span></div>
+<div class="line"><a name="l00291"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#ga0fe05181936416b3cd10333e42ea4ecd">  291</a></span>&#160;<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1a837fe3ed2b3189ec13fa1d8e851fed">min</a>(<span class="keywordtype">int</span> a,<span class="keywordtype">int</span> b)</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;{</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  <span class="keywordflow">return</span> ( (a&lt;b) ? a : b );</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;}</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; </div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt; ARCCORE_HOST_DEVICE <span class="keyword">inline</span> T</div>
+<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#gae6e0b7b60b77373ba881450b666562a7">  306</a></span>&#160;<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">max</a>(<span class="keyword">const</span> T&amp; a,<span class="keyword">const</span> T&amp; b)</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;{</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;  <span class="keywordflow">return</span> ( (a&lt;b) ? b : a );</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;}</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00315"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#ga84815b051090747303b5ba1b8afa6307">  315</a></span>&#160;<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">max</a>(<span class="keywordtype">long</span> <span class="keywordtype">double</span> a,<span class="keywordtype">long</span> <span class="keywordtype">double</span> b)</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;{</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  <span class="keywordflow">return</span> ( (a&lt;b) ? b : a );</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;}</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00324"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#ga05fb618b308853e74e18191383436bb5">  324</a></span>&#160;<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">max</a>(<span class="keywordtype">double</span> a,<span class="keywordtype">long</span> <span class="keywordtype">double</span> b)</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;{</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  <span class="keywordflow">return</span> ( (a&lt;b) ? b : a );</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;}</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00333"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#ga9c7d9021acc30f8551b37c749bf19cae">  333</a></span>&#160;<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">max</a>(<span class="keywordtype">long</span> <span class="keywordtype">double</span> a,<span class="keywordtype">double</span> b)</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;{</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  <span class="keywordflow">return</span> ( (a&lt;b) ? b : a );</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;}</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">unsigned</span> <span class="keywordtype">long</span></div>
+<div class="line"><a name="l00342"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#ga6071695543ab74a9c9f299d76351f205">  342</a></span>&#160;<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">max</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> a,<span class="keywordtype">unsigned</span> <span class="keywordtype">long</span> b)</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;{</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;  <span class="keywordflow">return</span> ( (a&lt;b) ? b : a );</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160;}</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00351"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#ga48f0b308395ab13e0e8ea140a5a1b422">  351</a></span>&#160;<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">max</a>(<span class="keywordtype">double</span> a,<span class="keywordtype">double</span> b)</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160;{</div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;  <span class="keywordflow">return</span> ( (a&lt;b) ? b : a );</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160;}</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">float</span></div>
+<div class="line"><a name="l00360"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#gabcaf8c309ccff712fc4fdf1232d5b578">  360</a></span>&#160;<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">max</a>(<span class="keywordtype">float</span> a,<span class="keywordtype">float</span> b)</div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;{</div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;  <span class="keywordflow">return</span> ( (a&lt;b) ? b : a );</div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;}</div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> Int16</div>
+<div class="line"><a name="l00369"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#ga8540271c30ccb2d35b50ccb3edb24639">  369</a></span>&#160;<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">max</a>(Int16 a,Int16 b)</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;{</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;  <span class="keywordflow">return</span> ( (a&lt;b) ? b : a );</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;}</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> Int32</div>
+<div class="line"><a name="l00378"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#gaaa8c0473f7b995af0400b298439d4958">  378</a></span>&#160;<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">max</a>(Int32 a,Int32 b)</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;{</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;  <span class="keywordflow">return</span> ( (a&lt;b) ? b : a );</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;}</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> Int64</div>
+<div class="line"><a name="l00387"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#ga3b1ab67ee27cd35955c16cc795bfc59f">  387</a></span>&#160;<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">max</a>(Int32 a,Int64 b)</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;{</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;  <span class="keywordflow">return</span> ( (a&lt;b) ? b : a );</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;}</div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> Int64</div>
+<div class="line"><a name="l00396"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#gade6c3e25782abf9b6a74442e07fefbd1">  396</a></span>&#160;<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">max</a>(Int64 a,Int32 b)</div>
+<div class="line"><a name="l00397"></a><span class="lineno">  397</span>&#160;{</div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;  <span class="keywordflow">return</span> ( (a&lt;b) ? b : a );</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160;}</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> Int64</div>
+<div class="line"><a name="l00405"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#gaf826319ee0d6d421e5fa6d53e5e1296e">  405</a></span>&#160;<a class="code" href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">max</a>(Int64 a,Int64 b)</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160;{</div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160;  <span class="keywordflow">return</span> ( (a&lt;b) ? b : a );</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160;}</div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160; </div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">long</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00417"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#gaff723e00b8e31ff9dfca9fc551ae7062">  417</a></span>&#160;abs(<span class="keywordtype">long</span> <span class="keywordtype">double</span> a)</div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;{</div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160;  return ::fabsl(a);</div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;  <span class="comment">//return (a&gt;0.L) ? a : (-a);</span></div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;}</div>
+<div class="line"><a name="l00426"></a><span class="lineno">  426</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00427"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#gac2382f931818b09a558c1f0b7d0477b4">  427</a></span>&#160;abs(<span class="keywordtype">double</span> a)</div>
+<div class="line"><a name="l00428"></a><span class="lineno">  428</span>&#160;{</div>
+<div class="line"><a name="l00429"></a><span class="lineno">  429</span>&#160;  return ::fabs(a);</div>
+<div class="line"><a name="l00430"></a><span class="lineno">  430</span>&#160;}</div>
+<div class="line"><a name="l00435"></a><span class="lineno">  435</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">float</span></div>
+<div class="line"><a name="l00436"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#ga91e7f08b0dd2e719bd2850cc9068a70c">  436</a></span>&#160;abs(<span class="keywordtype">float</span> a)</div>
+<div class="line"><a name="l00437"></a><span class="lineno">  437</span>&#160;{</div>
+<div class="line"><a name="l00438"></a><span class="lineno">  438</span>&#160;  return ::fabsf(a);</div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;  <span class="comment">//return (a&gt;0.F) ? a : (-a);</span></div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160;}</div>
+<div class="line"><a name="l00441"></a><span class="lineno">  441</span>&#160; </div>
+<div class="line"><a name="l00446"></a><span class="lineno">  446</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">short</span></div>
+<div class="line"><a name="l00447"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#ga8549cc4fdedac3d4cde70f3a7d81d003">  447</a></span>&#160;abs(<span class="keywordtype">short</span> a)</div>
+<div class="line"><a name="l00448"></a><span class="lineno">  448</span>&#160;{</div>
+<div class="line"><a name="l00449"></a><span class="lineno">  449</span>&#160;  <span class="keywordflow">return</span> (a&gt;0) ? a : (short)(-a);</div>
+<div class="line"><a name="l00450"></a><span class="lineno">  450</span>&#160;}</div>
+<div class="line"><a name="l00451"></a><span class="lineno">  451</span>&#160; </div>
+<div class="line"><a name="l00456"></a><span class="lineno">  456</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">int</span></div>
+<div class="line"><a name="l00457"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#ga4dd5ea7fb8ec6f19c1dcf4e773aded4f">  457</a></span>&#160;abs(<span class="keywordtype">int</span> a)</div>
+<div class="line"><a name="l00458"></a><span class="lineno">  458</span>&#160;{</div>
+<div class="line"><a name="l00459"></a><span class="lineno">  459</span>&#160;  <span class="keywordflow">return</span> (a&gt;0) ? a : (-a);</div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;}</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160; </div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">long</span></div>
+<div class="line"><a name="l00467"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#gab4097754773097437c3662f55fe34f58">  467</a></span>&#160;abs(<span class="keywordtype">long</span> a)</div>
+<div class="line"><a name="l00468"></a><span class="lineno">  468</span>&#160;{</div>
+<div class="line"><a name="l00469"></a><span class="lineno">  469</span>&#160;  <span class="keywordflow">return</span> (a&gt;0L) ? a : (-a);</div>
+<div class="line"><a name="l00470"></a><span class="lineno">  470</span>&#160;}</div>
+<div class="line"><a name="l00471"></a><span class="lineno">  471</span>&#160; </div>
+<div class="line"><a name="l00476"></a><span class="lineno">  476</span>&#160;ARCCORE_HOST_DEVICE <span class="keyword">inline</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span></div>
+<div class="line"><a name="l00477"></a><span class="lineno"><a class="line" href="../../d9/dcd/group__GroupMathUtils.html#gadd2cd136f038f3f33ea9e0d21b2b16bc">  477</a></span>&#160;abs(<span class="keywordtype">long</span> <span class="keywordtype">long</span> a)</div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;{</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160;  <span class="keywordflow">return</span> (a&gt;0LL) ? a : (-a);</div>
+<div class="line"><a name="l00480"></a><span class="lineno">  480</span>&#160;}</div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160; </div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00483"></a><span class="lineno">  483</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160;<span class="keyword">extern</span> ARCANE_UTILS_EXPORT <span class="keywordtype">double</span></div>
+<div class="line"><a name="l00498"></a><span class="lineno">  498</span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#a97331b91184532b5e1e244ad01ee7cae">truncateDouble</a>(<span class="keywordtype">double</span> v,Integer nb_digit);</div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160; </div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160;<span class="keyword">extern</span> ARCANE_UTILS_EXPORT <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;<a class="code" href="../../d8/d68/namespaceArcane_1_1math.html#a97331b91184532b5e1e244ad01ee7cae">truncateDouble</a>(<a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayView&lt;double&gt;</a> values,Integer nb_digit);</div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160; </div>
+<div class="line"><a name="l00512"></a><span class="lineno">  512</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00513"></a><span class="lineno">  513</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00514"></a><span class="lineno">  514</span>&#160; </div>
+<div class="line"><a name="l00515"></a><span class="lineno">  515</span>&#160;} <span class="comment">// End namespace Arcane::math</span></div>
+<div class="line"><a name="l00516"></a><span class="lineno">  516</span>&#160; </div>
+<div class="line"><a name="l00517"></a><span class="lineno">  517</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00518"></a><span class="lineno">  518</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00519"></a><span class="lineno">  519</span>&#160; </div>
+<div class="line"><a name="l00520"></a><span class="lineno">  520</span>&#160;<span class="preprocessor">#ifdef ARCANE_REAL_USE_APFLOAT</span></div>
+<div class="line"><a name="l00521"></a><span class="lineno">  521</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/MathApfloat.h&quot;</span></div>
+<div class="line"><a name="l00522"></a><span class="lineno">  522</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00523"></a><span class="lineno">  523</span>&#160; </div>
+<div class="line"><a name="l00524"></a><span class="lineno">  524</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00525"></a><span class="lineno">  525</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00526"></a><span class="lineno">  526</span>&#160; </div>
+<div class="line"><a name="l00527"></a><span class="lineno">  527</span>&#160;<span class="preprocessor">#endif  </span></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclassArccore_1_1ArrayView_html"><div class="ttname"><a href="../../d7/d02/classArccore_1_1ArrayView.html">Arccore::ArrayView</a></div><div class="ttdoc">Vue modifiable d'un tableau d'un type T.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:95</div></div>
+<div class="ttc" id="anamespaceArcane_1_1math_html_a2aadbf3e2ee653fd079aee22f3e458a5"><div class="ttname"><a href="../../d8/d68/namespaceArcane_1_1math.html#a2aadbf3e2ee653fd079aee22f3e458a5">Arcane::math::floor</a></div><div class="ttdeci">__host__ __device__ double floor(double v)</div><div class="ttdoc">Arondir v à l'entier immédiatement inférieur.</div><div class="ttdef"><b>Definition:</b> Math.h:94</div></div>
+<div class="ttc" id="anamespaceArcane_1_1math_html_a9471c7740f6db4a3acfc11785323fb9c"><div class="ttname"><a href="../../d8/d68/namespaceArcane_1_1math.html#a9471c7740f6db4a3acfc11785323fb9c">Arcane::math::log10</a></div><div class="ttdeci">__host__ __device__ double log10(double v)</div><div class="ttdoc">Logarithme décimal de v.</div><div class="ttdef"><b>Definition:</b> Math.h:66</div></div>
+<div class="ttc" id="anamespaceArcane_1_1math_html_ae556564cadf8453f326c1997fe7b81dd"><div class="ttname"><a href="../../d8/d68/namespaceArcane_1_1math.html#ae556564cadf8453f326c1997fe7b81dd">Arcane::math::exp</a></div><div class="ttdeci">__host__ __device__ double exp(double v)</div><div class="ttdoc">Exponentielle de v.</div><div class="ttdef"><b>Definition:</b> Math.h:114</div></div>
+<div class="ttc" id="anamespaceArcane_1_1math_html_a0cb5b459b8e24cfe1e1410a904dc8b17"><div class="ttname"><a href="../../d8/d68/namespaceArcane_1_1math.html#a0cb5b459b8e24cfe1e1410a904dc8b17">Arcane::math::pow</a></div><div class="ttdeci">__host__ __device__ double pow(double x, double y)</div><div class="ttdoc">Fonction puissance.</div><div class="ttdef"><b>Definition:</b> Math.h:164</div></div>
+<div class="ttc" id="agroup__GroupMathUtils_html_ga1fdb520cf182e9f868193f653daf3e2f"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">Arcane::math::max</a></div><div class="ttdeci">T max(const T &amp;a, const T &amp;b, const T &amp;c)</div><div class="ttdoc">Retourne le maximum de trois éléments.</div><div class="ttdef"><b>Definition:</b> MathUtils.h:430</div></div>
+<div class="ttc" id="anamespaceArcane_1_1math_html_a7fe9259cb85108740dfaa663c4099fe8"><div class="ttname"><a href="../../d8/d68/namespaceArcane_1_1math.html#a7fe9259cb85108740dfaa663c4099fe8">Arcane::math::log</a></div><div class="ttdeci">__host__ __device__ double log(double v)</div><div class="ttdoc">Logarithme népérien de v.</div><div class="ttdef"><b>Definition:</b> Math.h:38</div></div>
+<div class="ttc" id="aUtilsTypes_8h_html"><div class="ttname"><a href="../../d4/da8/UtilsTypes_8h.html">UtilsTypes.h</a></div><div class="ttdoc">Déclarations des types utilisés dans Arcane.</div></div>
+<div class="ttc" id="anamespaceArcane_1_1math_html"><div class="ttname"><a href="../../d8/d68/namespaceArcane_1_1math.html">Arcane::math</a></div><div class="ttdoc">Espace de nom pour les fonctions mathématiques.</div><div class="ttdef"><b>Definition:</b> MathUtils.h:39</div></div>
+<div class="ttc" id="aclassArccore_1_1ArrayView_html_a73c3fc706372e21a320224b6798c6423"><div class="ttname"><a href="../../d7/d02/classArccore_1_1ArrayView.html#a73c3fc706372e21a320224b6798c6423">Arccore::ArrayView::size</a></div><div class="ttdeci">constexpr Integer size() const noexcept</div><div class="ttdoc">Retourne la taille du tableau.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:218</div></div>
+<div class="ttc" id="agroup__GroupMathUtils_html_ga1a837fe3ed2b3189ec13fa1d8e851fed"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#ga1a837fe3ed2b3189ec13fa1d8e851fed">Arcane::math::min</a></div><div class="ttdeci">__host__ __device__ Real2 min(Real2 a, Real2 b)</div><div class="ttdoc">Retourne le minimum de deux Real2.</div><div class="ttdef"><b>Definition:</b> MathUtils.h:374</div></div>
+<div class="ttc" id="anamespaceArcane_1_1math_html_a97331b91184532b5e1e244ad01ee7cae"><div class="ttname"><a href="../../d8/d68/namespaceArcane_1_1math.html#a97331b91184532b5e1e244ad01ee7cae">Arcane::math::truncateDouble</a></div><div class="ttdeci">double truncateDouble(double v, Integer nb_digit)</div><div class="ttdoc">Tronque la précision du réel v à nb_digit chiffres significatifs.</div><div class="ttdef"><b>Definition:</b> Math.cc:78</div></div>
+<div class="ttc" id="anamespaceArcane_html_aca9f9ecfcafa49aa493d0e07ef7fec34"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aca9f9ecfcafa49aa493d0e07ef7fec34">Arcane::arcaneMathError</a></div><div class="ttdeci">__host__ __device__ void arcaneMathError(long double arg_value, const char *func_name)</div><div class="ttdoc">Signale un argument invalide d'une fonction mathématique.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:320</div></div>
+<div class="ttc" id="anamespaceArcane_1_1math_html_a4f7e7462cb507fd3c6b2f1fe1b14b007"><div class="ttname"><a href="../../d8/d68/namespaceArcane_1_1math.html#a4f7e7462cb507fd3c6b2f1fe1b14b007">Arcane::math::sqrt</a></div><div class="ttdeci">__host__ __device__ double sqrt(double v)</div><div class="ttdoc">Racine carrée de v.</div><div class="ttdef"><b>Definition:</b> Math.h:133</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_2729d02b006c8e73197ea03fae7905d4.html">utils</a></li><li class="navelem"><b>Math.h</b></li>
+    <li class="footer">Généré le Mercredi 30 Mars 2022 12:59:37 pour Arcane par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

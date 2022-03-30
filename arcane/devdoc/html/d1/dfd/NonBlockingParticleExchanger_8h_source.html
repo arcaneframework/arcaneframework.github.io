@@ -1,0 +1,313 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de NonBlockingParticleExchanger.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_73b81ab7f8087ecd4627c74229710b8a.html">mesh</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">NonBlockingParticleExchanger.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* NonBlockingParticleExchanger.h                              (C) 2000-2020 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Echangeur de particules.                                                  */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_NONBLOCKINGPARTICLEEXCHANGER_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_NONBLOCKINGPARTICLEEXCHANGER_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/List.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/ScopedPtr.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;arcane/mesh/MeshGlobal.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;arcane/IParticleExchanger.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;arcane/BasicService.h&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;arcane/VariableCollection.h&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">class </span>Timer;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span>SerializeMessage;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d5/d7e/namespaceArcane_1_1mesh.html">Arcane::mesh</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html">   46</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html">NonBlockingParticleExchanger</a></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d1/d5e/classArcane_1_1BasicService.html">BasicService</a></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;, <span class="keyword">public</span> <a class="code" href="../../d8/d83/classArcane_1_1IParticleExchanger.html">IParticleExchanger</a></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> Integer MESSAGE_EXCHANGE = 1;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> Integer MESSAGE_NB_FINISH_EXCHANGE = 2;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> Integer MESSAGE_FINISH_EXCHANGE_STATUS = 3;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> Integer MESSAGE_CHANGE_BLOCKING = 4;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html">NonBlockingParticleExchanger</a>(<span class="keyword">const</span> <a class="code" href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">ServiceBuildInfo</a>&amp; sbi);</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  ~<a class="code" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html">NonBlockingParticleExchanger</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keywordtype">void</span> build()<span class="keyword"> override </span>{}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a06d0d1a14b92cf20ecad4047d23a62f5">initialize</a>(<a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html">IItemFamily</a>* item_family) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a7d0cbf29c45521fd5307f2c561606167">beginNewExchange</a>(Integer nb_particule) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a429bf29076dd4aa01c81f1a01b7070b3">   68</a></span>&#160;  <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html">IItemFamily</a>* <a class="code" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a429bf29076dd4aa01c81f1a01b7070b3">itemFamily</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> m_item_family; }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a21b318dd751fec75ec45aeec4b31e18b">exchangeItems</a>(Integer nb_particle_finish_exchange,</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;                     <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> local_ids,</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;                     <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> sub_domains_to_send,<a class="code" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a> item_group,</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;                     <a class="code" href="../../d5/d5f/classArccore_1_1IFunctor.html">IFunctor</a>* functor) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a21b318dd751fec75ec45aeec4b31e18b">exchangeItems</a>(Integer nb_particle_finish_exchange,</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;                     <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> local_ids,</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;                     <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> sub_domains_to_send,</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;                     <a class="code" href="../../d1/dfb/classArcane_1_1Array.html">Int32Array</a>* new_particle_local_ids,</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;                     <a class="code" href="../../d5/d5f/classArccore_1_1IFunctor.html">IFunctor</a>* functor) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a80687df62353de36ff8b895307382128">sendItems</a>(Integer nb_particle_finish_exchange,</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;                 <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> local_ids,</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;                 <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> sub_domains_to_send) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a853782d8eb26daa022926f2deb88d0a5">waitMessages</a>(Integer nb_pending_particle,<a class="code" href="../../d1/dfb/classArcane_1_1Array.html">Int32Array</a>* new_particle_local_ids,</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;                    <a class="code" href="../../d5/d5f/classArccore_1_1IFunctor.html">IFunctor</a>* functor) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a97f1fd334eb4202ae7ca867f50b06fa7">   84</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a97f1fd334eb4202ae7ca867f50b06fa7">addNewParticles</a>(Integer nb_particle)<span class="keyword"> override</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    ARCANE_UNUSED(nb_particle);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">throw</span> <a class="code" href="../../d6/d5e/classArccore_1_1NotImplementedException.html">NotImplementedException</a>(A_FUNCINFO);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  }</div>
+<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#ae9a97842c87e9d012b1ed21c327b52c3">   89</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#ae9a97842c87e9d012b1ed21c327b52c3">setVerboseLevel</a>(Integer level)<span class="keyword"> override </span>{ m_verbose_level = level; }</div>
+<div class="line"><a name="l00090"></a><span class="lineno"><a class="line" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#aa7437ef69f0aa915628bcc6db3d2a4aa">   90</a></span>&#160;  Integer <a class="code" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#aa7437ef69f0aa915628bcc6db3d2a4aa">verboseLevel</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_verbose_level; }</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a9e0fd006df54bb97c827fd3b0cc8f61b">   91</a></span>&#160;  <a class="code" href="../../de/d5b/classArcane_1_1IAsyncParticleExchanger.html">IAsyncParticleExchanger</a> * <a class="code" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a9e0fd006df54bb97c827fd3b0cc8f61b">asyncParticleExchanger</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="keyword">nullptr</span>; }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keywordtype">void</span> reset();</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html">IItemFamily</a>* m_item_family;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <a class="code" href="../../dc/d5a/classArcane_1_1IParallelMng.html">IParallelMng</a>* m_parallel_mng;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">UniqueArray&lt;SerializeMessage*&gt;</a> m_accumulate_infos;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  Int32 m_rank;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno"><a class="line" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a7a127edae84d90f45a73f0456860e1ba">  104</a></span>&#160;  Timer* <a class="code" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a7a127edae84d90f45a73f0456860e1ba">m_timer</a>;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  Real m_total_time_functor;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  Real m_total_time_waiting;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno"><a class="line" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a78ac25c4a858bc54a43a716ac2049fb1">  109</a></span>&#160;  <a class="code" href="../../d7/d1b/classArcane_1_1VariableCollection.html">VariableList</a> <a class="code" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a78ac25c4a858bc54a43a716ac2049fb1">m_variables_to_exchange</a>;</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  </div>
+<div class="line"><a name="l00112"></a><span class="lineno"><a class="line" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a1efee77805f65d457d02c8c70e6b9d49">  112</a></span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">UniqueArray&lt;ISerializeMessage*&gt;</a> <a class="code" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a1efee77805f65d457d02c8c70e6b9d49">m_pending_messages</a>;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno"><a class="line" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a6598373788a6628b3102562d96dcbcec">  115</a></span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">UniqueArray&lt;ISerializeMessage*&gt;</a> <a class="code" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a6598373788a6628b3102562d96dcbcec">m_waiting_messages</a>;</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;ISerializeMessageList&gt;</a> m_message_list;</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  Int64 m_nb_total_particle_finish_exchange;</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;  Int64 m_nb_total_particle;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  Integer m_nb_original_blocking_size;</div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#ac94d56b7e1b6bb83763feffd58dcad8c">  124</a></span>&#160;  Integer <a class="code" href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#ac94d56b7e1b6bb83763feffd58dcad8c">m_nb_blocking_size</a>;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="keywordtype">bool</span> m_exchange_finished;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  Int32 m_master_proc;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  <span class="keywordtype">bool</span> m_need_general_receive;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <span class="keywordtype">bool</span> m_end_message_sended;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="keywordtype">bool</span> m_can_process_messages;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <span class="keywordtype">bool</span> m_can_process_non_blocking;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="keywordtype">bool</span> m_want_process_non_blocking;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  <span class="keywordtype">bool</span> m_want_fast_send_particles;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  Integer m_nb_receive_message;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  Int64 m_nb_particle_finished_exchange;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">Int32UniqueArray</a> m_waiting_local_ids;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">Int32UniqueArray</a> m_waiting_sub_domains_to_send;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  Integer m_verbose_level;</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  <span class="keywordtype">bool</span> m_is_debug;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="keywordtype">void</span> _clearMessages();</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="keywordtype">void</span> _serializeMessage(<a class="code" href="../../df/d29/classArccore_1_1MessagePassing_1_1ISerializeMessage.html">ISerializeMessage</a>* msg,</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;                         <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> acc_ids,</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;                         <a class="code" href="../../d1/dfb/classArcane_1_1Array.html">Int64Array</a>&amp; items_to_send_uid,</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;                         <a class="code" href="../../d1/dfb/classArcane_1_1Array.html">Int64Array</a>&amp; items_to_send_cells_uid);</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  <span class="keywordtype">void</span> _deserializeMessage(<a class="code" href="../../df/d29/classArccore_1_1MessagePassing_1_1ISerializeMessage.html">ISerializeMessage</a>* msg,</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;                           <a class="code" href="../../d1/dfb/classArcane_1_1Array.html">Int64Array</a>&amp; items_to_create_id,</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;                           <a class="code" href="../../d1/dfb/classArcane_1_1Array.html">Int64Array</a>&amp; items_to_create_cell_id,</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;                           <a class="code" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a> item_group,</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;                           <a class="code" href="../../d1/dfb/classArcane_1_1Array.html">Int32Array</a>* new_particle_local_ids);</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  <span class="keywordtype">void</span> _processFinishTrackingMessage();</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;  <span class="keywordtype">void</span> _addFinishExchangeParticle(Int64 nb_particle_finish_exchange);</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  <span class="keywordtype">void</span> _sendFinishExchangeParticle();</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;  <span class="keywordtype">void</span> _addItemsToSend(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> local_ids,</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;                       <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> sub_domains_to_send,</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;                       <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> communicating_sub_domains,</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;                       <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">UniqueArray</a>&lt;<a class="code" href="../../d4/dee/classArccore_1_1SharedArray.html">SharedArray&lt;Int32&gt;</a> &gt;&amp; ids_to_send);</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;  <span class="keywordtype">void</span> _sendPendingMessages();</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <span class="keywordtype">void</span> _checkNeedReceiveMessage();</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;  <span class="keywordtype">bool</span> _exchangeItems(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> local_ids,</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;                      <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> sub_domains_to_send,</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;                      <a class="code" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a> item_group,</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;                      <a class="code" href="../../d1/dfb/classArcane_1_1Array.html">Int32Array</a>* new_particle_local_ids,</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;                      <a class="code" href="../../d5/d5f/classArccore_1_1IFunctor.html">IFunctor</a>* functor);</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <span class="keywordtype">void</span> _checkSendItems(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> local_ids,<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> sub_domains_to_send);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  <span class="keywordtype">void</span> _generateSendItemsMessages(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> local_ids,<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> sub_domains_to_send);</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <span class="keywordtype">void</span> _checkInitialized();</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  <span class="keywordtype">void</span> _processMessages(<a class="code" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a> item_group,<a class="code" href="../../d1/dfb/classArcane_1_1Array.html">Int32Array</a>* new_particle_local_ids,<span class="keywordtype">bool</span> wait_all,<a class="code" href="../../d5/d5f/classArccore_1_1IFunctor.html">IFunctor</a>* functor);</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  <span class="keywordtype">bool</span> _waitMessages(Integer nb_pending_particle,<a class="code" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a> group,<a class="code" href="../../d1/dfb/classArcane_1_1Array.html">Int32Array</a>* new_particle_local_ids,<a class="code" href="../../d5/d5f/classArccore_1_1IFunctor.html">IFunctor</a>* functor);</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;};</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="preprocessor">#endif  </span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1Array_html"><div class="ttname"><a href="../../d1/dfb/classArcane_1_1Array.html">Arcane::Array&lt; Int32 &gt;</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_a282d06cf0e8fd507e5b46b5189f7648d"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a282d06cf0e8fd507e5b46b5189f7648d">Arcane::Int64UniqueArray</a></div><div class="ttdeci">UniqueArray&lt; Int64 &gt; Int64UniqueArray</div><div class="ttdoc">Tableau dynamique à une dimension d'entiers 64 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:405</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1NonBlockingParticleExchanger_html_a1efee77805f65d457d02c8c70e6b9d49"><div class="ttname"><a href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a1efee77805f65d457d02c8c70e6b9d49">Arcane::mesh::NonBlockingParticleExchanger::m_pending_messages</a></div><div class="ttdeci">UniqueArray&lt; ISerializeMessage * &gt; m_pending_messages</div><div class="ttdoc">Liste des message en attente d'envoie.</div><div class="ttdef"><b>Definition:</b> NonBlockingParticleExchanger.h:112</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1NonBlockingParticleExchanger_html_a78ac25c4a858bc54a43a716ac2049fb1"><div class="ttname"><a href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a78ac25c4a858bc54a43a716ac2049fb1">Arcane::mesh::NonBlockingParticleExchanger::m_variables_to_exchange</a></div><div class="ttdeci">VariableList m_variables_to_exchange</div><div class="ttdoc">Liste des variables à échanger.</div><div class="ttdef"><b>Definition:</b> NonBlockingParticleExchanger.h:109</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelMng_html"><div class="ttname"><a href="../../dc/d5a/classArcane_1_1IParallelMng.html">Arcane::IParallelMng</a></div><div class="ttdoc">Interface du gestionnaire de parallélisme pour un sous-domaine.</div><div class="ttdef"><b>Definition:</b> IParallelMng.h:70</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelMng_html_af078b601696a7983571867ec83198b1c"><div class="ttname"><a href="../../dc/d5a/classArcane_1_1IParallelMng.html#af078b601696a7983571867ec83198b1c">Arcane::IParallelMng::reduce</a></div><div class="ttdeci">virtual char reduce(eReduceType rt, char v)=0</div><div class="ttdoc">Effectue la réduction de type rt sur le réel v et retourne la valeur.</div></div>
+<div class="ttc" id="aclassArcane_1_1ServiceBuildInfo_html"><div class="ttname"><a href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">Arcane::ServiceBuildInfo</a></div><div class="ttdoc">Structure contenant les informations pour créer un service.</div><div class="ttdef"><b>Definition:</b> ServiceBuildInfo.h:122</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1NonBlockingParticleExchanger_html_aa7437ef69f0aa915628bcc6db3d2a4aa"><div class="ttname"><a href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#aa7437ef69f0aa915628bcc6db3d2a4aa">Arcane::mesh::NonBlockingParticleExchanger::verboseLevel</a></div><div class="ttdeci">Integer verboseLevel() const override</div><div class="ttdoc">Niveau de verbosité</div><div class="ttdef"><b>Definition:</b> NonBlockingParticleExchanger.h:90</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1NonBlockingParticleExchanger_html_a80687df62353de36ff8b895307382128"><div class="ttname"><a href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a80687df62353de36ff8b895307382128">Arcane::mesh::NonBlockingParticleExchanger::sendItems</a></div><div class="ttdeci">void sendItems(Integer nb_particle_finish_exchange, Int32ConstArrayView local_ids, Int32ConstArrayView sub_domains_to_send) override</div><div class="ttdef"><b>Definition:</b> NonBlockingParticleExchanger.cc:193</div></div>
+<div class="ttc" id="anamespaceArcane_html_abc8d646c5aa8c4a583e54f7798c3bf80"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#abc8d646c5aa8c4a583e54f7798c3bf80">Arcane::Int32Array</a></div><div class="ttdeci">Array&lt; Int32 &gt; Int32Array</div><div class="ttdoc">Tableau dynamique à une dimension d'entiers 32 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:219</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1ISerializeMessage_html"><div class="ttname"><a href="../../df/d29/classArccore_1_1MessagePassing_1_1ISerializeMessage.html">Arccore::MessagePassing::ISerializeMessage</a></div><div class="ttdoc">Interface d'un message de sérialisation entre IMessagePassingMng.</div><div class="ttdef"><b>Definition:</b> arccore/src/message_passing/arccore/message_passing/ISerializeMessage.h:44</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1NonBlockingParticleExchanger_html"><div class="ttname"><a href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html">Arcane::mesh::NonBlockingParticleExchanger</a></div><div class="ttdoc">Echangeur de particules.</div><div class="ttdef"><b>Definition:</b> NonBlockingParticleExchanger.h:46</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1NonBlockingParticleExchanger_html_ae9a97842c87e9d012b1ed21c327b52c3"><div class="ttname"><a href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#ae9a97842c87e9d012b1ed21c327b52c3">Arcane::mesh::NonBlockingParticleExchanger::setVerboseLevel</a></div><div class="ttdeci">void setVerboseLevel(Integer level) override</div><div class="ttdoc">Positionne le niveau de verbosité (0 pour aucune message)</div><div class="ttdef"><b>Definition:</b> NonBlockingParticleExchanger.h:89</div></div>
+<div class="ttc" id="anamespaceArcane_html_a9705dd87194ca42d81d4da3d95a9acd7"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a9705dd87194ca42d81d4da3d95a9acd7">Arcane::Int32UniqueArray</a></div><div class="ttdeci">UniqueArray&lt; Int32 &gt; Int32UniqueArray</div><div class="ttdoc">Tableau dynamique à une dimension d'entiers 32 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:407</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1NonBlockingParticleExchanger_html_a97f1fd334eb4202ae7ca867f50b06fa7"><div class="ttname"><a href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a97f1fd334eb4202ae7ca867f50b06fa7">Arcane::mesh::NonBlockingParticleExchanger::addNewParticles</a></div><div class="ttdeci">void addNewParticles(Integer nb_particle) override</div><div class="ttdoc">Ajoute nb_particle dans l'échange actuel.</div><div class="ttdef"><b>Definition:</b> NonBlockingParticleExchanger.h:84</div></div>
+<div class="ttc" id="anamespaceArccore_1_1MessagePassing_html_a916fba7437b2cbc28ddcf1e0f23aca7aa032b66831d1158bf5b467615ec2c0c5a"><div class="ttname"><a href="../../da/d41/namespaceArccore_1_1MessagePassing.html#a916fba7437b2cbc28ddcf1e0f23aca7aa032b66831d1158bf5b467615ec2c0c5a">Arccore::MessagePassing::WaitSomeNonBlocking</a></div><div class="ttdeci">@ WaitSomeNonBlocking</div><div class="ttdef"><b>Definition:</b> MessagePassingGlobal.h:87</div></div>
+<div class="ttc" id="anamespaceArcane_1_1mesh_html"><div class="ttname"><a href="../../d5/d7e/namespaceArcane_1_1mesh.html">Arcane::mesh</a></div><div class="ttdoc">AMR.</div><div class="ttdef"><b>Definition:</b> IItemFamily.h:47</div></div>
+<div class="ttc" id="anamespaceArccore_html_a19fea02f94d4da203710fd2070c0f2fb"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Arccore::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:232</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1NonBlockingParticleExchanger_html_a6598373788a6628b3102562d96dcbcec"><div class="ttname"><a href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a6598373788a6628b3102562d96dcbcec">Arcane::mesh::NonBlockingParticleExchanger::m_waiting_messages</a></div><div class="ttdeci">UniqueArray&lt; ISerializeMessage * &gt; m_waiting_messages</div><div class="ttdoc">Liste des message envoyés mais en cours de traitement.</div><div class="ttdef"><b>Definition:</b> NonBlockingParticleExchanger.h:115</div></div>
+<div class="ttc" id="aclassArccore_1_1IFunctor_html"><div class="ttname"><a href="../../d5/d5f/classArccore_1_1IFunctor.html">Arccore::IFunctor</a></div><div class="ttdoc">Interface d'un fonctor.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/IFunctor.h:31</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_affd4d1dc8daba192fc47e7e2deec5961a67f2598dad8c0388896c3cbcc201b392"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#affd4d1dc8daba192fc47e7e2deec5961a67f2598dad8c0388896c3cbcc201b392">Arccore::ISerializer::ReadReplace</a></div><div class="ttdeci">@ ReadReplace</div><div class="ttdoc">Replace les éléments actuels par ceux lus.</div><div class="ttdef"><b>Definition:</b> arccore/src/serialize/arccore/serialize/ISerializer.h:66</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1NonBlockingParticleExchanger_html_a853782d8eb26daa022926f2deb88d0a5"><div class="ttname"><a href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a853782d8eb26daa022926f2deb88d0a5">Arcane::mesh::NonBlockingParticleExchanger::waitMessages</a></div><div class="ttdeci">bool waitMessages(Integer nb_pending_particle, Int32Array *new_particle_local_ids, IFunctor *functor) override</div><div class="ttdef"><b>Definition:</b> NonBlockingParticleExchanger.cc:206</div></div>
+<div class="ttc" id="aclassArccore_1_1UniqueArray_html"><div class="ttname"><a href="../../da/daa/classArccore_1_1UniqueArray.html">Arccore::UniqueArray</a></div><div class="ttdoc">Vecteur 1D de données avec sémantique par valeur (style STL).</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:1504</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html_ac26e2b1441dbe2ce60c065d1b7840143"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html#ac26e2b1441dbe2ce60c065d1b7840143">Arccore::ConstArrayView::size</a></div><div class="ttdeci">constexpr Integer size() const noexcept</div><div class="ttdoc">Nombre d'éléments du tableau.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:632</div></div>
+<div class="ttc" id="aclassArccore_1_1SharedArray_html"><div class="ttname"><a href="../../d4/dee/classArccore_1_1SharedArray.html">Arccore::SharedArray</a></div><div class="ttdoc">Vecteur 1D de données avec sémantique par référence.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:1266</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html">Arcane::IItemFamily</a></div><div class="ttdoc">Interface d'une famille d'entités.</div><div class="ttdef"><b>Definition:</b> IItemFamily.h:106</div></div>
+<div class="ttc" id="anamespaceArcane_html_a05c27a651d3da9ae112c75113fcf7426a3ae7073d9f001bc491cfcfe0342ab0d8"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a05c27a651d3da9ae112c75113fcf7426a3ae7073d9f001bc491cfcfe0342ab0d8">Arcane::DT_Int32</a></div><div class="ttdeci">@ DT_Int32</div><div class="ttdoc">Donnée de type entier 32 bits.</div><div class="ttdef"><b>Definition:</b> DataTypes.h:40</div></div>
+<div class="ttc" id="aclassArcane_1_1IParticleExchanger_html"><div class="ttname"><a href="../../d8/d83/classArcane_1_1IParticleExchanger.html">Arcane::IParticleExchanger</a></div><div class="ttdoc">Interface d'un échangeur de particules.</div><div class="ttdef"><b>Definition:</b> IParticleExchanger.h:60</div></div>
+<div class="ttc" id="aclassArccore_1_1NotImplementedException_html"><div class="ttname"><a href="../../d6/d5e/classArccore_1_1NotImplementedException.html">Arccore::NotImplementedException</a></div><div class="ttdoc">Exception lorsqu'une fonction n'est pas implémentée.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/NotImplementedException.h:31</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1NonBlockingParticleExchanger_html_a7d0cbf29c45521fd5307f2c561606167"><div class="ttname"><a href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a7d0cbf29c45521fd5307f2c561606167">Arcane::mesh::NonBlockingParticleExchanger::beginNewExchange</a></div><div class="ttdeci">void beginNewExchange(Integer nb_particule) override</div><div class="ttdoc">Commence un nouvel échange de particules.</div><div class="ttdef"><b>Definition:</b> NonBlockingParticleExchanger.cc:129</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1NonBlockingParticleExchanger_html_a21b318dd751fec75ec45aeec4b31e18b"><div class="ttname"><a href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a21b318dd751fec75ec45aeec4b31e18b">Arcane::mesh::NonBlockingParticleExchanger::exchangeItems</a></div><div class="ttdeci">bool exchangeItems(Integer nb_particle_finish_exchange, Int32ConstArrayView local_ids, Int32ConstArrayView sub_domains_to_send, ItemGroup item_group, IFunctor *functor) override</div><div class="ttdoc">Échange des particules entre sous-domaines.</div><div class="ttdef"><b>Definition:</b> NonBlockingParticleExchanger.cc:164</div></div>
+<div class="ttc" id="agroup__Mesh_html_gadc505fcb4f401b07575436df3b71ad10"><div class="ttname"><a href="../../de/db5/group__Mesh.html#gadc505fcb4f401b07575436df3b71ad10">Arcane::ParticleVectorView</a></div><div class="ttdeci">ItemVectorViewT&lt; Particle &gt; ParticleVectorView</div><div class="ttdoc">Vue sur un vecteur de particules.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:222</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1NonBlockingParticleExchanger_html_a7a127edae84d90f45a73f0456860e1ba"><div class="ttname"><a href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a7a127edae84d90f45a73f0456860e1ba">Arcane::mesh::NonBlockingParticleExchanger::m_timer</a></div><div class="ttdeci">Timer * m_timer</div><div class="ttdoc">Timer.</div><div class="ttdef"><b>Definition:</b> NonBlockingParticleExchanger.h:104</div></div>
+<div class="ttc" id="anamespaceArcane_html_a0ec5ae2caa35ee3489405a512fc09f94"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a0ec5ae2caa35ee3489405a512fc09f94">Arcane::Int64Array</a></div><div class="ttdeci">Array&lt; Int64 &gt; Int64Array</div><div class="ttdoc">Tableau dynamique à une dimension d'entiers 64 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:217</div></div>
+<div class="ttc" id="anamespaceArcane_html_a05c27a651d3da9ae112c75113fcf7426aa59e9732cc990f1f9ce0bc74ccfac735"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a05c27a651d3da9ae112c75113fcf7426aa59e9732cc990f1f9ce0bc74ccfac735">Arcane::DT_Int64</a></div><div class="ttdeci">@ DT_Int64</div><div class="ttdoc">Donnée de type entier 64 bits.</div><div class="ttdef"><b>Definition:</b> DataTypes.h:41</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableCollection_html"><div class="ttname"><a href="../../d7/d1b/classArcane_1_1VariableCollection.html">Arcane::VariableCollection</a></div><div class="ttdoc">Collection de variables.</div><div class="ttdef"><b>Definition:</b> VariableCollection.h:80</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemGroup_html"><div class="ttname"><a href="../../d9/d27/classArcane_1_1ItemGroup.html">Arcane::ItemGroup</a></div><div class="ttdoc">Groupe d'entités de maillage.</div><div class="ttdef"><b>Definition:</b> ItemGroup.h:48</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a23c5d407e4d9b703fe595ce0725f913fa56b149b45802cff6c857903ddb92664e"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a23c5d407e4d9b703fe595ce0725f913fa56b149b45802cff6c857903ddb92664e">Arccore::ISerializer::ModeGet</a></div><div class="ttdeci">@ ModeGet</div><div class="ttdoc">Le sérialiseur attend des get()</div><div class="ttdef"><b>Definition:</b> arccore/src/serialize/arccore/serialize/ISerializer.h:61</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1NonBlockingParticleExchanger_html_a429bf29076dd4aa01c81f1a01b7070b3"><div class="ttname"><a href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a429bf29076dd4aa01c81f1a01b7070b3">Arcane::mesh::NonBlockingParticleExchanger::itemFamily</a></div><div class="ttdeci">IItemFamily * itemFamily() override</div><div class="ttdoc">Famille associée.</div><div class="ttdef"><b>Definition:</b> NonBlockingParticleExchanger.h:68</div></div>
+<div class="ttc" id="aclassArccore_1_1Ref_html"><div class="ttname"><a href="../../de/d9f/classArccore_1_1Ref.html">Arccore::Ref</a></div><div class="ttdoc">Référence à une instance.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/Ref.h:127</div></div>
+<div class="ttc" id="anamespaceArccore_html_af99e18ba74a7d55901961f24ac257c44"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#af99e18ba74a7d55901961f24ac257c44">Arccore::Int32ConstArrayView</a></div><div class="ttdeci">ConstArrayView&lt; Int32 &gt; Int32ConstArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension d'entiers 32 bits.</div><div class="ttdef"><b>Definition:</b> BaseTypes.h:138</div></div>
+<div class="ttc" id="anamespaceArccore_1_1MessagePassing_html_aaf52c72596590e6ea65e9e03e1adf3eaa730fd1eb73dab8e53ba89664ddf0f67b"><div class="ttname"><a href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3eaa730fd1eb73dab8e53ba89664ddf0f67b">Arccore::MessagePassing::ReduceSum</a></div><div class="ttdeci">@ ReduceSum</div><div class="ttdoc">Somme des valeurs.</div><div class="ttdef"><b>Definition:</b> MessagePassingGlobal.h:75</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a23c5d407e4d9b703fe595ce0725f913fa4533cfad45026c0cba50982578168e52"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a23c5d407e4d9b703fe595ce0725f913fa4533cfad45026c0cba50982578168e52">Arccore::ISerializer::ModePut</a></div><div class="ttdeci">@ ModePut</div><div class="ttdoc">Le sérialiseur attend des reserve()</div><div class="ttdef"><b>Definition:</b> arccore/src/serialize/arccore/serialize/ISerializer.h:60</div></div>
+<div class="ttc" id="aclassArcane_1_1IAsyncParticleExchanger_html"><div class="ttname"><a href="../../de/d5b/classArcane_1_1IAsyncParticleExchanger.html">Arcane::IAsyncParticleExchanger</a></div><div class="ttdoc">Interface d'un échangeur de particules asynchrone.</div><div class="ttdef"><b>Definition:</b> IAsyncParticleExchanger.h:31</div></div>
+<div class="ttc" id="aServiceFactory_8h_html_a94eac71c253673e421e9ae6e1800f901"><div class="ttname"><a href="../../d3/d58/ServiceFactory_8h.html#a94eac71c253673e421e9ae6e1800f901">ARCANE_REGISTER_CASE_OPTIONS_NOAXL_FACTORY</a></div><div class="ttdeci">#define ARCANE_REGISTER_CASE_OPTIONS_NOAXL_FACTORY(aclass, ainterface, aname)</div><div class="ttdoc">Enregistre un service de fabrique pour la classe aclass.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:614</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:32</div></div>
+<div class="ttc" id="anamespaceArcane_html_a6946176a3fcbd7087f23d5b720bcefa3"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a6946176a3fcbd7087f23d5b720bcefa3">Arcane::ItemInternalList</a></div><div class="ttdeci">ConstArrayView&lt; ItemInternal * &gt; ItemInternalList</div><div class="ttdoc">Type de la liste interne des entités.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:262</div></div>
+<div class="ttc" id="aclassArcane_1_1BasicService_html"><div class="ttname"><a href="../../d1/d5e/classArcane_1_1BasicService.html">Arcane::BasicService</a></div><div class="ttdoc">Classe de base de service lié à un sous-domaine.</div><div class="ttdef"><b>Definition:</b> BasicService.h:39</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1NonBlockingParticleExchanger_html_ac94d56b7e1b6bb83763feffd58dcad8c"><div class="ttname"><a href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#ac94d56b7e1b6bb83763feffd58dcad8c">Arcane::mesh::NonBlockingParticleExchanger::m_nb_blocking_size</a></div><div class="ttdeci">Integer m_nb_blocking_size</div><div class="ttdoc">Nombre de particules restantes avant de passer en mode bloquant.</div><div class="ttdef"><b>Definition:</b> NonBlockingParticleExchanger.h:124</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1NonBlockingParticleExchanger_html_a06d0d1a14b92cf20ecad4047d23a62f5"><div class="ttname"><a href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a06d0d1a14b92cf20ecad4047d23a62f5">Arcane::mesh::NonBlockingParticleExchanger::initialize</a></div><div class="ttdeci">void initialize(IItemFamily *item_family) override</div><div class="ttdoc">Initialize l'échangeur pour la familly item_family.</div><div class="ttdef"><b>Definition:</b> NonBlockingParticleExchanger.cc:107</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a9d85d5fb84c5371348dd56600999e564"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a></div><div class="ttdeci">#define ARCANE_FATAL(...)</div><div class="ttdoc">Macro envoyant une exception FatalErrorException.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:761</div></div>
+<div class="ttc" id="anamespaceArccore_1_1MessagePassing_html_a916fba7437b2cbc28ddcf1e0f23aca7aa527e78a86b80fcda4423b9cbc0aee811"><div class="ttname"><a href="../../da/d41/namespaceArccore_1_1MessagePassing.html#a916fba7437b2cbc28ddcf1e0f23aca7aa527e78a86b80fcda4423b9cbc0aee811">Arccore::MessagePassing::WaitSome</a></div><div class="ttdeci">@ WaitSome</div><div class="ttdoc">Attend que tous les messages de la liste soient traités.</div><div class="ttdef"><b>Definition:</b> MessagePassingGlobal.h:84</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1NonBlockingParticleExchanger_html_a9e0fd006df54bb97c827fd3b0cc8f61b"><div class="ttname"><a href="../../d2/dc1/classArcane_1_1mesh_1_1NonBlockingParticleExchanger.html#a9e0fd006df54bb97c827fd3b0cc8f61b">Arcane::mesh::NonBlockingParticleExchanger::asyncParticleExchanger</a></div><div class="ttdeci">IAsyncParticleExchanger * asyncParticleExchanger() override</div><div class="ttdoc">Gestion de l'asynchronisme (retourne nullptr si fonctionnalité non disponible)</div><div class="ttdef"><b>Definition:</b> NonBlockingParticleExchanger.h:91</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:39 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

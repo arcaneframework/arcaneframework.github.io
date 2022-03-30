@@ -1,0 +1,211 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de MeshExchanger.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_73b81ab7f8087ecd4627c74229710b8a.html">mesh</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">MeshExchanger.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* MeshExchanger.h                                             (C) 2000-2022 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Gestion d&#39;un échange de maillage entre sous-domaines.                     */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_MESH_MESHEXCHANGER_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_MESH_MESHEXCHANGER_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/TraceAccessor.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/List.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;arcane/IMeshExchanger.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;arcane/ParallelExchangerOptions.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;arcane/mesh/MeshGlobal.h&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">class </span>ITimeStats;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;}</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d5/d7e/namespaceArcane_1_1mesh.html">Arcane::mesh</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">class </span>DynamicMesh;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../dd/d72/classArcane_1_1mesh_1_1MeshExchanger.html">   46</a></span>&#160;<span class="keyword">class </span>ARCANE_MESH_EXPORT <a class="code" href="../../dd/d72/classArcane_1_1mesh_1_1MeshExchanger.html">MeshExchanger</a></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d4/d0e/classArccore_1_1TraceAccessor.html">TraceAccessor</a></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;, <span class="keyword">public</span> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html">IMeshExchanger</a></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;{</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <span class="keyword">typedef</span> std::map&lt;IItemFamily*,IItemFamilyExchanger*&gt; ItemFamilyExchangerMap;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <a class="code" href="../../dd/d72/classArcane_1_1mesh_1_1MeshExchanger.html">MeshExchanger</a>(<a class="code" href="../../d2/daa/classArcane_1_1mesh_1_1DynamicMesh.html">DynamicMesh</a>* mesh,<a class="code" href="../../d3/d52/classArcane_1_1ITimeStats.html">ITimeStats</a>* stats);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  ~<a class="code" href="../../dd/d72/classArcane_1_1mesh_1_1MeshExchanger.html">MeshExchanger</a>();</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordtype">bool</span> computeExchangeInfos() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keywordtype">void</span> processExchange() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordtype">void</span> removeNeededItems() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordtype">void</span> allocateReceivedItems() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordtype">void</span> updateItemGroups() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordtype">void</span> updateVariables() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">void</span> finalizeExchange() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <a class="code" href="../../d7/d89/classArcane_1_1IPrimaryMesh.html">IPrimaryMesh</a>* mesh() <span class="keyword">const override</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordtype">void</span> build();</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <a class="code" href="../../d2/d3d/classArcane_1_1IItemFamilyExchanger.html">IItemFamilyExchanger</a>* findExchanger(<a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html">IItemFamily</a>* family) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="../../dd/d72/classArcane_1_1mesh_1_1MeshExchanger.html#a99a651646892197a5225d2a6579c85ab">   71</a></span>&#160;  <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#ae9eeb1caf7134262c3d23084770a65d2">ePhase</a> <a class="code" href="../../dd/d72/classArcane_1_1mesh_1_1MeshExchanger.html#a99a651646892197a5225d2a6579c85ab">phase</a>()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_phase; }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keywordtype">void</span> _setNextPhase(ePhase next_phase);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <a class="code" href="../../d2/daa/classArcane_1_1mesh_1_1DynamicMesh.html">DynamicMesh</a>* m_mesh;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <a class="code" href="../../d2/ddc/classArcane_1_1List.html">List&lt;IItemFamilyExchanger*&gt;</a> m_family_exchangers;</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  ItemFamilyExchangerMap m_family_exchanger_map;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <a class="code" href="../../d3/d52/classArcane_1_1ITimeStats.html">ITimeStats</a>* m_time_stats;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  ePhase m_phase;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <a class="code" href="../../dc/d36/classArcane_1_1ParallelExchangerOptions.html">ParallelExchangerOptions</a> m_exchanger_option;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keywordtype">void</span> _checkPhase(ePhase wanted_phase);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <span class="keywordtype">void</span> _buildWithItemFamilyNetwork();</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <span class="keywordtype">void</span> _addItemFamilyExchanger(<a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html">IItemFamily</a>* family);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;};</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;} <span class="comment">// End namespace Arcane::mesh</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#endif  </span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_aa2abe4b7686102f15d0421beac0df661"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#aa2abe4b7686102f15d0421beac0df661">Arcane::IItemFamily::toParticleFamily</a></div><div class="ttdeci">virtual IParticleFamily * toParticleFamily()=0</div><div class="ttdoc">Retourne l'interface de la famille de particule de cette famille.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a9763cb9fa15ce83dc325a1bdc376f576"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a9763cb9fa15ce83dc325a1bdc376f576">Arcane::IItemFamily::itemsNewOwner</a></div><div class="ttdeci">virtual VariableItemInt32 &amp; itemsNewOwner()=0</div><div class="ttdoc">Variable contenant le numéro du nouveau sous-domaine propriétaire de l'entité.</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1MeshExchanger_html"><div class="ttname"><a href="../../dd/d72/classArcane_1_1mesh_1_1MeshExchanger.html">Arcane::mesh::MeshExchanger</a></div><div class="ttdoc">Informations pour un échange de maillage entre sous-domaines.</div><div class="ttdef"><b>Definition:</b> MeshExchanger.h:46</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html">Arcane::ItemInternal</a></div><div class="ttdoc">Structure interne d'une entité de maillage.</div><div class="ttdef"><b>Definition:</b> ItemInternal.h:307</div></div>
+<div class="ttc" id="anamespaceArcane_html_a713904d30616dee6a0891174f6f23eb1"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a713904d30616dee6a0891174f6f23eb1">Arcane::IItemFamilyCollection</a></div><div class="ttdeci">Collection&lt; IItemFamily * &gt; IItemFamilyCollection</div><div class="ttdoc">Collection de familles d'entités.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:395</div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html">Arccore::TraceAccessor</a></div><div class="ttdoc">Classe d'accès aux traces.</div><div class="ttdef"><b>Definition:</b> arccore/src/trace/arccore/trace/TraceAccessor.h:38</div></div>
+<div class="ttc" id="aclassArcane_1_1IPrimaryMesh_html"><div class="ttname"><a href="../../d7/d89/classArcane_1_1IPrimaryMesh.html">Arcane::IPrimaryMesh</a></div><div class="ttdef"><b>Definition:</b> IPrimaryMesh.h:41</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a394933b94f2a6f4fa41779f04dcb2ace"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a394933b94f2a6f4fa41779f04dcb2ace">Arcane::IItemFamily::name</a></div><div class="ttdeci">virtual const String &amp; name() const =0</div><div class="ttdoc">Nom de la famille.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamilyExchanger_html_ac7ca949d911902752f347391e7d48dfd"><div class="ttname"><a href="../../d2/d3d/classArcane_1_1IItemFamilyExchanger.html#ac7ca949d911902752f347391e7d48dfd">Arcane::IItemFamilyExchanger::computeExchangeInfos</a></div><div class="ttdeci">virtual bool computeExchangeInfos()=0</div><div class="ttdoc">Détermine les informations nécessaires pour les échanges.</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1MeshExchange_html_a79471c421dc3fa6e642dfc889075007e"><div class="ttname"><a href="../../d9/dda/classArcane_1_1mesh_1_1MeshExchange.html#a79471c421dc3fa6e642dfc889075007e">Arcane::mesh::MeshExchange::getItemsToSend</a></div><div class="ttdeci">ConstArrayView&lt; std::set&lt; Int32 &gt; &gt; getItemsToSend(IItemFamily *family) const</div><div class="ttdoc">Liste par sous-domaine des entités à envoyer pour la famille family.</div><div class="ttdef"><b>Definition:</b> MeshExchange.cc:212</div></div>
+<div class="ttc" id="anamespaceArcane_1_1mesh_html"><div class="ttname"><a href="../../d5/d7e/namespaceArcane_1_1mesh.html">Arcane::mesh</a></div><div class="ttdoc">AMR.</div><div class="ttdef"><b>Definition:</b> IItemFamily.h:47</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html">Arcane::IItemFamily</a></div><div class="ttdoc">Interface d'une famille d'entités.</div><div class="ttdef"><b>Definition:</b> IItemFamily.h:106</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemVariableScalarRefT_html"><div class="ttname"><a href="../../de/dc3/classArcane_1_1ItemVariableScalarRefT.html">Arcane::ItemVariableScalarRefT&lt; Int32 &gt;</a></div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamilyExchanger_html"><div class="ttname"><a href="../../d2/d3d/classArcane_1_1IItemFamilyExchanger.html">Arcane::IItemFamilyExchanger</a></div><div class="ttdoc">Échange des entités et leurs caractéristiques pour une famille donnée.</div><div class="ttdef"><b>Definition:</b> IItemFamilyExchanger.h:64</div></div>
+<div class="ttc" id="aclassArcane_1_1IParticleFamily_html_a7eb3d349895ca1daedbaa445c75a2d83"><div class="ttname"><a href="../../d7/d38/classArcane_1_1IParticleFamily.html#a7eb3d349895ca1daedbaa445c75a2d83">Arcane::IParticleFamily::getEnableGhostItems</a></div><div class="ttdeci">virtual bool getEnableGhostItems() const =0</div><div class="ttdoc">récupère le flag pour gérer les particules ghost de la famille</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamilyExchanger_html_addcaf19d9b2462d11ddb87ec6725cc5a"><div class="ttname"><a href="../../d2/d3d/classArcane_1_1IItemFamilyExchanger.html#addcaf19d9b2462d11ddb87ec6725cc5a">Arcane::IItemFamilyExchanger::setExchangeItems</a></div><div class="ttdeci">virtual void setExchangeItems(ConstArrayView&lt; std::set&lt; Int32 &gt; &gt; items_to_send)=0</div><div class="ttdoc">Positionne la liste des entités à échanger.</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1MeshExchanger_html_a99a651646892197a5225d2a6579c85ab"><div class="ttname"><a href="../../dd/d72/classArcane_1_1mesh_1_1MeshExchanger.html#a99a651646892197a5225d2a6579c85ab">Arcane::mesh::MeshExchanger::phase</a></div><div class="ttdeci">ePhase phase() const override</div><div class="ttdoc">Phase de l'échange dans laquelle on se trouve.</div><div class="ttdef"><b>Definition:</b> MeshExchanger.h:71</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1DynamicMesh_html"><div class="ttname"><a href="../../d2/daa/classArcane_1_1mesh_1_1DynamicMesh.html">Arcane::mesh::DynamicMesh</a></div><div class="ttdoc">Implémentation d'un maillage.</div><div class="ttdef"><b>Definition:</b> DynamicMesh.h:86</div></div>
+<div class="ttc" id="aclassArcane_1_1Item_html_a9beb17a99adcdd450f9327004ea060eb"><div class="ttname"><a href="../../df/d5f/classArcane_1_1Item.html#a9beb17a99adcdd450f9327004ea060eb">Arcane::Item::internal</a></div><div class="ttdeci">ItemInternal * internal() const</div><div class="ttdoc">Partie interne de l'entité.</div><div class="ttdef"><b>Definition:</b> Item.h:278</div></div>
+<div class="ttc" id="aclassArcane_1_1ParallelExchangerOptions_html"><div class="ttname"><a href="../../dc/d36/classArcane_1_1ParallelExchangerOptions.html">Arcane::ParallelExchangerOptions</a></div><div class="ttdoc">Options pour IParallelMng::processExchange().</div><div class="ttdef"><b>Definition:</b> ParallelExchangerOptions.h:31</div></div>
+<div class="ttc" id="aclassArcane_1_1IParticleFamily_html"><div class="ttname"><a href="../../d7/d38/classArcane_1_1IParticleFamily.html">Arcane::IParticleFamily</a></div><div class="ttdoc">Interface d'une famille de particules.</div><div class="ttdef"><b>Definition:</b> IParticleFamily.h:44</div></div>
+<div class="ttc" id="aclassArcane_1_1ITimeStats_html"><div class="ttname"><a href="../../d3/d52/classArcane_1_1ITimeStats.html">Arcane::ITimeStats</a></div><div class="ttdoc">Interface gérant les statistiques sur les temps d'exécution.</div><div class="ttdef"><b>Definition:</b> ITimeStats.h:39</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a3d3659197cb052e60fb2fc573046830b"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a3d3659197cb052e60fb2fc573046830b">Arcane::IItemFamily::allItems</a></div><div class="ttdeci">virtual ItemGroup allItems() const =0</div><div class="ttdoc">Groupe de toutes les entités.</div></div>
+<div class="ttc" id="aItemEnumerator_8h_html_ad8a248a2dc99c27958e4670b9cb09aa3"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#ad8a248a2dc99c27958e4670b9cb09aa3">ENUMERATE_ITEM</a></div><div class="ttdeci">#define ENUMERATE_ITEM(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de noeuds.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:229</div></div>
+<div class="ttc" id="aclassArcane_1_1ParallelExchangerOptions_html_a93492a418339b3e0e5992ee5c14ab1b4a44f7e921fe4c8a068608097ac90db889"><div class="ttname"><a href="../../dc/d36/classArcane_1_1ParallelExchangerOptions.html#a93492a418339b3e0e5992ee5c14ab1b4a44f7e921fe4c8a068608097ac90db889">Arcane::ParallelExchangerOptions::EM_Collective</a></div><div class="ttdeci">@ EM_Collective</div><div class="ttdoc">Utilise les opération collectives (allToAll)</div><div class="ttdef"><b>Definition:</b> ParallelExchangerOptions.h:42</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshExchanger_html"><div class="ttname"><a href="../../d6/d1d/classArcane_1_1IMeshExchanger.html">Arcane::IMeshExchanger</a></div><div class="ttdoc">Gestion d'un échange de maillage entre sous-domaines.</div><div class="ttdef"><b>Definition:</b> IMeshExchanger.h:40</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshExchanger_html_ae9eeb1caf7134262c3d23084770a65d2"><div class="ttname"><a href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#ae9eeb1caf7134262c3d23084770a65d2">Arcane::IMeshExchanger::ePhase</a></div><div class="ttdeci">ePhase</div><div class="ttdoc">Indique les différentes phases de l'échange.</div><div class="ttdef"><b>Definition:</b> IMeshExchanger.h:44</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a9d85d5fb84c5371348dd56600999e564"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a></div><div class="ttdeci">#define ARCANE_FATAL(...)</div><div class="ttdoc">Macro envoyant une exception FatalErrorException.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:761</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1MeshExchange_html"><div class="ttname"><a href="../../d9/dda/classArcane_1_1mesh_1_1MeshExchange.html">Arcane::mesh::MeshExchange</a></div><div class="ttdoc">Echange des entités de maillages entre entre sous-domaines.</div><div class="ttdef"><b>Definition:</b> MeshExchange.h:48</div></div>
+<div class="ttc" id="aclassArcane_1_1Item_html"><div class="ttname"><a href="../../df/d5f/classArcane_1_1Item.html">Arcane::Item</a></div><div class="ttdoc">Classe de base d'un élément de maillage.</div><div class="ttdef"><b>Definition:</b> Item.h:71</div></div>
+<div class="ttc" id="aclassArcane_1_1List_html"><div class="ttname"><a href="../../d2/ddc/classArcane_1_1List.html">Arcane::List</a></div><div class="ttdoc">Implémentation d'une collection d'éléments sous forme de vecteur.</div><div class="ttdef"><b>Definition:</b> List.h:37</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1MeshExchange_html_a920d75a02da3be22e3c72edbfbb3a505"><div class="ttname"><a href="../../d9/dda/classArcane_1_1mesh_1_1MeshExchange.html#a920d75a02da3be22e3c72edbfbb3a505">Arcane::mesh::MeshExchange::computeInfos</a></div><div class="ttdeci">void computeInfos()</div><div class="ttdoc">Calcule les infos.</div><div class="ttdef"><b>Definition:</b> MeshExchange.cc:237</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_abbd65f8f3296e6e23f4805665e2389f2"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#abbd65f8f3296e6e23f4805665e2389f2">Arcane::IItemFamily::notifyItemsOwnerChanged</a></div><div class="ttdeci">virtual void notifyItemsOwnerChanged()=0</div><div class="ttdoc">Notifie que les entités propres au sous-domaine de la famille ont été modifiées.</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:36 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

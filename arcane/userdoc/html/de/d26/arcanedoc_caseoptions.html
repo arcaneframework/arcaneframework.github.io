@@ -1,0 +1,417 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane: Configuration des options jeu de données (fichier AXL)</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('de/d26/arcanedoc_caseoptions.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Configuration des options jeu de données (fichier AXL) </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="toc"><h3>Table des matières</h3>
+<ul><li class="level1"><a href="#arcanedoc_caseoptions_intro">Introduction</a></li>
+<li class="level1"><a href="#arcanedoc_caseoptions_struct">Structure du fichier</a><ul><li class="level2"><a href="#arcanedoc_caseoptions_struct_common">Attributs et propriétés communs à toutes les options</a></li>
+<li class="level2"><a href="#arcanedoc_caseoptions_struct_simple">Les options simples</a></li>
+<li class="level2"><a href="#arcanedoc_caseoptions_struct_enum">Les options énumérées</a></li>
+<li class="level2"><a href="#arcanedoc_caseoptions_struct_extended">Les options étendues</a></li>
+<li class="level2"><a href="#arcanedoc_caseoptions_struct_complex">Les options complexes</a></li>
+<li class="level2"><a href="#arcanedoc_caseoptions_struct_service">Les options de type service</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#arcanedoc_caseoptions_use">Utilisation dans le module</a></li>
+<li class="level1"><a href="#arcanedoc_caseoptions_defaultvalues">Gestion des valeurs par défaut</a></li>
+</ul>
+</div>
+<div class="textblock"><h1><a class="anchor" id="arcanedoc_caseoptions_intro"></a>
+Introduction</h1>
+<p>Ce chapître décrit les options possibles pour le fichier <em>axl</em>. Ces options s'appliquent de manière identiques aux modules et aux services. Afin d'éviter des répétitions inutiles, on utilisera le terme module seulement, en sachant que cela s'applique aussi aux services.</p>
+<p>Chaque module possède des options qui peuvent être spécifiées par l'utilisateur lors du lancement d'une exécution. Ces options sont en général dictées par le <em>jeu de données</em> que fournit l'utilisateur pour lancer son cas. Le document <a class="el" href="../../d1/deb/arcanedoc_core.html#arcanedoc_module">Les modules</a> montre que chaque module possède un fichier de configuration nommé <em>descripteur de module</em> composé de 3 parties : les variables, les points d'entrée et les options de configuration. Le présent document s'intéresse à la la partie concernant les options de configuration qui vont permettre de définir la grammaire du jeu de données du module.</p>
+<p>Le descripteur de module est un fichier au format XML. Ce fichier est utilisé par Arcane pour générer des classes C++. Une de ces classes se charge de la lecture des informations dans le jeu de données.</p>
+<p>Par convention, pour un module appelé <em>Test</em>, le descripteur de module s'appelle <em>Test.axl</em>. Ce fichier <code>axl</code> permet de générer un fichier <em>Test_axl.h</em>. Ce fichier sera inclu par la classe implémentant le module.</p>
+<p>Dans le jeu de données, les options d'un module sont fournies dans l'élément de nom <code>&lt;options&gt;</code>. Par exemple, les options du module <em>Test</em> sont :</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">module</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;Test&quot;</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.0&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">name</span> <span class="keyword">lang</span>=<span class="stringliteral">&quot;fr&quot;</span>&gt;<span class="keyword">Test</span>&lt;/<span class="keywordtype">name</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">description</span>&gt;<span class="keyword">Module</span> <span class="keyword">Test</span>&lt;/<span class="keywordtype">description</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">options</span>&gt;</div>
+<div class="line">    <span class="comment">&lt;!-- contient les options du module Test --&gt;</span></div>
+<div class="line">    ...</div>
+<div class="line">  &lt;/<span class="keywordtype">options</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">module</span>&gt;</div>
+</div><!-- fragment --><h1><a class="anchor" id="arcanedoc_caseoptions_struct"></a>
+Structure du fichier</h1>
+<p>Le descripteur de module est au format XML. Nous allons nous intéresser à la partie configuration des options contenue dans l'élément <code>options</code> de ce fichier. En voici un exemple :</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">options</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">simple</span> <span class="keyword">name</span> = <span class="stringliteral">&quot;simple-real&quot;</span> <span class="keyword">type</span> = <span class="stringliteral">&quot;real&quot;</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">name</span> <span class="keyword">lang</span>=<span class="stringliteral">&#39;fr&#39;</span>&gt;<span class="keyword">reel-simple</span>&lt;/<span class="keywordtype">name</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">description</span>&gt;<span class="keyword">Réel</span> <span class="keyword">simple</span>&lt;/<span class="keywordtype">description</span>&gt;</div>
+<div class="line">  &lt;/<span class="keywordtype">simple</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">options</span>&gt;</div>
+</div><!-- fragment --><p>Cet exemple définit une option de configuration appelée <em>simple-real</em>. Cette option est une variable simple de type <code>real</code> sans valeur par défaut.</p>
+<p>La structure de tout élément de configuration des options d'un module est similaire à celle-ci. Toutes les options possibles doivent apparaître dans des éléments fils de <code>options</code>.</p>
+<p>Les différentes possibilités sont les suivantes :</p><ul>
+<li>les options simples, de type <code>real</code>, <code>bool</code>, <code>integer</code> ou <code>string</code>.</li>
+<li>les options énumérées, qui doivent correspondre à un type <code>enum</code> du C++.</li>
+<li>les options de types dit étendus. Il s'agit de types créés par l'utilisateur (classes, structures...). Cela comprend par exemple les groupes d'entités du maillage.</li>
+<li>les options complexes, qui sont composées elles-mêmes d'options. Les options complexes peuvent s'imbriquer.</li>
+<li>les options services, qui permettent de référencer un service (voir le document <a class="el" href="../../d1/deb/arcanedoc_core.html#arcanedoc_service">Les services</a>).</li>
+</ul>
+<h2><a class="anchor" id="arcanedoc_caseoptions_struct_common"></a>
+Attributs et propriétés communs à toutes les options</h2>
+<p>Quelle que soit l'option, l'élément la définissant doit comporter les deux attributs suivants:</p>
+<table class="doxtable">
+<tr>
+<th>attribut </th><th>occurence </th><th>description </th></tr>
+<tr>
+<td><code>name</code> </td><td>requis </td><td>nom de l'option. Il doit être composé uniquement de caractères alphabétiques en minuscules avec le '-' comme séparateur. Ce nom est utilisé pour générer dans la classe C++ un champ de même nom où les '-' sont remplacés par des majuscules. Par exemple, une option nommée <code>max-epsilon</code> sera récupérée dans le code par la méthode <code>maxEpsilon()</code>,   </td></tr>
+<tr>
+<td><code>type</code> </td><td>requis </td><td>type de l'option. La valeur et la signification de cet attribut dépendent du type de l'option.  </td></tr>
+<tr>
+<td><code>default</code> </td><td>optionnel </td><td>valeur par défaut de l'option. Si l'option n'est pas présente dans le jeu de données, Arcane fera comme si la valeur de cet attribut avait été entrée par l'utilisateur. L'option vaudra alors la valeur fournie dans l'attribut <code>default</code>. Si cet attribut n'est pas présent, l'option n'a pas de valeur par défaut et doit toujours être présente dans le jeu de données.  </td></tr>
+<tr>
+<td><code>minOccurs</code> </td><td>optionnel </td><td>entier qui spécifie le nombre minimum d'occurences possible pour l'élément. Si cette valeur vaut zéro, l'option peut être omise même si l'attribut <code>default</code> est absent. Si cet attribut est absent, le nombre minimum d'occurence est 1.  </td></tr>
+<tr>
+<td><code>maxOccurs</code> </td><td>optionnel </td><td>entier qui spécifie le nombre maximum d'occurences possible pour l'élément. Cette valeur doit être supérieur ou égal à <code>minOccurs</code>. La valeur spéciale <code>unbounded</code> signifie que le nombre maximum d'occurences n'est pas limité. Si cet attribut est absent, le nombre maximum d'occurence est 1.  </td></tr>
+</table>
+<p>Pour chaque option, il est possible d'ajouter les éléments fils suivants :</p>
+<table class="doxtable">
+<tr>
+<th>élément </th><th>occurence </th><th>description  </th></tr>
+<tr>
+<td><code>description</code> </td><td>optionnel </td><td>qui est utilisé pour décrire l'utilisation de l'option. Cette description peut utiliser des éléments HTML. Le contenu de cet élément est repris par Arcane pour la génération de la documentation du jeu de données.   </td></tr>
+<tr>
+<td><code>userclass</code> </td><td>optionnel </td><td>indique la classe d'appartenance de l'option. Cette classe spécifie une catégorie d'utilisateur ce qui permet par exemple de restreindre certaines options à une certaine catégorie. Par défaut, si cet élément est absent, l'option n'est utilisable que pour la classe utilisateur. Il est possible de spécifier plusieurs fois cet élément avec une catégorie différente à chaque fois. Dans ce cas, l'option appartient à toutes les catégories spécifiées.   </td></tr>
+<tr>
+<td><code>defaultvalue</code> </td><td>0..infini </td><td><p class="starttd">permet d'indiquer une valeur par défaut pour une catégorie donnée. Par exemple: </p><div class="fragment"><div class="line">&lt;<span class="keywordtype">simple</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;simple-real&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;real&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">defaultvalue</span> <span class="keyword">category</span>=<span class="stringliteral">&quot;Code1&quot;</span>&gt;2.0&lt;/<span class="keywordtype">defaultvalue</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">defaultvalue</span> <span class="keyword">category</span>=<span class="stringliteral">&quot;Code2&quot;</span>&gt;3.0&lt;/<span class="keywordtype">defaultvalue</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">simple</span>&gt;</div>
+</div><!-- fragment --><p class="endtd">Dans l'exemple précédent, si la catégorie est 'Code1' alors la valeur par défaut sera '2.0'. Il est possible de spécifier autant de catégorie qu'on le souhaite. La catégorie utilisée lors de l'exécution est positionnée via la méthode <a class="el" href="../../d3/dd9/classArcane_1_1ICaseDocument.html#ab45cee6b68580e7b3b55c126b2038ab7" title="Positionne la catégorie utilisée pour les valeurs par défaut.">Arcane::ICaseDocument::setDefaultCategory()</a>.   </p>
+</td></tr>
+<tr>
+<td><code>name</code> </td><td>0..infini </td><td><p class="starttd">permet d'indiquer une traduction pour le nom de l'option. La valeur de cet élément est le nom traduit pour l'option et correspondant au langage spécifié par l'attribut <code>lang</code>. Par exemple : </p><div class="fragment"><div class="line">&lt;<span class="keywordtype">simple</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;simple-real&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;real&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">name</span> <span class="keyword">lang</span>=<span class="stringliteral">&#39;fr&#39;</span>&gt;<span class="keyword">reel-simple</span>&lt;/<span class="keywordtype">name</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">simple</span>&gt;</div>
+</div><!-- fragment --><p class="endtd">indique que l'option 'simple-real' s'appelle en francais 'reel-simple'. Plusieurs éléments <code>name</code> sont possibles, chacun spécifiant une traduction. Le jeu de données devra être fourni dans la langue par défaut, le français dans notre cas. Si aucune traduction n'est donnée, c'est la valeur de l'attribut <code>name</code> qui est utilisée.   </p>
+</td></tr>
+</table>
+<h2><a class="anchor" id="arcanedoc_caseoptions_struct_simple"></a>
+Les options simples</h2>
+<p>Elles sont décrites par l'élément <code>simple</code> :</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">simple</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;simple-real&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;real&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">description</span>&gt;<span class="keyword">Réel</span> <span class="keyword">simple</span>&lt;/<span class="keywordtype">description</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">simple</span>&gt;</div>
+</div><!-- fragment --><p>L'attribut <code>type</code> peut prendre une des valeurs suivantes :</p><ul>
+<li><code>real</code> pour les réels. Ils correspondent au type <a class="el" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6" title="Type représentant un réel.">Arccore::Real</a>.</li>
+<li><code>integer</code> pour les entier. Ils correspondent au type <a class="el" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb" title="Type représentant un entier.">Arccore::Integer</a>.</li>
+<li><code>int32</code> pour les entier. Ils correspondent au type <a class="el" href="../../d5/d60/namespaceArccore.html#ab32c98ae2c2cf8372feb620983bb5b67" title="Type entier signé sur 32 bits.">Arccore::Int32</a>.</li>
+<li><code>int64</code> pour les entier. Ils correspondent au type <a class="el" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276" title="Type entier signé sur 64 bits.">Arccore::Int64</a>.</li>
+<li><code>bool</code> pour les booléens. Ils correspondent au type <code>bool</code> du C++.</li>
+<li><code>string</code> pour les chaînes de caractères. Ils correspondent à la classe <a class="el" href="../../d2/ddb/classArccore_1_1String.html" title="Chaîne de caractères unicode.">Arccore::String</a>.</li>
+</ul>
+<p>Pour l'exemple précédent, le jeu de données contient, par exemple, la ligne :</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">simple-real</span>&gt;3.4&lt;/<span class="keywordtype">simple-real</span>&gt;</div>
+</div><!-- fragment --><h2><a class="anchor" id="arcanedoc_caseoptions_struct_enum"></a>
+Les options énumérées</h2>
+<p>Elles sont décrites par l'élément <code>enumeration</code> :</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">enumeration</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;boundary-condition&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;eBoundaryCondition&quot;</span> <span class="keyword">default</span>=<span class="stringliteral">&quot;X&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">description</span>&gt;<span class="keyword">Type</span> <span class="keyword">de</span> <span class="keyword">condition</span> <span class="keyword">au</span> <span class="keyword">limites</span>&lt;/<span class="keywordtype">description</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">enumvalue</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;X&quot;</span> <span class="keyword">genvalue</span>=<span class="stringliteral">&quot;VelocityX&quot;</span> /&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">enumvalue</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;Y&quot;</span> <span class="keyword">genvalue</span>=<span class="stringliteral">&quot;VelocityY&quot;</span>  /&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">enumvalue</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;Z&quot;</span> <span class="keyword">genvalue</span>=<span class="stringliteral">&quot;VelocityZ&quot;</span>  /&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">enumeration</span>&gt;</div>
+</div><!-- fragment --><p>L'attribut <code>type</code> doit indiquer le nom de l'énumération C++ correspondante (ici <code>eBoundaryCondition</code>). Si l'énumération appartient à un espace de nom C++ (<code>namespace</code>), il est possible de le spécifier directement (par exemple <code>MonCode::eBoundaryCondition</code>).</p>
+<p>Ce type d'option comporte une liste d'éléments fils <code>enumvalue</code> qui référence chaque valeur de l'énumération. Cet élément comporte deux attributs :</p><ul>
+<li><code>name</code> indique à quelle valeur de l'utilisateur va correspondre cette énumération. Ce sont ces valeurs que l'utilisateur va entrer.</li>
+<li><code>genvalue</code> indique le nom de l'énumération correspondante dans le langage C++.</li>
+</ul>
+<p>Dans l'exemple précédent, l'option correspond à l'énumération C++ suivante :</p>
+<div class="fragment"><div class="line"><span class="keyword">enum</span> eBoundaryCondition { VelocityX, VelocityY, VelocityZ };</div>
+</div><!-- fragment --><p>La définition de l'énumération doit être effective avant d'inclure le fichier <em>Test_axl.h</em>. Par exemple, si l'énumération précédente est définie dans un fichier <em>BoundaryCondition.h</em>, il faudra inclure les fichiers dans l'ordre suivant : </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;BoundaryCondition.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;Test_axl.h&quot;</span></div>
+</div><!-- fragment --><p>Si dans le jeu de données, on a la ligne :</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">boundary-condition</span>&gt;<span class="keyword">X</span>&lt;/<span class="keywordtype">boundary-condition</span>&gt;</div>
+</div><!-- fragment --><p>alors l'option associée dans la classe C++ générée par le fichier aura la valeur <code>VelocityX</code>.</p>
+<h2><a class="anchor" id="arcanedoc_caseoptions_struct_extended"></a>
+Les options étendues</h2>
+<p>L'interface d'utilisation de ce type d'option est en cours de définition. Pour l'instant, ce type d'option ne doit être utilisé qu'avec les groupes d'entités de maillage définis par Arcane.</p>
+<p>Les options de type étendues sont décrites par l'élément <code>extended</code> :</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">extended</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;surface&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;Arcane::FaceGroup&quot;</span>&gt;</div>
+<div class="line">   &lt;<span class="keywordtype">description</span>&gt;</div>
+<div class="line">     <span class="keyword">Surface</span> <span class="keyword">sur</span> <span class="keyword">laquelle</span> <span class="keyword">s</span>&#39;<span class="keyword">applique</span> <span class="keyword">la</span> <span class="keyword">condition</span> <span class="keyword">aux</span> <span class="keyword">limites</span></div>
+<div class="line">   &lt;/<span class="keywordtype">description</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">extended</span>&gt;</div>
+</div><!-- fragment --><p>L'attribut <b>type</b> peut prendre une des valeurs suivantes :</p>
+<ul>
+<li><em><a class="el" href="../../de/db5/group__Mesh.html#gabce375c2d244a5dddce4012e86327bea" title="Groupe de noeuds.">Arcane::NodeGroup</a></em> pour un groupe de noeuds</li>
+<li><em><a class="el" href="../../de/db5/group__Mesh.html#ga715f63c87800d630ab5c58d9328c2bf2" title="Groupe de faces.">Arcane::FaceGroup</a></em> pour un groupe de faces</li>
+<li><em><a class="el" href="../../de/db5/group__Mesh.html#ga4d78be302ffdabc4e0f16578cc077314" title="Groupe de mailles.">Arcane::CellGroup</a></em> pour un groupe de mailles</li>
+</ul>
+<p>Si une option de ce type existe, sa valeur est validée après lecture du maillage et doit correspondre à un groupe existant et du bon type.</p>
+<p>Pour le développeur, une option de type <code>extended</code> génère un objet du type <code><a class="el" href="../../de/db5/group__Mesh.html#gabce375c2d244a5dddce4012e86327bea" title="Groupe de noeuds.">Arcane::NodeGroup</a></code>, <code><a class="el" href="../../de/db5/group__Mesh.html#ga715f63c87800d630ab5c58d9328c2bf2" title="Groupe de faces.">Arcane::FaceGroup</a></code> ou <code><a class="el" href="../../de/db5/group__Mesh.html#ga4d78be302ffdabc4e0f16578cc077314" title="Groupe de mailles.">Arcane::CellGroup</a></code> qui s'utilise donc comme un groupe. Par exemple, avec l'option précédente de nom <code>surface</code>, la méthode <code>surface()</code> de la classe gérant le jeu de donnée retourne un groupe de faces de type <code><a class="el" href="../../de/db5/group__Mesh.html#ga715f63c87800d630ab5c58d9328c2bf2" title="Groupe de faces.">Arcane::FaceGroup</a></code> et la ligne suivante est valide :</p>
+<div class="fragment"><div class="line"><a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#a2301a57310b51190d331e08b4220e9e4">ENUMERATE_FACE</a>(i,surface())</div>
+</div><!-- fragment --><p>Pour l'exemple précédent, si XMIN est un surface définie sur le maillage, le jeu de données contient, par exemple, la ligne :</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">surface</span>&gt;<span class="keyword">XMIN</span>&lt;/<span class="keywordtype">surface</span>&gt;</div>
+</div><!-- fragment --><h2><a class="anchor" id="arcanedoc_caseoptions_struct_complex"></a>
+Les options complexes</h2>
+<p>Une option complexe est composée de plusieurs autres options, y compris d'autres options complexes. L'option complexe est décrite par l'élément <code>complex</code>.</p>
+<p>L'exemple suivant définit une option <code>pair-of-int</code> composée de deux options simples <code>first</code> et <code>second</code> :</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">complex</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;pair-of-int&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;PairOfInt&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">simple</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;first&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;integer&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">simple</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;second&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;integer&quot;</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">complex</span>&gt;</div>
+</div><!-- fragment --><p>Le jeu de données correspondant est :</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">pair-of-int</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">first</span>&gt;5&lt;/<span class="keywordtype">first</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">second</span>&gt;6&lt;/<span class="keywordtype">second</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">pair-of-int</span>&gt;</div>
+</div><!-- fragment --><h2><a class="anchor" id="arcanedoc_caseoptions_struct_service"></a>
+Les options de type service</h2>
+<p>La notion de service Arcane est expliqué dans la section <a class="el" href="../../d1/deb/arcanedoc_core.html#arcanedoc_service">Les services</a>. Rappelons simplement qu'un service est un composant externe utilisé par un module et donc nécessaire au fonctionnement du module. Pour que le module puisse fonctionner, son jeu de données doit référencer le service nécessaire grâce à l'élément <code>service-instance</code>.</p>
+<p>L'exemple suivant définit un service nommé <em>eos-model</em> de type <code>IEquationOfState</code> :</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">service-instance</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;eos-model&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;IEquationOfState&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">description</span>&gt;<span class="keyword">Service</span> <span class="keyword">d</span><span class="stringliteral">&#39;equation d&#39;</span><span class="keyword">état</span>&lt;/<span class="keywordtype">description</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">service-instance</span>&gt;</div>
+</div><!-- fragment --><p>La classe <code>IEquationOfState</code> correspond à l'interface définie pour le service. Si la classe appartient à un espace de nom C++ (<code>namespace</code>), il est possible de le spécifier directement (par exemple <code>MonCode::IEquationOfState</code>).</p>
+<p>Le jeu de données correspondant est:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">eos-model</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;StiffenedGas&quot;</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">limit-tension</span>&gt;0.01&lt;/<span class="keywordtype">limit-tension</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">eos-model</span>&gt;</div>
+</div><!-- fragment --><p>Le code pour lire l'option est:</p>
+<div class="fragment"><div class="line">IEquationOfState* eos = options()-&gt;eosModel();</div>
+</div><!-- fragment --><p>Les services peuvent avoir les attributs suivants: </p><table class="doxtable">
+<tr>
+<th>Attribut </th><th>Type </th><th>Description  </th></tr>
+<tr>
+<td>allow-null </td><td>bool </td><td><p class="starttd">si <code>false</code> (le défaut), le service spécifié dans le jeu de données doit exister. Si ce n'est pas le cas, une erreur se produira lors de la lecture. Si cet attribut vaut <code>true</code>, et que le service spécifié n'existe pas, l'option correspondante sera nulle et il faudra tester sa valeur. Par exemple: </p><div class="fragment"><div class="line">IEquationOfState* eos = options()-&gt;eosModel();</div>
+<div class="line"><span class="keywordflow">if</span> (!eos)</div>
+<div class="line">  info() &lt;&lt; <span class="stringliteral">&quot;Service spécifié indisponible&quot;</span>;</div>
+</div><!-- fragment --><p class="endtd"></p>
+</td></tr>
+<tr>
+<td>optional </td><td>bool </td><td>si <code>false</code> (le défaut), le service est toujours créé et si l'élément correspondant n'existe pas dans le jeu de données, le service avec le nom par défaut sera créé. Si cet attribut vaut <code>true</code> et que l'élément n'est pas présent dans le jeu de données, aucun service n'est créé.   </td></tr>
+</table>
+<h1><a class="anchor" id="arcanedoc_caseoptions_use"></a>
+Utilisation dans le module</h1>
+<p>Les options du jeu de données s'utilisent de manière naturelle dans le code. Pour continuer l'exemple présenté en début de document, on souhaite avoir deux options <code>simple-real</code> et <code>boundary-condition</code>. Par exemple :</p>
+<div class="fragment"><div class="line"><span class="keyword">namespace </span>TypesTest</div>
+<div class="line">{</div>
+<div class="line">  <span class="keyword">enum</span> eBoundaryCondition</div>
+<div class="line">  {</div>
+<div class="line">    VelocityX,</div>
+<div class="line">    VelocityY,</div>
+<div class="line">    VelocityZ</div>
+<div class="line">  };</div>
+<div class="line">};</div>
+</div><!-- fragment --><p>Le bloc descripteur de module sera le suivant :</p>
+<div class="fragment"><div class="line">&lt;?<span class="keyword">xml</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.0&quot;</span> ?&gt;</div>
+<div class="line">&lt;<span class="keywordtype">module</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;Test&quot;</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.0&quot;</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">name</span> <span class="keyword">lang</span>=<span class="stringliteral">&#39;fr&#39;</span>&gt;<span class="keyword">test</span>&lt;/<span class="keywordtype">name</span>&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">description</span>&gt;<span class="keyword">Module</span> <span class="keyword">de</span> <span class="keyword">test</span>&lt;/<span class="keywordtype">description</span>&gt;</div>
+<div class="line"> </div>
+<div class="line"> &lt;<span class="keywordtype">variables</span>/&gt;</div>
+<div class="line"> &lt;<span class="keywordtype">entry-points</span>/&gt;</div>
+<div class="line"> </div>
+<div class="line"> <span class="comment">&lt;!-- Liste des options --&gt;</span></div>
+<div class="line"> &lt;<span class="keywordtype">options</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">   &lt;<span class="keywordtype">simple</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;simple-real&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;real&quot;</span>&gt;</div>
+<div class="line">     &lt;<span class="keywordtype">description</span>&gt;<span class="keyword">Réel</span> <span class="keyword">simple</span>&lt;/<span class="keywordtype">description</span>&gt;</div>
+<div class="line">   &lt;/<span class="keywordtype">simple</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">   &lt;<span class="keywordtype">enumeration</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;boundary-condition&quot;</span> <span class="keyword">type</span>=<span class="stringliteral">&quot;TypesTest::eBoundaryCondition&quot;</span> <span class="keyword">default</span>=<span class="stringliteral">&quot;X&quot;</span>&gt;</div>
+<div class="line">     &lt;<span class="keywordtype">description</span>&gt;<span class="keyword">Type</span> <span class="keyword">de</span> <span class="keyword">condition</span> <span class="keyword">aux</span> <span class="keyword">limites</span>&lt;/<span class="keywordtype">description</span>&gt;</div>
+<div class="line">     &lt;<span class="keywordtype">enumvalue</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;X&quot;</span> <span class="keyword">genvalue</span>=<span class="stringliteral">&quot;TypesTest::VelocityX&quot;</span> /&gt;</div>
+<div class="line">     &lt;<span class="keywordtype">enumvalue</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;Y&quot;</span> <span class="keyword">genvalue</span>=<span class="stringliteral">&quot;TypesTest::VelocityY&quot;</span>  /&gt;</div>
+<div class="line">     &lt;<span class="keywordtype">enumvalue</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;Z&quot;</span> <span class="keyword">genvalue</span>=<span class="stringliteral">&quot;TypesTest::VelocityZ&quot;</span>  /&gt;</div>
+<div class="line">   &lt;/<span class="keywordtype">enumeration</span>&gt;</div>
+<div class="line"> </div>
+<div class="line"> &lt;/<span class="keywordtype">options</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">module</span>&gt;</div>
+</div><!-- fragment --><p>A partir de ce fichier, Arcane va générer un fichier <em>Test_axl.h</em> qui contient, entre autre, une classe équivalente à celle-ci :</p>
+<div class="fragment"><div class="line"><span class="keyword">class </span>CaseOptionsTest</div>
+<div class="line">{</div>
+<div class="line">  <span class="keyword">public</span>:</div>
+<div class="line">   ...</div>
+<div class="line">   <span class="keywordtype">double</span> simpleReal() { ... }</div>
+<div class="line">   eBoundaryCondition boundaryCondition() { ... }</div>
+<div class="line">   ...</div>
+<div class="line">};</div>
+</div><!-- fragment --><p>Le module <code>TestModule</code> qui, par définition, hérite de la classe <code>ArcaneTestObject</code> (voir <a class="el" href="../../d1/deb/arcanedoc_core.html#arcanedoc_module">Les modules</a>), peut lire ses options en récupérant une instance de la classe <code>CaseOptionsTest</code> grâce à la méthode <code>options()</code>. Après la lecture du jeu de données par Arcane, le module pourra accéder à ses options par leur nom.</p>
+<p>Par exemple, dans le module de test <code>TestModule</code>, on peut accéder aux options de la manière suivante :</p>
+<div class="fragment"><div class="line"><span class="keywordtype">void</span> TestModule::</div>
+<div class="line">myInit()</div>
+<div class="line">{</div>
+<div class="line">  <span class="keywordflow">if</span> (options()-&gt;simpleReal() &gt; 1.0)</div>
+<div class="line">    ...</div>
+<div class="line">  <span class="keywordflow">if</span> (options()-&gt;boundaryCondition()==TypesTest::VelocityX)</div>
+<div class="line">    ...</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>La partie du jeu de données concernant ce module peut être par exemple :</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">test</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">simple-real</span>&gt;3.4&lt;/<span class="keywordtype">simple-real</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">boundary-condition</span>&gt;<span class="keyword">Y</span>&lt;/<span class="keywordtype">boundary-condition</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">test</span>&gt;</div>
+</div><!-- fragment --><h1><a class="anchor" id="arcanedoc_caseoptions_defaultvalues"></a>
+Gestion des valeurs par défaut</h1>
+<p>Il est possible de spécifier une valeur par défaut dans le fichier <b>axl</b> pour les options simples, énumérées, étendues et les services. Depuis la version 2.10.0 (septembre 2018), il est aussi possible de définir ces valeurs par catégorie et de spécifier la catégorie voulue lors de l'exécution. Le choix de la catégorie doit se faire avant la lecture des options du jeu de donnée, par exemple dans la classe gérant la session du code: </p><div class="fragment"><div class="line"><span class="preprocessor">#include &quot;arcane/ICaseDocument.h&quot;</span></div>
+<div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line"><span class="keywordtype">void</span> f()</div>
+<div class="line">{</div>
+<div class="line">  <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html">ISubDomain</a>* sd = ...;</div>
+<div class="line">  <a class="code" href="../../d3/dd9/classArcane_1_1ICaseDocument.html">ICaseDocument</a>* doc = sd-&gt;<a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a543389cec2dee4367bcee2d20c01822b">caseDocument</a>();</div>
+<div class="line">  doc-&gt;<a class="code" href="../../d3/dd9/classArcane_1_1ICaseDocument.html#ab45cee6b68580e7b3b55c126b2038ab7">setDefaultCategory</a>(<span class="stringliteral">&quot;MyCategory&quot;</span>);</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Enfin, depuis la version 2.9.1 (juin 2018) de Arcane, il est aussi possible de changer dynamiquement lors de l'exécution ces valeurs par défaut. Cela peut être utile par exemple si on veut des valeurs par défaut par type de boucle en temps, par dimension du maillage, ...</p>
+<p>Pour changer les valeurs par défaut, il existe une méthode <b>setDefaultValue()</b> suivant le type de l'option:</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Classe Arcane </th><th class="markdownTableHeadNone">Description  </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="../../d4/d3d/classArcane_1_1CaseOptionSimpleT.html#af12c8cb47fac6ce77ee1ecb791f26e14" title="Positionne la valeur par défaut de l&#39;option.">Arcane::CaseOptionSimpleT::setDefaultValue()</a> </td><td class="markdownTableBodyNone">options simples  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="../../d2/d4c/classArcane_1_1CaseOptionEnumT.html#a92705f1c2f8f63c1c7f44b6997906a01" title="Positionne la valeur par défaut de l&#39;option.">Arcane::CaseOptionEnumT::setDefaultValue()</a> </td><td class="markdownTableBodyNone">options énumérées  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone"><a class="el" href="../../db/d3f/classArcane_1_1CaseOptionExtended.html#ab1ebd89e2047c4cab2a3b9a022b8626d" title="Positionne la valeur par défaut de l&#39;option.">Arcane::CaseOptionExtendedT::setDefaultValue()</a> </td><td class="markdownTableBodyNone">options étendues  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone"><a class="el" href="../../dd/ddd/classArcane_1_1CaseOptionService.html#af896db193145913ef19c2de6bc04959c" title="Positionne la valeur par défaut du nom du service.">Arcane::CaseOptionService::setDefaultValue()</a> </td><td class="markdownTableBodyNone">services  </td></tr>
+</table>
+<dl class="section note"><dt>Note</dt><dd>Il n'est pas possible de changer les valeurs par défaut des options possédant des occurences multiples.</dd></dl>
+<p>Pour bien comprendre comment utiliser cette méthode, il est nécessaire de connaitre les mécanismes de lecture des options du jeu de données. La lecture du jeu de données se fait en plusieurs phases:</p><ol type="1">
+<li>Phase 1. Lors de cette phase, on lit toutes les options sauf les options étendues car elles peuvent reposer sur le maillage et dans cette phase le maillage n'est pas encore lu. C'est lors de cette phase que sont aussi créés les différentes instances des services qui apparaissent dans le jeu de données.</li>
+<li>Appel des points d'entrée <b>Build</b> du code.</li>
+<li>Phase 2. Lors de cette phase, le maillage a été lu et on lit les options étendues du jeu de données. Après cette phase, toutes les options ont été lues.</li>
+<li>Affichage dans le listing des valeurs des options du jeu de données.</li>
+<li>Appel des points d'entrée <b>Init</b> du code.</li>
+</ol>
+<p>Pour exécuter du code lors des parties (<em>2</em>) et (<em>5</em>), il faut utiliser des points d'entrées déclarées dans la boucle en temps. Pour exécuter du code lors des parties 1 ou 3, il est possible de s'enregistrer auprès du <a class="el" href="../../d3/dcf/classArcane_1_1ICaseMng.html#abb6a319041704af5d101c94f18d3ddcc" title="Observable sur l&#39;instance.">Arcane::ICaseMng::observable()</a> pour être notifié du début des phases 1 et 2. Le code sera exécuté avant que Arcane n'effectue la phase correspondante. Par exemple:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;arcane/ObserverPool.h&quot;</span></div>
+<div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line"><span class="keyword">class </span>MyService</div>
+<div class="line">{</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  MyService(<span class="keyword">const</span> <a class="code" href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">ServiceBuildInfo</a>&amp; sbi)</div>
+<div class="line">  {</div>
+<div class="line">    <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html">ICaseMng</a>* cm = sbi.<a class="code" href="../../d1/dd8/classArcane_1_1ServiceBuildInfoBase.html#acf09b1a2f1b2a521d7d1fd969f683e33">subDomain</a>()-&gt;<a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#aad044c8bb89eb7f49b9ce8180096ebe2">caseMng</a>();</div>
+<div class="line">    m_observers.addObserver(<span class="keyword">this</span>,&amp;MyService::onBeforePhase1,</div>
+<div class="line">                            cm-&gt;<a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#abb6a319041704af5d101c94f18d3ddcc">observable</a>(<a class="code" href="../../d0/d32/namespaceArcane.html#a31c49c793d16b4c7f3fda08254ceeeb5a0ece0938b5db9bd5cd6d4d4098188c47">eCaseMngEventType::BeginReadOptionsPhase1</a>));</div>
+<div class="line">    m_observers.addObserver(<span class="keyword">this</span>,&amp;MyService::onBeforePhase2,</div>
+<div class="line">                            cm-&gt;<a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#abb6a319041704af5d101c94f18d3ddcc">observable</a>(<a class="code" href="../../d0/d32/namespaceArcane.html#a31c49c793d16b4c7f3fda08254ceeeb5a0e85ce3eb4b658517ab8262545970e45">eCaseMngEventType::BeginReadOptionsPhase2</a>));</div>
+<div class="line">  }</div>
+<div class="line">  <span class="keywordtype">void</span> onBeforePhase1() { ... }</div>
+<div class="line">  <span class="keywordtype">void</span> onBeforePhase2() { ... }</div>
+<div class="line"> <span class="keyword">private</span>:</div>
+<div class="line">  <a class="code" href="../../d1/d7d/classArcane_1_1ObserverPool.html">ObserverPool</a> m_observers;</div>
+<div class="line">};</div>
+</div><!-- fragment --><p>Les points suivants sont à noter:</p>
+<ul>
+<li>si on souhaite changer la valeur par défaut d'un service, il faut le faire lors de la partie (<em>1</em>) car ensuite les services ont déjà été créés.</li>
+<li>si une valeur par défaut est présente dans le fichier <b>axl</b>, ce sera cette valeurs qui sera utilisée tant qu'il n'y a pas eu d'appel à setDefaultValue(). Si on change une valeur d'une option simple lors de la partie (<em>3</em>) par exemple, elle ne sera pas encore prise en compte dans lors de l'appel des points d'entrée <b>Build</b> (qui sont dans la partie (<em>2</em>).</li>
+<li>il est possible de mettre une valeur par défaut même s'il n'y en a pas dans le fichier <b>axl</b>. Dans ce cas, il faut la positionner dans la partie (<em>1</em>) sinon Arcane considérera le jeu de donnée comme invalide après lecture de la phase 1.</li>
+<li>si on souhaite changer une valeur par défaut en fonction des informations du maillage, il faut le faire lors de la partie (<em>3</em>). </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_aad044c8bb89eb7f49b9ce8180096ebe2"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#aad044c8bb89eb7f49b9ce8180096ebe2">Arcane::ISubDomain::caseMng</a></div><div class="ttdeci">virtual ICaseMng * caseMng()=0</div><div class="ttdoc">Retourne le gestionnaire du jeu de données.</div></div>
+<div class="ttc" id="aclassArcane_1_1ServiceBuildInfo_html"><div class="ttname"><a href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">Arcane::ServiceBuildInfo</a></div><div class="ttdoc">Structure contenant les informations pour créer un service.</div><div class="ttdef"><b>Definition:</b> ServiceBuildInfo.h:122</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a543389cec2dee4367bcee2d20c01822b"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a543389cec2dee4367bcee2d20c01822b">Arcane::ISubDomain::caseDocument</a></div><div class="ttdeci">virtual ICaseDocument * caseDocument()=0</div><div class="ttdoc">Document XML du cas.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html">Arcane::ISubDomain</a></div><div class="ttdoc">Interface du gestionnaire d'un sous-domaine.</div><div class="ttdef"><b>Definition:</b> ISubDomain.h:72</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseDocument_html_ab45cee6b68580e7b3b55c126b2038ab7"><div class="ttname"><a href="../../d3/dd9/classArcane_1_1ICaseDocument.html#ab45cee6b68580e7b3b55c126b2038ab7">Arcane::ICaseDocument::setDefaultCategory</a></div><div class="ttdeci">virtual void setDefaultCategory(const String &amp;v)=0</div><div class="ttdoc">Positionne la catégorie utilisée pour les valeurs par défaut.</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html_abb6a319041704af5d101c94f18d3ddcc"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#abb6a319041704af5d101c94f18d3ddcc">Arcane::ICaseMng::observable</a></div><div class="ttdeci">virtual IObservable * observable(eCaseMngEventType type)=0</div><div class="ttdoc">Observable sur l'instance.</div></div>
+<div class="ttc" id="anamespaceArcane_html_a31c49c793d16b4c7f3fda08254ceeeb5a0ece0938b5db9bd5cd6d4d4098188c47"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a31c49c793d16b4c7f3fda08254ceeeb5a0ece0938b5db9bd5cd6d4d4098188c47">Arcane::eCaseMngEventType::BeginReadOptionsPhase1</a></div><div class="ttdeci">@ BeginReadOptionsPhase1</div><div class="ttdoc">Évènement généré avant de lire les options dans la phase 1.</div></div>
+<div class="ttc" id="aclassArcane_1_1ObserverPool_html"><div class="ttname"><a href="../../d1/d7d/classArcane_1_1ObserverPool.html">Arcane::ObserverPool</a></div><div class="ttdoc">Liste d'observateurs.</div><div class="ttdef"><b>Definition:</b> ObserverPool.h:40</div></div>
+<div class="ttc" id="aItemEnumerator_8h_html_a2301a57310b51190d331e08b4220e9e4"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#a2301a57310b51190d331e08b4220e9e4">ENUMERATE_FACE</a></div><div class="ttdeci">#define ENUMERATE_FACE(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de faces.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:240</div></div>
+<div class="ttc" id="anamespaceArcane_html_a31c49c793d16b4c7f3fda08254ceeeb5a0e85ce3eb4b658517ab8262545970e45"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a31c49c793d16b4c7f3fda08254ceeeb5a0e85ce3eb4b658517ab8262545970e45">Arcane::eCaseMngEventType::BeginReadOptionsPhase2</a></div><div class="ttdeci">@ BeginReadOptionsPhase2</div><div class="ttdoc">Évènement généré avant de lire les options dans la phase 2.</div></div>
+<div class="ttc" id="aclassArcane_1_1ServiceBuildInfoBase_html_acf09b1a2f1b2a521d7d1fd969f683e33"><div class="ttname"><a href="../../d1/dd8/classArcane_1_1ServiceBuildInfoBase.html#acf09b1a2f1b2a521d7d1fd969f683e33">Arcane::ServiceBuildInfoBase::subDomain</a></div><div class="ttdeci">ISubDomain * subDomain() const</div><div class="ttdoc">Accès au ISubDomain associé</div><div class="ttdef"><b>Definition:</b> ServiceBuildInfo.h:88</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseDocument_html"><div class="ttname"><a href="../../d3/dd9/classArcane_1_1ICaseDocument.html">Arcane::ICaseDocument</a></div><div class="ttdef"><b>Definition:</b> ICaseDocument.h:39</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aclassArcane_1_1ICaseMng_html"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html">Arcane::ICaseMng</a></div><div class="ttdoc">Interface du gestionnaire de cas.</div><div class="ttdef"><b>Definition:</b> ICaseMng.h:56</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li>
+    <li class="footer">Généré le Mercredi 30 Mars 2022 12:59:39 pour Arcane par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,526 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de MultiArray2.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_2729d02b006c8e73197ea03fae7905d4.html">utils</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">MultiArray2.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* MultiArray2.h                                               (C) 2000-2015 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Tableau 2D à taille multiple.                                             */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_UTILS_MULTIARRAY2_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_UTILS_MULTIARRAY2_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/Array.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/MultiArray2View.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> DataType&gt;</div>
+<div class="line"><a name="l00056"></a><span class="lineno"><a class="line" href="../../d4/d63/classArcane_1_1MultiArray2.html">   56</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2</a></div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;{</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">UniqueArray&lt;DataType&gt;::ConstReferenceType</a> ConstReferenceType;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2</a>() {}</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2</a>(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">IntegerConstArrayView</a> sizes)</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  {</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    _resize(sizes);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2</a>(<span class="keyword">const</span> <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2&lt;DataType&gt;</a>&amp; rhs);</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keywordtype">void</span> operator=(<span class="keyword">const</span> <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2&lt;DataType&gt;</a>&amp; rhs);</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno"><a class="line" href="../../d4/d63/classArcane_1_1MultiArray2.html#a4f366e004e3ef39056ba268755978387">   75</a></span>&#160;  <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html#a4f366e004e3ef39056ba268755978387">MultiArray2</a>(<span class="keyword">const</span> <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2&lt;DataType&gt;</a>&amp; rhs,<span class="keywordtype">bool</span> do_clone)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  : m_buffer(do_clone ? rhs.m_buffer.clone() : rhs.m_buffer),</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    m_indexes(do_clone ? rhs.m_indexes.clone() : rhs.m_indexes),</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    m_sizes(do_clone ? rhs.m_sizes.clone() : rhs.m_sizes)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  {</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2</a>(<a class="code" href="../../d0/d63/classArcane_1_1ConstMultiArray2View.html">ConstMultiArray2View&lt;DataType&gt;</a> aview)</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  : m_buffer(aview.m_buffer), m_indexes(aview.m_indexes), m_sizes(aview.m_sizes)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  ArrayView&lt;DataType&gt; operator[](Integer i)</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">return</span> ArrayView&lt;DataType&gt;(m_sizes[i],m_buffer.data() + (m_indexes[i]));</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  ConstArrayView&lt;DataType&gt; operator[](Integer i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    <span class="keywordflow">return</span> ConstArrayView&lt;DataType&gt;(m_sizes[i],m_buffer.data()+ (m_indexes[i]));</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00096"></a><span class="lineno"><a class="line" href="../../d4/d63/classArcane_1_1MultiArray2.html#a0b9bfcd28bd3b802830a4256e3ca9ffc">   96</a></span>&#160;  Integer <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html#a0b9bfcd28bd3b802830a4256e3ca9ffc">totalNbElement</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_buffer.size(); }</div>
+<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="../../d4/d63/classArcane_1_1MultiArray2.html#a06a51e0360bc9e1067b58cd64e4a8cb7">   98</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html#a06a51e0360bc9e1067b58cd64e4a8cb7">clear</a>()</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  {</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;    m_buffer.clear();</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    m_indexes.clear();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    m_sizes.clear();</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  }</div>
+<div class="line"><a name="l00105"></a><span class="lineno"><a class="line" href="../../d4/d63/classArcane_1_1MultiArray2.html#aa37723b96dff5769cdc41525fd8b5d08">  105</a></span>&#160;  <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2&lt;DataType&gt;</a> <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html#aa37723b96dff5769cdc41525fd8b5d08">clone</a>()</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  {</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2&lt;DataType&gt;</a> new_array;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;    new_array.<a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html#ab02d27e79e45973de673955a3ffc60a6">m_buffer</a> = m_buffer.<a class="code" href="../../d4/dee/classArccore_1_1SharedArray.html#a45c8961b761e9601505bbae1da9638fa">clone</a>();</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    new_array.<a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html#a5b523c1ef1b7bb09ca0bdf1b3fbc6b94">m_indexes</a> = m_indexes.<a class="code" href="../../d4/dee/classArccore_1_1SharedArray.html#a45c8961b761e9601505bbae1da9638fa">clone</a>();</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;    new_array.<a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html#a04d28f5c5cd42c7992d343177b311b8f">m_sizes</a> = m_sizes.<a class="code" href="../../d4/dee/classArccore_1_1SharedArray.html#a45c8961b761e9601505bbae1da9638fa">clone</a>();</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    <span class="keywordflow">return</span> new_array;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  }</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="../../d4/d63/classArcane_1_1MultiArray2.html#a55e9b883fc8bcb3bf4e71c006850f771">  114</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html#a55e9b883fc8bcb3bf4e71c006850f771">fill</a>(<span class="keyword">const</span> DataType&amp; v)</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  {</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;    m_buffer.fill(v);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  }</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  DataType&amp; at(Integer i,Integer j)</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  {</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    <span class="keywordflow">return</span> m_buffer[m_indexes[i]+j];</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  }</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  <span class="keywordtype">void</span> setAt(Integer i,Integer j,ConstReferenceType v)</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">return</span> m_buffer.setAt(m_indexes[i]+j,v);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="../../d4/d63/classArcane_1_1MultiArray2.html#aa53c1fbfe802f5d31e229bd2542c1192">  128</a></span>&#160;  Integer <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html#aa53c1fbfe802f5d31e229bd2542c1192">dim1Size</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_indexes.size(); }</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  </div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="../../d4/d63/classArcane_1_1MultiArray2.html#a9274e920ac4087189de83b90f3a28edb">  131</a></span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">IntegerConstArrayView</a> <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html#a9274e920ac4087189de83b90f3a28edb">dim2Sizes</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_sizes; }</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00134"></a><span class="lineno"><a class="line" href="../../d4/d63/classArcane_1_1MultiArray2.html#a339853df2ad51224921e9749f5bc202c">  134</a></span>&#160;  <span class="keyword">operator</span> <a class="code" href="../../dd/dc0/classArcane_1_1MultiArray2View.html">MultiArray2View&lt;DataType&gt;</a>()</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  {</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;    <span class="keywordflow">return</span> view();</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  }</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160; </div>
+<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="../../d4/d63/classArcane_1_1MultiArray2.html#af366729d2169b2d73470ecb1e0e19adf">  140</a></span>&#160;  <span class="keyword">operator</span> <a class="code" href="../../d0/d63/classArcane_1_1ConstMultiArray2View.html">ConstMultiArray2View&lt;DataType&gt;</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="keywordflow">return</span> constView();</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;  }</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="../../d4/d63/classArcane_1_1MultiArray2.html#aff4992e0384c35b7299e000d396d1f1f">  146</a></span>&#160;  <a class="code" href="../../dd/dc0/classArcane_1_1MultiArray2View.html">MultiArray2View&lt;DataType&gt;</a> <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html#aff4992e0384c35b7299e000d396d1f1f">view</a>()</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  {</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../dd/dc0/classArcane_1_1MultiArray2View.html">MultiArray2View&lt;DataType&gt;</a>(m_buffer,m_indexes,m_sizes);</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  }</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno"><a class="line" href="../../d4/d63/classArcane_1_1MultiArray2.html#abc725de0f9dbf9a91a86754f9e5c79bd">  152</a></span>&#160;  <a class="code" href="../../d0/d63/classArcane_1_1ConstMultiArray2View.html">ConstMultiArray2View&lt;DataType&gt;</a> <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html#abc725de0f9dbf9a91a86754f9e5c79bd">constView</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d0/d63/classArcane_1_1ConstMultiArray2View.html">ConstMultiArray2View&lt;DataType&gt;</a>(m_buffer,m_indexes,m_sizes);</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  }</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="../../d4/d63/classArcane_1_1MultiArray2.html#a6b33f61dc2ceb8323c2050c28da1fa89">  158</a></span>&#160;  <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">ArrayView&lt;DataType&gt;</a> <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html#a6b33f61dc2ceb8323c2050c28da1fa89">viewAsArray</a>()</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  {</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="keywordflow">return</span> m_buffer.view();</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  }</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno"><a class="line" href="../../d4/d63/classArcane_1_1MultiArray2.html#acc4b124b40ce61626ac9217192807982">  164</a></span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;DataType&gt;</a> <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html#acc4b124b40ce61626ac9217192807982">viewAsArray</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordflow">return</span> m_buffer.constView();</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  }</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="../../d4/d63/classArcane_1_1MultiArray2.html#a1c72e7881d6a0020f66148d0447a09ff">  170</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html#a1c72e7881d6a0020f66148d0447a09ff">resize</a>(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">IntegerConstArrayView</a> new_sizes)</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  {</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keywordflow">if</span> (new_sizes.<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html#ac26e2b1441dbe2ce60c065d1b7840143">size</a>()==0){</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;      clear();</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    }</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;      _resize(new_sizes);</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  }</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;DataType&gt;</a> _value(Integer i)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;DataType&gt;</a>(m_sizes[i],m_buffer.data()+ m_indexes[i]);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  }</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;  <span class="keywordtype">void</span> _resize(<a class="code" href="../../d0/d32/namespaceArcane.html#ae9559631f97e8ff89a2d92daeb3f9956">IntegerConstArrayView</a> ar)</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;  {</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;    Integer size1 = ar.size();</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="comment">// Calcule le nombre d&#39;éléments total</span></div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;    Integer total_size = 0;</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    <span class="keywordflow">for</span>( Integer i=0; i&lt;size1; ++i )</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;      total_size += ar[i];</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;    <span class="comment">// Si on ne change pas le nombre total d&#39;élément, vérifie</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="comment">// si le resize est nécessaire</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="keywordflow">if</span> (total_size==totalNbElement() &amp;&amp; size1==m_indexes.size()){</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;      <span class="keywordtype">bool</span> is_same = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;      <span class="keywordflow">for</span>( Integer i=0; i&lt;size1; ++i )</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;        <span class="keywordflow">if</span> (m_sizes[i]!=ar[i]){</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;          is_same = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;          <span class="keywordflow">break</span>;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        }</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;      <span class="keywordflow">if</span> (is_same)</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;    }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;    <span class="comment">//_setTotalNbElement(total_size);</span></div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;    <span class="comment">// Alloue le tampon correspondant.</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="comment">//T* anew_buffer = new T[total_size+1];</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> old_size1 = m_indexes.size();</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160; </div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    SharedArray&lt;DataType&gt; new_buffer(total_size);</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;      </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;    <span class="comment">// Recopie dans le nouveau tableau les valeurs de l&#39;ancien.</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;    <span class="keywordflow">if</span> (old_size1&gt;size1)</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;      old_size1 = size1;</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> index = 0;</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordflow">for</span>( Integer i=0; i&lt;old_size1; ++i ){</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;      <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> size2 = ar[i];</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;      <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> old_size2 = m_sizes[i];</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;      <span class="keywordflow">if</span> (old_size2&gt;size2)</div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        old_size2 = size2;</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;      ConstArrayView&lt;DataType&gt; cav(_value(i));</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;      <span class="keywordflow">for</span>( Integer j=0; j&lt;old_size2; ++j )</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;        new_buffer[index+j] = cav[j];</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;      index += size2;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    }</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    m_buffer = new_buffer;</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    m_indexes.resize(size1);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    m_sizes.resize(size1);</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;    <span class="keywordflow">for</span>( Integer i2=0, index2=0; i2&lt;size1; ++i2 ){</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;      <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> size2 = ar[i2];</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;      m_indexes[i2] = index2;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;      m_sizes[i2] = size2;</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;      index2 += size2;</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    }</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;  }</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;  <span class="keywordtype">void</span> _copy(<span class="keyword">const</span> MultiArray2&lt;DataType&gt;&amp; rhs,<span class="keywordtype">bool</span> do_clone)</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  {</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    m_buffer = do_clone ? rhs.m_buffer.clone() : rhs.m_buffer;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    m_indexes = do_clone ? rhs.m_indexes.clone() : rhs.m_indexes;</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;    m_sizes = do_clone ? rhs.m_sizes.clone() : rhs.m_sizes;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  }</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  <span class="keywordtype">void</span> _copy(ConstMultiArray2View&lt;DataType&gt; aview)</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;  {</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    m_buffer = aview.m_buffer;</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    m_indexes = aview.m_indexes;</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    m_sizes = aview.m_sizes;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  }</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160; </div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00255"></a><span class="lineno"><a class="line" href="../../d4/d63/classArcane_1_1MultiArray2.html#ab02d27e79e45973de673955a3ffc60a6">  255</a></span>&#160;  <a class="code" href="../../d4/dee/classArccore_1_1SharedArray.html">SharedArray&lt;DataType&gt;</a> <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html#ab02d27e79e45973de673955a3ffc60a6">m_buffer</a>;</div>
+<div class="line"><a name="l00257"></a><span class="lineno"><a class="line" href="../../d4/d63/classArcane_1_1MultiArray2.html#a5b523c1ef1b7bb09ca0bdf1b3fbc6b94">  257</a></span>&#160;  <a class="code" href="../../d4/dee/classArccore_1_1SharedArray.html">SharedArray&lt;Integer&gt;</a> <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html#a5b523c1ef1b7bb09ca0bdf1b3fbc6b94">m_indexes</a>;</div>
+<div class="line"><a name="l00259"></a><span class="lineno"><a class="line" href="../../d4/d63/classArcane_1_1MultiArray2.html#a04d28f5c5cd42c7992d343177b311b8f">  259</a></span>&#160;  <a class="code" href="../../d4/dee/classArccore_1_1SharedArray.html">SharedArray&lt;Integer&gt;</a> <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html#a04d28f5c5cd42c7992d343177b311b8f">m_sizes</a>;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;};</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160; </div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> DataType&gt;</div>
+<div class="line"><a name="l00269"></a><span class="lineno"><a class="line" href="../../de/d2b/classArcane_1_1SharedMultiArray2.html">  269</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d2b/classArcane_1_1SharedMultiArray2.html">SharedMultiArray2</a></div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2</a>&lt;DataType&gt;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;{</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160; </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  <a class="code" href="../../de/d2b/classArcane_1_1SharedMultiArray2.html">SharedMultiArray2</a>() {}</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  <a class="code" href="../../de/d2b/classArcane_1_1SharedMultiArray2.html">SharedMultiArray2</a>(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">IntegerConstArrayView</a> sizes)</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  : <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2&lt;DataType&gt;</a>(sizes){}</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  <a class="code" href="../../de/d2b/classArcane_1_1SharedMultiArray2.html">SharedMultiArray2</a>(<a class="code" href="../../d0/d63/classArcane_1_1ConstMultiArray2View.html">ConstMultiArray2View&lt;DataType&gt;</a> view)</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  : <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2&lt;DataType&gt;</a>(view){}</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  <a class="code" href="../../de/d2b/classArcane_1_1SharedMultiArray2.html">SharedMultiArray2</a>(<span class="keyword">const</span> <a class="code" href="../../de/d2b/classArcane_1_1SharedMultiArray2.html">SharedMultiArray2&lt;DataType&gt;</a>&amp; rhs)</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  : <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2&lt;DataType&gt;</a>(rhs,<span class="keyword">false</span>){}</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  <a class="code" href="../../de/d2b/classArcane_1_1SharedMultiArray2.html">SharedMultiArray2</a>(<span class="keyword">const</span> <a class="code" href="../../db/d5b/classArcane_1_1UniqueMultiArray2.html">UniqueMultiArray2&lt;DataType&gt;</a>&amp; rhs);</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  <span class="keywordtype">void</span> operator=(<span class="keyword">const</span> <a class="code" href="../../de/d2b/classArcane_1_1SharedMultiArray2.html">SharedMultiArray2&lt;DataType&gt;</a>&amp; rhs)</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  {</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;    this-&gt;_copy(rhs,<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  }</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  <span class="keywordtype">void</span> operator=(<a class="code" href="../../d0/d63/classArcane_1_1ConstMultiArray2View.html">ConstMultiArray2View&lt;DataType&gt;</a> view)</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  {</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    this-&gt;_copy(view);</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  }</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  <span class="keywordtype">void</span> operator=(<span class="keyword">const</span> <a class="code" href="../../db/d5b/classArcane_1_1UniqueMultiArray2.html">UniqueMultiArray2&lt;DataType&gt;</a>&amp; rhs);</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160; </div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
+<div class="line"><a name="l00298"></a><span class="lineno"><a class="line" href="../../de/d2b/classArcane_1_1SharedMultiArray2.html#ab4c50252481fe0f456701639cf2d97e6">  298</a></span>&#160;  <a class="code" href="../../de/d2b/classArcane_1_1SharedMultiArray2.html">SharedMultiArray2&lt;DataType&gt;</a> <a class="code" href="../../de/d2b/classArcane_1_1SharedMultiArray2.html#ab4c50252481fe0f456701639cf2d97e6">clone</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../de/d2b/classArcane_1_1SharedMultiArray2.html">SharedMultiArray2&lt;DataType&gt;</a>(this-&gt;constView());</div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  }</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; </div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;  <span class="keywordtype">void</span> operator=(<span class="keyword">const</span> <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2&lt;DataType&gt;</a>&amp; rhs);</div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;};</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160; </div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> DataType&gt;</div>
+<div class="line"><a name="l00315"></a><span class="lineno"><a class="line" href="../../db/d5b/classArcane_1_1UniqueMultiArray2.html">  315</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../db/d5b/classArcane_1_1UniqueMultiArray2.html">UniqueMultiArray2</a></div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2</a>&lt;DataType&gt;</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;{</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160; </div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  <a class="code" href="../../db/d5b/classArcane_1_1UniqueMultiArray2.html">UniqueMultiArray2</a>() {}</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  <a class="code" href="../../db/d5b/classArcane_1_1UniqueMultiArray2.html">UniqueMultiArray2</a>(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">IntegerConstArrayView</a> sizes)</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  : <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2&lt;DataType&gt;</a>(sizes){}</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  <a class="code" href="../../db/d5b/classArcane_1_1UniqueMultiArray2.html">UniqueMultiArray2</a>(<a class="code" href="../../d0/d63/classArcane_1_1ConstMultiArray2View.html">ConstMultiArray2View&lt;DataType&gt;</a> view)</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;  : <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2&lt;DataType&gt;</a>(view){}</div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  <a class="code" href="../../db/d5b/classArcane_1_1UniqueMultiArray2.html">UniqueMultiArray2</a>(<span class="keyword">const</span> <a class="code" href="../../de/d2b/classArcane_1_1SharedMultiArray2.html">SharedMultiArray2&lt;DataType&gt;</a>&amp; rhs)</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  : <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2&lt;DataType&gt;</a>(rhs,<span class="keyword">true</span>){}</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;  <a class="code" href="../../db/d5b/classArcane_1_1UniqueMultiArray2.html">UniqueMultiArray2</a>(<span class="keyword">const</span> <a class="code" href="../../db/d5b/classArcane_1_1UniqueMultiArray2.html">UniqueMultiArray2&lt;DataType&gt;</a>&amp; rhs)</div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;  : <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2&lt;DataType&gt;</a>(rhs,<span class="keyword">true</span>){}</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
+<div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160; </div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;  <span class="keywordtype">void</span> operator=(<span class="keyword">const</span> <a class="code" href="../../de/d2b/classArcane_1_1SharedMultiArray2.html">SharedMultiArray2&lt;DataType&gt;</a>&amp; rhs)</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160;  {</div>
+<div class="line"><a name="l00334"></a><span class="lineno">  334</span>&#160;    this-&gt;_copy(rhs,<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;  }</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;  <span class="keywordtype">void</span> operator=(<a class="code" href="../../d0/d63/classArcane_1_1ConstMultiArray2View.html">ConstMultiArray2View&lt;DataType&gt;</a> view)</div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  {</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    this-&gt;_copy(view);</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;  }</div>
+<div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;  <span class="keywordtype">void</span> operator=(<span class="keyword">const</span> <a class="code" href="../../db/d5b/classArcane_1_1UniqueMultiArray2.html">UniqueMultiArray2&lt;DataType&gt;</a>&amp; rhs)</div>
+<div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;  {</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160;    this-&gt;_copy(rhs,<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00343"></a><span class="lineno">  343</span>&#160;  }</div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160; </div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00346"></a><span class="lineno">  346</span>&#160; </div>
+<div class="line"><a name="l00348"></a><span class="lineno"><a class="line" href="../../db/d5b/classArcane_1_1UniqueMultiArray2.html#ae23b37bbd29343449ee3fa88ca957bea">  348</a></span>&#160;  <a class="code" href="../../db/d5b/classArcane_1_1UniqueMultiArray2.html">UniqueMultiArray2&lt;DataType&gt;</a> <a class="code" href="../../db/d5b/classArcane_1_1UniqueMultiArray2.html#ae23b37bbd29343449ee3fa88ca957bea">clone</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../db/d5b/classArcane_1_1UniqueMultiArray2.html">UniqueMultiArray2&lt;DataType&gt;</a>(this-&gt;constView());</div>
+<div class="line"><a name="l00351"></a><span class="lineno">  351</span>&#160;  }</div>
+<div class="line"><a name="l00352"></a><span class="lineno">  352</span>&#160; </div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160; </div>
+<div class="line"><a name="l00355"></a><span class="lineno">  355</span>&#160;  <span class="keywordtype">void</span> operator=(<span class="keyword">const</span> <a class="code" href="../../d4/d63/classArcane_1_1MultiArray2.html">MultiArray2&lt;DataType&gt;</a>&amp; rhs);</div>
+<div class="line"><a name="l00356"></a><span class="lineno">  356</span>&#160; </div>
+<div class="line"><a name="l00357"></a><span class="lineno">  357</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00358"></a><span class="lineno">  358</span>&#160;};</div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160; </div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160; </div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> DataType&gt; SharedMultiArray2&lt;DataType&gt;::</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;SharedMultiArray2(<span class="keyword">const</span> UniqueMultiArray2&lt;DataType&gt;&amp; rhs)</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;: MultiArray2&lt;DataType&gt;(rhs,true){}</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00368"></a><span class="lineno">  368</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160; </div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> DataType&gt; <span class="keywordtype">void</span> SharedMultiArray2&lt;DataType&gt;::</div>
+<div class="line"><a name="l00371"></a><span class="lineno">  371</span>&#160;operator=(<span class="keyword">const</span> UniqueMultiArray2&lt;DataType&gt;&amp; rhs)</div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;{</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160;  this-&gt;_copy(rhs,<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;}</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160; </div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;ARCANE_END_NAMESPACE</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; </div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160; </div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;<span class="preprocessor">#endif  </span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1Array_html"><div class="ttname"><a href="../../d1/dfb/classArcane_1_1Array.html">Arcane::Array</a></div><div class="ttdoc">Tableau d'items de types quelconques.</div><div class="ttdef"><b>Definition:</b> AnyItemArray.h:54</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_a8862daca9dff6b892bda6cb42d241712"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#a8862daca9dff6b892bda6cb42d241712">Arccore::Array::resize</a></div><div class="ttdeci">void resize(Int64 s)</div><div class="ttdoc">Change le nombre d'élément du tableau à s. Si le nouveau tableau est plus grand que l'ancien,...</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:1009</div></div>
+<div class="ttc" id="aclassArcane_1_1MshMeshReader_html_a33b8bd16a57e4c41e4c07880a95370ce"><div class="ttname"><a href="../../d3/da2/classArcane_1_1MshMeshReader.html#a33b8bd16a57e4c41e4c07880a95370ce">Arcane::MshMeshReader::readMeshFromFile</a></div><div class="ttdeci">eReturnType readMeshFromFile(IPrimaryMesh *mesh, const XmlNode &amp;mesh_node, const String &amp;file_name, const String &amp;dir_name, bool use_internal_partition) override</div><div class="ttdoc">Lit un maillage à partir d'un fichier.</div><div class="ttdef"><b>Definition:</b> MshMeshReader.cc:212</div></div>
+<div class="ttc" id="anamespaceArcane_html_ae9559631f97e8ff89a2d92daeb3f9956"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ae9559631f97e8ff89a2d92daeb3f9956">Arcane::IntegerConstArrayView</a></div><div class="ttdeci">ConstArrayView&lt; Integer &gt; IntegerConstArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension d'entiers.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:536</div></div>
+<div class="ttc" id="aclassArcane_1_1MultiArray2_html_acc4b124b40ce61626ac9217192807982"><div class="ttname"><a href="../../d4/d63/classArcane_1_1MultiArray2.html#acc4b124b40ce61626ac9217192807982">Arcane::MultiArray2::viewAsArray</a></div><div class="ttdeci">ConstArrayView&lt; DataType &gt; viewAsArray() const</div><div class="ttdoc">Vue du tableau sous forme de tableau 1D.</div><div class="ttdef"><b>Definition:</b> MultiArray2.h:164</div></div>
+<div class="ttc" id="aclassArcane_1_1MshMeshReader_html_aaa0db261b7d6ceced8a367f6358fc6f5"><div class="ttname"><a href="../../d3/da2/classArcane_1_1MshMeshReader.html#aaa0db261b7d6ceced8a367f6358fc6f5">Arcane::MshMeshReader::allowExtension</a></div><div class="ttdeci">bool allowExtension(const String &amp;str) override</div><div class="ttdoc">Vérifie si le service supporte les fichiers avec l'extension str.</div><div class="ttdef"><b>Definition:</b> MshMeshReader.cc:210</div></div>
+<div class="ttc" id="aclassArcane_1_1XmlNode_html"><div class="ttname"><a href="../../d9/dcc/classArcane_1_1XmlNode.html">Arcane::XmlNode</a></div><div class="ttdoc">Noeud d'un arbre DOM.</div><div class="ttdef"><b>Definition:</b> XmlNode.h:49</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a98dc7953a3cabcdf7e32826a9cc39da7"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a98dc7953a3cabcdf7e32826a9cc39da7">ARCANE_THROW</a></div><div class="ttdeci">#define ARCANE_THROW(exception_class,...)</div><div class="ttdoc">Macro pour envoyer une exception avec formattage.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:750</div></div>
+<div class="ttc" id="aclassArcane_1_1MultiArray2_html_a55e9b883fc8bcb3bf4e71c006850f771"><div class="ttname"><a href="../../d4/d63/classArcane_1_1MultiArray2.html#a55e9b883fc8bcb3bf4e71c006850f771">Arcane::MultiArray2::fill</a></div><div class="ttdeci">void fill(const DataType &amp;v)</div><div class="ttdoc">Remplit les éléments du tableau avec la valeur v.</div><div class="ttdef"><b>Definition:</b> MultiArray2.h:114</div></div>
+<div class="ttc" id="agroup__Mesh_html_ga715f63c87800d630ab5c58d9328c2bf2"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga715f63c87800d630ab5c58d9328c2bf2">Arcane::FaceGroup</a></div><div class="ttdeci">ItemGroupT&lt; Face &gt; FaceGroup</div><div class="ttdoc">Groupe de faces.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:123</div></div>
+<div class="ttc" id="aclassArcane_1_1MultiArray2_html_a04d28f5c5cd42c7992d343177b311b8f"><div class="ttname"><a href="../../d4/d63/classArcane_1_1MultiArray2.html#a04d28f5c5cd42c7992d343177b311b8f">Arcane::MultiArray2::m_sizes</a></div><div class="ttdeci">SharedArray&lt; Integer &gt; m_sizes</div><div class="ttdoc">Tableau des tailles de la deuxième dimension.</div><div class="ttdef"><b>Definition:</b> MultiArray2.h:259</div></div>
+<div class="ttc" id="aclassArccore_1_1ArrayView_html"><div class="ttname"><a href="../../d7/d02/classArccore_1_1ArrayView.html">Arccore::ArrayView</a></div><div class="ttdoc">Vue modifiable d'un tableau d'un type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:95</div></div>
+<div class="ttc" id="aclassArcane_1_1UniqueMultiArray2_html"><div class="ttname"><a href="../../db/d5b/classArcane_1_1UniqueMultiArray2.html">Arcane::UniqueMultiArray2</a></div><div class="ttdoc">Tableau 2D à taille multiple avec sémantique par valeur.</div><div class="ttdef"><b>Definition:</b> MultiArray2.h:315</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html_ac5e8bbd19d4d36583035b885c94d767d"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html#ac5e8bbd19d4d36583035b885c94d767d">Arcane::IMesh::toPrimaryMesh</a></div><div class="ttdeci">virtual IPrimaryMesh * toPrimaryMesh()=0</div><div class="ttdoc">Retourne l'instance sous la forme d'un IPrimaryMesh.</div></div>
+<div class="ttc" id="aclassArcane_1_1IOException_html"><div class="ttname"><a href="../../d6/d6e/classArcane_1_1IOException.html">Arcane::IOException</a></div><div class="ttdoc">Exception lorsqu'une erreur d'entrée/sortie est détectée.</div><div class="ttdef"><b>Definition:</b> IOException.h:30</div></div>
+<div class="ttc" id="astructArcane_1_1Real3POD_html_a47536d1587ccd16c2693638cd935fa66"><div class="ttname"><a href="../../d0/d3d/structArcane_1_1Real3POD.html#a47536d1587ccd16c2693638cd935fa66">Arcane::Real3POD::z</a></div><div class="ttdeci">Real z</div><div class="ttdoc">troisième composante du triplet</div><div class="ttdef"><b>Definition:</b> Real3.h:35</div></div>
+<div class="ttc" id="aclassArcane_1_1MshMeshWriter_html"><div class="ttname"><a href="../../d1/dc8/classArcane_1_1MshMeshWriter.html">Arcane::MshMeshWriter</a></div><div class="ttdoc">Ecriture des fichiers de maillage aux format msh.</div><div class="ttdef"><b>Definition:</b> MshMeshWriter.cc:68</div></div>
+<div class="ttc" id="aclassArcane_1_1MultiArray2_html_ab02d27e79e45973de673955a3ffc60a6"><div class="ttname"><a href="../../d4/d63/classArcane_1_1MultiArray2.html#ab02d27e79e45973de673955a3ffc60a6">Arcane::MultiArray2::m_buffer</a></div><div class="ttdeci">SharedArray&lt; DataType &gt; m_buffer</div><div class="ttdoc">Valeurs.</div><div class="ttdef"><b>Definition:</b> MultiArray2.h:255</div></div>
+<div class="ttc" id="aclassArcane_1_1MultiArray2_html_aa53c1fbfe802f5d31e229bd2542c1192"><div class="ttname"><a href="../../d4/d63/classArcane_1_1MultiArray2.html#aa53c1fbfe802f5d31e229bd2542c1192">Arcane::MultiArray2::dim1Size</a></div><div class="ttdeci">Integer dim1Size() const</div><div class="ttdoc">Nombre d'éléments suivant la première dimension.</div><div class="ttdef"><b>Definition:</b> MultiArray2.h:128</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelMng_html"><div class="ttname"><a href="../../dc/d5a/classArcane_1_1IParallelMng.html">Arcane::IParallelMng</a></div><div class="ttdoc">Interface du gestionnaire de parallélisme pour un sous-domaine.</div><div class="ttdef"><b>Definition:</b> IParallelMng.h:70</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelMng_html_ae491defb6248865ffed9e8c04c9def4a"><div class="ttname"><a href="../../dc/d5a/classArcane_1_1IParallelMng.html#ae491defb6248865ffed9e8c04c9def4a">Arcane::IParallelMng::isParallel</a></div><div class="ttdeci">virtual bool isParallel() const =0</div><div class="ttdoc">Retourne true si l'exécution est parallèle.</div></div>
+<div class="ttc" id="aclassArcane_1_1ServiceBuildInfo_html"><div class="ttname"><a href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">Arcane::ServiceBuildInfo</a></div><div class="ttdoc">Structure contenant les informations pour créer un service.</div><div class="ttdef"><b>Definition:</b> ServiceBuildInfo.h:122</div></div>
+<div class="ttc" id="aclassArccore_1_1SharedArray_html_a45c8961b761e9601505bbae1da9638fa"><div class="ttname"><a href="../../d4/dee/classArccore_1_1SharedArray.html#a45c8961b761e9601505bbae1da9638fa">Arccore::SharedArray::clone</a></div><div class="ttdeci">SharedArray&lt; T &gt; clone() const</div><div class="ttdoc">Clone le tableau.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:1381</div></div>
+<div class="ttc" id="aclassArcane_1_1Node_html"><div class="ttname"><a href="../../d8/dd7/classArcane_1_1Node.html">Arcane::Node</a></div><div class="ttdoc">Noeud d'un maillage.</div><div class="ttdef"><b>Definition:</b> Dom.h:203</div></div>
+<div class="ttc" id="aclassArcane_1_1MultiArray2_html_aff4992e0384c35b7299e000d396d1f1f"><div class="ttname"><a href="../../d4/d63/classArcane_1_1MultiArray2.html#aff4992e0384c35b7299e000d396d1f1f">Arcane::MultiArray2::view</a></div><div class="ttdeci">MultiArray2View&lt; DataType &gt; view()</div><div class="ttdoc">Vue modifiable du tableau.</div><div class="ttdef"><b>Definition:</b> MultiArray2.h:146</div></div>
+<div class="ttc" id="aclassArcane_1_1IPrimaryMesh_html"><div class="ttname"><a href="../../d7/d89/classArcane_1_1IPrimaryMesh.html">Arcane::IPrimaryMesh</a></div><div class="ttdef"><b>Definition:</b> IPrimaryMesh.h:41</div></div>
+<div class="ttc" id="aclassArcane_1_1SharedMeshVariableScalarRefT_html"><div class="ttname"><a href="../../db/d50/classArcane_1_1SharedMeshVariableScalarRefT.html">Arcane::SharedMeshVariableScalarRefT</a></div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:335</div></div>
+<div class="ttc" id="astructArcane_1_1MshMeshReader_1_1MeshV4ElementsBlock_html_a446348f83430cb9f97d148b7827abdc5"><div class="ttname"><a href="../../d3/dcc/structArcane_1_1MshMeshReader_1_1MeshV4ElementsBlock.html#a446348f83430cb9f97d148b7827abdc5">Arcane::MshMeshReader::MeshV4ElementsBlock::nb_entity</a></div><div class="ttdeci">Int32 nb_entity</div><div class="ttdoc">Nombre d'entités du bloc.</div><div class="ttdef"><b>Definition:</b> MshMeshReader.cc:112</div></div>
+<div class="ttc" id="aclassArcane_1_1MshMeshReader_html_aecff68d3aa34c11c63910f1eb9bc2f65"><div class="ttname"><a href="../../d3/da2/classArcane_1_1MshMeshReader.html#aecff68d3aa34c11c63910f1eb9bc2f65">Arcane::MshMeshReader::build</a></div><div class="ttdeci">void build() override</div><div class="ttdoc">Construction de niveau build du service.</div><div class="ttdef"><b>Definition:</b> MshMeshReader.cc:208</div></div>
+<div class="ttc" id="aclassArcane_1_1MultiArray2_html_a5b523c1ef1b7bb09ca0bdf1b3fbc6b94"><div class="ttname"><a href="../../d4/d63/classArcane_1_1MultiArray2.html#a5b523c1ef1b7bb09ca0bdf1b3fbc6b94">Arcane::MultiArray2::m_indexes</a></div><div class="ttdeci">SharedArray&lt; Integer &gt; m_indexes</div><div class="ttdoc">Tableau des indices dans m_buffer du premièr élément de la deuxième dimension.</div><div class="ttdef"><b>Definition:</b> MultiArray2.h:257</div></div>
+<div class="ttc" id="aclassArcane_1_1Item_html_a9a4731a1b88e0bb8ade7a596523fdccd"><div class="ttname"><a href="../../df/d5f/classArcane_1_1Item.html#a9a4731a1b88e0bb8ade7a596523fdccd">Arcane::Item::type</a></div><div class="ttdeci">Int32 type() const</div><div class="ttdoc">Type de l'entité</div><div class="ttdef"><b>Definition:</b> Item.h:182</div></div>
+<div class="ttc" id="anamespaceArcane_html_ad52ea8220f052e503f802c64c81e0222"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ad52ea8220f052e503f802c64c81e0222">Arcane::Int64ConstArrayView</a></div><div class="ttdeci">ConstArrayView&lt; Int64 &gt; Int64ConstArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension d'entiers 64 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:530</div></div>
+<div class="ttc" id="aclassArcane_1_1MultiArray2_html_a1c72e7881d6a0020f66148d0447a09ff"><div class="ttname"><a href="../../d4/d63/classArcane_1_1MultiArray2.html#a1c72e7881d6a0020f66148d0447a09ff">Arcane::MultiArray2::resize</a></div><div class="ttdeci">void resize(IntegerConstArrayView new_sizes)</div><div class="ttdoc">Retaille le tableau avec comme nouvelles tailles new_sizes.</div><div class="ttdef"><b>Definition:</b> MultiArray2.h:170</div></div>
+<div class="ttc" id="astructArcane_1_1MshMeshReader_1_1MeshV4ElementsBlock_html_ac4cdf784a1c6ef8422c8d7adadf429d9"><div class="ttname"><a href="../../d3/dcc/structArcane_1_1MshMeshReader_1_1MeshV4ElementsBlock.html#ac4cdf784a1c6ef8422c8d7adadf429d9">Arcane::MshMeshReader::MeshV4ElementsBlock::item_type</a></div><div class="ttdeci">Integer item_type</div><div class="ttdoc">Type Arcane de l'entité</div><div class="ttdef"><b>Definition:</b> MshMeshReader.cc:113</div></div>
+<div class="ttc" id="aclassArcane_1_1AbstractService_html_a946f8dac108e594dfc65622fadf87ebe"><div class="ttname"><a href="../../da/d61/classArcane_1_1AbstractService.html#a946f8dac108e594dfc65622fadf87ebe">Arcane::AbstractService::AbstractService</a></div><div class="ttdeci">AbstractService(const ServiceBuildInfo &amp;)</div><div class="ttdoc">Constructeur à partir d'un ServiceBuildInfo.</div><div class="ttdef"><b>Definition:</b> AbstractService.cc:29</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_a94249fef4a3985c22340ac9477e685d8"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#a94249fef4a3985c22340ac9477e685d8">Arccore::Array::addRange</a></div><div class="ttdeci">void addRange(ConstReferenceType val, Int64 n)</div><div class="ttdoc">Ajoute n élément de valeur val à la fin du tableau.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:975</div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html_a86a8c15c146724b331c8aa10e2027f08"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html#a86a8c15c146724b331c8aa10e2027f08">Arccore::TraceAccessor::error</a></div><div class="ttdeci">TraceMessage error() const</div><div class="ttdoc">Flot pour un message d'erreur.</div><div class="ttdef"><b>Definition:</b> TraceAccessor.cc:201</div></div>
+<div class="ttc" id="astructArcane_1_1Real3POD_html_a2b3df161ba01f6d46c9c9158b6c41c95"><div class="ttname"><a href="../../d0/d3d/structArcane_1_1Real3POD.html#a2b3df161ba01f6d46c9c9158b6c41c95">Arcane::Real3POD::y</a></div><div class="ttdeci">Real y</div><div class="ttdoc">deuxième composante du triplet</div><div class="ttdef"><b>Definition:</b> Real3.h:34</div></div>
+<div class="ttc" id="aclassArcane_1_1MultiArray2View_html"><div class="ttname"><a href="../../dd/dc0/classArcane_1_1MultiArray2View.html">Arcane::MultiArray2View</a></div><div class="ttdoc">Vue modifiable sur un MultiArray2.</div><div class="ttdef"><b>Definition:</b> MultiArray2View.h:36</div></div>
+<div class="ttc" id="agroup__Variable_html_ga98c3f361d93bc122a383a05c80a966b7"><div class="ttname"><a href="../../d3/d00/group__Variable.html#ga98c3f361d93bc122a383a05c80a966b7">Arcane::VariableNodeReal3</a></div><div class="ttdeci">MeshVariableScalarRefT&lt; Node, Real3 &gt; VariableNodeReal3</div><div class="ttdoc">Grandeur au noeud de type coordonnées.</div><div class="ttdef"><b>Definition:</b> VariableTypedef.h:359</div></div>
+<div class="ttc" id="anamespaceArccore_html_a19fea02f94d4da203710fd2070c0f2fb"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Arccore::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:232</div></div>
+<div class="ttc" id="astructArcane_1_1MshMeshReader_1_1MeshV4ElementsBlock_html"><div class="ttname"><a href="../../d3/dcc/structArcane_1_1MshMeshReader_1_1MeshV4ElementsBlock.html">Arcane::MshMeshReader::MeshV4ElementsBlock</a></div><div class="ttdoc">Infos d'un bloc pour $Elements pour la version 4.</div><div class="ttdef"><b>Definition:</b> MshMeshReader.cc:109</div></div>
+<div class="ttc" id="aclassArcane_1_1IosFile_html"><div class="ttname"><a href="../../d4/da5/classArcane_1_1IosFile.html">Arcane::IosFile</a></div><div class="ttdoc">Routines des Lecture/Ecriture d'un fichier.</div><div class="ttdef"><b>Definition:</b> IosFile.h:29</div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html_ac97ca3cda108d93dceb8e1a4800246a7"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html#ac97ca3cda108d93dceb8e1a4800246a7">Arccore::TraceAccessor::info</a></div><div class="ttdeci">TraceMessage info() const</div><div class="ttdoc">Flot pour un message d'information.</div><div class="ttdef"><b>Definition:</b> TraceAccessor.cc:101</div></div>
+<div class="ttc" id="astructArcane_1_1MshMeshReader_1_1MeshV4EntitiesNodes_html"><div class="ttname"><a href="../../d4/dcf/structArcane_1_1MshMeshReader_1_1MeshV4EntitiesNodes.html">Arcane::MshMeshReader::MeshV4EntitiesNodes</a></div><div class="ttdoc">Infos pour les entités 0D.</div><div class="ttdef"><b>Definition:</b> MshMeshReader.cc:158</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshBase_html_a34b052fa8647cde2e038099fc54c0ab6"><div class="ttname"><a href="../../de/d4a/classArcane_1_1IMeshBase.html#a34b052fa8647cde2e038099fc54c0ab6">Arcane::IMeshBase::nbCell</a></div><div class="ttdeci">virtual Integer nbCell()=0</div><div class="ttdoc">Nombre de mailles du maillage.</div></div>
+<div class="ttc" id="aclassArcane_1_1MshMeshReader_html_adca11364773899e2f5137f678fd50740"><div class="ttname"><a href="../../d3/da2/classArcane_1_1MshMeshReader.html#adca11364773899e2f5137f678fd50740">Arcane::MshMeshReader::_readElementsFromAsciiMshV4File</a></div><div class="ttdeci">Integer _readElementsFromAsciiMshV4File(IosFile &amp;, MeshInfo &amp;mesh_info)</div><div class="ttdoc">Lecture des éléments (mailles,faces,...)</div><div class="ttdef"><b>Definition:</b> MshMeshReader.cc:508</div></div>
+<div class="ttc" id="aclassArccore_1_1StringView_html"><div class="ttname"><a href="../../d0/d06/classArccore_1_1StringView.html">Arccore::StringView</a></div><div class="ttdoc">Vue sur une chaîne de caractères UTF-8.</div><div class="ttdef"><b>Definition:</b> StringView.h:46</div></div>
+<div class="ttc" id="aclassArccore_1_1UniqueArray_html"><div class="ttname"><a href="../../da/daa/classArccore_1_1UniqueArray.html">Arccore::UniqueArray</a></div><div class="ttdoc">Vecteur 1D de données avec sémantique par valeur (style STL).</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:1504</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshReader_html_aa5759e2881cc9fec93f3d2dbcb28004ca891d767ba5df9e8c5f93a49fffbbf194"><div class="ttname"><a href="../../d7/d2c/classArcane_1_1IMeshReader.html#aa5759e2881cc9fec93f3d2dbcb28004ca891d767ba5df9e8c5f93a49fffbbf194">Arcane::IMeshReader::RTOk</a></div><div class="ttdeci">@ RTOk</div><div class="ttdoc">Opération effectuée avec succès.</div><div class="ttdef"><b>Definition:</b> IMeshReader.h:43</div></div>
+<div class="ttc" id="agroup__GroupMathUtils_html_ga1fdb520cf182e9f868193f653daf3e2f"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">Arcane::math::max</a></div><div class="ttdeci">T max(const T &amp;a, const T &amp;b, const T &amp;c)</div><div class="ttdoc">Retourne le maximum de trois éléments.</div><div class="ttdef"><b>Definition:</b> MathUtils.h:430</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html">Arcane::IMesh</a></div><div class="ttdef"><b>Definition:</b> IMesh.h:57</div></div>
+<div class="ttc" id="aclassArcane_1_1ConstMultiArray2View_html"><div class="ttname"><a href="../../d0/d63/classArcane_1_1ConstMultiArray2View.html">Arcane::ConstMultiArray2View</a></div><div class="ttdoc">Vue constante sur un MultiArray2.</div><div class="ttdef"><b>Definition:</b> MultiArray2View.h:79</div></div>
+<div class="ttc" id="aclassArcane_1_1MshMeshReader_html_af6a33ab27616fd913ecd18891bb21e91"><div class="ttname"><a href="../../d3/da2/classArcane_1_1MshMeshReader.html#af6a33ab27616fd913ecd18891bb21e91">Arcane::MshMeshReader::_readMeshFromMshFile</a></div><div class="ttdeci">eReturnType _readMeshFromMshFile(IMesh *mesh, const XmlNode &amp;mesh_node, const String &amp;file_name, bool use_internal_partition)</div><div class="ttdef"><b>Definition:</b> MshMeshReader.cc:1098</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html_ad8703adc1416a9e0becf3feaa2df3959"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html#ad8703adc1416a9e0becf3feaa2df3959">Arcane::IMesh::allCells</a></div><div class="ttdeci">virtual CellGroup allCells()=0</div><div class="ttdoc">Groupe de toutes les mailles.</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html_ac26e2b1441dbe2ce60c065d1b7840143"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html#ac26e2b1441dbe2ce60c065d1b7840143">Arccore::ConstArrayView::size</a></div><div class="ttdeci">constexpr Integer size() const noexcept</div><div class="ttdoc">Nombre d'éléments du tableau.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:632</div></div>
+<div class="ttc" id="aclassArccore_1_1SharedArray_html"><div class="ttname"><a href="../../d4/dee/classArccore_1_1SharedArray.html">Arccore::SharedArray</a></div><div class="ttdoc">Vecteur 1D de données avec sémantique par référence.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:1266</div></div>
+<div class="ttc" id="aMeshUtils_8h_html"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html">MeshUtils.h</a></div><div class="ttdoc">Fonctions utilitaires sur le maillage.</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshReader_html"><div class="ttname"><a href="../../d7/d2c/classArcane_1_1IMeshReader.html">Arcane::IMeshReader</a></div><div class="ttdoc">Interface du service gérant la lecture d'un maillage.</div><div class="ttdef"><b>Definition:</b> IMeshReader.h:36</div></div>
+<div class="ttc" id="aclassArcane_1_1Item_html_a8e5cf3572ae8a043fae3e32fe400551b"><div class="ttname"><a href="../../df/d5f/classArcane_1_1Item.html#a8e5cf3572ae8a043fae3e32fe400551b">Arcane::Item::uniqueId</a></div><div class="ttdeci">ItemUniqueId uniqueId() const</div><div class="ttdoc">Identifiant unique sur tous les domaines.</div><div class="ttdef"><b>Definition:</b> Item.h:176</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemWithNodes_html_a5b0ac05c0313732d2a73dd9eacc317dd"><div class="ttname"><a href="../../d4/d55/classArcane_1_1ItemWithNodes.html#a5b0ac05c0313732d2a73dd9eacc317dd">Arcane::ItemWithNodes::node</a></div><div class="ttdeci">Node node(Integer i) const</div><div class="ttdoc">i-ème noeud de l'élément</div><div class="ttdef"><b>Definition:</b> Item.h:524</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html_a8a988ade617f508cd842bcd9b5ab2bc1"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html#a8a988ade617f508cd842bcd9b5ab2bc1">Arcane::IMesh::allNodes</a></div><div class="ttdeci">virtual NodeGroup allNodes()=0</div><div class="ttdoc">Groupe de tous les noeuds.</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemWithNodes_html_ac4c82b2a9a0ba3870796512029841cfe"><div class="ttname"><a href="../../d4/d55/classArcane_1_1ItemWithNodes.html#ac4c82b2a9a0ba3870796512029841cfe">Arcane::ItemWithNodes::nbNode</a></div><div class="ttdeci">Integer nbNode() const</div><div class="ttdoc">Nombre de sommets de l'élément.</div><div class="ttdef"><b>Definition:</b> Item.h:521</div></div>
+<div class="ttc" id="aclassArcane_1_1Cell_html"><div class="ttname"><a href="../../d9/db2/classArcane_1_1Cell.html">Arcane::Cell</a></div><div class="ttdoc">Maille d'un maillage.</div><div class="ttdef"><b>Definition:</b> Item.h:822</div></div>
+<div class="ttc" id="aclassArccore_1_1NotSupportedException_html"><div class="ttname"><a href="../../d6/ddb/classArccore_1_1NotSupportedException.html">Arccore::NotSupportedException</a></div><div class="ttdoc">Exception lorsqu'une opération n'est pas supportée.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/NotSupportedException.h:31</div></div>
+<div class="ttc" id="aclassArcane_1_1MultiArray2_html_a6b33f61dc2ceb8323c2050c28da1fa89"><div class="ttname"><a href="../../d4/d63/classArcane_1_1MultiArray2.html#a6b33f61dc2ceb8323c2050c28da1fa89">Arcane::MultiArray2::viewAsArray</a></div><div class="ttdeci">ArrayView&lt; DataType &gt; viewAsArray()</div><div class="ttdoc">Vue du tableau sous forme de tableau 1D.</div><div class="ttdef"><b>Definition:</b> MultiArray2.h:158</div></div>
+<div class="ttc" id="astructArcane_1_1MshMeshReader_1_1MeshV4EntitiesWithNodes_html"><div class="ttname"><a href="../../d2/d85/structArcane_1_1MshMeshReader_1_1MeshV4EntitiesWithNodes.html">Arcane::MshMeshReader::MeshV4EntitiesWithNodes</a></div><div class="ttdoc">Infos pour les entités 1D, 2D et 3D.</div><div class="ttdef"><b>Definition:</b> MshMeshReader.cc:167</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshReader_html_aa5759e2881cc9fec93f3d2dbcb28004c"><div class="ttname"><a href="../../d7/d2c/classArcane_1_1IMeshReader.html#aa5759e2881cc9fec93f3d2dbcb28004c">Arcane::IMeshReader::eReturnType</a></div><div class="ttdeci">eReturnType</div><div class="ttdoc">Types des codes de retour d'une lecture ou écriture.</div><div class="ttdef"><b>Definition:</b> IMeshReader.h:41</div></div>
+<div class="ttc" id="astructArcane_1_1Real3POD_html_affa41c7059c883d6f4f29dd4e572f027"><div class="ttname"><a href="../../d0/d3d/structArcane_1_1Real3POD.html#affa41c7059c883d6f4f29dd4e572f027">Arcane::Real3POD::x</a></div><div class="ttdeci">Real x</div><div class="ttdoc">première composante du triplet</div><div class="ttdef"><b>Definition:</b> Real3.h:33</div></div>
+<div class="ttc" id="aclassArcane_1_1MultiArray2_html_a4f366e004e3ef39056ba268755978387"><div class="ttname"><a href="../../d4/d63/classArcane_1_1MultiArray2.html#a4f366e004e3ef39056ba268755978387">Arcane::MultiArray2::MultiArray2</a></div><div class="ttdeci">MultiArray2(const MultiArray2&lt; DataType &gt; &amp;rhs, bool do_clone)</div><div class="ttdoc">Constructeur de recopie. Méthode temporaire à supprimer une fois le constructeur et opérateur de reco...</div><div class="ttdef"><b>Definition:</b> MultiArray2.h:75</div></div>
+<div class="ttc" id="aclassArcane_1_1MultiArray2_html_abc725de0f9dbf9a91a86754f9e5c79bd"><div class="ttname"><a href="../../d4/d63/classArcane_1_1MultiArray2.html#abc725de0f9dbf9a91a86754f9e5c79bd">Arcane::MultiArray2::constView</a></div><div class="ttdeci">ConstMultiArray2View&lt; DataType &gt; constView() const</div><div class="ttdoc">Vue constante du tableau.</div><div class="ttdef"><b>Definition:</b> MultiArray2.h:152</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html_ac03dd6aadc0f22a51096167b1bb8694f"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html#ac03dd6aadc0f22a51096167b1bb8694f">Arcane::IMesh::meshPartInfo</a></div><div class="ttdeci">virtual const MeshPartInfo &amp; meshPartInfo() const =0</div><div class="ttdoc">Informations sur les parties du maillage.</div></div>
+<div class="ttc" id="astructArcane_1_1MshMeshReader_1_1MeshPhysicalName_html"><div class="ttname"><a href="../../db/d77/structArcane_1_1MshMeshReader_1_1MeshPhysicalName.html">Arcane::MshMeshReader::MeshPhysicalName</a></div><div class="ttdoc">Infos sur un nom physique.</div><div class="ttdef"><b>Definition:</b> MshMeshReader.cc:125</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html_a53951b76f8fc90b57ec8d9f2496f7c97"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html#a53951b76f8fc90b57ec8d9f2496f7c97">Arcane::IMesh::sharedNodesCoordinates</a></div><div class="ttdeci">virtual SharedVariableNodeReal3 sharedNodesCoordinates()=0</div><div class="ttdoc">Coordonnées des noeuds.</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshWriter_html"><div class="ttname"><a href="../../dc/d13/classArcane_1_1IMeshWriter.html">Arcane::IMeshWriter</a></div><div class="ttdoc">Interface d'un service d'écriture d'un maillage.</div><div class="ttdef"><b>Definition:</b> IMeshWriter.h:35</div></div>
+<div class="ttc" id="aclassArcane_1_1MshMeshReader_html"><div class="ttname"><a href="../../d3/da2/classArcane_1_1MshMeshReader.html">Arcane::MshMeshReader</a></div><div class="ttdoc">Lecteur de fichiers de maillage au format msh.</div><div class="ttdef"><b>Definition:</b> MshMeshReader.cc:97</div></div>
+<div class="ttc" id="anamespaceArcane_1_1Convert_html_a9991535d65307251e061bc477bb87bc5"><div class="ttname"><a href="../../d5/dee/namespaceArcane_1_1Convert.html#a9991535d65307251e061bc477bb87bc5">Arcane::Convert::toDouble</a></div><div class="ttdeci">double toDouble(Real r)</div><div class="ttdoc">Converti un Real en double.</div><div class="ttdef"><b>Definition:</b> Convert.h:37</div></div>
+<div class="ttc" id="aServiceFactory_8h_html_a480db4972e53162abf799e425a4e73ad"><div class="ttname"><a href="../../d3/d58/ServiceFactory_8h.html#a480db4972e53162abf799e425a4e73ad">ARCANE_REGISTER_SUB_DOMAIN_FACTORY</a></div><div class="ttdeci">#define ARCANE_REGISTER_SUB_DOMAIN_FACTORY(aclass, ainterface, aname)</div><div class="ttdoc">Enregistre un service de fabrique pour la classe aclass.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:586</div></div>
+<div class="ttc" id="astructArcane_1_1MshMeshReader_1_1MeshPhysicalNameList_html"><div class="ttname"><a href="../../de/dd1/structArcane_1_1MshMeshReader_1_1MeshPhysicalNameList.html">Arcane::MshMeshReader::MeshPhysicalNameList</a></div><div class="ttdoc">Infos du bloc '$PhysicalNames'.</div><div class="ttdef"><b>Definition:</b> MshMeshReader.cc:139</div></div>
+<div class="ttc" id="astructArcane_1_1MshMeshReader_1_1MeshInfo_html"><div class="ttname"><a href="../../db/d28/structArcane_1_1MshMeshReader_1_1MeshInfo.html">Arcane::MshMeshReader::MeshInfo</a></div><div class="ttdef"><b>Definition:</b> MshMeshReader.cc:176</div></div>
+<div class="ttc" id="aclassArcane_1_1IPrimaryMesh_html_ad9fc773b1e7dddf645ce42e89feeb43d"><div class="ttname"><a href="../../d7/d89/classArcane_1_1IPrimaryMesh.html#ad9fc773b1e7dddf645ce42e89feeb43d">Arcane::IPrimaryMesh::setDimension</a></div><div class="ttdeci">virtual void setDimension(Integer dim)=0</div><div class="ttdoc">Positionne la dimension du maillage (1D, 2D ou 3D).</div></div>
+<div class="ttc" id="aclassArcane_1_1AbstractService_html"><div class="ttname"><a href="../../da/d61/classArcane_1_1AbstractService.html">Arcane::AbstractService</a></div><div class="ttdoc">Classe de base d'un service.</div><div class="ttdef"><b>Definition:</b> AbstractService.h:39</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshReader_html_aa5759e2881cc9fec93f3d2dbcb28004ca3816c6372931032e4493be43848ec314"><div class="ttname"><a href="../../d7/d2c/classArcane_1_1IMeshReader.html#aa5759e2881cc9fec93f3d2dbcb28004ca3816c6372931032e4493be43848ec314">Arcane::IMeshReader::RTError</a></div><div class="ttdeci">@ RTError</div><div class="ttdoc">Erreur lors de l'opération.</div><div class="ttdef"><b>Definition:</b> IMeshReader.h:44</div></div>
+<div class="ttc" id="aclassArcane_1_1MultiArray2_html_a06a51e0360bc9e1067b58cd64e4a8cb7"><div class="ttname"><a href="../../d4/d63/classArcane_1_1MultiArray2.html#a06a51e0360bc9e1067b58cd64e4a8cb7">Arcane::MultiArray2::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Supprime les éléments du tableau.</div><div class="ttdef"><b>Definition:</b> MultiArray2.h:98</div></div>
+<div class="ttc" id="aclassArcane_1_1Real3_html"><div class="ttname"><a href="../../d1/da6/classArcane_1_1Real3.html">Arcane::Real3</a></div><div class="ttdoc">Classe gérant un vecteur de réel de dimension 3.</div><div class="ttdef"><b>Definition:</b> Real3.h:91</div></div>
+<div class="ttc" id="aItemEnumerator_8h_html"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html">ItemEnumerator.h</a></div><div class="ttdoc">Types et macros pour itérer sur les entités du maillage.</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemGroup_html"><div class="ttname"><a href="../../d9/d27/classArcane_1_1ItemGroup.html">Arcane::ItemGroup</a></div><div class="ttdoc">Groupe d'entités de maillage.</div><div class="ttdef"><b>Definition:</b> ItemGroup.h:48</div></div>
+<div class="ttc" id="aclassArcane_1_1MshMeshWriter_html_aafc081f86607deb350d508f47852d7cf"><div class="ttname"><a href="../../d1/dc8/classArcane_1_1MshMeshWriter.html#aafc081f86607deb350d508f47852d7cf">Arcane::MshMeshWriter::writeMeshToFile</a></div><div class="ttdeci">virtual bool writeMeshToFile(IMesh *mesh, const String &amp;file_name)</div><div class="ttdoc">writeMeshToFile écrit au format gmsh tel que spécifié ci-dessous:</div><div class="ttdef"><b>Definition:</b> MshMeshWriter.cc:169</div></div>
+<div class="ttc" id="aclassArcane_1_1MshMeshWriter_html_a0df72cb1e3e7133e286c3c4011170583"><div class="ttname"><a href="../../d1/dc8/classArcane_1_1MshMeshWriter.html#a0df72cb1e3e7133e286c3c4011170583">Arcane::MshMeshWriter::_switchMshType</a></div><div class="ttdeci">Integer _switchMshType(Integer mshElemType)</div><div class="ttdef"><b>Definition:</b> MshMeshWriter.cc:99</div></div>
+<div class="ttc" id="anamespaceArcane_html_a76d8edd5679322dbbea6dd06488a0db4a9997b517d3c4ecb309d952431399bd2f"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a76d8edd5679322dbbea6dd06488a0db4a9997b517d3c4ecb309d952431399bd2f">Arcane::ST_SubDomain</a></div><div class="ttdeci">@ ST_SubDomain</div><div class="ttdoc">Le service s'utilise au niveau du sous-domaine.</div><div class="ttdef"><b>Definition:</b> ServiceProperty.h:68</div></div>
+<div class="ttc" id="astructArcane_1_1MshMeshReader_1_1MeshV4ElementsBlock_html_abd9355027d773464a8c7e1b4eccb666a"><div class="ttname"><a href="../../d3/dcc/structArcane_1_1MshMeshReader_1_1MeshV4ElementsBlock.html#abd9355027d773464a8c7e1b4eccb666a">Arcane::MshMeshReader::MeshV4ElementsBlock::index</a></div><div class="ttdeci">Int32 index</div><div class="ttdoc">Index du bloc dans la liste.</div><div class="ttdef"><b>Definition:</b> MshMeshReader.cc:111</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_ab3f2d332e7c412261b9199bb5454e31b"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#ab3f2d332e7c412261b9199bb5454e31b">Arccore::Array::add</a></div><div class="ttdeci">void add(ConstReferenceType val)</div><div class="ttdoc">Ajoute l'élément val à la fin du tableau.</div><div class="ttdef"><b>Definition:</b> arccore/src/collections/arccore/collections/Array.h:967</div></div>
+<div class="ttc" id="agroup__Service_html_ga08ef55634029238ec40cbb93692033e8"><div class="ttname"><a href="../../d8/dff/group__Service.html#ga08ef55634029238ec40cbb93692033e8">ARCANE_REGISTER_SERVICE</a></div><div class="ttdeci">#define ARCANE_REGISTER_SERVICE(aclass, a_service_property,...)</div><div class="ttdoc">Macro pour enregistrer un service.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:516</div></div>
+<div class="ttc" id="aclassArcane_1_1HashTableMapT_html"><div class="ttname"><a href="../../d3/db3/classArcane_1_1HashTableMapT.html">Arcane::HashTableMapT</a></div><div class="ttdoc">Table de hachage pour tableaux associatifs.</div><div class="ttdef"><b>Definition:</b> HashTableMap.h:51</div></div>
+<div class="ttc" id="aclassArcane_1_1MultiArray2_html_a9274e920ac4087189de83b90f3a28edb"><div class="ttname"><a href="../../d4/d63/classArcane_1_1MultiArray2.html#a9274e920ac4087189de83b90f3a28edb">Arcane::MultiArray2::dim2Sizes</a></div><div class="ttdeci">IntegerConstArrayView dim2Sizes() const</div><div class="ttdoc">Tableau du nombre d'éléments suivant la deuxième dimension.</div><div class="ttdef"><b>Definition:</b> MultiArray2.h:131</div></div>
+<div class="ttc" id="aclassArcane_1_1UniqueMultiArray2_html_ae23b37bbd29343449ee3fa88ca957bea"><div class="ttname"><a href="../../db/d5b/classArcane_1_1UniqueMultiArray2.html#ae23b37bbd29343449ee3fa88ca957bea">Arcane::UniqueMultiArray2::clone</a></div><div class="ttdeci">UniqueMultiArray2&lt; DataType &gt; clone() const</div><div class="ttdoc">Clone le tableau.</div><div class="ttdef"><b>Definition:</b> MultiArray2.h:348</div></div>
+<div class="ttc" id="aclassArcane_1_1MshMeshReader_html_a7a87baca1670c36e83989d5818d6002b"><div class="ttname"><a href="../../d3/da2/classArcane_1_1MshMeshReader.html#a7a87baca1670c36e83989d5818d6002b">Arcane::MshMeshReader::_readEntitiesV4</a></div><div class="ttdeci">void _readEntitiesV4(IosFile &amp;ios_file, MeshInfo &amp;mesh_info)</div><div class="ttdoc">Lecture des entités.</div><div class="ttdef"><b>Definition:</b> MshMeshReader.cc:896</div></div>
+<div class="ttc" id="aclassArcane_1_1MultiArray2_html"><div class="ttname"><a href="../../d4/d63/classArcane_1_1MultiArray2.html">Arcane::MultiArray2</a></div><div class="ttdoc">Classe de base des tableau 2D à taille multiple.</div><div class="ttdef"><b>Definition:</b> MultiArray2.h:56</div></div>
+<div class="ttc" id="agroup__Mesh_html_ga4d78be302ffdabc4e0f16578cc077314"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga4d78be302ffdabc4e0f16578cc077314">Arcane::CellGroup</a></div><div class="ttdeci">ItemGroupT&lt; Cell &gt; CellGroup</div><div class="ttdoc">Groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:128</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:32</div></div>
+<div class="ttc" id="anamespaceArcane_html_a6946176a3fcbd7087f23d5b720bcefa3"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a6946176a3fcbd7087f23d5b720bcefa3">Arcane::ItemInternalList</a></div><div class="ttdeci">ConstArrayView&lt; ItemInternal * &gt; ItemInternalList</div><div class="ttdoc">Type de la liste interne des entités.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:262</div></div>
+<div class="ttc" id="aclassArcane_1_1MshMeshReader_html_a6b70f6369ac49f86cdbdc0cd1c53f058"><div class="ttname"><a href="../../d3/da2/classArcane_1_1MshMeshReader.html#a6b70f6369ac49f86cdbdc0cd1c53f058">Arcane::MshMeshReader::_readNodesFromAsciiMshV4File</a></div><div class="ttdeci">eReturnType _readNodesFromAsciiMshV4File(IosFile &amp;, MeshInfo &amp;mesh_info)</div><div class="ttdef"><b>Definition:</b> MshMeshReader.cc:371</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html_a2ce8c322412d172156d909d8dfa6adc2"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html#a2ce8c322412d172156d909d8dfa6adc2">Arcane::IMesh::parallelMng</a></div><div class="ttdeci">virtual IParallelMng * parallelMng()=0</div><div class="ttdoc">Gestionnaire de parallèlisme.</div></div>
+<div class="ttc" id="aItemEnumerator_8h_html_aea36524754c129124072de38e045d6ba"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#aea36524754c129124072de38e045d6ba">ENUMERATE_NODE</a></div><div class="ttdeci">#define ENUMERATE_NODE(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de noeuds.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:234</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/String.h:68</div></div>
+<div class="ttc" id="aclassArcane_1_1MultiArray2_html_a0b9bfcd28bd3b802830a4256e3ca9ffc"><div class="ttname"><a href="../../d4/d63/classArcane_1_1MultiArray2.html#a0b9bfcd28bd3b802830a4256e3ca9ffc">Arcane::MultiArray2::totalNbElement</a></div><div class="ttdeci">Integer totalNbElement() const</div><div class="ttdoc">Nombre total d'éléments.</div><div class="ttdef"><b>Definition:</b> MultiArray2.h:96</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html_ab9f88427a38ac95ab3cf53743f248cb7"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html#ab9f88427a38ac95ab3cf53743f248cb7">Arccore::String::localstr</a></div><div class="ttdeci">const char * localstr() const</div><div class="ttdoc">Retourne la conversion de l'instance dans l'encodage UTF-8.</div><div class="ttdef"><b>Definition:</b> String.cc:236</div></div>
+<div class="ttc" id="aclassArcane_1_1MultiArray2_html_aa37723b96dff5769cdc41525fd8b5d08"><div class="ttname"><a href="../../d4/d63/classArcane_1_1MultiArray2.html#aa37723b96dff5769cdc41525fd8b5d08">Arcane::MultiArray2::clone</a></div><div class="ttdeci">MultiArray2&lt; DataType &gt; clone()</div><div class="ttdoc">Clone le tableau.</div><div class="ttdef"><b>Definition:</b> MultiArray2.h:105</div></div>
+<div class="ttc" id="aServiceFactory_8h_html_aba44ad90916fb14522e59bab36dbf5f7"><div class="ttname"><a href="../../d3/d58/ServiceFactory_8h.html#aba44ad90916fb14522e59bab36dbf5f7">ARCANE_SERVICE_INTERFACE</a></div><div class="ttdeci">#define ARCANE_SERVICE_INTERFACE(ainterface)</div><div class="ttdoc">Macro pour déclarer une interface lors de l'enregistrement d'un service.</div><div class="ttdef"><b>Definition:</b> ServiceFactory.h:475</div></div>
+<div class="ttc" id="aclassArcane_1_1MshMeshReader_html_a7e9ee0a0fec68f6102c2bb2e13d6acd0"><div class="ttname"><a href="../../d3/da2/classArcane_1_1MshMeshReader.html#a7e9ee0a0fec68f6102c2bb2e13d6acd0">Arcane::MshMeshReader::_readMeshFromNewMshFile</a></div><div class="ttdeci">eReturnType _readMeshFromNewMshFile(IMesh *, IosFile &amp;)</div><div class="ttdef"><b>Definition:</b> MshMeshReader.cc:990</div></div>
+<div class="ttc" id="aclassArcane_1_1SharedMultiArray2_html_ab4c50252481fe0f456701639cf2d97e6"><div class="ttname"><a href="../../de/d2b/classArcane_1_1SharedMultiArray2.html#ab4c50252481fe0f456701639cf2d97e6">Arcane::SharedMultiArray2::clone</a></div><div class="ttdeci">SharedMultiArray2&lt; DataType &gt; clone() const</div><div class="ttdoc">Clone le tableau.</div><div class="ttdef"><b>Definition:</b> MultiArray2.h:298</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html_a91f9add9d6e0aee3fb36aa5d2abf194d"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html#a91f9add9d6e0aee3fb36aa5d2abf194d">Arccore::String::collapseWhiteSpace</a></div><div class="ttdeci">static String collapseWhiteSpace(const String &amp;rhs)</div><div class="ttdoc">Effectue une normalisation des caractères espaces.</div><div class="ttdef"><b>Definition:</b> String.cc:443</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a9d85d5fb84c5371348dd56600999e564"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a></div><div class="ttdeci">#define ARCANE_FATAL(...)</div><div class="ttdoc">Macro envoyant une exception FatalErrorException.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:761</div></div>
+<div class="ttc" id="aItemEnumerator_8h_html_aaf5910d68ad8428248f844535ab071f3"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a></div><div class="ttdeci">#define ENUMERATE_CELL(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:243</div></div>
+<div class="ttc" id="aclassArcane_1_1MshMeshWriter_html_a36611b692487e02b08704a9ca73eb7b1"><div class="ttname"><a href="../../d1/dc8/classArcane_1_1MshMeshWriter.html#a36611b692487e02b08704a9ca73eb7b1">Arcane::MshMeshWriter::build</a></div><div class="ttdeci">virtual void build()</div><div class="ttdoc">Construction de niveau build du service.</div><div class="ttdef"><b>Definition:</b> MshMeshWriter.cc:75</div></div>
+<div class="ttc" id="astructArcane_1_1MshMeshReader_1_1MeshV4ElementsBlock_html_a9cbc8a2b4698e910b53da8761b49aa1c"><div class="ttname"><a href="../../d3/dcc/structArcane_1_1MshMeshReader_1_1MeshV4ElementsBlock.html#a9cbc8a2b4698e910b53da8761b49aa1c">Arcane::MshMeshReader::MeshV4ElementsBlock::dimension</a></div><div class="ttdeci">Int32 dimension</div><div class="ttdoc">Dimension de l'entité</div><div class="ttdef"><b>Definition:</b> MshMeshReader.cc:114</div></div>
+<div class="ttc" id="aclassArcane_1_1SharedMultiArray2_html"><div class="ttname"><a href="../../de/d2b/classArcane_1_1SharedMultiArray2.html">Arcane::SharedMultiArray2</a></div><div class="ttdoc">Tableau 2D à taille multiple avec sémantique par référence.</div><div class="ttdef"><b>Definition:</b> MultiArray2.h:269</div></div>
+<div class="ttc" id="astructArcane_1_1MshMeshReader_1_1MeshV4ElementsBlock_html_aa28b837ce852df802e0ab94e6cb264e6"><div class="ttname"><a href="../../d3/dcc/structArcane_1_1MshMeshReader_1_1MeshV4ElementsBlock.html#aa28b837ce852df802e0ab94e6cb264e6">Arcane::MshMeshReader::MeshV4ElementsBlock::item_nb_node</a></div><div class="ttdeci">Int32 item_nb_node</div><div class="ttdoc">Nombre de noeuds de l'entité.</div><div class="ttdef"><b>Definition:</b> MshMeshReader.cc:115</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshBase_html_ab0801370711b2ecce1c6509f6b1aef9e"><div class="ttname"><a href="../../de/d4a/classArcane_1_1IMeshBase.html#ab0801370711b2ecce1c6509f6b1aef9e">Arcane::IMeshBase::nbNode</a></div><div class="ttdeci">virtual Integer nbNode()=0</div><div class="ttdoc">Nombre de noeuds du maillage.</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:39 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

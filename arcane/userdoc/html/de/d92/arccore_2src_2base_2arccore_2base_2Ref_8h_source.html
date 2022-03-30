@@ -1,0 +1,368 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arccore/base/Ref.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('de/d92/arccore_2src_2base_2arccore_2base_2Ref_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">Ref.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="../../de/d92/arccore_2src_2base_2arccore_2base_2Ref_8h.html">Aller à la documentation de ce fichier.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* Ref.h                                                       (C) 2000-2020 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Gestion des références sur une instance.                                  */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCCORE_BASE_REF_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCCORE_BASE_REF_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arccore/base/ExternalRef.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../dc/d80/RefDeclarations_8h.html">arccore/base/RefDeclarations.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d5/d60/namespaceArccore.html">Arccore</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="../../d1/d10/classArccore_1_1RefBase.html">   31</a></span>&#160;<span class="keyword">class </span>ARCCORE_BASE_EXPORT <a class="code" href="../../d1/d10/classArccore_1_1RefBase.html">RefBase</a></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d4/d57/classArccore_1_1RefBase_1_1DeleterBase.html">   34</a></span>&#160;  <span class="keyword">class </span>ARCCORE_BASE_EXPORT <a class="code" href="../../d4/d57/classArccore_1_1RefBase_1_1DeleterBase.html">DeleterBase</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  {</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;   <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">bool</span> _destroyHandle(<span class="keyword">const</span> <span class="keywordtype">void</span>* instance,<a class="code" href="../../d3/d47/classArccore_1_1Internal_1_1ExternalRef.html">Internal::ExternalRef</a>&amp; handle);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> _destroyHandle(<span class="keywordtype">void</span>* instance,<a class="code" href="../../d3/d47/classArccore_1_1Internal_1_1ExternalRef.html">Internal::ExternalRef</a>&amp; handle);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> _destroyHandleTrue(<span class="keyword">const</span> <span class="keywordtype">void</span>* instance,<a class="code" href="../../d3/d47/classArccore_1_1Internal_1_1ExternalRef.html">Internal::ExternalRef</a>&amp; handle);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  };</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">namespace </span>Internal</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> InstanceType&gt;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="../../d6/d8e/classArccore_1_1Internal_1_1ReferenceCounterWrapper.html">   50</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d6/d8e/classArccore_1_1Internal_1_1ReferenceCounterWrapper.html">ReferenceCounterWrapper</a></div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;{</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">inline</span> <span class="keyword">static</span> <span class="keywordtype">void</span> _checkHasReferenceCounterTag()</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  {</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    static_assert(std::is_same_v&lt;typename InstanceType::ReferenceCounterTagType,ReferenceCounterTag&gt;,<span class="stringliteral">&quot;Bad tag&quot;</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> U&gt;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <a class="code" href="../../d6/d8e/classArccore_1_1Internal_1_1ReferenceCounterWrapper.html">ReferenceCounterWrapper</a>(InstanceType* ptr,U&amp;&amp; uref)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  : m_instance(ptr)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  {</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    ARCCORE_UNUSED(uref);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    _checkHasReferenceCounterTag();</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160; }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d6/d8e/classArccore_1_1Internal_1_1ReferenceCounterWrapper.html">ReferenceCounterWrapper</a>(InstanceType* ptr)</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  : m_instance(ptr)</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    _checkHasReferenceCounterTag();</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T,</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;           <span class="keyword">typename</span> X = <span class="keyword">typename</span> std::is_convertible&lt;T*,InstanceType*&gt;::type&gt;</div>
+<div class="line"><a name="l00073"></a><span class="lineno"><a class="line" href="../../d6/d8e/classArccore_1_1Internal_1_1ReferenceCounterWrapper.html#a9c0980513e10d7e48acb50b08a8a6821">   73</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d6/d8e/classArccore_1_1Internal_1_1ReferenceCounterWrapper.html#a9c0980513e10d7e48acb50b08a8a6821">ReferenceCounterWrapper</a>(<span class="keyword">const</span> <a class="code" href="../../d6/d8e/classArccore_1_1Internal_1_1ReferenceCounterWrapper.html">ReferenceCounterWrapper&lt;T&gt;</a>&amp; r)</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  : m_instance(r.get())</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  {</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    _checkHasReferenceCounterTag();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <a class="code" href="../../d6/d8e/classArccore_1_1Internal_1_1ReferenceCounterWrapper.html">ReferenceCounterWrapper</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  InstanceType* get()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_instance.get(); }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordtype">void</span> reset() { m_instance = <span class="keyword">nullptr</span>; }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <a class="code" href="../../d7/d42/classArccore_1_1ReferenceCounter.html">Arccore::ReferenceCounter&lt;InstanceType&gt;</a> m_instance;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;};</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;}</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> InstanceType&gt;</div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="../../d0/d24/structArccore_1_1RefTraitsTagId_3_01InstanceType_00_01REF__TAG__SHARED__PTR_01_4.html">   91</a></span>&#160;<span class="keyword">struct </span><a class="code" href="../../da/d4f/structArccore_1_1RefTraitsTagId.html">RefTraitsTagId</a>&lt;InstanceType,REF_TAG_SHARED_PTR&gt;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;{</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <span class="keyword">typedef</span> std::shared_ptr&lt;InstanceType&gt; ImplType;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> RefType = REF_TAG_SHARED_PTR;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;};</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> InstanceType&gt;</div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="../../d3/da1/structArccore_1_1RefTraitsTagId_3_01InstanceType_00_01REF__TAG__REFERENCE__COUNTER_01_4.html">   99</a></span>&#160;<span class="keyword">struct </span><a class="code" href="../../da/d4f/structArccore_1_1RefTraitsTagId.html">RefTraitsTagId</a>&lt;InstanceType,REF_TAG_REFERENCE_COUNTER&gt;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;{</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../d6/d8e/classArccore_1_1Internal_1_1ReferenceCounterWrapper.html">Internal::ReferenceCounterWrapper&lt;InstanceType&gt;</a> <a class="code" href="../../d6/d8e/classArccore_1_1Internal_1_1ReferenceCounterWrapper.html">ImplType</a>;</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> RefType = REF_TAG_REFERENCE_COUNTER;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;};</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> InstanceType,<span class="keywordtype">int</span> ImplTagId&gt;</div>
+<div class="line"><a name="l00127"></a><span class="lineno"><a class="line" href="../../de/d9f/classArccore_1_1Ref.html">  127</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref</a></div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d1/d10/classArccore_1_1RefBase.html">RefBase</a></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;{</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <span class="keyword">typedef</span> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InstanceType,ImplTagId&gt;</a> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">ThatClass</a>;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="../../da/d4f/structArccore_1_1RefTraitsTagId.html">RefTraitsTagId&lt;InstanceType,ImplTagId&gt;::ImplType</a> ImplType;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span>... _Args&gt;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  <span class="keyword">using</span> _IsRefConstructible = <span class="keyword">typename</span> std::enable_if&lt;std::is_constructible&lt;ImplType, _Args...&gt;::value&gt;::type;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d4/d57/classArccore_1_1RefBase_1_1DeleterBase.html">RefBase::DeleterBase</a>;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <span class="keyword">class </span>Deleter : <a class="code" href="../../d4/d57/classArccore_1_1RefBase_1_1DeleterBase.html">DeleterBase</a></div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  {</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    Deleter(<a class="code" href="../../d3/d47/classArccore_1_1Internal_1_1ExternalRef.html">Internal::ExternalRef</a> h) : m_handle(h), m_no_destroy(<span class="keyword">false</span>){}</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    Deleter(<a class="code" href="../../d3/d47/classArccore_1_1Internal_1_1ExternalRef.html">Internal::ExternalRef</a> h,<span class="keywordtype">bool</span> no_destroy)</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    : m_handle(h), m_no_destroy(no_destroy){}</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;    <span class="keywordtype">void</span> operator()(InstanceType* tt)</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;    {</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;      <span class="keywordflow">if</span> (m_no_destroy)</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;        <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;      <span class="keywordtype">bool</span> is_destroyed = this-&gt;_destroyHandle(tt,m_handle);</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;      <span class="keywordflow">if</span> (!is_destroyed)</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;        <span class="keyword">delete</span> tt;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;    }</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="keywordtype">void</span> setNoDestroy(<span class="keywordtype">bool</span> x) { m_no_destroy = x; }</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;   <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <a class="code" href="../../d3/d47/classArccore_1_1Internal_1_1ExternalRef.html">Internal::ExternalRef</a> m_handle;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    <span class="keywordtype">bool</span> m_no_destroy;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  };</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;  <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> RefType = <a class="code" href="../../da/d4f/structArccore_1_1RefTraitsTagId.html">RefTraitsTagId&lt;InstanceType,ImplTagId&gt;::RefType</a>;</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref</a>(InstanceType* t) : m_instance(t,Deleter(<span class="keyword">nullptr</span>)){}</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref</a>(InstanceType* t,<a class="code" href="../../d3/d47/classArccore_1_1Internal_1_1ExternalRef.html">Internal::ExternalRef</a> handle) : m_instance(t,Deleter(handle)){}</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref</a>(InstanceType* t,<span class="keywordtype">bool</span> no_destroy) : m_instance(t,Deleter(<span class="keyword">nullptr</span>,no_destroy)){}</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref</a>(ImplType&amp;&amp; t) : m_instance(t) {}</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  template&lt;typename T, typename = _IsRefConstructible&lt;typename Ref&lt;T&gt;::ImplType&gt; &gt;</div>
+<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="../../de/d9f/classArccore_1_1Ref.html#a7b66f349cd912b151108d336c90776c4">  174</a></span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html#a7b66f349cd912b151108d336c90776c4">Ref</a>(<span class="keyword">const</span> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;T&gt;</a>&amp; rhs) noexcept</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  : m_instance(rhs._internalInstance()){}</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref</a>(<span class="keyword">const</span> ThatClass&amp; rhs) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  ThatClass&amp; operator=(<span class="keyword">const</span> ThatClass&amp; rhs) = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  ~<a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;  <span class="keyword">static</span> ThatClass create(InstanceType* t)</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;  {</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keywordflow">return</span> ThatClass(t);</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  }</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;  <span class="keyword">template</span>&lt;<span class="keyword">typename</span> PointerType, <span class="keyword">typename</span>... Args&gt;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;  <span class="keyword">static</span> <span class="keyword">inline</span> Ref&lt;InstanceType&gt;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;  createRef(Args&amp;&amp;... args)</div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  {</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    PointerType* pt = <span class="keyword">new</span> PointerType(std::forward&lt;Args&gt;(args)...);</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="keywordflow">return</span> Ref&lt;InstanceType&gt;(pt);</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;  }</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  <span class="keyword">static</span> ThatClass createWithHandle(InstanceType* t,Internal::ExternalRef handle)</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;  {</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;    <span class="keywordflow">return</span> ThatClass(t,handle);</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;  }</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;  <span class="keyword">static</span> ThatClass _createNoDestroy(InstanceType* t)</div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  {</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;    <span class="keywordflow">return</span> ThatClass(t,<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;  }</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00221"></a><span class="lineno"><a class="line" href="../../de/d9f/classArccore_1_1Ref.html#a24a745ea7e20d10a9633a2b661ce271d">  221</a></span>&#160;  InstanceType* <a class="code" href="../../de/d9f/classArccore_1_1Ref.html#a24a745ea7e20d10a9633a2b661ce271d">get</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_instance.get(); }</div>
+<div class="line"><a name="l00223"></a><span class="lineno"><a class="line" href="../../de/d9f/classArccore_1_1Ref.html#a73ae5a993c7ef6b46eab1f268aa69c3e">  223</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html#a73ae5a993c7ef6b46eab1f268aa69c3e">isNull</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_instance.get()==<span class="keyword">nullptr</span>; }</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  InstanceType* operator-&gt;()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_instance.get(); }</div>
+<div class="line"><a name="l00226"></a><span class="lineno"><a class="line" href="../../de/d9f/classArccore_1_1Ref.html#ace5327600a343fdb8ae676dc47aa36cb">  226</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html#ace5327600a343fdb8ae676dc47aa36cb">reset</a>() { m_instance.reset(); }</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;  InstanceType* _release()</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;  {</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    <span class="comment">// Relâche l&#39;instance. Pour cela, on indique au destructeur</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    <span class="comment">// de ne pas détruire l&#39;instance de &#39;m_instance&#39; et on</span></div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    <span class="comment">// retourne cette dernière.</span></div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;    Deleter* r = std::get_deleter&lt;Deleter&gt;(m_instance);</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;    <span class="keywordflow">if</span> (r)</div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;      r-&gt;setNoDestroy(<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    InstanceType* t = m_instance.get();</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    m_instance.reset();</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keywordflow">return</span> t;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;  }</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;  <span class="keyword">const</span> ImplType&amp; _internalInstance()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_instance; }</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;  ImplType m_instance;</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;};</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160; </div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> InstanceType,<span class="keywordtype">int</span> TagId&gt;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> Ref&lt;InstanceType,TagId&gt;&amp; a,<span class="keyword">const</span> Ref&lt;InstanceType,TagId&gt;&amp; b)</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;{</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  <span class="keywordflow">return</span> a.get()==b.get();</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;}</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> InstanceType,<span class="keywordtype">int</span> TagId&gt;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> operator!=(<span class="keyword">const</span> Ref&lt;InstanceType,TagId&gt;&amp; a,<span class="keyword">const</span> Ref&lt;InstanceType,TagId&gt;&amp; b)</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;{</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  <span class="keywordflow">return</span> a.get()!=b.get();</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;}</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> InstanceType,<span class="keywordtype">int</span> TagId&gt;</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="../../d5/d60/namespaceArccore.html#a3124477869172be2134de3935637b2a9">operator&lt;</a>(<span class="keyword">const</span> Ref&lt;InstanceType,TagId&gt;&amp; a,<span class="keyword">const</span> Ref&lt;InstanceType,TagId&gt;&amp; b)</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;{</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;  <span class="keywordflow">return</span> a.get()&lt;b.get();</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;}</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; </div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> InstanceType,<span class="keywordtype">int</span> TagId&gt;</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">bool</span> operator!(<span class="keyword">const</span> Ref&lt;InstanceType,TagId&gt;&amp; a)</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;{</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  <span class="keywordflow">return</span> a.isNull();</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;}</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> InstanceType&gt; <span class="keyword">auto</span></div>
+<div class="line"><a name="l00286"></a><span class="lineno"><a class="line" href="../../d5/d60/namespaceArccore.html#a7c7dbb1a4a565ffa1d5a02fb0bf6cb1b">  286</a></span>&#160;<a class="code" href="../../d5/d60/namespaceArccore.html#a7c7dbb1a4a565ffa1d5a02fb0bf6cb1b">makeRef</a>(InstanceType* t) -&gt; <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InstanceType&gt;</a> </div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;{</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InstanceType&gt;::create</a>(t);</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;}</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; </div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> InstanceType,</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160;         <span class="keyword">typename</span> InstanceType2,</div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160;         <span class="keyword">typename</span> std::enable_if_t&lt;Ref&lt;InstanceType&gt;::RefType,<span class="keywordtype">int</span>&gt; = REF_TAG_REFERENCE_COUNTER &gt;</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;<span class="keyword">inline</span> Ref&lt;InstanceType&gt;</div>
+<div class="line"><a name="l00311"></a><span class="lineno"><a class="line" href="../../d5/d60/namespaceArccore.html#a8ff19adc9666e0a59cabded32ae87a83">  311</a></span>&#160;<a class="code" href="../../d5/d60/namespaceArccore.html#a8ff19adc9666e0a59cabded32ae87a83">makeRefFromInstance</a>(InstanceType2* t)</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;{</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  <span class="keywordflow">return</span> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;InstanceType&gt;::create</a>(t);</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;}</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160; </div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160; </div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;} <span class="comment">// End namespace Arccore</span></div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160; </div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160; </div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclassArccore_1_1Ref_html_a73ae5a993c7ef6b46eab1f268aa69c3e"><div class="ttname"><a href="../../de/d9f/classArccore_1_1Ref.html#a73ae5a993c7ef6b46eab1f268aa69c3e">Arccore::Ref::isNull</a></div><div class="ttdeci">bool isNull() const</div><div class="ttdoc">Indique si le compteur référence une instance non nulle.</div><div class="ttdef"><b>Definition:</b> Ref.h:223</div></div>
+<div class="ttc" id="aclassArccore_1_1Internal_1_1ReferenceCounterWrapper_html_a9c0980513e10d7e48acb50b08a8a6821"><div class="ttname"><a href="../../d6/d8e/classArccore_1_1Internal_1_1ReferenceCounterWrapper.html#a9c0980513e10d7e48acb50b08a8a6821">Arccore::Internal::ReferenceCounterWrapper::ReferenceCounterWrapper</a></div><div class="ttdeci">ReferenceCounterWrapper(const ReferenceCounterWrapper&lt; T &gt; &amp;r)</div><div class="ttdoc">Autorise à convertir si 'T*' et 'InstanceType*' sont convertibles.</div><div class="ttdef"><b>Definition:</b> Ref.h:73</div></div>
+<div class="ttc" id="anamespaceArccore_html_a7c7dbb1a4a565ffa1d5a02fb0bf6cb1b"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a7c7dbb1a4a565ffa1d5a02fb0bf6cb1b">Arccore::makeRef</a></div><div class="ttdeci">auto makeRef(InstanceType *t) -&gt; Ref&lt; InstanceType &gt;</div><div class="ttdoc">Créé une référence sur un pointeur.</div><div class="ttdef"><b>Definition:</b> Ref.h:286</div></div>
+<div class="ttc" id="aclassArccore_1_1Internal_1_1ReferenceCounterWrapper_html"><div class="ttname"><a href="../../d6/d8e/classArccore_1_1Internal_1_1ReferenceCounterWrapper.html">Arccore::Internal::ReferenceCounterWrapper</a></div><div class="ttdef"><b>Definition:</b> Ref.h:50</div></div>
+<div class="ttc" id="aclassArccore_1_1Internal_1_1ExternalRef_html"><div class="ttname"><a href="../../d3/d47/classArccore_1_1Internal_1_1ExternalRef.html">Arccore::Internal::ExternalRef</a></div><div class="ttdef"><b>Definition:</b> ExternalRef.h:43</div></div>
+<div class="ttc" id="anamespaceArccore_html_a3124477869172be2134de3935637b2a9"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a3124477869172be2134de3935637b2a9">Arccore::operator&lt;</a></div><div class="ttdeci">bool operator&lt;(const APReal &amp;a, const APReal &amp;b)</div><div class="ttdoc">Emulation d'un réel en précision arbitraire.</div><div class="ttdef"><b>Definition:</b> APReal.h:45</div></div>
+<div class="ttc" id="anamespaceArccore_html_a8ff19adc9666e0a59cabded32ae87a83"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a8ff19adc9666e0a59cabded32ae87a83">Arccore::makeRefFromInstance</a></div><div class="ttdeci">Ref&lt; InstanceType &gt; makeRefFromInstance(InstanceType2 *t)</div><div class="ttdoc">Récupère une référence sur le pointeur t.</div><div class="ttdef"><b>Definition:</b> Ref.h:311</div></div>
+<div class="ttc" id="aclassArccore_1_1Ref_html_ace5327600a343fdb8ae676dc47aa36cb"><div class="ttname"><a href="../../de/d9f/classArccore_1_1Ref.html#ace5327600a343fdb8ae676dc47aa36cb">Arccore::Ref::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Positionne l'instance au pointeur nul.</div><div class="ttdef"><b>Definition:</b> Ref.h:226</div></div>
+<div class="ttc" id="aclassArccore_1_1Ref_html_a24a745ea7e20d10a9633a2b661ce271d"><div class="ttname"><a href="../../de/d9f/classArccore_1_1Ref.html#a24a745ea7e20d10a9633a2b661ce271d">Arccore::Ref::get</a></div><div class="ttdeci">InstanceType * get() const</div><div class="ttdoc">Instance associée ou nullptr si aucune.</div><div class="ttdef"><b>Definition:</b> Ref.h:221</div></div>
+<div class="ttc" id="astructArccore_1_1RefTraitsTagId_html"><div class="ttname"><a href="../../da/d4f/structArccore_1_1RefTraitsTagId.html">Arccore::RefTraitsTagId</a></div><div class="ttdef"><b>Definition:</b> RefDeclarations.h:97</div></div>
+<div class="ttc" id="aRefDeclarations_8h_html"><div class="ttname"><a href="../../dc/d80/RefDeclarations_8h.html">RefDeclarations.h</a></div></div>
+<div class="ttc" id="aclassArccore_1_1ReferenceCounter_html"><div class="ttname"><a href="../../d7/d42/classArccore_1_1ReferenceCounter.html">Arccore::ReferenceCounter&lt; InstanceType &gt;</a></div></div>
+<div class="ttc" id="anamespaceArccore_html"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html">Arccore</a></div><div class="ttdoc">Espace de nom de Arccore.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:23</div></div>
+<div class="ttc" id="aclassArccore_1_1Ref_html"><div class="ttname"><a href="../../de/d9f/classArccore_1_1Ref.html">Arccore::Ref</a></div><div class="ttdoc">Référence à une instance.</div><div class="ttdef"><b>Definition:</b> Ref.h:127</div></div>
+<div class="ttc" id="aclassArccore_1_1RefBase_1_1DeleterBase_html"><div class="ttname"><a href="../../d4/d57/classArccore_1_1RefBase_1_1DeleterBase.html">Arccore::RefBase::DeleterBase</a></div><div class="ttdef"><b>Definition:</b> Ref.h:34</div></div>
+<div class="ttc" id="aclassArccore_1_1RefBase_html"><div class="ttname"><a href="../../d1/d10/classArccore_1_1RefBase.html">Arccore::RefBase</a></div><div class="ttdoc">Classe de base d'une référence à un service.</div><div class="ttdef"><b>Definition:</b> Ref.h:31</div></div>
+<div class="ttc" id="aclassArccore_1_1Ref_html_a7b66f349cd912b151108d336c90776c4"><div class="ttname"><a href="../../de/d9f/classArccore_1_1Ref.html#a7b66f349cd912b151108d336c90776c4">Arccore::Ref::Ref</a></div><div class="ttdeci">Ref(const Ref&lt; T &gt; &amp;rhs) noexcept</div><div class="ttdoc">Construit une référence issue d'une autre référence sur un type compatible.</div><div class="ttdef"><b>Definition:</b> Ref.h:174</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_44fa00c71957ebc9608cdeb9331193e4.html">arccore</a></li><li class="navelem"><a class="el" href="../../dir_774a37000eb91d47ac3bb8db3320e651.html">base</a></li><li class="navelem"><a class="el" href="../../de/d92/arccore_2src_2base_2arccore_2base_2Ref_8h.html">Ref.h</a></li>
+    <li class="footer">Généré le Mercredi 30 Mars 2022 12:59:37 pour Arcane par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

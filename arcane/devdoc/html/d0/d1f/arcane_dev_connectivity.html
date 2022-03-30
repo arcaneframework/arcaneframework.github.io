@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane: Gestion des connectivités à la demande.</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Gestion des connectivités à la demande. </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h1><a class="anchor" id="arcane_dev_connectivity_current"></a>
+État actuel</h1>
+<p>Actuellement, l'interface IItemConnectivity permet de gèrer de nouvelles connectivités mais elle n'est pas prévues pour une mise à jour incrémentale des éléments. Par incrémental, on entend que les connectivités doivent être mises à jour immédiatement après l'ajout où la supression d'une entité.</p>
+<p>Comme convenu lors d'une réunion avec Stéphane, une nouvelle interface IIncrementalItemConnectivity a été créée pour gérer ce type de connectivité. Une implémentation générique est disponible et s'apelle IncrementalItemConnectivity. Elle n'est pas optimisée mais peut s'appliquer à n'importe quel type de connectivité</p>
+<p>L'interface IIncrementalItemConnectivity possède plusieurs méthodes réparties en trois catégories:</p>
+<ul>
+<li>les méthodes identiques à IItemConnectivity. Il s'agit de IItemConnectivity::name(), IItemConnectivity::families(), IItemConnectivity::sourceFamily() et IItemConnectivity::targetFamily().</li>
+<li>les méthodes d'ajout/supression. Il s'agit de IIncrementalItemConnectivity::addConnectedItem() et IIncrementalItemConnectivity::removeConnectedItem(). Ces deux méthodes permettent d'ajouter ou suprimer une entité. <dl class="section note"><dt>Note</dt><dd>Pour l'instant ces méthodes prennent en argument un ItemInternal*. Il faudrait voir si ce ne serait pas mieux avec un ItemLocalId.</dd></dl>
+</li>
+<li>les méthodes de notification. Elles sont disponibles pour que les familles associées à ces connectivités puissent notifier ces dernières d'une modification interne. Il y a 4 méthodes. IIncrementalItemConnectivity::notifySourceFamilyLocalIdChanged() et IIncrementalItemConnectivity::notifyTargetFamilyLocalIdChanged() sont appelés lorsque la famille source ou cible est compactée. La méthode IIncrementalItemConnectivity::notifySourceItemAdded() est appelé lorsqu'un élément est ajouté à la famille source. Cela permet notamment de redimensionner les tableaux internes. Enfin, la dernière méthode IIncrementalItemConnectivity::notifyReadFromDump() est appelé après une relecture suite à un retour-arrière où une reprise.</li>
+</ul>
+<p>Ces méthodes de notification peuvent évoluer de plusieurs manières:</p><ul>
+<li>on peut ajouter aux familles la notion d'évènement, avec un évènement par type de notification et ensuite chaque famille s'enregistre. Cela a l'avantage de ne pas nécessiter de méthode spécifique dans l'interface IIncrementalItemConnectivity mais rend le code moins lisible (car l'enregistrement des familles ne se voit pas dans facilement dans le source) et ne permet pas de gérer facilement l'ordre des appels entre différentes connectivités si besoin.</li>
+<li>on peut aussi rendre disponible ces notifications aux connectivités qui implémentent IItemConnectivity. Dans ce cas une interface de base commune avec IIncrementalItemConnectivity serait utile.</li>
+</ul>
+<p>Pour gérer correctement les mises à jour suite au compactage, j'ai du rendre privé à ItemFamily l'accès en écriture à ItemFamily::m_infos. Du coup, au lieu d'appeler le compactage des entités directement via DynamicMeshKindInfos::beginCompactItems() et DynamicMeshKindInfos::finishCompactItems(), il faut appeler les méthodes correspondantes de ItemFamily qui va faire la délégation et notifier les connectivités incrémentales de ce changement. </p><dl class="section note"><dt>Note</dt><dd>C'est à cet endroit qu'on pourrait aussi notifier aux autres connectités d'un éventuel compactage.</dd></dl>
+<p>Ces nouvelles fonctionnalités ne sont pour l'instant implémentées que pour la connectivité noeud-&gt;face de NodeFamily. Cette connectivité se fait en double avec la connectivité classique. En mode check, on vérifie après chaque changement dans la famille que la nouvelle connectivité et l'ancienne (qui sert de référence) sont les mêmes. </p><dl class="section warning"><dt>Avertissement</dt><dd>Par contre, actuellement la nouvelle connectivité n'est jamais utilisée directement. L'accès via ItemInternal se fait toujours avec l'ancien mécanisme. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>Il n'y a actuellement qu'une seule opération qui n'est pas implémenté avec les nouvelles fonctionnalités, c'est le tri par uniqueId() croissant fait dans la méthode DynamicMesh::_sortInternalReferences().</dd></dl>
+<p>Pour cette connectivité noeud-&gt;face, j'ai aussi implémenté la connectivité actuelle via l'interface IIncrementalItemConnectivity. La classe qui gère cela est NodeFaceCompactIncrementalItemConnectivity. Du coup, le même mécanisme est utilisé pour l'ancienne et la nouvelle connectivité et il est donc assez général.</p>
+<p>Pour activer la nouvelle connectivité, il faut positionner la variable d'environnement ARCANE_CONNECTIVITY_POLICY à 1. A terme évidemment il faudra faire autrement.</p>
+<p>Actuellement, tous les cas de la base de test fonctionnent avec cette nouvelle connectivité. J'ai aussi testé (sommairement) sur la base d'intégration de nos codes sous <a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a> et je n'ai pas eu de problèmes.</p>
+<h1><a class="anchor" id="arcane_dev_connectivity_next_phases"></a>
+Prochaines phases</h1>
+<p>Si la preuve de concept est ok, les phases suivantes seront (plus ou moins dans cet ordre):</p><ul>
+<li>modifier ItemInternal pour utiliser la nouvelle connectivité si elle est définie.</li>
+<li>utiliser l'interface IIncrementalItemConnectivity pour gérer toutes les connectivités, même les anciennes. Cette phase peut se faire en plusieurs sous-phases suivant les connectivités. Les connectivités 'classiques' noeuds, arêtes, faces et mailles d'abord, les connectivités plus compliquées (notamment AMR) ensuite.</li>
+<li>optimiser IncrementalItemConnectivity notamment en gérant la pré-allocation pour ne pas réallouer à chaque fois. Il faudra aussi gérer le compactage.</li>
+<li>pouvoir activer par configuration l'ancienne où la nouvelle connectivité. </li>
+</ul>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:55 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

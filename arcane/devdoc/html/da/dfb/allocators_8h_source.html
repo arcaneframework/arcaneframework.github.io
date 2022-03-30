@@ -1,0 +1,310 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de allocators.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_2729d02b006c8e73197ea03fae7905d4.html">utils</a></li><li class="navelem"><a class="el" href="../../dir_26e53ffe2c84857ab7b0df08aa925c37.html">internal</a></li><li class="navelem"><a class="el" href="../../dir_441e97b616484c87d3f2036650c07c77.html">json</a></li><li class="navelem"><a class="el" href="../../dir_c0a5c61f11aef62740fa4bc9f7ff6ecb.html">rapidjson</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">allocators.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">// Tencent is pleased to support the open source community by making RapidJSON available.</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// </span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// Copyright (C) 2015 THL A29 Limited, a Tencent company, and Milo Yip. All rights reserved.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// Licensed under the MIT License (the &quot;License&quot;); you may not use this file except</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">// in compliance with the License. You may obtain a copy of the License at</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">// http://opensource.org/licenses/MIT</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">//</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// Unless required by applicable law or agreed to in writing, software distributed </span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">// under the License is distributed on an &quot;AS IS&quot; BASIS, WITHOUT WARRANTIES OR </span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">// CONDITIONS OF ANY KIND, either express or implied. See the License for the </span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">// specific language governing permissions and limitations under the License.</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#ifndef RAPIDJSON_ALLOCATORS_H_</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#define RAPIDJSON_ALLOCATORS_H_</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d4/dc0/rapidjson_8h.html">rapidjson.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<a class="code" href="../../d2/d59/group__RAPIDJSON__CONFIG.html#gad3806c8251fdc7da9618b7e922674ffc">RAPIDJSON_NAMESPACE_BEGIN</a></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">// Allocator</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;<span class="preprocessor">#ifndef RAPIDJSON_ALLOCATOR_DEFAULT_CHUNK_CAPACITY</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="../../d2/d59/group__RAPIDJSON__CONFIG.html#ga860570d04d489be08b9835d2ec58bac5">   65</a></span>&#160;<span class="preprocessor">#define RAPIDJSON_ALLOCATOR_DEFAULT_CHUNK_CAPACITY (64 * 1024)</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="comment">// CrtAllocator</span></div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00076"></a><span class="lineno"><a class="line" href="../../d5/d8d/classCrtAllocator.html">   76</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d5/d8d/classCrtAllocator.html">CrtAllocator</a> {</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> kNeedFree = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <span class="keywordtype">void</span>* Malloc(<span class="keywordtype">size_t</span> size) { </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;        <span class="keywordflow">if</span> (size) <span class="comment">//  behavior of malloc(0) is implementation defined.</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;            <span class="keywordflow">return</span> std::malloc(size);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;            <span class="keywordflow">return</span> NULL; <span class="comment">// standardize to returning NULL.</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keywordtype">void</span>* Realloc(<span class="keywordtype">void</span>* originalPtr, <span class="keywordtype">size_t</span> originalSize, <span class="keywordtype">size_t</span> newSize) {</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;        (void)originalSize;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;        <span class="keywordflow">if</span> (newSize == 0) {</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;            std::free(originalPtr);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;            <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;        }</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;        <span class="keywordflow">return</span> std::realloc(originalPtr, newSize);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> Free(<span class="keywordtype">void</span> *ptr) { std::free(ptr); }</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">// MemoryPoolAllocator</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> BaseAllocator = CrtAllocator&gt;</div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="../../da/d46/classMemoryPoolAllocator.html">  116</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../da/d46/classMemoryPoolAllocator.html">MemoryPoolAllocator</a> {</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="../../da/d46/classMemoryPoolAllocator.html#ab4c7c5c631e451689bc9da392a65194f">  118</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">bool</span> <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#ab4c7c5c631e451689bc9da392a65194f">kNeedFree</a> = <span class="keyword">false</span>;    </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="../../da/d46/classMemoryPoolAllocator.html#aeec85ac657f242ac5620115141be5209">  124</a></span>&#160;    <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#aeec85ac657f242ac5620115141be5209">MemoryPoolAllocator</a>(<span class="keywordtype">size_t</span> chunkSize = <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#aa6db3ea4fb9c40174d77b3fe9b1cccf1">kDefaultChunkCapacity</a>, BaseAllocator* baseAllocator = 0) : </div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;        <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>(0), <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a67909468c193d429a227a74d35c4d8cb">chunk_capacity_</a>(chunkSize), <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#aa3c4d2503b12acc7d14e4a5da67ac46e">userBuffer_</a>(0), <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a628cd7f46e838fb37ceccf65dd17bce6">baseAllocator_</a>(baseAllocator), <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a3e1e1bf108de2e6985c6d38964f8e3b9">ownBaseAllocator_</a>(0)</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;    {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;    }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="../../da/d46/classMemoryPoolAllocator.html#a1f0d865093fdb955d956b7a445a8ddbf">  139</a></span>&#160;    <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a1f0d865093fdb955d956b7a445a8ddbf">MemoryPoolAllocator</a>(<span class="keywordtype">void</span> *buffer, <span class="keywordtype">size_t</span> size, <span class="keywordtype">size_t</span> chunkSize = <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#aa6db3ea4fb9c40174d77b3fe9b1cccf1">kDefaultChunkCapacity</a>, BaseAllocator* baseAllocator = 0) :</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;        <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>(0), <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a67909468c193d429a227a74d35c4d8cb">chunk_capacity_</a>(chunkSize), <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#aa3c4d2503b12acc7d14e4a5da67ac46e">userBuffer_</a>(buffer), <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a628cd7f46e838fb37ceccf65dd17bce6">baseAllocator_</a>(baseAllocator), <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a3e1e1bf108de2e6985c6d38964f8e3b9">ownBaseAllocator_</a>(0)</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;    {</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;        <a class="code" href="../../d2/d59/group__RAPIDJSON__CONFIG.html#gabeba18d612187bad2ac62aed9276d47c">RAPIDJSON_ASSERT</a>(buffer != 0);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;        <a class="code" href="../../d2/d59/group__RAPIDJSON__CONFIG.html#gabeba18d612187bad2ac62aed9276d47c">RAPIDJSON_ASSERT</a>(size &gt; <span class="keyword">sizeof</span>(ChunkHeader));</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;        <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a> = <span class="keyword">reinterpret_cast&lt;</span>ChunkHeader*<span class="keyword">&gt;</span>(buffer);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;        <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>-&gt;<a class="code" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#ae19df98bce5dd485a23f953112ecde5f">capacity</a> = size - <span class="keyword">sizeof</span>(ChunkHeader);</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;        <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>-&gt;<a class="code" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#ac9f3868f4cd36cdb7c712c9a48686680">size</a> = 0;</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;        <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>-&gt;<a class="code" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#a4d24357c177824b3af56ec1098d9d9dc">next</a> = 0;</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;    }</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="../../da/d46/classMemoryPoolAllocator.html#ad4eee0ef3cfe8cda31034fbce98b7a9b">  153</a></span>&#160;    <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#ad4eee0ef3cfe8cda31034fbce98b7a9b">~MemoryPoolAllocator</a>() {</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;        <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a57bbc80e570db6110901b9a7e36dbda0">Clear</a>();</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;        <a class="code" href="../../d4/dc0/rapidjson_8h.html#a52c941c3fdd646527cdcd42aa846a28a">RAPIDJSON_DELETE</a>(<a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a3e1e1bf108de2e6985c6d38964f8e3b9">ownBaseAllocator_</a>);</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;    }</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno"><a class="line" href="../../da/d46/classMemoryPoolAllocator.html#a57bbc80e570db6110901b9a7e36dbda0">  159</a></span>&#160;    <span class="keywordtype">void</span> <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a57bbc80e570db6110901b9a7e36dbda0">Clear</a>() {</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;        <span class="keywordflow">while</span> (<a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a> &amp;&amp; <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a> != <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#aa3c4d2503b12acc7d14e4a5da67ac46e">userBuffer_</a>) {</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;            ChunkHeader* next = <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>-&gt;<a class="code" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#a4d24357c177824b3af56ec1098d9d9dc">next</a>;</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;            <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a628cd7f46e838fb37ceccf65dd17bce6">baseAllocator_</a>-&gt;Free(<a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;            <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a> = next;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;        }</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a> &amp;&amp; <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a> == <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#aa3c4d2503b12acc7d14e4a5da67ac46e">userBuffer_</a>)</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;            <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>-&gt;<a class="code" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#ac9f3868f4cd36cdb7c712c9a48686680">size</a> = 0; <span class="comment">// Clear user buffer</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    }</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
+<div class="line"><a name="l00172"></a><span class="lineno"><a class="line" href="../../da/d46/classMemoryPoolAllocator.html#a5672e0833fda2e71ce987911397489ed">  172</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a5672e0833fda2e71ce987911397489ed">Capacity</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;        <span class="keywordtype">size_t</span> capacity = 0;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        <span class="keywordflow">for</span> (ChunkHeader* c = <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>; c != 0; c = c-&gt;<a class="code" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#a4d24357c177824b3af56ec1098d9d9dc">next</a>)</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;            capacity += c-&gt;capacity;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;        <span class="keywordflow">return</span> capacity;</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    }</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00182"></a><span class="lineno"><a class="line" href="../../da/d46/classMemoryPoolAllocator.html#ae7fcf0341c13e899cf488bc7c8949956">  182</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#ae7fcf0341c13e899cf488bc7c8949956">Size</a>()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;        <span class="keywordtype">size_t</span> size = 0;</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        <span class="keywordflow">for</span> (ChunkHeader* c = <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>; c != 0; c = c-&gt;<a class="code" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#a4d24357c177824b3af56ec1098d9d9dc">next</a>)</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;            size += c-&gt;size;</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;        <span class="keywordflow">return</span> size;</div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    }</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="../../da/d46/classMemoryPoolAllocator.html#a02f6832910453446cb77bf919ba49e99">  190</a></span>&#160;    <span class="keywordtype">void</span>* <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a02f6832910453446cb77bf919ba49e99">Malloc</a>(<span class="keywordtype">size_t</span> size) {</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        <span class="keywordflow">if</span> (!size)</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;            <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        size = <a class="code" href="../../d2/d59/group__RAPIDJSON__CONFIG.html#ga583915242504c7fdb36e826f02f76242">RAPIDJSON_ALIGN</a>(size);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;        <span class="keywordflow">if</span> (<a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a> == 0 || <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>-&gt;<a class="code" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#ac9f3868f4cd36cdb7c712c9a48686680">size</a> + size &gt; <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>-&gt;<a class="code" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#ae19df98bce5dd485a23f953112ecde5f">capacity</a>)</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;            <span class="keywordflow">if</span> (!<a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a41bebe49979dc69921519c7556af18fc">AddChunk</a>(<a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a67909468c193d429a227a74d35c4d8cb">chunk_capacity_</a> &gt; size ? <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a67909468c193d429a227a74d35c4d8cb">chunk_capacity_</a> : size))</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;        <span class="keywordtype">void</span> *buffer = <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span> *<span class="keyword">&gt;</span>(<a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>) + <a class="code" href="../../d2/d59/group__RAPIDJSON__CONFIG.html#ga583915242504c7fdb36e826f02f76242">RAPIDJSON_ALIGN</a>(<span class="keyword">sizeof</span>(ChunkHeader)) + <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>-&gt;<a class="code" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#ac9f3868f4cd36cdb7c712c9a48686680">size</a>;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;        <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>-&gt;<a class="code" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#ac9f3868f4cd36cdb7c712c9a48686680">size</a> += size;</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;        <span class="keywordflow">return</span> buffer;</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    }</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160; </div>
+<div class="line"><a name="l00205"></a><span class="lineno"><a class="line" href="../../da/d46/classMemoryPoolAllocator.html#aba75280d42184b0ad414243f7f5ac6c7">  205</a></span>&#160;    <span class="keywordtype">void</span>* <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#aba75280d42184b0ad414243f7f5ac6c7">Realloc</a>(<span class="keywordtype">void</span>* originalPtr, <span class="keywordtype">size_t</span> originalSize, <span class="keywordtype">size_t</span> newSize) {</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;        <span class="keywordflow">if</span> (originalPtr == 0)</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;            <span class="keywordflow">return</span> <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a02f6832910453446cb77bf919ba49e99">Malloc</a>(newSize);</div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;        <span class="keywordflow">if</span> (newSize == 0)</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;            <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160; </div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;        originalSize = <a class="code" href="../../d2/d59/group__RAPIDJSON__CONFIG.html#ga583915242504c7fdb36e826f02f76242">RAPIDJSON_ALIGN</a>(originalSize);</div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;        newSize = <a class="code" href="../../d2/d59/group__RAPIDJSON__CONFIG.html#ga583915242504c7fdb36e826f02f76242">RAPIDJSON_ALIGN</a>(newSize);</div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;        <span class="comment">// Do not shrink if new size is smaller than original</span></div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;        <span class="keywordflow">if</span> (originalSize &gt;= newSize)</div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;            <span class="keywordflow">return</span> originalPtr;</div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160; </div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;        <span class="comment">// Simply expand it if it is the last allocation and there is sufficient space</span></div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;        <span class="keywordflow">if</span> (originalPtr == <span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span> *<span class="keyword">&gt;</span>(<a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>) + <a class="code" href="../../d2/d59/group__RAPIDJSON__CONFIG.html#ga583915242504c7fdb36e826f02f76242">RAPIDJSON_ALIGN</a>(<span class="keyword">sizeof</span>(ChunkHeader)) + <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>-&gt;<a class="code" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#ac9f3868f4cd36cdb7c712c9a48686680">size</a> - originalSize) {</div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;            <span class="keywordtype">size_t</span> increment = <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(newSize - originalSize);</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;            <span class="keywordflow">if</span> (<a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>-&gt;<a class="code" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#ac9f3868f4cd36cdb7c712c9a48686680">size</a> + increment &lt;= chunkHead_-&gt;capacity) {</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;                <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>-&gt;<a class="code" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#ac9f3868f4cd36cdb7c712c9a48686680">size</a> += increment;</div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;                <span class="keywordflow">return</span> originalPtr;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;            }</div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;        }</div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;        <span class="comment">// Realloc process: allocate and copy memory, do not free original buffer.</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;        <span class="keywordflow">if</span> (<span class="keywordtype">void</span>* newBuffer = <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a02f6832910453446cb77bf919ba49e99">Malloc</a>(newSize)) {</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;            <span class="keywordflow">if</span> (originalSize)</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;                std::memcpy(newBuffer, originalPtr, originalSize);</div>
+<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;            <span class="keywordflow">return</span> newBuffer;</div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;        }</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;            <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;    }</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
+<div class="line"><a name="l00239"></a><span class="lineno"><a class="line" href="../../da/d46/classMemoryPoolAllocator.html#a6b180eb150451b4df8b70d827cd1191c">  239</a></span>&#160;    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a6b180eb150451b4df8b70d827cd1191c">Free</a>(<span class="keywordtype">void</span> *ptr) { (void)ptr; } <span class="comment">// Do nothing</span></div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#aeec85ac657f242ac5620115141be5209">MemoryPoolAllocator</a>(<span class="keyword">const</span> <a class="code" href="../../da/d46/classMemoryPoolAllocator.html">MemoryPoolAllocator</a>&amp; rhs) <span class="comment">/* = delete */</span>;</div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;    <a class="code" href="../../da/d46/classMemoryPoolAllocator.html">MemoryPoolAllocator</a>&amp; <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a0baeda9163d8dcfbccaa8e2df21bb350">operator=</a>(<span class="keyword">const</span> <a class="code" href="../../da/d46/classMemoryPoolAllocator.html">MemoryPoolAllocator</a>&amp; rhs) <span class="comment">/* = delete */</span>;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
+<div class="line"><a name="l00251"></a><span class="lineno"><a class="line" href="../../da/d46/classMemoryPoolAllocator.html#a41bebe49979dc69921519c7556af18fc">  251</a></span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a41bebe49979dc69921519c7556af18fc">AddChunk</a>(<span class="keywordtype">size_t</span> capacity) {</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;        <span class="keywordflow">if</span> (!<a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a628cd7f46e838fb37ceccf65dd17bce6">baseAllocator_</a>)</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;            <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a3e1e1bf108de2e6985c6d38964f8e3b9">ownBaseAllocator_</a> = <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a628cd7f46e838fb37ceccf65dd17bce6">baseAllocator_</a> = <a class="code" href="../../d4/dc0/rapidjson_8h.html#abdc7cd7902748ffe6626d71c59a73c3b">RAPIDJSON_NEW</a>(BaseAllocator)();</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;        <span class="keywordflow">if</span> (ChunkHeader* chunk = <span class="keyword">reinterpret_cast&lt;</span>ChunkHeader*<span class="keyword">&gt;</span>(<a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a628cd7f46e838fb37ceccf65dd17bce6">baseAllocator_</a>-&gt;Malloc(<a class="code" href="../../d2/d59/group__RAPIDJSON__CONFIG.html#ga583915242504c7fdb36e826f02f76242">RAPIDJSON_ALIGN</a>(<span class="keyword">sizeof</span>(ChunkHeader)) + capacity))) {</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;            chunk-&gt;capacity = capacity;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;            chunk-&gt;size = 0;</div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;            chunk-&gt;next = <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>;</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;            <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a> =  chunk;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;        }</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;        <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    }</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160; </div>
+<div class="line"><a name="l00265"></a><span class="lineno"><a class="line" href="../../da/d46/classMemoryPoolAllocator.html#aa6db3ea4fb9c40174d77b3fe9b1cccf1">  265</a></span>&#160;    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#aa6db3ea4fb9c40174d77b3fe9b1cccf1">kDefaultChunkCapacity</a> = <a class="code" href="../../d2/d59/group__RAPIDJSON__CONFIG.html#ga860570d04d489be08b9835d2ec58bac5">RAPIDJSON_ALLOCATOR_DEFAULT_CHUNK_CAPACITY</a>; </div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160; </div>
+<div class="line"><a name="l00270"></a><span class="lineno"><a class="line" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html">  270</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html">ChunkHeader</a> {</div>
+<div class="line"><a name="l00271"></a><span class="lineno"><a class="line" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#ae19df98bce5dd485a23f953112ecde5f">  271</a></span>&#160;        <span class="keywordtype">size_t</span> <a class="code" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#ae19df98bce5dd485a23f953112ecde5f">capacity</a>;    </div>
+<div class="line"><a name="l00272"></a><span class="lineno"><a class="line" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#ac9f3868f4cd36cdb7c712c9a48686680">  272</a></span>&#160;        <span class="keywordtype">size_t</span> <a class="code" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#ac9f3868f4cd36cdb7c712c9a48686680">size</a>;        </div>
+<div class="line"><a name="l00273"></a><span class="lineno"><a class="line" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#a4d24357c177824b3af56ec1098d9d9dc">  273</a></span>&#160;        <a class="code" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html">ChunkHeader</a> *<a class="code" href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#a4d24357c177824b3af56ec1098d9d9dc">next</a>;  </div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    };</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
+<div class="line"><a name="l00276"></a><span class="lineno"><a class="line" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">  276</a></span>&#160;    ChunkHeader *<a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">chunkHead_</a>;    </div>
+<div class="line"><a name="l00277"></a><span class="lineno"><a class="line" href="../../da/d46/classMemoryPoolAllocator.html#a67909468c193d429a227a74d35c4d8cb">  277</a></span>&#160;    <span class="keywordtype">size_t</span> <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a67909468c193d429a227a74d35c4d8cb">chunk_capacity_</a>;     </div>
+<div class="line"><a name="l00278"></a><span class="lineno"><a class="line" href="../../da/d46/classMemoryPoolAllocator.html#aa3c4d2503b12acc7d14e4a5da67ac46e">  278</a></span>&#160;    <span class="keywordtype">void</span> *<a class="code" href="../../da/d46/classMemoryPoolAllocator.html#aa3c4d2503b12acc7d14e4a5da67ac46e">userBuffer_</a>;          </div>
+<div class="line"><a name="l00279"></a><span class="lineno"><a class="line" href="../../da/d46/classMemoryPoolAllocator.html#a628cd7f46e838fb37ceccf65dd17bce6">  279</a></span>&#160;    BaseAllocator* <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a628cd7f46e838fb37ceccf65dd17bce6">baseAllocator_</a>;  </div>
+<div class="line"><a name="l00280"></a><span class="lineno"><a class="line" href="../../da/d46/classMemoryPoolAllocator.html#a3e1e1bf108de2e6985c6d38964f8e3b9">  280</a></span>&#160;    BaseAllocator* <a class="code" href="../../da/d46/classMemoryPoolAllocator.html#a3e1e1bf108de2e6985c6d38964f8e3b9">ownBaseAllocator_</a>;   </div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;};</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;<a class="code" href="../../d2/d59/group__RAPIDJSON__CONFIG.html#gaf18f052a98b9f5df5448d39484b743c1">RAPIDJSON_NAMESPACE_END</a></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="preprocessor">#endif // RAPIDJSON_ENCODINGS_H_</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassMemoryPoolAllocator_html_a0baeda9163d8dcfbccaa8e2df21bb350"><div class="ttname"><a href="../../da/d46/classMemoryPoolAllocator.html#a0baeda9163d8dcfbccaa8e2df21bb350">MemoryPoolAllocator::operator=</a></div><div class="ttdeci">MemoryPoolAllocator &amp; operator=(const MemoryPoolAllocator &amp;rhs)</div><div class="ttdoc">Copy assignment operator is not permitted.</div></div>
+<div class="ttc" id="aclassMemoryPoolAllocator_html_a67909468c193d429a227a74d35c4d8cb"><div class="ttname"><a href="../../da/d46/classMemoryPoolAllocator.html#a67909468c193d429a227a74d35c4d8cb">MemoryPoolAllocator::chunk_capacity_</a></div><div class="ttdeci">size_t chunk_capacity_</div><div class="ttdoc">The minimum capacity of chunk when they are allocated.</div><div class="ttdef"><b>Definition:</b> allocators.h:277</div></div>
+<div class="ttc" id="aclassMemoryPoolAllocator_html_ad4eee0ef3cfe8cda31034fbce98b7a9b"><div class="ttname"><a href="../../da/d46/classMemoryPoolAllocator.html#ad4eee0ef3cfe8cda31034fbce98b7a9b">MemoryPoolAllocator::~MemoryPoolAllocator</a></div><div class="ttdeci">~MemoryPoolAllocator()</div><div class="ttdoc">Destructor.</div><div class="ttdef"><b>Definition:</b> allocators.h:153</div></div>
+<div class="ttc" id="aclassMemoryPoolAllocator_html"><div class="ttname"><a href="../../da/d46/classMemoryPoolAllocator.html">MemoryPoolAllocator</a></div><div class="ttdoc">Default memory allocator used by the parser and DOM.</div><div class="ttdef"><b>Definition:</b> allocators.h:116</div></div>
+<div class="ttc" id="aclassMemoryPoolAllocator_html_aba75280d42184b0ad414243f7f5ac6c7"><div class="ttname"><a href="../../da/d46/classMemoryPoolAllocator.html#aba75280d42184b0ad414243f7f5ac6c7">MemoryPoolAllocator::Realloc</a></div><div class="ttdeci">void * Realloc(void *originalPtr, size_t originalSize, size_t newSize)</div><div class="ttdoc">Resizes a memory block (concept Allocator)</div><div class="ttdef"><b>Definition:</b> allocators.h:205</div></div>
+<div class="ttc" id="arapidjson_8h_html"><div class="ttname"><a href="../../d4/dc0/rapidjson_8h.html">rapidjson.h</a></div><div class="ttdoc">common definitions and configuration</div></div>
+<div class="ttc" id="aclassMemoryPoolAllocator_html_aa3c4d2503b12acc7d14e4a5da67ac46e"><div class="ttname"><a href="../../da/d46/classMemoryPoolAllocator.html#aa3c4d2503b12acc7d14e4a5da67ac46e">MemoryPoolAllocator::userBuffer_</a></div><div class="ttdeci">void * userBuffer_</div><div class="ttdoc">User supplied buffer.</div><div class="ttdef"><b>Definition:</b> allocators.h:278</div></div>
+<div class="ttc" id="aclassMemoryPoolAllocator_html_a57bbc80e570db6110901b9a7e36dbda0"><div class="ttname"><a href="../../da/d46/classMemoryPoolAllocator.html#a57bbc80e570db6110901b9a7e36dbda0">MemoryPoolAllocator::Clear</a></div><div class="ttdeci">void Clear()</div><div class="ttdoc">Deallocates all memory chunks, excluding the user-supplied buffer.</div><div class="ttdef"><b>Definition:</b> allocators.h:159</div></div>
+<div class="ttc" id="aclassMemoryPoolAllocator_html_aeec85ac657f242ac5620115141be5209"><div class="ttname"><a href="../../da/d46/classMemoryPoolAllocator.html#aeec85ac657f242ac5620115141be5209">MemoryPoolAllocator::MemoryPoolAllocator</a></div><div class="ttdeci">MemoryPoolAllocator(size_t chunkSize=kDefaultChunkCapacity, BaseAllocator *baseAllocator=0)</div><div class="ttdoc">Constructor with chunkSize.</div><div class="ttdef"><b>Definition:</b> allocators.h:124</div></div>
+<div class="ttc" id="aclassMemoryPoolAllocator_html_a5672e0833fda2e71ce987911397489ed"><div class="ttname"><a href="../../da/d46/classMemoryPoolAllocator.html#a5672e0833fda2e71ce987911397489ed">MemoryPoolAllocator::Capacity</a></div><div class="ttdeci">size_t Capacity() const</div><div class="ttdoc">Computes the total capacity of allocated memory chunks.</div><div class="ttdef"><b>Definition:</b> allocators.h:172</div></div>
+<div class="ttc" id="aclassMemoryPoolAllocator_html_a6b180eb150451b4df8b70d827cd1191c"><div class="ttname"><a href="../../da/d46/classMemoryPoolAllocator.html#a6b180eb150451b4df8b70d827cd1191c">MemoryPoolAllocator::Free</a></div><div class="ttdeci">static void Free(void *ptr)</div><div class="ttdoc">Frees a memory block (concept Allocator)</div><div class="ttdef"><b>Definition:</b> allocators.h:239</div></div>
+<div class="ttc" id="aclassMemoryPoolAllocator_html_ab4c7c5c631e451689bc9da392a65194f"><div class="ttname"><a href="../../da/d46/classMemoryPoolAllocator.html#ab4c7c5c631e451689bc9da392a65194f">MemoryPoolAllocator::kNeedFree</a></div><div class="ttdeci">static const bool kNeedFree</div><div class="ttdoc">Tell users that no need to call Free() with this allocator. (concept Allocator)</div><div class="ttdef"><b>Definition:</b> allocators.h:118</div></div>
+<div class="ttc" id="agroup__RAPIDJSON__CONFIG_html_gabeba18d612187bad2ac62aed9276d47c"><div class="ttname"><a href="../../d2/d59/group__RAPIDJSON__CONFIG.html#gabeba18d612187bad2ac62aed9276d47c">RAPIDJSON_ASSERT</a></div><div class="ttdeci">#define RAPIDJSON_ASSERT(x)</div><div class="ttdoc">Assertion.</div><div class="ttdef"><b>Definition:</b> rapidjson.h:407</div></div>
+<div class="ttc" id="aclassMemoryPoolAllocator_html_a1f0d865093fdb955d956b7a445a8ddbf"><div class="ttname"><a href="../../da/d46/classMemoryPoolAllocator.html#a1f0d865093fdb955d956b7a445a8ddbf">MemoryPoolAllocator::MemoryPoolAllocator</a></div><div class="ttdeci">MemoryPoolAllocator(void *buffer, size_t size, size_t chunkSize=kDefaultChunkCapacity, BaseAllocator *baseAllocator=0)</div><div class="ttdoc">Constructor with user-supplied buffer.</div><div class="ttdef"><b>Definition:</b> allocators.h:139</div></div>
+<div class="ttc" id="aclassMemoryPoolAllocator_html_aa6db3ea4fb9c40174d77b3fe9b1cccf1"><div class="ttname"><a href="../../da/d46/classMemoryPoolAllocator.html#aa6db3ea4fb9c40174d77b3fe9b1cccf1">MemoryPoolAllocator::kDefaultChunkCapacity</a></div><div class="ttdeci">static const int kDefaultChunkCapacity</div><div class="ttdoc">Default chunk capacity.</div><div class="ttdef"><b>Definition:</b> allocators.h:265</div></div>
+<div class="ttc" id="aclassMemoryPoolAllocator_html_a3e1e1bf108de2e6985c6d38964f8e3b9"><div class="ttname"><a href="../../da/d46/classMemoryPoolAllocator.html#a3e1e1bf108de2e6985c6d38964f8e3b9">MemoryPoolAllocator::ownBaseAllocator_</a></div><div class="ttdeci">BaseAllocator * ownBaseAllocator_</div><div class="ttdoc">base allocator created by this object.</div><div class="ttdef"><b>Definition:</b> allocators.h:280</div></div>
+<div class="ttc" id="arapidjson_8h_html_abdc7cd7902748ffe6626d71c59a73c3b"><div class="ttname"><a href="../../d4/dc0/rapidjson_8h.html#abdc7cd7902748ffe6626d71c59a73c3b">RAPIDJSON_NEW</a></div><div class="ttdeci">#define RAPIDJSON_NEW(TypeName)</div><div class="ttdoc">! customization point for global new</div><div class="ttdef"><b>Definition:</b> rapidjson.h:648</div></div>
+<div class="ttc" id="aclassMemoryPoolAllocator_html_a576a6419b3153d1649b36b3f0c74d8b0"><div class="ttname"><a href="../../da/d46/classMemoryPoolAllocator.html#a576a6419b3153d1649b36b3f0c74d8b0">MemoryPoolAllocator::chunkHead_</a></div><div class="ttdeci">ChunkHeader * chunkHead_</div><div class="ttdoc">Head of the chunk linked-list. Only the head chunk serves allocation.</div><div class="ttdef"><b>Definition:</b> allocators.h:276</div></div>
+<div class="ttc" id="arapidjson_8h_html_a52c941c3fdd646527cdcd42aa846a28a"><div class="ttname"><a href="../../d4/dc0/rapidjson_8h.html#a52c941c3fdd646527cdcd42aa846a28a">RAPIDJSON_DELETE</a></div><div class="ttdeci">#define RAPIDJSON_DELETE(x)</div><div class="ttdoc">! customization point for global delete</div><div class="ttdef"><b>Definition:</b> rapidjson.h:652</div></div>
+<div class="ttc" id="aclassMemoryPoolAllocator_html_a628cd7f46e838fb37ceccf65dd17bce6"><div class="ttname"><a href="../../da/d46/classMemoryPoolAllocator.html#a628cd7f46e838fb37ceccf65dd17bce6">MemoryPoolAllocator::baseAllocator_</a></div><div class="ttdeci">BaseAllocator * baseAllocator_</div><div class="ttdoc">base allocator for allocating memory chunks.</div><div class="ttdef"><b>Definition:</b> allocators.h:279</div></div>
+<div class="ttc" id="agroup__RAPIDJSON__CONFIG_html_gaf18f052a98b9f5df5448d39484b743c1"><div class="ttname"><a href="../../d2/d59/group__RAPIDJSON__CONFIG.html#gaf18f052a98b9f5df5448d39484b743c1">RAPIDJSON_NAMESPACE_END</a></div><div class="ttdeci">#define RAPIDJSON_NAMESPACE_END</div><div class="ttdoc">provide custom rapidjson namespace (closing expression)</div><div class="ttdef"><b>Definition:</b> rapidjson.h:125</div></div>
+<div class="ttc" id="astructMemoryPoolAllocator_1_1ChunkHeader_html_ac9f3868f4cd36cdb7c712c9a48686680"><div class="ttname"><a href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#ac9f3868f4cd36cdb7c712c9a48686680">MemoryPoolAllocator::ChunkHeader::size</a></div><div class="ttdeci">size_t size</div><div class="ttdoc">Current size of allocated memory in bytes.</div><div class="ttdef"><b>Definition:</b> allocators.h:272</div></div>
+<div class="ttc" id="agroup__RAPIDJSON__CONFIG_html_ga860570d04d489be08b9835d2ec58bac5"><div class="ttname"><a href="../../d2/d59/group__RAPIDJSON__CONFIG.html#ga860570d04d489be08b9835d2ec58bac5">RAPIDJSON_ALLOCATOR_DEFAULT_CHUNK_CAPACITY</a></div><div class="ttdeci">#define RAPIDJSON_ALLOCATOR_DEFAULT_CHUNK_CAPACITY</div><div class="ttdoc">User-defined kDefaultChunkCapacity definition.</div><div class="ttdef"><b>Definition:</b> allocators.h:65</div></div>
+<div class="ttc" id="astructMemoryPoolAllocator_1_1ChunkHeader_html"><div class="ttname"><a href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html">MemoryPoolAllocator::ChunkHeader</a></div><div class="ttdoc">Chunk header for perpending to each chunk.</div><div class="ttdef"><b>Definition:</b> allocators.h:270</div></div>
+<div class="ttc" id="aclassCrtAllocator_html"><div class="ttname"><a href="../../d5/d8d/classCrtAllocator.html">CrtAllocator</a></div><div class="ttdoc">C-runtime library allocator.</div><div class="ttdef"><b>Definition:</b> allocators.h:76</div></div>
+<div class="ttc" id="astructMemoryPoolAllocator_1_1ChunkHeader_html_ae19df98bce5dd485a23f953112ecde5f"><div class="ttname"><a href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#ae19df98bce5dd485a23f953112ecde5f">MemoryPoolAllocator::ChunkHeader::capacity</a></div><div class="ttdeci">size_t capacity</div><div class="ttdoc">Capacity of the chunk in bytes (excluding the header itself).</div><div class="ttdef"><b>Definition:</b> allocators.h:271</div></div>
+<div class="ttc" id="aclassMemoryPoolAllocator_html_a41bebe49979dc69921519c7556af18fc"><div class="ttname"><a href="../../da/d46/classMemoryPoolAllocator.html#a41bebe49979dc69921519c7556af18fc">MemoryPoolAllocator::AddChunk</a></div><div class="ttdeci">bool AddChunk(size_t capacity)</div><div class="ttdoc">Creates a new chunk.</div><div class="ttdef"><b>Definition:</b> allocators.h:251</div></div>
+<div class="ttc" id="aclassMemoryPoolAllocator_html_a02f6832910453446cb77bf919ba49e99"><div class="ttname"><a href="../../da/d46/classMemoryPoolAllocator.html#a02f6832910453446cb77bf919ba49e99">MemoryPoolAllocator::Malloc</a></div><div class="ttdeci">void * Malloc(size_t size)</div><div class="ttdoc">Allocates a memory block. (concept Allocator)</div><div class="ttdef"><b>Definition:</b> allocators.h:190</div></div>
+<div class="ttc" id="agroup__RAPIDJSON__CONFIG_html_gad3806c8251fdc7da9618b7e922674ffc"><div class="ttname"><a href="../../d2/d59/group__RAPIDJSON__CONFIG.html#gad3806c8251fdc7da9618b7e922674ffc">RAPIDJSON_NAMESPACE_BEGIN</a></div><div class="ttdeci">#define RAPIDJSON_NAMESPACE_BEGIN</div><div class="ttdoc">provide custom rapidjson namespace (opening expression)</div><div class="ttdef"><b>Definition:</b> rapidjson.h:122</div></div>
+<div class="ttc" id="aclassMemoryPoolAllocator_html_ae7fcf0341c13e899cf488bc7c8949956"><div class="ttname"><a href="../../da/d46/classMemoryPoolAllocator.html#ae7fcf0341c13e899cf488bc7c8949956">MemoryPoolAllocator::Size</a></div><div class="ttdeci">size_t Size() const</div><div class="ttdoc">Computes the memory blocks allocated.</div><div class="ttdef"><b>Definition:</b> allocators.h:182</div></div>
+<div class="ttc" id="agroup__RAPIDJSON__CONFIG_html_ga583915242504c7fdb36e826f02f76242"><div class="ttname"><a href="../../d2/d59/group__RAPIDJSON__CONFIG.html#ga583915242504c7fdb36e826f02f76242">RAPIDJSON_ALIGN</a></div><div class="ttdeci">#define RAPIDJSON_ALIGN(x)</div><div class="ttdoc">Data alignment of the machine.</div><div class="ttdef"><b>Definition:</b> rapidjson.h:277</div></div>
+<div class="ttc" id="astructMemoryPoolAllocator_1_1ChunkHeader_html_a4d24357c177824b3af56ec1098d9d9dc"><div class="ttname"><a href="../../da/d0b/structMemoryPoolAllocator_1_1ChunkHeader.html#a4d24357c177824b3af56ec1098d9d9dc">MemoryPoolAllocator::ChunkHeader::next</a></div><div class="ttdeci">ChunkHeader * next</div><div class="ttdoc">Next chunk in the linked list.</div><div class="ttdef"><b>Definition:</b> allocators.h:273</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:16 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

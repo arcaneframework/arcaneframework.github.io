@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arccore/message_passing/SerializeMessageList.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d1/dd0/SerializeMessageList_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">SerializeMessageList.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* SerializeMessageList.h                                      (C) 2000-2020 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Liste de messages de sérialisation.                                       */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCCORE_MESSAGEPASSING_SERIALIZEMESSAGEMESSAGELIST_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCCORE_MESSAGEPASSING_SERIALIZEMESSAGEMESSAGELIST_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arccore/message_passing/ISerializeMessageList.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;arccore/message_passing/PointToPointMessageInfo.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../de/d92/arccore_2src_2base_2arccore_2base_2Ref_8h.html">arccore/base/Ref.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;arccore/trace/TimeMetric.h&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;arccore/collections/Array.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span>Arccore::MessagePassing::internal</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../db/d17/classArccore_1_1MessagePassing_1_1internal_1_1SerializeMessageList.html">   39</a></span>&#160;<span class="keyword">class </span>ARCCORE_MESSAGEPASSING_EXPORT <a class="code" href="../../db/d17/classArccore_1_1MessagePassing_1_1internal_1_1SerializeMessageList.html">SerializeMessageList</a></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d0/d54/classArccore_1_1MessagePassing_1_1ISerializeMessageList.html">ISerializeMessageList</a></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">SerializeMessageContainer</a> = <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">UniqueArray&lt;BasicSerializeMessage*&gt;</a>;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">struct </span>ProbeInfo</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  {</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    ProbeInfo() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    ProbeInfo(<a class="code" href="../../df/dfc/classArccore_1_1MessagePassing_1_1internal_1_1BasicSerializeMessage.html">BasicSerializeMessage</a>* sm,<span class="keyword">const</span> <a class="code" href="../../db/d27/classArccore_1_1MessagePassing_1_1PointToPointMessageInfo.html">PointToPointMessageInfo</a>&amp; message_info)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    : m_serialize_message(sm), m_message_info(message_info){}</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <a class="code" href="../../df/dfc/classArccore_1_1MessagePassing_1_1internal_1_1BasicSerializeMessage.html">BasicSerializeMessage</a>* m_serialize_message = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <a class="code" href="../../db/d27/classArccore_1_1MessagePassing_1_1PointToPointMessageInfo.html">PointToPointMessageInfo</a> m_message_info;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <span class="keywordtype">bool</span> m_is_probe_done = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  };</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <a class="code" href="../../db/d17/classArccore_1_1MessagePassing_1_1internal_1_1SerializeMessageList.html">SerializeMessageList</a>(<a class="code" href="../../d2/d2f/classArccore_1_1MessagePassing_1_1IMessagePassingMng.html">IMessagePassingMng</a>* mpm);</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keywordtype">void</span> addMessage(<a class="code" href="../../df/d29/classArccore_1_1MessagePassing_1_1ISerializeMessage.html">ISerializeMessage</a>* msg) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordtype">void</span> processPendingMessages() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> waitMessages(<a class="code" href="../../da/d41/namespaceArccore_1_1MessagePassing.html#a916fba7437b2cbc28ddcf1e0f23aca7a">eWaitType</a> wait_type) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;ISerializeMessage&gt;</a></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  createAndAddMessage(<a class="code" href="../../d0/d13/classArccore_1_1MessagePassing_1_1MessageRank.html">MessageRank</a> destination,<a class="code" href="../../da/d41/namespaceArccore_1_1MessagePassing.html#a85507fcabd0564d0e3f4de94f978af3f">ePointToPointMessageType</a> type) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keywordtype">void</span> setAllowAnyRankReceive(<span class="keywordtype">bool</span> v) { m_allow_any_rank_receive = v; }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <a class="code" href="../../d2/d2f/classArccore_1_1MessagePassing_1_1IMessagePassingMng.html">IMessagePassingMng</a>* m_message_passing_mng = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">SerializeMessageContainer</a> m_messages_to_process;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;IRequestList&gt;</a> m_request_list;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">SerializeMessageContainer</a> m_messages_serialize;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">SerializeMessageContainer</a> m_remaining_serialize_messages;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">UniqueArray&lt;ProbeInfo&gt;</a> m_messages_to_probe;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordtype">bool</span> m_allow_any_rank_receive = <span class="keyword">true</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <a class="code" href="../../d8/d8f/classArccore_1_1TimeMetricAction.html">TimeMetricAction</a> m_message_passing_phase;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <a class="code" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> _waitMessages(<a class="code" href="../../da/d41/namespaceArccore_1_1MessagePassing.html#a916fba7437b2cbc28ddcf1e0f23aca7a">eWaitType</a> wait_type);</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordtype">void</span> _addMessage(<a class="code" href="../../df/dfc/classArccore_1_1MessagePassing_1_1internal_1_1BasicSerializeMessage.html">BasicSerializeMessage</a>* sm,<span class="keyword">const</span> <a class="code" href="../../db/d27/classArccore_1_1MessagePassing_1_1PointToPointMessageInfo.html">PointToPointMessageInfo</a>&amp; message_info);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <a class="code" href="../../db/d27/classArccore_1_1MessagePassing_1_1PointToPointMessageInfo.html">PointToPointMessageInfo</a> buildMessageInfo(<a class="code" href="../../df/d29/classArccore_1_1MessagePassing_1_1ISerializeMessage.html">ISerializeMessage</a>* sm);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keywordtype">void</span> _doProbe();</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;};</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;} <span class="comment">// End namespace Arccore::MessagePassing::internal</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; </div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1internal_1_1SerializeMessageList_html_a6be89bb231e2de53f00d9c503fe19514"><div class="ttname"><a href="../../db/d17/classArccore_1_1MessagePassing_1_1internal_1_1SerializeMessageList.html#a6be89bb231e2de53f00d9c503fe19514">Arccore::MessagePassing::internal::SerializeMessageList::waitMessages</a></div><div class="ttdeci">Integer waitMessages(eWaitType wait_type) override</div><div class="ttdoc">Attend que les messages aient terminé leur exécution.</div><div class="ttdef"><b>Definition:</b> SerializeMessageList.cc:76</div></div>
+<div class="ttc" id="anamespaceArccore_1_1MessagePassing_html_ab30b34e82b15ece093e1e0bbe16ea6f1"><div class="ttname"><a href="../../da/d41/namespaceArccore_1_1MessagePassing.html#ab30b34e82b15ece093e1e0bbe16ea6f1">Arccore::MessagePassing::mpReceive</a></div><div class="ttdeci">Request mpReceive(IMessagePassingMng *pm, ISerializer *values, const PointToPointMessageInfo &amp;message)</div><div class="ttdoc">Message de réception utilisant un ISerializer.</div><div class="ttdef"><b>Definition:</b> Messages.cc:170</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_aeacee0657891fd1b10c2f73efd5bb086"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#aeacee0657891fd1b10c2f73efd5bb086">Arccore::Array::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Supprime les éléments du tableau.</div><div class="ttdef"><b>Definition:</b> Array.h:1139</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1IMessagePassingMng_html_a27d06683a2300322867af1b42acadfb3"><div class="ttname"><a href="../../d2/d2f/classArccore_1_1MessagePassing_1_1IMessagePassingMng.html#a27d06683a2300322867af1b42acadfb3">Arccore::MessagePassing::IMessagePassingMng::commRank</a></div><div class="ttdeci">virtual Int32 commRank() const =0</div><div class="ttdoc">Rang de cette instance dans le communicateur.</div></div>
+<div class="ttc" id="aMessages_8h_html"><div class="ttname"><a href="../../d1/dd0/Messages_8h.html">Messages.h</a></div><div class="ttdoc">Liste des fonctions d'échange de message.</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1MessageId_html"><div class="ttname"><a href="../../d8/deb/classArccore_1_1MessagePassing_1_1MessageId.html">Arccore::MessagePassing::MessageId</a></div><div class="ttdoc">MessageId.</div><div class="ttdef"><b>Definition:</b> MessageId.h:40</div></div>
+<div class="ttc" id="anamespaceArccore_1_1MessagePassing_html_ac1eb424e84f79e76eb58ddb5fa26d6f7"><div class="ttname"><a href="../../da/d41/namespaceArccore_1_1MessagePassing.html#ac1eb424e84f79e76eb58ddb5fa26d6f7">Arccore::MessagePassing::mpCreateRequestListRef</a></div><div class="ttdeci">Ref&lt; IRequestList &gt; mpCreateRequestListRef(IMessagePassingMng *pm)</div><div class="ttdoc">Créé une liste de requêtes.</div><div class="ttdef"><b>Definition:</b> Messages.cc:39</div></div>
+<div class="ttc" id="anamespaceArccore_1_1MessagePassing_html_a85507fcabd0564d0e3f4de94f978af3f"><div class="ttname"><a href="../../da/d41/namespaceArccore_1_1MessagePassing.html#a85507fcabd0564d0e3f4de94f978af3f">Arccore::MessagePassing::ePointToPointMessageType</a></div><div class="ttdeci">ePointToPointMessageType</div><div class="ttdoc">Type de message point à point.</div><div class="ttdef"><b>Definition:</b> MessagePassingGlobal.h:103</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1internal_1_1BasicSerializeMessage_html"><div class="ttname"><a href="../../df/dfc/classArccore_1_1MessagePassing_1_1internal_1_1BasicSerializeMessage.html">Arccore::MessagePassing::internal::BasicSerializeMessage</a></div><div class="ttdef"><b>Definition:</b> BasicSerializeMessage.h:48</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1ISerializeMessage_html"><div class="ttname"><a href="../../df/d29/classArccore_1_1MessagePassing_1_1ISerializeMessage.html">Arccore::MessagePassing::ISerializeMessage</a></div><div class="ttdef"><b>Definition:</b> ISerializeMessage.h:44</div></div>
+<div class="ttc" id="anamespaceArccore_html_a19fea02f94d4da203710fd2070c0f2fb"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Arccore::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:232</div></div>
+<div class="ttc" id="aclassArccore_1_1AbstractArray_html_a04ee6ee40f2157a0d84ea07b1839ce89"><div class="ttname"><a href="../../db/d34/classArccore_1_1AbstractArray.html#a04ee6ee40f2157a0d84ea07b1839ce89">Arccore::AbstractArray::empty</a></div><div class="ttdeci">bool empty() const</div><div class="ttdoc">Capacité (nombre d'éléments alloués) du vecteur.</div><div class="ttdef"><b>Definition:</b> Array.h:421</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1internal_1_1SerializeMessageList_html_aae3bea3ef28f51381658faf19bae2ea0"><div class="ttname"><a href="../../db/d17/classArccore_1_1MessagePassing_1_1internal_1_1SerializeMessageList.html#aae3bea3ef28f51381658faf19bae2ea0">Arccore::MessagePassing::internal::SerializeMessageList::processPendingMessages</a></div><div class="ttdeci">void processPendingMessages() override</div><div class="ttdoc">Envoie les messages de la liste qui ne l'ont pas encore été.</div><div class="ttdef"><b>Definition:</b> SerializeMessageList.cc:57</div></div>
+<div class="ttc" id="anamespaceArccore_1_1MessagePassing_html_a916fba7437b2cbc28ddcf1e0f23aca7aa776282708a2e3d9adb3b5e73bde6f9fd"><div class="ttname"><a href="../../da/d41/namespaceArccore_1_1MessagePassing.html#a916fba7437b2cbc28ddcf1e0f23aca7aa776282708a2e3d9adb3b5e73bde6f9fd">Arccore::MessagePassing::TestSome</a></div><div class="ttdeci">@ TestSome</div><div class="ttdoc">Attend que au moins un message de la liste soit traité</div><div class="ttdef"><b>Definition:</b> MessagePassingGlobal.h:85</div></div>
+<div class="ttc" id="anamespaceArccore_1_1MessagePassing_html_a916fba7437b2cbc28ddcf1e0f23aca7a"><div class="ttname"><a href="../../da/d41/namespaceArccore_1_1MessagePassing.html#a916fba7437b2cbc28ddcf1e0f23aca7a">Arccore::MessagePassing::eWaitType</a></div><div class="ttdeci">eWaitType</div><div class="ttdoc">Type d'attente.</div><div class="ttdef"><b>Definition:</b> MessagePassingGlobal.h:81</div></div>
+<div class="ttc" id="aclassArccore_1_1UniqueArray_html"><div class="ttname"><a href="../../da/daa/classArccore_1_1UniqueArray.html">Arccore::UniqueArray&lt; BasicSerializeMessage * &gt;</a></div></div>
+<div class="ttc" id="anamespaceArccore_1_1MessagePassing_html_a340a940d5d96aef9e62f358381a685b0"><div class="ttname"><a href="../../da/d41/namespaceArccore_1_1MessagePassing.html#a340a940d5d96aef9e62f358381a685b0">Arccore::MessagePassing::mpSend</a></div><div class="ttdeci">Request mpSend(IMessagePassingMng *pm, const ISerializer *values, const PointToPointMessageInfo &amp;message)</div><div class="ttdoc">Message d'envoi utilisant un ISerializer.</div><div class="ttdef"><b>Definition:</b> Messages.cc:159</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1ISerializeMessageList_html"><div class="ttname"><a href="../../d0/d54/classArccore_1_1MessagePassing_1_1ISerializeMessageList.html">Arccore::MessagePassing::ISerializeMessageList</a></div><div class="ttdoc">Interface d'une liste de messages de sérialisation.</div><div class="ttdef"><b>Definition:</b> ISerializeMessageList.h:60</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1MessageRank_html"><div class="ttname"><a href="../../d0/d13/classArccore_1_1MessagePassing_1_1MessageRank.html">Arccore::MessagePassing::MessageRank</a></div><div class="ttdoc">Rang d'un message.</div><div class="ttdef"><b>Definition:</b> MessageRank.h:33</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1PointToPointMessageInfo_html"><div class="ttname"><a href="../../db/d27/classArccore_1_1MessagePassing_1_1PointToPointMessageInfo.html">Arccore::MessagePassing::PointToPointMessageInfo</a></div><div class="ttdoc">Informations pour envoyer/recevoir un message point à point.</div><div class="ttdef"><b>Definition:</b> PointToPointMessageInfo.h:45</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1internal_1_1SerializeMessageList_html"><div class="ttname"><a href="../../db/d17/classArccore_1_1MessagePassing_1_1internal_1_1SerializeMessageList.html">Arccore::MessagePassing::internal::SerializeMessageList</a></div><div class="ttdef"><b>Definition:</b> SerializeMessageList.h:39</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1internal_1_1SerializeMessageList_html_a396d0f1e58391b577bab4dcf4d91fc52"><div class="ttname"><a href="../../db/d17/classArccore_1_1MessagePassing_1_1internal_1_1SerializeMessageList.html#a396d0f1e58391b577bab4dcf4d91fc52">Arccore::MessagePassing::internal::SerializeMessageList::addMessage</a></div><div class="ttdeci">void addMessage(ISerializeMessage *msg) override</div><div class="ttdoc">Ajoute un message à la liste.</div><div class="ttdef"><b>Definition:</b> SerializeMessageList.cc:45</div></div>
+<div class="ttc" id="aclassArccore_1_1TimeMetricAction_html"><div class="ttname"><a href="../../d8/d8f/classArccore_1_1TimeMetricAction.html">Arccore::TimeMetricAction</a></div><div class="ttdef"><b>Definition:</b> TimeMetric.h:62</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_ab3f2d332e7c412261b9199bb5454e31b"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#ab3f2d332e7c412261b9199bb5454e31b">Arccore::Array::add</a></div><div class="ttdeci">void add(ConstReferenceType val)</div><div class="ttdoc">Ajoute l'élément val à la fin du tableau.</div><div class="ttdef"><b>Definition:</b> Array.h:967</div></div>
+<div class="ttc" id="aclassArccore_1_1Ref_html"><div class="ttname"><a href="../../de/d9f/classArccore_1_1Ref.html">Arccore::Ref</a></div><div class="ttdoc">Référence à une instance.</div><div class="ttdef"><b>Definition:</b> Ref.h:127</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1internal_1_1SerializeMessageList_html_a9091922c66354a099fb27ebe777b15eb"><div class="ttname"><a href="../../db/d17/classArccore_1_1MessagePassing_1_1internal_1_1SerializeMessageList.html#a9091922c66354a099fb27ebe777b15eb">Arccore::MessagePassing::internal::SerializeMessageList::createAndAddMessage</a></div><div class="ttdeci">Ref&lt; ISerializeMessage &gt; createAndAddMessage(MessageRank destination, ePointToPointMessageType type) override</div><div class="ttdoc">Créé et ajoute un message de sérialisation.</div><div class="ttdef"><b>Definition:</b> SerializeMessageList.cc:194</div></div>
+<div class="ttc" id="aclassArccore_1_1MessagePassing_1_1IMessagePassingMng_html"><div class="ttname"><a href="../../d2/d2f/classArccore_1_1MessagePassing_1_1IMessagePassingMng.html">Arccore::MessagePassing::IMessagePassingMng</a></div><div class="ttdoc">Interface du gestionnaire des échanges de messages.</div><div class="ttdef"><b>Definition:</b> IMessagePassingMng.h:34</div></div>
+<div class="ttc" id="anamespaceArccore_1_1MessagePassing_html_a244247be53513ae9463c0695c39c2fe5"><div class="ttname"><a href="../../da/d41/namespaceArccore_1_1MessagePassing.html#a244247be53513ae9463c0695c39c2fe5">Arccore::MessagePassing::mpProbe</a></div><div class="ttdeci">MessageId mpProbe(IMessagePassingMng *pm, const PointToPointMessageInfo &amp;message)</div><div class="ttdoc">Teste si un message est disponible.</div><div class="ttdef"><b>Definition:</b> Messages.cc:109</div></div>
+<div class="ttc" id="anamespaceArccore_1_1MessagePassing_html_a916fba7437b2cbc28ddcf1e0f23aca7aa527e78a86b80fcda4423b9cbc0aee811"><div class="ttname"><a href="../../da/d41/namespaceArccore_1_1MessagePassing.html#a916fba7437b2cbc28ddcf1e0f23aca7aa527e78a86b80fcda4423b9cbc0aee811">Arccore::MessagePassing::WaitSome</a></div><div class="ttdeci">@ WaitSome</div><div class="ttdoc">Attend que tous les messages de la liste soient traités.</div><div class="ttdef"><b>Definition:</b> MessagePassingGlobal.h:84</div></div>
+<div class="ttc" id="aarccore_2src_2base_2arccore_2base_2Ref_8h_html"><div class="ttname"><a href="../../de/d92/arccore_2src_2base_2arccore_2base_2Ref_8h.html">Ref.h</a></div><div class="ttdoc">Gestion des références à une classe C++.</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_4c8df7eed142620219dd3c85a0aacdb4.html">arccore</a></li><li class="navelem"><a class="el" href="../../dir_01deda346003024f988029410362d606.html">message_passing</a></li><li class="navelem"><b>SerializeMessageList.h</b></li>
+    <li class="footer">Généré le Mercredi 30 Mars 2022 12:59:38 pour Arcane par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

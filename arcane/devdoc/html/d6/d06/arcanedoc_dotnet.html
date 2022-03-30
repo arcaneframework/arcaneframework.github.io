@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane: Utilisation du C# avec Arcane</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Utilisation du C# avec Arcane </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="toc"><h3>Table des matières</h3>
+<ul><li class="level1"><a href="#autotoc_md26">Utilisation de .Net</a></li>
+<li class="level1"><a href="#autotoc_md27">Bases de &#39;.Net&#39;</a><ul><li class="level2"><a href="#autotoc_md28">Exemple en C# de main</a></li>
+<li class="level2"><a href="#autotoc_md29">Compilation</a></li>
+<li class="level2"><a href="#autotoc_md30">Utilisation en C# d&#39;une DLL</a></li>
+<li class="level2"><a href="#autotoc_md31">Ajout des références aux packages nuget Arcane</a></li>
+<li class="level2"><a href="#autotoc_md32">Extension de classes C++ avec &#39;SWIG&#39;</a></li>
+<li class="level2"><a href="#autotoc_md33">Création d&#39;une bibliothèque .Net utilisant Arcane</a></li>
+<li class="level2"><a href="#autotoc_md34">Création d&#39;un binaire &lt;tt&gt;.Net&lt;/tt&gt; utilisant %Arcane</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="textblock"><p>La plus grande partie de l'API Arcane est accessible via la technologie <code>.Net</code>. Il est possible d'écrire des modules et service en C#.</p>
+<p>Les pages suivantes sont disponibles:</p><ul>
+<li><a class="el" href="../../d5/db6/arcanedoc_dotnet_swig.html">Extensions C# avec Swig</a> : montre comment faire une extension de classes C++ pour qu'elles soient accessibles en <code>C#</code>.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md26"></a>
+Utilisation de .Net</h1>
+<p>En 2019, il existe deux environnments pour <code>.Net</code>:</p>
+<ul>
+<li>Le framework historique, appelé <code>.Net Framework</code> qui est à l'origine développé pour Windows mais pour lequel il existe une implémentation open source appelée <code>mono</code>.</li>
+<li>la nouvelle implémentation open source appelée <code>coreclr</code> et qui utilise un nouveau framework appelé '.Net Core'. Cette implémentation est disponible pour Windows, Linux et MacOS.</li>
+</ul>
+<p><code>.Net Core</code> et <code>.Net Framework</code> partagent une grande parties des API communes et il n'y en général pas de difficultés pour utiliser l'un ou l'autre. Le framework historique <code>.Net Framework</code> n'évoluera plus (mais continuera à être maintenu) et toutes les nouveautés se feront dans le framework '.Net Core'. Pour simplifier la nomenclature, en 2020 il n'y aura plus qu'un seul nom qui sera <code>.Net</code>.</p>
+<p>Arcane supporte les deux implémentations <code>mono</code> et <code>coreclr</code>. Les versions minimales sont <code>5.16</code> pour <code>mono</code> et <code>3.0</code> pour coreclr. Pour les deux implémentations, il est possible de lancer du code C# soit avec un <code>main</code> en C#, soit en mode embarqué avec un <code>main</code> en C++.</p>
+<p>Le mode avec le main en C# permet de lancer le code comme n'importe quelle code C#:</p>
+<ul>
+<li>avec <code>mono</code>: <code>mono MyExe.dll</code></li>
+<li>avec <code>dotnet</code>: <code>dotnet MyExe.dll</code></li>
+</ul>
+<p>Ce mode est surtout utile pour débugger, par exemple avec 'Visual Studio Code' (TODO: faire exemple).</p>
+<p>Le mode embarquée lance le code comme un exécutable C++ et c'est l'appel à <a class="el" href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#a0947388b5dc8e3f6edb5cde9e5d516be" title="Point d&#39;entrée de l&#39;exécutable dans Arcane.">Arcane::ArcaneLauncher::run()</a> qui va éventuellement charger le runtime '.Net' et charger les assembly nécessaires.</p>
+<h1><a class="anchor" id="autotoc_md27"></a>
+Bases de '.Net'</h1>
+<p><code>.Net</code> est une technologie assez similaire à <code>java</code> dans son principe. Le code source peut être écrit en plusieurs langages (C#, F#, Visual Basic). Le code est compilé en un pseudo assembleur (bytecode) indépendant de la plateforme. Le produits de cette compilation s'appelle une <em>assembly</em> (équivalent aux bibliothèques dynamiques du C++). En '.Net', l'extension est <code>.dll</code> comme les bibliothèques dynamiques (Dynamic Loaded Library) sous Windows.</p>
+<p>Comme java, le bytecode est lors de l'exécution converti en code spécifique à l'architecture de la machine cible. Le code <code>.Net</code> nécessite la présence d'un runtime pour gérer cette partie ainsi que pour d'autres fonctionnalités comme le Ramasse Miette (Garbage Collector).</p>
+<h2><a class="anchor" id="autotoc_md28"></a>
+Exemple en C# de main</h2>
+<p>Par convention, les fichiers C# on pour extension <code>.cs</code>. Le code en C# est très similaire au code C++:</p>
+<div class="fragment"><div class="line"><span class="keyword">using</span> <a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line"><span class="keyword">public</span> <span class="keyword">class </span>MainClass</div>
+<div class="line">{</div>
+<div class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keywordtype">int</span> Main(<span class="keywordtype">string</span> args)</div>
+<div class="line">  {</div>
+<div class="line">    var cmd_line_args = CommandLineArguments.Create(args);</div>
+<div class="line">    ApplicationInfo app_info = ArcaneLauncher.<a class="code" href="../../d0/d68/classArcane_1_1ApplicationInfo.html">ApplicationInfo</a>;</div>
+<div class="line">    app_info.SetCommandLineArguments(cmd_line_args);</div>
+<div class="line">    app_info.SetCodeName(<span class="stringliteral">&quot;MyCode&quot;</span>);</div>
+<div class="line">    app_info.SetCodeVersion(<span class="keyword">new</span> VersionInfo(1,0,0));</div>
+<div class="line">    <span class="keywordflow">return</span> ArcaneLauncher.Run();</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md29"></a>
+Compilation</h2>
+<p><code>.Net</code> utilise un outil appelé <code>msbuild</code> pour compiler et il faut définir un projet au format XML contenant les informations nécessaire.</p>
+<dl class="section note"><dt>Note</dt><dd>il est aussi possible de compiler directement à la manière du C++ mais cette méthode est moins portable car il faut spécifier directement les assemblys nécessaires.</dd></dl>
+<p><code>msbuild</code> utilise un fichier projet pour définir les éléments de compilation. Dans le principe, ce fichier projet est comme le <code>Makefile</code> pour l'outil <code>make</code> ou le <code>CMakeLists.txt</code> pour l'outil <code>CMake</code>. En C#, pour <code>msbuild</code>, ce fichier a par convention l'extension <code>.csproj</code>. En général, un projet C# est créé dans un répertoire spécifique. La commande <code>dotnet new</code> permet de créer un répertoire avec un projet:</p>
+<div class="fragment"><div class="line">dotnet new console -n MyTest</div>
+</div><!-- fragment --><p>Cela va créér un répertoire <code>MyTest</code> avec à l'intérieur un fichier <code>Program.cs</code> et un fichier <code>MyTest.csproj</code>.</p>
+<p>Le fichier <code>MyTest.csproj</code> sera comme suit:</p>
+<div class="fragment"><div class="line"> &lt;<span class="keywordtype">Project</span> <span class="keyword">Sdk</span>=<span class="stringliteral">&quot;Microsoft.NET.Sdk&quot;</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">  &lt;<span class="keywordtype">PropertyGroup</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">OutputType</span>&gt;<span class="keyword">Exe</span>&lt;/<span class="keywordtype">OutputType</span>&gt;</div>
+<div class="line">    &lt;<span class="keywordtype">TargetFramework</span>&gt;<span class="keyword">netcoreapp3.1</span>&lt;/<span class="keywordtype">TargetFramework</span>&gt;</div>
+<div class="line">  &lt;/<span class="keywordtype">PropertyGroup</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">&lt;/<span class="keywordtype">Project</span>&gt;</div>
+</div><!-- fragment --><p>et le fichier <code>Program.cs</code> comme suit:</p>
+<div class="fragment"><div class="line"><span class="keyword">using</span> System;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span>test2</div>
+<div class="line">{</div>
+<div class="line">  <span class="keyword">class </span>Program</div>
+<div class="line">  {</div>
+<div class="line">    <span class="keyword">static</span> <span class="keywordtype">void</span> Main(<span class="keywordtype">string</span>[] args)</div>
+<div class="line">    {</div>
+<div class="line">      Console.WriteLine(<span class="stringliteral">&quot;Hello World!&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Pour compiler ce fichier, il suffit de se placer dans le répertoire du projet et de lancer la commande <code>dotnet build</code>.</p>
+<dl class="section note"><dt>Note</dt><dd>Par défaut, tous les fichiers ayant l'extension <code>.cs</code> présent dans le répertoire du projet et les sous-répertoires sont compilés. C'est pour cela qu'il est préférable de placer les projets dans des sous-répertoires. Pour éviter ce comporter, il est possible de mettre la valeur <em>false</em> à la propriété <em>EnableDefaultCompileItems</em> et d'ajouter spécifiquemet les fichiers à compiler. Par exemple:</dd></dl>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">PropertyGroup</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">EnableDefaultCompileItems</span>&gt;<span class="keyword">false</span>&lt;/<span class="keywordtype">EnableDefaultCompileItems</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">PropertyGroup</span>&gt;</div>
+<div class="line">&lt;<span class="keywordtype">ItemGroup</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">Compile</span> <span class="keyword">Include</span>=<span class="stringliteral">&quot;MyFile1.cs&quot;</span> /&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">Compile</span> <span class="keyword">Include</span>=<span class="stringliteral">&quot;MyFile2.cs&quot;</span> /&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">ItemGroup</span>&gt;</div>
+</div><!-- fragment --><p>La commande <code>dotnet build</code> créé par défaut l'assembly dans le répertoire <code>bin/${Config}/${framework}</code> avec <em>Config</em> ayant pour valeur <em>Debug</em> ou <em>Release</em> et <em>framework</em> la valeur de la propriété <code>msbuild</code> <em>TargetFramework</em>. Dans notre exemple, le répertoire sera donc <code>bin/Debug/netcoreapp3.1</code>.</p>
+<p>Pour exécuter le programme, il faut lancer la commande:</p>
+<div class="fragment"><div class="line">dotnet bin/Debug/netcoreapp3.1/MyTest.dll</div>
+</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>il est aussi possible de lancer l'exécution directement par <code>dotnet run</code>. Mais avant de lancer l'exécution, cette dernière commande va vérifier s'il est nécessaire de recompiler le programme ce qui peut prendre du temps. Si on est sur de ne rien avoir modifié, spécifier directement la <em>dll</em> en argument de <code>dotnet</code> est préférable.</dd></dl>
+<h2><a class="anchor" id="autotoc_md30"></a>
+Utilisation en C# d'une DLL</h2>
+<p>Si on ne souhaite pas avoir d'exécutable en C# mais qu'on souhaite utiliser de code C#, alors le fonctionnement est quasi identique mais au lieu de créer un exécutable, il faut créér une bibliothèque. Pour cela, il suffit de créer le projet C# avec l'option <code>dotnet new classlib -n MyLib</code>.</p>
+<dl class="section note"><dt>Note</dt><dd>avec 'Net Core 3', il n'y a pas de différence fondamentale entre un exécutable et une DLL. Un exécutable est juste une DLL avec un point d'entrée bien défini (la fonction <code>Main</code>). Dans les deux cas, l'extension aura pour nom <code>.dll</code> et un exécutable pourra être utilisé partout où une DLL peut être utilisée.</dd></dl>
+<h2><a class="anchor" id="autotoc_md31"></a>
+Ajout des références aux packages nuget Arcane</h2>
+<p>L'ajout des références aux DLL <a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a> se fait via l'élément <code>&lt;PackageReference&gt;</code> dans <code>msbuild</code>, par exemple:</p>
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">ItemGroup</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">PackageReference</span> <span class="keyword">Include</span>=<span class="stringliteral">&quot;Arcane.Utils&quot;</span> <span class="keyword">Version</span>=<span class="stringliteral">&quot;2.19.0&quot;</span> /&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">ItemGroup</span>&gt;</div>
+</div><!-- fragment --><p>Les packages <code>nuget</code> suivants sont fournies par Arcane:</p>
+<ul>
+<li>Arcane.Utils: contient les classes utilitaires C# (tableaux et vues).</li>
+<li>Arcane.Core : contient les extensions C# des classes du coeur d'<a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a> (les classes C++ dont les <code>.h</code> sont dans le répertoire 'arcane').</li>
+<li>Arcane.Launcher : contient les classes C# pour gérer le lancement de code en C#. Ce package est utile si on souhaite faire un main en C#.</li>
+<li>Arcane.Services : contient les classes C# pour implémenter en les services de base de <a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a> (<a class="el" href="../../d2/d27/classArcane_1_1IDataWriter.html" title="Interface d&#39;écriture des données d&#39;une variable.">Arcane::IDataWriter</a>, <a class="el" href="../../d1/d46/classArcane_1_1IDataReader.html" title="Interface de lecture des données d&#39;une variable.">Arcane::IDataReader</a>, ...)</li>
+<li>Arcane.Hdf5: contient les classes C# correspondantes au fichier C++ '<a class="el" href="../../d0/db7/Hdf5Utils_8h_source.html">Hdf5Utils.h</a>'. Ce package est disponible si Arcane a été compilé avec le support de <code>hdf5</code>.</li>
+<li>Arcane.Cea.Materials : contient les classes C# gérant les matériaux/milieux (uniquement CEA).</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md32"></a>
+Extension de classes C++ avec 'SWIG'</h2>
+<p>La page <a class="el" href="../../d5/db6/arcanedoc_dotnet_swig.html">Extensions C# avec Swig</a> décrit comment rendre accessible en C# les classes de Arcane et étendre d'autres classes.</p>
+<h2><a class="anchor" id="autotoc_md33"></a>
+Création d'une bibliothèque .Net utilisant Arcane</h2>
+<p>Il faut tout d'abord avoir <code>dotnet</code> dans son chemin. Si Arcane est installé dans le répertoire <code>${ARCANE_PREFIX}</code> alors il faut lancer les commandes suivantes:</p>
+<div class="fragment"><div class="line">ARCANE_PREFIX=/path/to/arcane/install</div>
+<div class="line">mkdir /path/to/my/project</div>
+<div class="line">cd /path/to/my/project</div>
+<div class="line">dotnet new classlib</div>
+<div class="line">dotnet add package Arcane.Core --source ${ARCANE_PREFIX}/nupkgs</div>
+</div><!-- fragment --><p>Pour compiler le code et l'installer dans un répertoire, il faut exécuter la commande suivante:</p>
+<div class="fragment"><div class="line">dotnet publish -o out</div>
+</div><!-- fragment --><p>Cela aura pour effet d'installer les fichiers générés dans le répertoire <code>out</code>. Si le projet s'appelle 'toto', on aura les fichiers suivants:</p>
+<div class="fragment"><div class="line">&gt; ls  out</div>
+<div class="line">Arcane.Core.dll  Arcane.Utils.dll  toto.deps.json  toto.dll  toto.pdb</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md34"></a>
+Création d'un binaire &lt;tt&gt;.Net&lt;/tt&gt; utilisant %Arcane</h2>
+<p>TODO: </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<div class="ttc" id="aclassArcane_1_1ApplicationInfo_html"><div class="ttname"><a href="../../d0/d68/classArcane_1_1ApplicationInfo.html">Arcane::ApplicationInfo</a></div><div class="ttdoc">Informations sur une application.</div><div class="ttdef"><b>Definition:</b> ApplicationInfo.h:39</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:55 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

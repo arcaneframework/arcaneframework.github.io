@@ -1,0 +1,264 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de CartesianGrid.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_e2458f50e5339d47a20a38c0df1545a0.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_26d32b211ffaf6cf1f77009de6fcf21b.html">cartesianmesh</a></li><li class="navelem"><a class="el" href="../../dir_f3570eb9fa49958f23d69d18acf014f4.html">v2</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">CartesianGrid.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* CartesianGrid.h                                             (C) 2000-2021 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Grille cartésienne avec noeuds, faces et mailles.                         */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_CARTESIANMESH_CARTESIANGRID_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_CARTESIANMESH_CARTESIANGRID_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/cartesianmesh/v2/CartesianNumbering.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span>Arcane::CartesianMesh::V2</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> IdType&gt;</div>
+<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html">   33</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html">CartesianGrid</a></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;{</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a1bdab3e7eb5a18a4de27ee071a4be236">   37</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a1bdab3e7eb5a18a4de27ee071a4be236">IdType3</a> = IdType[3];</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a68fd93ca547d896483c431ca3eefe408">   40</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="../../da/d46/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianNumbering.html">CartesianNumberingType</a> = <a class="code" href="../../da/d46/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianNumbering.html">CartesianNumbering&lt;IdType&gt;</a>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a00ab05a57aba02f07f21b9622426e371">   43</a></span>&#160;  <span class="keyword">using</span> <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a00ab05a57aba02f07f21b9622426e371">CartesianNumberingType3</a> = <a class="code" href="../../da/d46/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianNumbering.html">CartesianNumberingType</a>[3];</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="comment">//  param[in] dimension  Dimension de la grille cartésienne (au plus 3)</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a98525a65c1d88bff874659ae9de53ea6">   48</a></span>&#160;  <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a98525a65c1d88bff874659ae9de53ea6">CartesianGrid</a>(<span class="keyword">const</span> <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a1bdab3e7eb5a18a4de27ee071a4be236">IdType3</a>&amp; ncells_dir, Integer <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#ac4a05fe9f8c5491fdaf397cdad271d29">dimension</a>)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  : <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a4d5ba845450e8e6d8aa82c5a20b07ef2">m_dimension</a>(<a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#ac4a05fe9f8c5491fdaf397cdad271d29">dimension</a>)</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  {</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordflow">for</span> (Integer d(0); d &lt; <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a4d5ba845450e8e6d8aa82c5a20b07ef2">m_dimension</a>; ++d) {</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      m_ncells_dir[d] = ncells_dir[d];</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      m_nnodes_dir[d] = m_ncells_dir[d] + 1;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    m_cart_num_cell.initNumbering(m_ncells_dir, <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#ac4a05fe9f8c5491fdaf397cdad271d29">dimension</a>);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordflow">for</span> (Integer d(<a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a4d5ba845450e8e6d8aa82c5a20b07ef2">m_dimension</a>); d &lt; 3; ++d) {</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;      m_ncells_dir[d] = 1;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;      m_nnodes_dir[d] = 1;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    m_cart_num_node.initNumbering(m_nnodes_dir, <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#ac4a05fe9f8c5491fdaf397cdad271d29">dimension</a>);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="comment">// Pour les faces, on va numéroter les faces selon X, puis selon Y et selon Z</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="comment">// On distingue les faces par leurs orientations (dnorm)</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    IdType nfaces_norm_first = 0; <span class="comment">// Premier numero de face selon la normale dnorm</span></div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordflow">for</span> (Integer dnorm(0); dnorm &lt; <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a4d5ba845450e8e6d8aa82c5a20b07ef2">m_dimension</a>; ++dnorm) {</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;      <span class="comment">// Les directions orthogonales à la normale</span></div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;      Integer d1 = (dnorm + 1) % 3;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;      Integer d2 = (dnorm + 2) % 3;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;      <span class="comment">// Dans la direction de la normale, on a m_ncells_dir[dnorm]+1 faces</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;      <span class="comment">// et dans les directions m_ncells_dir[d] faces</span></div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;      m_nfaces_norm_dir[dnorm][dnorm] = m_ncells_dir[dnorm] + 1;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      m_nfaces_norm_dir[dnorm][d1] = m_ncells_dir[d1];</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      m_nfaces_norm_dir[dnorm][d2] = m_ncells_dir[d2];</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;      m_cart_num_face[dnorm].initNumbering(m_nfaces_norm_dir[dnorm], <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#ac4a05fe9f8c5491fdaf397cdad271d29">dimension</a>, nfaces_norm_first);</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;      nfaces_norm_first += m_cart_num_face[dnorm].nbItem();</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">for</span> (Integer dnorm(<a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a4d5ba845450e8e6d8aa82c5a20b07ef2">m_dimension</a>); dnorm &lt; 3; ++dnorm) {</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;      m_nfaces_norm_dir[dnorm][0] = 1;</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;      m_nfaces_norm_dir[dnorm][1] = 1;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;      m_nfaces_norm_dir[dnorm][2] = 1;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno"><a class="line" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#ac2cbb0482b9254e9cfe81b2a04d6379d">   91</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="../../da/d46/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianNumbering.html">CartesianNumberingType</a>&amp; <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#ac2cbb0482b9254e9cfe81b2a04d6379d">cartNumCell</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">return</span> m_cart_num_cell;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno"><a class="line" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a7d9a797c4a680560eba28242c784c64e">   97</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="../../da/d46/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianNumbering.html">CartesianNumberingType</a>&amp; <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a7d9a797c4a680560eba28242c784c64e">cartNumNode</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;    <span class="keywordflow">return</span> m_cart_num_node;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  }</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno"><a class="line" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a4ae372bb4e4ce68bd91644dee52cd55c">  103</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="../../da/d46/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianNumbering.html">CartesianNumberingType</a>&amp; <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a4ae372bb4e4ce68bd91644dee52cd55c">cartNumFace</a>(Integer dir)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    ARCANE_ASSERT(dir &lt; <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a4d5ba845450e8e6d8aa82c5a20b07ef2">m_dimension</a>, (<span class="stringliteral">&quot;La direction doit être strictement inférieure à la dimension&quot;</span>));</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="keywordflow">return</span> m_cart_num_face[dir];</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  }</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#ae6c600ec6e5454d6ba2996cc92c44a94">  110</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a00ab05a57aba02f07f21b9622426e371">CartesianNumberingType3</a>&amp; <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#ae6c600ec6e5454d6ba2996cc92c44a94">cartNumFace3</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;    <span class="keywordflow">return</span> m_cart_num_face;</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno"><a class="line" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a528ead0d2ab16d7c8c2e17cd30dae061">  116</a></span>&#160;  <a class="code" href="../../da/d46/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianNumbering.html">CartesianNumberingType</a>* <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a528ead0d2ab16d7c8c2e17cd30dae061">cartNumCellPtr</a>()</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  {</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    <span class="keywordflow">return</span> &amp;m_cart_num_cell;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  }</div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#ad6618c66d227147761750a7d5e44f6d5">  122</a></span>&#160;  <a class="code" href="../../da/d46/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianNumbering.html">CartesianNumberingType</a>* <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#ad6618c66d227147761750a7d5e44f6d5">cartNumNodePtr</a>()</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  {</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    <span class="keywordflow">return</span> &amp;m_cart_num_node;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  }</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno"><a class="line" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a9605ba42ff25611e918eea6d35dc666a">  128</a></span>&#160;  <a class="code" href="../../da/d46/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianNumbering.html">CartesianNumberingType</a>* <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a9605ba42ff25611e918eea6d35dc666a">cartNumFacePtr</a>(Integer dir)</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  {</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;    ARCANE_ASSERT(dir &lt; <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a4d5ba845450e8e6d8aa82c5a20b07ef2">m_dimension</a>, (<span class="stringliteral">&quot;La direction doit être strictement inférieure à la dimension&quot;</span>));</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;    <span class="keywordflow">return</span> &amp;(m_cart_num_face[dir]);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  }</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#acb43f8969888ae12f42577b525220e7e">  135</a></span>&#160;  <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a00ab05a57aba02f07f21b9622426e371">CartesianNumberingType3</a>* <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#acb43f8969888ae12f42577b525220e7e">cartNumFace3Ptr</a>()</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  {</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordflow">return</span> &amp;m_cart_num_face;</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  }</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#ac4a05fe9f8c5491fdaf397cdad271d29">  141</a></span>&#160;  Integer <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#ac4a05fe9f8c5491fdaf397cdad271d29">dimension</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="keyword">  </span>{</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a4d5ba845450e8e6d8aa82c5a20b07ef2">m_dimension</a>;</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  }</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a1bdab3e7eb5a18a4de27ee071a4be236">IdType3</a> m_ncells_dir = { 1, 1, 1 }; <span class="comment">// Nb de mailles par direction</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a1bdab3e7eb5a18a4de27ee071a4be236">IdType3</a> m_nnodes_dir = { 1, 1, 1 }; <span class="comment">// Nb de noeuds par direction</span></div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a1bdab3e7eb5a18a4de27ee071a4be236">IdType3</a> m_nfaces_norm_dir[3]; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno"><a class="line" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a4d5ba845450e8e6d8aa82c5a20b07ef2">  151</a></span>&#160;  Integer <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a4d5ba845450e8e6d8aa82c5a20b07ef2">m_dimension</a> = 0;</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  <a class="code" href="../../da/d46/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianNumbering.html">CartesianNumberingType</a> m_cart_num_cell;</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  <a class="code" href="../../da/d46/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianNumbering.html">CartesianNumberingType</a> m_cart_num_node;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  <a class="code" href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a00ab05a57aba02f07f21b9622426e371">CartesianNumberingType3</a> m_cart_num_face;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;};</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;} <span class="comment">// namespace Arcane::CartesianMesh::V2</span></div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="preprocessor">#endif</span></div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1mesh_1_1CartesianFaceUniqueIdBuilder_html_a8107740f919954432969b78df812c63c"><div class="ttname"><a href="../../df/dab/classArcane_1_1mesh_1_1CartesianFaceUniqueIdBuilder.html#a8107740f919954432969b78df812c63c">Arcane::mesh::CartesianFaceUniqueIdBuilder::CartesianFaceUniqueIdBuilder</a></div><div class="ttdeci">CartesianFaceUniqueIdBuilder(DynamicMesh *mesh)</div><div class="ttdoc">Construit une instance pour le maillage mesh.</div><div class="ttdef"><b>Definition:</b> CartesianFaceUniqueIdBuilder.cc:55</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a98dc7953a3cabcdf7e32826a9cc39da7"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a98dc7953a3cabcdf7e32826a9cc39da7">ARCANE_THROW</a></div><div class="ttdeci">#define ARCANE_THROW(exception_class,...)</div><div class="ttdoc">Macro pour envoyer une exception avec formattage.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:750</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelMng_html"><div class="ttname"><a href="../../dc/d5a/classArcane_1_1IParallelMng.html">Arcane::IParallelMng</a></div><div class="ttdoc">Interface du gestionnaire de parallélisme pour un sous-domaine.</div><div class="ttdef"><b>Definition:</b> IParallelMng.h:70</div></div>
+<div class="ttc" id="aclassArcane_1_1Face_html"><div class="ttname"><a href="../../d1/db1/classArcane_1_1Face.html">Arcane::Face</a></div><div class="ttdoc">Face d'une maille.</div><div class="ttdef"><b>Definition:</b> Item.h:638</div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html">Arccore::TraceAccessor</a></div><div class="ttdoc">Classe d'accès aux traces.</div><div class="ttdef"><b>Definition:</b> arccore/src/trace/arccore/trace/TraceAccessor.h:38</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternalMap_html"><div class="ttname"><a href="../../d3/de2/classArcane_1_1ItemInternalMap.html">Arcane::ItemInternalMap</a></div><div class="ttdoc">Tableau associatif de ItemInternal.</div><div class="ttdef"><b>Definition:</b> ItemInternalMap.h:45</div></div>
+<div class="ttc" id="aclassArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid_html_a98525a65c1d88bff874659ae9de53ea6"><div class="ttname"><a href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a98525a65c1d88bff874659ae9de53ea6">Arcane::CartesianMesh::V2::CartesianGrid::CartesianGrid</a></div><div class="ttdeci">CartesianGrid(const IdType3 &amp;ncells_dir, Integer dimension)</div><div class="ttdoc">param[in] ncells_dir Nombre de mailles dans chaque direction</div><div class="ttdef"><b>Definition:</b> CartesianGrid.h:48</div></div>
+<div class="ttc" id="aclassArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid_html_a528ead0d2ab16d7c8c2e17cd30dae061"><div class="ttname"><a href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a528ead0d2ab16d7c8c2e17cd30dae061">Arcane::CartesianMesh::V2::CartesianGrid::cartNumCellPtr</a></div><div class="ttdeci">CartesianNumberingType * cartNumCellPtr()</div><div class="ttdoc">Pointeur sur la numérotation cartésienne aux mailles.</div><div class="ttdef"><b>Definition:</b> CartesianGrid.h:116</div></div>
+<div class="ttc" id="aclassArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid_html_ac2cbb0482b9254e9cfe81b2a04d6379d"><div class="ttname"><a href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#ac2cbb0482b9254e9cfe81b2a04d6379d">Arcane::CartesianMesh::V2::CartesianGrid::cartNumCell</a></div><div class="ttdeci">const CartesianNumberingType &amp; cartNumCell() const</div><div class="ttdoc">Référence en lecture sur la numérotation cartésienne aux mailles.</div><div class="ttdef"><b>Definition:</b> CartesianGrid.h:91</div></div>
+<div class="ttc" id="anamespaceArcane_1_1mesh_html"><div class="ttname"><a href="../../d5/d7e/namespaceArcane_1_1mesh.html">Arcane::mesh</a></div><div class="ttdoc">AMR.</div><div class="ttdef"><b>Definition:</b> IItemFamily.h:47</div></div>
+<div class="ttc" id="aclassArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid_html_a4ae372bb4e4ce68bd91644dee52cd55c"><div class="ttname"><a href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a4ae372bb4e4ce68bd91644dee52cd55c">Arcane::CartesianMesh::V2::CartesianGrid::cartNumFace</a></div><div class="ttdeci">const CartesianNumberingType &amp; cartNumFace(Integer dir) const</div><div class="ttdoc">Référence en lecture sur la numérotation cartésienne aux faces dans la direction dir.</div><div class="ttdef"><b>Definition:</b> CartesianGrid.h:103</div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html_ac97ca3cda108d93dceb8e1a4800246a7"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html#ac97ca3cda108d93dceb8e1a4800246a7">Arccore::TraceAccessor::info</a></div><div class="ttdeci">TraceMessage info() const</div><div class="ttdoc">Flot pour un message d'information.</div><div class="ttdef"><b>Definition:</b> TraceAccessor.cc:101</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelMng_html_a26fc7494a02a7370d3be787fcc742b04"><div class="ttname"><a href="../../dc/d5a/classArcane_1_1IParallelMng.html#a26fc7494a02a7370d3be787fcc742b04">Arcane::IParallelMng::commRank</a></div><div class="ttdeci">virtual Int32 commRank() const =0</div><div class="ttdoc">Rang de cette instance dans le communicateur.</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemWithNodes_html_a5b0ac05c0313732d2a73dd9eacc317dd"><div class="ttname"><a href="../../d4/d55/classArcane_1_1ItemWithNodes.html#a5b0ac05c0313732d2a73dd9eacc317dd">Arcane::ItemWithNodes::node</a></div><div class="ttdeci">Node node(Integer i) const</div><div class="ttdoc">i-ème noeud de l'élément</div><div class="ttdef"><b>Definition:</b> Item.h:524</div></div>
+<div class="ttc" id="aclassArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid_html_ac4a05fe9f8c5491fdaf397cdad271d29"><div class="ttname"><a href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#ac4a05fe9f8c5491fdaf397cdad271d29">Arcane::CartesianMesh::V2::CartesianGrid::dimension</a></div><div class="ttdeci">Integer dimension() const</div><div class="ttdoc">Dimension du maillage cartésien.</div><div class="ttdef"><b>Definition:</b> CartesianGrid.h:141</div></div>
+<div class="ttc" id="aclassArcane_1_1Cell_html"><div class="ttname"><a href="../../d9/db2/classArcane_1_1Cell.html">Arcane::Cell</a></div><div class="ttdoc">Maille d'un maillage.</div><div class="ttdef"><b>Definition:</b> Item.h:822</div></div>
+<div class="ttc" id="aclassArccore_1_1NotSupportedException_html"><div class="ttname"><a href="../../d6/ddb/classArccore_1_1NotSupportedException.html">Arccore::NotSupportedException</a></div><div class="ttdoc">Exception lorsqu'une opération n'est pas supportée.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/NotSupportedException.h:31</div></div>
+<div class="ttc" id="aclassArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid_html_a00ab05a57aba02f07f21b9622426e371"><div class="ttname"><a href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a00ab05a57aba02f07f21b9622426e371">Arcane::CartesianMesh::V2::CartesianGrid::CartesianNumberingType3</a></div><div class="ttdeci">CartesianNumberingType[3] CartesianNumberingType3</div><div class="ttdoc">Type tableau numérotations cartésiennes sur les 3 dimensions.</div><div class="ttdef"><b>Definition:</b> CartesianGrid.h:43</div></div>
+<div class="ttc" id="aclassArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid_html_a1bdab3e7eb5a18a4de27ee071a4be236"><div class="ttname"><a href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a1bdab3e7eb5a18a4de27ee071a4be236">Arcane::CartesianMesh::V2::CartesianGrid::IdType3</a></div><div class="ttdeci">IdType[3] IdType3</div><div class="ttdoc">Type pour les triplets cartésiens (i,j,k) et les triplets des dimensions (ni,nj,nk)</div><div class="ttdef"><b>Definition:</b> CartesianGrid.h:37</div></div>
+<div class="ttc" id="aclassArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid_html"><div class="ttname"><a href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html">Arcane::CartesianMesh::V2::CartesianGrid</a></div><div class="ttdoc">Encapsulation d'une grille cartesienne avec les mailles, noeuds, faces d'une dimension au plus 3.</div><div class="ttdef"><b>Definition:</b> CartesianGrid.h:33</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1DynamicMesh_html_a7a17b1e212734ebb8c4211a2e7e00eba"><div class="ttname"><a href="../../d2/daa/classArcane_1_1mesh_1_1DynamicMesh.html#a7a17b1e212734ebb8c4211a2e7e00eba">Arcane::mesh::DynamicMesh::dimension</a></div><div class="ttdeci">Integer dimension() override</div><div class="ttdoc">Dimension du maillage (1D, 2D ou 3D).</div><div class="ttdef"><b>Definition:</b> DynamicMesh.h:148</div></div>
+<div class="ttc" id="aclassArcane_1_1CartesianMesh_1_1V2_1_1CartesianNumbering_html"><div class="ttname"><a href="../../da/d46/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianNumbering.html">Arcane::CartesianMesh::V2::CartesianNumbering</a></div><div class="ttdoc">Gestion d'une numerotation cartesienne sur une grille d'items d'une dimension au plus 3 Permet le pas...</div><div class="ttdef"><b>Definition:</b> CartesianNumbering.h:45</div></div>
+<div class="ttc" id="aclassArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid_html_a4d5ba845450e8e6d8aa82c5a20b07ef2"><div class="ttname"><a href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a4d5ba845450e8e6d8aa82c5a20b07ef2">Arcane::CartesianMesh::V2::CartesianGrid::m_dimension</a></div><div class="ttdeci">Integer m_dimension</div><div class="ttdoc">m_nfaces_norm_dir[dnorm] = dimension de la grille de faces normales à dnorm</div><div class="ttdef"><b>Definition:</b> CartesianGrid.h:151</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1DynamicMesh_html"><div class="ttname"><a href="../../d2/daa/classArcane_1_1mesh_1_1DynamicMesh.html">Arcane::mesh::DynamicMesh</a></div><div class="ttdoc">Implémentation d'un maillage.</div><div class="ttdef"><b>Definition:</b> DynamicMesh.h:86</div></div>
+<div class="ttc" id="aclassArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid_html_ad6618c66d227147761750a7d5e44f6d5"><div class="ttname"><a href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#ad6618c66d227147761750a7d5e44f6d5">Arcane::CartesianMesh::V2::CartesianGrid::cartNumNodePtr</a></div><div class="ttdeci">CartesianNumberingType * cartNumNodePtr()</div><div class="ttdoc">Pointeur sur la numérotation cartésienne aux noeuds.</div><div class="ttdef"><b>Definition:</b> CartesianGrid.h:122</div></div>
+<div class="ttc" id="aclassArcane_1_1Item_html_a9beb17a99adcdd450f9327004ea060eb"><div class="ttname"><a href="../../df/d5f/classArcane_1_1Item.html#a9beb17a99adcdd450f9327004ea060eb">Arcane::Item::internal</a></div><div class="ttdeci">ItemInternal * internal() const</div><div class="ttdoc">Partie interne de l'entité.</div><div class="ttdef"><b>Definition:</b> Item.h:278</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1DynamicMesh_html_a3a0f253a43afaf552b3e68163971e7bd"><div class="ttname"><a href="../../d2/daa/classArcane_1_1mesh_1_1DynamicMesh.html#a3a0f253a43afaf552b3e68163971e7bd">Arcane::mesh::DynamicMesh::parallelMng</a></div><div class="ttdeci">IParallelMng * parallelMng() override</div><div class="ttdoc">Gestionnaire de parallèlisme.</div><div class="ttdef"><b>Definition:</b> DynamicMesh.cc:384</div></div>
+<div class="ttc" id="aclassArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid_html_a9605ba42ff25611e918eea6d35dc666a"><div class="ttname"><a href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a9605ba42ff25611e918eea6d35dc666a">Arcane::CartesianMesh::V2::CartesianGrid::cartNumFacePtr</a></div><div class="ttdeci">CartesianNumberingType * cartNumFacePtr(Integer dir)</div><div class="ttdoc">Pointeur sur la numérotation cartésienne aux faces dans la direction dir.</div><div class="ttdef"><b>Definition:</b> CartesianGrid.h:128</div></div>
+<div class="ttc" id="aclassArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid_html_acb43f8969888ae12f42577b525220e7e"><div class="ttname"><a href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#acb43f8969888ae12f42577b525220e7e">Arcane::CartesianMesh::V2::CartesianGrid::cartNumFace3Ptr</a></div><div class="ttdeci">CartesianNumberingType3 * cartNumFace3Ptr()</div><div class="ttdoc">Pointeur sur les 3 numérotations cartésiennes aux faces.</div><div class="ttdef"><b>Definition:</b> CartesianGrid.h:135</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:32</div></div>
+<div class="ttc" id="aclassArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid_html_ae6c600ec6e5454d6ba2996cc92c44a94"><div class="ttname"><a href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#ae6c600ec6e5454d6ba2996cc92c44a94">Arcane::CartesianMesh::V2::CartesianGrid::cartNumFace3</a></div><div class="ttdeci">const CartesianNumberingType3 &amp; cartNumFace3() const</div><div class="ttdoc">Référence en lecture sur les 3 numérotations cartésiennes aux faces.</div><div class="ttdef"><b>Definition:</b> CartesianGrid.h:110</div></div>
+<div class="ttc" id="aclassArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid_html_a7d9a797c4a680560eba28242c784c64e"><div class="ttname"><a href="../../d8/d7f/classArcane_1_1CartesianMesh_1_1V2_1_1CartesianGrid.html#a7d9a797c4a680560eba28242c784c64e">Arcane::CartesianMesh::V2::CartesianGrid::cartNumNode</a></div><div class="ttdeci">const CartesianNumberingType &amp; cartNumNode() const</div><div class="ttdoc">Référence en lecture sur la numérotation cartésienne aux noeuds.</div><div class="ttdef"><b>Definition:</b> CartesianGrid.h:97</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1CartesianFaceUniqueIdBuilder_html_ac57045253d49c50fa556371bd271c70a"><div class="ttname"><a href="../../df/dab/classArcane_1_1mesh_1_1CartesianFaceUniqueIdBuilder.html#ac57045253d49c50fa556371bd271c70a">Arcane::mesh::CartesianFaceUniqueIdBuilder::computeFacesUniqueIdAndOwner</a></div><div class="ttdeci">void computeFacesUniqueIdAndOwner()</div><div class="ttdoc">Calcule les uniqueId() et les propriétaires.</div><div class="ttdef"><b>Definition:</b> CartesianFaceUniqueIdBuilder.cc:78</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a9d85d5fb84c5371348dd56600999e564"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a></div><div class="ttdeci">#define ARCANE_FATAL(...)</div><div class="ttdoc">Macro envoyant une exception FatalErrorException.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:761</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1CartesianFaceUniqueIdBuilder_html"><div class="ttname"><a href="../../df/dab/classArcane_1_1mesh_1_1CartesianFaceUniqueIdBuilder.html">Arcane::mesh::CartesianFaceUniqueIdBuilder</a></div><div class="ttdoc">Construction des uniqueId() des faces pour un maillage cartésien.</div><div class="ttdef"><b>Definition:</b> CartesianFaceUniqueIdBuilder.cc:32</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:23 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arcane/ItemFunctor.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('d6/d05/ItemFunctor_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">ItemFunctor.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* ItemFunctor.h                                               (C) 2000-2016 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Fonctor sur les entités.                                                  */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_ITEMFUNCTOR_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_ITEMFUNCTOR_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/RangeFunctor.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/Functor.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;arcane/ItemVectorView.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">class </span>ItemGroupImpl;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="../../d0/d16/classArcane_1_1AbstractItemRangeFunctor.html">   43</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../d0/d16/classArcane_1_1AbstractItemRangeFunctor.html">AbstractItemRangeFunctor</a></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d2/d8e/classArcane_1_1IRangeFunctor.html">IRangeFunctor</a></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;{</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> Integer DEFAULT_GRAIN_SIZE = 400;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <a class="code" href="../../d0/d16/classArcane_1_1AbstractItemRangeFunctor.html">AbstractItemRangeFunctor</a>(<a class="code" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> items_view,Integer grain_size);</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno"><a class="line" href="../../d0/d16/classArcane_1_1AbstractItemRangeFunctor.html#af1e9e3d8ca8e58665f668668c3a58d5b">   55</a></span>&#160;  Integer <a class="code" href="../../d0/d16/classArcane_1_1AbstractItemRangeFunctor.html#af1e9e3d8ca8e58665f668668c3a58d5b">nbBlock</a>() { <span class="keywordflow">return</span> m_nb_block; }</div>
+<div class="line"><a name="l00057"></a><span class="lineno"><a class="line" href="../../d0/d16/classArcane_1_1AbstractItemRangeFunctor.html#a2101d2c76b227cf77e13410db88f7b8b">   57</a></span>&#160;  Integer <a class="code" href="../../d0/d16/classArcane_1_1AbstractItemRangeFunctor.html#a2101d2c76b227cf77e13410db88f7b8b">blockGrainSize</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_block_grain_size; }</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="code" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> m_items;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  Integer m_block_size;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  Integer m_nb_block;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  Integer m_block_grain_size;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <a class="code" href="../../df/d28/classArcane_1_1ItemIndexArrayView.html">ItemIndexArrayView</a> _view(Integer begin_block,Integer nb_block) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;};</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> InstanceType,<span class="keyword">typename</span> ItemType&gt;</div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../df/d64/classArcane_1_1ItemRangeFunctorT.html">   79</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/d64/classArcane_1_1ItemRangeFunctorT.html">ItemRangeFunctorT</a></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d0/d16/classArcane_1_1AbstractItemRangeFunctor.html">AbstractItemRangeFunctor</a></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;{</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keyword">typedef</span> void (InstanceType::*FunctionType)(<a class="code" href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">ItemVectorViewT&lt;ItemType&gt;</a>);</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <a class="code" href="../../df/d64/classArcane_1_1ItemRangeFunctorT.html">ItemRangeFunctorT</a>(<a class="code" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> items_view,InstanceType* instance,</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;                    FunctionType <span class="keyword">function</span>,Integer grain_size = DEFAULT_GRAIN_SIZE)</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  : <a class="code" href="../../d0/d16/classArcane_1_1AbstractItemRangeFunctor.html">AbstractItemRangeFunctor</a>(items_view,grain_size), m_instance(instance),</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    m_function(<span class="keyword">function</span>)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  InstanceType* m_instance;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  FunctionType m_function;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno"><a class="line" href="../../df/d64/classArcane_1_1ItemRangeFunctorT.html#abb7f7e8e4ce47c03d95b7b4f6a33f238">  101</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../df/d64/classArcane_1_1ItemRangeFunctorT.html#abb7f7e8e4ce47c03d95b7b4f6a33f238">executeFunctor</a>(Integer begin,Integer size)</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  {</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    <span class="comment">//cout &lt;&lt; &quot;** BLOCKED RANGE! range=&quot; &lt;&lt; range.begin() &lt;&lt; &quot; end=&quot; &lt;&lt; range.end() &lt;&lt; &quot; size=&quot; &lt;&lt; range.size() &lt;&lt; &quot;\n&quot;;</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    <span class="comment">//CellVectorView sub_view = m_cells.subView(range.begin(),range.size());</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    <a class="code" href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">ItemVectorViewT&lt;ItemType&gt;</a> sub_view(m_items.items(),this-&gt;_view(begin,size));</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;    <span class="comment">//cout &lt;&lt; &quot;** SUB_VIEW v=&quot; &lt;&lt; sub_view.size();</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;    (m_instance-&gt;*m_function)(sub_view);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  }</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;};</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> LambdaType&gt;</div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="../../df/d88/classArcane_1_1LambdaItemRangeFunctorT.html">  119</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../df/d88/classArcane_1_1LambdaItemRangeFunctorT.html">LambdaItemRangeFunctorT</a></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d0/d16/classArcane_1_1AbstractItemRangeFunctor.html">AbstractItemRangeFunctor</a></div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;{</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <a class="code" href="../../df/d88/classArcane_1_1LambdaItemRangeFunctorT.html">LambdaItemRangeFunctorT</a>(<a class="code" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> items_view,<span class="keyword">const</span> LambdaType&amp; lambda_function,</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;                          Integer grain_size = DEFAULT_GRAIN_SIZE)</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  : <a class="code" href="../../d0/d16/classArcane_1_1AbstractItemRangeFunctor.html">AbstractItemRangeFunctor</a>(items_view,grain_size), m_lambda_function(lambda_function)</div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  {</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  }</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  </div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="../../df/d88/classArcane_1_1LambdaItemRangeFunctorT.html#a5b30d3fd3e3dc5db4c1a0e31547d6704">  131</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../df/d88/classArcane_1_1LambdaItemRangeFunctorT.html#a5b30d3fd3e3dc5db4c1a0e31547d6704">executeFunctor</a>(Integer begin,Integer size)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  {</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;    <a class="code" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> sub_view(m_items.items(),this-&gt;_view(begin,size));</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;    m_lambda_function(sub_view);</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  }</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <span class="keyword">const</span> LambdaType&amp; m_lambda_function;</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;};</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno"><a class="line" href="../../d5/d78/classArcane_1_1ItemGroupComputeFunctor.html">  146</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d5/d78/classArcane_1_1ItemGroupComputeFunctor.html">ItemGroupComputeFunctor</a></div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d5/d5f/classArccore_1_1IFunctor.html">IFunctor</a></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;{</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  <a class="code" href="../../d5/d78/classArcane_1_1ItemGroupComputeFunctor.html">ItemGroupComputeFunctor</a>() : m_group(0) { }</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../d5/d78/classArcane_1_1ItemGroupComputeFunctor.html">ItemGroupComputeFunctor</a>() { }</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  <span class="keywordtype">void</span> setGroup(<a class="code" href="../../da/df1/classArcane_1_1ItemGroupImpl.html">ItemGroupImpl</a>* group) { m_group = group; }</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  <a class="code" href="../../da/df1/classArcane_1_1ItemGroupImpl.html">ItemGroupImpl</a>* m_group;</div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;};</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;ARCANE_END_NAMESPACE</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<div class="ttc" id="aclassArcane_1_1ItemVectorViewT_html"><div class="ttname"><a href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">Arcane::ItemVectorViewT</a></div><div class="ttdoc">Vue sur un tableau typé d'entités.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:154</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemIndexArrayView_html"><div class="ttname"><a href="../../df/d28/classArcane_1_1ItemIndexArrayView.html">Arcane::ItemIndexArrayView</a></div><div class="ttdoc">Vue sur un tableau d'index (localIds()) d'entités.</div><div class="ttdef"><b>Definition:</b> ItemIndexArrayView.h:41</div></div>
+<div class="ttc" id="aclassArcane_1_1IRangeFunctor_html"><div class="ttname"><a href="../../d2/d8e/classArcane_1_1IRangeFunctor.html">Arcane::IRangeFunctor</a></div><div class="ttdoc">Interface d'un fonctor sur un interval d'itération.</div><div class="ttdef"><b>Definition:</b> IRangeFunctor.h:31</div></div>
+<div class="ttc" id="anamespaceArccore_html_a19fea02f94d4da203710fd2070c0f2fb"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Arccore::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:232</div></div>
+<div class="ttc" id="aclassArcane_1_1LambdaItemRangeFunctorT_html_a5b30d3fd3e3dc5db4c1a0e31547d6704"><div class="ttname"><a href="../../df/d88/classArcane_1_1LambdaItemRangeFunctorT.html#a5b30d3fd3e3dc5db4c1a0e31547d6704">Arcane::LambdaItemRangeFunctorT::executeFunctor</a></div><div class="ttdeci">virtual void executeFunctor(Integer begin, Integer size)</div><div class="ttdoc">Exécute la méthode associée.</div><div class="ttdef"><b>Definition:</b> ItemFunctor.h:131</div></div>
+<div class="ttc" id="aclassArccore_1_1IFunctor_html"><div class="ttname"><a href="../../d5/d5f/classArccore_1_1IFunctor.html">Arccore::IFunctor</a></div><div class="ttdoc">Interface d'un fonctor.</div><div class="ttdef"><b>Definition:</b> IFunctor.h:31</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemVectorView_html"><div class="ttname"><a href="../../d6/df2/classArcane_1_1ItemVectorView.html">Arcane::ItemVectorView</a></div><div class="ttdoc">Vue sur un vecteur d'entités.</div><div class="ttdef"><b>Definition:</b> ItemVectorView.h:144</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemRangeFunctorT_html"><div class="ttname"><a href="../../df/d64/classArcane_1_1ItemRangeFunctorT.html">Arcane::ItemRangeFunctorT</a></div><div class="ttdoc">Fonctor pour itérer sur une liste d'entités.</div><div class="ttdef"><b>Definition:</b> ItemFunctor.h:79</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemRangeFunctorT_html_abb7f7e8e4ce47c03d95b7b4f6a33f238"><div class="ttname"><a href="../../df/d64/classArcane_1_1ItemRangeFunctorT.html#abb7f7e8e4ce47c03d95b7b4f6a33f238">Arcane::ItemRangeFunctorT::executeFunctor</a></div><div class="ttdeci">virtual void executeFunctor(Integer begin, Integer size)</div><div class="ttdoc">Exécute la méthode associée.</div><div class="ttdef"><b>Definition:</b> ItemFunctor.h:101</div></div>
+<div class="ttc" id="aclassArcane_1_1LambdaItemRangeFunctorT_html"><div class="ttname"><a href="../../df/d88/classArcane_1_1LambdaItemRangeFunctorT.html">Arcane::LambdaItemRangeFunctorT</a></div><div class="ttdoc">Fonctor sur un interval d'itération instancié via une lambda fonction.</div><div class="ttdef"><b>Definition:</b> ItemFunctor.h:119</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemGroupImpl_html"><div class="ttname"><a href="../../da/df1/classArcane_1_1ItemGroupImpl.html">Arcane::ItemGroupImpl</a></div><div class="ttdef"><b>Definition:</b> ItemGroupImpl.h:70</div></div>
+<div class="ttc" id="agroup__GroupMathUtils_html_ga1a837fe3ed2b3189ec13fa1d8e851fed"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#ga1a837fe3ed2b3189ec13fa1d8e851fed">Arcane::math::min</a></div><div class="ttdeci">__host__ __device__ Real2 min(Real2 a, Real2 b)</div><div class="ttdoc">Retourne le minimum de deux Real2.</div><div class="ttdef"><b>Definition:</b> MathUtils.h:374</div></div>
+<div class="ttc" id="aclassArcane_1_1AbstractItemRangeFunctor_html_a2101d2c76b227cf77e13410db88f7b8b"><div class="ttname"><a href="../../d0/d16/classArcane_1_1AbstractItemRangeFunctor.html#a2101d2c76b227cf77e13410db88f7b8b">Arcane::AbstractItemRangeFunctor::blockGrainSize</a></div><div class="ttdeci">Integer blockGrainSize() const</div><div class="ttdoc">Taille souhaitée d'un intervalle d'itération.</div><div class="ttdef"><b>Definition:</b> ItemFunctor.h:57</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemIndexArrayView_html_a8f2f576470bc17314bb210a702fe4d03"><div class="ttname"><a href="../../df/d28/classArcane_1_1ItemIndexArrayView.html#a8f2f576470bc17314bb210a702fe4d03">Arcane::ItemIndexArrayView::subView</a></div><div class="ttdeci">ItemIndexArrayView subView(Integer abegin, Integer asize) const</div><div class="ttdoc">Sous-vue à partir de l'élément abegin et contenant asize éléments.</div><div class="ttdef"><b>Definition:</b> ItemIndexArrayView.h:85</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemVectorView_html_aaf5e9079b72120006741a1d02fbe1c9b"><div class="ttname"><a href="../../d6/df2/classArcane_1_1ItemVectorView.html#aaf5e9079b72120006741a1d02fbe1c9b">Arcane::ItemVectorView::size</a></div><div class="ttdeci">Integer size() const</div><div class="ttdoc">Nombre d'éléments du vecteur.</div><div class="ttdef"><b>Definition:</b> ItemVectorView.h:172</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemGroupComputeFunctor_html"><div class="ttname"><a href="../../d5/d78/classArcane_1_1ItemGroupComputeFunctor.html">Arcane::ItemGroupComputeFunctor</a></div><div class="ttdoc">Fonctor pour le calcul des éléments d'un groupe.</div><div class="ttdef"><b>Definition:</b> ItemFunctor.h:146</div></div>
+<div class="ttc" id="aclassArcane_1_1AbstractItemRangeFunctor_html_af1e9e3d8ca8e58665f668668c3a58d5b"><div class="ttname"><a href="../../d0/d16/classArcane_1_1AbstractItemRangeFunctor.html#af1e9e3d8ca8e58665f668668c3a58d5b">Arcane::AbstractItemRangeFunctor::nbBlock</a></div><div class="ttdeci">Integer nbBlock()</div><div class="ttdoc">Nombre d'indexs.</div><div class="ttdef"><b>Definition:</b> ItemFunctor.h:55</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemVectorView_html_a23ff3a0cba7fe4127172fde071569acd"><div class="ttname"><a href="../../d6/df2/classArcane_1_1ItemVectorView.html#a23ff3a0cba7fe4127172fde071569acd">Arcane::ItemVectorView::indexes</a></div><div class="ttdeci">ItemIndexArrayView indexes() const</div><div class="ttdoc">Vue sur le tableau des indices.</div><div class="ttdef"><b>Definition:</b> ItemVectorView.h:194</div></div>
+<div class="ttc" id="aclassArcane_1_1AbstractItemRangeFunctor_html"><div class="ttname"><a href="../../d0/d16/classArcane_1_1AbstractItemRangeFunctor.html">Arcane::AbstractItemRangeFunctor</a></div><div class="ttdoc">Classe de base des fonctors sur une liste d'entités.</div><div class="ttdef"><b>Definition:</b> ItemFunctor.h:43</div></div>
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><b>ItemFunctor.h</b></li>
+    <li class="footer">Généré le Mercredi 30 Mars 2022 12:59:32 pour Arcane par
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+  </ul>
+</div>
+</body>
+</html>

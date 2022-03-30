@@ -1,0 +1,257 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de Ptr.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.5.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_2729d02b006c8e73197ea03fae7905d4.html">utils</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">Ptr.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* Ptr.h                                                       (C) 2000-2006 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Classes diverses encapsulant des pointeurs.                               */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_UTILS_PTR_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_UTILS_PTR_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../d0/d1e/ArcaneGlobal_8h.html">arcane/utils/ArcaneGlobal.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../dd/de0/classArcane_1_1PtrT.html">   46</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../dd/de0/classArcane_1_1PtrT.html">PtrT</a></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;{</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno"><a class="line" href="../../dd/de0/classArcane_1_1PtrT.html#a0c18683d4496b3455abbb764e167176a">   51</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html">PtrT&lt;T&gt;</a>&amp; <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html#a0c18683d4496b3455abbb764e167176a">operator=</a>(<span class="keyword">const</span> <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html">PtrT&lt;T&gt;</a>&amp; from)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    { m_value = from.<a class="code" href="../../dd/de0/classArcane_1_1PtrT.html#a03f1b3b5ead1a7d0e2c036fe10876e44">m_value</a>; <span class="keywordflow">return</span> (*<span class="keyword">this</span>); }</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T2&gt;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keyword">const</span> <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html">PtrT&lt;T&gt;</a>&amp; operator=(<span class="keyword">const</span> <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html">PtrT&lt;T2&gt;</a>&amp; from)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      { m_value = from.<a class="code" href="../../dd/de0/classArcane_1_1PtrT.html#ac201e4e19d6f8ea6838c48b32c7e385d">get</a>(); <span class="keywordflow">return</span> (*<span class="keyword">this</span>); }</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno"><a class="line" href="../../dd/de0/classArcane_1_1PtrT.html#ad7bfc6ccb0f47ecb74bf671ffb31256d">   60</a></span>&#160;  <span class="keyword">const</span> <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html">PtrT&lt;T&gt;</a>&amp; <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html#ad7bfc6ccb0f47ecb74bf671ffb31256d">operator=</a>(T* new_value)</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    { m_value = new_value; <span class="keywordflow">return</span> (*<span class="keyword">this</span>); }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno"><a class="line" href="../../dd/de0/classArcane_1_1PtrT.html#a41522eedadae09f97ba3e1d0cadf3d54">   64</a></span>&#160;  <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html#a41522eedadae09f97ba3e1d0cadf3d54">PtrT</a>(<span class="keyword">const</span> <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html">PtrT&lt;T&gt;</a>&amp; from) : m_value(from.m_value) {}</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T2&gt;</div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../dd/de0/classArcane_1_1PtrT.html#aca503444d9c4c592736d2ad875d72030">   68</a></span>&#160;  <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html#aca503444d9c4c592736d2ad875d72030">PtrT</a>(<span class="keyword">const</span> <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html">PtrT&lt;T2&gt;</a>&amp; from) : m_value(from.m_value) {}</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../dd/de0/classArcane_1_1PtrT.html#a7c8a8ec592037eff0f88b674883429e0">   74</a></span>&#160;  <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html#a7c8a8ec592037eff0f88b674883429e0">PtrT</a>() : m_value(0) {}</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../dd/de0/classArcane_1_1PtrT.html#af4c6f956e23c539065074565530a5c18">   77</a></span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html#af4c6f956e23c539065074565530a5c18">PtrT</a>(T* t) : m_value(t) {}</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../dd/de0/classArcane_1_1PtrT.html">PtrT</a>() {}</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  </div>
+<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="../../dd/de0/classArcane_1_1PtrT.html#a5434c3bbf4c5b7e8b54fd3ad7d8ca568">   84</a></span>&#160;  <span class="keyword">inline</span> T* <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html#a5434c3bbf4c5b7e8b54fd3ad7d8ca568">operator-&gt;</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="preprocessor">#ifdef ARCANE_CHECK</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;      <span class="keywordflow">if</span> (!m_value)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;        <a class="code" href="../../d0/d32/namespaceArcane.html#a457dfb34a2c9127735df7c999629b591">arcaneNullPointerError</a>();</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      <span class="keywordflow">return</span> m_value;</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    }</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="../../dd/de0/classArcane_1_1PtrT.html#a94418e678617ad55036ad318376dcca2">   94</a></span>&#160;  <span class="keyword">inline</span> T&amp; <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html#a94418e678617ad55036ad318376dcca2">operator*</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#ifdef ARCANE_CHECK</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;      <span class="keywordflow">if</span> (!m_value)</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;        <a class="code" href="../../d0/d32/namespaceArcane.html#a457dfb34a2c9127735df7c999629b591">arcaneNullPointerError</a>();</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;      <span class="keywordflow">return</span> *m_value;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;    }</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno"><a class="line" href="../../dd/de0/classArcane_1_1PtrT.html#ac201e4e19d6f8ea6838c48b32c7e385d">  108</a></span>&#160;  <span class="keyword">inline</span> T* <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html#ac201e4e19d6f8ea6838c48b32c7e385d">get</a>()<span class="keyword"> const</span></div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;      <span class="keywordflow">return</span> m_value;</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;    }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="keyword">inline</span> <span class="keywordtype">bool</span> isNull()<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;    <span class="keywordflow">return</span> (m_value == NULL);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;  }</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  </div>
+<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="../../dd/de0/classArcane_1_1PtrT.html#a03f1b3b5ead1a7d0e2c036fe10876e44">  119</a></span>&#160;  T* <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html#a03f1b3b5ead1a7d0e2c036fe10876e44">m_value</a>; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;};</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T1,<span class="keyword">class</span> T2&gt; <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="../../d0/d32/namespaceArcane.html#ae9532dc6c9d300d310b3ec4e97c09757">  131</a></span>&#160;operator==(<span class="keyword">const</span> <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html">PtrT&lt;T1&gt;</a>&amp; v1,<span class="keyword">const</span> <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html">PtrT&lt;T2&gt;</a>&amp; v2)</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;{</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <span class="keywordflow">return</span> v1.<a class="code" href="../../dd/de0/classArcane_1_1PtrT.html#ac201e4e19d6f8ea6838c48b32c7e385d">get</a>() == v2.<a class="code" href="../../dd/de0/classArcane_1_1PtrT.html#ac201e4e19d6f8ea6838c48b32c7e385d">get</a>();</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;}</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T1,<span class="keyword">class</span> T2&gt; <span class="keyword">inline</span> <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno"><a class="line" href="../../d0/d32/namespaceArcane.html#ae152d9a5156dacbfe3dabdff3ff0d31c">  145</a></span>&#160;operator!=(<span class="keyword">const</span> <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html">PtrT&lt;T1&gt;</a>&amp; v1,<span class="keyword">const</span> <a class="code" href="../../dd/de0/classArcane_1_1PtrT.html">PtrT&lt;T2&gt;</a>&amp; v2)</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;{</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="keywordflow">return</span> v1.<a class="code" href="../../dd/de0/classArcane_1_1PtrT.html#ac201e4e19d6f8ea6838c48b32c7e385d">get</a>() != v2.<a class="code" href="../../dd/de0/classArcane_1_1PtrT.html#ac201e4e19d6f8ea6838c48b32c7e385d">get</a>();</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;}</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;ARCANE_END_NAMESPACE</div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1Array_html"><div class="ttname"><a href="../../d1/dfb/classArcane_1_1Array.html">Arcane::Array</a></div><div class="ttdoc">Tableau d'items de types quelconques.</div><div class="ttdef"><b>Definition:</b> AnyItemArray.h:54</div></div>
+<div class="ttc" id="anamespaceArcane_html_a457dfb34a2c9127735df7c999629b591"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a457dfb34a2c9127735df7c999629b591">Arcane::arcaneNullPointerError</a></div><div class="ttdeci">void arcaneNullPointerError()</div><div class="ttdoc">Signalue l'utilisation d'un pointeur nul.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.cc:130</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a1e78ce9cc3dc94f7c718d72d05c22df6"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a1e78ce9cc3dc94f7c718d72d05c22df6">Arccore::ISerializer::getInt32</a></div><div class="ttdeci">virtual Int32 getInt32()=0</div><div class="ttdoc">Récupère un entier naturel.</div></div>
+<div class="ttc" id="aclassArccore_1_1BasicSerializer_html_a07640af86419357d8010da62bababe10"><div class="ttname"><a href="../../de/d4b/classArccore_1_1BasicSerializer.html#a07640af86419357d8010da62bababe10">Arccore::BasicSerializer::allocateBuffer</a></div><div class="ttdeci">void allocateBuffer() override</div><div class="ttdoc">Alloue la mémoire du sérialiseur.</div><div class="ttdef"><b>Definition:</b> BasicSerializer.cc:880</div></div>
+<div class="ttc" id="aclassArcane_1_1PropertyMng_html_abfaa5ee3c13cef35952d1f9d516af642"><div class="ttname"><a href="../../dd/d56/classArcane_1_1PropertyMng.html#abfaa5ee3c13cef35952d1f9d516af642">Arcane::PropertyMng::writeTo</a></div><div class="ttdeci">void writeTo(ByteArray &amp;bytes) override</div><div class="ttdoc">Sérialise les informations de propriété dans bytes.</div><div class="ttdef"><b>Definition:</b> PropertyMng.cc:220</div></div>
+<div class="ttc" id="aclassArcane_1_1SerializeBuffer_html"><div class="ttname"><a href="../../d8/da2/classArcane_1_1SerializeBuffer.html">Arcane::SerializeBuffer</a></div><div class="ttdoc">Implémentation d'un tampon pour la sérialisation.</div><div class="ttdef"><b>Definition:</b> SerializeBuffer.h:37</div></div>
+<div class="ttc" id="aclassArcane_1_1PtrT_html_a41522eedadae09f97ba3e1d0cadf3d54"><div class="ttname"><a href="../../dd/de0/classArcane_1_1PtrT.html#a41522eedadae09f97ba3e1d0cadf3d54">Arcane::PtrT::PtrT</a></div><div class="ttdeci">PtrT(const PtrT&lt; T &gt; &amp;from)</div><div class="ttdoc">Construit une référence référant from.</div><div class="ttdef"><b>Definition:</b> Ptr.h:64</div></div>
+<div class="ttc" id="aclassArcane_1_1PropertyMng_html_ae81e4f49ae380e7625be22464caaecbe"><div class="ttname"><a href="../../dd/d56/classArcane_1_1PropertyMng.html#ae81e4f49ae380e7625be22464caaecbe">Arcane::PropertyMng::readFrom</a></div><div class="ttdeci">void readFrom(Span&lt; const Byte &gt; bytes) override</div><div class="ttdoc">Relit les informations sérialisées contenues dans bytes.</div><div class="ttdef"><b>Definition:</b> PropertyMng.cc:241</div></div>
+<div class="ttc" id="aclassArcane_1_1AutoDetachObservable_html"><div class="ttname"><a href="../../d1/d80/classArcane_1_1AutoDetachObservable.html">Arcane::AutoDetachObservable</a></div><div class="ttdoc">Observable qui appelle automatiquement IObservable::detachAllObservers() dans le destructeur.</div><div class="ttdef"><b>Definition:</b> utils/Observable.h:77</div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html">Arccore::TraceAccessor</a></div><div class="ttdoc">Classe d'accès aux traces.</div><div class="ttdef"><b>Definition:</b> arccore/src/trace/arccore/trace/TraceAccessor.h:38</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_aa632d504e19934c1238148898f35c967"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#aa632d504e19934c1238148898f35c967">Arccore::ISerializer::mode</a></div><div class="ttdeci">virtual eMode mode() const =0</div><div class="ttdoc">Mode de fonctionnement actuel.</div></div>
+<div class="ttc" id="aclassArcane_1_1PropertyMng_html_a33fec47b75e37d021be3c63210a05051"><div class="ttname"><a href="../../dd/d56/classArcane_1_1PropertyMng.html#a33fec47b75e37d021be3c63210a05051">Arcane::PropertyMng::writeObservable</a></div><div class="ttdeci">IObservable * writeObservable() override</div><div class="ttdoc">Observable pour l'écriture.</div><div class="ttdef"><b>Definition:</b> PropertyMng.cc:65</div></div>
+<div class="ttc" id="aclassArcane_1_1IPropertyMng_html"><div class="ttname"><a href="../../da/d8d/classArcane_1_1IPropertyMng.html">Arcane::IPropertyMng</a></div><div class="ttdoc">Interface du gestionnaire des propriétés.</div><div class="ttdef"><b>Definition:</b> IPropertyMng.h:37</div></div>
+<div class="ttc" id="aclassArccore_1_1ITraceMng_html"><div class="ttname"><a href="../../d0/df9/classArccore_1_1ITraceMng.html">Arccore::ITraceMng</a></div><div class="ttdoc">Interface du gestionnaire de traces.</div><div class="ttdef"><b>Definition:</b> arccore/src/trace/arccore/trace/ITraceMng.h:155</div></div>
+<div class="ttc" id="aclassArccore_1_1BasicSerializer_html_a181860a70925b4353f357b722bb0152c"><div class="ttname"><a href="../../de/d4b/classArccore_1_1BasicSerializer.html#a181860a70925b4353f357b722bb0152c">Arccore::BasicSerializer::initFromBuffer</a></div><div class="ttdeci">void initFromBuffer(Span&lt; const Byte &gt; buf)</div><div class="ttdoc">Initialise le sérialiseur en lecture à partir des données buf.</div><div class="ttdef"><b>Definition:</b> BasicSerializer.cc:1028</div></div>
+<div class="ttc" id="anamespaceArccore_html_a7c7dbb1a4a565ffa1d5a02fb0bf6cb1b"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a7c7dbb1a4a565ffa1d5a02fb0bf6cb1b">Arccore::makeRef</a></div><div class="ttdeci">auto makeRef(InstanceType *t) -&gt; Ref&lt; InstanceType &gt;</div><div class="ttdoc">Créé une référence sur un pointeur.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/Ref.h:286</div></div>
+<div class="ttc" id="aclassArcane_1_1PropertyMng_html_a1b7815bad8a20dd66ba8a8d1995dce3c"><div class="ttname"><a href="../../dd/d56/classArcane_1_1PropertyMng.html#a1b7815bad8a20dd66ba8a8d1995dce3c">Arcane::PropertyMng::print</a></div><div class="ttdeci">void print(std::ostream &amp;o) const override</div><div class="ttdoc">Affiche les propriétés et leurs valeurs sur le flot o.</div><div class="ttdef"><b>Definition:</b> PropertyMng.cc:260</div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html_ac97ca3cda108d93dceb8e1a4800246a7"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html#ac97ca3cda108d93dceb8e1a4800246a7">Arccore::TraceAccessor::info</a></div><div class="ttdeci">TraceMessage info() const</div><div class="ttdoc">Flot pour un message d'information.</div><div class="ttdef"><b>Definition:</b> TraceAccessor.cc:101</div></div>
+<div class="ttc" id="aclassArccore_1_1BasicSerializer_html_a67e0d3ec6a515b1c47313024a4084228"><div class="ttname"><a href="../../de/d4b/classArccore_1_1BasicSerializer.html#a67e0d3ec6a515b1c47313024a4084228">Arccore::BasicSerializer::setSerializeTypeInfo</a></div><div class="ttdeci">void setSerializeTypeInfo(bool v)</div><div class="ttdoc">Indique si on sérialise le type de donnée pour garantir la cohérence.</div><div class="ttdef"><b>Definition:</b> BasicSerializer.cc:1041</div></div>
+<div class="ttc" id="aclassArcane_1_1Properties_html_af50a6e5ca2d0ba61ac9ed5ffab51e74f"><div class="ttname"><a href="../../d0/d62/classArcane_1_1Properties.html#af50a6e5ca2d0ba61ac9ed5ffab51e74f">Arcane::Properties::print</a></div><div class="ttdeci">void print(std::ostream &amp;o) const</div><div class="ttdoc">Sort les propriétés et leurs valeurs sur le flot o.</div><div class="ttdef"><b>Definition:</b> Properties.cc:1053</div></div>
+<div class="ttc" id="aclassArcane_1_1Properties_html_ac41b545174277a832d2c729e909cbaa1"><div class="ttname"><a href="../../d0/d62/classArcane_1_1Properties.html#ac41b545174277a832d2c729e909cbaa1">Arcane::Properties::serialize</a></div><div class="ttdeci">void serialize(ISerializer *serializer)</div><div class="ttdoc">Effectue la sérialisation des propriétés.</div><div class="ttdef"><b>Definition:</b> Properties.cc:1062</div></div>
+<div class="ttc" id="aclassArcane_1_1PtrT_html_ad7bfc6ccb0f47ecb74bf671ffb31256d"><div class="ttname"><a href="../../dd/de0/classArcane_1_1PtrT.html#ad7bfc6ccb0f47ecb74bf671ffb31256d">Arcane::PtrT::operator=</a></div><div class="ttdeci">const PtrT&lt; T &gt; &amp; operator=(T *new_value)</div><div class="ttdoc">Affecte à l'instance la value new_value.</div><div class="ttdef"><b>Definition:</b> Ptr.h:60</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a803d1e7683571a15ceaf723b215c7a53"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a803d1e7683571a15ceaf723b215c7a53">Arccore::ISerializer::getInt64</a></div><div class="ttdeci">virtual Int64 getInt64()=0</div><div class="ttdoc">Récupère une taille.</div></div>
+<div class="ttc" id="aclassArcane_1_1Properties_html"><div class="ttname"><a href="../../d0/d62/classArcane_1_1Properties.html">Arcane::Properties</a></div><div class="ttdoc">Liste de propriétés.</div><div class="ttdef"><b>Definition:</b> Properties.h:63</div></div>
+<div class="ttc" id="aclassArcane_1_1PropertyMng_html_aab9771b4d801469559cb5be8e057456f"><div class="ttname"><a href="../../dd/d56/classArcane_1_1PropertyMng.html#aab9771b4d801469559cb5be8e057456f">Arcane::PropertyMng::getPropertiesImpl</a></div><div class="ttdeci">PropertiesImpl * getPropertiesImpl(const String &amp;full_name) override</div><div class="ttdoc">Récupère la liste de propriétés de nom complet full_name.</div><div class="ttdef"><b>Definition:</b> PropertyMng.cc:133</div></div>
+<div class="ttc" id="anamespaceArcane_html_a05c27a651d3da9ae112c75113fcf7426a3ae7073d9f001bc491cfcfe0342ab0d8"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a05c27a651d3da9ae112c75113fcf7426a3ae7073d9f001bc491cfcfe0342ab0d8">Arcane::DT_Int32</a></div><div class="ttdeci">@ DT_Int32</div><div class="ttdoc">Donnée de type entier 32 bits.</div><div class="ttdef"><b>Definition:</b> DataTypes.h:40</div></div>
+<div class="ttc" id="aclassArccore_1_1Span_html"><div class="ttname"><a href="../../dd/d9f/classArccore_1_1Span.html">Arccore::Span</a></div><div class="ttdoc">Vue d'un tableau d'éléments de type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:35</div></div>
+<div class="ttc" id="aclassArcane_1_1PropertiesImpl_html"><div class="ttname"><a href="../../d3/d66/classArcane_1_1PropertiesImpl.html">Arcane::PropertiesImpl</a></div><div class="ttdef"><b>Definition:</b> Properties.cc:400</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a40d1daa4466d5edfb76826cc01e17533"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a40d1daa4466d5edfb76826cc01e17533">Arccore::ISerializer::putInt32</a></div><div class="ttdeci">virtual void putInt32(Int32 value)=0</div><div class="ttdoc">Ajoute l'entier value.</div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html_a75c624a02bc7d3a224b158010018b753"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html#a75c624a02bc7d3a224b158010018b753">Arccore::TraceAccessor::traceMng</a></div><div class="ttdeci">ITraceMng * traceMng() const</div><div class="ttdoc">Gestionnaire de trace.</div><div class="ttdef"><b>Definition:</b> TraceAccessor.cc:72</div></div>
+<div class="ttc" id="aclassArcane_1_1PtrT_html_aca503444d9c4c592736d2ad875d72030"><div class="ttname"><a href="../../dd/de0/classArcane_1_1PtrT.html#aca503444d9c4c592736d2ad875d72030">Arcane::PtrT::PtrT</a></div><div class="ttdeci">PtrT(const PtrT&lt; T2 &gt; &amp;from)</div><div class="ttdoc">Construit une référence référant from.</div><div class="ttdef"><b>Definition:</b> Ptr.h:68</div></div>
+<div class="ttc" id="aclassArcane_1_1PtrT_html"><div class="ttname"><a href="../../dd/de0/classArcane_1_1PtrT.html">Arcane::PtrT</a></div><div class="ttdoc">Encapsulation d'un pointeur.</div><div class="ttdef"><b>Definition:</b> Ptr.h:46</div></div>
+<div class="ttc" id="aclassArcane_1_1PtrT_html_a94418e678617ad55036ad318376dcca2"><div class="ttname"><a href="../../dd/de0/classArcane_1_1PtrT.html#a94418e678617ad55036ad318376dcca2">Arcane::PtrT::operator*</a></div><div class="ttdeci">T &amp; operator*() const</div><div class="ttdoc">Retourne l'objet référé par l'instance.</div><div class="ttdef"><b>Definition:</b> Ptr.h:94</div></div>
+<div class="ttc" id="aclassArcane_1_1PropertyMng_html"><div class="ttname"><a href="../../dd/d56/classArcane_1_1PropertyMng.html">Arcane::PropertyMng</a></div><div class="ttdoc">Gestionnaire des protections.</div><div class="ttdef"><b>Definition:</b> PropertyMng.cc:40</div></div>
+<div class="ttc" id="aclassArcane_1_1PtrT_html_ac201e4e19d6f8ea6838c48b32c7e385d"><div class="ttname"><a href="../../dd/de0/classArcane_1_1PtrT.html#ac201e4e19d6f8ea6838c48b32c7e385d">Arcane::PtrT::get</a></div><div class="ttdeci">T * get() const</div><div class="ttdoc">Retourne l'objet référé par l'instance.</div><div class="ttdef"><b>Definition:</b> Ptr.h:108</div></div>
+<div class="ttc" id="aclassArcane_1_1PropertyMng_html_a216f3b69b9be4a8a861f1d9840976244"><div class="ttname"><a href="../../dd/d56/classArcane_1_1PropertyMng.html#a216f3b69b9be4a8a861f1d9840976244">Arcane::PropertyMng::destroyProperties</a></div><div class="ttdeci">void destroyProperties(const Properties &amp;p) override</div><div class="ttdoc">Supprime les propriétés référencées par p.</div><div class="ttdef"><b>Definition:</b> PropertyMng.cc:156</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html">Arccore::ISerializer</a></div><div class="ttdoc">Interface d'un sérialiseur.</div><div class="ttdef"><b>Definition:</b> arccore/src/serialize/arccore/serialize/ISerializer.h:52</div></div>
+<div class="ttc" id="anamespaceArcane_html_a05c27a651d3da9ae112c75113fcf7426aa59e9732cc990f1f9ce0bc74ccfac735"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a05c27a651d3da9ae112c75113fcf7426aa59e9732cc990f1f9ce0bc74ccfac735">Arcane::DT_Int64</a></div><div class="ttdeci">@ DT_Int64</div><div class="ttdoc">Donnée de type entier 64 bits.</div><div class="ttdef"><b>Definition:</b> DataTypes.h:41</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_af228f05a9fbf2af7709973fd08e756cd"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#af228f05a9fbf2af7709973fd08e756cd">Arccore::ISerializer::putInt64</a></div><div class="ttdeci">virtual void putInt64(Int64 value)=0</div><div class="ttdoc">Ajoute l'entier value.</div></div>
+<div class="ttc" id="aclassArcane_1_1PropertyMng_html_ac3cc0d44a71e7b4112b16bbfbceef3ec"><div class="ttname"><a href="../../dd/d56/classArcane_1_1PropertyMng.html#ac3cc0d44a71e7b4112b16bbfbceef3ec">Arcane::PropertyMng::registerProperties</a></div><div class="ttdeci">void registerProperties(const Properties &amp;p) override</div><div class="ttdoc">Enregister les propriétés référencées par p.</div><div class="ttdef"><b>Definition:</b> PropertyMng.cc:146</div></div>
+<div class="ttc" id="aclassArcane_1_1Observable_html_ad3049f0720e85d16d1b2a9badda9e2cc"><div class="ttname"><a href="../../d0/dfa/classArcane_1_1Observable.html#ad3049f0720e85d16d1b2a9badda9e2cc">Arcane::Observable::notifyAllObservers</a></div><div class="ttdeci">void notifyAllObservers() override</div><div class="ttdoc">Notifie tous les observateurs.</div><div class="ttdef"><b>Definition:</b> Observable.cc:72</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a8dbfd965ccbe8fe5515dd74ffdba0cf3"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a8dbfd965ccbe8fe5515dd74ffdba0cf3">Arccore::ISerializer::reserve</a></div><div class="ttdeci">virtual void reserve(eDataType dt, Int64 n)=0</div><div class="ttdoc">Réserve de la mémoire pour n objets de type dt.</div></div>
+<div class="ttc" id="aclassArcane_1_1IObservable_html"><div class="ttname"><a href="../../dc/d38/classArcane_1_1IObservable.html">Arcane::IObservable</a></div><div class="ttdoc">Interface d'un observable.</div><div class="ttdef"><b>Definition:</b> utils/IObservable.h:52</div></div>
+<div class="ttc" id="aclassArcane_1_1PtrT_html_a0c18683d4496b3455abbb764e167176a"><div class="ttname"><a href="../../dd/de0/classArcane_1_1PtrT.html#a0c18683d4496b3455abbb764e167176a">Arcane::PtrT::operator=</a></div><div class="ttdeci">const PtrT&lt; T &gt; &amp; operator=(const PtrT&lt; T &gt; &amp;from)</div><div class="ttdoc">Opérateur de copie.</div><div class="ttdef"><b>Definition:</b> Ptr.h:51</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a23c5d407e4d9b703fe595ce0725f913fa56b149b45802cff6c857903ddb92664e"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a23c5d407e4d9b703fe595ce0725f913fa56b149b45802cff6c857903ddb92664e">Arccore::ISerializer::ModeGet</a></div><div class="ttdeci">@ ModeGet</div><div class="ttdoc">Le sérialiseur attend des get()</div><div class="ttdef"><b>Definition:</b> arccore/src/serialize/arccore/serialize/ISerializer.h:61</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableRefArrayT_html"><div class="ttname"><a href="../../d8/d30/classArcane_1_1VariableRefArrayT.html">Arcane::VariableRefArrayT&lt; Byte &gt;</a></div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_aa9270d644b63f57f19cedd59848e10f0"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#aa9270d644b63f57f19cedd59848e10f0">Arccore::ISerializer::put</a></div><div class="ttdeci">virtual void put(Span&lt; const Real &gt; values)=0</div><div class="ttdoc">Ajoute le tableau values.</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a23c5d407e4d9b703fe595ce0725f913fa4533cfad45026c0cba50982578168e52"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a23c5d407e4d9b703fe595ce0725f913fa4533cfad45026c0cba50982578168e52">Arccore::ISerializer::ModePut</a></div><div class="ttdeci">@ ModePut</div><div class="ttdoc">Le sérialiseur attend des reserve()</div><div class="ttdef"><b>Definition:</b> arccore/src/serialize/arccore/serialize/ISerializer.h:60</div></div>
+<div class="ttc" id="aclassArcane_1_1PtrT_html_af4c6f956e23c539065074565530a5c18"><div class="ttname"><a href="../../dd/de0/classArcane_1_1PtrT.html#af4c6f956e23c539065074565530a5c18">Arcane::PtrT::PtrT</a></div><div class="ttdeci">PtrT(T *t)</div><div class="ttdoc">Construit une instance référant t.</div><div class="ttdef"><b>Definition:</b> Ptr.h:77</div></div>
+<div class="ttc" id="aclassArcane_1_1PtrT_html_a5434c3bbf4c5b7e8b54fd3ad7d8ca568"><div class="ttname"><a href="../../dd/de0/classArcane_1_1PtrT.html#a5434c3bbf4c5b7e8b54fd3ad7d8ca568">Arcane::PtrT::operator-&gt;</a></div><div class="ttdeci">T * operator-&gt;() const</div><div class="ttdoc">Retourne l'objet référé par l'instance.</div><div class="ttdef"><b>Definition:</b> Ptr.h:84</div></div>
+<div class="ttc" id="aclassArccore_1_1BasicSerializer_html_a393a32b783061dfc8cb2663ca03aa10a"><div class="ttname"><a href="../../de/d4b/classArccore_1_1BasicSerializer.html#a393a32b783061dfc8cb2663ca03aa10a">Arccore::BasicSerializer::setMode</a></div><div class="ttdeci">void setMode(eMode new_mode) override</div><div class="ttdoc">Positionne le fonctionnement actuel.</div><div class="ttdef"><b>Definition:</b> BasicSerializer.cc:898</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/String.h:68</div></div>
+<div class="ttc" id="aclassArcane_1_1Properties_html_ae6d32ceb19f1cb470a15f91903b649a8"><div class="ttname"><a href="../../d0/d62/classArcane_1_1Properties.html#ae6d32ceb19f1cb470a15f91903b649a8">Arcane::Properties::fullName</a></div><div class="ttdeci">const String &amp; fullName() const</div><div class="ttdoc">Nom complet de la propriété.</div><div class="ttdef"><b>Definition:</b> Properties.cc:1080</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html">ArcaneGlobal.h</a></div><div class="ttdoc">Fichier de configuration d'Arcane.</div></div>
+<div class="ttc" id="aclassArcane_1_1PtrT_html_a03f1b3b5ead1a7d0e2c036fe10876e44"><div class="ttname"><a href="../../dd/de0/classArcane_1_1PtrT.html#a03f1b3b5ead1a7d0e2c036fe10876e44">Arcane::PtrT::m_value</a></div><div class="ttdeci">T * m_value</div><div class="ttdoc">Pointeur sur l'objet référencé</div><div class="ttdef"><b>Definition:</b> Ptr.h:119</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a0ba980fcc1dcf2f5b6d17d7f6dc1c414"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a0ba980fcc1dcf2f5b6d17d7f6dc1c414">Arccore::ISerializer::get</a></div><div class="ttdeci">virtual void get(RealArrayView values)=0</div><div class="ttdoc">Récupère le tableau values.</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aclassArcane_1_1PtrT_html_a7c8a8ec592037eff0f88b674883429e0"><div class="ttname"><a href="../../dd/de0/classArcane_1_1PtrT.html#a7c8a8ec592037eff0f88b674883429e0">Arcane::PtrT::PtrT</a></div><div class="ttdeci">PtrT()</div><div class="ttdoc">Construit une instance sans référence.</div><div class="ttdef"><b>Definition:</b> Ptr.h:74</div></div>
+<div class="ttc" id="aclassArcane_1_1PropertyMng_html_a6387cdd0f198d917057824f07196fc72"><div class="ttname"><a href="../../dd/d56/classArcane_1_1PropertyMng.html#a6387cdd0f198d917057824f07196fc72">Arcane::PropertyMng::serialize</a></div><div class="ttdeci">void serialize(ISerializer *serializer) override</div><div class="ttdoc">Effectue la sérialisation.</div><div class="ttdef"><b>Definition:</b> PropertyMng.cc:167</div></div>
+<div class="ttc" id="aclassArcane_1_1PropertyMng_html_a09a935857b21727328fd5d4b948d2d7e"><div class="ttname"><a href="../../dd/d56/classArcane_1_1PropertyMng.html#a09a935857b21727328fd5d4b948d2d7e">Arcane::PropertyMng::readObservable</a></div><div class="ttdeci">IObservable * readObservable() override</div><div class="ttdoc">Observable pour la lecture.</div><div class="ttdef"><b>Definition:</b> PropertyMng.cc:66</div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html_a15637d98064c2991806fef1e1c187ef9"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html#a15637d98064c2991806fef1e1c187ef9">Arccore::TraceAccessor::pwarning</a></div><div class="ttdeci">TraceMessage pwarning() const</div><div class="ttdef"><b>Definition:</b> TraceAccessor.cc:192</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Mercredi 30 Mars 2022 13:00:41 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>
