@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de MpiDirectSendrecvVariableSynchronizeDispatcher.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.5.6.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_2d3a476f27df6392e781583725bba849.html">parallel</a></li><li class="navelem"><a class="el" href="../../dir_225a55e8893c162f301ba7ef06362543.html">mpi</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">MpiDirectSendrecvVariableSynchronizeDispatcher.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* MpiDirectSendrecvVariableSynchronizeDispatcher.h            (C) 2000-2022 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Gestion spécifique MPI des synchronisations des variables.                */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_PARALLEL_MPI_MPIDIRECTSENDRECVVARIABLESYNCHRONIZEDISPATCHER_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_PARALLEL_MPI_MPIDIRECTSENDRECVVARIABLESYNCHRONIZEDISPATCHER_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/Array.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;arcane/ParallelMngDispatcher.h&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;arcane/parallel/mpi/ArcaneMpi.h&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;arcane/impl/VariableSynchronizer.h&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">class </span>MpiParallelMng;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../de/da1/classArcane_1_1MpiDirectSendrecvVariableSynchronizeDispatcherBuildInfo.html">   39</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/da1/classArcane_1_1MpiDirectSendrecvVariableSynchronizeDispatcherBuildInfo.html">MpiDirectSendrecvVariableSynchronizeDispatcherBuildInfo</a></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  <a class="code" href="../../de/da1/classArcane_1_1MpiDirectSendrecvVariableSynchronizeDispatcherBuildInfo.html">MpiDirectSendrecvVariableSynchronizeDispatcherBuildInfo</a>(<a class="code" href="../../d8/da0/classArcane_1_1MpiParallelMng.html">MpiParallelMng</a>* pm, <a class="code" href="../../d7/dbe/classArcane_1_1GroupIndexTable.html">GroupIndexTable</a>* <a class="code" href="../../de/da1/classArcane_1_1MpiDirectSendrecvVariableSynchronizeDispatcherBuildInfo.html#a0c59b48965d8ec4652b6bc60a002f815">table</a>)</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  : m_parallel_mng(pm), m_table(<a class="code" href="../../de/da1/classArcane_1_1MpiDirectSendrecvVariableSynchronizeDispatcherBuildInfo.html#a0c59b48965d8ec4652b6bc60a002f815">table</a>) { }</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="../../d8/da0/classArcane_1_1MpiParallelMng.html">MpiParallelMng</a>* parallelMng()<span class="keyword"> const</span>{ <span class="keywordflow">return</span> m_parallel_mng; }</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="../../de/da1/classArcane_1_1MpiDirectSendrecvVariableSynchronizeDispatcherBuildInfo.html#a0c59b48965d8ec4652b6bc60a002f815">   47</a></span>&#160;  <a class="code" href="../../d7/dbe/classArcane_1_1GroupIndexTable.html">GroupIndexTable</a>* <a class="code" href="../../de/da1/classArcane_1_1MpiDirectSendrecvVariableSynchronizeDispatcherBuildInfo.html#a0c59b48965d8ec4652b6bc60a002f815">table</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_table; }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <a class="code" href="../../d8/da0/classArcane_1_1MpiParallelMng.html">MpiParallelMng</a>* m_parallel_mng;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <a class="code" href="../../d7/dbe/classArcane_1_1GroupIndexTable.html">GroupIndexTable</a>* m_table;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;};</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> SimpleType&gt;</div>
+<div class="line"><a name="l00062"></a><span class="lineno"><a class="line" href="../../de/dd7/classArcane_1_1MpiDirectSendrecvVariableSynchronizeDispatcher.html">   62</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../de/dd7/classArcane_1_1MpiDirectSendrecvVariableSynchronizeDispatcher.html">MpiDirectSendrecvVariableSynchronizeDispatcher</a></div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../dc/df2/classArcane_1_1VariableSynchronizeDispatcher.html">VariableSynchronizeDispatcher</a>&lt;SimpleType&gt;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keyword">typedef</span> <span class="keyword">typename</span> <a class="code" href="../../d0/ddf/classArcane_1_1VariableSynchronizeDispatcher_1_1SyncBuffer.html">VariableSynchronizeDispatcher&lt;SimpleType&gt;::SyncBuffer</a> <a class="code" href="../../d0/ddf/classArcane_1_1VariableSynchronizeDispatcher_1_1SyncBuffer.html">SyncBuffer</a>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../de/dd7/classArcane_1_1MpiDirectSendrecvVariableSynchronizeDispatcher.html">MpiDirectSendrecvVariableSynchronizeDispatcher</a>(<a class="code" href="../../de/da1/classArcane_1_1MpiDirectSendrecvVariableSynchronizeDispatcherBuildInfo.html">MpiDirectSendrecvVariableSynchronizeDispatcherBuildInfo</a>&amp; bi);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../de/dd7/classArcane_1_1MpiDirectSendrecvVariableSynchronizeDispatcher.html#a3904e008b403d9e945525108af11f6b3">compute</a>(<a class="code" href="../../db/df2/classArcane_1_1ItemGroupSynchronizeInfo.html">ItemGroupSynchronizeInfo</a>* sync_list) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keywordtype">void</span> _beginSynchronize(<a class="code" href="../../d0/ddf/classArcane_1_1VariableSynchronizeDispatcher_1_1SyncBuffer.html">SyncBuffer</a>&amp; sync_buffer) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keywordtype">void</span> _endSynchronize(<a class="code" href="../../d0/ddf/classArcane_1_1VariableSynchronizeDispatcher_1_1SyncBuffer.html">SyncBuffer</a>&amp; sync_buffer) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <a class="code" href="../../d8/da0/classArcane_1_1MpiParallelMng.html">MpiParallelMng</a>* m_mpi_parallel_mng;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;};</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1MpiParallelMng_html"><div class="ttname"><a href="../../d8/da0/classArcane_1_1MpiParallelMng.html">Arcane::MpiParallelMng</a></div><div class="ttdoc">Gestionnaire du parallélisme utilisant MPI.</div><div class="ttdef"><b>Definition:</b> MpiParallelMng.h:79</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemGroupSynchronizeInfo_html"><div class="ttname"><a href="../../db/df2/classArcane_1_1ItemGroupSynchronizeInfo.html">Arcane::ItemGroupSynchronizeInfo</a></div><div class="ttdoc">Informations nécessaires pour synchroniser les entités sur un groupe.</div><div class="ttdef"><b>Definition:</b> VariableSynchronizerDispatcher.h:106</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiDirectSendrecvVariableSynchronizeDispatcher_html_a3904e008b403d9e945525108af11f6b3"><div class="ttname"><a href="../../de/dd7/classArcane_1_1MpiDirectSendrecvVariableSynchronizeDispatcher.html#a3904e008b403d9e945525108af11f6b3">Arcane::MpiDirectSendrecvVariableSynchronizeDispatcher::compute</a></div><div class="ttdeci">void compute(ItemGroupSynchronizeInfo *sync_list) override</div><div class="ttdoc">Calcul et alloue les tampons nécessaire aux envois et réceptions pour les synchronisations des variab...</div><div class="ttdef"><b>Definition:</b> MpiDirectSendrecvVariableSynchronizeDispatcher.cc:81</div></div>
+<div class="ttc" id="aclassArcane_1_1IStat_html_aee7fea424af76a0371ed20955dc78e11"><div class="ttname"><a href="../../d9/d24/classArcane_1_1IStat.html#aee7fea424af76a0371ed20955dc78e11">Arcane::IStat::add</a></div><div class="ttdeci">virtual void add(const String &amp;name, double elapsed_time, Int64 msg_size)=0</div><div class="ttdoc">Ajoute une statistique.</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableSynchronizeDispatcher_html_a0a8bffe9325d91dfc981ce6cd9a6bfe5"><div class="ttname"><a href="../../dc/df2/classArcane_1_1VariableSynchronizeDispatcher.html#a0a8bffe9325d91dfc981ce6cd9a6bfe5">Arcane::VariableSynchronizeDispatcher::compute</a></div><div class="ttdeci">void compute(ItemGroupSynchronizeInfo *sync_list) override</div><div class="ttdoc">Calcul et alloue les tampons nécessaire aux envois et réceptions pour les synchronisations des variab...</div><div class="ttdef"><b>Definition:</b> VariableSynchronizerDispatcher.cc:121</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelMng_html_a96586ea0200f5b02d531a1760b26e32d"><div class="ttname"><a href="../../d8/da0/classArcane_1_1MpiParallelMng.html#a96586ea0200f5b02d531a1760b26e32d">Arcane::MpiParallelMng::stat</a></div><div class="ttdeci">Parallel::IStat * stat() override</div><div class="ttdoc">Gestionnaire des statistiques.</div><div class="ttdef"><b>Definition:</b> MpiParallelMng.h:167</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiParallelMng_html_a8503652c1505a3b006158202fb2d3c96"><div class="ttname"><a href="../../d8/da0/classArcane_1_1MpiParallelMng.html#a8503652c1505a3b006158202fb2d3c96">Arcane::MpiParallelMng::communicator</a></div><div class="ttdeci">Communicator communicator() const override</div><div class="ttdoc">Communicateur MPI associé à ce gestionnaire.</div><div class="ttdef"><b>Definition:</b> MpiParallelMng.h:146</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableSynchronizeDispatcher_1_1SyncBuffer_html"><div class="ttname"><a href="../../d0/ddf/classArcane_1_1VariableSynchronizeDispatcher_1_1SyncBuffer.html">Arcane::VariableSynchronizeDispatcher::SyncBuffer</a></div><div class="ttdoc">Gère les buffers d'envoie et réception pour la synchronisation.</div><div class="ttdef"><b>Definition:</b> VariableSynchronizerDispatcher.h:170</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiDatatypeList_html"><div class="ttname"><a href="../../d9/d44/classArcane_1_1MpiDatatypeList.html">Arcane::MpiDatatypeList</a></div><div class="ttdoc">Gère les MPI_Datatype associées aux types Arcane.</div><div class="ttdef"><b>Definition:</b> MpiDatatypeList.h:31</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiDirectSendrecvVariableSynchronizeDispatcherBuildInfo_html_a0c59b48965d8ec4652b6bc60a002f815"><div class="ttname"><a href="../../de/da1/classArcane_1_1MpiDirectSendrecvVariableSynchronizeDispatcherBuildInfo.html#a0c59b48965d8ec4652b6bc60a002f815">Arcane::MpiDirectSendrecvVariableSynchronizeDispatcherBuildInfo::table</a></div><div class="ttdeci">GroupIndexTable * table() const</div><div class="ttdoc">Table d'index pour le groupe. Peut-être nul.</div><div class="ttdef"><b>Definition:</b> MpiDirectSendrecvVariableSynchronizeDispatcher.h:47</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiDirectSendrecvVariableSynchronizeDispatcher_html"><div class="ttname"><a href="../../de/dd7/classArcane_1_1MpiDirectSendrecvVariableSynchronizeDispatcher.html">Arcane::MpiDirectSendrecvVariableSynchronizeDispatcher</a></div><div class="ttdoc">Implémentation optimisée pour MPI de la synchronisation.</div><div class="ttdef"><b>Definition:</b> MpiDirectSendrecvVariableSynchronizeDispatcher.h:62</div></div>
+<div class="ttc" id="aclassArcane_1_1VariableSynchronizeDispatcher_html"><div class="ttname"><a href="../../dc/df2/classArcane_1_1VariableSynchronizeDispatcher.html">Arcane::VariableSynchronizeDispatcher</a></div><div class="ttdoc">Gestion de la synchronisation pour un type de donnée SimpleType.</div><div class="ttdef"><b>Definition:</b> VariableSynchronizerDispatcher.h:164</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aclassArcane_1_1MpiDirectSendrecvVariableSynchronizeDispatcherBuildInfo_html"><div class="ttname"><a href="../../de/da1/classArcane_1_1MpiDirectSendrecvVariableSynchronizeDispatcherBuildInfo.html">Arcane::MpiDirectSendrecvVariableSynchronizeDispatcherBuildInfo</a></div><div class="ttdef"><b>Definition:</b> MpiDirectSendrecvVariableSynchronizeDispatcher.h:39</div></div>
+<div class="ttc" id="aclassArcane_1_1GroupIndexTable_html"><div class="ttname"><a href="../../d7/dbe/classArcane_1_1GroupIndexTable.html">Arcane::GroupIndexTable</a></div><div class="ttdoc">Classe de base d'une table de hachage entre les items d'un groupe et leurs positions dans la table.</div><div class="ttdef"><b>Definition:</b> GroupIndexTable.h:36</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi 4 Avril 2022 03:02:16 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

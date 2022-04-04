@@ -1,5 +1,7 @@
 var NAVTREEINDEX49 =
 {
+"d9/d27/classArcane_1_1ItemGroup.html#af5f7b9412413474f775ab2ab2fccaf9c":[37,8,18,40],
+"d9/d27/classArcane_1_1ItemGroup.html#afa8db62c34975775c03ead1d2bb9b63d":[37,8,18,51],
 "d9/d28/classArcane_1_1DOMError.html":[39,0,1,243],
 "d9/d28/classArcane_1_1DOMError.html#a04076f48a11d2fe97c335cc8443dfccd":[39,0,1,243,6],
 "d9/d28/classArcane_1_1DOMError.html#a05c6e1df4be7b623dac87f0521be5530":[39,0,1,243,1],
@@ -247,7 +249,5 @@ var NAVTREEINDEX49 =
 "d9/d71/classArcane_1_1IMeshModifier.html#ad1f2b63eee21fcae754c2ba4bec26301":[39,0,1,434,5],
 "d9/d71/classArcane_1_1IMeshModifier.html#adf266dbae651844b7ec9aa450ad81595":[39,0,1,434,20],
 "d9/d71/classArcane_1_1IMeshModifier.html#aefdc8d9d59cb6811257c62a3e2ccda3e":[39,0,1,434,29],
-"d9/d71/classArcane_1_1IMeshModifier.html#af378c719e21eb1e0cc1a89f29e237120":[39,0,1,434,13],
-"d9/d71/classArcane_1_1geometric_1_1NullConnectivity.html":[37,18,2],
-"d9/d71/classArcane_1_1geometric_1_1NullConnectivity.html#a9c86fb820f9b554ecce094de848f3135":[37,18,2,2]
+"d9/d71/classArcane_1_1IMeshModifier.html#af378c719e21eb1e0cc1a89f29e237120":[39,0,1,434,13]
 };

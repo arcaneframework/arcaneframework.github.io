@@ -1,5 +1,6 @@
 var NAVTREEINDEX21 =
 {
+"d3/dc6/classArcane_1_1TimeHistoryCurveWriterInfo.html#a1f7a9d878f773d7bdc732fb3c1ab918c":[39,0,1,1014,1],
 "d3/dc6/classArcane_1_1TimeHistoryCurveWriterInfo.html#a2e11fcbe088513c3deb2b26772767f2c":[39,0,1,1014,3],
 "d3/dc6/classArcane_1_1TimeHistoryCurveWriterInfo.html#a32edeb277bc79aa20217d851d0834852":[39,0,1,1014,2],
 "d3/dc6/classArcane_1_1TimeHistoryCurveWriterInfo.html#a4f0b0e386e7f14d09bbf0609747587fd":[39,0,1,1014,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX21 =
 "d4/d02/arcanedoc_minimal_sample.html#autotoc_md35":[31,0,0],
 "d4/d02/arcanedoc_minimal_sample.html#autotoc_md36":[31,0,1],
 "d4/d02/arcanedoc_minimal_sample.html#autotoc_md37":[31,0,2],
-"d4/d02/arcanedoc_minimal_sample.html#autotoc_md38":[31,0,3],
-"d4/d02/arcanedoc_minimal_sample.html#autotoc_md39":[31,0,4]
+"d4/d02/arcanedoc_minimal_sample.html#autotoc_md38":[31,0,3]
 };

@@ -7,6 +7,7 @@ var classArcane_1_1Accelerator_1_1DataViewSetter =
     [ "operator+=", "d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html#abb52585cbd2bd08e7df2a10948859fe0", null ],
     [ "operator=", "d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html#a636012d85f15ffa476512b6b6cdc94e3", null ],
     [ "operator=", "d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html#a6e1206610be331421c8a8383b89d131c", null ],
+    [ "operator[]", "d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html#a142d27a95878e2bd2c41f7ad74ec7d18", null ],
     [ "setX", "d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html#a6f69ab9ad3b9ae3a1651ecd8b33591ab", null ],
     [ "setXX", "d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html#a927e346643cc4326dac05e8557252076", null ],
     [ "setXY", "d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html#a4bec5e1cdd8e99f0b716e1dc42511632", null ],

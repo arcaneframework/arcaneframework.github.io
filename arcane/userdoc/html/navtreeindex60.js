@@ -1,5 +1,8 @@
 var NAVTREEINDEX60 =
 {
+"db/d8e/classArcane_1_1ItemGroupImplPrivate.html#ab9aef32b1b3e66d386851bc2a79457ae":[39,0,1,545,16],
+"db/d8e/classArcane_1_1ItemGroupImplPrivate.html#abf975cfc989d6639586607560237c6d0":[39,0,1,545,5],
+"db/d8e/classArcane_1_1ItemGroupImplPrivate.html#ac7987bfef5d9c982632bc5210d73b0e0":[39,0,1,545,30],
 "db/d8e/classArcane_1_1ItemGroupImplPrivate.html#ac93d70e6e897f4ab0f28276404d81025":[39,0,1,545,36],
 "db/d8e/classArcane_1_1ItemGroupImplPrivate.html#ad2f797d8ea323a239f7bf2bbf3934b5d":[39,0,1,545,26],
 "db/d8e/classArcane_1_1ItemGroupImplPrivate.html#ad39f9844a66e21b08951933d8ebccb57":[39,0,1,545,31],
@@ -246,8 +249,5 @@ var NAVTREEINDEX60 =
 "db/dd3/classArcane_1_1IMultiArray2DataVisitor.html#ad9a95d6173ba51051dd50afae247d69e":[39,0,1,452,0],
 "db/dd3/classArcane_1_1IMultiArray2DataVisitor.html#af4fd7d01cca6abec15ece427a355c30f":[39,0,1,452,1],
 "db/dd6/IOException_8h_source.html":[40,0,1,5,88],
-"db/dd9/structArcane_1_1RawCopy_3_01Int16_01_4.html":[39,0,1,902],
-"db/dd9/structArcane_1_1RawCopy_3_01Int16_01_4.html#af303ad90d7825fb59b9a700708505499":[39,0,1,902,0],
-"db/dda/classArcane_1_1ArrayBounds_3_012_01_4.html":[39,0,1,57],
-"db/dda/classArcane_1_1ArrayBounds_3_012_01_4.html#a4b80b7b63d34bdc84dcd9d78a2983fc7":[39,0,1,57,0]
+"db/dd9/structArcane_1_1RawCopy_3_01Int16_01_4.html":[39,0,1,902]
 };

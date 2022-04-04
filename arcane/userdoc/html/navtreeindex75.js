@@ -1,5 +1,11 @@
 var NAVTREEINDEX75 =
 {
+"de/d4b/classArccore_1_1BasicSerializer.html#ab6feeec2857b90cb4bf6abceab28618e":[39,0,2,39,121],
+"de/d4b/classArccore_1_1BasicSerializer.html#ab8cd3f2282a962dd804ac88ca0a8072e":[39,0,2,39,58],
+"de/d4b/classArccore_1_1BasicSerializer.html#abc3203fedb386f46ddd7517438e9293c":[39,0,2,39,98],
+"de/d4b/classArccore_1_1BasicSerializer.html#abd19210837b3d73d38bde1012c073f05":[39,0,2,39,22],
+"de/d4b/classArccore_1_1BasicSerializer.html#abdb26324128481c49d1ff640e3dc1931":[39,0,2,39,25],
+"de/d4b/classArccore_1_1BasicSerializer.html#abeec923e8f04b44a508168afe7442352":[39,0,2,39,108],
 "de/d4b/classArccore_1_1BasicSerializer.html#abf1d5c96cbabf520e5e6dfc8fb353d42":[39,0,2,39,92],
 "de/d4b/classArccore_1_1BasicSerializer.html#ac0f97aecc96f49312cbeccb2f8d950b3":[39,0,2,39,101],
 "de/d4b/classArccore_1_1BasicSerializer.html#ac26306d9aa82017cf0a41967ed8737ee":[39,0,2,39,107],
@@ -243,11 +249,5 @@ var NAVTREEINDEX75 =
 "de/d81/classArccore_1_1ConstArray3View.html#a8741322e71386c81c098ba7bb44d2a8f":[37,4,10,0],
 "de/d81/classArccore_1_1ConstArray3View.html#aab0a0c1a580b53b34342695e1222c5da":[37,4,10,4],
 "de/d81/classArccore_1_1ConstArray3View.html#abd96b4bea0cd5df4aef2e21b0717a72f":[37,4,10,5],
-"de/d81/classArccore_1_1ConstArray3View.html#afec7c727ddd0c7970c81010b3b54c1e9":[37,4,10,3],
-"de/d82/GeomShapeView_8h_source.html":[40,0,0,2,15],
-"de/d83/classArcane_1_1Accelerator_1_1NumArrayViewSetter.html":[39,0,1,0,21],
-"de/d83/classArcane_1_1ITimeHistoryCurveWriter2.html":[37,12,11],
-"de/d83/classArcane_1_1ITimeHistoryCurveWriter2.html#a39806362b3b5aff8f3b2a08ccb885fa5":[37,12,11,6],
-"de/d83/classArcane_1_1ITimeHistoryCurveWriter2.html#a4dcdf2ab8f9fad5c38d6b50be9a57195":[37,12,11,4],
-"de/d83/classArcane_1_1ITimeHistoryCurveWriter2.html#a97156fc461b83232398c3b3de896829c":[37,12,11,0]
+"de/d81/classArccore_1_1ConstArray3View.html#afec7c727ddd0c7970c81010b3b54c1e9":[37,4,10,3]
 };

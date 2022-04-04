@@ -1,5 +1,6 @@
 var NAVTREEINDEX24 =
 {
+"d4/d71/classArcane_1_1Real2x2Proxy.html#af50566b88168ea26858fd7bbc7ca1e07":[39,0,1,918,21],
 "d4/d73/classArcane_1_1Internal_1_1ServiceAllInterfaceRegisterer.html":[39,0,1,6,7],
 "d4/d73/classArcane_1_1ProcessExecArgs.html":[39,0,1,886],
 "d4/d73/classArcane_1_1ProcessExecArgs.html#a22e6ac45320a96ba3ebeb59fa1044387":[39,0,1,886,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX24 =
 "d4/da8/UtilsTypes_8h.html#a2f58104cd4e34a977902fcafe0e0d539":[40,0,1,5,190,51],
 "d4/da8/UtilsTypes_8h.html#a31746d5111c98959ab2962c85293d2f9":[40,0,1,5,190,49],
 "d4/da8/UtilsTypes_8h.html#a3640ac43a1b731a87a2be046df572217":[40,0,1,5,190,201],
-"d4/da8/UtilsTypes_8h.html#a3658f3ce64972fb12a66229536142c64":[40,0,1,5,190,20],
-"d4/da8/UtilsTypes_8h.html#a36c727907ca5e8498acabce5e06a8668":[40,0,1,5,190,191]
+"d4/da8/UtilsTypes_8h.html#a3658f3ce64972fb12a66229536142c64":[40,0,1,5,190,20]
 };
