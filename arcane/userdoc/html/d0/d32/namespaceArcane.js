@@ -12,6 +12,14 @@ var namespaceArcane =
         [ "Impl", "da/d4a/classArcane_1_1DependencyInjection_1_1Injector_1_1Impl.html", "da/d4a/classArcane_1_1DependencyInjection_1_1Injector_1_1Impl" ]
       ] ]
     ] ],
+    [ "detail", null, [
+      [ "ArrayExtentsTraits", "d4/d93/classArcane_1_1detail_1_1ArrayExtentsTraits.html", null ],
+      [ "ArrayExtentsTraits< 0 >", "d6/d1d/classArcane_1_1detail_1_1ArrayExtentsTraits_3_010_01_4.html", null ],
+      [ "ArrayExtentsTraits< 1 >", "d0/d64/classArcane_1_1detail_1_1ArrayExtentsTraits_3_011_01_4.html", null ],
+      [ "ArrayExtentsTraits< 2 >", "d4/d71/classArcane_1_1detail_1_1ArrayExtentsTraits_3_012_01_4.html", null ],
+      [ "ArrayExtentsTraits< 3 >", "d1/d71/classArcane_1_1detail_1_1ArrayExtentsTraits_3_013_01_4.html", null ],
+      [ "ArrayExtentsTraits< 4 >", "da/ded/classArcane_1_1detail_1_1ArrayExtentsTraits_3_014_01_4.html", null ]
+    ] ],
     [ "geometric", null, [
       [ "BarycentricGeomShapeComputer", "d5/d82/classArcane_1_1geometric_1_1BarycentricGeomShapeComputer.html", null ],
       [ "BarycentricGeomShapeComputerByType", "d6/d02/classArcane_1_1geometric_1_1BarycentricGeomShapeComputerByType.html", "d6/d02/classArcane_1_1geometric_1_1BarycentricGeomShapeComputerByType" ],
@@ -40,11 +48,11 @@ var namespaceArcane =
     [ "impl", null, [
       [ "NumArrayContainer", "de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html", "de/d6c/classArcane_1_1impl_1_1NumArrayContainer" ]
     ] ],
+    [ "Internal", "df/dae/namespaceArcane_1_1Internal.html", "df/dae/namespaceArcane_1_1Internal" ],
     [ "internal", null, [
       [ "TraceAccessor2", "d7/d83/classArcane_1_1internal_1_1TraceAccessor2.html", "d7/d83/classArcane_1_1internal_1_1TraceAccessor2" ],
       [ "TracePrinter", "d8/d8e/classArcane_1_1internal_1_1TracePrinter.html", "d8/d8e/classArcane_1_1internal_1_1TracePrinter" ]
     ] ],
-    [ "Internal", "df/dae/namespaceArcane_1_1Internal.html", "df/dae/namespaceArcane_1_1Internal" ],
     [ "Loop", "da/d78/namespaceArcane_1_1Loop.html", "da/d78/namespaceArcane_1_1Loop" ],
     [ "Materials", null, [
       [ "AllEnvCell", "d1/d25/classArcane_1_1Materials_1_1AllEnvCell.html", "d1/d25/classArcane_1_1Materials_1_1AllEnvCell" ],
