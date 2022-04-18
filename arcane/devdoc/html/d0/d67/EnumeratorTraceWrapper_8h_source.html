@@ -99,78 +99,91 @@ $(function() {
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="../../d4/db5/classArcane_1_1EnumeratorTraceInfo.html">   37</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/db5/classArcane_1_1EnumeratorTraceInfo.html">EnumeratorTraceInfo</a></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;{</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int64ArrayView</a> counters() { <span class="keywordflow">return</span> <a class="code" href="../../d0/d32/namespaceArcane.html#a7332a70f38a2f4925865259192b0fac3">Int64ArrayView</a>(8,m_counters); }</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  Int64 m_counters[8];</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;};</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> TrueEnumerator,<span class="keyword">typename</span> TracerInterface&gt;</div>
-<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../d4/d22/classArcane_1_1EnumeratorTraceWrapper.html">   58</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d22/classArcane_1_1EnumeratorTraceWrapper.html">EnumeratorTraceWrapper</a></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;: <span class="keyword">public</span> TrueEnumerator</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;{</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <a class="code" href="../../d4/d22/classArcane_1_1EnumeratorTraceWrapper.html">EnumeratorTraceWrapper</a>(TrueEnumerator&amp;&amp; tenum)</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  : TrueEnumerator(tenum), m_tracer(TracerInterface::singleton())</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  {</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    <span class="keywordflow">if</span> (m_tracer)</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      m_tracer-&gt;enterEnumerator(*<span class="keyword">this</span>,m_infos,<span class="keyword">nullptr</span>);</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <a class="code" href="../../d4/d22/classArcane_1_1EnumeratorTraceWrapper.html">EnumeratorTraceWrapper</a>(TrueEnumerator&amp;&amp; tenum,<span class="keyword">const</span> <a class="code" href="../../db/d6c/classArccore_1_1TraceInfo.html">TraceInfo</a>&amp; ti)</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  : TrueEnumerator(tenum), m_tracer(TracerInterface::singleton())</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  {</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <span class="keywordflow">if</span> (m_tracer)</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;      m_tracer-&gt;enterEnumerator(*<span class="keyword">this</span>,m_infos,&amp;ti);</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  ~<a class="code" href="../../d4/d22/classArcane_1_1EnumeratorTraceWrapper.html">EnumeratorTraceWrapper</a>() ARCANE_NOEXCEPT_FALSE</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  {</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">if</span> (m_tracer)</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;      m_tracer-&gt;exitEnumerator(*<span class="keyword">this</span>,m_infos);</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  TracerInterface* m_tracer;</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <a class="code" href="../../d4/db5/classArcane_1_1EnumeratorTraceInfo.html">EnumeratorTraceInfo</a> m_infos;</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;};</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="preprocessor">#if defined(ARCANE_TRACE_ENUMERATOR)</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#define A_TRACE_ITEM_ENUMERATOR(_EnumeratorClassName) \</span></div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="preprocessor">  ::Arcane::EnumeratorTraceWrapper&lt; _EnumeratorClassName, ::Arcane::IItemEnumeratorTracer &gt;</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#define A_TRACE_ENUMERATOR_WHERE   ,A_FUNCINFO</span></div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="preprocessor">#define A_TRACE_ITEM_ENUMERATOR(_EnumeratorClassName) \</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="preprocessor">  _EnumeratorClassName</span></div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#define A_TRACE_ENUMERATOR_WHERE</span></div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno"><a class="line" href="../../d4/db5/classArcane_1_1EnumeratorTraceInfo.html">   38</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/db5/classArcane_1_1EnumeratorTraceInfo.html">EnumeratorTraceInfo</a></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <a class="code" href="../../d4/db5/classArcane_1_1EnumeratorTraceInfo.html">EnumeratorTraceInfo</a>()</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  {</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 8; ++i)</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      m_counters[i] = 0;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int64ArrayView</a> counters() { <span class="keywordflow">return</span> <a class="code" href="../../d0/d32/namespaceArcane.html#a7332a70f38a2f4925865259192b0fac3">Int64ArrayView</a>(8, m_counters); }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  Int64 m_counters[8];</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;};</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">typename</span> TrueEnumerator, <span class="keyword">typename</span> TracerInterface&gt;</div>
+<div class="line"><a name="l00067"></a><span class="lineno"><a class="line" href="../../d4/d22/classArcane_1_1EnumeratorTraceWrapper.html">   67</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d4/d22/classArcane_1_1EnumeratorTraceWrapper.html">EnumeratorTraceWrapper</a></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;: <span class="keyword">public</span> TrueEnumerator</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;{</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <a class="code" href="../../d4/d22/classArcane_1_1EnumeratorTraceWrapper.html">EnumeratorTraceWrapper</a>(TrueEnumerator&amp;&amp; tenum)</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  : TrueEnumerator(tenum)</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  , m_tracer(TracerInterface::singleton())</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  {</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="keywordflow">if</span> (m_tracer)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;      m_tracer-&gt;enterEnumerator(*<span class="keyword">this</span>, m_infos, <span class="keyword">nullptr</span>);</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <a class="code" href="../../d4/d22/classArcane_1_1EnumeratorTraceWrapper.html">EnumeratorTraceWrapper</a>(TrueEnumerator&amp;&amp; tenum, <span class="keyword">const</span> <a class="code" href="../../db/d6c/classArccore_1_1TraceInfo.html">TraceInfo</a>&amp; ti)</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  : TrueEnumerator(tenum)</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  , m_tracer(TracerInterface::singleton())</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  {</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">if</span> (m_tracer)</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;      m_tracer-&gt;enterEnumerator(*<span class="keyword">this</span>, m_infos, &amp;ti);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  }</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  ~<a class="code" href="../../d4/d22/classArcane_1_1EnumeratorTraceWrapper.html">EnumeratorTraceWrapper</a>() ARCANE_NOEXCEPT_FALSE</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  {</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">if</span> (m_tracer)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;      m_tracer-&gt;exitEnumerator(*<span class="keyword">this</span>, m_infos);</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  }</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  TracerInterface* m_tracer;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;  <a class="code" href="../../d4/db5/classArcane_1_1EnumeratorTraceInfo.html">EnumeratorTraceInfo</a> m_infos;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;ARCANE_END_NAMESPACE</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="preprocessor">#if defined(ARCANE_TRACE_ENUMERATOR)</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#define A_TRACE_ITEM_ENUMERATOR(_EnumeratorClassName) \</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">  ::Arcane::EnumeratorTraceWrapper&lt; _EnumeratorClassName, ::Arcane::IItemEnumeratorTracer&gt;</span></div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<span class="preprocessor">#define A_TRACE_ENUMERATOR_WHERE , A_FUNCINFO</span></div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="preprocessor">#define A_TRACE_ITEM_ENUMERATOR(_EnumeratorClassName) \</span></div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="preprocessor">  _EnumeratorClassName</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#define A_TRACE_ENUMERATOR_WHERE</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;} <span class="comment">// namespace Arcane</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">#endif  </span></div>
 </div><!-- fragment --></div><!-- contents -->
-<div class="ttc" id="aclassArcane_1_1EnumeratorTraceWrapper_html"><div class="ttname"><a href="../../d4/d22/classArcane_1_1EnumeratorTraceWrapper.html">Arcane::EnumeratorTraceWrapper</a></div><div class="ttdoc">Wrapper autour d'un énumérator pour les traces.</div><div class="ttdef"><b>Definition:</b> EnumeratorTraceWrapper.h:58</div></div>
+<div class="ttc" id="aclassArcane_1_1EnumeratorTraceWrapper_html"><div class="ttname"><a href="../../d4/d22/classArcane_1_1EnumeratorTraceWrapper.html">Arcane::EnumeratorTraceWrapper</a></div><div class="ttdoc">Wrapper autour d'un énumérator pour les traces.</div><div class="ttdef"><b>Definition:</b> EnumeratorTraceWrapper.h:67</div></div>
 <div class="ttc" id="aclassArccore_1_1ArrayView_html"><div class="ttname"><a href="../../d7/d02/classArccore_1_1ArrayView.html">Arccore::ArrayView</a></div><div class="ttdoc">Vue modifiable d'un tableau d'un type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:95</div></div>
 <div class="ttc" id="anamespaceArcane_html_a7332a70f38a2f4925865259192b0fac3"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a7332a70f38a2f4925865259192b0fac3">Arcane::Int64ArrayView</a></div><div class="ttdeci">ArrayView&lt; Int64 &gt; Int64ArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension d'entiers 64 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:501</div></div>
 <div class="ttc" id="aclassArccore_1_1TraceInfo_html"><div class="ttname"><a href="../../db/d6c/classArccore_1_1TraceInfo.html">Arccore::TraceInfo</a></div><div class="ttdoc">Informations de trace.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/TraceInfo.h:32</div></div>
-<div class="ttc" id="aclassArcane_1_1EnumeratorTraceInfo_html"><div class="ttname"><a href="../../d4/db5/classArcane_1_1EnumeratorTraceInfo.html">Arcane::EnumeratorTraceInfo</a></div><div class="ttdoc">Informations pour les traces d'un énumérator.</div><div class="ttdef"><b>Definition:</b> EnumeratorTraceWrapper.h:37</div></div>
+<div class="ttc" id="aclassArcane_1_1EnumeratorTraceInfo_html"><div class="ttname"><a href="../../d4/db5/classArcane_1_1EnumeratorTraceInfo.html">Arcane::EnumeratorTraceInfo</a></div><div class="ttdoc">Informations pour les traces d'un énumérator.</div><div class="ttdef"><b>Definition:</b> EnumeratorTraceWrapper.h:38</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 11 Avril 2022 03:19:35 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Lundi 18 Avril 2022 03:25:45 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -1,5 +1,6 @@
 var NAVTREEINDEX69 =
 {
+"dd/d27/namespaceArcane_1_1platform.html":[38,0,0,12],
 "dd/d2a/IArcaneMain_8h_source.html":[40,0,1,64],
 "dd/d2e/classArcane_1_1RessourceMng.html":[39,0,1,931],
 "dd/d2e/classArcane_1_1RessourceMng.html#a3c3fc9519dac8930cfd459bbe9eb36a8":[39,0,1,931,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX69 =
 "dd/d74/classArcane_1_1ICaseOptions.html#a1b87f516008a29e0d773f91b2cafbd73":[39,0,1,343,14],
 "dd/d74/classArcane_1_1ICaseOptions.html#a1b8c79dc433555471e2a30d95db96fc8":[39,0,1,343,25],
 "dd/d74/classArcane_1_1ICaseOptions.html#a1f30be70582a6c102ce436ad2e846968":[39,0,1,343,7],
-"dd/d74/classArcane_1_1ICaseOptions.html#a227797548f0a2a684a60e6920642e65e":[39,0,1,343,5],
-"dd/d74/classArcane_1_1ICaseOptions.html#a2b79295e2e4ea8c3bbd8a82d2675baca":[39,0,1,343,18]
+"dd/d74/classArcane_1_1ICaseOptions.html#a227797548f0a2a684a60e6920642e65e":[39,0,1,343,5]
 };

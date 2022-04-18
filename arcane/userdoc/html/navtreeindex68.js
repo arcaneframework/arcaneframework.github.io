@@ -1,5 +1,6 @@
 var NAVTREEINDEX68 =
 {
+"dc/dfb/classArcane_1_1geometric_1_1GeomType.html#aa92f37a47e9cd19ae136172be1ca01ccad53478b41b7253c6e5534b98de073ab0":[37,18,65,3],
 "dc/dfb/classArcane_1_1geometric_1_1GeomType.html#aa92f37a47e9cd19ae136172be1ca01ccad666adde17b19d2e6e1f0fffc81e9162":[37,18,65,4],
 "dc/dfc/classArcane_1_1LeftLayout.html":[39,0,1,658],
 "dc/dfd/classArcane_1_1DiTetra5RefinementPattern3DT__4Py__2T.html":[39,0,1,237],
@@ -248,6 +249,5 @@ var NAVTREEINDEX68 =
 "dd/d27/classArcane_1_1ItemInternalSortFunction.html#aa8e051e4c752710f98e7cd6327559f29":[37,8,19,1],
 "dd/d27/classArcane_1_1ItemInternalSortFunction.html#aab48eac9f8547ad1f38206378fa5323d":[37,8,19,3],
 "dd/d27/classArcane_1_1ItemInternalSortFunction.html#ab73e17bba7e0c7ffe6a52a5b370303a1":[37,8,19,2],
-"dd/d27/classArcane_1_1ItemInternalSortFunction.html#ac79c2d0ca18c748c03cc9c6f990bc563":[37,8,19,0],
-"dd/d27/namespaceArcane_1_1platform.html":[38,0,0,12]
+"dd/d27/classArcane_1_1ItemInternalSortFunction.html#ac79c2d0ca18c748c03cc9c6f990bc563":[37,8,19,0]
 };

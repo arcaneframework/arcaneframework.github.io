@@ -1,5 +1,6 @@
 var NAVTREEINDEX51 =
 {
+"d9/da8/classArcane_1_1ITimeHistoryMng.html#aca2f8fa7f9291ad2e6245dd12e6c5c54":[39,0,1,622,21],
 "d9/da8/classArcane_1_1ITimeHistoryMng.html#aca6126a1586f86b4db78ec5a4cf804bb":[39,0,1,622,3],
 "d9/da8/classArcane_1_1ITimeHistoryMng.html#acb7f7f3f8f30cce7942bec5081063b52":[39,0,1,622,1],
 "d9/da8/classArcane_1_1ITimeHistoryMng.html#ae54b3bc673db952f91994b368fefc576":[39,0,1,622,20],
@@ -248,6 +249,5 @@ var NAVTREEINDEX51 =
 "d9/dcd/group__GroupMathUtils.html#ga604678b799b8338546284de8a0747991":[37,2,39],
 "d9/dcd/group__GroupMathUtils.html#ga6071695543ab74a9c9f299d76351f205":[37,2,40],
 "d9/dcd/group__GroupMathUtils.html#ga61b221cc1c6eab9045c84cb1bce0f87b":[37,2,68],
-"d9/dcd/group__GroupMathUtils.html#ga68dc46b23f84526e7ca8b8c09f6db28a":[37,2,16],
-"d9/dcd/group__GroupMathUtils.html#ga70d76f783f08fba7d33551b8c908af34":[37,2,67]
+"d9/dcd/group__GroupMathUtils.html#ga68dc46b23f84526e7ca8b8c09f6db28a":[37,2,16]
 };

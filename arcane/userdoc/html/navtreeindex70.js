@@ -1,5 +1,6 @@
 var NAVTREEINDEX70 =
 {
+"dd/d74/classArcane_1_1ICaseOptions.html#a2b79295e2e4ea8c3bbd8a82d2675baca":[39,0,1,343,18],
 "dd/d74/classArcane_1_1ICaseOptions.html#a341657f73771a239d8f0e8d59a2b35b7":[39,0,1,343,27],
 "dd/d74/classArcane_1_1ICaseOptions.html#a36cf683204704743f10fdba62bbbf5d3":[39,0,1,343,11],
 "dd/d74/classArcane_1_1ICaseOptions.html#a3ee555734260a3c630b06cf9d6cab0bd":[39,0,1,343,17],
@@ -248,6 +249,5 @@ var NAVTREEINDEX70 =
 "dd/db8/classArccore_1_1TraceMng.html#a4966c3ad6a6f437d17b5493b7b42bb11":[39,0,2,131,41],
 "dd/db8/classArccore_1_1TraceMng.html#a4de5186ae0e95b941081981ccf254ed7":[39,0,2,131,47],
 "dd/db8/classArccore_1_1TraceMng.html#a50a0785e9a528e3386205c31252aa4db":[39,0,2,131,5],
-"dd/db8/classArccore_1_1TraceMng.html#a5124593cfd1ad91f6710a975e1a18ab1":[39,0,2,131,30],
-"dd/db8/classArccore_1_1TraceMng.html#a55562dca82fb910c0d1651158ed453a5":[39,0,2,131,40]
+"dd/db8/classArccore_1_1TraceMng.html#a5124593cfd1ad91f6710a975e1a18ab1":[39,0,2,131,30]
 };

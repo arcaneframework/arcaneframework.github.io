@@ -1,5 +1,6 @@
 var NAVTREEINDEX42 =
 {
+"d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html#a04f6fa11172c2df281eb75b1dbc7ddcc":[39,0,1,0,6,3],
 "d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html#a0eec4554cec82b4a81ddaa7af2847c7d":[39,0,1,0,6,11],
 "d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html#a104eebde6220040e2c72d4cb241a90ba":[39,0,1,0,6,13],
 "d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html#a142d27a95878e2bd2c41f7ad74ec7d18":[39,0,1,0,6,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX42 =
 "d7/dfe/arcanedoc_cartesianmesh.html":[19],
 "d7/dfe/arcanedoc_cartesianmesh.html#arcanedoc_cartesianmesh_cartesian_connectivity":[19,2],
 "d7/dfe/arcanedoc_cartesianmesh.html#arcanedoc_cartesianmesh_direction":[19,1],
-"d7/dfe/arcanedoc_cartesianmesh.html#arcanedoc_cartesianmesh_init":[19,0],
-"d7/dff/classArcane_1_1SequentialSection.html":[39,0,1,939]
+"d7/dfe/arcanedoc_cartesianmesh.html#arcanedoc_cartesianmesh_init":[19,0]
 };

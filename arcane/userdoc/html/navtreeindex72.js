@@ -1,5 +1,6 @@
 var NAVTREEINDEX72 =
 {
+"dd/dcf/classArcane_1_1Materials_1_1IMeshMaterialModifierImpl.html#aef2c45021576140247e1fd86abe2641c":[39,0,1,9,42,5],
 "dd/dcf/structArcane_1_1T__ListeVoisMail.html":[39,0,1,1002],
 "dd/dcf/structArcane_1_1T__ListeVoisMail.html#a438bff8e4b04731ec546947df0836b66":[39,0,1,1002,0],
 "dd/dcf/structArcane_1_1T__ListeVoisMail.html#a6384d49ae57952b085258d8ea6c8ca69":[39,0,1,1002,2],
@@ -248,6 +249,5 @@ var NAVTREEINDEX72 =
 "dd/df1/classArcane_1_1ItemInternal.html#a83c3caf7de652ca5e71e82d2cadb677e":[39,0,1,554,92],
 "dd/df1/classArcane_1_1ItemInternal.html#a84fddad146756bc0abd493376fd36b66":[39,0,1,554,86],
 "dd/df1/classArcane_1_1ItemInternal.html#a8680de0def10f4cef342537c08e5f1ad":[39,0,1,554,93],
-"dd/df1/classArcane_1_1ItemInternal.html#a8e8778c29160b19c543db99b5773eb0d":[39,0,1,554,64],
-"dd/df1/classArcane_1_1ItemInternal.html#a903929173453042b3e72ab0f6c5d1fce":[39,0,1,554,55]
+"dd/df1/classArcane_1_1ItemInternal.html#a8e8778c29160b19c543db99b5773eb0d":[39,0,1,554,64]
 };

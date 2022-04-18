@@ -1,5 +1,6 @@
 var NAVTREEINDEX83 =
 {
+"namespacemembers_type_b.html":[38,1,3,1],
 "namespacemembers_type_c.html":[38,1,3,2],
 "namespacemembers_type_d.html":[38,1,3,3],
 "namespacemembers_type_e.html":[38,1,3,4],
