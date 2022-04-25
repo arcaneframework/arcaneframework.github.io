@@ -115,6 +115,8 @@ var dir_8ed3f42a0068f5069f42b8178640b4ba =
     [ "IGraphModifier2.h", "da/d48/IGraphModifier2_8h_source.html", null ],
     [ "IGridMeshPartitioner.h", "d5/d67/IGridMeshPartitioner_8h_source.html", null ],
     [ "IIncrementalItemConnectivity.h", "d8/d26/IIncrementalItemConnectivity_8h_source.html", null ],
+    [ "IIndexedIncrementalItemConnectivity.h", "d9/dae/IIndexedIncrementalItemConnectivity_8h_source.html", null ],
+    [ "IIndexedIncrementalItemConnectivityMng.h", "d3/d73/IIndexedIncrementalItemConnectivityMng_8h_source.html", null ],
     [ "IInitialPartitioner.h", "df/da1/IInitialPartitioner_8h_source.html", null ],
     [ "IIOMng.h", "d7/da4/IIOMng_8h_source.html", null ],
     [ "IItemConnectivity.h", "da/d4c/IItemConnectivity_8h_source.html", null ],

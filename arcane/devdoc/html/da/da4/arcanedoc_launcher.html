@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.6.0.0</span>
+   &#160;<span id="projectnumber">3.6.1.0</span>
    </div>
   </td>
  </tr>
@@ -67,10 +67,10 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table des matières</h3>
-<ul><li class="level1"><a href="#autotoc_md15">Initialisation de MPI</a></li>
-<li class="level1"><a href="#autotoc_md16">Exécution du code</a></li>
-<li class="level1"><a href="#autotoc_md17">Options de la ligne de commande</a></li>
-<li class="level1"><a href="#autotoc_md18">Choix du gestionnaire d&#39;échange de message</a></li>
+<ul><li class="level1"><a href="#autotoc_md17">Initialisation de MPI</a></li>
+<li class="level1"><a href="#autotoc_md18">Exécution du code</a></li>
+<li class="level1"><a href="#autotoc_md19">Options de la ligne de commande</a></li>
+<li class="level1"><a href="#autotoc_md20">Choix du gestionnaire d&#39;échange de message</a></li>
 </ul>
 </div>
 <div class="textblock"><p>Il existe deux mécanismes pour exécuter un code avec Arcane:</p>
@@ -122,13 +122,13 @@ $(function() {
 <div class="line">  app_build_info.setOutputDirectory(<span class="stringliteral">&quot;test_output&quot;</span>);</div>
 <div class="line">  <span class="keywordflow">return</span> <a class="code" href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#a0947388b5dc8e3f6edb5cde9e5d516be">ArcaneLauncher::run</a>();</div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md15"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md17"></a>
 Initialisation de MPI</h1>
 <p>L'utilisation de MPI nécessite de faire un appel à la méthode MPI_Init_thread() de la bibliothèque MPI. Si Arcane est compilé avec le support de MPI, alors la détection de MPI et l'appel à MPI_Init_thread() est fait automatiquement par Arcane. Le niveau de support des threads utilisé pour l'appel à MPI_Init_thread() dépend des options telles que le nombre de tâches ou de sous-domaines locaux en mode hybride qu'on souhaite utiliser.</p>
 <p>Il est néanmoins possible pour le code d'initialiser lui même MPI s'il le souhaite. Pour cela, il doit appeler la méthode MPI_Init_thread() avant l'appel à <a class="el" href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#a0947388b5dc8e3f6edb5cde9e5d516be" title="Point d&#39;entrée de l&#39;exécutable dans Arcane.">Arcane::ArcaneLauncher::run()</a>.</p>
 <dl class="section note"><dt>Note</dt><dd>Même si l'exécutable est utilisé en séquentiel (c'est à dire sans passer par une commande telle que <code>mpiexec ...</code>), Arcane tente d'initialiser MPI. Cela est nécessaire car certaines bibliothèques (par exemple les solveurs linéaires) ont besoin que MPI soit initialisé dans tous les cas. Il est possible de modifier ce comportement en spécifiant explicitement le service de parallélisme souhaité (TODO faire doc).</dd></dl>
 <dl class="section warning"><dt>Avertissement</dt><dd>Il faut faire attention à bien utiliser l'exécutable <code>mpiexec</code> qui correspond à la version de MPI avec laquelle Arcane a été compilé sinon on va lancer <em>N</em> fois l'exécution séquentielle.</dd></dl>
-<h1><a class="anchor" id="autotoc_md16"></a>
+<h1><a class="anchor" id="autotoc_md18"></a>
 Exécution du code</h1>
 <p>La méthode <a class="el" href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#a0947388b5dc8e3f6edb5cde9e5d516be" title="Point d&#39;entrée de l&#39;exécutable dans Arcane.">Arcane::ArcaneLauncher::run()</a> permet de lancer l'exécution du code. Cette méthode possède trois surcharges:</p>
 <ol type="1">
@@ -136,7 +136,7 @@ Exécution du code</h1>
 <li><a class="el" href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#a0947388b5dc8e3f6edb5cde9e5d516be" title="Point d&#39;entrée de l&#39;exécutable dans Arcane.">Arcane::ArcaneLauncher::run</a>(std::function&lt;int(DirectSubDomainExecutionContext&amp;)&gt; func) pour exécuter le code spécifié par la <em>func</em> après l'initialisation et la création des sous-domaines. La page <a class="el" href="../../dd/d62/arcanedoc_launcher_direct.html">Lancement directe d'une exécution</a> montre un exemple d'exécution directe.</li>
 <li><a class="el" href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#a0947388b5dc8e3f6edb5cde9e5d516be" title="Point d&#39;entrée de l&#39;exécutable dans Arcane.">Arcane::ArcaneLauncher::run</a>(std::function&lt;int(DirectExecutionContext&amp;)&gt; func) pour exécuter uniquement en <b>séquentiel</b> le code spécifié par la <em>func</em>. Ce mécanisme est à utiliser si on souhaite par exemple faire des tests unitaires simples sans avoir de sous-domaine (<a class="el" href="../../d9/d1e/classArcane_1_1ISubDomain.html" title="Interface du gestionnaire d&#39;un sous-domaine.">Arcane::ISubDomain</a>*). application sans jeu de données ni boucle en temps.</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md17"></a>
+<h1><a class="anchor" id="autotoc_md19"></a>
 Options de la ligne de commande</h1>
 <p>Arcane interprète les options de la ligne de commande qui commencent par <code>-A</code>. Par exemple, pour changer le niveau de verbosité, il suffit de spécifier l'option <code>-A,VerbosityLevel=3</code> dans la ligne de commande.</p>
 <p>Les options sont interprétés lors de l'appel à <a class="el" href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#a637c73ac97c8d466c4125b76aba84d78" title="Positionne les informations à partir des arguments de la ligne de commande et initialise le lanceur.">Arcane::ArcaneLauncher::init()</a> et les valeurs de ArcaneLauncher::applicationBuildInfo() sont automatiquement remplies avec ces options. Il est cependant possible de les surcharger si nécessaire.</p>
@@ -196,7 +196,7 @@ Options de la ligne de commande</h1>
 <p class="endtd"></p>
 </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md18"></a>
+<h1><a class="anchor" id="autotoc_md20"></a>
 Choix du gestionnaire d'échange de message</h1>
 <p>Le gestionnaire d'échange de message (<a class="el" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html" title="Classe abstraite du superviseur de parallélisme.">Arcane::IParallelSuperMng</a>) est choisi lors du lancement du calcul. Arcane fournit les gestionnaires suivants:</p>
 <ul>
@@ -254,7 +254,7 @@ Choix du gestionnaire d'échange de message</h1>
 <div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 18 Avril 2022 03:26:10 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Lundi 25 Avril 2022 03:23:02 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

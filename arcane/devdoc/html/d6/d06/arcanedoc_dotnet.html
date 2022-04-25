@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.6.0.0</span>
+   &#160;<span id="projectnumber">3.6.1.0</span>
    </div>
   </td>
  </tr>
@@ -67,14 +67,14 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table des matières</h3>
-<ul><li class="level1"><a href="#autotoc_md26">Utilisation de .Net</a></li>
-<li class="level1"><a href="#autotoc_md27">Bases de &#39;.Net&#39;</a><ul><li class="level2"><a href="#autotoc_md28">Exemple en C# de main</a></li>
-<li class="level2"><a href="#autotoc_md29">Compilation</a></li>
-<li class="level2"><a href="#autotoc_md30">Utilisation en C# d&#39;une DLL</a></li>
-<li class="level2"><a href="#autotoc_md31">Ajout des références aux packages nuget Arcane</a></li>
-<li class="level2"><a href="#autotoc_md32">Extension de classes C++ avec &#39;SWIG&#39;</a></li>
-<li class="level2"><a href="#autotoc_md33">Création d&#39;une bibliothèque .Net utilisant Arcane</a></li>
-<li class="level2"><a href="#autotoc_md34">Création d&#39;un binaire &lt;tt&gt;.Net&lt;/tt&gt; utilisant %Arcane</a></li>
+<ul><li class="level1"><a href="#autotoc_md28">Utilisation de .Net</a></li>
+<li class="level1"><a href="#autotoc_md29">Bases de &#39;.Net&#39;</a><ul><li class="level2"><a href="#autotoc_md30">Exemple en C# de main</a></li>
+<li class="level2"><a href="#autotoc_md31">Compilation</a></li>
+<li class="level2"><a href="#autotoc_md32">Utilisation en C# d&#39;une DLL</a></li>
+<li class="level2"><a href="#autotoc_md33">Ajout des références aux packages nuget Arcane</a></li>
+<li class="level2"><a href="#autotoc_md34">Extension de classes C++ avec &#39;SWIG&#39;</a></li>
+<li class="level2"><a href="#autotoc_md35">Création d&#39;une bibliothèque .Net utilisant Arcane</a></li>
+<li class="level2"><a href="#autotoc_md36">Création d&#39;un binaire &lt;tt&gt;.Net&lt;/tt&gt; utilisant %Arcane</a></li>
 </ul>
 </li>
 </ul>
@@ -83,7 +83,7 @@ $(function() {
 <p>Les pages suivantes sont disponibles:</p><ul>
 <li><a class="el" href="../../d5/db6/arcanedoc_dotnet_swig.html">Extensions C# avec Swig</a> : montre comment faire une extension de classes C++ pour qu'elles soient accessibles en <code>C#</code>.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md26"></a>
+<h1><a class="anchor" id="autotoc_md28"></a>
 Utilisation de .Net</h1>
 <p>En 2019, il existe deux environnments pour <code>.Net</code>:</p>
 <ul>
@@ -99,11 +99,11 @@ Utilisation de .Net</h1>
 </ul>
 <p>Ce mode est surtout utile pour débugger, par exemple avec 'Visual Studio Code' (TODO: faire exemple).</p>
 <p>Le mode embarquée lance le code comme un exécutable C++ et c'est l'appel à <a class="el" href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#a0947388b5dc8e3f6edb5cde9e5d516be" title="Point d&#39;entrée de l&#39;exécutable dans Arcane.">Arcane::ArcaneLauncher::run()</a> qui va éventuellement charger le runtime '.Net' et charger les assembly nécessaires.</p>
-<h1><a class="anchor" id="autotoc_md27"></a>
+<h1><a class="anchor" id="autotoc_md29"></a>
 Bases de '.Net'</h1>
 <p><code>.Net</code> est une technologie assez similaire à <code>java</code> dans son principe. Le code source peut être écrit en plusieurs langages (C#, F#, Visual Basic). Le code est compilé en un pseudo assembleur (bytecode) indépendant de la plateforme. Le produits de cette compilation s'appelle une <em>assembly</em> (équivalent aux bibliothèques dynamiques du C++). En '.Net', l'extension est <code>.dll</code> comme les bibliothèques dynamiques (Dynamic Loaded Library) sous Windows.</p>
 <p>Comme java, le bytecode est lors de l'exécution converti en code spécifique à l'architecture de la machine cible. Le code <code>.Net</code> nécessite la présence d'un runtime pour gérer cette partie ainsi que pour d'autres fonctionnalités comme le Ramasse Miette (Garbage Collector).</p>
-<h2><a class="anchor" id="autotoc_md28"></a>
+<h2><a class="anchor" id="autotoc_md30"></a>
 Exemple en C# de main</h2>
 <p>Par convention, les fichiers C# on pour extension <code>.cs</code>. Le code en C# est très similaire au code C++:</p>
 <div class="fragment"><div class="line"><span class="keyword">using</span> <a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
@@ -119,7 +119,7 @@ Exemple en C# de main</h2>
 <div class="line">    <span class="keywordflow">return</span> ArcaneLauncher.Run();</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md29"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md31"></a>
 Compilation</h2>
 <p><code>.Net</code> utilise un outil appelé <code>msbuild</code> pour compiler et il faut définir un projet au format XML contenant les informations nécessaire.</p>
 <dl class="section note"><dt>Note</dt><dd>il est aussi possible de compiler directement à la manière du C++ mais cette méthode est moins portable car il faut spécifier directement les assemblys nécessaires.</dd></dl>
@@ -161,11 +161,11 @@ Compilation</h2>
 <p>Pour exécuter le programme, il faut lancer la commande:</p>
 <div class="fragment"><div class="line">dotnet bin/Debug/netcoreapp3.1/MyTest.dll</div>
 </div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>il est aussi possible de lancer l'exécution directement par <code>dotnet run</code>. Mais avant de lancer l'exécution, cette dernière commande va vérifier s'il est nécessaire de recompiler le programme ce qui peut prendre du temps. Si on est sur de ne rien avoir modifié, spécifier directement la <em>dll</em> en argument de <code>dotnet</code> est préférable.</dd></dl>
-<h2><a class="anchor" id="autotoc_md30"></a>
+<h2><a class="anchor" id="autotoc_md32"></a>
 Utilisation en C# d'une DLL</h2>
 <p>Si on ne souhaite pas avoir d'exécutable en C# mais qu'on souhaite utiliser de code C#, alors le fonctionnement est quasi identique mais au lieu de créer un exécutable, il faut créér une bibliothèque. Pour cela, il suffit de créer le projet C# avec l'option <code>dotnet new classlib -n MyLib</code>.</p>
 <dl class="section note"><dt>Note</dt><dd>avec 'Net Core 3', il n'y a pas de différence fondamentale entre un exécutable et une DLL. Un exécutable est juste une DLL avec un point d'entrée bien défini (la fonction <code>Main</code>). Dans les deux cas, l'extension aura pour nom <code>.dll</code> et un exécutable pourra être utilisé partout où une DLL peut être utilisée.</dd></dl>
-<h2><a class="anchor" id="autotoc_md31"></a>
+<h2><a class="anchor" id="autotoc_md33"></a>
 Ajout des références aux packages nuget Arcane</h2>
 <p>L'ajout des références aux DLL <a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a> se fait via l'élément <code>&lt;PackageReference&gt;</code> dans <code>msbuild</code>, par exemple:</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">ItemGroup</span>&gt;</div>
@@ -180,10 +180,10 @@ Ajout des références aux packages nuget Arcane</h2>
 <li>Arcane.Hdf5: contient les classes C# correspondantes au fichier C++ '<a class="el" href="../../d0/db7/Hdf5Utils_8h_source.html">Hdf5Utils.h</a>'. Ce package est disponible si Arcane a été compilé avec le support de <code>hdf5</code>.</li>
 <li>Arcane.Cea.Materials : contient les classes C# gérant les matériaux/milieux (uniquement CEA).</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md32"></a>
+<h2><a class="anchor" id="autotoc_md34"></a>
 Extension de classes C++ avec 'SWIG'</h2>
 <p>La page <a class="el" href="../../d5/db6/arcanedoc_dotnet_swig.html">Extensions C# avec Swig</a> décrit comment rendre accessible en C# les classes de Arcane et étendre d'autres classes.</p>
-<h2><a class="anchor" id="autotoc_md33"></a>
+<h2><a class="anchor" id="autotoc_md35"></a>
 Création d'une bibliothèque .Net utilisant Arcane</h2>
 <p>Il faut tout d'abord avoir <code>dotnet</code> dans son chemin. Si Arcane est installé dans le répertoire <code>${ARCANE_PREFIX}</code> alors il faut lancer les commandes suivantes:</p>
 <div class="fragment"><div class="line">ARCANE_PREFIX=/path/to/arcane/install</div>
@@ -196,7 +196,7 @@ Création d'une bibliothèque .Net utilisant Arcane</h2>
 </div><!-- fragment --><p>Cela aura pour effet d'installer les fichiers générés dans le répertoire <code>out</code>. Si le projet s'appelle 'toto', on aura les fichiers suivants:</p>
 <div class="fragment"><div class="line">&gt; ls  out</div>
 <div class="line">Arcane.Core.dll  Arcane.Utils.dll  toto.deps.json  toto.dll  toto.pdb</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md34"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md36"></a>
 Création d'un binaire &lt;tt&gt;.Net&lt;/tt&gt; utilisant %Arcane</h2>
 <p>TODO: </p>
 </div></div><!-- contents -->
@@ -205,7 +205,7 @@ Création d'un binaire &lt;tt&gt;.Net&lt;/tt&gt; utilisant %Arcane</h2>
 <div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 18 Avril 2022 03:26:10 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Lundi 25 Avril 2022 03:23:02 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.6.0.0</span>
+   &#160;<span id="projectnumber">3.6.1.0</span>
    </div>
   </td>
  </tr>
@@ -67,18 +67,21 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table des matières</h3>
-<ul><li class="level1"><a href="#autotoc_md0">Utilisation dans Arcane</a></li>
-<li class="level1"><a href="#autotoc_md1">Exemple d&#39;utilisation d&#39;une boucle complexe</a></li>
-<li class="level1"><a href="#autotoc_md2">Compilation</a></li>
-<li class="level1"><a href="#autotoc_md3">Exécution</a></li>
-<li class="level1"><a href="#autotoc_md4">Utilisation des vues</a></li>
-<li class="level1"><a href="#autotoc_md5">Utilisation des lambda</a></li>
-<li class="level1"><a href="#autotoc_md6">Limitation des lambda C++ sur accélérateurs</a><ul><li class="level2"><a href="#autotoc_md7">Appel d&#39;autres fonctions dans les lambda</a></li>
-<li class="level2"><a href="#autotoc_md8">Utilisation des champs d&#39;une instance de classe</a></li>
+<ul><li class="level1"><a href="#autotoc_md0">Utilisation dans Arcane</a><ul><li class="level2"><a href="#autotoc_md1">Utilisation dans les modules</a></li>
+<li class="level2"><a href="#autotoc_md2">Utilisation via une instance spécifique de &#39;Runner&#39;</a></li>
 </ul>
 </li>
-<li class="level1"><a href="#autotoc_md9">Mode Autonome</a></li>
-<li class="level1"><a href="#autotoc_md10">TODO</a></li>
+<li class="level1"><a href="#autotoc_md3">Exemple d&#39;utilisation d&#39;une boucle complexe</a></li>
+<li class="level1"><a href="#autotoc_md4">Compilation</a></li>
+<li class="level1"><a href="#autotoc_md5">Exécution</a></li>
+<li class="level1"><a href="#autotoc_md6">Utilisation des vues</a></li>
+<li class="level1"><a href="#autotoc_md7">Utilisation des lambda</a></li>
+<li class="level1"><a href="#autotoc_md8">Limitation des lambda C++ sur accélérateurs</a><ul><li class="level2"><a href="#autotoc_md9">Appel d&#39;autres fonctions dans les lambda</a></li>
+<li class="level2"><a href="#autotoc_md10">Utilisation des champs d&#39;une instance de classe</a></li>
+</ul>
+</li>
+<li class="level1"><a href="#autotoc_md11">Mode Autonome</a></li>
+<li class="level1"><a href="#autotoc_md12">TODO</a></li>
 </ul>
 </div>
 <div class="textblock"><dl class="section warning"><dt>Avertissement</dt><dd>L'API d'utilisation des accélérateurs est en cours de développement et n'est pas figée. De plus il ne faut pas utiliser les classes autres que celles documentées dans cette page.</dd></dl>
@@ -100,8 +103,46 @@ Utilisation dans Arcane</h1>
 <li><a class="el" href="../../d9/d8e/classArcane_1_1Accelerator_1_1RunQueue.html" title="File d&#39;exécution pour accélérateur.">Arcane::Accelerator::RunQueue</a> qui représente une file d'exécution</li>
 <li><a class="el" href="../../dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html" title="Gestion d&#39;une commande sur accélérateur.">Arcane::Accelerator::RunCommand</a> qui représente une commande (un noyau de calcul) associée à une file d'exécution.</li>
 </ul>
-<p>L'interface principale est <a class="el" href="../../df/d02/classArcane_1_1Accelerator_1_1IAcceleratorMng.html" title="Interface du gestionnaire des accélérateurs.">Arcane::Accelerator::IAcceleratorMng</a>. Une implémentation de cette interface est créé lors de l'initialisation et est disponible pour les modules via la méthode <a class="el" href="../../dd/dde/classArcane_1_1AbstractModule.html#a312edb9ebe8dc3e177e060d61ceb83f9" title="Gestionnaire des accélérateurs.">Arcane::AbstractModule::acceleratorMng()</a>.</p>
-<p>L'objet principal est la classe <a class="el" href="../../d1/d61/classArcane_1_1Accelerator_1_1Runner.html" title="Gestionnaire d&#39;exécution pour accélérateur.">Arcane::Accelerator::Runner</a>. Il est possible de créér plusieurs instances de cet objet.</p>
+<p>Il existe deux possibilités pour utiliser les accélérateurs dans <a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a>:</p><ul>
+<li>via une instance de <a class="el" href="../../df/d02/classArcane_1_1Accelerator_1_1IAcceleratorMng.html" title="Interface du gestionnaire des accélérateurs.">Arcane::Accelerator::IAcceleratorMng</a> créé et initialisée par Arcane au moment du lancement de l'exécutable.</li>
+<li>via une instgance de <a class="el" href="../../d1/d61/classArcane_1_1Accelerator_1_1Runner.html" title="Gestionnaire d&#39;exécution pour accélérateur.">Arcane::Accelerator::Runner</a> créée et initialisée manuellement.</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md1"></a>
+Utilisation dans les modules</h2>
+<p>il est possible pour tout module de récupérer une implémentation de l'interface <a class="el" href="../../df/d02/classArcane_1_1Accelerator_1_1IAcceleratorMng.html" title="Interface du gestionnaire des accélérateurs.">Arcane::Accelerator::IAcceleratorMng</a> via la méthode <a class="el" href="../../dd/dde/classArcane_1_1AbstractModule.html#a312edb9ebe8dc3e177e060d61ceb83f9" title="Gestionnaire des accélérateurs.">Arcane::AbstractModule::acceleratorMng()</a>. Le code suivant permet par exemple d'utiliser les accélérateurs depuis un point d'entrée:</p>
+<div class="fragment"><div class="line"><span class="comment">// Fichier à include tout le temps</span></div>
+<div class="line"><span class="preprocessor">#include &quot;arcane/accelerator/core/IAcceleratorMng.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;arcane/accelerator/core/RunQueue.h&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Fichier à inclure pour avoir RUNCOMMAND_ENUMERATE</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../da/d9a/RunCommandEnumerate_8h.html">arcane/accelerator/RunCommandEnumerate.h</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Fichier à inclure pour avoir RUNCOMMAND_LOOP</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d6/d52/RunCommandLoop_8h.html">arcane/accelerator/RunCommandLoop.h</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line"><span class="keyword">using namespace </span><a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html">Arcane::Accelerator</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>MyModule</div>
+<div class="line">: <span class="keyword">public</span> <a class="code" href="../../d5/d47/classArcane_1_1BasicModule.html">Arcane::BasicModule</a></div>
+<div class="line">{</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keywordtype">void</span> myEntryPoint()</div>
+<div class="line">  {</div>
+<div class="line">    <span class="comment">// Boucle sur les mailles déportée sur accélérateur</span></div>
+<div class="line">    <span class="keyword">auto</span> command1 = <a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html#af725069ceba4d3878d643f0aa9ee9dd6">makeCommand</a>(acceleratorMng()-&gt;defaultQueue());</div>
+<div class="line">    command1 &lt;&lt; <a class="code" href="../../da/d9a/RunCommandEnumerate_8h.html#a96e4a267c3c5c0ea43afef025aa2a2b1">RUNCOMMAND_ENUMERATE</a>(<a class="code" href="../../d9/db2/classArcane_1_1Cell.html">Cell</a>,vi,allCells()){</div>
+<div class="line">    };</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// Boucle classique 1D déportée sur accélérateur</span></div>
+<div class="line">    <span class="keyword">auto</span> command2 = <a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html#af725069ceba4d3878d643f0aa9ee9dd6">makeCommand</a>(acceleratorMng()-&gt;defaultQueue());</div>
+<div class="line">    command2 &lt;&lt; <a class="code" href="../../d6/d52/RunCommandLoop_8h.html#a306b2a3f7b21b54f64f2c910b7bdc093">RUNCOMMAND_LOOP1</a>(iter,5){</div>
+<div class="line">    };</div>
+<div class="line">  }</div>
+<div class="line">};</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md2"></a>
+Utilisation via une instance spécifique de 'Runner'</h2>
+<p>L'objet principal est la classe <a class="el" href="../../d1/d61/classArcane_1_1Accelerator_1_1Runner.html" title="Gestionnaire d&#39;exécution pour accélérateur.">Arcane::Accelerator::Runner</a>. Il est possible de créér plusieurs instances de cet objet <a class="el" href="../../d1/d61/classArcane_1_1Accelerator_1_1Runner.html" title="Gestionnaire d&#39;exécution pour accélérateur.">Arcane::Accelerator::Runner</a>.</p>
 <dl class="section note"><dt>Note</dt><dd>Actuellement, les méthodes de <a class="el" href="../../d1/d61/classArcane_1_1Accelerator_1_1Runner.html" title="Gestionnaire d&#39;exécution pour accélérateur.">Arcane::Accelerator::Runner</a> ne sont pas thread-safe.</dd></dl>
 <p>Une instance de cette classe est associée à une politique d'exécution dont les valeurs possibles sont données par l'énumération <a class="el" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857df" title="Politique d&#39;exécution.">Arcane::Accelerator::eExecutionPolicy</a>. Par défaut, la politique d'exécution est <a class="el" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfaa7e82daa7280af25afbaa076ac16eb1e" title="Politique d&#39;exécution séquentielle.">Arcane::Accelerator::eExecutionPolicy::Sequential</a>, ce qui signifie que les noyaux de calcul seront exécutés en séquentiel.</p>
 <p>Il est aussi possible d'initialiser automatiquement une instance de cette classe en fonction des arguments de la ligne de commande:</p>
@@ -113,7 +154,7 @@ Utilisation dans Arcane</h1>
 <div class="line"><a class="code" href="../../d9/d7f/classArcane_1_1IApplication.html">IApplication</a>* app = ...;</div>
 <div class="line"><a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html#a7789984675f78ee98fec466129a9d6cf">initializeRunner</a>(runner,tm,app-&gt;<a class="code" href="../../d9/d7f/classArcane_1_1IApplication.html#aefa09b9ae996e66d0d31c16d3cc3e099">acceleratorRuntimeInitialisationInfo</a>());</div>
 </div><!-- fragment --><p>Pour lancer un calcul sur accélérateur, il faut instancier une file d'exécution. La classe <a class="el" href="../../d9/d8e/classArcane_1_1Accelerator_1_1RunQueue.html" title="File d&#39;exécution pour accélérateur.">Arcane::Accelerator::RunQueue</a> gère une telle file. La fonction <a class="el" href="../../de/dae/namespaceArcane_1_1Accelerator.html#a03c277b9b5cda10acc53f493d26ef2e2" title="Créé une file temporaire associée à runner.">Arcane::Accelerator::makeQueue()</a> permet de créer une telle file. Les files d'exécution peuvent être temporaires ou persistantes mais ne peuvent pas être copiées. La méthode <a class="el" href="../../de/dae/namespaceArcane_1_1Accelerator.html#a663ef59ff7abfd160c0e4f146b8f1026" title="Créé une référence sur file avec la politique d&#39;exécution par défaut de runner.">Arcane::Accelerator::makeQueueRef()</a> permet de créer une référence à une file qui peut être copiée.</p>
-<h1><a class="anchor" id="autotoc_md1"></a>
+<h1><a class="anchor" id="autotoc_md3"></a>
 Exemple d'utilisation d'une boucle complexe</h1>
 <div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
 <div class="line"><span class="keyword">using namespace </span><a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html">Arcane::Accelerator</a>;</div>
@@ -131,7 +172,7 @@ Exemple d'utilisation d'une boucle complexe</h1>
 <div class="line">    out_t1(i,j,k,l) = _getValue(i,j,k,l);</div>
 <div class="line">  };</div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md2"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
 Compilation</h1>
 <p>Arcane propose une intégration pour compiler avec le support des accélérateurs via CMake. Ceux qui utilisent un autre système de compilation doivent gérer aux même ce support.</p>
 <p>Pour pouvoir utiliser des noyaux de calcul sur accélérateur, il faut en général utiliser un compilateur spécifique. L'implémentation actuelle de Arcane via CUDA utilise le compilateur <code>nvcc</code> de NVIDIA pour cela. Ce compilateur se charge de compiler la partie associée à l'accélérateur. La partie associée au CPU est compilée avec le même compilateur que le reste du code.</p>
@@ -142,7 +183,7 @@ Compilation</h1>
 <li><b>arcane_accelerator_add_to_target(mytarget)</b> pour indiquer que la cible <code>mytarget</code> a besoin de l'environnement accélérateur.</li>
 </ul>
 <p>Si Arcane est compilé en environnement CUDA, la variable CMake <code>ARCANE_HAS_CUDA</code> est définie.</p>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="autotoc_md5"></a>
 Exécution</h1>
 <p>Le choix de l'environnement d'exécution par défaut (<a class="el" href="../../df/d02/classArcane_1_1Accelerator_1_1IAcceleratorMng.html#a741e717bf5c83f74bdad33387c2702d0" title="Exécuteur par défaut.">Arcane::Accelerator::IAcceleratorMng::defaultRunner()</a>) est déterminé par la ligne de commande:</p>
 <ul>
@@ -151,13 +192,14 @@ Exécution</h1>
 <li>Sinon, si le multi-threading est activé via l'option <code>-T</code> (voir <a class="el" href="../../da/da4/arcanedoc_launcher.html">Lancement d'un calcul</a>), alors les noyaux de calcul sont répartis sur plusieurs threads,</li>
 <li>Sinon, les noyaux de calcul sont exécutés en séquentiel.</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md4"></a>
+<h1><a class="anchor" id="autotoc_md6"></a>
 Utilisation des vues</h1>
 <p>Les accélérateurs ont en général leur propre mémoire qui est différente de celle de l'hôte. Il est donc nécessaire de spécifier comment seront utiliser les données pour gérer les éventuels transferts entre les mémoire. Pour cela Arcane fournit un mécanisme appelé une vue qui permet de spécifier pour une variable ou un tableau s'il va être utilisé en entrée, en sortie ou les deux.</p>
 <dl class="section warning"><dt>Avertissement</dt><dd>Une vue est un objet <b>TEMPORAIRE</b> et est toujours associée à une commande (<a class="el" href="../../dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html" title="Gestion d&#39;une commande sur accélérateur.">Arcane::Accelerator::RunCommand</a>) et un conteneur (Variable Arcane ou tableau) et ne doit pas être utilisée lorsque la commande associée est terminée ou le conteneur associé est modifié.</dd></dl>
 <p>Arcane propose des vues sur les variables (<a class="el" href="../../d5/d96/classArcane_1_1IVariable.html" title="Interface d&#39;une variable.">Arcane::IVariable</a>) ou sur la classe <a class="el" href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray</a>.</p>
 <p>Quel que soit le conteneur associé, la déclaration des vues est la même:</p>
-<div class="fragment"><div class="line"><span class="comment">// Pour avoir les vues sur les variables</span></div>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &quot;arcane/utils/NumArray.h&quot;</span></div>
+<div class="line"><span class="comment">// Pour avoir les vues sur les variables</span></div>
 <div class="line"><span class="preprocessor">#include &quot;arcane/accelerator/VariableViews.h&quot;</span></div>
 <div class="line"><span class="comment">// Pour avoir les vues sur les NumArray</span></div>
 <div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../dc/d35/NumArrayViews_8h.html">arcane/accelerator/NumArrayViews.h</a>&quot;</span></div>
@@ -171,7 +213,7 @@ Utilisation des vues</h1>
 <div class="line"><span class="keyword">auto</span> in_a = <a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html#af5e3637c5f9d9188788d641122e18400">viewIn</a>(command,a); <span class="comment">// Vue en entrée</span></div>
 <div class="line"><span class="keyword">auto</span> inout_b = <a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html#a62fbccd426ee33afa1d458dc826376d1">viewInOut</a>(command,b); <span class="comment">// Vue en entrée/sortie</span></div>
 <div class="line"><span class="keyword">auto</span> out_c = <a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html#ab0f1c90b13cbdf91573f92b6be402a2c">viewOut</a>(command,var_c); <span class="comment">// Vue en sortie.</span></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md5"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md7"></a>
 Utilisation des lambda</h1>
 <p>Actuellement il est possible de déporter deux types de boucles sur accélérateurs:</p><ul>
 <li>les boucles sur les entités du maillage via la macro <a class="el" href="../../da/d9a/RunCommandEnumerate_8h.html#a96e4a267c3c5c0ea43afef025aa2a2b1" title="Macro pour itérer un groupe d&#39;entités.">RUNCOMMAND_ENUMERATE()</a></li>
@@ -223,10 +265,10 @@ Utilisation des lambda</h1>
 <div class="line"> </div>
 <div class="line"><span class="comment">// ICI on peut utiliser &#39;a&#39; ou &#39;b&#39; (MAIS PAS &#39;in_a&#39; ou &#39;out_b&#39; car la</span></div>
 <div class="line"><span class="comment">// commande est terminée)</span></div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md6"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md8"></a>
 Limitation des lambda C++ sur accélérateurs</h1>
 <p>Les mécanismes de compilation et la gestion mémoire sur accélérateurs font qu'il y a des restrictions sur l'utilisation des lambda classiques du C++</p>
-<h2><a class="anchor" id="autotoc_md7"></a>
+<h2><a class="anchor" id="autotoc_md9"></a>
 Appel d'autres fonctions dans les lambda</h2>
 <p>Dans une lambda prévue pour être déportée sur accélérateur, on ne peut appeler que:</p>
 <ul>
@@ -235,7 +277,7 @@ Appel d'autres fonctions dans les lambda</h2>
 <li>qui fonctions ou méthodes qui ont l'attribut ARCCORE_HOST_DEVICE ou ARCCORE_DEVICE ou des méthodes <code>constexpr</code></li>
 </ul>
 <p>Il n'est pas possible d'appeler des fonctions externes qui sont définies dans d'autres unités de compilation (par exemple d'autres bibliothèques)</p>
-<h2><a class="anchor" id="autotoc_md8"></a>
+<h2><a class="anchor" id="autotoc_md10"></a>
 Utilisation des champs d'une instance de classe</h2>
 <p>Il ne faut pas utiliser dans les lambdas une référence à un champ d'une classe car ce dernier est capturé par référence. Cela provoquera un plantage par accès mémoire invalide sur accélérateur. Pour éviter ce problème, il suffit de déclarer localement à la fonction une copie de la valeur de l'instance de classe qu'on souhaite utiliser. Dans l'exemple suivant la fonction <code>f1()</code> provoquera un plantage alors que <code>f2()</code> fonctionnera bien.</p>
 <div class="fragment"><div class="line"><span class="keyword">class </span>A</div>
@@ -264,7 +306,7 @@ Utilisation des champs d'une instance de classe</h2>
 <div class="line">    out_a(iter) = v+5; <span class="comment">// GOOD !!</span></div>
 <div class="line">  };</div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md9"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md11"></a>
 Mode Autonome</h1>
 <p>Il est possible d'utiliser le mode accélérateur de Arcane sans le support des objets de haut niveau tel que les maillages ou les sous-domaines. L'exemple 'standalone_accelerator' montre une telle utilisation. Par exemple, le code suivant permet de déporter sur accélérateur la somme de deux tableaux <code>a</code> et <code>b</code> dans un tabeau <code>c</code>.</p>
 <div class="fragment"><div class="line"><span class="keywordtype">int</span></div>
@@ -312,15 +354,16 @@ Mode Autonome</h1>
 <div class="line">  }</div>
 <div class="line">  <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md10"></a>
+</div><!-- fragment --><h1><a class="anchor" id="autotoc_md12"></a>
 TODO</h1>
 <p>TODO: expliquer utilisation des NumArray.</p>
 <p>TODO: expliquer l'utilisation des connectivités et pourquoi on ne peut pas accéder aux entités classiques (Cell,Node, ...) sur accélérateur. </p>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
-<div class="ttc" id="anamespaceArcane_1_1Accelerator_html_ab0f1c90b13cbdf91573f92b6be402a2c"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#ab0f1c90b13cbdf91573f92b6be402a2c">Arcane::Accelerator::viewOut</a></div><div class="ttdeci">auto viewOut(RunCommand &amp;command, NumArray&lt; DataType, N, LayoutType &gt; &amp;var)</div><div class="ttdoc">Vue en écriture.</div><div class="ttdef"><b>Definition:</b> NumArrayViews.h:200</div></div>
+<div class="ttc" id="anamespaceArcane_1_1Accelerator_html_ab0f1c90b13cbdf91573f92b6be402a2c"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#ab0f1c90b13cbdf91573f92b6be402a2c">Arcane::Accelerator::viewOut</a></div><div class="ttdeci">auto viewOut(RunCommand &amp;command, NumArray&lt; DataType, N, LayoutType &gt; &amp;var)</div><div class="ttdoc">Vue en écriture.</div><div class="ttdef"><b>Definition:</b> NumArrayViews.h:208</div></div>
 <div class="ttc" id="aNumArrayViews_8h_html"><div class="ttname"><a href="../../dc/d35/NumArrayViews_8h.html">NumArrayViews.h</a></div></div>
 <div class="ttc" id="aclassArcane_1_1Accelerator_1_1RunQueue_html"><div class="ttname"><a href="../../d9/d8e/classArcane_1_1Accelerator_1_1RunQueue.html">Arcane::Accelerator::RunQueue</a></div><div class="ttdoc">File d'exécution pour accélérateur.</div><div class="ttdef"><b>Definition:</b> core/RunQueue.h:31</div></div>
+<div class="ttc" id="aclassArcane_1_1BasicModule_html"><div class="ttname"><a href="../../d5/d47/classArcane_1_1BasicModule.html">Arcane::BasicModule</a></div><div class="ttdoc">Module basique.</div><div class="ttdef"><b>Definition:</b> BasicModule.h:41</div></div>
 <div class="ttc" id="aclassArcane_1_1IApplication_html"><div class="ttname"><a href="../../d9/d7f/classArcane_1_1IApplication.html">Arcane::IApplication</a></div><div class="ttdoc">Interface de l'application.</div><div class="ttdef"><b>Definition:</b> IApplication.h:55</div></div>
 <div class="ttc" id="aRunCommandLoop_8h_html_a306b2a3f7b21b54f64f2c910b7bdc093"><div class="ttname"><a href="../../d6/d52/RunCommandLoop_8h.html#a306b2a3f7b21b54f64f2c910b7bdc093">RUNCOMMAND_LOOP1</a></div><div class="ttdeci">#define RUNCOMMAND_LOOP1(iter_name, x1)</div><div class="ttdoc">Boucle sur accélérateur.</div><div class="ttdef"><b>Definition:</b> RunCommandLoop.h:177</div></div>
 <div class="ttc" id="anamespaceArcane_1_1Accelerator_html_af725069ceba4d3878d643f0aa9ee9dd6"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#af725069ceba4d3878d643f0aa9ee9dd6">Arcane::Accelerator::makeCommand</a></div><div class="ttdeci">RunCommand makeCommand(RunQueue &amp;run_queue)</div><div class="ttdoc">Créé une commande associée à la file run_queue.</div><div class="ttdef"><b>Definition:</b> core/RunQueue.h:95</div></div>
@@ -332,12 +375,15 @@ TODO</h1>
 <div class="ttc" id="aclassArcane_1_1NumArray_html"><div class="ttname"><a href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray</a></div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:194</div></div>
 <div class="ttc" id="anamespaceArcane_1_1Accelerator_html"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html">Arcane::Accelerator</a></div><div class="ttdoc">Espace de nom pour l'utilisation des accélérateurs.</div><div class="ttdef"><b>Definition:</b> AcceleratorGlobal.h:34</div></div>
 <div class="ttc" id="anamespaceArcane_html_a217fe78868fe5442ebdc01c9871e11c9"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a217fe78868fe5442ebdc01c9871e11c9">Arcane::viewOut</a></div><div class="ttdeci">auto viewOut(MeshVariableScalarRefT&lt; ItemType, DataType &gt; &amp;var)</div><div class="ttdoc">Vue en écriture.</div><div class="ttdef"><b>Definition:</b> VariableView.h:400</div></div>
-<div class="ttc" id="anamespaceArcane_1_1Accelerator_html_af5e3637c5f9d9188788d641122e18400"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#af5e3637c5f9d9188788d641122e18400">Arcane::Accelerator::viewIn</a></div><div class="ttdeci">auto viewIn(RunCommand &amp;command, const NumArray&lt; DataType, N, LayoutType &gt; &amp;v)</div><div class="ttdoc">Vue en lecture.</div><div class="ttdef"><b>Definition:</b> NumArrayViews.h:225</div></div>
-<div class="ttc" id="anamespaceArcane_1_1Accelerator_html_a62fbccd426ee33afa1d458dc826376d1"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#a62fbccd426ee33afa1d458dc826376d1">Arcane::Accelerator::viewInOut</a></div><div class="ttdeci">auto viewInOut(RunCommand &amp;command, NumArray&lt; DataType, N, LayoutType &gt; &amp;v)</div><div class="ttdoc">Vue en lecture/écriture.</div><div class="ttdef"><b>Definition:</b> NumArrayViews.h:213</div></div>
+<div class="ttc" id="anamespaceArcane_1_1Accelerator_html_af5e3637c5f9d9188788d641122e18400"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#af5e3637c5f9d9188788d641122e18400">Arcane::Accelerator::viewIn</a></div><div class="ttdeci">auto viewIn(RunCommand &amp;command, const NumArray&lt; DataType, N, LayoutType &gt; &amp;v)</div><div class="ttdoc">Vue en lecture.</div><div class="ttdef"><b>Definition:</b> NumArrayViews.h:233</div></div>
+<div class="ttc" id="anamespaceArcane_1_1Accelerator_html_a62fbccd426ee33afa1d458dc826376d1"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#a62fbccd426ee33afa1d458dc826376d1">Arcane::Accelerator::viewInOut</a></div><div class="ttdeci">auto viewInOut(RunCommand &amp;command, NumArray&lt; DataType, N, LayoutType &gt; &amp;v)</div><div class="ttdoc">Vue en lecture/écriture.</div><div class="ttdef"><b>Definition:</b> NumArrayViews.h:221</div></div>
+<div class="ttc" id="aRunCommandEnumerate_8h_html"><div class="ttname"><a href="../../da/d9a/RunCommandEnumerate_8h.html">RunCommandEnumerate.h</a></div><div class="ttdoc">Types et macros pour gérer les énumérations des entités sur les accélérateurs.</div></div>
 <div class="ttc" id="aRunCommandEnumerate_8h_html_a96e4a267c3c5c0ea43afef025aa2a2b1"><div class="ttname"><a href="../../da/d9a/RunCommandEnumerate_8h.html#a96e4a267c3c5c0ea43afef025aa2a2b1">RUNCOMMAND_ENUMERATE</a></div><div class="ttdeci">#define RUNCOMMAND_ENUMERATE(ItemNameType, iter_name, item_group)</div><div class="ttdoc">Macro pour itérer un groupe d'entités.</div><div class="ttdef"><b>Definition:</b> RunCommandEnumerate.h:190</div></div>
 <div class="ttc" id="aclassArcane_1_1CommandLineArguments_html"><div class="ttname"><a href="../../d8/d5c/classArcane_1_1CommandLineArguments.html">Arcane::CommandLineArguments</a></div><div class="ttdoc">Arguments de la ligne de commande.</div><div class="ttdef"><b>Definition:</b> CommandLineArguments.h:48</div></div>
+<div class="ttc" id="aclassArcane_1_1Cell_html"><div class="ttname"><a href="../../d9/db2/classArcane_1_1Cell.html">Arcane::Cell</a></div><div class="ttdoc">Maille d'un maillage.</div><div class="ttdef"><b>Definition:</b> Item.h:915</div></div>
 <div class="ttc" id="anamespaceArcane_html_a8d4af54a9c6ec8f09be512c955ed6e8e"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a8d4af54a9c6ec8f09be512c955ed6e8e">Arcane::makeLoopRanges</a></div><div class="ttdeci">SimpleLoopRanges&lt; 1 &gt; makeLoopRanges(Int32 n1)</div><div class="ttdoc">Créé un intervalle d'itération [0,n1[.</div><div class="ttdef"><b>Definition:</b> LoopRanges.h:112</div></div>
 <div class="ttc" id="aclassArcane_1_1StandaloneAcceleratorMng_html"><div class="ttname"><a href="../../d0/d53/classArcane_1_1StandaloneAcceleratorMng.html">Arcane::StandaloneAcceleratorMng</a></div><div class="ttdoc">Implémentation autonome de 'IAcceleratorMng.h'.</div><div class="ttdef"><b>Definition:</b> StandaloneAcceleratorMng.h:38</div></div>
+<div class="ttc" id="aRunCommandLoop_8h_html"><div class="ttname"><a href="../../d6/d52/RunCommandLoop_8h.html">RunCommandLoop.h</a></div><div class="ttdoc">Types et macros pour gérer les boucles sur les accélérateurs.</div></div>
 <div class="ttc" id="anamespaceArcane_1_1Accelerator_html_a7789984675f78ee98fec466129a9d6cf"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#a7789984675f78ee98fec466129a9d6cf">Arcane::Accelerator::initializeRunner</a></div><div class="ttdeci">ARCANE_ACCELERATOR_EXPORT void initializeRunner(Runner &amp;runner, ITraceMng *tm, const AcceleratorRuntimeInitialisationInfo &amp;acc_info)</div><div class="ttdoc">Initialise runner en fonction de la valeur de acc_info.</div><div class="ttdef"><b>Definition:</b> Accelerator.cc:24</div></div>
 <div class="ttc" id="aclassArcane_1_1Accelerator_1_1RunQueue_html_a123c1b8204a8edc5be44a14261a30165"><div class="ttname"><a href="../../d9/d8e/classArcane_1_1Accelerator_1_1RunQueue.html#a123c1b8204a8edc5be44a14261a30165">Arcane::Accelerator::RunQueue::barrier</a></div><div class="ttdeci">void barrier()</div><div class="ttdoc">Bloque tant que toutes les commandes associées à la file ne sont pas terminées.</div><div class="ttdef"><b>Definition:</b> RunQueue.cc:75</div></div>
 <div class="ttc" id="aclassArcane_1_1ArcaneLauncher_html_a0595da57a91923a52eba6ed49dd1ea16"><div class="ttname"><a href="../../d3/d46/classArcane_1_1ArcaneLauncher.html#a0595da57a91923a52eba6ed49dd1ea16">Arcane::ArcaneLauncher::createStandaloneAcceleratorMng</a></div><div class="ttdeci">static StandaloneAcceleratorMng createStandaloneAcceleratorMng()</div><div class="ttdoc">Créé une implémentation autonome pour gérer les accélérateurs.</div><div class="ttdef"><b>Definition:</b> ArcaneLauncher.cc:365</div></div>
@@ -350,7 +396,7 @@ TODO</h1>
 <div class="ttc" id="aViews_8h_html"><div class="ttname"><a href="../../dc/dc7/Views_8h.html">Views.h</a></div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 18 Avril 2022 03:26:10 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Lundi 25 Avril 2022 03:23:02 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

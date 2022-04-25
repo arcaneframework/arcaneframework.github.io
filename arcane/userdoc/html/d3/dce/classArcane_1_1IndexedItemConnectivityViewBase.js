@@ -3,7 +3,7 @@ var classArcane_1_1IndexedItemConnectivityViewBase =
     [ "_badConversion", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a697d1511bf7bb555ebcdc729cdbc9875", null ],
     [ "_checkValid", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a66752052dc10a59d5d7c0ffabdb1ea56", null ],
     [ "init", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#ac4906714b4554525ec0ea4bb56bbe6bc", null ],
-    [ "items", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a9f8cdcba097ae4710ab15d1d3be55874", null ],
+    [ "items", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a70854ce470fd6714a8d0d8db067dd59d", null ],
     [ "nbItem", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a4b212a25aaf72f75280d4dd345991369", null ],
     [ "set", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#adcd9c49993df1f6c8bb47c926397daf7", null ],
     [ "sourceItemKind", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a2e37ec016bbe2dc0352c80dca166f54b", null ],

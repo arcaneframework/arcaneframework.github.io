@@ -197,7 +197,6 @@ var menudata={children:[
 {text:"Énumérations",url:"functions_enum.html"},
 {text:"Valeurs énumérées",url:"functions_eval.html",children:[
 {text:"a",url:"functions_eval.html#index_a"},
-{text:"b",url:"functions_eval.html#index_b"},
 {text:"c",url:"functions_eval.html#index_c"},
 {text:"d",url:"functions_eval.html#index_d"},
 {text:"e",url:"functions_eval.html#index_e"},
@@ -214,8 +213,7 @@ var menudata={children:[
 {text:"s",url:"functions_eval.html#index_s"},
 {text:"t",url:"functions_eval.html#index_t"},
 {text:"u",url:"functions_eval.html#index_u"},
-{text:"v",url:"functions_eval.html#index_v"},
-{text:"w",url:"functions_eval.html#index_w"}]},
+{text:"v",url:"functions_eval.html#index_v"}]},
 {text:"Fonctions associées",url:"functions_rela.html"}]}]},
 {text:"Fichiers",url:"files.html",children:[
 {text:"Liste des fichiers",url:"files.html"},

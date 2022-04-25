@@ -7,6 +7,7 @@ var classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4 =
     [ "dim1Size", "d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html#a93d4786058a5058886385867ae9d43c6", null ],
     [ "offset", "d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html#a2f1658bf9d758c8a3c37d25d678b2710", null ],
     [ "operator()", "d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html#a60c713cc5682274f758e96a5c7f806b2", null ],
+    [ "operator[]", "d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html#ab6731452d50225cd8b3e4974c2ec5a40", null ],
     [ "ptrAt", "d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html#a25956adb25c679184866b365e478b04a", null ],
     [ "NumArrayBase< UnqualifiedValueType, 1, LayoutType >", "d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html#ab0831969101fa0caee9564ce59067352", null ]
 ];

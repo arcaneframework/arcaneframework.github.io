@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['state_12276',['State',['../df/dde/classArcane_1_1VariableSynchronizerEventArgs.html#a90378f8465d65a43a7078f997a50c4ef',1,'Arcane::VariableSynchronizerEventArgs']]],
-  ['status_12277',['Status',['../d8/dda/classArcane_1_1VariableStatusChangedEventArgs.html#a174859b20bd3801dbd8e7d8f02ee1cb1',1,'Arcane::VariableStatusChangedEventArgs']]]
+  ['state_12327',['State',['../df/dde/classArcane_1_1VariableSynchronizerEventArgs.html#a90378f8465d65a43a7078f997a50c4ef',1,'Arcane::VariableSynchronizerEventArgs']]],
+  ['status_12328',['Status',['../d8/dda/classArcane_1_1VariableStatusChangedEventArgs.html#a174859b20bd3801dbd8e7d8f02ee1cb1',1,'Arcane::VariableStatusChangedEventArgs']]]
 ];
