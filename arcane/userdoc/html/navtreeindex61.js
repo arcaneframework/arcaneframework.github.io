@@ -1,5 +1,10 @@
 var NAVTREEINDEX61 =
 {
+"db/dd1/classVertexConnectivity.html":[37,18,3],
+"db/dd1/classVertexConnectivity.html#a216afad5ed57a693000a51e97a220e89":[37,18,3,3],
+"db/dd1/classVertexConnectivity.html#a473f2f4c5df3d5332bbc89f62a1d53e1":[37,18,3,0],
+"db/dd1/classVertexConnectivity.html#a591655f84d6c3dd11c129b751f62c165":[37,18,3,2],
+"db/dd1/classVertexConnectivity.html#abbcf09e1e130846c11df1d7c7f6ab0f9":[37,18,3,1],
 "db/dd2/classArcane_1_1ItemRefinementPatternT_3_01IT__Tetraedron4_01_4.html":[39,0,1,594],
 "db/dd2/classArcane_1_1ItemRefinementPatternT_3_01IT__Tetraedron4_01_4.html#a1b32797af3e27896a147c3d8a2957187":[39,0,1,594,5],
 "db/dd2/classArcane_1_1ItemRefinementPatternT_3_01IT__Tetraedron4_01_4.html#a2f306d3a81e341519497eeedb5e2d390":[39,0,1,594,2],
@@ -244,10 +249,5 @@ var NAVTREEINDEX61 =
 "dc/d14/classArcane_1_1DirectedAcyclicGraphT.html#acd69a435d3079fe42e40866a4984200a":[39,0,1,228,11],
 "dc/d14/classArcane_1_1DirectedAcyclicGraphT.html#ad5374b9e5494be3d3bcb1fccded93f99":[39,0,1,228,9],
 "dc/d14/classArcane_1_1DirectedAcyclicGraphT.html#ada1f5100125573fcef9a8bcbc072d250":[39,0,1,228,4],
-"dc/d16/MeshMaterialIndirectModifier_8h_source.html":[40,0,0,3,44],
-"dc/d18/IPrimaryMesh_8h_source.html":[40,0,1,187],
-"dc/d19/MessageId_8h_source.html":[40,0,6,0,13],
-"dc/d19/classArcane_1_1CaseFunctionBuildInfo.html":[39,0,1,126],
-"dc/d19/classArcane_1_1CaseFunctionBuildInfo.html#a1257cc906dbdbaa6e58814d8cdd0ae2b":[39,0,1,126,6],
-"dc/d19/classArcane_1_1CaseFunctionBuildInfo.html#a607951ba2b4c12788fbd08d38d9ad4c7":[39,0,1,126,4]
+"dc/d16/MeshMaterialIndirectModifier_8h_source.html":[40,0,0,3,44]
 };

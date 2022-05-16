@@ -328,6 +328,7 @@ var group__Collection =
       [ "empty", "d6/d42/classArccore_1_1SpanImpl.html#ab8e2e71d1be5f73550719e00cc4806cb", null ],
       [ "end", "d6/d42/classArccore_1_1SpanImpl.html#a6050d94119171fa0a31c721553a29e30", null ],
       [ "fill", "d6/d42/classArccore_1_1SpanImpl.html#a95330a6c65e92fb36037f32be6ccc442", null ],
+      [ "findFirst", "d6/d42/classArccore_1_1SpanImpl.html#a75db3002c991e2a101e38c3821ec9f11", null ],
       [ "item", "d6/d42/classArccore_1_1SpanImpl.html#a6a4c4b64ced88bcd05b8633d311f2762", null ],
       [ "length", "d6/d42/classArccore_1_1SpanImpl.html#a7b8cacd8e40c9c6da41998dcadfc7fbd", null ],
       [ "operator=", "d6/d42/classArccore_1_1SpanImpl.html#ac645a14bb73484146293e9223df9b508", null ],

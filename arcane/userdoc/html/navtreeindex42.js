@@ -1,5 +1,10 @@
 var NAVTREEINDEX42 =
 {
+"d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html#a008abe1f4f93b5bf3961143a6c606318":[39,0,1,0,6,18],
+"d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html#a01ef1ed8c77406ae0d079c42d0e527a3":[39,0,1,0,6,15],
+"d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html#a04f6fa11172c2df281eb75b1dbc7ddcc":[39,0,1,0,6,3],
+"d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html#a0eec4554cec82b4a81ddaa7af2847c7d":[39,0,1,0,6,11],
+"d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html#a104eebde6220040e2c72d4cb241a90ba":[39,0,1,0,6,13],
 "d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html#a142d27a95878e2bd2c41f7ad74ec7d18":[39,0,1,0,6,7],
 "d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html#a36a26b2a449410a173094f024997f8e2":[39,0,1,0,6,16],
 "d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html#a4984e9a2920a9ca5dc2661dace09f8d9":[39,0,1,0,6,19],
@@ -244,10 +249,5 @@ var NAVTREEINDEX42 =
 "d7/dfb/classArcane_1_1IParallelNonBlockingCollectiveDispatchT.html#ac680c2d4b58ea9d1df9605432c6b0896":[39,0,1,488,8],
 "d7/dfb/classArcane_1_1IParallelNonBlockingCollectiveDispatchT.html#ac92e7b18cef64766ec4729c4eae4d8e6":[39,0,1,488,11],
 "d7/dfe/arcanedoc_cartesianmesh.html":[19],
-"d7/dfe/arcanedoc_cartesianmesh.html#arcanedoc_cartesianmesh_cartesian_connectivity":[19,2],
-"d7/dfe/arcanedoc_cartesianmesh.html#arcanedoc_cartesianmesh_direction":[19,1],
-"d7/dfe/arcanedoc_cartesianmesh.html#arcanedoc_cartesianmesh_init":[19,0],
-"d7/dff/classArcane_1_1SequentialSection.html":[39,0,1,944],
-"d7/dff/classArcane_1_1SequentialSection.html#a46a8ce72aaee378b0ffb0c5dd9da2b97":[39,0,1,944,3],
-"d7/dff/classArcane_1_1SequentialSection.html#a6ac9848f822877a4f617113e7f05addb":[39,0,1,944,2]
+"d7/dfe/arcanedoc_cartesianmesh.html#arcanedoc_cartesianmesh_cartesian_connectivity":[19,2]
 };

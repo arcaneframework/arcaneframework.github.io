@@ -1,5 +1,14 @@
 var NAVTREEINDEX66 =
 {
+"dc/d76/classArcane_1_1Materials_1_1MeshMaterialExchangeMng_1_1ExchangeCellFactory.html#ade805045eb193432eb691374c5e22a77":[39,0,1,9,77,0,0],
+"dc/d76/classArcane_1_1VariableParallelOperationBase.html":[39,0,1,1065],
+"dc/d76/classArcane_1_1VariableParallelOperationBase.html#a112e7e02f15ba75c855787e30220db96":[39,0,1,1065,3],
+"dc/d76/classArcane_1_1VariableParallelOperationBase.html#a4738c577e64083d32d5a70245a02bcb6":[39,0,1,1065,6],
+"dc/d76/classArcane_1_1VariableParallelOperationBase.html#a6b445cf302c4033c52e2f7d393ad6eec":[39,0,1,1065,2],
+"dc/d76/classArcane_1_1VariableParallelOperationBase.html#a9790813252b9f36a3996ba9b5a36244e":[39,0,1,1065,5],
+"dc/d76/classArcane_1_1VariableParallelOperationBase.html#aa9859b1099ffb925dd5ce605d08b09a6":[39,0,1,1065,7],
+"dc/d76/classArcane_1_1VariableParallelOperationBase.html#ab48b3975a5b8a7d0502a0c4a15737af3":[39,0,1,1065,1],
+"dc/d76/classArcane_1_1VariableParallelOperationBase.html#ab8a5cff9b53739cba09bcd88632392e6":[39,0,1,1065,0],
 "dc/d76/classArcane_1_1VariableParallelOperationBase.html#aca5244bd86c6c1df97566af0422f2e5c":[39,0,1,1065,4],
 "dc/d77/classHexagon6Connectivity.html":[37,18,8],
 "dc/d77/classHexagon6Connectivity.html#a16c3f7a06fcd13afef4a521248078f3d":[37,18,8,1],
@@ -240,14 +249,5 @@ var NAVTREEINDEX66 =
 "dc/dbd/classArcane_1_1Internal_1_1ServiceFinderBase2T.html#a6ac2bf8acda56fb53b015fe3b0fa1832":[39,0,1,6,10,5],
 "dc/dbd/classArcane_1_1Internal_1_1ServiceFinderBase2T.html#a8e401798346247f416ea0b457a88dccc":[39,0,1,6,10,0],
 "dc/dbd/classArcane_1_1Internal_1_1ServiceFinderBase2T.html#a9da5c0a27f8e7d96a94eefd8a79bec4f":[39,0,1,6,10,11],
-"dc/dbd/classArcane_1_1Internal_1_1ServiceFinderBase2T.html#aa0e0c2a1de9c26e5cf10fc498a917312":[39,0,1,6,10,2],
-"dc/dbd/classArcane_1_1Internal_1_1ServiceFinderBase2T.html#abe178cb7a6bed5f91f088a9295344f85":[39,0,1,6,10,14],
-"dc/dbd/classArcane_1_1Internal_1_1ServiceFinderBase2T.html#ad0b88e974541a7a56ea158ce4126c806":[39,0,1,6,10,4],
-"dc/dbd/classArcane_1_1Internal_1_1ServiceFinderBase2T.html#ad971d61e545df4a17addc16e09e2e508":[39,0,1,6,10,12],
-"dc/dbd/classArcane_1_1Internal_1_1ServiceFinderBase2T.html#ad986f1f0f8096077bf1ae20d91f8effc":[39,0,1,6,10,16],
-"dc/dbd/classArcane_1_1Internal_1_1ServiceFinderBase2T.html#ae788e4e17cbe763c8651fc76e6abf3f8":[39,0,1,6,10,1],
-"dc/dbd/classArcane_1_1Internal_1_1ServiceFinderBase2T.html#ae799694072d2fe1cbc89c24ace27b255":[39,0,1,6,10,7],
-"dc/dbd/classArcane_1_1Internal_1_1ServiceFinderBase2T.html#aec22f3866b73a10749cf0d83545c25e6":[39,0,1,6,10,17],
-"dc/dc1/classArcane_1_1Materials_1_1MeshBlockBuildInfo.html":[37,17,23],
-"dc/dc1/classArcane_1_1Materials_1_1MeshBlockBuildInfo.html#a11e10d0a642abd05736798c24140515c":[37,17,23,1]
+"dc/dbd/classArcane_1_1Internal_1_1ServiceFinderBase2T.html#aa0e0c2a1de9c26e5cf10fc498a917312":[39,0,1,6,10,2]
 };

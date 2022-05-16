@@ -1,5 +1,10 @@
 var NAVTREEINDEX60 =
 {
+"db/d8e/classArcane_1_1ItemGroupImplPrivate.html#a7d776de82975ae3714f846f3e2c9eaf1":[39,0,1,549,42],
+"db/d8e/classArcane_1_1ItemGroupImplPrivate.html#a7e4587cc786035a31e98cec3b425650e":[39,0,1,549,58],
+"db/d8e/classArcane_1_1ItemGroupImplPrivate.html#a80c70a8253652247adb2015f697f3992":[39,0,1,549,45],
+"db/d8e/classArcane_1_1ItemGroupImplPrivate.html#a8d396037623c3aa8b1f5d0d958ae2b49":[39,0,1,549,17],
+"db/d8e/classArcane_1_1ItemGroupImplPrivate.html#a8eaed16572f627a791fa4880693d400a":[39,0,1,549,22],
 "db/d8e/classArcane_1_1ItemGroupImplPrivate.html#a94d88cc0220df5326abe4d8d153a8365":[39,0,1,549,18],
 "db/d8e/classArcane_1_1ItemGroupImplPrivate.html#a950906d307fdcf26d6cd801576837bad":[39,0,1,549,32],
 "db/d8e/classArcane_1_1ItemGroupImplPrivate.html#a99c111cbd17de9f3bd5d63fe9619fb4d":[39,0,1,549,29],
@@ -185,8 +190,8 @@ var NAVTREEINDEX60 =
 "db/daf/ItemTypes_8h.html#gae8e2d4ae8f80b9d5b17e85e39d971eaa":[40,0,1,235,20],
 "db/daf/ItemTypes_8h_source.html":[40,0,1,235],
 "db/db4/VarRefEnumerator_8h_source.html":[40,0,1,378],
-"db/db6/namespaceArcane_1_1GeometricUtilities.html":[38,0,0,4],
 "db/db6/namespaceArcane_1_1GeometricUtilities.html":[39,0,1,4],
+"db/db6/namespaceArcane_1_1GeometricUtilities.html":[38,0,0,4],
 "db/db8/classArcane_1_1Accelerator_1_1AcceleratorMng.html":[39,0,1,0,1],
 "db/db8/classArcane_1_1Accelerator_1_1AcceleratorMng.html#a04e07037126d1bc956732060836de1fa":[39,0,1,0,1,0],
 "db/db8/classArcane_1_1Accelerator_1_1AcceleratorMng.html#a76f35e4203a9c102e3fa4c4a82ebc0f1":[39,0,1,0,1,3],
@@ -244,10 +249,5 @@ var NAVTREEINDEX60 =
 "db/dcf/classArcane_1_1Node_1_1Index.html":[37,8,10,0],
 "db/dcf/classArcane_1_1Node_1_1Index.html#a46e79f1f4d7b343013ff8dbdf14e75dd":[37,8,10,0,2],
 "db/dcf/classArcane_1_1Node_1_1Index.html#a69b8df9e04d9f9b46364f265c65eb2ca":[37,8,10,0,1],
-"db/dcf/classArcane_1_1Node_1_1Index.html#a819e89fe23655323bed62562c94c5bb1":[37,8,10,0,0],
-"db/dd1/classVertexConnectivity.html":[37,18,3],
-"db/dd1/classVertexConnectivity.html#a216afad5ed57a693000a51e97a220e89":[37,18,3,3],
-"db/dd1/classVertexConnectivity.html#a473f2f4c5df3d5332bbc89f62a1d53e1":[37,18,3,0],
-"db/dd1/classVertexConnectivity.html#a591655f84d6c3dd11c129b751f62c165":[37,18,3,2],
-"db/dd1/classVertexConnectivity.html#abbcf09e1e130846c11df1d7c7f6ab0f9":[37,18,3,1]
+"db/dcf/classArcane_1_1Node_1_1Index.html#a819e89fe23655323bed62562c94c5bb1":[37,8,10,0,0]
 };
