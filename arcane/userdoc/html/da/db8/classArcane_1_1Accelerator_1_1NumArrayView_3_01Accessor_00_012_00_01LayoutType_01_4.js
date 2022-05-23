@@ -5,5 +5,6 @@ var classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_012_00_01LayoutTy
     [ "SpanType", "da/db8/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_012_00_01LayoutType_01_4.html#acfe6e481ac5e08619bed59326b6afb90", null ],
     [ "NumArrayView", "da/db8/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_012_00_01LayoutType_01_4.html#aa4d784a5c554661350348614a4f22545", null ],
     [ "operator()", "da/db8/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_012_00_01LayoutType_01_4.html#a16246192868a3d287c36ce4a6af29004", null ],
-    [ "operator()", "da/db8/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_012_00_01LayoutType_01_4.html#a180e3756324c6a5b79696642011af84f", null ]
+    [ "operator()", "da/db8/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_012_00_01LayoutType_01_4.html#a180e3756324c6a5b79696642011af84f", null ],
+    [ "to1DSpan", "da/db8/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_012_00_01LayoutType_01_4.html#a3180bd6f90cbb2dea69df6b87f633254", null ]
 ];

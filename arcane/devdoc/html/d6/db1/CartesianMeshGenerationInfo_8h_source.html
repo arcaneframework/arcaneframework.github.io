@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.6.2.0</span>
+   &#160;<span id="projectnumber">3.6.4.0</span>
    </div>
   </td>
  </tr>
@@ -87,79 +87,86 @@ $(function() {
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/ArrayView.h&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;arcane/ICartesianMeshGenerationInfo.h&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/Real3.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;arcane/ICartesianMeshGenerationInfo.h&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span>Arcane::impl</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">namespace </span>Arcane::impl</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="../../d7/d7c/classArcane_1_1impl_1_1CartesianMeshGenerationInfo.html">   33</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../d7/d7c/classArcane_1_1impl_1_1CartesianMeshGenerationInfo.html">CartesianMeshGenerationInfo</a></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d3/d5d/classArcane_1_1ICartesianMeshGenerationInfo.html">ICartesianMeshGenerationInfo</a></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;  <span class="keyword">static</span> constexpr Int32 NB_DIM = 3;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <a class="code" href="../../d7/d7c/classArcane_1_1impl_1_1CartesianMeshGenerationInfo.html">CartesianMeshGenerationInfo</a>(<a class="code" href="../../d0/d9f/classArcane_1_1IMesh.html">IMesh</a>* mesh);</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  Int64 globalNbCell()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_global_nb_cell; }</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int64ConstArrayView</a> globalNbCells()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_global_nb_cells; }</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> subDomainOffsets()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_sub_domain_offsets; }</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> nbSubDomains()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_nb_sub_domains; }</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> ownNbCells()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_own_nb_cells; };</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int64ConstArrayView</a> ownCellOffsets()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_own_cell_offsets; };</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  Int64 firstOwnCellUniqueId()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_first_own_cell_unique_id; }</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <span class="keywordtype">void</span> setOwnCellOffsets(Int64 x,Int64 y,Int64 z) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  <span class="keywordtype">void</span> setGlobalNbCells(Int64 x,Int64 y,Int64 z) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keywordtype">void</span> setSubDomainOffsets(Int32 x,Int32 y,Int32 z) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordtype">void</span> setNbSubDomains(Int32 x,Int32 y,Int32 z) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordtype">void</span> setOwnNbCells(Int32 x,Int32 y,Int32 z) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordtype">void</span> setFirstOwnCellUniqueId(Int64 uid) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <a class="code" href="../../d0/d9f/classArcane_1_1IMesh.html">IMesh</a>* m_mesh;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  Int32 m_mesh_dimension = -1;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  Int64 m_global_nb_cell = 0;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int64ArrayView</a> m_global_nb_cells;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int32ArrayView</a> m_sub_domain_offsets;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int32ArrayView</a> m_nb_sub_domains;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int32ArrayView</a> m_own_nb_cells;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int64ArrayView</a> m_own_cell_offsets;</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  Int64 m_global_nb_cell_ptr[NB_DIM];</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  Int32 m_sub_domain_offset_ptr[NB_DIM];</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  Int32 m_nb_sub_domain_ptr[NB_DIM];</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  Int32 m_own_nb_cell_ptr[NB_DIM];</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  Int64 m_own_cell_offset_ptr[NB_DIM];</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  Int64 m_first_own_cell_unique_id = -1;</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keywordtype">void</span> _init();</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;};</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../d7/d7c/classArcane_1_1impl_1_1CartesianMeshGenerationInfo.html">   34</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../d7/d7c/classArcane_1_1impl_1_1CartesianMeshGenerationInfo.html">CartesianMeshGenerationInfo</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../d3/d5d/classArcane_1_1ICartesianMeshGenerationInfo.html">ICartesianMeshGenerationInfo</a></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;{</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">static</span> constexpr Int32 NB_DIM = 3;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <a class="code" href="../../d7/d7c/classArcane_1_1impl_1_1CartesianMeshGenerationInfo.html">CartesianMeshGenerationInfo</a>(<a class="code" href="../../d0/d9f/classArcane_1_1IMesh.html">IMesh</a>* mesh);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  Int64 globalNbCell()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_global_nb_cell; }</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int64ConstArrayView</a> globalNbCells()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_global_nb_cells; }</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> subDomainOffsets()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_sub_domain_offsets; }</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> nbSubDomains()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_nb_sub_domains; }</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> ownNbCells()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_own_nb_cells; };</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int64ConstArrayView</a> ownCellOffsets()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_own_cell_offsets; };</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  Int64 firstOwnCellUniqueId()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_first_own_cell_unique_id; }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <a class="code" href="../../d1/da6/classArcane_1_1Real3.html">Real3</a> globalOrigin()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_global_origin; };</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <a class="code" href="../../d1/da6/classArcane_1_1Real3.html">Real3</a> globalLength()<span class="keyword"> const override </span>{ <span class="keywordflow">return</span> m_global_length; };</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <span class="keywordtype">void</span> setOwnCellOffsets(Int64 x,Int64 y,Int64 z) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keywordtype">void</span> setGlobalNbCells(Int64 x,Int64 y,Int64 z) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keywordtype">void</span> setSubDomainOffsets(Int32 x,Int32 y,Int32 z) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keywordtype">void</span> setNbSubDomains(Int32 x,Int32 y,Int32 z) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <span class="keywordtype">void</span> setOwnNbCells(Int32 x,Int32 y,Int32 z) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keywordtype">void</span> setFirstOwnCellUniqueId(Int64 uid) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordtype">void</span> setGlobalOrigin(<a class="code" href="../../d1/da6/classArcane_1_1Real3.html">Real3</a> pos) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordtype">void</span> setGlobalLength(<a class="code" href="../../d1/da6/classArcane_1_1Real3.html">Real3</a> length) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160; </div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <a class="code" href="../../d0/d9f/classArcane_1_1IMesh.html">IMesh</a>* m_mesh;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  Int32 m_mesh_dimension = -1;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  Int64 m_global_nb_cell = 0;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int64ArrayView</a> m_global_nb_cells;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int32ArrayView</a> m_sub_domain_offsets;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int32ArrayView</a> m_nb_sub_domains;</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int32ArrayView</a> m_own_nb_cells;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <a class="code" href="../../d7/d02/classArccore_1_1ArrayView.html">Int64ArrayView</a> m_own_cell_offsets;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  Int64 m_global_nb_cell_ptr[NB_DIM];</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  Int32 m_sub_domain_offset_ptr[NB_DIM];</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  Int32 m_nb_sub_domain_ptr[NB_DIM];</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  Int32 m_own_nb_cell_ptr[NB_DIM];</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  Int64 m_own_cell_offset_ptr[NB_DIM];</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <a class="code" href="../../d1/da6/classArcane_1_1Real3.html">Real3</a> m_global_origin;</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <a class="code" href="../../d1/da6/classArcane_1_1Real3.html">Real3</a> m_global_length;</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  Int64 m_first_own_cell_unique_id = -1;</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keywordtype">void</span> _init();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;};</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
 <div class="ttc" id="aclassArcane_1_1ItemVectorViewT_html"><div class="ttname"><a href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">Arcane::ItemVectorViewT</a></div><div class="ttdoc">Vue sur un tableau typé d'entités.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:165</div></div>
 <div class="ttc" id="aclassArcane_1_1CartesianMeshImpl_html_a55838708a93e3b3aed157402f9cb361d"><div class="ttname"><a href="../../db/d6f/classArcane_1_1CartesianMeshImpl.html#a55838708a93e3b3aed157402f9cb361d">Arcane::CartesianMeshImpl::computeDirections</a></div><div class="ttdeci">void computeDirections() override</div><div class="ttdoc">Calcule les infos pour les accès par direction.</div><div class="ttdef"><b>Definition:</b> CartesianMesh.cc:244</div></div>
@@ -257,7 +264,7 @@ $(function() {
 <div class="ttc" id="aclassArcane_1_1MeshVariableScalarRefT_html"><div class="ttname"><a href="../../d7/d20/classArcane_1_1MeshVariableScalarRefT.html">Arcane::MeshVariableScalarRefT&lt; Cell, Real3 &gt;</a></div></div>
 <div class="ttc" id="aItemEnumerator_8h_html_a2301a57310b51190d331e08b4220e9e4"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#a2301a57310b51190d331e08b4220e9e4">ENUMERATE_FACE</a></div><div class="ttdeci">#define ENUMERATE_FACE(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de faces.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:240</div></div>
 <div class="ttc" id="aclassArcane_1_1AutoDestroyUserData_html"><div class="ttname"><a href="../../de/dcf/classArcane_1_1AutoDestroyUserData.html">Arcane::AutoDestroyUserData</a></div><div class="ttdoc">UserData s'auto-détruisant une fois détaché.</div><div class="ttdef"><b>Definition:</b> AutoDestroyUserData.h:49</div></div>
-<div class="ttc" id="aclassArcane_1_1impl_1_1CartesianMeshGenerationInfo_html"><div class="ttname"><a href="../../d7/d7c/classArcane_1_1impl_1_1CartesianMeshGenerationInfo.html">Arcane::impl::CartesianMeshGenerationInfo</a></div><div class="ttdoc">Informations sur la génération des maillages cartésiens.</div><div class="ttdef"><b>Definition:</b> CartesianMeshGenerationInfo.h:33</div></div>
+<div class="ttc" id="aclassArcane_1_1impl_1_1CartesianMeshGenerationInfo_html"><div class="ttname"><a href="../../d7/d7c/classArcane_1_1impl_1_1CartesianMeshGenerationInfo.html">Arcane::impl::CartesianMeshGenerationInfo</a></div><div class="ttdoc">Informations sur la génération des maillages cartésiens.</div><div class="ttdef"><b>Definition:</b> CartesianMeshGenerationInfo.h:34</div></div>
 <div class="ttc" id="anamespaceArcane_html_a87ef4153518c68216588e90c3edbb250acd881c39f4f6a65eb5933f666f4a4115"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a87ef4153518c68216588e90c3edbb250acd881c39f4f6a65eb5933f666f4a4115">Arcane::MD_DirX</a></div><div class="ttdeci">@ MD_DirX</div><div class="ttdoc">Direction X.</div><div class="ttdef"><b>Definition:</b> ArcaneTypes.h:276</div></div>
 <div class="ttc" id="aclassArcane_1_1CartesianMeshImpl_html_a943f17173eefe25a21ba1fe1c5d2112b"><div class="ttname"><a href="../../db/d6f/classArcane_1_1CartesianMeshImpl.html#a943f17173eefe25a21ba1fe1c5d2112b">Arcane::CartesianMeshImpl::refinePatch2D</a></div><div class="ttdeci">void refinePatch2D(Real2 position, Real2 length) override</div><div class="ttdoc">Raffine en 2D un bloc du maillage cartésien.</div><div class="ttdef"><b>Definition:</b> CartesianMesh.cc:504</div></div>
 <div class="ttc" id="aclassArcane_1_1CartesianConnectivity_html"><div class="ttname"><a href="../../d2/d47/classArcane_1_1CartesianConnectivity.html">Arcane::CartesianConnectivity</a></div><div class="ttdoc">Informations de connectivité d'un maillage cartésien.</div><div class="ttdef"><b>Definition:</b> cartesianmesh/CartesianConnectivity.h:65</div></div>
@@ -293,7 +300,7 @@ $(function() {
 <div class="ttc" id="aclassArcane_1_1CartesianMeshImpl_html_aff05b453dfc79ff0f9409c4fe637ce23"><div class="ttname"><a href="../../db/d6f/classArcane_1_1CartesianMeshImpl.html#aff05b453dfc79ff0f9409c4fe637ce23">Arcane::CartesianMeshImpl::connectivity</a></div><div class="ttdeci">CartesianConnectivity connectivity() override</div><div class="ttdoc">Informations sur la connectivité</div><div class="ttdef"><b>Definition:</b> CartesianMesh.cc:112</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 16 Mai 2022 03:15:34 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+Généré le Lundi 23 Mai 2022 03:30:54 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="../../doxygen.png" alt="doxygen"/>
 </a> 1.8.17
 </small></address>

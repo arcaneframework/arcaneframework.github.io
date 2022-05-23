@@ -20,6 +20,7 @@ var dir_05bc5d3eb69a9870d73d32fafad25b76 =
     [ "IMeshMaterial.h", "da/d4e/IMeshMaterial_8h_source.html", null ],
     [ "IMeshMaterialMng.h", "d3/d8b/IMeshMaterialMng_8h_source.html", null ],
     [ "IMeshMaterialModifierImpl.h", "de/da0/IMeshMaterialModifierImpl_8h_source.html", null ],
+    [ "IMeshMaterialSynchronizeBuffer.h", "d2/d92/IMeshMaterialSynchronizeBuffer_8h_source.html", null ],
     [ "IMeshMaterialVariable.h", "da/d47/IMeshMaterialVariable_8h_source.html", null ],
     [ "IMeshMaterialVariableComputeFunction.h", "dc/d37/IMeshMaterialVariableComputeFunction_8h_source.html", null ],
     [ "IMeshMaterialVariableSynchronizer.h", "d5/daa/IMeshMaterialVariableSynchronizer_8h_source.html", null ],

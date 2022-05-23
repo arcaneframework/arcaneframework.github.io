@@ -5,5 +5,6 @@ var classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_013_00_01LayoutTy
     [ "SpanType", "d6/dfa/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_013_00_01LayoutType_01_4.html#a9cf2ca8c1431d0e09fda4d5fe18ad7a8", null ],
     [ "NumArrayView", "d6/dfa/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_013_00_01LayoutType_01_4.html#a7000e36f3c1103d7195d110ce165aa9e", null ],
     [ "operator()", "d6/dfa/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_013_00_01LayoutType_01_4.html#ab59685cd39cca638ff94b862c3e99c85", null ],
-    [ "operator()", "d6/dfa/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_013_00_01LayoutType_01_4.html#a5e729cef2bfe852a3a1c02e0381b4165", null ]
+    [ "operator()", "d6/dfa/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_013_00_01LayoutType_01_4.html#a5e729cef2bfe852a3a1c02e0381b4165", null ],
+    [ "to1DSpan", "d6/dfa/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_013_00_01LayoutType_01_4.html#adbfc450600ac2a9043234a4cbf9edfdc", null ]
 ];

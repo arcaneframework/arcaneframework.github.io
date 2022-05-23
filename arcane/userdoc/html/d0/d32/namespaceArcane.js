@@ -98,6 +98,7 @@ var namespaceArcane =
       [ "IMeshMaterial", "d9/ddb/classArcane_1_1Materials_1_1IMeshMaterial.html", "d9/ddb/classArcane_1_1Materials_1_1IMeshMaterial" ],
       [ "IMeshMaterialMng", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng" ],
       [ "IMeshMaterialModifierImpl", "dd/dcf/classArcane_1_1Materials_1_1IMeshMaterialModifierImpl.html", "dd/dcf/classArcane_1_1Materials_1_1IMeshMaterialModifierImpl" ],
+      [ "IMeshMaterialSynchronizeBuffer", "dc/ddf/classArcane_1_1Materials_1_1IMeshMaterialSynchronizeBuffer.html", "dc/ddf/classArcane_1_1Materials_1_1IMeshMaterialSynchronizeBuffer" ],
       [ "IMeshMaterialVariable", "dc/dcf/classArcane_1_1Materials_1_1IMeshMaterialVariable.html", "dc/dcf/classArcane_1_1Materials_1_1IMeshMaterialVariable" ],
       [ "IMeshMaterialVariableSynchronizer", "d8/dd6/classArcane_1_1Materials_1_1IMeshMaterialVariableSynchronizer.html", "d8/dd6/classArcane_1_1Materials_1_1IMeshMaterialVariableSynchronizer" ],
       [ "ItemMaterialVariableArray", "d8/d9e/classArcane_1_1Materials_1_1ItemMaterialVariableArray.html", "d8/d9e/classArcane_1_1Materials_1_1ItemMaterialVariableArray" ],
@@ -148,6 +149,8 @@ var namespaceArcane =
       [ "MeshMaterialVariableScalar", "df/d28/classArcane_1_1Materials_1_1MeshMaterialVariableScalar.html", "df/d28/classArcane_1_1Materials_1_1MeshMaterialVariableScalar" ],
       [ "MeshMaterialVariableSynchronizer", "dd/dd9/classArcane_1_1Materials_1_1MeshMaterialVariableSynchronizer.html", "dd/dd9/classArcane_1_1Materials_1_1MeshMaterialVariableSynchronizer" ],
       [ "MeshMaterialVariableSynchronizerList", "d8/d05/classArcane_1_1Materials_1_1MeshMaterialVariableSynchronizerList.html", "d8/d05/classArcane_1_1Materials_1_1MeshMaterialVariableSynchronizerList" ],
+      [ "MultiBufferMeshMaterialSynchronizeBuffer", "d8/d58/classArcane_1_1Materials_1_1MultiBufferMeshMaterialSynchronizeBuffer.html", "d8/d58/classArcane_1_1Materials_1_1MultiBufferMeshMaterialSynchronizeBuffer" ],
+      [ "OneBufferMeshMaterialSynchronizeBuffer", "d5/de7/classArcane_1_1Materials_1_1OneBufferMeshMaterialSynchronizeBuffer.html", "d5/de7/classArcane_1_1Materials_1_1OneBufferMeshMaterialSynchronizeBuffer" ],
       [ "PureMatVarIndex", "d2/d39/classArcane_1_1Materials_1_1PureMatVarIndex.html", "d2/d39/classArcane_1_1Materials_1_1PureMatVarIndex" ],
       [ "VariableReferenceGetter", "d3/d99/classArcane_1_1Materials_1_1VariableReferenceGetter.html", null ]
     ] ],
@@ -156,6 +159,7 @@ var namespaceArcane =
       [ "IGeometryMng", "df/d38/classArcane_1_1Numerics_1_1IGeometryMng.html", "df/d38/classArcane_1_1Numerics_1_1IGeometryMng" ],
       [ "IGeometryProperty", "dd/d4d/structArcane_1_1Numerics_1_1IGeometryProperty.html", "dd/d4d/structArcane_1_1Numerics_1_1IGeometryProperty" ]
     ] ],
+    [ "Parallel", "d8/d8f/namespaceArcane_1_1Parallel.html", "d8/d8f/namespaceArcane_1_1Parallel" ],
     [ "properties", null, [
       [ "ConfigurationPropertyReader", "da/ddc/classArcane_1_1properties_1_1ConfigurationPropertyReader.html", "da/ddc/classArcane_1_1properties_1_1ConfigurationPropertyReader" ],
       [ "GenericPropertyVisitorWrapper", "d3/d0a/classArcane_1_1properties_1_1GenericPropertyVisitorWrapper.html", "d3/d0a/classArcane_1_1properties_1_1GenericPropertyVisitorWrapper" ],
@@ -696,7 +700,6 @@ var namespaceArcane =
     [ "ISingletonServiceInstance", "d4/d41/classArcane_1_1ISingletonServiceInstance.html", "d4/d41/classArcane_1_1ISingletonServiceInstance" ],
     [ "ISO88591Transcoder", "d2/d7c/classArcane_1_1ISO88591Transcoder.html", "d2/d7c/classArcane_1_1ISO88591Transcoder" ],
     [ "IStandardFunction", "db/d86/classArcane_1_1IStandardFunction.html", "db/d86/classArcane_1_1IStandardFunction" ],
-    [ "IStat", "d9/d24/classArcane_1_1IStat.html", "d9/d24/classArcane_1_1IStat" ],
     [ "ISubDomain", "d9/d1e/classArcane_1_1ISubDomain.html", "d9/d1e/classArcane_1_1ISubDomain" ],
     [ "ISymbolizerService", "d2/d04/classArcane_1_1ISymbolizerService.html", "d2/d04/classArcane_1_1ISymbolizerService" ],
     [ "ITask", "da/dd2/classArcane_1_1ITask.html", "da/dd2/classArcane_1_1ITask" ],
@@ -1166,7 +1169,6 @@ var namespaceArcane =
     [ "SSESimdX8Real", "dc/dab/classArcane_1_1SSESimdX8Real.html", "dc/dab/classArcane_1_1SSESimdX8Real" ],
     [ "StandaloneAcceleratorMng", "d0/d53/classArcane_1_1StandaloneAcceleratorMng.html", "d0/d53/classArcane_1_1StandaloneAcceleratorMng" ],
     [ "StandardCaseFunction", "de/d50/classArcane_1_1StandardCaseFunction.html", "de/d50/classArcane_1_1StandardCaseFunction" ],
-    [ "Stat", "d3/d9e/classArcane_1_1Stat.html", "d3/d9e/classArcane_1_1Stat" ],
     [ "StringDictionary", "dd/d06/classArcane_1_1StringDictionary.html", "dd/d06/classArcane_1_1StringDictionary" ],
     [ "SubDomainBuildInfo", "d9/de6/classArcane_1_1SubDomainBuildInfo.html", "d9/de6/classArcane_1_1SubDomainBuildInfo" ],
     [ "SynchronizerMatrixPrinter", "d4/de8/classArcane_1_1SynchronizerMatrixPrinter.html", "d4/de8/classArcane_1_1SynchronizerMatrixPrinter" ],

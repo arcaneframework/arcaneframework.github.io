@@ -679,6 +679,7 @@ var group__Mesh =
       [ "ArcaneMain", "d7/dbb/classArcane_1_1ItemTypeMng.html#a368dc97a413d477e49e0b65bf2fe32ce", null ],
       [ "Item", "d7/dbb/classArcane_1_1ItemTypeMng.html#aad85754f188b769ff61150eaf36106c4", null ],
       [ "mesh::DynamicMesh", "d7/dbb/classArcane_1_1ItemTypeMng.html#a7ee8078876a4c0e70f8052804e64c633", null ],
+      [ "mesh::PolyhedralMesh", "d7/dbb/classArcane_1_1ItemTypeMng.html#ae38fd3b50bba3d060cfe6044fbb0b967", null ],
       [ "m_ids_buffer", "d7/dbb/classArcane_1_1ItemTypeMng.html#a41d406f126a781d05ff73d946aa3d4b4", null ]
     ] ],
     [ "ItemUniqueId", "df/d81/classArcane_1_1ItemUniqueId.html", [
