@@ -850,7 +850,7 @@ var searchData=
   ['array_3c_20integer_20_3e_1207',['Array&lt; Integer &gt;',['../d9/d09/classArccore_1_1Array.html',1,'Arccore']]],
   ['array_3c_20interfacetype_20_2a_20_3e_1208',['Array&lt; InterfaceType * &gt;',['../d9/d09/classArccore_1_1Array.html',1,'Arccore']]],
   ['array_3c_20itemdestrankmap_20_3e_1209',['Array&lt; ItemDestRankMap &gt;',['../d9/d09/classArccore_1_1Array.html',1,'Arccore']]],
-  ['array_3c_20iteminternal_20_2a_20_3e_1210',['Array&lt; ItemInternal * &gt;',['../d1/dfb/classArcane_1_1Array.html',1,'Arcane::Array&lt; ItemInternal * &gt;'],['../d9/d09/classArccore_1_1Array.html',1,'Arccore::Array&lt; ItemInternal * &gt;']]],
+  ['array_3c_20iteminternal_20_2a_20_3e_1210',['Array&lt; ItemInternal * &gt;',['../d9/d09/classArccore_1_1Array.html',1,'Arccore::Array&lt; ItemInternal * &gt;'],['../d1/dfb/classArcane_1_1Array.html',1,'Arcane::Array&lt; ItemInternal * &gt;']]],
   ['array_3c_20keytype_20_3e_1211',['Array&lt; KeyType &gt;',['../d9/d09/classArccore_1_1Array.html',1,'Arccore']]],
   ['array_3c_20keytypevalue_20_3e_1212',['Array&lt; KeyTypeValue &gt;',['../d9/d09/classArccore_1_1Array.html',1,'Arccore']]],
   ['array_3c_20long_5flong_20_3e_1213',['Array&lt; long_long &gt;',['../d9/d09/classArccore_1_1Array.html',1,'Arccore']]],

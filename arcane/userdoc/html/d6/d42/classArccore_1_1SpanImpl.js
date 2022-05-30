@@ -37,6 +37,7 @@ var classArccore_1_1SpanImpl =
     [ "findFirst", "d6/d42/classArccore_1_1SpanImpl.html#a75db3002c991e2a101e38c3821ec9f11", null ],
     [ "item", "d6/d42/classArccore_1_1SpanImpl.html#a6a4c4b64ced88bcd05b8633d311f2762", null ],
     [ "length", "d6/d42/classArccore_1_1SpanImpl.html#a7b8cacd8e40c9c6da41998dcadfc7fbd", null ],
+    [ "operator()", "d6/d42/classArccore_1_1SpanImpl.html#a6bc2d4e60ee31bf66f5bd638acf827e4", null ],
     [ "operator=", "d6/d42/classArccore_1_1SpanImpl.html#ac645a14bb73484146293e9223df9b508", null ],
     [ "operator[]", "d6/d42/classArccore_1_1SpanImpl.html#ad111d26f58ce93c0927317acb16bca4c", null ],
     [ "ptrAt", "d6/d42/classArccore_1_1SpanImpl.html#abe424b75b8c0a7458448f134fdbce449", null ],

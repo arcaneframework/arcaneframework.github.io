@@ -35,6 +35,8 @@ var classArccore_1_1ArrayView =
     [ "fill", "d7/d02/classArccore_1_1ArrayView.html#a7a461b6646286ffdeefb8e572b3c1301", null ],
     [ "item", "d7/d02/classArccore_1_1ArrayView.html#a6d346581d52eb7da65e5aefb0776d39e", null ],
     [ "length", "d7/d02/classArccore_1_1ArrayView.html#a03b3db3e8440ab0764997bf896193258", null ],
+    [ "operator()", "d7/d02/classArccore_1_1ArrayView.html#af07a7813e022d7d140e2acb2e9d3d557", null ],
+    [ "operator()", "d7/d02/classArccore_1_1ArrayView.html#af3cb5ea877c7b4f0dbe956951579508e", null ],
     [ "operator=", "d7/d02/classArccore_1_1ArrayView.html#a90c87b00926bc529de3708f77dffab36", null ],
     [ "operator=", "d7/d02/classArccore_1_1ArrayView.html#a95b6947d2630c40355985bbd195149fb", null ],
     [ "operator[]", "d7/d02/classArccore_1_1ArrayView.html#acd7b7f6238da4b76800b781f8a48d71f", null ],

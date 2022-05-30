@@ -20,6 +20,7 @@ var classArccore_1_1ConstArrayView =
     [ "end", "db/d8c/classArccore_1_1ConstArrayView.html#a40861de42b38c65f388ed6c22487fc90", null ],
     [ "item", "db/d8c/classArccore_1_1ConstArrayView.html#ac6b2553b34a7254d525fbcef29b5b0e0", null ],
     [ "length", "db/d8c/classArccore_1_1ConstArrayView.html#ac55e6f9c8c148f2824438315d75b2da6", null ],
+    [ "operator()", "db/d8c/classArccore_1_1ConstArrayView.html#a1997709fc148e5309fc31507505cd752", null ],
     [ "operator=", "db/d8c/classArccore_1_1ConstArrayView.html#a13e66c93d24b20e01557fdae1ae69194", null ],
     [ "operator=", "db/d8c/classArccore_1_1ConstArrayView.html#a1073971ad2a2d16fd6fe41603e630470", null ],
     [ "operator=", "db/d8c/classArccore_1_1ConstArrayView.html#ab849b2f86917af5c613855a3d7a6c295", null ],
