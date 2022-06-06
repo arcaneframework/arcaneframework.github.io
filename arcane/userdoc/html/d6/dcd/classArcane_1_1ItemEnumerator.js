@@ -15,7 +15,6 @@ var classArcane_1_1ItemEnumerator =
     [ "internal", "d6/dcd/classArcane_1_1ItemEnumerator.html#a0641d1da766802161c17bf61492cf2a1", null ],
     [ "itemLocalId", "d6/dcd/classArcane_1_1ItemEnumerator.html#a841ce0f78caaea24a1008d7f80b789dc", null ],
     [ "localId", "d6/dcd/classArcane_1_1ItemEnumerator.html#a314d030a6a530e6b39205f8f03004381", null ],
-    [ "operator ItemLocalId", "d6/dcd/classArcane_1_1ItemEnumerator.html#af73d669f35a2dad309c100d39350e868", null ],
     [ "operator()", "d6/dcd/classArcane_1_1ItemEnumerator.html#a9ef55d60ade74bfeb5d8f650d7849e64", null ],
     [ "operator*", "d6/dcd/classArcane_1_1ItemEnumerator.html#ac3189ca593fa15ad7a7959587450a204", null ],
     [ "operator++", "d6/dcd/classArcane_1_1ItemEnumerator.html#a4ac5b10b5d8fde2a55a280745f26908f", null ],

@@ -1,6 +1,7 @@
 var classArcane_1_1ItemInternalVectorView =
 [
     [ "const_iterator", "dd/dd5/classArcane_1_1ItemInternalVectorView.html#a7457133fcf92f40cbc1a1aa1158c30c7", null ],
+    [ "ItemInternalVectorView", "dd/dd5/classArcane_1_1ItemInternalVectorView.html#ad0ba4a486de20de244d5c96e0f68eadb", null ],
     [ "ItemInternalVectorView", "dd/dd5/classArcane_1_1ItemInternalVectorView.html#a16c8c29a4ef171cc434254cf6f0b508f", null ],
     [ "ItemInternalVectorView", "dd/dd5/classArcane_1_1ItemInternalVectorView.html#a90e1271e6391efb69a7ce4f8d7b5aed4", null ],
     [ "begin", "dd/dd5/classArcane_1_1ItemInternalVectorView.html#ac18b2e5c573b555fcfc6369df2a15088", null ],

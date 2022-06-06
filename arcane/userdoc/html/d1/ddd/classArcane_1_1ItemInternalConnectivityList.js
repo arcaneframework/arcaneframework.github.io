@@ -44,6 +44,7 @@ var classArcane_1_1ItemInternalConnectivityList =
     [ "hParentV2", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#a9fddf0418805d4ae20a1f6b46053219a", null ],
     [ "itemLocalId", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#a8611fdcabe5f0ef1d398ec36f255f152", null ],
     [ "itemLocalIds", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#aa551db8fb11fab39eb5445fa6865f371", null ],
+    [ "maxNbConnectedItem", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#a73bfe2517399391ad4a53b03b79870f0", null ],
     [ "nbAccess", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#a1e5c7ac597070091fe7ea94bc6d0a73f", null ],
     [ "nbAccessAll", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#a8ff4b0619d6f274428c3f69792f35b11", null ],
     [ "nodeLocalIdsV2", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#af40bbdd43278eafc0f74bfa762a07c71", null ],
@@ -52,6 +53,7 @@ var classArcane_1_1ItemInternalConnectivityList =
     [ "setConnectivityIndex", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#a86c1bbed275e5d0cca02edb8c1bdef16", null ],
     [ "setConnectivityList", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#aa94880b5225e3b6808a35de841072e42", null ],
     [ "setConnectivityNbItem", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#a62fa8590ae92061b4b92f74c78a254da", null ],
+    [ "setMaxNbConnectedItem", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#a6c4a2d0f6fe109b0cbaec0268d28eb25", null ],
     [ "m_indexes_array", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#a308da5151731207b48c61c458857ae9b", null ],
     [ "m_items", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#a2df8a36be1ac7abb4c785ce343479e30", null ],
     [ "m_nb_item_array", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#ae227f1d52a696630635c74595eb144ea", null ]

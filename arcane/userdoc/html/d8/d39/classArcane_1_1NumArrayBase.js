@@ -20,6 +20,7 @@ var classArcane_1_1NumArrayBase =
     [ "fill", "d8/d39/classArcane_1_1NumArrayBase.html#aa78b62e7d00107dd0d88988cdd4f9ded", null ],
     [ "memoryRessource", "d8/d39/classArcane_1_1NumArrayBase.html#a92e8d99eb2b1921ba8037f2ec97b2325", null ],
     [ "nbDimension", "d8/d39/classArcane_1_1NumArrayBase.html#a88db8c6155456cc84d08173a6d7c4f90", null ],
+    [ "operator()", "d8/d39/classArcane_1_1NumArrayBase.html#aa8e86d71eab009b05e5da0f3f709976c", null ],
     [ "operator()", "d8/d39/classArcane_1_1NumArrayBase.html#aa7ee688d2ffa5eb27eadf4e0c956ba0f", null ],
     [ "resize", "d8/d39/classArcane_1_1NumArrayBase.html#a6f49951e0db31ba054d8d3a5d68f31ef", null ],
     [ "s", "d8/d39/classArcane_1_1NumArrayBase.html#a77a8a7fbb5ebb34dbd9cc7a4646419df", null ],

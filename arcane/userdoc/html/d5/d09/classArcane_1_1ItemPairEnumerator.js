@@ -7,6 +7,7 @@ var classArcane_1_1ItemPairEnumerator =
     [ "index", "d5/d09/classArcane_1_1ItemPairEnumerator.html#afaa0a0a5bb40ce9d5b2c7736e73b2d73", null ],
     [ "itemLocalId", "d5/d09/classArcane_1_1ItemPairEnumerator.html#ac433430beebd923f3e6fe962995d954a", null ],
     [ "nbSubItem", "d5/d09/classArcane_1_1ItemPairEnumerator.html#a276aa1498bb52292ddefb3d611565a6b", null ],
+    [ "operator ItemLocalId", "d5/d09/classArcane_1_1ItemPairEnumerator.html#a3fbb7463d0a9b66dcb14b0cfeef1de15", null ],
     [ "operator*", "d5/d09/classArcane_1_1ItemPairEnumerator.html#aeef72fbd80ee5518c6a4c3c2d5b9bf03", null ],
     [ "operator++", "d5/d09/classArcane_1_1ItemPairEnumerator.html#a2f4334fa192f2709e16030fccf8d5ced", null ],
     [ "subItems", "d5/d09/classArcane_1_1ItemPairEnumerator.html#ae5333b0ddecc7e55a6184cd7971bc4a6", null ],

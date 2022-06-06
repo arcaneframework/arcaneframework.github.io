@@ -15,11 +15,9 @@ var classArcane_1_1ItemVariableArrayRefT =
     [ "copy", "d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#a923d1691c6744e9da9c5a2a0fa0d5033", null ],
     [ "fill", "d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#aff7e9e151d0c06a20d12b8fb52431613", null ],
     [ "fill", "d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#a2e090bfe794c13bb61c7efb7a2a4af82", null ],
+    [ "operator()", "d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#a65b9927e64339dfa8ca93666dcb608b4", null ],
+    [ "operator()", "d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#af59a3fcc31325e66b5178e082213825e", null ],
     [ "operator=", "d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#ad6bf7f5488f4b46769aed3793792c60d", null ],
-    [ "operator[]", "d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#ab2afaaf6ccd6f1e2107d0ca66daffada", null ],
-    [ "operator[]", "d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#a94e4e207ae012224fb081d07d93aebc6", null ],
-    [ "operator[]", "d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#ad3b1b8bc60c64d9b8ceca32624adea2f", null ],
-    [ "operator[]", "d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#a91da26d2fb6b7f5b00bca5ded86503dd", null ],
-    [ "operator[]", "d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#a7df0d1b2469be61f326b058fac3ef11a", null ],
-    [ "operator[]", "d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#a8dad0fd35008120b8064c4bbbf5b3bf2", null ]
+    [ "operator[]", "d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#a47e18c91d3acb077567527b2e4321d9b", null ],
+    [ "operator[]", "d2/dbb/classArcane_1_1ItemVariableArrayRefT.html#ac40fe2e6d11e8e1fd61dfd77da4dec52", null ]
 ];

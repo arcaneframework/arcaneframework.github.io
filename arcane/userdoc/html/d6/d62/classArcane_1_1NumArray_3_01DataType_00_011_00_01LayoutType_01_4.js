@@ -10,6 +10,7 @@ var classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4 =
     [ "dim1Size", "d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#a9c20cc8239b820d42e7c28769352d273", null ],
     [ "operator ConstSpanType", "d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#adbaba4f86ae2fd5ecb57bdec2084741a", null ],
     [ "operator SpanType", "d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#a9c22cb05612fedcb8ace837ded1cb0d0", null ],
+    [ "operator()", "d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#a43f6b48c16cc9d1ebaecab7adfa79870", null ],
     [ "operator()", "d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#adff1aaa3f12b4c0ccc6eeb4ac06324fb", null ],
     [ "operator[]", "d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#afb94a8819e36fcfc7537524023abe06e", null ],
     [ "operator[]", "d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#a9be44c3ded1366135fbb5aefa66fc55d", null ],
