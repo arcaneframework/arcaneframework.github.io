@@ -1,5 +1,7 @@
 var NAVTREEINDEX41 =
 {
+"d7/d7c/classArcane_1_1IVariableMng.html#ae5af066b0d196fd2167034caa5abb4b7":[39,0,1,641,2],
+"d7/d7c/classArcane_1_1IVariableMng.html#aec57e3fd239ec738765741ffb1f69566":[39,0,1,641,8],
 "d7/d7c/classArcane_1_1IVariableMng.html#af64482535df2684d98318532b4643953":[39,0,1,641,25],
 "d7/d7c/classArcane_1_1IVariableMng.html#af698dcee211de6441a69ee4a3500ec08":[39,0,1,641,24],
 "d7/d7c/classArcane_1_1IVariableMng.html#afa4ec3541593af0848ed99c6b25b6b41":[39,0,1,641,14],
@@ -247,7 +249,5 @@ var NAVTREEINDEX41 =
 "d7/dbb/classArcane_1_1ItemTypeMng.html#a36ad3232f32de318caca5fb41b10e342":[37,8,23,0],
 "d7/dbb/classArcane_1_1ItemTypeMng.html#a3a638cffa15b798aeade2cf93bcd3980":[37,8,23,1],
 "d7/dbb/classArcane_1_1ItemTypeMng.html#a41d406f126a781d05ff73d946aa3d4b4":[37,8,23,12],
-"d7/dbb/classArcane_1_1ItemTypeMng.html#a6dbdcef18e34209d65c7e26b7c315de1":[37,8,23,4],
-"d7/dbb/classArcane_1_1ItemTypeMng.html#a7de181486499d2744db5c704aafb4391":[37,8,23,2],
-"d7/dbb/classArcane_1_1ItemTypeMng.html#a7ee8078876a4c0e70f8052804e64c633":[37,8,23,10]
+"d7/dbb/classArcane_1_1ItemTypeMng.html#a6dbdcef18e34209d65c7e26b7c315de1":[37,8,23,4]
 };

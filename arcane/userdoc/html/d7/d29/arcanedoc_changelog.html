@@ -87,7 +87,8 @@ $(document).ready(function(){initNavTree('d7/d29/arcanedoc_changelog.html','../.
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table des matières</h3>
-<ul><li class="level1"><a href="#arcanedoc_version350">Arcane Version 3.5.7 (07 avril 2022)</a></li>
+<ul><li class="level1"><a href="#arcanedoc_version360">Arcane Version 3.6.5 (?? juin 2022)</a></li>
+<li class="level1"><a href="#arcanedoc_version350">Arcane Version 3.5.7 (07 avril 2022)</a></li>
 <li class="level1"><a href="#arcanedoc_version340">Arcane Version 3.4.5 (10 février 2022)</a></li>
 <li class="level1"><a href="#arcanedoc_version330">Arcane Version 3.3.0 (16 décembre 2021)</a></li>
 <li class="level1"><a href="#arcanedoc_version320">Arcane Version 3.2.0 (15 novembre 2021)</a></li>
@@ -126,6 +127,35 @@ $(document).ready(function(){initNavTree('d7/d29/arcanedoc_changelog.html','../.
 </ul>
 </div>
 <div class="textblock"><p>Cette page contient les nouveautés de chaque version de Arcane.</p>
+<h1><a class="anchor" id="arcanedoc_version360"></a>
+Arcane Version 3.6.5 (?? juin 2022)</h1>
+<p>Nouveautés/Améliorations:</p>
+<ul>
+<li>Supprime allocation de la connectivité des noeuds dans les anciennes connectivités. Cela permet de réduire l'empreinte mémoire (#231).</li>
+<li>Ajoute pour les classes <a class="el" href="../../dd/d9f/classArccore_1_1Span.html" title="Vue d&#39;un tableau d&#39;éléments de type T.">Arccore::Span</a>, <a class="el" href="../../d7/d02/classArccore_1_1ArrayView.html" title="Vue modifiable d&#39;un tableau d&#39;un type T.">Arccore::ArrayView</a>, <a class="el" href="../../db/d8c/classArccore_1_1ConstArrayView.html" title="Vue constante d&#39;un tableau de type T.">Arccore::ConstArrayView</a> ainsi que les vues sur les variable l'opérateur 'operator()' qui se comporte comme l'opérateur 'operator[]'. Cela permet d'uniformiser les écritures entre les différents conteneurs et les vues associées (#223, #222, #205).</li>
+<li>Ajoute dans <a class="el" href="../../d3/d5d/classArcane_1_1ICartesianMeshGenerationInfo.html">Arcane::ICartesianMeshGenerationInfo</a> les informations sur l'origine et la dimension du maillage cartésien (#221).</li>
+<li>Ajoute en fin d'exécution des statistiques collectives sur les temps passés dans les opérations d'échange de message. Ces statistiques comprennent le temps minimal, maximal et moyen pour l'ensemble des rangs passés dans ces appels (#220)</li>
+<li>Ajoute deux implémentations supplémentaires pour la synchronisation des matériaux. La version 7 permet de faire une seule allocation lors de cette synchronisation et la version 8 permet de conserver cette allocation d'une synchronisation à l'autre (#219).</li>
+<li>Ajoute implémentation des synchronisations en plusieurs phases permettant d'utiliser des tableaux de taille fixe et/ou de faire sur une sous-partie des voisins (#214).</li>
+<li>Ajoute accès pour les accélérateurs à certaines méthodes de <a class="el" href="../../d8/d5d/classArcane_1_1MDSpan.html">Arcane::MDSpan</a> (#217).</li>
+<li>Ajoute accès aux connectivités aux arêtes dans <a class="el" href="../../d5/db4/classArcane_1_1UnstructuredMeshConnectivityView.html" title="Vue sur les connectivités standards d&#39;un maillage non structuré.">Arcane::UnstructuredMeshConnectivityView</a> (#216)</li>
+<li>Ajoute interface accessible via '<a class="el" href="../../d0/d9f/classArcane_1_1IMesh.html#afea4026a3c4f5b7bdd261f6c8805344b" title="Interface du gestionnaire des connectivités incrémentales indexées.">Arcane::IMesh::indexedConnectivityMng()</a>' permet de facilement ajouter de nouvelles connectivités (#201).</li>
+</ul>
+<p>Changements:</p>
+<ul>
+<li>Compacte les références après un appel à <a class="el" href="../../dd/d0a/classArcane_1_1IItemFamily.html#aaf93adc45a3cbe9902aa1516774449bb" title="Compacte les entités.">Arcane::IItemFamily::compactItems()</a>. Cela permet d'éviter de faire grossir inutilement le tableau des contenant les informations internes des entités. Comme ce changement peut induire une différence sur l'ordre de certaines opérations, il est possible de le désactiver en positionnant la variable d'environnement <code>ARCANE_USE_LEGACY_COMPACT_ITEMS</code> à la valeur <code>1</code> (#225).</li>
+<li>Les types gérant le <code>localId()</code> associés aux entités (Arcane::NodeLocalId, Arcane::CellLocalId, ...) sont maintenant des <code>typedef</code> d'une classe template <a class="el" href="../../d6/d48/classArcane_1_1ItemLocalIdT.html" title="Index d&#39;une entité ItemType dans une variable.">Arcane::ItemLocalIdT</a>.</li>
+<li>Supprime dans les opérateurs d'accès aux variables (operator[]) les différentes surcharges. Il faut maintenant utiliser un '<a class="el" href="../../d6/d48/classArcane_1_1ItemLocalIdT.html" title="Index d&#39;une entité ItemType dans une variable.">Arcane::ItemLocalIdT</a>' comme indexeur. Des opérateurs de conversion vers ce type ont été ajoutés pour que le code source reste compatible.</li>
+<li>Désenregistre automatiquement les variables encores allouées lorsqu'on appelle <a class="el" href="../../d7/d7c/classArcane_1_1IVariableMng.html#af698dcee211de6441a69ee4a3500ec08" title="Supprime et détruit les variables gérées par ce gestionnaire.">Arcane::IVariableMng::removeAllVariables()</a>. Cela permet d'éviter des plantages lorsque des références aux variables existaient encore après cet appel. Cela peut notamment être le cas avec les extensions C# car les services et modules associés sont gérés par un 'Garbage Collector' (#200).</li>
+</ul>
+<p>Corrections:</p>
+<ul>
+<li>Corrige mauvaises valeurs de <a class="el" href="../../dd/d0a/classArcane_1_1IItemFamily.html#af6353c856052dad1d80a8f38620ff632" title="Informations sur la connectivité locale au sous-domaine pour à cette famille.">Arcane::IItemFamily::localConnectivityInfos()</a> et <a class="el" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a645040c925b51b1c7522730b1ae6ed3b" title="Informations sur la connectivité globales à tous les sous-domaines.">Arcane::IItemFamily::globalConnectivityInfos()</a> pour les connectivités autres que celles aux noeuds. Ce bug avait été introduit lors du passage aux nouvelles connectivités (#230, #27).</li>
+</ul>
+<p>Interne:</p>
+<ul>
+<li>Utilise des variables pour conserver les champs <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html#a726ba1bd7454d63e65d3004f4afb98c4" title="Numéro du sous-domaine propriétaire de l&#39;entité">Arcane::ItemInternal::owner()</a> et <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html#a0bc5b25fcd222a6a16d71a83229351c2" title="Flags de l&#39;entité">Arcane::ItemInternal::flags()</a> au lieu de conserver l'information dans <a class="el" href="../../df/d0b/classArcane_1_1ItemSharedInfo.html">Arcane::ItemSharedInfo</a>. Cela permettra à terme de supprimer le champ correspondant dans <a class="el" href="../../df/d0b/classArcane_1_1ItemSharedInfo.html">Arcane::ItemSharedInfo</a> (#227).</li>
+</ul>
 <h1><a class="anchor" id="arcanedoc_version350"></a>
 Arcane Version 3.5.7 (07 avril 2022)</h1>
 <p>Nouveautés/Améliorations:</p>
@@ -860,7 +890,7 @@ Améliorations diverses</h2>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li>
-    <li class="footer">Généré le Lundi 6 Juin 2022 03:25:51 pour Arcane par
+    <li class="footer">Généré le Lundi 13 Juin 2022 03:33:29 pour Arcane par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

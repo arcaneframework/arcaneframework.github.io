@@ -1,5 +1,7 @@
 var NAVTREEINDEX42 =
 {
+"d7/dbb/classArcane_1_1ItemTypeMng.html#a7de181486499d2744db5c704aafb4391":[37,8,23,2],
+"d7/dbb/classArcane_1_1ItemTypeMng.html#a7ee8078876a4c0e70f8052804e64c633":[37,8,23,10],
 "d7/dbb/classArcane_1_1ItemTypeMng.html#a933c84d6880e6e06b113e209ca167af7":[37,8,23,6],
 "d7/dbb/classArcane_1_1ItemTypeMng.html#aad85754f188b769ff61150eaf36106c4":[37,8,23,9],
 "d7/dbb/classArcane_1_1ItemTypeMng.html#abb0a4b6f64a700d4e17837db3015a082":[37,8,23,3],
@@ -247,7 +249,5 @@ var NAVTREEINDEX42 =
 "d7/dea/classOctaedron12ShapeView.html#a26e1b4d2bafcb8e37f7b43a79763cb79":[37,18,54,6],
 "d7/dea/classOctaedron12ShapeView.html#a412f20bb08862729b07ca6b7881bd9be":[37,18,54,5],
 "d7/dea/classOctaedron12ShapeView.html#a5a76dfbc7669a8f4d8793bae05e3297a":[37,18,54,2],
-"d7/dea/classOctaedron12ShapeView.html#a6e3cabcd53ce1a6ebdc80f4d27017a11":[37,18,54,7],
-"d7/dea/classOctaedron12ShapeView.html#a7f94edae516b0c6014bc4ac21a2828a8":[37,18,54,3],
-"d7/dea/classOctaedron12ShapeView.html#ac61dcbba092c66fdfe618dddf272d9f5":[37,18,54,8]
+"d7/dea/classOctaedron12ShapeView.html#a6e3cabcd53ce1a6ebdc80f4d27017a11":[37,18,54,7]
 };

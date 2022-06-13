@@ -1,5 +1,6 @@
 var NAVTREEINDEX38 =
 {
+"d7/d03/classArcane_1_1IParallelNonBlockingCollective.html#a2ea43b3c0f75518569dc607825bd61ad":[37,10,1,34],
 "d7/d03/classArcane_1_1IParallelNonBlockingCollective.html#a2f3228371d50f18457bfe6c098a3fbbc":[37,10,1,24],
 "d7/d03/classArcane_1_1IParallelNonBlockingCollective.html#a2fc71f6ab35375ac49ee61672fdc21f9":[37,10,1,56],
 "d7/d03/classArcane_1_1IParallelNonBlockingCollective.html#a30ce3c7d67c1f5e55c4a4f17f0742581":[37,10,1,50],
@@ -248,6 +249,5 @@ var NAVTREEINDEX38 =
 "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#aa961e87af00474ec4240162acd1a6b3c":[37,9,9,12],
 "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#ab2d869f1ed50e6394485b83f8da8da15":[37,9,9,24],
 "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#ac3fd30be302c3edb2a6ec7c77afa6793":[37,9,9,18],
-"d7/d20/classArcane_1_1MeshVariableScalarRefT.html#ad1ddf8caf85eec742ac3f4f94d35cec9":[37,9,9,3],
-"d7/d20/classArcane_1_1MeshVariableScalarRefT.html#aed88381d94e8faa0e77b643c62ce72ae":[37,9,9,11]
+"d7/d20/classArcane_1_1MeshVariableScalarRefT.html#ad1ddf8caf85eec742ac3f4f94d35cec9":[37,9,9,3]
 };

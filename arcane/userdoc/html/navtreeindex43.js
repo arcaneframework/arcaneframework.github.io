@@ -1,5 +1,7 @@
 var NAVTREEINDEX43 =
 {
+"d7/dea/classOctaedron12ShapeView.html#a7f94edae516b0c6014bc4ac21a2828a8":[37,18,54,3],
+"d7/dea/classOctaedron12ShapeView.html#ac61dcbba092c66fdfe618dddf272d9f5":[37,18,54,8],
 "d7/dea/classOctaedron12ShapeView.html#ad266419a3f2935d1d965d2138f6b5bcd":[37,18,54,1],
 "d7/dea/classOctaedron12ShapeView.html#afc279aaeb30cc9a5d9681e02895bda0c":[37,18,54,4],
 "d7/dec/CaseOptionError_8h_source.html":[40,0,1,30],
@@ -247,7 +249,5 @@ var NAVTREEINDEX43 =
 "d8/d30/classArccore_1_1Trace_1_1Precision.html#a8f22d23c2fc26d254e782cc6e156d44b":[39,0,2,3,1,2],
 "d8/d30/classArccore_1_1Trace_1_1Precision.html#aaae163005a016e3d9defee2bc73e38e0":[39,0,2,3,1,1],
 "d8/d30/classArccore_1_1Trace_1_1Precision.html#ac243e5b9a6c44cfa9ece1380b9d8455e":[39,0,2,3,1,4],
-"d8/d33/structStrongOptions_1_1OptionProxy.html":[39,0,3,2],
-"d8/d33/structStrongOptions_1_1OptionProxy.html#a14072e12fdc88fd711b44a43883817f9":[39,0,3,2,1],
-"d8/d33/structStrongOptions_1_1OptionProxy.html#a53b67b687e68d33528093fa3ee3863ff":[39,0,3,2,0]
+"d8/d33/structStrongOptions_1_1OptionProxy.html":[39,0,3,2]
 };

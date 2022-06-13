@@ -1,5 +1,7 @@
 var NAVTREEINDEX60 =
 {
+"db/d8c/classArcane_1_1DOMWriter.html#a659c048171103a3dcd0ecc0c7a461fa0":[39,0,1,250,6],
+"db/d8c/classArcane_1_1DOMWriter.html#a672107046c10781eb457a4ed22c8abca":[39,0,1,250,2],
 "db/d8c/classArcane_1_1DOMWriter.html#aac89716473bc9aadbed3b62d1afa7d4e":[39,0,1,250,1],
 "db/d8c/classArcane_1_1DOMWriter.html#ab5acc40dbe90baf7d97e5e1d3893904b":[39,0,1,250,4],
 "db/d8c/classArcane_1_1DOMWriter.html#ad6282735edef07e1ace84947b587b70e":[39,0,1,250,0],
@@ -247,7 +249,5 @@ var NAVTREEINDEX60 =
 "db/daf/ItemTypes_8h.html#af1a2bb770356f8dc0de7dc4aef70c8a6a56bd48e11b369f90a178fe3aa248f706":[40,0,1,235,83,5],
 "db/daf/ItemTypes_8h.html#af1a2bb770356f8dc0de7dc4aef70c8a6af2f99f82aff809a2c440da3f1f72ccc5":[40,0,1,235,83,4],
 "db/daf/ItemTypes_8h.html#af237f7f5a4799830b9f1333e0690db87":[40,0,1,235,32],
-"db/daf/ItemTypes_8h.html#afc08878a0ddf4973b020d109aa80e9f7":[40,0,1,235,25],
-"db/daf/ItemTypes_8h.html#ga043244d96e0f701a5037a8d9620ab667":[40,0,1,235,74],
-"db/daf/ItemTypes_8h.html#ga098f1d69085543e45c84e21aea721d8c":[40,0,1,235,28]
+"db/daf/ItemTypes_8h.html#afc08878a0ddf4973b020d109aa80e9f7":[40,0,1,235,25]
 };

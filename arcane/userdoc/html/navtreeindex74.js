@@ -1,5 +1,8 @@
 var NAVTREEINDEX74 =
 {
+"de/d0b/classTriangle3ElementConstView.html#af76a078c632920dcc33efe92f3822bc3":[37,18,25,0],
+"de/d0c/classArcane_1_1Materials_1_1EnvPurePartItemVectorView.html":[37,17,9],
+"de/d0c/classArcane_1_1Materials_1_1EnvPurePartItemVectorView.html#a59bfb207ba51590b75b6e859f5258c85":[37,17,9,0],
 "de/d0c/classArcane_1_1Materials_1_1EnvPurePartItemVectorView.html#aa346fc0e8d3dda4fccf559ea500188d0":[37,17,9,1],
 "de/d0c/classArcane_1_1Materials_1_1EnvPurePartItemVectorView.html#ae0cc130c1b4e203ffd3030aacc92865a":[37,17,9,2],
 "de/d10/classArcane_1_1Materials_1_1MeshComponentPartData.html":[39,0,1,9,72],
@@ -246,8 +249,5 @@ var NAVTREEINDEX74 =
 "de/d43/classArcane_1_1ParallelSuperMngDispatcher.html#aacd1cf2ada702deb97d2d5dc6b0efad1":[39,0,1,874,42],
 "de/d43/classArcane_1_1ParallelSuperMngDispatcher.html#aade1f60bb181794c68bffccc3b44c738":[39,0,1,874,17],
 "de/d43/classArcane_1_1ParallelSuperMngDispatcher.html#abf28982fac290a9a32316ebaae11f1ac":[39,0,1,874,18],
-"de/d43/classArcane_1_1ParallelSuperMngDispatcher.html#ac604ee9e7ca68500c52e4d26066af73b":[39,0,1,874,35],
-"de/d43/classArcane_1_1ParallelSuperMngDispatcher.html#ad4a7e4d1b9835baa850e95032659f0ce":[39,0,1,874,11],
-"de/d43/classArcane_1_1ParallelSuperMngDispatcher.html#aed6257bb03577ea34855c65863316181":[39,0,1,874,19],
-"de/d43/classArcane_1_1ParallelSuperMngDispatcher.html#af68cb412dfb38c3c977006185ce62f18":[39,0,1,874,36]
+"de/d43/classArcane_1_1ParallelSuperMngDispatcher.html#ac604ee9e7ca68500c52e4d26066af73b":[39,0,1,874,35]
 };

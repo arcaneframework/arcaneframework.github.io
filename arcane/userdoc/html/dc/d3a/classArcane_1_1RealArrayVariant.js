@@ -10,6 +10,7 @@ var classArcane_1_1RealArrayVariant =
     [ "data", "dc/d3a/classArcane_1_1RealArrayVariant.html#a9b13744056593d53a71db6ef078fe547", null ],
     [ "data", "dc/d3a/classArcane_1_1RealArrayVariant.html#aca070026c98ecfa7c6c435963cc1b6af", null ],
     [ "operator ConstArrayView< Real >", "dc/d3a/classArcane_1_1RealArrayVariant.html#a58ff026bfb1f2b95bc22e791770ac5e0", null ],
+    [ "operator NumArray< Real, 1 >", "dc/d3a/classArcane_1_1RealArrayVariant.html#a7a9a94b018f00af21c9a49b6ee4e3fcf", null ],
     [ "operator Real2", "dc/d3a/classArcane_1_1RealArrayVariant.html#aaec7f74bf720896c460fee60968a46bf", null ],
     [ "operator Real3", "dc/d3a/classArcane_1_1RealArrayVariant.html#ae84a80e85e71f50ff623ecba86cc91c7", null ],
     [ "operator()", "dc/d3a/classArcane_1_1RealArrayVariant.html#aaa841c7f2816d8b2146dc7a12e60be34", null ],

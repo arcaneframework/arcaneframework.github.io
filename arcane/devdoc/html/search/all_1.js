@@ -834,7 +834,7 @@ var searchData=
   ['array_3c_20basicserializemessage_20_2a_20_3e_1192',['Array&lt; BasicSerializeMessage * &gt;',['../d9/d09/classArccore_1_1Array.html',1,'Arccore']]],
   ['array_3c_20bool_20_3e_1193',['Array&lt; bool &gt;',['../d9/d09/classArccore_1_1Array.html',1,'Arccore']]],
   ['array_3c_20byte_20_3e_1194',['Array&lt; Byte &gt;',['../d9/d09/classArccore_1_1Array.html',1,'Arccore']]],
-  ['array_3c_20cell_20_3e_1195',['Array&lt; Cell &gt;',['../d1/dfb/classArcane_1_1Array.html',1,'Arcane::Array&lt; Cell &gt;'],['../d9/d09/classArccore_1_1Array.html',1,'Arccore::Array&lt; Cell &gt;']]],
+  ['array_3c_20cell_20_3e_1195',['Array&lt; Cell &gt;',['../d9/d09/classArccore_1_1Array.html',1,'Arccore::Array&lt; Cell &gt;'],['../d1/dfb/classArcane_1_1Array.html',1,'Arcane::Array&lt; Cell &gt;']]],
   ['array_3c_20containerviewtype_20_3e_1196',['Array&lt; ContainerViewType &gt;',['../d9/d09/classArccore_1_1Array.html',1,'Arccore']]],
   ['array_3c_20datatype_20_3e_1197',['Array&lt; DataType &gt;',['../d9/d09/classArccore_1_1Array.html',1,'Arccore']]],
   ['array_3c_20double_20_3e_1198',['Array&lt; double &gt;',['../d9/d09/classArccore_1_1Array.html',1,'Arccore']]],

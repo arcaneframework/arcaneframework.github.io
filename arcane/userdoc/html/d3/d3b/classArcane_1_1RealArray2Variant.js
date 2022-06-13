@@ -12,6 +12,7 @@ var classArcane_1_1RealArray2Variant =
     [ "dim1Size", "d3/d3b/classArcane_1_1RealArray2Variant.html#a2fc5511843f517b7bfbc1b928f2dab17", null ],
     [ "dim2Size", "d3/d3b/classArcane_1_1RealArray2Variant.html#a9a258bcfd72b7ebda4e8968acaa4517b", null ],
     [ "operator ConstArray2View< Real >", "d3/d3b/classArcane_1_1RealArray2Variant.html#ae31f7bf9534046879b7107f0874179f1", null ],
+    [ "operator NumArray< Real, 2, LayoutType >", "d3/d3b/classArcane_1_1RealArray2Variant.html#a4abbdfcb3ecba2c4e201bdd1ab3f0c59", null ],
     [ "operator Real2x2", "d3/d3b/classArcane_1_1RealArray2Variant.html#aaf5c3d720a6b9c95cf7fdd6d57612e78", null ],
     [ "operator Real3x3", "d3/d3b/classArcane_1_1RealArray2Variant.html#ad1c99d5bdfe2a925c310a9c225941a78", null ],
     [ "operator()", "d3/d3b/classArcane_1_1RealArray2Variant.html#a1fe4a57ac1fa31288afd7e0088195197", null ],
