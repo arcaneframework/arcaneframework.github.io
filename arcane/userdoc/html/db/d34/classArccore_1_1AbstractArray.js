@@ -68,6 +68,7 @@ var classArccore_1_1AbstractArray =
     [ "length", "db/d34/classArccore_1_1AbstractArray.html#adcbbfe6f555de7c3e88a874e7a91a856", null ],
     [ "operator ConstArrayView< T >", "db/d34/classArccore_1_1AbstractArray.html#a810ba6ed6a707386715fd1212cdbecc7", null ],
     [ "operator Span< const T >", "db/d34/classArccore_1_1AbstractArray.html#acc8818ce531580452c93495f95b76168", null ],
+    [ "operator()", "db/d34/classArccore_1_1AbstractArray.html#a07fb98938a1c373710503f74cfdfe258", null ],
     [ "operator=", "db/d34/classArccore_1_1AbstractArray.html#ad67e4bf3f38403254ee9c6cd77758209", null ],
     [ "operator[]", "db/d34/classArccore_1_1AbstractArray.html#ade84d0fa9da4428b202c7d6ef987dc36", null ],
     [ "printInfos", "db/d34/classArccore_1_1AbstractArray.html#afe4dd0bd581e5d29149b78bbde9ec01e", null ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nouvelles_20fonctionnalités_12697',['Nouvelles fonctionnalités',['../d7/d29/arcanedoc_changelog.html',1,'index']]]
+  ['nouvelles_20fonctionnalités_12338',['Nouvelles fonctionnalités',['../d7/d29/arcanedoc_changelog.html',1,'index']]]
 ];

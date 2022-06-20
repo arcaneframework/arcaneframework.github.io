@@ -1,0 +1,323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de IMeshMaterialMng.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.6.7.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.8.17 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_8ed3f42a0068f5069f42b8178640b4ba.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_b019700ed60cd420e74d58d3833e0903.html">core</a></li><li class="navelem"><a class="el" href="../../dir_9d2adb8cc1197ef9719e2c37ceb32339.html">materials</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">src/arcane/core/materials/IMeshMaterialMng.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* IMeshMaterialMng.h                                          (C) 2000-2022 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Interface du gestionnaire des matériaux d&#39;un maillage.                    */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_MATERIALS_IMESHMATERIALMNG_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_MATERIALS_IMESHMATERIALMNG_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/IFunctorWithArgument.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/core/materials/MaterialsCoreGlobal.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/daf/ItemTypes_8h.html">arcane/ItemTypes.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;{</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">class </span>IMesh;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">class </span>IVariable;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">class </span>MeshHandle;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d4/d60/namespaceArcane_1_1Materials.html">Arcane::Materials</a></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">class </span>MeshMaterialInfo;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">class </span>MeshBlockBuildInfo;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">class </span>MeshEnvironmentBuildInfo;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">class </span>MeshMaterialVariableIndexer;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">class </span>AllEnvCellVectorView;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">class </span>CellToAllEnvCellConverter;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">class </span>IMeshMaterialModifierImpl;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">class </span>IMeshComponent;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="keyword">class </span>IMeshMaterialVariable;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keyword">class </span>IMeshMaterialVariableSynchronizer;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">class </span>MeshMaterialMngFactory;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00079"></a><span class="lineno"><a class="line" href="../../d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html">   79</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html">IMeshMaterialMng</a></div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;{</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../d6/dd1/classArcane_1_1Materials_1_1MeshMaterialMngFactory.html">MeshMaterialMngFactory</a>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html">IMeshMaterialMng</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html">IMeshMaterialMng</a>* getReference(<a class="code" href="../../d0/d9f/classArcane_1_1IMesh.html">IMesh</a>* mesh,<span class="keywordtype">bool</span> create=<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html">IMeshMaterialMng</a>* getReference(<span class="keyword">const</span> <a class="code" href="../../d7/d6f/classArcane_1_1MeshHandle.html">MeshHandle</a>&amp; mesh_handle,<span class="keywordtype">bool</span> create=<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;IMeshMaterialMng&gt;</a> getTrueReference(<span class="keyword">const</span> <a class="code" href="../../d7/d6f/classArcane_1_1MeshHandle.html">MeshHandle</a>&amp; mesh_handle,<span class="keywordtype">bool</span> create=<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d0/d9f/classArcane_1_1IMesh.html">IMesh</a>* mesh() =0;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d0/df9/classArccore_1_1ITraceMng.html">ITraceMng</a>* traceMng() =0;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d7/d08/classArcane_1_1Materials_1_1MeshMaterialInfo.html">MeshMaterialInfo</a>* registerMaterialInfo(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; name) =0;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../da/d0f/classArcane_1_1Materials_1_1IMeshEnvironment.html">IMeshEnvironment</a>* createEnvironment(<span class="keyword">const</span> <a class="code" href="../../d6/de3/classArcane_1_1MeshEnvironmentBuildInfo.html">MeshEnvironmentBuildInfo</a>&amp; infos) =0;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d5/de7/classArcane_1_1Materials_1_1IMeshBlock.html">IMeshBlock</a>* createBlock(<span class="keyword">const</span> <a class="code" href="../../d4/d86/classArcane_1_1MeshBlockBuildInfo.html">MeshBlockBuildInfo</a>&amp; infos) =0;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> addEnvironmentToBlock(<a class="code" href="../../d5/de7/classArcane_1_1Materials_1_1IMeshBlock.html">IMeshBlock</a>* block,<a class="code" href="../../da/d0f/classArcane_1_1Materials_1_1IMeshEnvironment.html">IMeshEnvironment</a>* env) =0;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> removeEnvironmentToBlock(<a class="code" href="../../d5/de7/classArcane_1_1Materials_1_1IMeshBlock.html">IMeshBlock</a>* block,<a class="code" href="../../da/d0f/classArcane_1_1Materials_1_1IMeshEnvironment.html">IMeshEnvironment</a>* env) =0;</div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> endCreate(<span class="keywordtype">bool</span> is_continue=<span class="keyword">false</span>) =0;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> recreateFromDump() =0;</div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> setKeepValuesAfterChange(<span class="keywordtype">bool</span> v) =0;</div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;  </div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isKeepValuesAfterChange() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> setDataInitialisationWithZero(<span class="keywordtype">bool</span> v) =0;</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160;  </div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isDataInitialisationWithZero() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160; </div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> setMeshModificationNotified(<span class="keywordtype">bool</span> v) =0;</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isMeshModificationNotified() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> setModificationFlags(<span class="keywordtype">int</span> v) =0;</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">int</span> modificationFlags() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> setAllocateScalarEnvironmentVariableAsMaterial(<span class="keywordtype">bool</span> v) =0;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160; </div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isAllocateScalarEnvironmentVariableAsMaterial() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  <span class="keyword">virtual</span> <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; name() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160; </div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d6/dc2/classArcane_1_1IMeshMaterialModifierImpl.html">IMeshMaterialModifierImpl</a>* modifier() =0;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160; </div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;IMeshMaterial*&gt;</a> materials() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">MeshComponentList</a> materialsAsComponents() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; </div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;IMeshEnvironment*&gt;</a> environments() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">MeshComponentList</a> environmentsAsComponents() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">MeshComponentList</a> components() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160; </div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;IMeshBlock*&gt;</a> blocks() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160; </div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../da/d0f/classArcane_1_1Materials_1_1IMeshEnvironment.html">IMeshEnvironment</a>* findEnvironment(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; name,<span class="keywordtype">bool</span> throw_exception=<span class="keyword">true</span>) =0;</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d5/de7/classArcane_1_1Materials_1_1IMeshBlock.html">IMeshBlock</a>* findBlock(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; name,<span class="keywordtype">bool</span> throw_exception=<span class="keyword">true</span>) =0;</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160; </div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;MeshMaterialVariableIndexer*&gt;</a> variablesIndexer() =0;</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
+<div class="line"><a name="l00344"></a><span class="lineno">  344</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> fillWithUsedVariables(<a class="code" href="../../d1/dfb/classArcane_1_1Array.html">Array&lt;IMeshMaterialVariable*&gt;</a>&amp; variables) =0;</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; </div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> addVariable(<a class="code" href="../../dc/dcf/classArcane_1_1Materials_1_1IMeshMaterialVariable.html">IMeshMaterialVariable</a>* var) =0;</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160; </div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> removeVariable(<a class="code" href="../../dc/dcf/classArcane_1_1Materials_1_1IMeshMaterialVariable.html">IMeshMaterialVariable</a>* var) =0;</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160; </div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../dc/dcf/classArcane_1_1Materials_1_1IMeshMaterialVariable.html">IMeshMaterialVariable</a>* findVariable(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; name) =0;</div>
+<div class="line"><a name="l00367"></a><span class="lineno">  367</span>&#160; </div>
+<div class="line"><a name="l00369"></a><span class="lineno">  369</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../dc/dcf/classArcane_1_1Materials_1_1IMeshMaterialVariable.html">IMeshMaterialVariable</a>* checkVariable(<a class="code" href="../../d5/d96/classArcane_1_1IVariable.html">IVariable</a>* global_var) =0;</div>
+<div class="line"><a name="l00370"></a><span class="lineno">  370</span>&#160; </div>
+<div class="line"><a name="l00372"></a><span class="lineno">  372</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> dumpInfos(std::ostream&amp; o) =0;</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> dumpCellInfos(<a class="code" href="../../d9/db2/classArcane_1_1Cell.html">Cell</a> cell,std::ostream&amp; o) =0;</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160; </div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> checkValid() =0;</div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160; </div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../de/daf/classArcane_1_1Materials_1_1AllEnvCellVectorView.html">AllEnvCellVectorView</a> view(<span class="keyword">const</span> <a class="code" href="../../d8/d8e/classArcane_1_1ItemGroupT.html">CellGroup</a>&amp; cells) =0;</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160; </div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../de/daf/classArcane_1_1Materials_1_1AllEnvCellVectorView.html">AllEnvCellVectorView</a> view(<a class="code" href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">CellVectorView</a> cells) =0;</div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160; </div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;  <span class="keyword">virtual</span> ARCANE_DEPRECATED <a class="code" href="../../de/daf/classArcane_1_1Materials_1_1AllEnvCellVectorView.html">AllEnvCellVectorView</a> allEnvCells() =0;</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160; </div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d5/dd2/classArcane_1_1Materials_1_1CellToAllEnvCellConverter.html">CellToAllEnvCellConverter</a> cellToAllEnvCellConverter() =0;</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160; </div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> forceRecompute() =0;</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160; </div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../da/d90/classArccore_1_1Mutex.html">Mutex</a>* variableLock() =0;</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160; </div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> synchronizeMaterialsInCells() =0;</div>
+<div class="line"><a name="l00424"></a><span class="lineno">  424</span>&#160; </div>
+<div class="line"><a name="l00439"></a><span class="lineno">  439</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> checkMaterialsInCells(Integer max_print=10) =0;</div>
+<div class="line"><a name="l00440"></a><span class="lineno">  440</span>&#160; </div>
+<div class="line"><a name="l00442"></a><span class="lineno">  442</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> visitVariables(<a class="code" href="../../da/ddf/classArccore_1_1IFunctorWithArgumentT.html">IFunctorWithArgumentT&lt;IMeshMaterialVariable*&gt;</a>* functor) =0;</div>
+<div class="line"><a name="l00443"></a><span class="lineno">  443</span>&#160; </div>
+<div class="line"><a name="l00454"></a><span class="lineno">  454</span>&#160;  <span class="keyword">virtual</span> Int64 timestamp() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00455"></a><span class="lineno">  455</span>&#160; </div>
+<div class="line"><a name="l00460"></a><span class="lineno">  460</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d8/dd6/classArcane_1_1Materials_1_1IMeshMaterialVariableSynchronizer.html">IMeshMaterialVariableSynchronizer</a>* _allCellsMatEnvSynchronizer() =0;</div>
+<div class="line"><a name="l00461"></a><span class="lineno">  461</span>&#160; </div>
+<div class="line"><a name="l00466"></a><span class="lineno">  466</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d8/dd6/classArcane_1_1Materials_1_1IMeshMaterialVariableSynchronizer.html">IMeshMaterialVariableSynchronizer</a>* _allCellsEnvOnlySynchronizer() =0;</div>
+<div class="line"><a name="l00467"></a><span class="lineno">  467</span>&#160; </div>
+<div class="line"><a name="l00472"></a><span class="lineno">  472</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> setSynchronizeVariableVersion(Integer version) =0;</div>
+<div class="line"><a name="l00473"></a><span class="lineno">  473</span>&#160; </div>
+<div class="line"><a name="l00478"></a><span class="lineno">  478</span>&#160;  <span class="keyword">virtual</span> Integer synchronizeVariableVersion() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00479"></a><span class="lineno">  479</span>&#160; </div>
+<div class="line"><a name="l00481"></a><span class="lineno">  481</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isInMeshMaterialExchange() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00482"></a><span class="lineno">  482</span>&#160; </div>
+<div class="line"><a name="l00484"></a><span class="lineno">  484</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../da/db2/classArcane_1_1Materials_1_1IMeshMaterialVariableFactoryMng.html">IMeshMaterialVariableFactoryMng</a>* variableFactoryMng() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00485"></a><span class="lineno">  485</span>&#160; </div>
+<div class="line"><a name="l00486"></a><span class="lineno">  486</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00487"></a><span class="lineno">  487</span>&#160; </div>
+<div class="line"><a name="l00489"></a><span class="lineno"><a class="line" href="../../d8/dbd/classArcane_1_1Materials_1_1IMeshMaterialMng_1_1IFactory.html">  489</a></span>&#160;  <span class="keyword">class </span><a class="code" href="../../d8/dbd/classArcane_1_1Materials_1_1IMeshMaterialMng_1_1IFactory.html">IFactory</a></div>
+<div class="line"><a name="l00490"></a><span class="lineno">  490</span>&#160;  {</div>
+<div class="line"><a name="l00491"></a><span class="lineno">  491</span>&#160;   <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00492"></a><span class="lineno">  492</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="../../d8/dbd/classArcane_1_1Materials_1_1IMeshMaterialMng_1_1IFactory.html">IFactory</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00493"></a><span class="lineno">  493</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;IMeshMaterialMng&gt;</a> getTrueReference(<span class="keyword">const</span> <a class="code" href="../../d7/d6f/classArcane_1_1MeshHandle.html">MeshHandle</a>&amp; mesh_handle,<span class="keywordtype">bool</span> is_create) =0;</div>
+<div class="line"><a name="l00494"></a><span class="lineno">  494</span>&#160;  };</div>
+<div class="line"><a name="l00495"></a><span class="lineno">  495</span>&#160; </div>
+<div class="line"><a name="l00496"></a><span class="lineno">  496</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00497"></a><span class="lineno">  497</span>&#160; </div>
+<div class="line"><a name="l00499"></a><span class="lineno">  499</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> _internalSetFactory(<a class="code" href="../../d8/dbd/classArcane_1_1Materials_1_1IMeshMaterialMng_1_1IFactory.html">IFactory</a>* f);</div>
+<div class="line"><a name="l00500"></a><span class="lineno">  500</span>&#160;};</div>
+<div class="line"><a name="l00501"></a><span class="lineno">  501</span>&#160; </div>
+<div class="line"><a name="l00502"></a><span class="lineno">  502</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00503"></a><span class="lineno">  503</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00504"></a><span class="lineno">  504</span>&#160; </div>
+<div class="line"><a name="l00505"></a><span class="lineno">  505</span>&#160;} <span class="comment">// End namespace Arcane::Materials</span></div>
+<div class="line"><a name="l00506"></a><span class="lineno">  506</span>&#160; </div>
+<div class="line"><a name="l00507"></a><span class="lineno">  507</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00508"></a><span class="lineno">  508</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00509"></a><span class="lineno">  509</span>&#160; </div>
+<div class="line"><a name="l00510"></a><span class="lineno">  510</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00511"></a><span class="lineno">  511</span>&#160; </div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclassArcane_1_1ItemVectorViewT_html"><div class="ttname"><a href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">Arcane::ItemVectorViewT</a></div><div class="ttdoc">Vue sur un tableau typé d'entités.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:167</div></div>
+<div class="ttc" id="aclassArcane_1_1Array_html"><div class="ttname"><a href="../../d1/dfb/classArcane_1_1Array.html">Arcane::Array</a></div><div class="ttdoc">Tableau d'items de types quelconques.</div><div class="ttdef"><b>Definition:</b> AnyItemArray.h:54</div></div>
+<div class="ttc" id="aclassArcane_1_1IVariable_html"><div class="ttname"><a href="../../d5/d96/classArcane_1_1IVariable.html">Arcane::IVariable</a></div><div class="ttdoc">Interface d'une variable.</div><div class="ttdef"><b>Definition:</b> IVariable.h:53</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1IMeshMaterialMng_1_1IFactory_html"><div class="ttname"><a href="../../d8/dbd/classArcane_1_1Materials_1_1IMeshMaterialMng_1_1IFactory.html">Arcane::Materials::IMeshMaterialMng::IFactory</a></div><div class="ttdef"><b>Definition:</b> src/arcane/core/materials/IMeshMaterialMng.h:489</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1IMeshBlock_html"><div class="ttname"><a href="../../d5/de7/classArcane_1_1Materials_1_1IMeshBlock.html">Arcane::Materials::IMeshBlock</a></div><div class="ttdoc">Interface d'un bloc d'un maillage.</div><div class="ttdef"><b>Definition:</b> src/arcane/core/materials/IMeshBlock.h:51</div></div>
+<div class="ttc" id="aItemTypes_8h_html"><div class="ttname"><a href="../../db/daf/ItemTypes_8h.html">ItemTypes.h</a></div><div class="ttdoc">Déclarations de types sur les entités.</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1IMeshMaterialMng_html_a765ae302c48ed8983818d0851ba47a47"><div class="ttname"><a href="../../d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a765ae302c48ed8983818d0851ba47a47">Arcane::Materials::IMeshMaterialMng::getReference</a></div><div class="ttdeci">static IMeshMaterialMng * getReference(IMesh *mesh, bool create=true)</div><div class="ttdoc">Récupère ou créé la référence associée à mesh.</div><div class="ttdef"><b>Definition:</b> IMeshMaterialMng.cc:71</div></div>
+<div class="ttc" id="aclassArccore_1_1Mutex_html"><div class="ttname"><a href="../../da/d90/classArccore_1_1Mutex.html">Arccore::Mutex</a></div><div class="ttdoc">Mutex.</div><div class="ttdef"><b>Definition:</b> arccore/src/concurrency/arccore/concurrency/Mutex.h:37</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1AllEnvCellVectorView_html"><div class="ttname"><a href="../../de/daf/classArcane_1_1Materials_1_1AllEnvCellVectorView.html">Arcane::Materials::AllEnvCellVectorView</a></div><div class="ttdoc">Vue sur une liste de mailles avec infos sur les milieux.</div><div class="ttdef"><b>Definition:</b> src/arcane/core/materials/MatItemEnumerator.h:65</div></div>
+<div class="ttc" id="aclassArccore_1_1ITraceMng_html"><div class="ttname"><a href="../../d0/df9/classArccore_1_1ITraceMng.html">Arccore::ITraceMng</a></div><div class="ttdoc">Interface du gestionnaire de traces.</div><div class="ttdef"><b>Definition:</b> arccore/src/trace/arccore/trace/ITraceMng.h:155</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshEnvironmentBuildInfo_html"><div class="ttname"><a href="../../d6/de3/classArcane_1_1MeshEnvironmentBuildInfo.html">Arcane::MeshEnvironmentBuildInfo</a></div><div class="ttdoc">Informations pour la création d'un milieu.</div><div class="ttdef"><b>Definition:</b> MeshEnvironmentBuildInfo.h:49</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1IMeshMaterialMng_html"><div class="ttname"><a href="../../d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html">Arcane::Materials::IMeshMaterialMng</a></div><div class="ttdoc">Interface du gestionnaire des matériaux et des milieux d'un maillage.</div><div class="ttdef"><b>Definition:</b> src/arcane/core/materials/IMeshMaterialMng.h:79</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html">Arcane::IMesh</a></div><div class="ttdef"><b>Definition:</b> IMesh.h:55</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1IMeshMaterialMng_html_ace8507104f41d2e2aa7846738b08b896"><div class="ttname"><a href="../../d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#ace8507104f41d2e2aa7846738b08b896">Arcane::Materials::IMeshMaterialMng::_internalSetFactory</a></div><div class="ttdeci">static void _internalSetFactory(IFactory *f)</div><div class="ttdef"><b>Definition:</b> IMeshMaterialMng.cc:38</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshMaterialModifierImpl_html"><div class="ttname"><a href="../../d6/dc2/classArcane_1_1IMeshMaterialModifierImpl.html">Arcane::IMeshMaterialModifierImpl</a></div><div class="ttdoc">Interface de l'implémentation de la modification des matériaux.</div><div class="ttdef"><b>Definition:</b> IMeshMaterialModifierImpl.h:52</div></div>
+<div class="ttc" id="aclassArcane_1_1Cell_html"><div class="ttname"><a href="../../d9/db2/classArcane_1_1Cell.html">Arcane::Cell</a></div><div class="ttdoc">Maille d'un maillage.</div><div class="ttdef"><b>Definition:</b> Item.h:919</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshBlockBuildInfo_html"><div class="ttname"><a href="../../d4/d86/classArcane_1_1MeshBlockBuildInfo.html">Arcane::MeshBlockBuildInfo</a></div><div class="ttdoc">Informations pour la création d'un bloc.</div><div class="ttdef"><b>Definition:</b> MeshBlockBuildInfo.h:52</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1MeshMaterialInfo_html"><div class="ttname"><a href="../../d7/d08/classArcane_1_1Materials_1_1MeshMaterialInfo.html">Arcane::Materials::MeshMaterialInfo</a></div><div class="ttdoc">Infos d'un matériau d'un maillage.</div><div class="ttdef"><b>Definition:</b> MeshMaterialInfo.h:37</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1CellToAllEnvCellConverter_html"><div class="ttname"><a href="../../d5/dd2/classArcane_1_1Materials_1_1CellToAllEnvCellConverter.html">Arcane::Materials::CellToAllEnvCellConverter</a></div><div class="ttdoc">Conversion de 'Cell' en 'AllEnvCell'.</div><div class="ttdef"><b>Definition:</b> src/arcane/core/materials/CellToAllEnvCellConverter.h:67</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshBase_html_a2cbada999c0a90e041bef95c7b62b7f0"><div class="ttname"><a href="../../de/d4a/classArcane_1_1IMeshBase.html#a2cbada999c0a90e041bef95c7b62b7f0">Arcane::IMeshBase::handle</a></div><div class="ttdeci">virtual const MeshHandle &amp; handle() const =0</div><div class="ttdoc">Handle sur ce maillage.</div></div>
+<div class="ttc" id="aclassArcane_1_1MeshHandle_html"><div class="ttname"><a href="../../d7/d6f/classArcane_1_1MeshHandle.html">Arcane::MeshHandle</a></div><div class="ttdoc">Handle sur un maillage.</div><div class="ttdef"><b>Definition:</b> MeshHandle.h:54</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1MeshMaterialMngFactory_html"><div class="ttname"><a href="../../d6/dd1/classArcane_1_1Materials_1_1MeshMaterialMngFactory.html">Arcane::Materials::MeshMaterialMngFactory</a></div><div class="ttdef"><b>Definition:</b> MeshMaterialMng.cc:941</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1IMeshEnvironment_html"><div class="ttname"><a href="../../da/d0f/classArcane_1_1Materials_1_1IMeshEnvironment.html">Arcane::Materials::IMeshEnvironment</a></div><div class="ttdoc">Interface d'un milieu d'un maillage.</div><div class="ttdef"><b>Definition:</b> src/arcane/core/materials/IMeshEnvironment.h:62</div></div>
+<div class="ttc" id="aclassArccore_1_1Ref_html"><div class="ttname"><a href="../../de/d9f/classArccore_1_1Ref.html">Arccore::Ref</a></div><div class="ttdoc">Référence à une instance.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/Ref.h:127</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a3fb196870fc917614437a98517be2ed4"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a3fb196870fc917614437a98517be2ed4">ARCANE_CHECK_POINTER</a></div><div class="ttdeci">#define ARCANE_CHECK_POINTER(ptr)</div><div class="ttdoc">Macro retournant le pointeur ptr s'il est non nul ou lancant une exception s'il est nul.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:820</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1IMeshMaterialMng_html_a727d8c3f541da759ace1d65acd374cb5"><div class="ttname"><a href="../../d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a727d8c3f541da759ace1d65acd374cb5">Arcane::Materials::IMeshMaterialMng::getTrueReference</a></div><div class="ttdeci">static Ref&lt; IMeshMaterialMng &gt; getTrueReference(const MeshHandle &amp;mesh_handle, bool create=true)</div><div class="ttdoc">Récupère ou créé la référence associée à mesh.</div><div class="ttdef"><b>Definition:</b> IMeshMaterialMng.cc:47</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1IMeshMaterialVariableFactoryMng_html"><div class="ttname"><a href="../../da/db2/classArcane_1_1Materials_1_1IMeshMaterialVariableFactoryMng.html">Arcane::Materials::IMeshMaterialVariableFactoryMng</a></div><div class="ttdoc">Interface du gestionnaire de fabrique de variables matériaux.</div><div class="ttdef"><b>Definition:</b> IMeshMaterialVariableFactoryMng.h:32</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:32</div></div>
+<div class="ttc" id="anamespaceArcane_1_1Materials_html"><div class="ttname"><a href="../../d4/d60/namespaceArcane_1_1Materials.html">Arcane::Materials</a></div><div class="ttdoc">Active toujours les traces dans les parties Arcane concernant les matériaux.</div><div class="ttdef"><b>Definition:</b> src/arcane/core/materials/CellToAllEnvCellConverter.h:23</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/String.h:68</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1IMeshMaterialVariable_html"><div class="ttname"><a href="../../dc/dcf/classArcane_1_1Materials_1_1IMeshMaterialVariable.html">Arcane::Materials::IMeshMaterialVariable</a></div><div class="ttdoc">Interface d'une variable matériau d'un maillage.</div><div class="ttdef"><b>Definition:</b> src/arcane/core/materials/IMeshMaterialVariable.h:45</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1IMeshMaterialMng_html_aa16be136e77009ef038f893570221edc"><div class="ttname"><a href="../../d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#aa16be136e77009ef038f893570221edc">Arcane::Materials::IMeshMaterialMng::mesh</a></div><div class="ttdeci">virtual IMesh * mesh()=0</div><div class="ttdoc">Maillage associé.</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemGroupT_html"><div class="ttname"><a href="../../d8/d8e/classArcane_1_1ItemGroupT.html">Arcane::ItemGroupT&lt; Cell &gt;</a></div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a9d85d5fb84c5371348dd56600999e564"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a></div><div class="ttdeci">#define ARCANE_FATAL(...)</div><div class="ttdoc">Macro envoyant une exception FatalErrorException.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:761</div></div>
+<div class="ttc" id="aclassArcane_1_1Materials_1_1IMeshMaterialVariableSynchronizer_html"><div class="ttname"><a href="../../d8/dd6/classArcane_1_1Materials_1_1IMeshMaterialVariableSynchronizer.html">Arcane::Materials::IMeshMaterialVariableSynchronizer</a></div><div class="ttdoc">Interface du synchroniseur de variables matériaux.</div><div class="ttdef"><b>Definition:</b> IMeshMaterialVariableSynchronizer.h:38</div></div>
+<div class="ttc" id="aclassArccore_1_1IFunctorWithArgumentT_html"><div class="ttname"><a href="../../da/ddf/classArccore_1_1IFunctorWithArgumentT.html">Arccore::IFunctorWithArgumentT</a></div><div class="ttdoc">Interface d'un fonctor avec argument mais sans valeur de retour.</div><div class="ttdef"><b>Definition:</b> BaseTypes.h:97</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi 20 Juin 2022 03:26:17 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="../../doxygen.png" alt="doxygen"/>
+</a> 1.8.17
+</small></address>
+</body>
+</html>

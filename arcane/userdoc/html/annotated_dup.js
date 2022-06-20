@@ -5,6 +5,9 @@ var annotated_dup =
         [ "Impl", "df/db3/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo_1_1Impl.html", "df/db3/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo_1_1Impl" ]
       ] ],
       [ "Runner", null, [
+        [ "Impl", null, [
+          [ "Lock", "dc/d88/classArcane_1_1Accelerator_1_1Runner_1_1Impl_1_1Lock.html", "dc/d88/classArcane_1_1Accelerator_1_1Runner_1_1Impl_1_1Lock" ]
+        ] ],
         [ "Impl", "df/d22/classArcane_1_1Accelerator_1_1Runner_1_1Impl.html", "df/d22/classArcane_1_1Accelerator_1_1Runner_1_1Impl" ]
       ] ]
     ] ],

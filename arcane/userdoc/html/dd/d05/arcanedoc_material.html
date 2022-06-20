@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.6.5.0</span>
+   &#160;<span id="projectnumber">3.6.7.0</span>
    </div>
   </td>
  </tr>
@@ -218,27 +218,27 @@ Itération sur les mailles matériaux</h1>
 <p>La première est d'itérer sur tous les milieux, pour chaque milieu d'itérer sur les matériaux de ce milieu et pour chacun de ces matériaux d'itérer sur ces mailles. Par exemple:</p>
 <div class="fragment"><div class="line">    <span class="comment">// Itération sur tous les milieux, puis tous les matériaux et</span></div>
 <div class="line">    <span class="comment">// toutes les mailles de ce matériau</span></div>
-<div class="line">    <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#a42e9f542db51c49120e75519bca39a35">ENUMERATE_ENV</a>(ienv,material_mng){</div>
+<div class="line">    ENUMERATE_ENV(ienv,material_mng){</div>
 <div class="line">      IMeshEnvironment* env = *ienv;</div>
-<div class="line">      <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#afe0d487f593214b682fd6b9319b38aa2">ENUMERATE_MAT</a>(imat,env){</div>
+<div class="line">      ENUMERATE_MAT(imat,env){</div>
 <div class="line">        IMeshMaterial* mat = *imat;</div>
-<div class="line">        <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#ab9c458f7fd0f80713f8229a6fcb9e3c0">ENUMERATE_MATCELL</a>(imatcell,mat){</div>
+<div class="line">        ENUMERATE_MATCELL(imatcell,mat){</div>
 <div class="line">          MatCell mc = *imatcell;</div>
 <div class="line">          info() &lt;&lt; <span class="stringliteral">&quot;Cell mat=&quot;</span> &lt;&lt; mc.materialId();</div>
 <div class="line">        }</div>
 <div class="line">      }</div>
-<div class="line">      <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#a568f790f7de72e2144399d55d8c63455">ENUMERATE_ENVCELL</a>(ienvcell,env){</div>
+<div class="line">      ENUMERATE_ENVCELL(ienvcell,env){</div>
 <div class="line">        EnvCell mmcell = *ienvcell;</div>
 <div class="line">        info() &lt;&lt; <span class="stringliteral">&quot;Cell env=&quot;</span> &lt;&lt; mmcell.environmentId();</div>
 <div class="line">      }</div>
 <div class="line">    }</div>
 </div><!-- fragment --><p> Il est aussi possible d'utiliser un bloc pour itérer uniquement sur les milieux de ce bloc au lieu d'itérer sur tous les milieux:</p>
 <div class="fragment"><div class="line">    <span class="comment">// Itération sur tous les mailles des matériaux des milieux d&#39;un bloc.</span></div>
-<div class="line">    <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#a42e9f542db51c49120e75519bca39a35">ENUMERATE_ENV</a>(ienv,block){</div>
+<div class="line">    ENUMERATE_ENV(ienv,block){</div>
 <div class="line">      IMeshEnvironment* env = *ienv;</div>
-<div class="line">      <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#afe0d487f593214b682fd6b9319b38aa2">ENUMERATE_MAT</a>(imat,env){</div>
+<div class="line">      ENUMERATE_MAT(imat,env){</div>
 <div class="line">        IMeshMaterial* mat = *imat;</div>
-<div class="line">        <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#ab9c458f7fd0f80713f8229a6fcb9e3c0">ENUMERATE_MATCELL</a>(imatcell,mat){</div>
+<div class="line">        ENUMERATE_MATCELL(imatcell,mat){</div>
 <div class="line">          MatCell mc = *imatcell;</div>
 <div class="line">          info() &lt;&lt; <span class="stringliteral">&quot;Cell mat=&quot;</span> &lt;&lt; mc.materialId();</div>
 <div class="line">        }</div>
@@ -246,12 +246,12 @@ Itération sur les mailles matériaux</h1>
 <div class="line">    }</div>
 </div><!-- fragment --><p> La seconde manière est de parcourir toutes les mailles d'un groupe de maille, puis pour chaque maille d'itérer sur ses milieux et sur les matériaux de ses milieux. Pour cela, on peut utiliser la macro ENUMERATE_ALLENVCELL, de la même manière que la macro ENUMERATE_CELL, mais en spécifiant en plus le gestionnaire de matériaux. Par exemple, si on souhaite itérer sur toutes les mailles (groupe allCells())</p>
 <div class="fragment"><div class="line">    <span class="comment">// Itération sur tous les milieux et tous les matériaux d&#39;une maille.</span></div>
-<div class="line">    <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#abb8f4d71c522752b85f2239cfab71b94">ENUMERATE_ALLENVCELL</a>(iallenvcell,material_mng,allCells()){</div>
+<div class="line">    ENUMERATE_ALLENVCELL(iallenvcell,material_mng,allCells()){</div>
 <div class="line">      AllEnvCell all_env_cell = *iallenvcell;</div>
-<div class="line">      <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#a98a6ae7a597e04e3f6dec2e55ebbc2a2">ENUMERATE_CELL_ENVCELL</a>(ienvcell,all_env_cell){</div>
+<div class="line">      ENUMERATE_CELL_ENVCELL(ienvcell,all_env_cell){</div>
 <div class="line">        EnvCell env_cell = *ienvcell;</div>
 <div class="line">        info() &lt;&lt; <span class="stringliteral">&quot;Cell env=&quot;</span> &lt;&lt; env_cell.environmentId();</div>
-<div class="line">        <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#a647a50880bb9a7712d924e674a746cc6">ENUMERATE_CELL_MATCELL</a>(imatcell,env_cell){</div>
+<div class="line">        ENUMERATE_CELL_MATCELL(imatcell,env_cell){</div>
 <div class="line">          MatCell mc = *imatcell;</div>
 <div class="line">          info() &lt;&lt; <span class="stringliteral">&quot;Cell mat=&quot;</span> &lt;&lt; mc.materialId();</div>
 <div class="line">        }</div>
@@ -259,12 +259,12 @@ Itération sur les mailles matériaux</h1>
 <div class="line">    }</div>
 </div><!-- fragment --><p> De la même manière, en itérant sur toutes les mailles d'un bloc:</p>
 <div class="fragment"><div class="line">    <span class="comment">// Itération sur tous les milieux et tous les matériaux d&#39;une maille.</span></div>
-<div class="line">    <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#abb8f4d71c522752b85f2239cfab71b94">ENUMERATE_ALLENVCELL</a>(iallenvcell,block){</div>
+<div class="line">    ENUMERATE_ALLENVCELL(iallenvcell,block){</div>
 <div class="line">      AllEnvCell all_env_cell = *iallenvcell;</div>
-<div class="line">      <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#a98a6ae7a597e04e3f6dec2e55ebbc2a2">ENUMERATE_CELL_ENVCELL</a>(ienvcell,all_env_cell){</div>
+<div class="line">      ENUMERATE_CELL_ENVCELL(ienvcell,all_env_cell){</div>
 <div class="line">        EnvCell env_cell = *ienvcell;</div>
 <div class="line">        info() &lt;&lt; <span class="stringliteral">&quot;Cell env=&quot;</span> &lt;&lt; env_cell.environmentId();</div>
-<div class="line">        <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#a647a50880bb9a7712d924e674a746cc6">ENUMERATE_CELL_MATCELL</a>(imatcell,env_cell){</div>
+<div class="line">        ENUMERATE_CELL_MATCELL(imatcell,env_cell){</div>
 <div class="line">          MatCell mc = *imatcell;</div>
 <div class="line">          info() &lt;&lt; <span class="stringliteral">&quot;Cell mat=&quot;</span> &lt;&lt; mc.materialId();</div>
 <div class="line">        }</div>
@@ -274,12 +274,12 @@ Itération sur les mailles matériaux</h1>
 <div class="fragment"><div class="line">    <a class="code" href="../../de/db5/group__Mesh.html#ga4d78be302ffdabc4e0f16578cc077314">CellGroup</a> cells;</div>
 <div class="line">    IMeshMaterial* mat = env1-&gt;materials()[0];</div>
 <div class="line">    MatCellVector mat_cells(cells,mat);</div>
-<div class="line">    <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#ab9c458f7fd0f80713f8229a6fcb9e3c0">ENUMERATE_MATCELL</a>(imatcell,mat_cells){</div>
+<div class="line">    ENUMERATE_MATCELL(imatcell,mat_cells){</div>
 <div class="line">      mat_density[imatcell] = 2.3;</div>
 <div class="line">    }</div>
 <div class="line">    IMeshEnvironment* env = env1;</div>
 <div class="line">    EnvCellVector env_cells(cells,env);</div>
-<div class="line">    <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#a568f790f7de72e2144399d55d8c63455">ENUMERATE_ENVCELL</a>(imatcell,env_cells){</div>
+<div class="line">    ENUMERATE_ENVCELL(imatcell,env_cells){</div>
 <div class="line">      mat_density[imatcell] = 3.1;</div>
 <div class="line">    }</div>
 </div><!-- fragment --> <dl class="section note"><dt>Note</dt><dd>Actuellement, les classes MatCellVector et EnvCellVector ne sont pas copiables et ne sont valides que tant que le matériau (pour MatCellVector) ou le milieu (pour EnvCellVector) et le groupe de maille associé ne change pas. De plus, la conservation des informations consomme de la mémoire et la création à un cout en temps de calcul proportionnel au nombre de mailles du groupe.</dd></dl>
@@ -303,20 +303,20 @@ Conversion Cell vers AllEnvCell, MatCell ou EnvCell</h1>
 <div class="line">  ...</div>
 </div><!-- fragment --><h1><a class="anchor" id="arcanedoc_material_component"></a>
 Unification</h1>
-<p>Depuis la version 1.21.0 de Arcane, il est possible de traiter les mailles matériaux et milieu de manière générique. La classe ComponentCell permet cette unification et peut s'utiliser pour tous les types de mailles MatCell, EnvCell ou AllEnvCell. La macro <a class="el" href="../../d9/d0b/MatItemEnumerator_8h.html#ad0a44976a632ca375796818664c67977" title="Macro pour itérer sur toutes les mailles d&#39;un composant.">ENUMERATE_COMPONENTCELL()</a> permet d'itérer sur des mailles de ce type:</p>
+<p>Depuis la version 1.21.0 de Arcane, il est possible de traiter les mailles matériaux et milieu de manière générique. La classe ComponentCell permet cette unification et peut s'utiliser pour tous les types de mailles MatCell, EnvCell ou AllEnvCell. La macro ENUMERATE_COMPONENTCELL() permet d'itérer sur des mailles de ce type:</p>
 <div class="fragment"><div class="line">    <span class="comment">// Itération sur tous les milieux, puis tous les matériaux et</span></div>
 <div class="line">    <span class="comment">// toutes les mailles de ce matériau via la ComponentCell</span></div>
-<div class="line">    <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#a42e9f542db51c49120e75519bca39a35">ENUMERATE_ENV</a>(ienv,material_mng){</div>
+<div class="line">    ENUMERATE_ENV(ienv,material_mng){</div>
 <div class="line">      IMeshEnvironment* env = *ienv;</div>
-<div class="line">      <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#afe0d487f593214b682fd6b9319b38aa2">ENUMERATE_MAT</a>(imat,env){</div>
+<div class="line">      ENUMERATE_MAT(imat,env){</div>
 <div class="line">        IMeshMaterial* mat = *imat;</div>
-<div class="line">        <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#ad0a44976a632ca375796818664c67977">ENUMERATE_COMPONENTCELL</a>(iccell,mat){</div>
+<div class="line">        ENUMERATE_COMPONENTCELL(iccell,mat){</div>
 <div class="line">          ComponentCell cc = *iccell;</div>
 <div class="line">          info() &lt;&lt; <span class="stringliteral">&quot;Cell mat=&quot;</span> &lt;&lt; cc.componentId();</div>
 <div class="line">          mat_density[cc] = 3.1; <span class="comment">// Met à jour la densité du matériau</span></div>
 <div class="line">        }</div>
 <div class="line">      }</div>
-<div class="line">      <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#ad0a44976a632ca375796818664c67977">ENUMERATE_COMPONENTCELL</a>(iccell,env){</div>
+<div class="line">      ENUMERATE_COMPONENTCELL(iccell,env){</div>
 <div class="line">        ComponentCell cc = *iccell;</div>
 <div class="line">        info() &lt;&lt; <span class="stringliteral">&quot;Cell env=&quot;</span> &lt;&lt; cc.componentId();</div>
 <div class="line">        mat_density[cc] = 2.5; <span class="comment">// Met à jour la densité du milieu</span></div>
@@ -324,21 +324,21 @@ Unification</h1>
 <div class="line">    }</div>
 </div><!-- fragment --><p> La classe ComponentCell peut aussi servir à indexer une variable comme le ferait une MatCell ou une EnvCell.</p>
 <p>De la même manière, l'interface IMeshComponent est maintenant l'interface de base de IMeshMaterial et IMeshEnvironment et les méthodes IMeshMaterialMng::materialsAsComponents() et IMeshMaterialMng::environmentsAsComponents() permettent de traiter les listes de matériaux et milieux de la même manière sous forme de liste de IMeshComponent. Enfin, la classe ComponentCellVector permet de créer un vecteur de ComponentCell et s'utiliser comme un EnvCellVector ou MatCellVector</p>
-<p>La méthode ComponentCell::superCell() retourne la ComponentCell de niveau hiérarchique immédiatement supérieur. Il est aussi possible d'itérer sur les sous-mailles d'une ComponantCell via la macro <a class="el" href="../../d9/d0b/MatItemEnumerator_8h.html#a2effa51105facd480d81a8ecc6d12b49" title="Macro pour itérer sur tous les composants d&#39;une maille.">ENUMERATE_CELL_COMPONENTCELL()</a>:</p>
+<p>La méthode ComponentCell::superCell() retourne la ComponentCell de niveau hiérarchique immédiatement supérieur. Il est aussi possible d'itérer sur les sous-mailles d'une ComponantCell via la macro ENUMERATE_CELL_COMPONENTCELL():</p>
 <div class="fragment"><div class="line">      MatCell mc;</div>
 <div class="line">      ComponentCell cc = mc;</div>
 <div class="line">      <span class="comment">// Retourne la maille milieu (EnvCell) du matériau:</span></div>
 <div class="line">      ComponentCell cc2 = cc.superCell();</div>
 <div class="line">      <span class="comment">// Itère sur les mailles matériaux du milieu</span></div>
-<div class="line">      <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#a2effa51105facd480d81a8ecc6d12b49">ENUMERATE_CELL_COMPONENTCELL</a>(icc,cc2){</div>
+<div class="line">      ENUMERATE_CELL_COMPONENTCELL(icc,cc2){</div>
 <div class="line">      }</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Retourne la maille AllEnvCell du milieu:</span></div>
 <div class="line">      ComponentCell cc3 = cc2.superCell();</div>
 <div class="line">      <span class="comment">// Itère sur les mailles milieu de la maille.</span></div>
-<div class="line">      <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#a2effa51105facd480d81a8ecc6d12b49">ENUMERATE_CELL_COMPONENTCELL</a>(icc,cc3){</div>
+<div class="line">      ENUMERATE_CELL_COMPONENTCELL(icc,cc3){</div>
 <div class="line">      }</div>
-</div><!-- fragment --><p> Enfin, il existe une macro <a class="el" href="../../d9/d0b/MatItemEnumerator_8h.html#a6de83a125a79d459704208970e42b244" title="Macro pour itérer sur une liste de composants.">ENUMERATE_COMPONENT()</a> qui permet d'itérer sur une liste de composants, et qui peut donc se substituer à <a class="el" href="../../d9/d0b/MatItemEnumerator_8h.html#afe0d487f593214b682fd6b9319b38aa2" title="Macro pour itérer sur une liste de matériaux.">ENUMERATE_MAT()</a> ou <a class="el" href="../../d9/d0b/MatItemEnumerator_8h.html#a42e9f542db51c49120e75519bca39a35" title="Macro pour itérer sur une liste de milieux.">ENUMERATE_ENV()</a>.</p>
+</div><!-- fragment --><p> Enfin, il existe une macro ENUMERATE_COMPONENT() qui permet d'itérer sur une liste de composants, et qui peut donc se substituer à ENUMERATE_MAT() ou ENUMERATE_ENV().</p>
 <h1><a class="anchor" id="arcanedoc_material_variable"></a>
 Variables matériaux</h1>
 <dl class="section note"><dt>Note</dt><dd>Depuis la version 2.4.0 il est possible de déclarer des variables uniquement sur les milieux et qui n'ont pas de valeurs sur les matériaux. Pour plus d'infos voir la section <a class="el" href="../../dd/d05/arcanedoc_material.html#arcanedoc_environment_variable">Variables milieux</a>.</dd></dl>
@@ -474,7 +474,7 @@ Gestion des dépendances</h2>
 <div class="line">      mat_density.addMaterialDepend(defaultMesh()-&gt;nodesCoordinates());</div>
 <div class="line">      mat_density.addMaterialDepend(m_global_time);</div>
 <div class="line"> </div>
-<div class="line">      <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#afe0d487f593214b682fd6b9319b38aa2">ENUMERATE_MAT</a>(imat,material_mng){</div>
+<div class="line">      ENUMERATE_MAT(imat,material_mng){</div>
 <div class="line">        IMeshMaterial* mat = *imat;</div>
 <div class="line">        <span class="comment">// Met à jour la variable sur le matériau \a mat si besoin.</span></div>
 <div class="line">        mat_density.update(mat);</div>
@@ -482,7 +482,7 @@ Gestion des dépendances</h2>
 </div><!-- fragment --><p> Lors de l'appel à MeshMaterialVariableRef::update(), il est nécessaire de spécifier en argument le matériau sur lequel on souhaite faire la mise à jour. La méthode de calcul doit donc avoir comme argument un matériau, et en fin de calcul appeler MeshMaterialVariableRef::setUpToDate(mat) avec <em>mat</em> le matériau recalculé. Par exemple:</p>
 <div class="fragment"><div class="line">  <span class="keywordtype">void</span> _computeDensity(IMeshMaterial* mat)</div>
 <div class="line">  {</div>
-<div class="line">    <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#ab9c458f7fd0f80713f8229a6fcb9e3c0">ENUMERATE_MATCELL</a>(imc,mat){</div>
+<div class="line">    ENUMERATE_MATCELL(imc,mat){</div>
 <div class="line">      MatCell mc = *imc;</div>
 <div class="line">      m_mat_density[mc] = 1.0;</div>
 <div class="line">    }</div>
@@ -566,7 +566,7 @@ Parallélisation des boucles sur les matériaux et milieux</h1>
 <div class="line">      <span class="comment">// Functor générique sur un matériau ou milieu.</span></div>
 <div class="line">      <span class="keyword">auto</span> func = [&amp;](ComponentItemVectorView view)</div>
 <div class="line">      {</div>
-<div class="line">        <a class="code" href="../../d9/d0b/MatItemEnumerator_8h.html#ad0a44976a632ca375796818664c67977">ENUMERATE_COMPONENTCELL</a>(iccell,view){</div>
+<div class="line">        ENUMERATE_COMPONENTCELL(iccell,view){</div>
 <div class="line">          mat_density[iccell] = 2.5;</div>
 <div class="line">        }</div>
 <div class="line">      };</div>
@@ -663,26 +663,17 @@ Notes sur l'implémentation</h2>
 <div class="ttc" id="anamespaceArcane_html_abc8d646c5aa8c4a583e54f7798c3bf80"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#abc8d646c5aa8c4a583e54f7798c3bf80">Arcane::Int32Array</a></div><div class="ttdeci">Array&lt; Int32 &gt; Int32Array</div><div class="ttdoc">Tableau dynamique à une dimension d'entiers 32 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:221</div></div>
 <div class="ttc" id="anamespaceArcane_html_a9705dd87194ca42d81d4da3d95a9acd7"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a9705dd87194ca42d81d4da3d95a9acd7">Arcane::Int32UniqueArray</a></div><div class="ttdeci">UniqueArray&lt; Int32 &gt; Int32UniqueArray</div><div class="ttdoc">Tableau dynamique à une dimension d'entiers 32 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:409</div></div>
 <div class="ttc" id="anamespaceArccore_html_a19fea02f94d4da203710fd2070c0f2fb"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Arccore::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:232</div></div>
-<div class="ttc" id="aMatItemEnumerator_8h_html_a647a50880bb9a7712d924e674a746cc6"><div class="ttname"><a href="../../d9/d0b/MatItemEnumerator_8h.html#a647a50880bb9a7712d924e674a746cc6">ENUMERATE_CELL_MATCELL</a></div><div class="ttdeci">#define ENUMERATE_CELL_MATCELL(iname, env_cell)</div><div class="ttdoc">Macro pour itérer sur tous les matériaux d'une maille.</div><div class="ttdef"><b>Definition:</b> MatItemEnumerator.h:660</div></div>
-<div class="ttc" id="aMatItemEnumerator_8h_html_a42e9f542db51c49120e75519bca39a35"><div class="ttname"><a href="../../d9/d0b/MatItemEnumerator_8h.html#a42e9f542db51c49120e75519bca39a35">ENUMERATE_ENV</a></div><div class="ttdeci">#define ENUMERATE_ENV(ienv, container)</div><div class="ttdoc">Macro pour itérer sur une liste de milieux.</div><div class="ttdef"><b>Definition:</b> MatItemEnumerator.h:642</div></div>
-<div class="ttc" id="aMatItemEnumerator_8h_html_ab9c458f7fd0f80713f8229a6fcb9e3c0"><div class="ttname"><a href="../../d9/d0b/MatItemEnumerator_8h.html#ab9c458f7fd0f80713f8229a6fcb9e3c0">ENUMERATE_MATCELL</a></div><div class="ttdeci">#define ENUMERATE_MATCELL(iname, mat)</div><div class="ttdoc">Macro pour itérer sur toutes les mailles d'un matériau.</div><div class="ttdef"><b>Definition:</b> MatItemEnumerator.h:590</div></div>
-<div class="ttc" id="aMatItemEnumerator_8h_html_ad0a44976a632ca375796818664c67977"><div class="ttname"><a href="../../d9/d0b/MatItemEnumerator_8h.html#ad0a44976a632ca375796818664c67977">ENUMERATE_COMPONENTCELL</a></div><div class="ttdeci">#define ENUMERATE_COMPONENTCELL(iname, component)</div><div class="ttdoc">Macro pour itérer sur toutes les mailles d'un composant.</div><div class="ttdef"><b>Definition:</b> MatItemEnumerator.h:608</div></div>
-<div class="ttc" id="aMeshMaterialVariableRef_8h_html_ae87d82fe38420b360e104b41cb82307e"><div class="ttname"><a href="../../d9/db2/MeshMaterialVariableRef_8h.html#ae87d82fe38420b360e104b41cb82307e">Arcane::Materials::MaterialVariableCellInt32</a></div><div class="ttdeci">CellMaterialVariableScalarRef&lt; Int32 &gt; MaterialVariableCellInt32</div><div class="ttdoc">Variable matériau de type #Int32</div><div class="ttdef"><b>Definition:</b> MeshMaterialVariableRef.h:496</div></div>
-<div class="ttc" id="aMatItemEnumerator_8h_html_afe0d487f593214b682fd6b9319b38aa2"><div class="ttname"><a href="../../d9/d0b/MatItemEnumerator_8h.html#afe0d487f593214b682fd6b9319b38aa2">ENUMERATE_MAT</a></div><div class="ttdeci">#define ENUMERATE_MAT(imat, container)</div><div class="ttdoc">Macro pour itérer sur une liste de matériaux.</div><div class="ttdef"><b>Definition:</b> MatItemEnumerator.h:630</div></div>
+<div class="ttc" id="aMeshMaterialVariableRef_8h_html_ae87d82fe38420b360e104b41cb82307e"><div class="ttname"><a href="../../d9/db2/MeshMaterialVariableRef_8h.html#ae87d82fe38420b360e104b41cb82307e">Arcane::Materials::MaterialVariableCellInt32</a></div><div class="ttdeci">CellMaterialVariableScalarRef&lt; Int32 &gt; MaterialVariableCellInt32</div><div class="ttdoc">Variable matériau de type #Int32</div><div class="ttdef"><b>Definition:</b> MeshMaterialVariableRef.h:491</div></div>
 <div class="ttc" id="anamespaceArcane_1_1Parallel_html_a277e2e6fcf1cb8b627771800e6afe0e7"><div class="ttname"><a href="../../d8/d8f/namespaceArcane_1_1Parallel.html#a277e2e6fcf1cb8b627771800e6afe0e7">Arcane::Parallel::Foreach</a></div><div class="ttdeci">void Foreach(const ItemVectorView &amp;items_view, const ParallelLoopOptions &amp;options, InstanceType *instance, void(InstanceType::*function)(ItemVectorViewT&lt; ItemType &gt; items))</div><div class="ttdef"><b>Definition:</b> Concurrency.h:191</div></div>
-<div class="ttc" id="aclassArccore_1_1Array_html_ab3f2d332e7c412261b9199bb5454e31b"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#ab3f2d332e7c412261b9199bb5454e31b">Arccore::Array::add</a></div><div class="ttdeci">void add(ConstReferenceType val)</div><div class="ttdoc">Ajoute l'élément val à la fin du tableau.</div><div class="ttdef"><b>Definition:</b> Array.h:956</div></div>
-<div class="ttc" id="aMatItemEnumerator_8h_html_a568f790f7de72e2144399d55d8c63455"><div class="ttname"><a href="../../d9/d0b/MatItemEnumerator_8h.html#a568f790f7de72e2144399d55d8c63455">ENUMERATE_ENVCELL</a></div><div class="ttdeci">#define ENUMERATE_ENVCELL(iname, env)</div><div class="ttdoc">Macro pour itérer sur toutes les mailles d'un milieu.</div><div class="ttdef"><b>Definition:</b> MatItemEnumerator.h:599</div></div>
-<div class="ttc" id="aMatItemEnumerator_8h_html_a98a6ae7a597e04e3f6dec2e55ebbc2a2"><div class="ttname"><a href="../../d9/d0b/MatItemEnumerator_8h.html#a98a6ae7a597e04e3f6dec2e55ebbc2a2">ENUMERATE_CELL_ENVCELL</a></div><div class="ttdeci">#define ENUMERATE_CELL_ENVCELL(iname, all_env_cell)</div><div class="ttdoc">Macro pour itérer sur tous les milieux d'une maille.</div><div class="ttdef"><b>Definition:</b> MatItemEnumerator.h:669</div></div>
-<div class="ttc" id="aMatItemEnumerator_8h_html_a2effa51105facd480d81a8ecc6d12b49"><div class="ttname"><a href="../../d9/d0b/MatItemEnumerator_8h.html#a2effa51105facd480d81a8ecc6d12b49">ENUMERATE_CELL_COMPONENTCELL</a></div><div class="ttdeci">#define ENUMERATE_CELL_COMPONENTCELL(iname, component_cell)</div><div class="ttdoc">Macro pour itérer sur tous les composants d'une maille.</div><div class="ttdef"><b>Definition:</b> MatItemEnumerator.h:651</div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_ab3f2d332e7c412261b9199bb5454e31b"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#ab3f2d332e7c412261b9199bb5454e31b">Arccore::Array::add</a></div><div class="ttdeci">void add(ConstReferenceType val)</div><div class="ttdoc">Ajoute l'élément val à la fin du tableau.</div><div class="ttdef"><b>Definition:</b> Array.h:962</div></div>
 <div class="ttc" id="agroup__Mesh_html_ga4d78be302ffdabc4e0f16578cc077314"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga4d78be302ffdabc4e0f16578cc077314">Arcane::CellGroup</a></div><div class="ttdeci">ItemGroupT&lt; Cell &gt; CellGroup</div><div class="ttdoc">Groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:141</div></div>
-<div class="ttc" id="aMatItemEnumerator_8h_html_abb8f4d71c522752b85f2239cfab71b94"><div class="ttname"><a href="../../d9/d0b/MatItemEnumerator_8h.html#abb8f4d71c522752b85f2239cfab71b94">ENUMERATE_ALLENVCELL</a></div><div class="ttdeci">#define ENUMERATE_ALLENVCELL(iname,...)</div><div class="ttdoc">Macro pour itérer sur toutes les mailles AllEnvCell d'un groupe.</div><div class="ttdef"><b>Definition:</b> MatItemEnumerator.h:581</div></div>
 <div class="ttc" id="aItemEnumerator_8h_html_aaf5910d68ad8428248f844535ab071f3"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a></div><div class="ttdeci">#define ENUMERATE_CELL(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:260</div></div>
-<div class="ttc" id="aMeshMaterialVariableRef_8h_html_ad42f72196acf6c2a74c142de7812132d"><div class="ttname"><a href="../../d9/db2/MeshMaterialVariableRef_8h.html#ad42f72196acf6c2a74c142de7812132d">Arcane::Materials::MaterialVariableCellReal</a></div><div class="ttdeci">CellMaterialVariableScalarRef&lt; Real &gt; MaterialVariableCellReal</div><div class="ttdoc">Variable matériau de type #Real</div><div class="ttdef"><b>Definition:</b> MeshMaterialVariableRef.h:492</div></div>
+<div class="ttc" id="aMeshMaterialVariableRef_8h_html_ad42f72196acf6c2a74c142de7812132d"><div class="ttname"><a href="../../d9/db2/MeshMaterialVariableRef_8h.html#ad42f72196acf6c2a74c142de7812132d">Arcane::Materials::MaterialVariableCellReal</a></div><div class="ttdeci">CellMaterialVariableScalarRef&lt; Real &gt; MaterialVariableCellReal</div><div class="ttdoc">Variable matériau de type #Real</div><div class="ttdef"><b>Definition:</b> MeshMaterialVariableRef.h:487</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li>
-    <li class="footer">Généré le Lundi 13 Juin 2022 03:33:29 pour Arcane par
+    <li class="footer">Généré le Lundi 20 Juin 2022 03:25:37 pour Arcane par
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
   </ul>

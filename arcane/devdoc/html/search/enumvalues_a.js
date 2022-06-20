@@ -1,11 +1,9 @@
 var searchData=
 [
-  ['maxiterationreached_19379',['MaxIterationReached',['../d0/d32/namespaceArcane.html#a226ea1b7de98d25dabd320c29587bd7ba0ec28413953f4d8b1503935baf66e38a',1,'Arcane']]],
-  ['md_5fdirinvalid_19380',['MD_DirInvalid',['../d0/d32/namespaceArcane.html#a87ef4153518c68216588e90c3edbb250a01d7f7b412458f19abfef9b7de2d1f91',1,'Arcane']]],
-  ['md_5fdirx_19381',['MD_DirX',['../d0/d32/namespaceArcane.html#a87ef4153518c68216588e90c3edbb250acd881c39f4f6a65eb5933f666f4a4115',1,'Arcane']]],
-  ['md_5fdiry_19382',['MD_DirY',['../d0/d32/namespaceArcane.html#a87ef4153518c68216588e90c3edbb250ab1804bffed1e985d78500c814222b59b',1,'Arcane']]],
-  ['md_5fdirz_19383',['MD_DirZ',['../d0/d32/namespaceArcane.html#a87ef4153518c68216588e90c3edbb250a3ac17ae58bab891988952829be0b1557',1,'Arcane']]],
-  ['medium_19384',['Medium',['../d4/d56/namespaceArccore_1_1Trace.html#abf5dbf930d14c0c3147dcce10df4cac9a0daa39c42b94819ebb77c607a16ae023',1,'Arccore::Trace']]],
-  ['modeget_19385',['ModeGet',['../dd/dcd/classArccore_1_1ISerializer.html#a23c5d407e4d9b703fe595ce0725f913fa56b149b45802cff6c857903ddb92664e',1,'Arccore::ISerializer']]],
-  ['modeput_19386',['ModePut',['../dd/dcd/classArccore_1_1ISerializer.html#a23c5d407e4d9b703fe595ce0725f913fa4533cfad45026c0cba50982578168e52',1,'Arccore::ISerializer']]]
+  ['legacy_19409',['Legacy',['../d0/d32/namespaceArcane.html#af1a2bb770356f8dc0de7dc4aef70c8a6a0cc0a0507cf3d31e5089f420a4cf8b4b',1,'Arcane']]],
+  ['legacyandallocaccessor_19410',['LegacyAndAllocAccessor',['../d0/d32/namespaceArcane.html#af1a2bb770356f8dc0de7dc4aef70c8a6a0846c2c5f2747df5b432707d775371ef',1,'Arcane']]],
+  ['legacyandnew_19411',['LegacyAndNew',['../d0/d32/namespaceArcane.html#af1a2bb770356f8dc0de7dc4aef70c8a6a0ecf4f6b10925d30659bd9b93ab915aa',1,'Arcane']]],
+  ['line2_19412',['Line2',['../d5/d10/classArcane_1_1GeomType.html#af1d449d43cc10f643f2c326a467e8716a142d904e8f266ecc7db1169f56c838df',1,'Arcane::GeomType']]],
+  ['low_19413',['Low',['../d4/d56/namespaceArccore_1_1Trace.html#abf5dbf930d14c0c3147dcce10df4cac9afccf2dda013e5ccf5ee275923d225af6',1,'Arccore::Trace']]],
+  ['lowest_19414',['Lowest',['../d4/d56/namespaceArccore_1_1Trace.html#abf5dbf930d14c0c3147dcce10df4cac9a39df8a5a46e822ef1a871f74af801302',1,'Arccore::Trace']]]
 ];

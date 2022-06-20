@@ -8,7 +8,6 @@ var classArcane_1_1Accelerator_1_1RunCommand =
     [ "addTraceInfo", "dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html#ac286ef1e17f9604ec44875955f436937", null ],
     [ "kernelName", "dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html#ad12261313bef6455d01bcd721a4e13a4", null ],
     [ "operator=", "dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html#a3b69e1f3ef8f778f4a1b76772b46426c", null ],
-    [ "resetInfos", "dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html#ab64e744e0fcff6eb91a8ab0c28962890", null ],
     [ "traceInfo", "dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html#ac97ce93e9f68dacc5ea5bad81b720161", null ],
     [ "impl::internalGetOrCreateReduceMemoryImpl", "dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html#a3600628d4be9754c2843662e7664bb28", null ],
     [ "operator<<", "dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html#ad26f54e59601168c86af5714ccf9cb3c", null ]

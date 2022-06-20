@@ -1,21 +1,14 @@
 var searchData=
 [
-  ['save_19440',['Save',['../d3/d48/classArcane_1_1IBackwardMng.html#a911cc45f885a754563bb573b7a77c401a198eabff8302d5e45c85ec61b82604c0',1,'Arcane::IBackwardMng']]],
-  ['sb_5fallownull_19441',['SB_AllowNull',['../d0/d32/namespaceArcane.html#a210fbc18d7d51d7fd5ada9711e986760ad89f44f4a594b512e0e0fb465f5cef9a',1,'Arcane']]],
-  ['sb_5fcollective_19442',['SB_Collective',['../d0/d32/namespaceArcane.html#a210fbc18d7d51d7fd5ada9711e986760a150259f952d21dcdca538e59ff925150',1,'Arcane']]],
-  ['sb_5fnone_19443',['SB_None',['../d0/d32/namespaceArcane.html#a210fbc18d7d51d7fd5ada9711e986760aebedabb448fd36042b283393a3c3a509',1,'Arcane']]],
-  ['seqforcesave_19444',['SEQForceSave',['../d3/d6e/classArcane_1_1DefaultBackwardMng.html#af2824fda1784e0be1c2e840729aa5175a3502d104205309529fe565c470f858cd',1,'Arcane::DefaultBackwardMng']]],
-  ['seqlock_19445',['SEQLock',['../d3/d6e/classArcane_1_1DefaultBackwardMng.html#af2824fda1784e0be1c2e840729aa5175aa9731118e2f5134bc66d8bb0d07e911d',1,'Arcane::DefaultBackwardMng']]],
-  ['seqnothing_19446',['SEQNothing',['../d3/d6e/classArcane_1_1DefaultBackwardMng.html#af2824fda1784e0be1c2e840729aa5175a37cfb52b1b19447a19b4298e9f6256f3',1,'Arcane::DefaultBackwardMng']]],
-  ['seqrestore_19447',['SEQRestore',['../d3/d6e/classArcane_1_1DefaultBackwardMng.html#af2824fda1784e0be1c2e840729aa5175a6beec0feec838da993ef059b114c4a73',1,'Arcane::DefaultBackwardMng']]],
-  ['seqsave_19448',['SEQSave',['../d3/d6e/classArcane_1_1DefaultBackwardMng.html#af2824fda1784e0be1c2e840729aa5175aa9b8c5ff03448acaa0911cacc18eba53',1,'Arcane::DefaultBackwardMng']]],
-  ['sequential_19449',['Sequential',['../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfaa7e82daa7280af25afbaa076ac16eb1e',1,'Arcane::Accelerator']]],
-  ['sfp_5fautoload_19450',['SFP_Autoload',['../d0/d32/namespaceArcane.html#a1b581b9bc319ce066e9428b1fe2b9a83a21d6b4fbb500a781121220beeb52a0c7',1,'Arcane']]],
-  ['sfp_5fnone_19451',['SFP_None',['../d0/d32/namespaceArcane.html#a1b581b9bc319ce066e9428b1fe2b9a83a96ad513468d5ca62d8fd44649abeeabc',1,'Arcane']]],
-  ['sfp_5fsingleton_19452',['SFP_Singleton',['../d0/d32/namespaceArcane.html#a1b581b9bc319ce066e9428b1fe2b9a83acbe0ca394319b1fd2c2ea7e516bec964',1,'Arcane']]],
-  ['st_5fapplication_19453',['ST_Application',['../d0/d32/namespaceArcane.html#a76d8edd5679322dbbea6dd06488a0db4a09dd398037bf48b78100bf8b538c5ea3',1,'Arcane']]],
-  ['st_5fcaseoption_19454',['ST_CaseOption',['../d0/d32/namespaceArcane.html#a76d8edd5679322dbbea6dd06488a0db4a2786299c8b6755c7b89d6bb7fdaa5506',1,'Arcane']]],
-  ['st_5fsession_19455',['ST_Session',['../d0/d32/namespaceArcane.html#a76d8edd5679322dbbea6dd06488a0db4a2e7f6ee5f5cba0ff4f23a13be9dd50d0',1,'Arcane']]],
-  ['st_5fsubdomain_19456',['ST_SubDomain',['../d0/d32/namespaceArcane.html#a76d8edd5679322dbbea6dd06488a0db4a9997b517d3c4ecb309d952431399bd2f',1,'Arcane']]],
-  ['static_19457',['Static',['../d9/d62/classArcane_1_1ParallelLoopOptions.html#adb69cf9bcc031b07263152c09205fe8aa84a8921b25f505d0d2077aeb5db4bc16',1,'Arcane::ParallelLoopOptions']]]
+  ['readadd_19469',['ReadAdd',['../dd/dcd/classArccore_1_1ISerializer.html#affd4d1dc8daba192fc47e7e2deec5961a27c9d1903d379330c36cd9af1f1c2416',1,'Arccore::ISerializer']]],
+  ['readreplace_19470',['ReadReplace',['../dd/dcd/classArccore_1_1ISerializer.html#affd4d1dc8daba192fc47e7e2deec5961a67f2598dad8c0388896c3cbcc201b392',1,'Arccore::ISerializer']]],
+  ['reducemax_19471',['ReduceMax',['../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3eaa8e2e6c3f405ec7aa2e4bc05f93d7d6d4',1,'Arccore::MessagePassing']]],
+  ['reducemin_19472',['ReduceMin',['../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3eaa1839cd07dd2977f344de25f1de3102b1',1,'Arccore::MessagePassing']]],
+  ['reducesum_19473',['ReduceSum',['../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3eaa730fd1eb73dab8e53ba89664ddf0f67b',1,'Arccore::MessagePassing']]],
+  ['remove_19474',['Remove',['../d4/d60/namespaceArcane_1_1Materials.html#a2064ea5a460320e49807f747687116cba1063e38cb53d94d386f21227fcd84717',1,'Arcane::Materials']]],
+  ['removed_19475',['Removed',['../d8/dda/classArcane_1_1VariableStatusChangedEventArgs.html#a174859b20bd3801dbd8e7d8f02ee1cb1a93f07b720ebf7d1246512569761a5804',1,'Arcane::VariableStatusChangedEventArgs']]],
+  ['restore_19476',['Restore',['../d3/d48/classArcane_1_1IBackwardMng.html#a911cc45f885a754563bb573b7a77c401a752439d46d8e80d32fc0f992fef8690c',1,'Arcane::IBackwardMng']]],
+  ['rterror_19477',['RTError',['../d7/d2c/classArcane_1_1IMeshReader.html#aa5759e2881cc9fec93f3d2dbcb28004ca3816c6372931032e4493be43848ec314',1,'Arcane::IMeshReader']]],
+  ['rtirrelevant_19478',['RTIrrelevant',['../d7/d2c/classArcane_1_1IMeshReader.html#aa5759e2881cc9fec93f3d2dbcb28004ca185a754af35cfecba874cb8905b4411f',1,'Arcane::IMeshReader']]],
+  ['rtok_19479',['RTOk',['../d7/d2c/classArcane_1_1IMeshReader.html#aa5759e2881cc9fec93f3d2dbcb28004ca891d767ba5df9e8c5f93a49fffbbf194',1,'Arcane::IMeshReader']]]
 ];

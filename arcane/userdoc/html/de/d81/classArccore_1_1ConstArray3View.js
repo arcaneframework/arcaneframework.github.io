@@ -2,6 +2,7 @@ var classArccore_1_1ConstArray3View =
 [
     [ "ConstArray3View", "de/d81/classArccore_1_1ConstArray3View.html#a8741322e71386c81c098ba7bb44d2a8f", null ],
     [ "ConstArray3View", "de/d81/classArccore_1_1ConstArray3View.html#a72313c0ffbe7af8bc61fca8257574512", null ],
+    [ "data", "de/d81/classArccore_1_1ConstArray3View.html#a8a526958d8b6505881f0d4c3ff5de406", null ],
     [ "dim1Size", "de/d81/classArccore_1_1ConstArray3View.html#a1504a7ebb98982c2fa0bd47cda125c43", null ],
     [ "dim2Size", "de/d81/classArccore_1_1ConstArray3View.html#afec7c727ddd0c7970c81010b3b54c1e9", null ],
     [ "dim3Size", "de/d81/classArccore_1_1ConstArray3View.html#aab0a0c1a580b53b34342695e1222c5da", null ],

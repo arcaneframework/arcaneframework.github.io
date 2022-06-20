@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['matvarspace_19220',['MatVarSpace',['../d0/de0/MaterialsGlobal_8h.html#adac105de99bb881046e47132509ee527',1,'Arcane::Materials']]]
+  ['matvarspace_19253',['MatVarSpace',['../d4/d60/namespaceArcane_1_1Materials.html#adac105de99bb881046e47132509ee527',1,'Arcane::Materials']]]
 ];

@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['state_12367',['State',['../df/dde/classArcane_1_1VariableSynchronizerEventArgs.html#a90378f8465d65a43a7078f997a50c4ef',1,'Arcane::VariableSynchronizerEventArgs']]],
-  ['status_12368',['Status',['../d8/dda/classArcane_1_1VariableStatusChangedEventArgs.html#a174859b20bd3801dbd8e7d8f02ee1cb1',1,'Arcane::VariableStatusChangedEventArgs']]]
+  ['timemetricphase_12022',['TimeMetricPhase',['../d5/d60/namespaceArccore.html#ab8f4c2217107e265fb1654df74279d87',1,'Arccore']]]
 ];

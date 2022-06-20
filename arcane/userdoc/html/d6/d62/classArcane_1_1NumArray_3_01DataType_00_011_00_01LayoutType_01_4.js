@@ -7,6 +7,7 @@ var classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4 =
     [ "NumArray", "d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#abba9b4f95d5bf1bae57d80f202a04001", null ],
     [ "NumArray", "d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#a35a5a172c59c928900f543e16a37d574", null ],
     [ "NumArray", "d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#aaf42cc52b7690586cca6c3722d4357b4", null ],
+    [ "NumArray", "d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#a4ca6015f3447e4e72d847c4f55aba13f", null ],
     [ "dim1Size", "d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#a9c20cc8239b820d42e7c28769352d273", null ],
     [ "operator ConstSpanType", "d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#adbaba4f86ae2fd5ecb57bdec2084741a", null ],
     [ "operator SpanType", "d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html#a9c22cb05612fedcb8ace837ded1cb0d0", null ],

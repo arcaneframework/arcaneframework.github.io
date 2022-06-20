@@ -45,6 +45,8 @@ var classArccore_1_1Array =
     [ "operator ConstArrayView< T >", "d9/d09/classArccore_1_1Array.html#a85498a8bf4d1d7452b43af1baff3b3ce", null ],
     [ "operator Span< const T >", "d9/d09/classArccore_1_1Array.html#a60d05ee5f4cdf53501a93ac66e28a1f7", null ],
     [ "operator Span< T >", "d9/d09/classArccore_1_1Array.html#ae29baa8cab0c7d990e93ee9cdf89c741", null ],
+    [ "operator()", "d9/d09/classArccore_1_1Array.html#a5fe244aed046dc4fb68f0562aed0f619", null ],
+    [ "operator()", "d9/d09/classArccore_1_1Array.html#a9f9c2b139386cb25da92508a9ae92d7c", null ],
     [ "operator[]", "d9/d09/classArccore_1_1Array.html#a99a25e18092858e060a48d7c7bfa81a9", null ],
     [ "operator[]", "d9/d09/classArccore_1_1Array.html#ac31c6f218ae2e28bcc2b8ed2a2813773", null ],
     [ "popBack", "d9/d09/classArccore_1_1Array.html#a9d53d7a19cc521407bf9c64d48ce5e13", null ],

@@ -57,6 +57,7 @@ var classArcane_1_1Materials_1_1MeshMaterialMng =
     [ "timestamp", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#a3c26355f47fc24d0d9ce140f9eb3faaf", null ],
     [ "traceMng", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#adece84ccf3af8443f2549aa3b6de7018", null ],
     [ "trueEnvironments", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#a1f1a67646f7fa1e9733184dd4ff28284", null ],
+    [ "variableFactoryMng", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#afb4713f0c309bbc6bb80180e80046b3c", null ],
     [ "variableLock", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#a1e181407d2a93e5bb56299b369277ef5", null ],
     [ "variablesIndexer", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#adfbd1bb8f3ab7efc8b87c49c51d195d3", null ],
     [ "view", "d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#aca19ef6f9433349e590c3235b3531e6d", null ],

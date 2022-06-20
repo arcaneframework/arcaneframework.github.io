@@ -2,10 +2,10 @@ var group__Concurrency =
 [
     [ "List of interfaces", "de/d46/out_interfacemainpage_dox.html#autotoc_md68", null ],
     [ "ParallelLoopOptions", "d9/d62/classArcane_1_1ParallelLoopOptions.html", [
-      [ "Summary of options", "d1/db1/axldoc_module_ArcanePostProcessing_arcane_std.html#autotoc_md45", null ],
-      [ "Summary of options", "d7/d29/axldoc_module_ArcaneCheckpoint_arcane_std.html#autotoc_md43", null ],
-      [ "Summary of options", "d1/dec/axldoc_module_ArcaneVerifier_arcane_std.html#autotoc_md46", null ],
+      [ "Summary of options", "d1/db1/axldoc_module_ArcanePostProcessing_arcane_std.html#autotoc_md46", null ],
+      [ "Summary of options", "d7/d29/axldoc_module_ArcaneCheckpoint_arcane_std.html#autotoc_md44", null ],
       [ "Summary of options", "df/d5b/axldoc_module_UnitTest_arcane_std.html#autotoc_md47", null ],
+      [ "Summary of options", "df/dc4/axldoc_module_ArcaneCeaVerifier_arcane_cea.html#autotoc_md43", null ],
       [ "Summary of options", "df/d31/axldoc_service_ArcaneCaseMeshMasterService_arcane_impl.html#autotoc_md48", null ],
       [ "Summary of options", "da/d86/axldoc_service_ArcaneCaseMeshService_arcane_impl.html#autotoc_md49", null ],
       [ "Summary of options", "d5/d88/axldoc_service_ArcaneCasePartitioner_arcane_std.html#autotoc_md50", null ],

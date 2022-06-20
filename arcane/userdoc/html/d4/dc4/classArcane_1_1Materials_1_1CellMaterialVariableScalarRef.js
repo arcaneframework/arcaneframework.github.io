@@ -2,7 +2,7 @@ var classArcane_1_1Materials_1_1CellMaterialVariableScalarRef =
 [
     [ "GlobalVariableRefType", "d4/dc4/classArcane_1_1Materials_1_1CellMaterialVariableScalarRef.html#a07e728a79f6969364a31935832e28b31", null ],
     [ "ItemType", "d4/dc4/classArcane_1_1Materials_1_1CellMaterialVariableScalarRef.html#a89b83c64b2ff95d938ff3a8f43de2cef", null ],
-    [ "PrivatePartType", "d4/dc4/classArcane_1_1Materials_1_1CellMaterialVariableScalarRef.html#a4d4b9bd161906fe5fd5e30bd342ddeed", null ],
+    [ "PrivatePartType", "d4/dc4/classArcane_1_1Materials_1_1CellMaterialVariableScalarRef.html#af52e2b61bff97796be0358b5222ebabe", null ],
     [ "CellMaterialVariableScalarRef", "d4/dc4/classArcane_1_1Materials_1_1CellMaterialVariableScalarRef.html#a20e6647359132559fab03ecb0e682973", null ],
     [ "CellMaterialVariableScalarRef", "d4/dc4/classArcane_1_1Materials_1_1CellMaterialVariableScalarRef.html#a9e03ffdb229d060b92c589df3fe2a779", null ],
     [ "CellMaterialVariableScalarRef", "d4/dc4/classArcane_1_1Materials_1_1CellMaterialVariableScalarRef.html#a344dfc92d72be22b0dbd4cdc4151a648", null ],
