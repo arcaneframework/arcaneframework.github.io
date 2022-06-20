@@ -2,6 +2,7 @@ var classArcane_1_1ItemVariableScalarRefT =
 [
     [ "ArrayBase", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#abd7396fa2b881b82181a96b5530582d6", null ],
     [ "BaseClass", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#ad3a9fc11f18f17345f253e03b1d4057c", null ],
+    [ "ConstReturnReferenceType", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#a3770b0d8ff9d31b8cf56d792dcd8af15", null ],
     [ "DataType", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#aad955dc09188af1c24a5cab4a1365cfc", null ],
     [ "DataTypeReturnReference", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#afc5c1a5709129d5424f425450c607dfe", null ],
     [ "PrivatePartType", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#ac773371bfc6ef82a3180394edd6e727c", null ],
@@ -29,6 +30,5 @@ var classArcane_1_1ItemVariableScalarRefT =
     [ "power", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#a5562a8167f05d8097519a64e4c170847", null ],
     [ "power", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#a62ac53c440058c4e54f28a6a000ea7b6", null ],
     [ "sub", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#a25be81673aa28eef355e898a5c89f2cf", null ],
-    [ "sub", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#ace501faa7412c411298180da17046e9f", null ],
-    [ "ConstReturnReferenceType", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#ac2af574250b141473e0cef6d1fe033c8", null ]
+    [ "sub", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#ace501faa7412c411298180da17046e9f", null ]
 ];

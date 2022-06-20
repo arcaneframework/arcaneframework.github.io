@@ -1,21 +1,10 @@
 var classArcane_1_1IVariable =
 [
-    [ "PNoDump", "d5/d96/classArcane_1_1IVariable.html#a48f18c4778be07ab6b84feb05333efedaf6962152439f7fe3b4a13896140f8d2b", null ],
-    [ "PNoNeedSync", "d5/d96/classArcane_1_1IVariable.html#a48f18c4778be07ab6b84feb05333efedae902db1427698ba20f09633602f9cf2e", null ],
-    [ "PHasTrace", "d5/d96/classArcane_1_1IVariable.html#a48f18c4778be07ab6b84feb05333efeda8e09a9858d0a54abeb29e9611425a9bb", null ],
-    [ "PSubDomainDepend", "d5/d96/classArcane_1_1IVariable.html#a48f18c4778be07ab6b84feb05333efeda14e726148c7c3185cabacbbb4a3ae653", null ],
-    [ "PSubDomainPrivate", "d5/d96/classArcane_1_1IVariable.html#a48f18c4778be07ab6b84feb05333efeda99365146c049e3d93f886a042526d41e", null ],
-    [ "PExecutionDepend", "d5/d96/classArcane_1_1IVariable.html#a48f18c4778be07ab6b84feb05333efeda8001aaf52e8691bb11641cb52f339ea5", null ],
-    [ "PPrivate", "d5/d96/classArcane_1_1IVariable.html#a48f18c4778be07ab6b84feb05333efeda8e6753d044fad365e207ef3287b2e182", null ],
-    [ "PTemporary", "d5/d96/classArcane_1_1IVariable.html#a48f18c4778be07ab6b84feb05333efeda4c17bf3f3d444802391398553d8a2bf6", null ],
-    [ "PNoRestore", "d5/d96/classArcane_1_1IVariable.html#a48f18c4778be07ab6b84feb05333efeda97555600c8114fa8197c33f17eec87b1", null ],
-    [ "PNoExchange", "d5/d96/classArcane_1_1IVariable.html#a48f18c4778be07ab6b84feb05333efeda238fcf2bcda831cc90dcfa64c3ffbb9d", null ],
-    [ "PPersistant", "d5/d96/classArcane_1_1IVariable.html#a48f18c4778be07ab6b84feb05333efeda95666b8d66545776f3b8692179544313", null ],
-    [ "PNoReplicaSync", "d5/d96/classArcane_1_1IVariable.html#a48f18c4778be07ab6b84feb05333efeda4b0e4cce42148af5a5fbd5234bcf1b26", null ],
     [ "eDependType", "d5/d96/classArcane_1_1IVariable.html#a12c3c4211760838f092c666dc5090101", [
       [ "DPT_PreviousTime", "d5/d96/classArcane_1_1IVariable.html#a12c3c4211760838f092c666dc5090101a61f724c0dfb97f69d95e85e0467a62c3", null ],
       [ "DPT_CurrentTime", "d5/d96/classArcane_1_1IVariable.html#a12c3c4211760838f092c666dc5090101aac3f1d541c77704e856ed7746adcd649", null ]
     ] ],
+    [ "~IVariable", "d5/d96/classArcane_1_1IVariable.html#addf431dfb9fbed01104bcd17ef2e4221", null ],
     [ "addDepend", "d5/d96/classArcane_1_1IVariable.html#aa55e7df66d5d1b4829c8ec693a6413e8", null ],
     [ "addDepend", "d5/d96/classArcane_1_1IVariable.html#aaa0dbb4a4606a20efba4a277b8bd94c1", null ],
     [ "addTag", "d5/d96/classArcane_1_1IVariable.html#a0a0f416915667902419ee477859a1984", null ],

@@ -56,6 +56,7 @@ var group__Core =
       [ "functorAddress", "d1/d48/classArcane_1_1IFunctorWithAddress.html#a8fedd40bfa727beb19f1d5817fb4a614", null ]
     ] ],
     [ "IObservable", "dc/d38/classArcane_1_1IObservable.html", [
+      [ "~IObservable", "dc/d38/classArcane_1_1IObservable.html#af3cc3f3e62b88c4e4b70a91b69f33076", null ],
       [ "attachObserver", "dc/d38/classArcane_1_1IObservable.html#a70760a3e14ded3d757baa76b45811576", null ],
       [ "destroy", "dc/d38/classArcane_1_1IObservable.html#a7db10e68bc4580550bfe59cc560fd6c1", null ],
       [ "detachAllObservers", "dc/d38/classArcane_1_1IObservable.html#a37c107cadbdd86b158ba5554e92e3a66", null ],

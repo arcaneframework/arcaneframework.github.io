@@ -1,16 +1,5 @@
 var BaseTypes_8h =
 [
-    [ "IterT", "d1/d4f/classArccore_1_1IterT.html", "d1/d4f/classArccore_1_1IterT" ],
-    [ "ConstIterT", "d7/d4a/classArccore_1_1ConstIterT.html", "d7/d4a/classArccore_1_1ConstIterT" ],
-    [ "CoreArray", "d4/de3/classArccore_1_1CoreArray.html", "d4/de3/classArccore_1_1CoreArray" ],
-    [ "CheckedPointer", "d0/dac/classArccore_1_1CheckedPointer.html", "d0/dac/classArccore_1_1CheckedPointer" ],
-    [ "ReferenceCounterAccessor", "de/d6f/classArccore_1_1ReferenceCounterAccessor.html", null ],
-    [ "ReferenceCounter", "d7/d42/classArccore_1_1ReferenceCounter.html", "d7/d42/classArccore_1_1ReferenceCounter" ],
-    [ "IFunctorWithArgumentT", "da/ddf/classArccore_1_1IFunctorWithArgumentT.html", "da/ddf/classArccore_1_1IFunctorWithArgumentT" ],
-    [ "IFunctorWithArgAndReturn2", "da/d0e/classArccore_1_1IFunctorWithArgAndReturn2.html", "da/d0e/classArccore_1_1IFunctorWithArgAndReturn2" ],
-    [ "FunctorT", "d1/d74/classArccore_1_1FunctorT.html", "d1/d74/classArccore_1_1FunctorT" ],
-    [ "FunctorWithArgumentT", "dc/db0/classArccore_1_1FunctorWithArgumentT.html", "dc/db0/classArccore_1_1FunctorWithArgumentT" ],
-    [ "StdFunctorWithArgumentT", "dd/de1/classArccore_1_1StdFunctorWithArgumentT.html", "dd/de1/classArccore_1_1StdFunctorWithArgumentT" ],
     [ "BoolArrayView", "d4/d12/BaseTypes_8h.html#a1e63548c8490c3e5f7d9bf0be3b57f23", null ],
     [ "BoolConstArrayView", "d4/d12/BaseTypes_8h.html#a4f8fda85d75d1ac7b0d122aa733c90ca", null ],
     [ "BoolConstSpan", "d4/d12/BaseTypes_8h.html#a49d11e78da884dcc75f18bcc2f952833", null ],

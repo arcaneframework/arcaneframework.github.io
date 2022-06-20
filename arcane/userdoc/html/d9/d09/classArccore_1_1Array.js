@@ -2,6 +2,7 @@ var classArccore_1_1Array =
 [
     [ "BaseClassType", "d9/d09/classArccore_1_1Array.html#a4a18d7fba24fda2811ad5f46a0ae3bc6", null ],
     [ "const_iterator", "d9/d09/classArccore_1_1Array.html#a7f7bb8fd263b350e7746f17bdb25c324", null ],
+    [ "const_pointer", "d9/d09/classArccore_1_1Array.html#a45122400c14e1d9cde29bb9d1314d6fa", null ],
     [ "const_reference", "d9/d09/classArccore_1_1Array.html#ab5e6c666ddb28b8e0d087df7f3d8ab23", null ],
     [ "const_reverse_iterator", "d9/d09/classArccore_1_1Array.html#ae106272757b30cffcb2f72e779420596", null ],
     [ "ConstReferenceType", "d9/d09/classArccore_1_1Array.html#a8023ff084b23452c72fc1050bfcb9fec", null ],
@@ -73,6 +74,5 @@ var classArccore_1_1Array =
     [ "subView", "d9/d09/classArccore_1_1Array.html#abfc4cb1f4354741242366d2dde0d3a11", null ],
     [ "unguardedBasePointer", "d9/d09/classArccore_1_1Array.html#a51ce80f92cbf0139ca9c69e2a2eea687", null ],
     [ "unguardedBasePointer", "d9/d09/classArccore_1_1Array.html#ab7f9c431e73548be4b5ea704af88e878", null ],
-    [ "view", "d9/d09/classArccore_1_1Array.html#afdca1d57df2ab69b2f85d676c0ef0156", null ],
-    [ "const_pointer", "d9/d09/classArccore_1_1Array.html#a6ec04016751747025673b21506ac3995", null ]
+    [ "view", "d9/d09/classArccore_1_1Array.html#afdca1d57df2ab69b2f85d676c0ef0156", null ]
 ];

@@ -16,6 +16,7 @@ var classArccore_1_1ISerializer =
       [ "ReadReplace", "dd/dcd/classArccore_1_1ISerializer.html#affd4d1dc8daba192fc47e7e2deec5961a67f2598dad8c0388896c3cbcc201b392", null ],
       [ "ReadAdd", "dd/dcd/classArccore_1_1ISerializer.html#affd4d1dc8daba192fc47e7e2deec5961a27c9d1903d379330c36cd9af1f1c2416", null ]
     ] ],
+    [ "~ISerializer", "dd/dcd/classArccore_1_1ISerializer.html#a6bd97566bc204b263706d52a7bce8069", null ],
     [ "allocateBuffer", "dd/dcd/classArccore_1_1ISerializer.html#a22210a97ce04ff12a5cda68b22766d7a", null ],
     [ "allocateBuffer", "dd/dcd/classArccore_1_1ISerializer.html#aad76d804b6770bcac00d605fb239f201", null ],
     [ "copy", "dd/dcd/classArccore_1_1ISerializer.html#a5a4973c2b53e45b558c992f0dae5355e", null ],

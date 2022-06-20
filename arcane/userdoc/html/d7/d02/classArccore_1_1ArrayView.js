@@ -2,6 +2,8 @@ var classArccore_1_1ArrayView =
 [
     [ "const_iter", "d7/d02/classArccore_1_1ArrayView.html#a01b517d40dc363b5c99394e998f3de93", null ],
     [ "const_iterator", "d7/d02/classArccore_1_1ArrayView.html#a13cbb263dbc76464d153bb6c1c76f99b", null ],
+    [ "const_pointer", "d7/d02/classArccore_1_1ArrayView.html#a86ca5b690a16a72ab3fd1f9df5f5fa55", null ],
+    [ "const_reference", "d7/d02/classArccore_1_1ArrayView.html#aac950c9344a7fbfaffeadd7889c388df", null ],
     [ "const_reverse_iterator", "d7/d02/classArccore_1_1ArrayView.html#ac3ac4f299e93765e079a9f79eac4161d", null ],
     [ "difference_type", "d7/d02/classArccore_1_1ArrayView.html#a20b9c56551adcf6a2b6bb6f6471156d4", null ],
     [ "iter", "d7/d02/classArccore_1_1ArrayView.html#aba1c5436258959677dbb6397d9d440ed", null ],
@@ -61,7 +63,5 @@ var classArccore_1_1ArrayView =
     [ "SmallSpan< const T >", "d7/d02/classArccore_1_1ArrayView.html#a29e33265baa775fa3e0d36fe0ea1e3f0", null ],
     [ "SmallSpan< T >", "d7/d02/classArccore_1_1ArrayView.html#af472aa5984f6b9d92d89f6de385306be", null ],
     [ "Span< const T >", "d7/d02/classArccore_1_1ArrayView.html#aafdc3a68d43653683105863f03612912", null ],
-    [ "Span< T >", "d7/d02/classArccore_1_1ArrayView.html#aee97f18485519b05c5389dc8b9267e65", null ],
-    [ "const_pointer", "d7/d02/classArccore_1_1ArrayView.html#aa2d7829e7a966cb18097377b6aed282f", null ],
-    [ "const_reference", "d7/d02/classArccore_1_1ArrayView.html#aa4c97192f2a6366ed60a03cf956a70f8", null ]
+    [ "Span< T >", "d7/d02/classArccore_1_1ArrayView.html#aee97f18485519b05c5389dc8b9267e65", null ]
 ];

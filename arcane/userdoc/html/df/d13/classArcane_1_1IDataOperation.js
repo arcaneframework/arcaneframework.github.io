@@ -1,5 +1,6 @@
 var classArcane_1_1IDataOperation =
 [
+    [ "~IDataOperation", "df/d13/classArcane_1_1IDataOperation.html#ada2e6fa2d6eb636d36b7db19f589cb9d", null ],
     [ "apply", "df/d13/classArcane_1_1IDataOperation.html#a12bc9ab50d44a9ceb87191345d0d989a", null ],
     [ "apply", "df/d13/classArcane_1_1IDataOperation.html#a59edc2d8f04c2de6905071664d2ec9f5", null ],
     [ "apply", "df/d13/classArcane_1_1IDataOperation.html#a065759a8f7b066035433533fc5c88dd9", null ],

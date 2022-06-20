@@ -1,14 +1,5 @@
 var ItemTypes_8h =
 [
-    [ "ItemGroupT", "d8/d8e/classArcane_1_1ItemGroupT.html", "d8/d8e/classArcane_1_1ItemGroupT" ],
-    [ "ItemPairGroupT", "d7/d3f/classArcane_1_1ItemPairGroupT.html", "d7/d3f/classArcane_1_1ItemPairGroupT" ],
-    [ "ItemVectorT", "d5/ded/classArcane_1_1ItemVectorT.html", "d5/ded/classArcane_1_1ItemVectorT" ],
-    [ "ItemLocalIdViewT", "dc/d35/classArcane_1_1ItemLocalIdViewT.html", "dc/d35/classArcane_1_1ItemLocalIdViewT" ],
-    [ "IndexedItemConnectivityViewT", "da/d60/classArcane_1_1IndexedItemConnectivityViewT.html", null ],
-    [ "ItemEnumeratorT", "d7/d74/classArcane_1_1ItemEnumeratorT.html", "d7/d74/classArcane_1_1ItemEnumeratorT" ],
-    [ "ItemVectorViewT", "d7/d90/classArcane_1_1ItemVectorViewT.html", "d7/d90/classArcane_1_1ItemVectorViewT" ],
-    [ "ItemEnumeratorT", "d7/d74/classArcane_1_1ItemEnumeratorT.html", "d7/d74/classArcane_1_1ItemEnumeratorT" ],
-    [ "ItemPairEnumeratorT", "d4/d6a/classArcane_1_1ItemPairEnumeratorT.html", "d4/d6a/classArcane_1_1ItemPairEnumeratorT" ],
     [ "InternalConnectivityInfo", "d9/d82/classArcane_1_1InternalConnectivityInfo.html", null ],
     [ "ItemTraitsT", "df/de7/classArcane_1_1ItemTraitsT.html", null ],
     [ "ItemTraitsT< Node >", "d7/d63/classArcane_1_1ItemTraitsT_3_01Node_01_4.html", "d7/d63/classArcane_1_1ItemTraitsT_3_01Node_01_4" ],

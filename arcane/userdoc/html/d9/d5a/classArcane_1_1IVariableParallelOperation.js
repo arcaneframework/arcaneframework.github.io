@@ -1,5 +1,6 @@
 var classArcane_1_1IVariableParallelOperation =
 [
+    [ "~IVariableParallelOperation", "d9/d5a/classArcane_1_1IVariableParallelOperation.html#a1a985070332461bcfd5b99faf5f4b875", null ],
     [ "addVariable", "d9/d5a/classArcane_1_1IVariableParallelOperation.html#a8cf0d3e9de1a3712565797bd6aad2c00", null ],
     [ "applyOperation", "d9/d5a/classArcane_1_1IVariableParallelOperation.html#af43e58b3aa824abe8bbc520c43480444", null ],
     [ "build", "d9/d5a/classArcane_1_1IVariableParallelOperation.html#a19189ea54ab055d203f9ac499cd93082", null ],

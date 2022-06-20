@@ -2,6 +2,8 @@ var classArcane_1_1XmlNode =
 [
     [ "const_iter", "d9/dcc/classArcane_1_1XmlNode.html#aaba8b979cc3fb5cd724cfff174f5096f", null ],
     [ "const_iterator", "d9/dcc/classArcane_1_1XmlNode.html#a5ecddf51fb1dad9005b9a59a20fb1037", null ],
+    [ "const_pointer", "d9/dcc/classArcane_1_1XmlNode.html#a35300c765006264ee71607dae3690c17", null ],
+    [ "const_reference", "d9/dcc/classArcane_1_1XmlNode.html#a2459e7faa088fa0b03cd297f2b840a56", null ],
     [ "difference_type", "d9/dcc/classArcane_1_1XmlNode.html#a0047d5e45ff1d055908286a188105321", null ],
     [ "iter", "d9/dcc/classArcane_1_1XmlNode.html#a96b81e8435c44dd86b24e55b04b58c5c", null ],
     [ "iterator", "d9/dcc/classArcane_1_1XmlNode.html#a53dc7bac034fcde8898b7c4595853f0f", null ],
@@ -35,8 +37,8 @@ var classArcane_1_1XmlNode =
     [ "assignDomNode", "d9/dcc/classArcane_1_1XmlNode.html#a0f517ca44826db71c1dd3c4a01a305a2", null ],
     [ "attr", "d9/dcc/classArcane_1_1XmlNode.html#a06a33dd990e708cb5d21a7b46bc4ec8d", null ],
     [ "attrValue", "d9/dcc/classArcane_1_1XmlNode.html#a578e0cfb4267be1280d8dbd1dce3f85e", null ],
-    [ "begin", "d9/dcc/classArcane_1_1XmlNode.html#a4463f5c8ec31bbf3770568e8be6a9f16", null ],
-    [ "begin", "d9/dcc/classArcane_1_1XmlNode.html#a866d203c89b2f646f4244f4e434269b9", null ],
+    [ "begin", "d9/dcc/classArcane_1_1XmlNode.html#abf6d1792b8086d109b73d8b8bed727d4", null ],
+    [ "begin", "d9/dcc/classArcane_1_1XmlNode.html#a49ab1084f28bb1791fffec9d51351ca1", null ],
     [ "child", "d9/dcc/classArcane_1_1XmlNode.html#a74a4eeb96817dfae77a85147bc1652e6", null ],
     [ "children", "d9/dcc/classArcane_1_1XmlNode.html#a5154f545d221f1717dbe87f8bf78fe9d", null ],
     [ "children", "d9/dcc/classArcane_1_1XmlNode.html#a92d501b203486fe9581c81cd91d8fda4", null ],
@@ -51,8 +53,8 @@ var classArcane_1_1XmlNode =
     [ "createText", "d9/dcc/classArcane_1_1XmlNode.html#aa48cf53c602cdc412b53f0095648ddc5", null ],
     [ "documentElement", "d9/dcc/classArcane_1_1XmlNode.html#a18e2a491b092534f0c6b9b25f4531f1e", null ],
     [ "domNode", "d9/dcc/classArcane_1_1XmlNode.html#aed18cad6825f98cca2928581c9773c7d", null ],
-    [ "end", "d9/dcc/classArcane_1_1XmlNode.html#a4260b3b880076f823f52cab2cdb8a249", null ],
-    [ "end", "d9/dcc/classArcane_1_1XmlNode.html#a576c0ecf873b3488e09e0c57714679cf", null ],
+    [ "end", "d9/dcc/classArcane_1_1XmlNode.html#a3efa9c89f49f74584439b1b7c3516724", null ],
+    [ "end", "d9/dcc/classArcane_1_1XmlNode.html#a241919f721900c4a57a42da4cdd54842", null ],
     [ "forceAttr", "d9/dcc/classArcane_1_1XmlNode.html#a80b383841aeeed3ba00b08f0d6ef5512", null ],
     [ "front", "d9/dcc/classArcane_1_1XmlNode.html#aa1347ab6adcfa1f4db9206a6fb7f05ab", null ],
     [ "insertAfter", "d9/dcc/classArcane_1_1XmlNode.html#a452783fd352c3c2cb2a8dd0e0e059898", null ],
@@ -86,7 +88,5 @@ var classArcane_1_1XmlNode =
     [ "valueAsInteger", "d9/dcc/classArcane_1_1XmlNode.html#abc34b2b762194ac6afee66a479aa3aee", null ],
     [ "valueAsReal", "d9/dcc/classArcane_1_1XmlNode.html#a61be9c78aeaf5af90d1b88b0b4717331", null ],
     [ "xpathFullName", "d9/dcc/classArcane_1_1XmlNode.html#a07fe982b6d68b8afe3c727ca2420517d", null ],
-    [ "xpathNode", "d9/dcc/classArcane_1_1XmlNode.html#a83b3b50dea52b727217467689fa301b6", null ],
-    [ "const_pointer", "d9/dcc/classArcane_1_1XmlNode.html#a6707658a87f9cefcbdd9207a1e6f18cf", null ],
-    [ "const_reference", "d9/dcc/classArcane_1_1XmlNode.html#a0d302e342d53253f3c5ce37b89039178", null ]
+    [ "xpathNode", "d9/dcc/classArcane_1_1XmlNode.html#a83b3b50dea52b727217467689fa301b6", null ]
 ];

@@ -43,6 +43,7 @@ var group__IO =
       [ "encode", "df/dd4/classArcane_1_1IFilter.html#a4b7064376085a34e5b482fef86b780d1", null ]
     ] ],
     [ "IIOMng", "da/dd2/classArcane_1_1IIOMng.html", [
+      [ "~IIOMng", "da/dd2/classArcane_1_1IIOMng.html#acc6339f8251e7d36d6b3c5b2a5449562", null ],
       [ "collectiveRead", "da/dd2/classArcane_1_1IIOMng.html#ac8df35e14c2645b49dc7c2053890c55c", null ],
       [ "collectiveRead", "da/dd2/classArcane_1_1IIOMng.html#ac4675b48463726335f6aa11a5e6c178e", null ],
       [ "localRead", "da/dd2/classArcane_1_1IIOMng.html#ab62b7432f5ad2622895c62826105e908", null ],

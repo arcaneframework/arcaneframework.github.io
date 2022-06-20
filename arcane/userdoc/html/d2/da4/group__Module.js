@@ -24,9 +24,6 @@ var group__Module =
       [ "~BasicModule", "d5/d47/classArcane_1_1BasicModule.html#a570d14767ef3b48b6e2393a5b87cf594", null ]
     ] ],
     [ "IEntryPoint", "de/dd7/classArcane_1_1IEntryPoint.html", [
-      [ "PNone", "de/dd7/classArcane_1_1IEntryPoint.html#a101339fd66b292e234e38b02500a5d96a081ccef2ebc5a22ce6906b2aeb26d338", null ],
-      [ "PAutoLoadBegin", "de/dd7/classArcane_1_1IEntryPoint.html#a101339fd66b292e234e38b02500a5d96a95111968e9718849c978377a51a625ec", null ],
-      [ "PAutoLoadEnd", "de/dd7/classArcane_1_1IEntryPoint.html#a101339fd66b292e234e38b02500a5d96a0988c1641753b4c5538c787a9594adc9", null ],
       [ "~IEntryPoint", "de/dd7/classArcane_1_1IEntryPoint.html#afff2162c3ee7851e76c7ff2e81ade2ed", null ],
       [ "ARCANE_DEPRECATED_REASON", "de/dd7/classArcane_1_1IEntryPoint.html#a0f132679220d65fee8ea0f1449ca7102", null ],
       [ "executeEntryPoint", "de/dd7/classArcane_1_1IEntryPoint.html#a0d88625489f80485fd28e4d8020c56a2", null ],
@@ -71,6 +68,7 @@ var group__Module =
       [ "removeModule", "d2/d3b/classArcane_1_1IModuleMng.html#a8b6ffb6763db346431ac8736f61e75e1", null ]
     ] ],
     [ "ITimeLoop", "dd/dc9/classArcane_1_1ITimeLoop.html", [
+      [ "~ITimeLoop", "dd/dc9/classArcane_1_1ITimeLoop.html#ac906f2809787ce4a436c28fa0795672d", null ],
       [ "application", "dd/dc9/classArcane_1_1ITimeLoop.html#a5e09a4a0b8feb87279016c3e2dc29ad8", null ],
       [ "build", "dd/dc9/classArcane_1_1ITimeLoop.html#a3c6874083f225c236d599c528ce53c76", null ],
       [ "configuration", "dd/dc9/classArcane_1_1ITimeLoop.html#a54b654f9acc0a997d1ddee1e8ab08104", null ],

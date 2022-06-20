@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Arcane: Configuration des options jeu de données (fichier AXL)</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
@@ -30,10 +30,10 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.8.17 -->
+<!-- Généré par Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
@@ -80,7 +80,8 @@ $(function() {
 <li class="level1"><a href="#arcanedoc_caseoptions_defaultvalues">Gestion des valeurs par défaut</a></li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="arcanedoc_caseoptions_intro"></a>
+<div class="textblock"><p><a class="anchor" id="md____w_arcaneframework_github_io_arcaneframework_github_io_framework_arcane_doc_caseoptions"></a></p>
+<h1><a class="anchor" id="arcanedoc_caseoptions_intro"></a>
 Introduction</h1>
 <p>Ce chapître décrit les options possibles pour le fichier <em>axl</em>. Ces options s'appliquent de manière identiques aux modules et aux services. Afin d'éviter des répétitions inutiles, on utilisera le terme module seulement, en sachant que cela s'applique aussi aux services.</p>
 <p>Chaque module possède des options qui peuvent être spécifiées par l'utilisateur lors du lancement d'une exécution. Ces options sont en général dictées par le <em>jeu de données</em> que fournit l'utilisateur pour lancer son cas. Le document <a class="el" href="../../d1/deb/arcanedoc_core.html#arcanedoc_module">Les modules</a> montre que chaque module possède un fichier de configuration nommé <em>descripteur de module</em> composé de 3 parties : les variables, les points d'entrée et les options de configuration. Le présent document s'intéresse à la la partie concernant les options de configuration qui vont permettre de définir la grammaire du jeu de données du module.</p>
@@ -207,6 +208,7 @@ Les options étendues</h2>
 <p>Si une option de ce type existe, sa valeur est validée après lecture du maillage et doit correspondre à un groupe existant et du bon type.</p>
 <p>Pour le développeur, une option de type <code>extended</code> génère un objet du type <code><a class="el" href="../../de/db5/group__Mesh.html#gabce375c2d244a5dddce4012e86327bea" title="Groupe de noeuds.">Arcane::NodeGroup</a></code>, <code><a class="el" href="../../de/db5/group__Mesh.html#ga715f63c87800d630ab5c58d9328c2bf2" title="Groupe de faces.">Arcane::FaceGroup</a></code> ou <code><a class="el" href="../../de/db5/group__Mesh.html#ga4d78be302ffdabc4e0f16578cc077314" title="Groupe de mailles.">Arcane::CellGroup</a></code> qui s'utilise donc comme un groupe. Par exemple, avec l'option précédente de nom <code>surface</code>, la méthode <code>surface()</code> de la classe gérant le jeu de donnée retourne un groupe de faces de type <code><a class="el" href="../../de/db5/group__Mesh.html#ga715f63c87800d630ab5c58d9328c2bf2" title="Groupe de faces.">Arcane::FaceGroup</a></code> et la ligne suivante est valide :</p>
 <div class="fragment"><div class="line"><a class="code" href="../../d6/d0f/ItemEnumerator_8h.html#a2301a57310b51190d331e08b4220e9e4">ENUMERATE_FACE</a>(i,surface())</div>
+<div class="ttc" id="aItemEnumerator_8h_html_a2301a57310b51190d331e08b4220e9e4"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#a2301a57310b51190d331e08b4220e9e4">ENUMERATE_FACE</a></div><div class="ttdeci">#define ENUMERATE_FACE(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de faces.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:257</div></div>
 </div><!-- fragment --><p>Pour l'exemple précédent, si XMIN est un surface définie sur le maillage, le jeu de données contient, par exemple, la ligne :</p>
 <div class="fragment"><div class="line">&lt;<span class="keywordtype">surface</span>&gt;<span class="keyword">XMIN</span>&lt;/<span class="keywordtype">surface</span>&gt;</div>
 </div><!-- fragment --><h2><a class="anchor" id="arcanedoc_caseoptions_struct_complex"></a>
@@ -240,11 +242,10 @@ Les options de type service</h2>
 <tr>
 <th>Attribut </th><th>Type </th><th>Description  </th></tr>
 <tr>
-<td>allow-null </td><td>bool </td><td><p class="starttd">si <code>false</code> (le défaut), le service spécifié dans le jeu de données doit exister. Si ce n'est pas le cas, une erreur se produira lors de la lecture. Si cet attribut vaut <code>true</code>, et que le service spécifié n'existe pas, l'option correspondante sera nulle et il faudra tester sa valeur. Par exemple: </p><div class="fragment"><div class="line">IEquationOfState* eos = options()-&gt;eosModel();</div>
+<td>allow-null </td><td>bool </td><td>si <code>false</code> (le défaut), le service spécifié dans le jeu de données doit exister. Si ce n'est pas le cas, une erreur se produira lors de la lecture. Si cet attribut vaut <code>true</code>, et que le service spécifié n'existe pas, l'option correspondante sera nulle et il faudra tester sa valeur. Par exemple: <div class="fragment"><div class="line">IEquationOfState* eos = options()-&gt;eosModel();</div>
 <div class="line"><span class="keywordflow">if</span> (!eos)</div>
 <div class="line">  info() &lt;&lt; <span class="stringliteral">&quot;Service spécifié indisponible&quot;</span>;</div>
-</div><!-- fragment --><p class="endtd"></p>
-</td></tr>
+</div><!-- fragment -->   </td></tr>
 <tr>
 <td>optional </td><td>bool </td><td>si <code>false</code> (le défaut), le service est toujours créé et si l'élément correspondant n'existe pas dans le jeu de données, le service avec le nom par défaut sera créé. Si cet attribut vaut <code>true</code> et que l'élément n'est pas présent dans le jeu de données, aucun service n'est créé.   </td></tr>
 </table>
@@ -315,23 +316,24 @@ Gestion des valeurs par défaut</h1>
 <div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
 <div class="line"><span class="keywordtype">void</span> f()</div>
 <div class="line">{</div>
-<div class="line">  <a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html">ISubDomain</a>* sd = ...;</div>
-<div class="line">  <a class="code" href="../../d3/dd9/classArcane_1_1ICaseDocument.html">ICaseDocument</a>* doc = sd-&gt;<a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#a543389cec2dee4367bcee2d20c01822b">caseDocument</a>();</div>
-<div class="line">  doc-&gt;<a class="code" href="../../d3/dd9/classArcane_1_1ICaseDocument.html#ab45cee6b68580e7b3b55c126b2038ab7">setDefaultCategory</a>(<span class="stringliteral">&quot;MyCategory&quot;</span>);</div>
+<div class="line">  ISubDomain* sd = ...;</div>
+<div class="line">  ICaseDocument* doc = sd-&gt;caseDocument();</div>
+<div class="line">  doc-&gt;setDefaultCategory(<span class="stringliteral">&quot;MyCategory&quot;</span>);</div>
 <div class="line">}</div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
 </div><!-- fragment --><p>Enfin, depuis la version 2.9.1 (juin 2018) de Arcane, il est aussi possible de changer dynamiquement lors de l'exécution ces valeurs par défaut. Cela peut être utile par exemple si on veut des valeurs par défaut par type de boucle en temps, par dimension du maillage, ...</p>
 <p>Pour changer les valeurs par défaut, il existe une méthode <b>setDefaultValue()</b> suivant le type de l'option:</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Classe Arcane </th><th class="markdownTableHeadNone">Description  </th></tr>
+<th class="markdownTableHeadNone">Classe Arcane   </th><th class="markdownTableHeadNone">Description    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="../../d4/d3d/classArcane_1_1CaseOptionSimpleT.html#af12c8cb47fac6ce77ee1ecb791f26e14" title="Positionne la valeur par défaut de l&#39;option.">Arcane::CaseOptionSimpleT::setDefaultValue()</a> </td><td class="markdownTableBodyNone">options simples  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="../../d4/d3d/classArcane_1_1CaseOptionSimpleT.html#af12c8cb47fac6ce77ee1ecb791f26e14" title="Positionne la valeur par défaut de l&#39;option.">Arcane::CaseOptionSimpleT::setDefaultValue()</a>   </td><td class="markdownTableBodyNone">options simples    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="../../d2/d4c/classArcane_1_1CaseOptionEnumT.html#a92705f1c2f8f63c1c7f44b6997906a01" title="Positionne la valeur par défaut de l&#39;option.">Arcane::CaseOptionEnumT::setDefaultValue()</a> </td><td class="markdownTableBodyNone">options énumérées  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="../../d2/d4c/classArcane_1_1CaseOptionEnumT.html#a92705f1c2f8f63c1c7f44b6997906a01" title="Positionne la valeur par défaut de l&#39;option.">Arcane::CaseOptionEnumT::setDefaultValue()</a>   </td><td class="markdownTableBodyNone">options énumérées    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone"><a class="el" href="../../db/d3f/classArcane_1_1CaseOptionExtended.html#ab1ebd89e2047c4cab2a3b9a022b8626d" title="Positionne la valeur par défaut de l&#39;option.">Arcane::CaseOptionExtendedT::setDefaultValue()</a> </td><td class="markdownTableBodyNone">options étendues  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="../../db/d3f/classArcane_1_1CaseOptionExtended.html#ab1ebd89e2047c4cab2a3b9a022b8626d" title="Positionne la valeur par défaut de l&#39;option.">Arcane::CaseOptionExtendedT::setDefaultValue()</a>   </td><td class="markdownTableBodyNone">options étendues    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone"><a class="el" href="../../dd/ddd/classArcane_1_1CaseOptionService.html#af896db193145913ef19c2de6bc04959c" title="Positionne la valeur par défaut du nom du service.">Arcane::CaseOptionService::setDefaultValue()</a> </td><td class="markdownTableBodyNone">services  </td></tr>
+<td class="markdownTableBodyNone"><a class="el" href="../../dd/ddd/classArcane_1_1CaseOptionService.html#af896db193145913ef19c2de6bc04959c" title="Positionne la valeur par défaut du nom du service.">Arcane::CaseOptionService::setDefaultValue()</a>   </td><td class="markdownTableBodyNone">services   </td></tr>
 </table>
 <dl class="section note"><dt>Note</dt><dd>Il n'est pas possible de changer les valeurs par défaut des options possédant des occurences multiples.</dd></dl>
 <p>Pour bien comprendre comment utiliser cette méthode, il est nécessaire de connaitre les mécanismes de lecture des options du jeu de données. La lecture du jeu de données se fait en plusieurs phases:</p><ol type="1">
@@ -347,19 +349,21 @@ Gestion des valeurs par défaut</h1>
 <div class="line"><span class="keyword">class </span>MyService</div>
 <div class="line">{</div>
 <div class="line"> <span class="keyword">public</span>:</div>
-<div class="line">  MyService(<span class="keyword">const</span> <a class="code" href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">ServiceBuildInfo</a>&amp; sbi)</div>
+<div class="line">  MyService(<span class="keyword">const</span> ServiceBuildInfo&amp; sbi)</div>
 <div class="line">  {</div>
-<div class="line">    <a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html">ICaseMng</a>* cm = sbi.<a class="code" href="../../d1/dd8/classArcane_1_1ServiceBuildInfoBase.html#acf09b1a2f1b2a521d7d1fd969f683e33">subDomain</a>()-&gt;<a class="code" href="../../d9/d1e/classArcane_1_1ISubDomain.html#aad044c8bb89eb7f49b9ce8180096ebe2">caseMng</a>();</div>
+<div class="line">    ICaseMng* cm = sbi.subDomain()-&gt;caseMng();</div>
 <div class="line">    m_observers.addObserver(<span class="keyword">this</span>,&amp;MyService::onBeforePhase1,</div>
-<div class="line">                            cm-&gt;<a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#abb6a319041704af5d101c94f18d3ddcc">observable</a>(<a class="code" href="../../d0/d32/namespaceArcane.html#a31c49c793d16b4c7f3fda08254ceeeb5a0ece0938b5db9bd5cd6d4d4098188c47">eCaseMngEventType::BeginReadOptionsPhase1</a>));</div>
+<div class="line">                            cm-&gt;observable(<a class="code" href="../../d0/d32/namespaceArcane.html#a31c49c793d16b4c7f3fda08254ceeeb5a0ece0938b5db9bd5cd6d4d4098188c47">eCaseMngEventType::BeginReadOptionsPhase1</a>));</div>
 <div class="line">    m_observers.addObserver(<span class="keyword">this</span>,&amp;MyService::onBeforePhase2,</div>
-<div class="line">                            cm-&gt;<a class="code" href="../../d3/dcf/classArcane_1_1ICaseMng.html#abb6a319041704af5d101c94f18d3ddcc">observable</a>(<a class="code" href="../../d0/d32/namespaceArcane.html#a31c49c793d16b4c7f3fda08254ceeeb5a0e85ce3eb4b658517ab8262545970e45">eCaseMngEventType::BeginReadOptionsPhase2</a>));</div>
+<div class="line">                            cm-&gt;observable(<a class="code" href="../../d0/d32/namespaceArcane.html#a31c49c793d16b4c7f3fda08254ceeeb5a0e85ce3eb4b658517ab8262545970e45">eCaseMngEventType::BeginReadOptionsPhase2</a>));</div>
 <div class="line">  }</div>
 <div class="line">  <span class="keywordtype">void</span> onBeforePhase1() { ... }</div>
 <div class="line">  <span class="keywordtype">void</span> onBeforePhase2() { ... }</div>
 <div class="line"> <span class="keyword">private</span>:</div>
-<div class="line">  <a class="code" href="../../d1/d7d/classArcane_1_1ObserverPool.html">ObserverPool</a> m_observers;</div>
+<div class="line">  ObserverPool m_observers;</div>
 <div class="line">};</div>
+<div class="ttc" id="anamespaceArcane_html_a31c49c793d16b4c7f3fda08254ceeeb5a0e85ce3eb4b658517ab8262545970e45"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a31c49c793d16b4c7f3fda08254ceeeb5a0e85ce3eb4b658517ab8262545970e45">Arcane::eCaseMngEventType::BeginReadOptionsPhase2</a></div><div class="ttdeci">@ BeginReadOptionsPhase2</div><div class="ttdoc">Évènement généré avant de lire les options dans la phase 2.</div></div>
+<div class="ttc" id="anamespaceArcane_html_a31c49c793d16b4c7f3fda08254ceeeb5a0ece0938b5db9bd5cd6d4d4098188c47"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a31c49c793d16b4c7f3fda08254ceeeb5a0ece0938b5db9bd5cd6d4d4098188c47">Arcane::eCaseMngEventType::BeginReadOptionsPhase1</a></div><div class="ttdeci">@ BeginReadOptionsPhase1</div><div class="ttdoc">Évènement généré avant de lire les options dans la phase 1.</div></div>
 </div><!-- fragment --><p>Les points suivants sont à noter:</p>
 <ul>
 <li>si on souhaite changer la valeur par défaut d'un service, il faut le faire lors de la partie (<em>1</em>) car ensuite les services ont déjà été créés.</li>
@@ -369,25 +373,9 @@ Gestion des valeurs par défaut</h1>
 </ul>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
-<div class="ttc" id="aclassArcane_1_1ISubDomain_html_aad044c8bb89eb7f49b9ce8180096ebe2"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#aad044c8bb89eb7f49b9ce8180096ebe2">Arcane::ISubDomain::caseMng</a></div><div class="ttdeci">virtual ICaseMng * caseMng()=0</div><div class="ttdoc">Retourne le gestionnaire du jeu de données.</div></div>
-<div class="ttc" id="aclassArcane_1_1ServiceBuildInfo_html"><div class="ttname"><a href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">Arcane::ServiceBuildInfo</a></div><div class="ttdoc">Structure contenant les informations pour créer un service.</div><div class="ttdef"><b>Definition:</b> ServiceBuildInfo.h:122</div></div>
-<div class="ttc" id="aclassArcane_1_1ISubDomain_html_a543389cec2dee4367bcee2d20c01822b"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html#a543389cec2dee4367bcee2d20c01822b">Arcane::ISubDomain::caseDocument</a></div><div class="ttdeci">virtual ICaseDocument * caseDocument()=0</div><div class="ttdoc">Document XML du cas.</div></div>
-<div class="ttc" id="aclassArcane_1_1ISubDomain_html"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html">Arcane::ISubDomain</a></div><div class="ttdoc">Interface du gestionnaire d'un sous-domaine.</div><div class="ttdef"><b>Definition:</b> ISubDomain.h:72</div></div>
-<div class="ttc" id="aclassArcane_1_1ICaseDocument_html_ab45cee6b68580e7b3b55c126b2038ab7"><div class="ttname"><a href="../../d3/dd9/classArcane_1_1ICaseDocument.html#ab45cee6b68580e7b3b55c126b2038ab7">Arcane::ICaseDocument::setDefaultCategory</a></div><div class="ttdeci">virtual void setDefaultCategory(const String &amp;v)=0</div><div class="ttdoc">Positionne la catégorie utilisée pour les valeurs par défaut.</div></div>
-<div class="ttc" id="aclassArcane_1_1ICaseMng_html_abb6a319041704af5d101c94f18d3ddcc"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html#abb6a319041704af5d101c94f18d3ddcc">Arcane::ICaseMng::observable</a></div><div class="ttdeci">virtual IObservable * observable(eCaseMngEventType type)=0</div><div class="ttdoc">Observable sur l'instance.</div></div>
-<div class="ttc" id="anamespaceArcane_html_a31c49c793d16b4c7f3fda08254ceeeb5a0ece0938b5db9bd5cd6d4d4098188c47"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a31c49c793d16b4c7f3fda08254ceeeb5a0ece0938b5db9bd5cd6d4d4098188c47">Arcane::eCaseMngEventType::BeginReadOptionsPhase1</a></div><div class="ttdeci">@ BeginReadOptionsPhase1</div><div class="ttdoc">Évènement généré avant de lire les options dans la phase 1.</div></div>
-<div class="ttc" id="aclassArcane_1_1ObserverPool_html"><div class="ttname"><a href="../../d1/d7d/classArcane_1_1ObserverPool.html">Arcane::ObserverPool</a></div><div class="ttdoc">Liste d'observateurs.</div><div class="ttdef"><b>Definition:</b> ObserverPool.h:40</div></div>
-<div class="ttc" id="aItemEnumerator_8h_html_a2301a57310b51190d331e08b4220e9e4"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#a2301a57310b51190d331e08b4220e9e4">ENUMERATE_FACE</a></div><div class="ttdeci">#define ENUMERATE_FACE(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de faces.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:257</div></div>
-<div class="ttc" id="anamespaceArcane_html_a31c49c793d16b4c7f3fda08254ceeeb5a0e85ce3eb4b658517ab8262545970e45"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a31c49c793d16b4c7f3fda08254ceeeb5a0e85ce3eb4b658517ab8262545970e45">Arcane::eCaseMngEventType::BeginReadOptionsPhase2</a></div><div class="ttdeci">@ BeginReadOptionsPhase2</div><div class="ttdoc">Évènement généré avant de lire les options dans la phase 2.</div></div>
-<div class="ttc" id="aclassArcane_1_1ServiceBuildInfoBase_html_acf09b1a2f1b2a521d7d1fd969f683e33"><div class="ttname"><a href="../../d1/dd8/classArcane_1_1ServiceBuildInfoBase.html#acf09b1a2f1b2a521d7d1fd969f683e33">Arcane::ServiceBuildInfoBase::subDomain</a></div><div class="ttdeci">ISubDomain * subDomain() const</div><div class="ttdoc">Accès au ISubDomain associé</div><div class="ttdef"><b>Definition:</b> ServiceBuildInfo.h:88</div></div>
-<div class="ttc" id="aclassArcane_1_1ICaseDocument_html"><div class="ttname"><a href="../../d3/dd9/classArcane_1_1ICaseDocument.html">Arcane::ICaseDocument</a></div><div class="ttdoc">Interface d'une classe gérant un document XML du jeu de données.</div><div class="ttdef"><b>Definition:</b> ICaseDocument.h:39</div></div>
-<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
-<div class="ttc" id="aclassArcane_1_1ICaseMng_html"><div class="ttname"><a href="../../d3/dcf/classArcane_1_1ICaseMng.html">Arcane::ICaseMng</a></div><div class="ttdoc">Interface du gestionnaire de cas.</div><div class="ttdef"><b>Definition:</b> ICaseMng.h:56</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 20 Juin 2022 03:26:39 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.8.17
+Généré le Lundi 20 Juin 2022 07:34:14 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

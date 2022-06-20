@@ -1,7 +1,5 @@
 var classArcane_1_1AVXSimdX8Int32 =
 [
-    [ "Length", "dc/d06/classArcane_1_1AVXSimdX8Int32.html#af0a87518497f2a33537c497fab7a1a5fac602ec6fd754d20f13df1254677672b2", null ],
-    [ "Alignment", "dc/d06/classArcane_1_1AVXSimdX8Int32.html#af0a87518497f2a33537c497fab7a1a5fa946833e12cbd0202df95db82babc11a8", null ],
     [ "AVXSimdX8Int32", "dc/d06/classArcane_1_1AVXSimdX8Int32.html#a597b9febba0e37a281441ab09bc4b31f", null ],
     [ "AVXSimdX8Int32", "dc/d06/classArcane_1_1AVXSimdX8Int32.html#a4732ce1ff3954449dc9696f43da8143c", null ],
     [ "AVXSimdX8Int32", "dc/d06/classArcane_1_1AVXSimdX8Int32.html#a2ffc13b4010243298f5ef58abc16cbf0", null ],

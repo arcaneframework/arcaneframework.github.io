@@ -1,6 +1,7 @@
 var classArcane_1_1MeshPartialVariableScalarRefT =
 [
     [ "BaseClass", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#ae0c95a153f9bcb712971ceca6f78c091", null ],
+    [ "ConstReturnReferenceType", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#a4ecaf57901ff853d94490e70956fa2da", null ],
     [ "DataType", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#aa0a900a25d263dcad1e6ffee3b8dcd75", null ],
     [ "DataTypeReturnReference", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#af4495616d65446f1394c1dd64eaf2622", null ],
     [ "GroupType", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#aa4c36f3bedcaf3ed3d8333a8e9ca3b71", null ],
@@ -19,6 +20,5 @@ var classArcane_1_1MeshPartialVariableScalarRefT =
     [ "operator[]", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#a077c3ab61018392017a39ad6436ff376", null ],
     [ "operator[]", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#a0324a4a03f16558a6777e8405b34c937", null ],
     [ "operator[]", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#a71887601e454d91a1ae371197215235d", null ],
-    [ "refersTo", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#a2a04bf27232357a841696cd6656abe6d", null ],
-    [ "ConstReturnReferenceType", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#a1597f3e3a3ff7475e0405752f5d392a4", null ]
+    [ "refersTo", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#a2a04bf27232357a841696cd6656abe6d", null ]
 ];

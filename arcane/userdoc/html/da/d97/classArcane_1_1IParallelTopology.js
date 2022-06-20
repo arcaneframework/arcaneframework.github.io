@@ -1,5 +1,6 @@
 var classArcane_1_1IParallelTopology =
 [
+    [ "~IParallelTopology", "da/d97/classArcane_1_1IParallelTopology.html#a44375486a5692bd591f4356f80c66204", null ],
     [ "isMasterMachine", "da/d97/classArcane_1_1IParallelTopology.html#a3d4267a7aa7489d80649c5348290b45f", null ],
     [ "isMasterProcess", "da/d97/classArcane_1_1IParallelTopology.html#a999037ef989dab9de4085df711e1bd89", null ],
     [ "machineRank", "da/d97/classArcane_1_1IParallelTopology.html#af2bf67cdfc42a10350f87aeac7e1c353", null ],

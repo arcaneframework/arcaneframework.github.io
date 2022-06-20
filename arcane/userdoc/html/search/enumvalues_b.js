@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['octaedron12_12147',['Octaedron12',['../dc/dfb/classArcane_1_1geometric_1_1GeomType.html#aa92f37a47e9cd19ae136172be1ca01ccaccb70430cb6de7bb8ed7dc592c60c89f',1,'Arcane::geometric::GeomType']]],
-  ['onemessage_12148',['OneMessage',['../df/d29/classArccore_1_1MessagePassing_1_1ISerializeMessage.html#ad6d0784663c4a172f532f02afe53b74bae38da6dba0a12310ddf5d374ddc2438c',1,'Arccore::MessagePassing::ISerializeMessage']]],
-  ['outtypecputime_12149',['OutTypeCPUTime',['../d5/dd3/classArcane_1_1OutputChecker.html#ae511b1020371ed5e99a96251934485a0a201032320d8013ece6548b886c1cb275',1,'Arcane::OutputChecker']]],
-  ['outtypeglobaltime_12150',['OutTypeGlobalTime',['../d5/dd3/classArcane_1_1OutputChecker.html#ae511b1020371ed5e99a96251934485a0ac613163b04d02a0f4f942537d148964f',1,'Arcane::OutputChecker']]],
-  ['outtypeiteration_12151',['OutTypeIteration',['../d5/dd3/classArcane_1_1OutputChecker.html#ae511b1020371ed5e99a96251934485a0a228653383fb894355bf086c0e8ea8415',1,'Arcane::OutputChecker']]],
-  ['outtypenone_12152',['OutTypeNone',['../d5/dd3/classArcane_1_1OutputChecker.html#ae511b1020371ed5e99a96251934485a0a3e2b5664ac95bff14f54e16db97cb572',1,'Arcane::OutputChecker']]]
+  ['newandlegacy_12110',['NewAndLegacy',['../d0/d32/namespaceArcane.html#af1a2bb770356f8dc0de7dc4aef70c8a6a3f967b49cb0c73c0bc50c76fe77e9f64',1,'Arcane']]],
+  ['newonly_12111',['NewOnly',['../d0/d32/namespaceArcane.html#af1a2bb770356f8dc0de7dc4aef70c8a6a56bd48e11b369f90a178fe3aa248f706',1,'Arcane']]],
+  ['newwithdependenciesandlegacy_12112',['NewWithDependenciesAndLegacy',['../d0/d32/namespaceArcane.html#af1a2bb770356f8dc0de7dc4aef70c8a6af2f99f82aff809a2c440da3f1f72ccc5',1,'Arcane']]],
+  ['none_12113',['None',['../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfa6adf97f83acf6453d4a6a4b1070f3754',1,'Arcane::Accelerator']]],
+  ['noreason_12114',['NoReason',['../d0/d32/namespaceArcane.html#a226ea1b7de98d25dabd320c29587bd7ba812c0c9e88b45008cb2fb201ac14b809',1,'Arcane']]],
+  ['nostop_12115',['NoStop',['../d0/d32/namespaceArcane.html#a226ea1b7de98d25dabd320c29587bd7ba235294aa8812d6f0e92da1ad234bf045',1,'Arcane']]],
+  ['notation_12116',['NOTATION',['../d9/dcc/classArcane_1_1XmlNode.html#aa8f9a7926cd76bfb52b352c39e575a00a4e773057719aca8d16553dec162468ee',1,'Arcane::XmlNode']]],
+  ['nulltype_12117',['NullType',['../dc/dfb/classArcane_1_1geometric_1_1GeomType.html#aa92f37a47e9cd19ae136172be1ca01cca7fbffa6f8d383cdbda175f18be98ea8e',1,'Arcane::geometric::GeomType']]]
 ];

@@ -1,5 +1,6 @@
 var classArcane_1_1IVariableMng =
 [
+    [ "~IVariableMng", "d7/d7c/classArcane_1_1IVariableMng.html#a0ab332c6a6218c624bc3fef2d4154a47", null ],
     [ "_internalSubDomain", "d7/d7c/classArcane_1_1IVariableMng.html#ab03324825a00badf8fd8bdb27e4c7196", null ],
     [ "addVariable", "d7/d7c/classArcane_1_1IVariableMng.html#a6aefa5c33a8beabc839b9eca01827cfc", null ],
     [ "addVariableRef", "d7/d7c/classArcane_1_1IVariableMng.html#ae5af066b0d196fd2167034caa5abb4b7", null ],

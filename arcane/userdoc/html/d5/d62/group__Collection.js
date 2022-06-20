@@ -19,6 +19,7 @@ var group__Collection =
     [ "Collection", "d3/d5d/classArcane_1_1Collection.html", [
       [ "Enumerator", "d3/d5d/classArcane_1_1Collection.html#a1008bef9aae2ebab34e6062f163134f1", null ],
       [ "Iterator", "d3/d5d/classArcane_1_1Collection.html#a8cdf2dfe697defc3fa8e994a9f19647a", null ],
+      [ "ObjectRef", "d3/d5d/classArcane_1_1Collection.html#a13b61a24289dfd7d3be9f2862ffa6187", null ],
       [ "Ref", "d3/d5d/classArcane_1_1Collection.html#a769b8000b69b8f7afa5c31c08b1f289e", null ],
       [ "Collection", "d3/d5d/classArcane_1_1Collection.html#a5c9b5096343c60463d0df945b0a85b1e", null ],
       [ "Collection", "d3/d5d/classArcane_1_1Collection.html#a7fd60565c16d1aeb15382b71b9390a30", null ],
@@ -31,8 +32,7 @@ var group__Collection =
       [ "front", "d3/d5d/classArcane_1_1Collection.html#a571b157768eecb3973ca309ea98d1c7c", null ],
       [ "remove", "d3/d5d/classArcane_1_1Collection.html#a6de18ff82d8f2677f5d13128252c4656", null ],
       [ "removeAt", "d3/d5d/classArcane_1_1Collection.html#a56cf4041527fc10039ed1cd22d65f3f8", null ],
-      [ "CollectionChangeEventHandler", "d3/d5d/classArcane_1_1Collection.html#afeffe157b1afce8ae5f90cdd2ba09506", null ],
-      [ "ObjectRef", "d3/d5d/classArcane_1_1Collection.html#ac6725ce846fc689fdb8642520dee00fc", null ]
+      [ "CollectionChangeEventHandler", "d3/d5d/classArcane_1_1Collection.html#afeffe157b1afce8ae5f90cdd2ba09506", null ]
     ] ],
     [ "EnumeratorBase", "d6/db6/classArcane_1_1EnumeratorBase.html", [
       [ "EnumeratorBase", "d6/db6/classArcane_1_1EnumeratorBase.html#aac042059f76e49489d3cafb28b57fe4e", null ],
@@ -203,6 +203,8 @@ var group__Collection =
     [ "ArrayView", "d7/d02/classArccore_1_1ArrayView.html", [
       [ "const_iter", "d7/d02/classArccore_1_1ArrayView.html#a01b517d40dc363b5c99394e998f3de93", null ],
       [ "const_iterator", "d7/d02/classArccore_1_1ArrayView.html#a13cbb263dbc76464d153bb6c1c76f99b", null ],
+      [ "const_pointer", "d7/d02/classArccore_1_1ArrayView.html#a86ca5b690a16a72ab3fd1f9df5f5fa55", null ],
+      [ "const_reference", "d7/d02/classArccore_1_1ArrayView.html#aac950c9344a7fbfaffeadd7889c388df", null ],
       [ "const_reverse_iterator", "d7/d02/classArccore_1_1ArrayView.html#ac3ac4f299e93765e079a9f79eac4161d", null ],
       [ "difference_type", "d7/d02/classArccore_1_1ArrayView.html#a20b9c56551adcf6a2b6bb6f6471156d4", null ],
       [ "iter", "d7/d02/classArccore_1_1ArrayView.html#aba1c5436258959677dbb6397d9d440ed", null ],
@@ -262,13 +264,13 @@ var group__Collection =
       [ "SmallSpan< const T >", "d7/d02/classArccore_1_1ArrayView.html#a29e33265baa775fa3e0d36fe0ea1e3f0", null ],
       [ "SmallSpan< T >", "d7/d02/classArccore_1_1ArrayView.html#af472aa5984f6b9d92d89f6de385306be", null ],
       [ "Span< const T >", "d7/d02/classArccore_1_1ArrayView.html#aafdc3a68d43653683105863f03612912", null ],
-      [ "Span< T >", "d7/d02/classArccore_1_1ArrayView.html#aee97f18485519b05c5389dc8b9267e65", null ],
-      [ "const_pointer", "d7/d02/classArccore_1_1ArrayView.html#aa2d7829e7a966cb18097377b6aed282f", null ],
-      [ "const_reference", "d7/d02/classArccore_1_1ArrayView.html#aa4c97192f2a6366ed60a03cf956a70f8", null ]
+      [ "Span< T >", "d7/d02/classArccore_1_1ArrayView.html#aee97f18485519b05c5389dc8b9267e65", null ]
     ] ],
     [ "ConstArrayView", "db/d8c/classArccore_1_1ConstArrayView.html", [
       [ "const_iter", "db/d8c/classArccore_1_1ConstArrayView.html#aac9b3a85bc61e2047d5a3c3c19806db6", null ],
       [ "const_iterator", "db/d8c/classArccore_1_1ConstArrayView.html#acd00a03d06fbb1049c647069b5b1012d", null ],
+      [ "const_pointer", "db/d8c/classArccore_1_1ConstArrayView.html#a675b9af0af298f6f9c4788905c11e80f", null ],
+      [ "const_reference", "db/d8c/classArccore_1_1ConstArrayView.html#ae351114ce79729563d5268e40a0a307a", null ],
       [ "const_reverse_iterator", "db/d8c/classArccore_1_1ConstArrayView.html#ad3771cb0735b92f09734e38812edfa72", null ],
       [ "const_value_type", "db/d8c/classArccore_1_1ConstArrayView.html#a908cb2baee8e62d8130e38027874e618", null ],
       [ "difference_type", "db/d8c/classArccore_1_1ConstArrayView.html#ace62fa607d5874635bfff494975c5990", null ],
@@ -305,9 +307,7 @@ var group__Collection =
       [ "SmallSpan< const T >", "db/d8c/classArccore_1_1ConstArrayView.html#a29e33265baa775fa3e0d36fe0ea1e3f0", null ],
       [ "SmallSpan< T >", "db/d8c/classArccore_1_1ConstArrayView.html#af472aa5984f6b9d92d89f6de385306be", null ],
       [ "Span< const T >", "db/d8c/classArccore_1_1ConstArrayView.html#aafdc3a68d43653683105863f03612912", null ],
-      [ "Span< T >", "db/d8c/classArccore_1_1ConstArrayView.html#aee97f18485519b05c5389dc8b9267e65", null ],
-      [ "const_pointer", "db/d8c/classArccore_1_1ConstArrayView.html#a37604e0e249f5f9c3a0281f3578d5239", null ],
-      [ "const_reference", "db/d8c/classArccore_1_1ConstArrayView.html#a447816609a801ea45ebb0d9611068dfa", null ]
+      [ "Span< T >", "db/d8c/classArccore_1_1ConstArrayView.html#aee97f18485519b05c5389dc8b9267e65", null ]
     ] ],
     [ "SpanImpl", "d6/d42/classArccore_1_1SpanImpl.html", [
       [ "const_iterator", "d6/d42/classArccore_1_1SpanImpl.html#a151600f18ec69d36cbd374498de3c197", null ],
@@ -423,7 +423,7 @@ var group__Collection =
       [ "Span2Impl", "d1/d75/classArccore_1_1Span2Impl.html#a0002828957496ebb048679b514154e18", null ],
       [ "constSmallView", "d1/d75/classArccore_1_1Span2Impl.html#a0faa1413261d544bbf5025461918d4f7", null ],
       [ "data", "d1/d75/classArccore_1_1Span2Impl.html#adacccd7e233a065d58f570a21680652b", null ],
-      [ "data", "d1/d75/classArccore_1_1Span2Impl.html#a5eb9e9fae57f20bdda683a30cdfc7de2", null ],
+      [ "data", "d1/d75/classArccore_1_1Span2Impl.html#a175b3fa2557e68e0769d051bc422fd8e", null ],
       [ "dim1Size", "d1/d75/classArccore_1_1Span2Impl.html#ad83cd08c257498d2e8a06ae7cb5f1d8d", null ],
       [ "dim2Size", "d1/d75/classArccore_1_1Span2Impl.html#a2fd88babdc4a8ef42e21930546beef23", null ],
       [ "item", "d1/d75/classArccore_1_1Span2Impl.html#a2dbb30621b7d3bc60af96de586400bb1", null ],
@@ -473,6 +473,7 @@ var group__Collection =
     ] ],
     [ "AbstractArray", "db/d34/classArccore_1_1AbstractArray.html", [
       [ "const_iterator", "db/d34/classArccore_1_1AbstractArray.html#a7f7bb8fd263b350e7746f17bdb25c324", null ],
+      [ "const_pointer", "db/d34/classArccore_1_1AbstractArray.html#a45122400c14e1d9cde29bb9d1314d6fa", null ],
       [ "const_reference", "db/d34/classArccore_1_1AbstractArray.html#ab5e6c666ddb28b8e0d087df7f3d8ab23", null ],
       [ "const_reverse_iterator", "db/d34/classArccore_1_1AbstractArray.html#ae106272757b30cffcb2f72e779420596", null ],
       [ "ConstReferenceType", "db/d34/classArccore_1_1AbstractArray.html#a8023ff084b23452c72fc1050bfcb9fec", null ],
@@ -545,12 +546,12 @@ var group__Collection =
       [ "operator[]", "db/d34/classArccore_1_1AbstractArray.html#ade84d0fa9da4428b202c7d6ef987dc36", null ],
       [ "printInfos", "db/d34/classArccore_1_1AbstractArray.html#afe4dd0bd581e5d29149b78bbde9ec01e", null ],
       [ "size", "db/d34/classArccore_1_1AbstractArray.html#ad685072bdadeb6ada60185ce0283db8d", null ],
-      [ "const_pointer", "db/d34/classArccore_1_1AbstractArray.html#a6ec04016751747025673b21506ac3995", null ],
       [ "m_ptr", "db/d34/classArccore_1_1AbstractArray.html#aeb2366b463ba67b1398b84071b043340", null ]
     ] ],
     [ "Array", "d9/d09/classArccore_1_1Array.html", [
       [ "BaseClassType", "d9/d09/classArccore_1_1Array.html#a4a18d7fba24fda2811ad5f46a0ae3bc6", null ],
       [ "const_iterator", "d9/d09/classArccore_1_1Array.html#a7f7bb8fd263b350e7746f17bdb25c324", null ],
+      [ "const_pointer", "d9/d09/classArccore_1_1Array.html#a45122400c14e1d9cde29bb9d1314d6fa", null ],
       [ "const_reference", "d9/d09/classArccore_1_1Array.html#ab5e6c666ddb28b8e0d087df7f3d8ab23", null ],
       [ "const_reverse_iterator", "d9/d09/classArccore_1_1Array.html#ae106272757b30cffcb2f72e779420596", null ],
       [ "ConstReferenceType", "d9/d09/classArccore_1_1Array.html#a8023ff084b23452c72fc1050bfcb9fec", null ],
@@ -622,8 +623,7 @@ var group__Collection =
       [ "subView", "d9/d09/classArccore_1_1Array.html#abfc4cb1f4354741242366d2dde0d3a11", null ],
       [ "unguardedBasePointer", "d9/d09/classArccore_1_1Array.html#a51ce80f92cbf0139ca9c69e2a2eea687", null ],
       [ "unguardedBasePointer", "d9/d09/classArccore_1_1Array.html#ab7f9c431e73548be4b5ea704af88e878", null ],
-      [ "view", "d9/d09/classArccore_1_1Array.html#afdca1d57df2ab69b2f85d676c0ef0156", null ],
-      [ "const_pointer", "d9/d09/classArccore_1_1Array.html#a6ec04016751747025673b21506ac3995", null ]
+      [ "view", "d9/d09/classArccore_1_1Array.html#afdca1d57df2ab69b2f85d676c0ef0156", null ]
     ] ],
     [ "SharedArray", "d4/dee/classArccore_1_1SharedArray.html", [
       [ "BaseClassType", "d4/dee/classArccore_1_1SharedArray.html#ad387b015f582f0c5aa71506468dc9d03", null ],

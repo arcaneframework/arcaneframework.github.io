@@ -1,6 +1,5 @@
 var MessagePassingGlobal_8h =
 [
-    [ "ITypeDispatcher", "dc/d82/classArccore_1_1MessagePassing_1_1ITypeDispatcher.html", "dc/d82/classArccore_1_1MessagePassing_1_1ITypeDispatcher" ],
     [ "ARCCORE_MESSAGEPASSING_EXPORT", "da/d36/MessagePassingGlobal_8h.html#a9029627e16c90595fce27437e4f7a090", null ],
     [ "ARCCORE_MESSAGEPASSING_EXTERN_TPL", "da/d36/MessagePassingGlobal_8h.html#a9a6894bc6f4476beb2f02cf8ff3de362", null ],
     [ "eBlockingType", "da/d36/MessagePassingGlobal_8h.html#a6a4909f95194df24f8ead6333aaf55c5", [

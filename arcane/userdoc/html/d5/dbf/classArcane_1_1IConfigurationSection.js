@@ -1,5 +1,6 @@
 var classArcane_1_1IConfigurationSection =
 [
+    [ "~IConfigurationSection", "d5/dbf/classArcane_1_1IConfigurationSection.html#a9d8b1989953ed39a6c234df65966a313", null ],
     [ "value", "d5/dbf/classArcane_1_1IConfigurationSection.html#aeb513726153a9576d2afea3b46079e12", null ],
     [ "value", "d5/dbf/classArcane_1_1IConfigurationSection.html#abe3483d6979ff45ba694bd18434f1383", null ],
     [ "value", "d5/dbf/classArcane_1_1IConfigurationSection.html#a4a6ae28c7e1cc394a936fc7694c323e4", null ],

@@ -1,7 +1,5 @@
 var classArcane_1_1LIBXML2__NodeListDFSSearch =
 [
-    [ "LEVEL_1_NAME_FILTER", "da/da1/classArcane_1_1LIBXML2__NodeListDFSSearch.html#a16024b94215b7e2f430f12251fab2488ad0e12a6e4fbd559f26037598a6f1b398", null ],
-    [ "LEVEL_2_NAME_FILTER", "da/da1/classArcane_1_1LIBXML2__NodeListDFSSearch.html#a16024b94215b7e2f430f12251fab2488aacb27d4325f4c05a6cd920c0b28a5764", null ],
     [ "LIBXML2_NodeListDFSSearch", "da/da1/classArcane_1_1LIBXML2__NodeListDFSSearch.html#a0aaabd542e1c79fb2b26338741fda47c", null ],
     [ "LIBXML2_NodeListDFSSearch", "da/da1/classArcane_1_1LIBXML2__NodeListDFSSearch.html#a1e41fc6a5081af219021cdf9e097f695", null ],
     [ "~LIBXML2_NodeListDFSSearch", "da/da1/classArcane_1_1LIBXML2__NodeListDFSSearch.html#a2c7e708635248fa244a4cb0710f76535", null ],

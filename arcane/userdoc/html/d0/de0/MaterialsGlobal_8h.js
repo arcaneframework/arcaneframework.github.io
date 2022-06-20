@@ -1,10 +1,5 @@
 var MaterialsGlobal_8h =
 [
-    [ "ItemMaterialVariableScalar", "d3/d7e/classArcane_1_1Materials_1_1ItemMaterialVariableScalar.html", "d3/d7e/classArcane_1_1Materials_1_1ItemMaterialVariableScalar" ],
-    [ "MeshMaterialVariableScalar", "df/d28/classArcane_1_1Materials_1_1MeshMaterialVariableScalar.html", "df/d28/classArcane_1_1Materials_1_1MeshMaterialVariableScalar" ],
-    [ "MeshMaterialVariableArray", "de/d18/classArcane_1_1Materials_1_1MeshMaterialVariableArray.html", "de/d18/classArcane_1_1Materials_1_1MeshMaterialVariableArray" ],
-    [ "IMeshMaterialVariableScalar", "db/d48/classArcane_1_1Materials_1_1IMeshMaterialVariableScalar.html", "db/d48/classArcane_1_1Materials_1_1IMeshMaterialVariableScalar" ],
-    [ "IMeshMaterialVariableArray", "db/de5/classArcane_1_1Materials_1_1IMeshMaterialVariableArray.html", "db/de5/classArcane_1_1Materials_1_1IMeshMaterialVariableArray" ],
     [ "ARCANE_MATERIALS_EXPORT", "d0/de0/MaterialsGlobal_8h.html#a7f137a607780ac92473f0df964b861c0", null ],
     [ "ComponentItemInternalPtr", "d0/de0/MaterialsGlobal_8h.html#ad5220985fdc61caba97f9da0395928ec", null ],
     [ "IMeshComponentPtr", "d0/de0/MaterialsGlobal_8h.html#aab2eb54cb323fb8c69c2b01174473b16", null ],

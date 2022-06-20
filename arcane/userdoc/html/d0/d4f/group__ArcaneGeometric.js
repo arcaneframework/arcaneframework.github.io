@@ -476,7 +476,7 @@ var group__ArcaneGeometric =
       [ "GeomElementConstViewBase", "d4/d05/classArcane_1_1geometric_1_1GeomElementConstViewBase.html#a43983efd80837045442357a64b18433f", null ],
       [ "operator[]", "d4/d05/classArcane_1_1geometric_1_1GeomElementConstViewBase.html#a8c215a5beb664181edaf8ed503fbb7cd", null ],
       [ "s", "d4/d05/classArcane_1_1geometric_1_1GeomElementConstViewBase.html#a2be31ae8a8656f2fdad5513e21579559", null ],
-      [ "m_s", "d4/d05/classArcane_1_1geometric_1_1GeomElementConstViewBase.html#ab3721c1417d30a5bf97ffee1869270db", null ]
+      [ "m_s", "d4/d05/classArcane_1_1geometric_1_1GeomElementConstViewBase.html#a826288d322bfb68709f44ba57870394a", null ]
     ] ],
     [ "GeomElementViewBase", "dc/d95/classArcane_1_1geometric_1_1GeomElementViewBase.html", [
       [ "GeomElementViewBase", "dc/d95/classArcane_1_1geometric_1_1GeomElementViewBase.html#ab52f95e934e9912c46d69c923c6e0923", null ],
@@ -566,19 +566,5 @@ var group__ArcaneGeometric =
       [ "GeomShape3DView", "dc/de9/classArcane_1_1geometric_1_1GeomShape3DView.html#a571fe44ee9be3fcd3d3df901b1cd7327", null ],
       [ "GeomShape3DView", "dc/de9/classArcane_1_1geometric_1_1GeomShape3DView.html#a466c3514dcfaedb987476bb64ade1e6b", null ]
     ] ],
-    [ "GeomType", "dc/dfb/classArcane_1_1geometric_1_1GeomType.html", [
-      [ "NullType", "dc/dfb/classArcane_1_1geometric_1_1GeomType.html#aa92f37a47e9cd19ae136172be1ca01cca7fbffa6f8d383cdbda175f18be98ea8e", null ],
-      [ "Vertex", "dc/dfb/classArcane_1_1geometric_1_1GeomType.html#aa92f37a47e9cd19ae136172be1ca01ccaceb5816257b118a821cbc58ce4922e90", null ],
-      [ "Line2", "dc/dfb/classArcane_1_1geometric_1_1GeomType.html#aa92f37a47e9cd19ae136172be1ca01ccaa939f07e3ea997a6813bbbf23e416021", null ],
-      [ "Triangle3", "dc/dfb/classArcane_1_1geometric_1_1GeomType.html#aa92f37a47e9cd19ae136172be1ca01ccad53478b41b7253c6e5534b98de073ab0", null ],
-      [ "Quad4", "dc/dfb/classArcane_1_1geometric_1_1GeomType.html#aa92f37a47e9cd19ae136172be1ca01ccad666adde17b19d2e6e1f0fffc81e9162", null ],
-      [ "Pentagon5", "dc/dfb/classArcane_1_1geometric_1_1GeomType.html#aa92f37a47e9cd19ae136172be1ca01cca6d5c46f002317a388febb0c536f1605a", null ],
-      [ "Hexagon6", "dc/dfb/classArcane_1_1geometric_1_1GeomType.html#aa92f37a47e9cd19ae136172be1ca01cca5f3f704e43ee2982bb46da041234c211", null ],
-      [ "Tetraedron4", "dc/dfb/classArcane_1_1geometric_1_1GeomType.html#aa92f37a47e9cd19ae136172be1ca01cca48152f7248a5ac83343c7b61bf7dd512", null ],
-      [ "Pyramid5", "dc/dfb/classArcane_1_1geometric_1_1GeomType.html#aa92f37a47e9cd19ae136172be1ca01cca28a52158c5ff65157a9c6e2a832218e0", null ],
-      [ "Pentaedron6", "dc/dfb/classArcane_1_1geometric_1_1GeomType.html#aa92f37a47e9cd19ae136172be1ca01ccaaf682f9425de2be6df7354651fb6cfb5", null ],
-      [ "Hexaedron8", "dc/dfb/classArcane_1_1geometric_1_1GeomType.html#aa92f37a47e9cd19ae136172be1ca01ccab7f3b2e0a2434822430bc8f7d6161700", null ],
-      [ "Heptaedron10", "dc/dfb/classArcane_1_1geometric_1_1GeomType.html#aa92f37a47e9cd19ae136172be1ca01ccacd84e2d80f7ef6e1591de4d3aaeab90b", null ],
-      [ "Octaedron12", "dc/dfb/classArcane_1_1geometric_1_1GeomType.html#aa92f37a47e9cd19ae136172be1ca01ccaccb70430cb6de7bb8ed7dc592c60c89f", null ]
-    ] ]
+    [ "GeomType", "dc/dfb/classArcane_1_1geometric_1_1GeomType.html", null ]
 ];

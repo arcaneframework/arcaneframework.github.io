@@ -1,5 +1,6 @@
 var classArcane_1_1ITimeHistoryMng =
 [
+    [ "~ITimeHistoryMng", "d9/da8/classArcane_1_1ITimeHistoryMng.html#ad8d4eb6f95070969f7fdd80370517a82", null ],
     [ "active", "d9/da8/classArcane_1_1ITimeHistoryMng.html#af7a6a5e374178b52b069b16e2cfea295", null ],
     [ "addCurveWriter", "d9/da8/classArcane_1_1ITimeHistoryMng.html#acb7f7f3f8f30cce7942bec5081063b52", null ],
     [ "addCurveWriter", "d9/da8/classArcane_1_1ITimeHistoryMng.html#a76633e7bfe4e95867a95d48c3fe042e5", null ],

@@ -1,5 +1,6 @@
 var classArcane_1_1ISubDomain =
 [
+    [ "~ISubDomain", "d9/d1e/classArcane_1_1ISubDomain.html#a54d8a4d390611dfca291b3736f87f82d", null ],
     [ "acceleratorMng", "d9/d1e/classArcane_1_1ISubDomain.html#a526600309ced620c4253ffdadfca9bd5", null ],
     [ "addMesh", "d9/d1e/classArcane_1_1ISubDomain.html#aded7c506819796fe7b20bf1943eb3beb", null ],
     [ "allocateMeshes", "d9/d1e/classArcane_1_1ISubDomain.html#ac9f334a5e0d65c8a599ca4785ea31dfa", null ],

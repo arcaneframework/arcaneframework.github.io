@@ -2,6 +2,7 @@ var classArcane_1_1XmlPropertyValue =
 [
     [ "XmlPropertyValue", "d0/d8f/classArcane_1_1XmlPropertyValue.html#a79006f44d488352779b7b67556274989", null ],
     [ "XmlPropertyValue", "d0/d8f/classArcane_1_1XmlPropertyValue.html#ac49d79febfe47ab3600eb89e9830b301", null ],
+    [ "~XmlPropertyValue", "d0/d8f/classArcane_1_1XmlPropertyValue.html#afe069377b42a061d3af5e9bc317c540c", null ],
     [ "canBeEdited", "d0/d8f/classArcane_1_1XmlPropertyValue.html#a4c6024937902327dab0acd06ad792c36", null ],
     [ "isDefaultValue", "d0/d8f/classArcane_1_1XmlPropertyValue.html#adbeef25eea3278cdbf6993d93012b62e", null ],
     [ "isOriginalValue", "d0/d8f/classArcane_1_1XmlPropertyValue.html#a4ca9e95dbcb9f6cc1f5b17033018cf29", null ],

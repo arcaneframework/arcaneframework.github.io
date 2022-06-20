@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['userbuffer_5f_18379',['userBuffer_',['../da/d46/classMemoryPoolAllocator.html#aa3c4d2503b12acc7d14e4a5da67ac46e',1,'MemoryPoolAllocator']]]
+  ['value_17632',['value',['../d6/d94/classGenericMember.html#aad3cfa4f9e8b9018068c8bc865723083',1,'GenericMember']]],
+  ['valuecount_17633',['valueCount',['../d5/d75/structWriter_1_1Level.html#a4a09e5fda49d0d57b2adc041203f244f',1,'Writer::Level']]]
 ];

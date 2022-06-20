@@ -16,417 +16,107 @@ var hierarchy =
       [ "Arcane::_wxmlText", "db/d91/structArcane_1_1__wxmlText.html", null ]
     ] ],
     [ "Arccore::AbstractArrayBase", "df/dac/classArccore_1_1AbstractArrayBase.html", [
-      [ "Arccore::AbstractArray< Arcane::ApplicationBuildInfo::Impl::NameValuePair >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::ApplicationBuildInfo::Impl::NameValuePair >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::ApplicationBuildInfo::Impl::NameValuePair >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::CartesianConnectivity::Index >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::CartesianConnectivity::Index >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::CartesianConnectivity::Index >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::DependencyInjection::Injector::Impl::InstanceInfo >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::DependencyInjection::Injector::Impl::InstanceInfo >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::DependencyInjection::Injector::Impl::InstanceInfo >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::EventObserverBase * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::EventObserverBase * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::EventObserverBase * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::HashTableBaseT::HashData * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::HashTableBaseT::HashData * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::HashTableBaseT::HashData * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::HashTableMapT::Data * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::HashTableMapT::Data * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::HashTableMapT::Data * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::ICaseOptionList * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::ICaseOptionList * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::ICaseOptionList * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::IObserver * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::IObserver * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::IObserver * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::IPropertyType * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::IPropertyType * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::IPropertyType * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::ItemGroupImpl * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::ItemGroupImpl * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::ItemGroupImpl * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::ItemGroupT >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::ItemGroupT >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::ItemGroupT >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::ItemInternal * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::ItemInternal * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::SharedArray< Arcane::ItemInternal * >", "d4/dee/classArccore_1_1SharedArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::ItemTypeInfo * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::ItemTypeInfo * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::ItemTypeInfo * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::ITimeLoopService * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::ITimeLoopService * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::ITimeLoopService * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::IVariable * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::IVariable * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::IVariable * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::Materials::MeshEnvironment * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::Materials::MeshEnvironment * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::Materials::MeshEnvironment * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::Materials::MeshMaterial * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::Materials::MeshMaterial * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::Materials::MeshMaterial * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::Materials::MeshMaterialInfo * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::Materials::MeshMaterialInfo * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::Materials::MeshMaterialInfo * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::Materials::MeshMaterialVariable * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::Materials::MeshMaterialVariable * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::Materials::MeshMaterialVariable * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::Materials::MultiBufferMeshMaterialSynchronizeBuffer::BufferInfo >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::Materials::MultiBufferMeshMaterialSynchronizeBuffer::BufferInfo >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::Materials::MultiBufferMeshMaterialSynchronizeBuffer::BufferInfo >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::Materials::OneBufferMeshMaterialSynchronizeBuffer::BufferInfo >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::Materials::OneBufferMeshMaterialSynchronizeBuffer::BufferInfo >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::Materials::OneBufferMeshMaterialSynchronizeBuffer::BufferInfo >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::MeshBlock * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::MeshBlock * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::MeshBlock * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::MeshEnvironmentBuildInfo::MatInfo >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::MeshEnvironmentBuildInfo::MatInfo >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::MeshEnvironmentBuildInfo::MatInfo >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::MeshMaterialModifierImpl::Operation * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::MeshMaterialModifierImpl::Operation * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::MeshMaterialModifierImpl::Operation * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::MeshMaterialVariableDependInfo >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::MeshMaterialVariableDependInfo >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::MeshMaterialVariableDependInfo >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::Node >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::Node >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::Node >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::ParameterList::Impl::NameValuePair >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::ParameterList::Impl::NameValuePair >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::ParameterList::Impl::NameValuePair >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::SmallVariant >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::SmallVariant >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::SmallVariant >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::VariableDependInfo >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::VariableDependInfo >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::VariableDependInfo >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::VariableDiff::DiffInfo >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::VariableDiff::DiffInfo >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::VariableDiff::DiffInfo >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arcane::VariableRef * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arcane::VariableRef * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arcane::VariableRef * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arccore::MessagePassing::internal::BasicSerializeMessage * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arccore::MessagePassing::internal::BasicSerializeMessage * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arccore::MessagePassing::internal::BasicSerializeMessage * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arccore::MessagePassing::Mpi::MpiSerializeDispatcher::SerializeSubRequest * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arccore::MessagePassing::Mpi::MpiSerializeDispatcher::SerializeSubRequest * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arccore::MessagePassing::Mpi::MpiSerializeDispatcher::SerializeSubRequest * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arccore::MessagePassing::Mpi::MpiSerializeMessageRequest >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arccore::MessagePassing::Mpi::MpiSerializeMessageRequest >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arccore::MessagePassing::Mpi::MpiSerializeMessageRequest >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arccore::MessagePassing::Request >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arccore::MessagePassing::Request >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arccore::MessagePassing::Request >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arccore::Ref< Arcane::IMeshReader > >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arccore::Ref< Arcane::IMeshReader > >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arccore::Ref< Arcane::IMeshReader > >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arccore::Ref< Arccore::MessagePassing::ISerializeMessage > >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arccore::Ref< Arccore::MessagePassing::ISerializeMessage > >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arccore::Ref< Arccore::MessagePassing::ISerializeMessage > >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arccore::Ref< CartesianMeshPatch > >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arccore::Ref< CartesianMeshPatch > >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arccore::Ref< CartesianMeshPatch > >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arccore::Ref< IInstanceFactory > >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arccore::Ref< IInstanceFactory > >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arccore::Ref< IInstanceFactory > >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arccore::Ref< impl::IInstanceFactory > >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arccore::Ref< impl::IInstanceFactory > >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arccore::Ref< impl::IInstanceFactory > >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arccore::Ref< InterfaceType > >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arccore::Ref< InterfaceType > >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arccore::Ref< InterfaceType > >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arccore::ReferenceCounter< Arcane::ICaseOptions > >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arccore::ReferenceCounter< Arcane::ICaseOptions > >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arccore::ReferenceCounter< Arcane::ICaseOptions > >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arccore::ReferenceCounter< Arcane::Internal::IServiceFactory2 > >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arccore::ReferenceCounter< Arcane::Internal::IServiceFactory2 > >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arccore::ReferenceCounter< Arcane::Internal::IServiceFactory2 > >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arccore::SharedArray< Arcane::ItemInternal * > >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arccore::SharedArray< Arcane::ItemInternal * > >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arccore::SharedArray< Arcane::ItemInternal * > >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arccore::SharedArray< MatVarIndex > >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arccore::SharedArray< MatVarIndex > >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arccore::SharedArray< MatVarIndex > >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arccore::String >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arccore::String >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arccore::String >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Arccore::UniqueArray * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Arccore::UniqueArray * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Arccore::UniqueArray * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< BasicSerializeMessage * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< BasicSerializeMessage * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< BasicSerializeMessage * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< bool >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< bool >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< bool >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Byte >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Byte >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Byte >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Cell >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Cell >", "d9/d09/classArccore_1_1Array.html", null ]
-      ] ],
-      [ "Arccore::AbstractArray< ComponentItemInternal * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< ComponentItemInternal * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< ComponentItemInternal * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< ComponentItemInternal >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< ComponentItemInternal >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< ComponentItemInternal >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< ContainerViewType >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< ContainerViewType >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< ContainerViewType >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
       [ "Arccore::AbstractArray< DataType >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array2< DataType >", "d1/da2/classArccore_1_1Array2.html", null ],
         [ "Arccore::Array< DataType >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arcane::impl::NumArrayContainer< DataType >", "de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html", null ],
-          [ "Arccore::SharedArray< DataType >", "d4/dee/classArccore_1_1SharedArray.html", null ]
-        ] ]
+          [ "Arccore::SharedArray< DataType >", "d4/dee/classArccore_1_1SharedArray.html", null ],
+          [ "Arcane::impl::NumArrayContainer< DataType >", "de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html", null ]
+        ] ],
+        [ "Arccore::Array2< DataType >", "d1/da2/classArccore_1_1Array2.html", null ]
       ] ],
-      [ "Arccore::AbstractArray< IMeshBlock * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< IMeshBlock * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< IMeshBlock * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< IMeshComponent * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< IMeshComponent * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< IMeshComponent * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< IMeshEnvironment * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< IMeshEnvironment * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< IMeshEnvironment * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< IMeshMaterial * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< IMeshMaterial * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< IMeshMaterial * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< IMeshMaterialVariable * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< IMeshMaterialVariable * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< IMeshMaterialVariable * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Int32 >", "db/d34/classArccore_1_1AbstractArray.html", [
+      [ "Arccore::AbstractArray< T >", "db/d34/classArccore_1_1AbstractArray.html", [
+        [ "Arccore::Array< Cell >", "d9/d09/classArccore_1_1Array.html", null ],
+        [ "Arccore::Array< Int64 >", "d9/d09/classArccore_1_1Array.html", [
+          [ "Arccore::UniqueArray< Int64 >", "da/daa/classArccore_1_1UniqueArray.html", null ]
+        ] ],
+        [ "Arccore::Array< ItemInternal * >", "d9/d09/classArccore_1_1Array.html", null ],
         [ "Arccore::Array< Int32 >", "d9/d09/classArccore_1_1Array.html", [
           [ "Arccore::SharedArray< Int32 >", "d4/dee/classArccore_1_1SharedArray.html", null ],
           [ "Arccore::UniqueArray< Int32 >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Int64 >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Int64 >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< Int64 >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Integer >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Integer >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::SharedArray< Integer >", "d4/dee/classArccore_1_1SharedArray.html", null ],
-          [ "Arccore::UniqueArray< Integer >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< InterfaceType * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< InterfaceType * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< InterfaceType * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< ItemDirectionInfo >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< ItemDirectionInfo >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::SharedArray< ItemDirectionInfo >", "d4/dee/classArccore_1_1SharedArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< ItemInternal * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< ItemInternal * >", "d9/d09/classArccore_1_1Array.html", null ]
-      ] ],
-      [ "Arccore::AbstractArray< KeyType >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< KeyType >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< KeyType >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< KeyTypeValue >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< KeyTypeValue >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< KeyTypeValue >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< MatVarIndex >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< MatVarIndex >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::SharedArray< MatVarIndex >", "d4/dee/classArccore_1_1SharedArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< MeshMaterialVariableIndexer * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< MeshMaterialVariableIndexer * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< MeshMaterialVariableIndexer * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< MPI_Status >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< MPI_Status >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< MPI_Status >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< OutputType >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< OutputType >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< OutputType >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< PrivatePartType * >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< PrivatePartType * >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< PrivatePartType * >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< ProbeInfo >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< ProbeInfo >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< ProbeInfo >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< Real >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< Real >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::SharedArray< Real >", "d4/dee/classArccore_1_1SharedArray.html", null ],
-          [ "Arccore::UniqueArray< Real >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< SmallVariant >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< SmallVariant >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< SmallVariant >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< std::byte >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< std::byte >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< std::byte >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< String >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< String >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< String >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< TestFuncInfo >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< TestFuncInfo >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::UniqueArray< TestFuncInfo >", "da/daa/classArccore_1_1UniqueArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< XmlNode >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< XmlNode >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::SharedArray< XmlNode >", "d4/dee/classArccore_1_1SharedArray.html", null ]
-        ] ]
-      ] ],
-      [ "Arccore::AbstractArray< T >", "db/d34/classArccore_1_1AbstractArray.html", [
-        [ "Arccore::Array< T >", "d9/d09/classArccore_1_1Array.html", [
-          [ "Arccore::SharedArray< T >", "d4/dee/classArccore_1_1SharedArray.html", [
-            [ "Arcane::XmlNodeList", "dd/df7/classArcane_1_1XmlNodeList.html", null ]
-          ] ],
-          [ "Arccore::UniqueArray< T >", "da/daa/classArccore_1_1UniqueArray.html", null ]
         ] ],
         [ "Arccore::Array2< T >", "d1/da2/classArccore_1_1Array2.html", [
           [ "Arccore::SharedArray2< T >", "d7/d9e/classArccore_1_1SharedArray2.html", null ],
           [ "Arccore::UniqueArray2< T >", "d3/d1d/classArccore_1_1UniqueArray2.html", null ]
+        ] ],
+        [ "Arccore::Array< T >", "d9/d09/classArccore_1_1Array.html", [
+          [ "Arccore::SharedArray< XmlNode >", "d4/dee/classArccore_1_1SharedArray.html", null ],
+          [ "Arccore::SharedArray< Integer >", "d4/dee/classArccore_1_1SharedArray.html", null ],
+          [ "Arccore::SharedArray< ItemDirectionInfo >", "d4/dee/classArccore_1_1SharedArray.html", null ],
+          [ "Arccore::SharedArray< Real >", "d4/dee/classArccore_1_1SharedArray.html", null ],
+          [ "Arccore::UniqueArray< IMeshMaterial * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arccore::MessagePassing::Request >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arccore::Ref< Arccore::MessagePassing::ISerializeMessage > >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arccore::MessagePassing::internal::BasicSerializeMessage * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::HashTableMapT::Data * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arccore::Ref< CartesianMeshPatch > >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< TestFuncInfo >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::HashTableBaseT::HashData * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::CartesianConnectivity::Index >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< ProbeInfo >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::IPropertyType * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< ComponentItemInternal * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::Materials::MultiBufferMeshMaterialSynchronizeBuffer::BufferInfo >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::IObserver * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::MeshBlock * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::SmallVariant >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< KeyType >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::Materials::OneBufferMeshMaterialSynchronizeBuffer::BufferInfo >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< IMeshComponent * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::Materials::MeshMaterialInfo * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arccore::ReferenceCounter< Arcane::Internal::IServiceFactory2 > >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< KeyTypeValue >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arccore::Ref< impl::IInstanceFactory > >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< MeshMaterialVariableIndexer * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< String >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Byte >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::IVariable * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::ParameterList::Impl::NameValuePair >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arccore::SharedArray< MatVarIndex > >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::Materials::MeshEnvironment * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arccore::String >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< ComponentItemInternal >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arccore::UniqueArray * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arccore::Ref< Arcane::IMeshReader > >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< IMeshMaterialVariable * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Integer >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arccore::Ref< IInstanceFactory > >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::ICaseOptionList * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::ItemGroupT >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< BasicSerializeMessage * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< MPI_Status >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< IMeshBlock * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< PrivatePartType * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::ItemGroupImpl * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arccore::Ref< InterfaceType > >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arccore::MessagePassing::Mpi::MpiSerializeDispatcher::SerializeSubRequest * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::MeshMaterialModifierImpl::Operation * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::MeshEnvironmentBuildInfo::MatInfo >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::ItemTypeInfo * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::Materials::MeshMaterialVariable * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< ContainerViewType >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< SmallVariant >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< std::byte >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::Node >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::VariableDiff::DiffInfo >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< bool >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arccore::ReferenceCounter< Arcane::ICaseOptions > >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::ITimeLoopService * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< OutputType >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arccore::MessagePassing::Mpi::MpiSerializeMessageRequest >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< IMeshEnvironment * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< InterfaceType * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::ApplicationBuildInfo::Impl::NameValuePair >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::VariableDependInfo >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::MeshMaterialVariableDependInfo >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::VariableRef * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::Materials::MeshMaterial * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::EventObserverBase * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Real >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arccore::SharedArray< Arcane::ItemInternal * > >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::DependencyInjection::Injector::Impl::InstanceInfo >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::SharedArray< T >", "d4/dee/classArccore_1_1SharedArray.html", [
+            [ "Arcane::XmlNodeList", "dd/df7/classArcane_1_1XmlNodeList.html", null ]
+          ] ],
+          [ "Arccore::UniqueArray< T >", "da/daa/classArccore_1_1UniqueArray.html", null ]
         ] ]
       ] ]
     ] ],
@@ -450,9 +140,10 @@ var hierarchy =
       [ "Arcane::SplitSDMeshPartitioner", "d2/dd4/classArcane_1_1SplitSDMeshPartitioner.html", null ]
     ] ],
     [ "Arcane::JSONWriter::Array", "d6/d28/classArcane_1_1JSONWriter_1_1Array.html", null ],
-    [ "Arcane::Array2VariableT< T >", "d8/d38/classArcane_1_1Array2VariableT.html", null ],
-    [ "Arccore::Array2View< DataType >", "d7/da7/classArccore_1_1Array2View.html", null ],
-    [ "Arccore::Array2View< DataTypeT >", "d7/da7/classArccore_1_1Array2View.html", null ],
+    [ "Arccore::Array2View< DataType >", "d7/da7/classArccore_1_1Array2View.html", [
+      [ "Arcane::VariableRefArray2T< T >", "df/da3/classArcane_1_1VariableRefArray2T.html", null ]
+    ] ],
+    [ "Arccore::Array2View< T >", "d7/da7/classArccore_1_1Array2View.html", null ],
     [ "Arccore::Array3View< DataType >", "da/d11/classArccore_1_1Array3View.html", null ],
     [ "Arccore::Array4View< DataType >", "df/d8d/classArccore_1_1Array4View.html", null ],
     [ "Arcane::Accelerator::ArrayBoundRunCommand< N, LoopBoundType >", "d6/d2f/classArcane_1_1Accelerator_1_1ArrayBoundRunCommand.html", null ],
@@ -476,7 +167,6 @@ var hierarchy =
     [ "Arcane::ArrayConverter< InputType, OutputType, Converter >", "da/def/classArcane_1_1ArrayConverter.html", null ],
     [ "Arcane::ArrayConverter< InputType, InputType, DefaultConverter< InputType, InputType > >", "d7/dba/classArcane_1_1ArrayConverter_3_01InputType_00_01InputType_00_01DefaultConverter_3_01InputType_00_01InputType_01_4_01_4.html", null ],
     [ "Arcane::ArrayExtents< RankValue >", "da/d2e/classArcane_1_1ArrayExtents.html", [
-      [ "Arcane::ArrayBoundsBase< RankValue >", "dc/db2/classArcane_1_1ArrayBoundsBase.html", null ],
       [ "Arcane::ArrayBoundsBase< 1 >", "dc/db2/classArcane_1_1ArrayBoundsBase.html", [
         [ "Arcane::ArrayBounds< 1 >", "d0/d8d/classArcane_1_1ArrayBounds_3_011_01_4.html", null ]
       ] ],
@@ -488,7 +178,8 @@ var hierarchy =
       ] ],
       [ "Arcane::ArrayBoundsBase< 4 >", "dc/db2/classArcane_1_1ArrayBoundsBase.html", [
         [ "Arcane::ArrayBounds< 4 >", "dc/dca/classArcane_1_1ArrayBounds_3_014_01_4.html", null ]
-      ] ]
+      ] ],
+      [ "Arcane::ArrayBoundsBase< RankValue >", "dc/db2/classArcane_1_1ArrayBoundsBase.html", null ]
     ] ],
     [ "Arcane::ArrayExtentsBase< RankValue >", "db/de6/classArcane_1_1ArrayExtentsBase.html", null ],
     [ "Arcane::ArrayExtentsBase< 0 >", "da/d3d/classArcane_1_1ArrayExtentsBase_3_010_01_4.html", null ],
@@ -571,7 +262,8 @@ var hierarchy =
       [ "Arcane::CaseOptionMultiSimpleT< T >", "d3/d60/classArcane_1_1CaseOptionMultiSimpleT.html", null ],
       [ "Arcane::DataVectorCommon1D< T >", "d6/db0/classArcane_1_1DataVectorCommon1D.html", [
         [ "Arcane::DataVector1D< T >", "d9/dc2/classArcane_1_1DataVector1D.html", null ]
-      ] ]
+      ] ],
+      [ "Arcane::VariableRefArrayT< T >", "d8/d30/classArcane_1_1VariableRefArrayT.html", null ]
     ] ],
     [ "Arccore::ArrayView< Arcane::CartesianConnectivity::Index >", "d7/d02/classArccore_1_1ArrayView.html", null ],
     [ "Arccore::ArrayView< Arcane::Real2 >", "d7/d02/classArccore_1_1ArrayView.html", null ],
@@ -596,7 +288,7 @@ var hierarchy =
     [ "Arcane::AVXSimdX4Real", "d7/df5/classArcane_1_1AVXSimdX4Real.html", null ],
     [ "Arcane::AVXSimdX8Int32", "dc/d06/classArcane_1_1AVXSimdX8Int32.html", null ],
     [ "Arcane::AVXSimdX8Real", "d6/d44/classArcane_1_1AVXSimdX8Real.html", null ],
-    [ "bad_alloc", null, [
+    [ "std::bad_alloc", null, [
       [ "Arccore::BadAllocException", "de/d57/classArccore_1_1BadAllocException.html", null ]
     ] ],
     [ "Arcane::geometric::BarycentricGeomShapeComputer", "d5/d82/classArcane_1_1geometric_1_1BarycentricGeomShapeComputer.html", null ],
@@ -633,15 +325,15 @@ var hierarchy =
         [ "Arcane::CaseOptionMultiSimpleT< T >", "d3/d60/classArcane_1_1CaseOptionMultiSimpleT.html", null ]
       ] ],
       [ "Arcane::CaseOptionSimple", "d7/dd0/classArcane_1_1CaseOptionSimple.html", [
+        [ "Arcane::CaseOptionSimpleT< Integer >", "d4/d3d/classArcane_1_1CaseOptionSimpleT.html", null ],
+        [ "Arcane::CaseOptionSimpleT< bool >", "d4/d3d/classArcane_1_1CaseOptionSimpleT.html", null ],
         [ "Arcane::CaseOptionEnum", "d7/dd9/classArcane_1_1CaseOptionEnum.html", [
           [ "Arcane::CaseOptionEnumT< EnumType >", "d2/d4c/classArcane_1_1CaseOptionEnumT.html", null ]
         ] ],
         [ "Arcane::CaseOptionExtended", "db/d3f/classArcane_1_1CaseOptionExtended.html", [
           [ "Arcane::CaseOptionExtendedT< T >", "d7/d3d/classArcane_1_1CaseOptionExtendedT.html", null ]
         ] ],
-        [ "Arcane::CaseOptionSimpleT< T >", "d4/d3d/classArcane_1_1CaseOptionSimpleT.html", null ],
-        [ "Arcane::CaseOptionSimpleT< bool >", "d4/d3d/classArcane_1_1CaseOptionSimpleT.html", null ],
-        [ "Arcane::CaseOptionSimpleT< Integer >", "d4/d3d/classArcane_1_1CaseOptionSimpleT.html", null ]
+        [ "Arcane::CaseOptionSimpleT< T >", "d4/d3d/classArcane_1_1CaseOptionSimpleT.html", null ]
       ] ]
     ] ],
     [ "Arcane::CaseOptionBasePrivate", "df/d4f/classArcane_1_1CaseOptionBasePrivate.html", null ],
@@ -655,15 +347,17 @@ var hierarchy =
     [ "Arcane::CaseOptionName", "d0/d5d/classArcane_1_1CaseOptionName.html", [
       [ "Arcane::CaseOptionEnumValue", "d5/d90/classArcane_1_1CaseOptionEnumValue.html", null ]
     ] ],
-    [ "Arcane::CaseOptionService", "dd/ddd/classArcane_1_1CaseOptionService.html", null ],
-    [ "Arcane::CaseOptionServiceT< InterfaceType >", "d4/dbd/classArcane_1_1CaseOptionServiceT.html", null ],
+    [ "Arcane::CaseOptionService", "dd/ddd/classArcane_1_1CaseOptionService.html", [
+      [ "Arcane::CaseOptionServiceT< InterfaceType >", "d4/dbd/classArcane_1_1CaseOptionServiceT.html", null ]
+    ] ],
     [ "Arcane::CaseOptionsPrivate", "da/d9c/classArcane_1_1CaseOptionsPrivate.html", null ],
     [ "Arcane::CaseOptionTraitsT< Type >", "d8/d2c/classArcane_1_1CaseOptionTraitsT.html", null ],
     [ "Arcane::CaseOptionTraitsT< Array< Type > >", "d1/dd2/classArcane_1_1CaseOptionTraitsT_3_01Array_3_01Type_01_4_01_4.html", null ],
-    [ "Arcane::CaseOptionTraitsT< bool >", "d8/d2c/classArcane_1_1CaseOptionTraitsT.html", null ],
-    [ "Arcane::CaseOptionTraitsT< Integer >", "d8/d2c/classArcane_1_1CaseOptionTraitsT.html", null ],
     [ "Arcane::CaseOptionTraitsT< T >", "d8/d2c/classArcane_1_1CaseOptionTraitsT.html", null ],
     [ "Arcane::CaseTableParams", "d3/df1/classArcane_1_1CaseTableParams.html", null ],
+    [ "Arcane::geometric::CellConnectivity", "db/d71/classArcane_1_1geometric_1_1CellConnectivity.html", [
+      [ "Arcane::geometric::NullConnectivity", "d9/d71/classArcane_1_1geometric_1_1NullConnectivity.html", null ]
+    ] ],
     [ "CellConnectivity", null, [
       [ "Heptaedron10Connectivity", "de/d86/classHeptaedron10Connectivity.html", null ],
       [ "Hexaedron8Connectivity", "d8/d92/classHexaedron8Connectivity.html", null ],
@@ -678,18 +372,38 @@ var hierarchy =
       [ "Triangle3Connectivity", "d8/d29/classTriangle3Connectivity.html", null ],
       [ "VertexConnectivity", "db/dd1/classVertexConnectivity.html", null ]
     ] ],
-    [ "Arcane::geometric::CellConnectivity", "db/d71/classArcane_1_1geometric_1_1CellConnectivity.html", [
-      [ "Arcane::geometric::NullConnectivity", "d9/d71/classArcane_1_1geometric_1_1NullConnectivity.html", null ]
-    ] ],
     [ "Arcane::CellDirectionMng", "da/d4d/classArcane_1_1CellDirectionMng.html", null ],
-    [ "Arcane::Materials::CellMaterialVariableScalarRef< DataType >", "d4/dc4/classArcane_1_1Materials_1_1CellMaterialVariableScalarRef.html", null ],
-    [ "Arccore::CheckedPointer< T >", "d0/dac/classArccore_1_1CheckedPointer.html", null ],
+    [ "Arccore::CheckedPointer< T >", "d0/dac/classArccore_1_1CheckedPointer.html", [
+      [ "Arccore::ReferenceCounter< Arccore::ITraceStream >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
+      [ "Arccore::ReferenceCounter< Arccore::ITraceMng >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
+      [ "Arccore::ReferenceCounter< InstanceType >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
+      [ "Arccore::ReferenceCounter< Arcane::CaseOptionServiceImpl >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
+      [ "Arccore::ReferenceCounter< Arcane::CaseOptionMultiServiceImpl >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
+      [ "Arccore::ReferenceCounter< Arccore::IThreadImplementation >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
+      [ "Arccore::ReferenceCounter< Handle >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
+      [ "Arccore::ReferenceCounter< Arcane::CommandLineArguments::Impl >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
+      [ "Arccore::ReferenceCounter< Arcane::ICaseOptionList >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
+      [ "Arccore::ReferenceCounter< MeshHandleRef >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
+      [ "Arccore::ReferenceCounter< IModuleFactoryInfo >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
+      [ "Arccore::ReferenceCounter< T >", "d7/d42/classArccore_1_1ReferenceCounter.html", [
+        [ "Arcane::ModuleFactoryReference", "d4/d33/classArcane_1_1ModuleFactoryReference.html", null ]
+      ] ]
+    ] ],
     [ "Arcane::CheckpointInfo", "de/d12/classArcane_1_1CheckpointInfo.html", null ],
     [ "Arcane::CheckpointReadInfo", "d9/da4/classArcane_1_1CheckpointReadInfo.html", null ],
     [ "Arcane::CodeServicePrivate", "d0/dc3/classArcane_1_1CodeServicePrivate.html", null ],
-    [ "Arcane::Collection< T >", "d3/d5d/classArcane_1_1Collection.html", null ],
-    [ "Arcane::Collection< ItemGroup >", "d3/d5d/classArcane_1_1Collection.html", null ],
-    [ "Arcane::CollectionBase", "d0/dd3/classArcane_1_1CollectionBase.html", null ],
+    [ "Arcane::CollectionBase", "d0/dd3/classArcane_1_1CollectionBase.html", [
+      [ "Arcane::Collection< ItemGroup >", "d3/d5d/classArcane_1_1Collection.html", null ],
+      [ "Arcane::Collection< T >", "d3/d5d/classArcane_1_1Collection.html", [
+        [ "Arcane::List< Arcane::TimeLoopSingletonServiceInfo >", "d2/ddc/classArcane_1_1List.html", null ],
+        [ "Arcane::List< Arcane::IObserver * >", "d2/ddc/classArcane_1_1List.html", null ],
+        [ "Arcane::List< String >", "d2/ddc/classArcane_1_1List.html", null ],
+        [ "Arcane::List< Arcane::ServiceInstanceRef >", "d2/ddc/classArcane_1_1List.html", null ],
+        [ "Arcane::List< Arcane::Internal::IServiceFactory2 * >", "d2/ddc/classArcane_1_1List.html", null ],
+        [ "Arcane::List< IAMRTransportFunctor * >", "d2/ddc/classArcane_1_1List.html", null ],
+        [ "Arcane::List< T >", "d2/ddc/classArcane_1_1List.html", null ]
+      ] ]
+    ] ],
     [ "Arcane::CollectionEventArgs", "d7/dcb/classArcane_1_1CollectionEventArgs.html", null ],
     [ "Arccore::Trace::Color", "d5/d73/classArccore_1_1Trace_1_1Color.html", null ],
     [ "Arcane::CommandLineArguments", "d8/d5c/classArcane_1_1CommandLineArguments.html", null ],
@@ -736,7 +450,6 @@ var hierarchy =
     [ "Arccore::ConstArrayView< ItemInternal * >", "db/d8c/classArccore_1_1ConstArrayView.html", null ],
     [ "Arccore::ConstArrayView< Real >", "db/d8c/classArccore_1_1ConstArrayView.html", null ],
     [ "Arccore::ConstArrayView< Real3 >", "db/d8c/classArccore_1_1ConstArrayView.html", null ],
-    [ "Arccore::ConstIterT< T >", "d7/d4a/classArccore_1_1ConstIterT.html", null ],
     [ "Arcane::ConstMultiArray2View< DataType >", "d0/d63/classArcane_1_1ConstMultiArray2View.html", null ],
     [ "Arccore::CoreArray< DataType >", "d4/de3/classArccore_1_1CoreArray.html", null ],
     [ "Arccore::CoreArray< Byte >", "d4/de3/classArccore_1_1CoreArray.html", null ],
@@ -759,8 +472,9 @@ var hierarchy =
     [ "Arcane::DataTypeTraitsT< Real3x3 >", "db/d32/classArcane_1_1DataTypeTraitsT_3_01Real3x3_01_4.html", null ],
     [ "Arcane::DataTypeTraitsT< String >", "db/dfd/classArcane_1_1DataTypeTraitsT_3_01String_01_4.html", null ],
     [ "Arcane::Accelerator::DataViewGetter< DataType >", "de/da3/classArcane_1_1Accelerator_1_1DataViewGetter.html", null ],
-    [ "Arcane::Accelerator::DataViewGetterSetter< DataType >", "df/dfe/classArcane_1_1Accelerator_1_1DataViewGetterSetter.html", null ],
-    [ "Arcane::Accelerator::DataViewSetter< DataType >", "d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html", null ],
+    [ "Arcane::Accelerator::DataViewSetter< DataType >", "d7/dc6/classArcane_1_1Accelerator_1_1DataViewSetter.html", [
+      [ "Arcane::Accelerator::DataViewGetterSetter< DataType >", "df/dfe/classArcane_1_1Accelerator_1_1DataViewGetterSetter.html", null ]
+    ] ],
     [ "Arcane::DefaultConverter< TypeA, TypeB >", "da/d59/classArcane_1_1DefaultConverter.html", null ],
     [ "Arcane::DefaultConverter< InputType, OutputType >", "da/d59/classArcane_1_1DefaultConverter.html", null ],
     [ "Arcane::DefaultLayout< RankValue >", "db/d8e/classArcane_1_1DefaultLayout.html", null ],
@@ -790,10 +504,11 @@ var hierarchy =
     [ "Arcane::EMULSimdX2Int32", "d6/d39/classArcane_1_1EMULSimdX2Int32.html", null ],
     [ "Arcane::EMULSimdX4Int32", "d0/dfd/classArcane_1_1EMULSimdX4Int32.html", null ],
     [ "Arcane::EntryPointBuildInfo", "da/d82/classArcane_1_1EntryPointBuildInfo.html", null ],
-    [ "Arcane::Numerics::IGeometryProperty::Enumerator", "dc/d89/classArcane_1_1Numerics_1_1IGeometryProperty_1_1Enumerator.html", null ],
     [ "Arcane::Materials::MeshMaterialVariableRef::Enumerator", "d0/d66/classArcane_1_1Materials_1_1MeshMaterialVariableRef_1_1Enumerator.html", null ],
-    [ "Arcane::EnumeratorBase", "d6/db6/classArcane_1_1EnumeratorBase.html", null ],
-    [ "Arcane::EnumeratorT< T >", "d7/dc8/classArcane_1_1EnumeratorT.html", null ],
+    [ "Arcane::Numerics::IGeometryProperty::Enumerator", "dc/d89/classArcane_1_1Numerics_1_1IGeometryProperty_1_1Enumerator.html", null ],
+    [ "Arcane::EnumeratorBase", "d6/db6/classArcane_1_1EnumeratorBase.html", [
+      [ "Arcane::EnumeratorT< T >", "d7/dc8/classArcane_1_1EnumeratorT.html", null ]
+    ] ],
     [ "Arcane::EnumeratorTraceInfo", "d4/db5/classArcane_1_1EnumeratorTraceInfo.html", null ],
     [ "Arcane::EventObservableBase", "d2/d36/classArcane_1_1EventObservableBase.html", [
       [ "Arcane::EventObservable< Args >", "d4/d47/classArcane_1_1EventObservable.html", null ]
@@ -802,7 +517,7 @@ var hierarchy =
       [ "Arcane::EventObserver< Args >", "d1/d9e/classArcane_1_1EventObserver.html", null ]
     ] ],
     [ "Arcane::EventObserverPool", "d5/daa/classArcane_1_1EventObserverPool.html", null ],
-    [ "exception", null, [
+    [ "std::exception", null, [
       [ "Arcane::BadIndexException", "dc/ddf/classArcane_1_1BadIndexException.html", null ],
       [ "Arcane::HashTableException", "d8/db3/classArcane_1_1HashTableException.html", null ],
       [ "Arccore::Exception", "d7/d37/classArccore_1_1Exception.html", [
@@ -817,9 +532,9 @@ var hierarchy =
         [ "Arcane::BadVariantTypeException", "db/d26/classArcane_1_1BadVariantTypeException.html", null ],
         [ "Arcane::CaseOptionException", "db/dca/classArcane_1_1CaseOptionException.html", null ],
         [ "Arcane::GoBackwardException", "d3/d0f/classArcane_1_1GoBackwardException.html", null ],
+        [ "Arcane::IOException", "d6/d6e/classArcane_1_1IOException.html", null ],
         [ "Arcane::InternalErrorException", "d1/d3c/classArcane_1_1InternalErrorException.html", null ],
         [ "Arcane::InvalidArgumentException", "d2/d59/classArcane_1_1InvalidArgumentException.html", null ],
-        [ "Arcane::IOException", "d6/d6e/classArcane_1_1IOException.html", null ],
         [ "Arcane::ParallelFatalErrorException", "d7/d41/classArcane_1_1ParallelFatalErrorException.html", null ],
         [ "Arcane::ReaderWriterException", "d4/ddf/classArcane_1_1ReaderWriterException.html", null ],
         [ "Arcane::SignalException", "da/dcf/classArcane_1_1SignalException.html", null ],
@@ -841,8 +556,8 @@ var hierarchy =
     [ "Arccore::ExternalReferenceCounterAccessor< T >", "d5/d29/classArccore_1_1ExternalReferenceCounterAccessor.html", null ],
     [ "Arcane::geometric::FaceConnectic", "d3/dfd/structArcane_1_1geometric_1_1FaceConnectic.html", null ],
     [ "Arcane::FaceDirectionMng", "db/dbe/classArcane_1_1FaceDirectionMng.html", null ],
-    [ "Arccore::FalseType", "dd/d22/structArccore_1_1FalseType.html", null ],
     [ "Arcane::FalseType", "d2/dae/structArcane_1_1FalseType.html", null ],
+    [ "Arccore::FalseType", "dd/d22/structArccore_1_1FalseType.html", null ],
     [ "Arcane::FileContent", "da/da0/classArcane_1_1FileContent.html", null ],
     [ "Arccore::FixedStackFrameArray", "d9/d1f/classArccore_1_1FixedStackFrameArray.html", null ],
     [ "Arcane::FloatEqualT< T >", "d6/dfd/classArcane_1_1FloatEqualT.html", null ],
@@ -862,11 +577,9 @@ var hierarchy =
     [ "Arcane::FloatingPointExceptionSentry", "df/d74/classArcane_1_1FloatingPointExceptionSentry.html", null ],
     [ "Arcane::FoundInfo", "dc/d92/structArcane_1_1FoundInfo.html", null ],
     [ "Arcane::FullItemPrinter", "da/d57/classArcane_1_1FullItemPrinter.html", null ],
-    [ "Arccore::FunctorT< T >", "d1/d74/classArccore_1_1FunctorT.html", null ],
-    [ "Arccore::FunctorT< Arcane::CaseOptionMultiServiceT >", "d1/d74/classArccore_1_1FunctorT.html", null ],
-    [ "Arccore::FunctorWithArgumentT< ClassType, ArgType >", "dc/db0/classArccore_1_1FunctorWithArgumentT.html", null ],
     [ "Arcane::IItemGroupObserver::FuncTraits< T >", "d8/db4/structArcane_1_1IItemGroupObserver_1_1FuncTraits.html", null ],
     [ "StrongOptions::gen_seq< N, Is >", "d6/d4b/structStrongOptions_1_1gen__seq.html", null ],
+    [ "Arcane::geometric::GeomElementBase< NbNode >", "db/d41/classArcane_1_1geometric_1_1GeomElementBase.html", null ],
     [ "GeomElementBase", null, [
       [ "Heptaedron10Element", "d1/d3e/classHeptaedron10Element.html", null ],
       [ "Hexaedron8Element", "d2/d66/classHexaedron8Element.html", null ],
@@ -879,7 +592,7 @@ var hierarchy =
       [ "Tetraedron4Element", "d2/da9/classTetraedron4Element.html", null ],
       [ "Triangle3Element", "d1/d71/classTriangle3Element.html", null ]
     ] ],
-    [ "Arcane::geometric::GeomElementBase< NbNode >", "db/d41/classArcane_1_1geometric_1_1GeomElementBase.html", null ],
+    [ "Arcane::geometric::GeomElementConstViewBase", "d4/d05/classArcane_1_1geometric_1_1GeomElementConstViewBase.html", null ],
     [ "GeomElementConstViewBase", null, [
       [ "Heptaedron10ElementConstView", "d8/d64/classHeptaedron10ElementConstView.html", null ],
       [ "Hexaedron8ElementConstView", "dc/df7/classHexaedron8ElementConstView.html", null ],
@@ -892,7 +605,7 @@ var hierarchy =
       [ "Tetraedron4ElementConstView", "d6/da2/classTetraedron4ElementConstView.html", null ],
       [ "Triangle3ElementConstView", "de/d0b/classTriangle3ElementConstView.html", null ]
     ] ],
-    [ "Arcane::geometric::GeomElementConstViewBase", "d4/d05/classArcane_1_1geometric_1_1GeomElementConstViewBase.html", null ],
+    [ "Arcane::geometric::GeomElementViewBase", "dc/d95/classArcane_1_1geometric_1_1GeomElementViewBase.html", null ],
     [ "GeomElementViewBase", null, [
       [ "Heptaedron10ElementView", "da/d35/classHeptaedron10ElementView.html", null ],
       [ "Hexaedron8ElementView", "d3/d28/classHexaedron8ElementView.html", null ],
@@ -905,7 +618,6 @@ var hierarchy =
       [ "Tetraedron4ElementView", "d3/db2/classTetraedron4ElementView.html", null ],
       [ "Triangle3ElementView", "d5/df1/classTriangle3ElementView.html", null ]
     ] ],
-    [ "Arcane::geometric::GeomElementViewBase", "dc/d95/classArcane_1_1geometric_1_1GeomElementViewBase.html", null ],
     [ "Arcane::geometric::GeomShape", "de/d5c/classArcane_1_1geometric_1_1GeomShape.html", null ],
     [ "GeomShape2DView", null, [
       [ "Hexagon6ShapeView", "d4/d45/classHexagon6ShapeView.html", null ],
@@ -969,7 +681,6 @@ var hierarchy =
     ] ],
     [ "Arcane::IArcaneMain", "db/d38/classArcane_1_1IArcaneMain.html", null ],
     [ "Arcane::IArray2DataInternalT< DataType >", "d8/da8/classArcane_1_1IArray2DataInternalT.html", null ],
-    [ "Arcane::IArray2DataT< DataType >", "dc/d51/classArcane_1_1IArray2DataT.html", null ],
     [ "Arcane::IArray2DataVisitor", "da/dc0/classArcane_1_1IArray2DataVisitor.html", [
       [ "Arcane::AbstractArray2DataVisitor", "d1/dc4/classArcane_1_1AbstractArray2DataVisitor.html", [
         [ "Arcane::AbstractDataVisitor", "d5/d50/classArcane_1_1AbstractDataVisitor.html", [
@@ -980,7 +691,6 @@ var hierarchy =
       ] ]
     ] ],
     [ "Arcane::IArrayDataInternalT< DataType >", "d7/d2d/classArcane_1_1IArrayDataInternalT.html", null ],
-    [ "Arcane::IArrayDataT< DataType >", "da/dc0/classArcane_1_1IArrayDataT.html", null ],
     [ "Arcane::IArrayDataVisitor", "db/d75/classArcane_1_1IArrayDataVisitor.html", [
       [ "Arcane::AbstractArrayDataVisitor", "d5/db7/classArcane_1_1AbstractArrayDataVisitor.html", [
         [ "Arcane::AbstractDataVisitor", "d5/d50/classArcane_1_1AbstractDataVisitor.html", null ]
@@ -1057,10 +767,18 @@ var hierarchy =
       [ "Arccore::ThreadPrivate< T >", "dd/d72/classArccore_1_1ThreadPrivate.html", null ]
     ] ],
     [ "Arcane::IData", "d1/d15/classArcane_1_1IData.html", [
-      [ "Arcane::IArray2Data", "dd/dad/classArcane_1_1IArray2Data.html", null ],
-      [ "Arcane::IArrayData", "d4/d06/classArcane_1_1IArrayData.html", null ],
-      [ "Arcane::IMultiArray2Data", "d3/dc3/classArcane_1_1IMultiArray2Data.html", null ],
-      [ "Arcane::IScalarData", "dd/dde/classArcane_1_1IScalarData.html", null ]
+      [ "Arcane::IArray2Data", "dd/dad/classArcane_1_1IArray2Data.html", [
+        [ "Arcane::IArray2DataT< DataType >", "dc/d51/classArcane_1_1IArray2DataT.html", null ]
+      ] ],
+      [ "Arcane::IArrayData", "d4/d06/classArcane_1_1IArrayData.html", [
+        [ "Arcane::IArrayDataT< DataType >", "da/dc0/classArcane_1_1IArrayDataT.html", null ]
+      ] ],
+      [ "Arcane::IMultiArray2Data", "d3/dc3/classArcane_1_1IMultiArray2Data.html", [
+        [ "Arcane::IMultiArray2DataT< DataType >", "d2/d71/classArcane_1_1IMultiArray2DataT.html", null ]
+      ] ],
+      [ "Arcane::IScalarData", "dd/dde/classArcane_1_1IScalarData.html", [
+        [ "Arcane::IScalarDataT< DataType >", "db/d09/classArcane_1_1IScalarDataT.html", null ]
+      ] ]
     ] ],
     [ "Arcane::IDataCompressor", "d0/d99/classArcane_1_1IDataCompressor.html", null ],
     [ "Arcane::IDataFactory", "dd/d5c/classArcane_1_1IDataFactory.html", null ],
@@ -1118,11 +836,12 @@ var hierarchy =
     [ "Arcane::IExtraGhostCellsBuilder", "de/dab/classArcane_1_1IExtraGhostCellsBuilder.html", null ],
     [ "Arcane::IExtraGhostItemsBuilder", "d9/d0f/classArcane_1_1IExtraGhostItemsBuilder.html", null ],
     [ "Arcane::IExtraGhostParticlesBuilder", "d3/d89/classArcane_1_1IExtraGhostParticlesBuilder.html", null ],
-    [ "IFactory", null, [
+    [ "IMeshMaterialMng::IFactory", null, [
       [ "Arcane::Materials::MeshMaterialMngFactory", "d6/dd1/classArcane_1_1Materials_1_1MeshMaterialMngFactory.html", null ]
     ] ],
     [ "Arcane::IFilter", "df/dd4/classArcane_1_1IFilter.html", null ],
     [ "Arccore::IFunctor", "d5/d5f/classArccore_1_1IFunctor.html", [
+      [ "Arccore::FunctorT< Arcane::CaseOptionMultiServiceT >", "d1/d74/classArccore_1_1FunctorT.html", null ],
       [ "Arcane::DirectCodeFunctor", "d4/d67/classArcane_1_1DirectCodeFunctor.html", null ],
       [ "Arcane::IFunctorWithAddress", "d1/d48/classArcane_1_1IFunctorWithAddress.html", [
         [ "Arcane::FunctorWithAddressT< T >", "d2/db1/classArcane_1_1FunctorWithAddressT.html", null ]
@@ -1144,10 +863,14 @@ var hierarchy =
         [ "Arcane::OwnItemGroupComputeFunctor", "d7/d08/classArcane_1_1OwnItemGroupComputeFunctor.html", null ],
         [ "Arcane::OwnLevelCellGroupComputeFunctor", "de/d60/classArcane_1_1OwnLevelCellGroupComputeFunctor.html", null ]
       ] ],
-      [ "Arcane::ItemPairGroup::CustomFunctorWrapper", "dc/dcf/classArcane_1_1ItemPairGroup_1_1CustomFunctorWrapper.html", null ]
+      [ "Arcane::ItemPairGroup::CustomFunctorWrapper", "dc/dcf/classArcane_1_1ItemPairGroup_1_1CustomFunctorWrapper.html", null ],
+      [ "Arccore::FunctorT< T >", "d1/d74/classArccore_1_1FunctorT.html", null ]
     ] ],
     [ "Arccore::IFunctorWithArgAndReturn2< ReturnType, Arg1, Arg2 >", "da/d0e/classArccore_1_1IFunctorWithArgAndReturn2.html", null ],
-    [ "Arccore::IFunctorWithArgumentT< ArgType >", "da/ddf/classArccore_1_1IFunctorWithArgumentT.html", null ],
+    [ "Arccore::IFunctorWithArgumentT< ArgType >", "da/ddf/classArccore_1_1IFunctorWithArgumentT.html", [
+      [ "Arccore::FunctorWithArgumentT< ClassType, ArgType >", "dc/db0/classArccore_1_1FunctorWithArgumentT.html", null ],
+      [ "Arccore::StdFunctorWithArgumentT< ArgType >", "dd/de1/classArccore_1_1StdFunctorWithArgumentT.html", null ]
+    ] ],
     [ "Arccore::IFunctorWithArgumentT< IMeshMaterial * >", "da/ddf/classArccore_1_1IFunctorWithArgumentT.html", null ],
     [ "Arcane::Numerics::IGeometry", "d3/d06/classArcane_1_1Numerics_1_1IGeometry.html", null ],
     [ "Arcane::Numerics::IGeometryMng", "df/d38/classArcane_1_1Numerics_1_1IGeometryMng.html", null ],
@@ -1265,20 +988,31 @@ var hierarchy =
     ] ],
     [ "IMeshMaterialVariable", null, [
       [ "Arcane::Materials::MeshMaterialVariable", "de/d4a/classArcane_1_1Materials_1_1MeshMaterialVariable.html", [
-        [ "Arcane::Materials::ItemMaterialVariableBase< Traits >", "dd/dc8/classArcane_1_1Materials_1_1ItemMaterialVariableBase.html", null ],
+        [ "Arcane::Materials::ItemMaterialVariableBase< MaterialVariableScalarTraits< DataType > >", "dd/dc8/classArcane_1_1Materials_1_1ItemMaterialVariableBase.html", [
+          [ "Arcane::Materials::ItemMaterialVariableScalar< DataType >", "d3/d7e/classArcane_1_1Materials_1_1ItemMaterialVariableScalar.html", [
+            [ "Arcane::Materials::MeshMaterialVariableScalar< ItemType, DataType >", "df/d28/classArcane_1_1Materials_1_1MeshMaterialVariableScalar.html", null ]
+          ] ]
+        ] ],
         [ "Arcane::Materials::ItemMaterialVariableBase< MaterialVariableArrayTraits< DataType > >", "dd/dc8/classArcane_1_1Materials_1_1ItemMaterialVariableBase.html", [
-          [ "Arcane::Materials::ItemMaterialVariableArray< DataType >", "d8/d9e/classArcane_1_1Materials_1_1ItemMaterialVariableArray.html", null ]
-        ] ]
+          [ "Arcane::Materials::ItemMaterialVariableArray< DataType >", "d8/d9e/classArcane_1_1Materials_1_1ItemMaterialVariableArray.html", [
+            [ "Arcane::Materials::MeshMaterialVariableArray< ItemType, DataType >", "de/d18/classArcane_1_1Materials_1_1MeshMaterialVariableArray.html", null ]
+          ] ]
+        ] ],
+        [ "Arcane::Materials::ItemMaterialVariableBase< Traits >", "dd/dc8/classArcane_1_1Materials_1_1ItemMaterialVariableBase.html", null ]
       ] ]
     ] ],
-    [ "Arcane::Materials::IMeshMaterialVariableArray< ItemType, DataType >", "db/de5/classArcane_1_1Materials_1_1IMeshMaterialVariableArray.html", null ],
+    [ "Arcane::Materials::IMeshMaterialVariableArray< ItemType, DataType >", "db/de5/classArcane_1_1Materials_1_1IMeshMaterialVariableArray.html", [
+      [ "Arcane::Materials::MeshMaterialVariableArray< ItemType, DataType >", "de/d18/classArcane_1_1Materials_1_1MeshMaterialVariableArray.html", null ]
+    ] ],
     [ "Arcane::Materials::IMeshMaterialVariableComputeFunction", "de/d4b/classArcane_1_1Materials_1_1IMeshMaterialVariableComputeFunction.html", [
       [ "Arcane::MeshMaterialVariableComputeFunction", "d9/da5/classArcane_1_1MeshMaterialVariableComputeFunction.html", null ]
     ] ],
     [ "IMeshMaterialVariableFactoryMng", null, [
       [ "Arcane::Materials::MeshMaterialVariableFactoryMng", "da/dd8/classArcane_1_1Materials_1_1MeshMaterialVariableFactoryMng.html", null ]
     ] ],
-    [ "Arcane::Materials::IMeshMaterialVariableScalar< ItemType, DataType >", "db/d48/classArcane_1_1Materials_1_1IMeshMaterialVariableScalar.html", null ],
+    [ "Arcane::Materials::IMeshMaterialVariableScalar< ItemType, DataType >", "db/d48/classArcane_1_1Materials_1_1IMeshMaterialVariableScalar.html", [
+      [ "Arcane::Materials::MeshMaterialVariableScalar< ItemType, DataType >", "df/d28/classArcane_1_1Materials_1_1MeshMaterialVariableScalar.html", null ]
+    ] ],
     [ "Arcane::Materials::IMeshMaterialVariableSynchronizer", "d8/dd6/classArcane_1_1Materials_1_1IMeshMaterialVariableSynchronizer.html", [
       [ "Arcane::Materials::MeshMaterialVariableSynchronizer", "dd/dd9/classArcane_1_1Materials_1_1MeshMaterialVariableSynchronizer.html", null ]
     ] ],
@@ -1328,43 +1062,51 @@ var hierarchy =
     ] ],
     [ "Arcane::IModuleMng", "d2/d3b/classArcane_1_1IModuleMng.html", null ],
     [ "Arccore::MessagePassing::Mpi::IMpiReduceOperator", "d9/d62/classArccore_1_1MessagePassing_1_1Mpi_1_1IMpiReduceOperator.html", [
-      [ "Arccore::MessagePassing::Mpi::BuiltInMpiReduceOperator", "d3/d30/classArccore_1_1MessagePassing_1_1Mpi_1_1BuiltInMpiReduceOperator.html", null ]
+      [ "Arccore::MessagePassing::Mpi::BuiltInMpiReduceOperator", "d3/d30/classArccore_1_1MessagePassing_1_1Mpi_1_1BuiltInMpiReduceOperator.html", null ],
+      [ "Arccore::MessagePassing::Mpi::StdMpiReduceOperator< RealType >", "d5/d91/classArccore_1_1MessagePassing_1_1Mpi_1_1StdMpiReduceOperator.html", null ]
     ] ],
-    [ "Arcane::ParameterList::Impl", "dc/dd0/classArcane_1_1ParameterList_1_1Impl.html", null ],
-    [ "Impl", null, [
-      [ "Arccore::BasicSerializerNewImpl", "d3/d40/classArccore_1_1BasicSerializerNewImpl.html", null ]
-    ] ],
-    [ "Arcane::MeshReaderMng::Impl", "d1/de3/classArcane_1_1MeshReaderMng_1_1Impl.html", null ],
-    [ "Arcane::StringDictionary::Impl", "de/d91/classArcane_1_1StringDictionary_1_1Impl.html", null ],
-    [ "Arcane::UserDataList::Impl", "d9/d7e/classArcane_1_1UserDataList_1_1Impl.html", null ],
     [ "Accelerator::AcceleratorRuntimeInitialisationInfo::Impl", "df/db3/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo_1_1Impl.html", null ],
     [ "Accelerator::Runner::Impl", "df/d22/classArcane_1_1Accelerator_1_1Runner_1_1Impl.html", null ],
-    [ "Arcane::DirectSubDomainExecutionContext::Impl", "d8/dbc/classArcane_1_1DirectSubDomainExecutionContext_1_1Impl.html", null ],
-    [ "Arcane::StandaloneAcceleratorMng::Impl", "da/d9a/classArcane_1_1StandaloneAcceleratorMng_1_1Impl.html", null ],
-    [ "Arccore::GlibMutex::Impl", "da/dc0/classArccore_1_1GlibMutex_1_1Impl.html", null ],
-    [ "Arccore::GlibPrivate::Impl", "de/d17/classArccore_1_1GlibPrivate_1_1Impl.html", null ],
-    [ "Arccore::GlibCond::Impl", "d1/d87/classArccore_1_1GlibCond_1_1Impl.html", null ],
-    [ "Arccore::MessagePassing::PointToPointSerializerMng::Impl", "d9/d5c/classArccore_1_1MessagePassing_1_1PointToPointSerializerMng_1_1Impl.html", null ],
     [ "Arcane::ApplicationBuildInfo::Impl", "d3/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl.html", null ],
-    [ "Arccore::MessagePassing::Mpi::StandaloneMpiMessagePassingMng::Impl", "d4/db2/classArccore_1_1MessagePassing_1_1Mpi_1_1StandaloneMpiMessagePassingMng_1_1Impl.html", null ],
-    [ "Arcane::SimpleSVGMeshExporter::Impl", "db/d72/classArcane_1_1SimpleSVGMeshExporter_1_1Impl.html", null ],
-    [ "Arcane::CellDirectionMng::Impl", "d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html", null ],
-    [ "Arcane::FaceDirectionMng::Impl", "d1/d38/classArcane_1_1FaceDirectionMng_1_1Impl.html", null ],
-    [ "Arcane::NodeDirectionMng::Impl", "da/da7/classArcane_1_1NodeDirectionMng_1_1Impl.html", null ],
-    [ "Arcane::Materials::MeshMaterialVariableSynchronizerList::Impl", "d8/d7f/classArcane_1_1Materials_1_1MeshMaterialVariableSynchronizerList_1_1Impl.html", null ],
-    [ "Arcane::DotNetRuntimeInitialisationInfo::Impl", "d6/d9d/classArcane_1_1DotNetRuntimeInitialisationInfo_1_1Impl.html", null ],
-    [ "Arcane::CaseTableParams::Impl", "d5/d08/classArcane_1_1CaseTableParams_1_1Impl.html", null ],
     [ "Arcane::CaseDatasetSource::Impl", "d2/d78/classArcane_1_1CaseDatasetSource_1_1Impl.html", null ],
-    [ "Arcane::CommandLineArguments::Impl", "d2/d81/classArcane_1_1CommandLineArguments_1_1Impl.html", null ],
-    [ "Arcane::DependencyInjection::Injector::Impl", "da/d4a/classArcane_1_1DependencyInjection_1_1Injector_1_1Impl.html", null ],
-    [ "Arcane::DependencyInjection::impl::FactoryInfo::Impl", "d4/deb/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo_1_1Impl.html", null ],
     [ "Arcane::CaseNodeNames::Impl", "d5/d31/classArcane_1_1CaseNodeNames_1_1Impl.html", null ],
+    [ "Arcane::CaseTableParams::Impl", "d5/d08/classArcane_1_1CaseTableParams_1_1Impl.html", null ],
+    [ "Arcane::CellDirectionMng::Impl", "d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html", null ],
+    [ "Arcane::CommandLineArguments::Impl", "d2/d81/classArcane_1_1CommandLineArguments_1_1Impl.html", null ],
+    [ "Arcane::DependencyInjection::impl::FactoryInfo::Impl", "d4/deb/classArcane_1_1DependencyInjection_1_1impl_1_1FactoryInfo_1_1Impl.html", null ],
+    [ "Arcane::DependencyInjection::Injector::Impl", "da/d4a/classArcane_1_1DependencyInjection_1_1Injector_1_1Impl.html", null ],
+    [ "Arcane::DirectSubDomainExecutionContext::Impl", "d8/dbc/classArcane_1_1DirectSubDomainExecutionContext_1_1Impl.html", null ],
+    [ "Arcane::DotNetRuntimeInitialisationInfo::Impl", "d6/d9d/classArcane_1_1DotNetRuntimeInitialisationInfo_1_1Impl.html", null ],
     [ "Arcane::EventObservableBase::Impl", "dd/ddf/classArcane_1_1EventObservableBase_1_1Impl.html", null ],
+    [ "Arcane::FaceDirectionMng::Impl", "d1/d38/classArcane_1_1FaceDirectionMng_1_1Impl.html", null ],
+    [ "Arcane::JSONDocument::Impl", "da/d4f/classArcane_1_1JSONDocument_1_1Impl.html", null ],
     [ "Arcane::JSONKeyValue::Impl", "d8/d00/classArcane_1_1JSONKeyValue_1_1Impl.html", null ],
     [ "Arcane::JSONValue::Impl", "d3/db6/classArcane_1_1JSONValue_1_1Impl.html", null ],
-    [ "Arcane::JSONDocument::Impl", "da/d4f/classArcane_1_1JSONDocument_1_1Impl.html", null ],
     [ "Arcane::JSONWriter::Impl", "d5/d8f/classArcane_1_1JSONWriter_1_1Impl.html", null ],
-    [ "Arcane::IMultiArray2DataT< DataType >", "d2/d71/classArcane_1_1IMultiArray2DataT.html", null ],
+    [ "Arcane::Materials::MeshMaterialVariableSynchronizerList::Impl", "d8/d7f/classArcane_1_1Materials_1_1MeshMaterialVariableSynchronizerList_1_1Impl.html", null ],
+    [ "Arcane::MeshReaderMng::Impl", "d1/de3/classArcane_1_1MeshReaderMng_1_1Impl.html", null ],
+    [ "Arcane::NodeDirectionMng::Impl", "da/da7/classArcane_1_1NodeDirectionMng_1_1Impl.html", null ],
+    [ "Arcane::ParameterList::Impl", "dc/dd0/classArcane_1_1ParameterList_1_1Impl.html", null ],
+    [ "Arcane::SimpleSVGMeshExporter::Impl", "db/d72/classArcane_1_1SimpleSVGMeshExporter_1_1Impl.html", null ],
+    [ "Arcane::StandaloneAcceleratorMng::Impl", "da/d9a/classArcane_1_1StandaloneAcceleratorMng_1_1Impl.html", null ],
+    [ "Arcane::StringDictionary::Impl", "de/d91/classArcane_1_1StringDictionary_1_1Impl.html", null ],
+    [ "Arcane::UserDataList::Impl", "d9/d7e/classArcane_1_1UserDataList_1_1Impl.html", null ],
+    [ "Arccore::GlibCond::Impl", "d1/d87/classArccore_1_1GlibCond_1_1Impl.html", null ],
+    [ "Arccore::GlibMutex::Impl", "da/dc0/classArccore_1_1GlibMutex_1_1Impl.html", null ],
+    [ "Arccore::GlibPrivate::Impl", "de/d17/classArccore_1_1GlibPrivate_1_1Impl.html", null ],
+    [ "Arccore::MessagePassing::Mpi::StandaloneMpiMessagePassingMng::Impl", "d4/db2/classArccore_1_1MessagePassing_1_1Mpi_1_1StandaloneMpiMessagePassingMng_1_1Impl.html", null ],
+    [ "Arccore::MessagePassing::PointToPointSerializerMng::Impl", "d9/d5c/classArccore_1_1MessagePassing_1_1PointToPointSerializerMng_1_1Impl.html", null ],
+    [ "BasicSerializer::Impl", null, [
+      [ "Arccore::BasicSerializerNewImpl", "d3/d40/classArccore_1_1BasicSerializerNewImpl.html", null ]
+    ] ],
+    [ "Impl", null, [
+      [ "Arccore::BasicSerializer", "de/d4b/classArccore_1_1BasicSerializer.html", [
+        [ "Arcane::SerializeBuffer", "d8/da2/classArcane_1_1SerializeBuffer.html", null ]
+      ] ]
+    ] ],
+    [ "Impl2", null, [
+      [ "Arccore::BasicSerializer", "de/d4b/classArccore_1_1BasicSerializer.html", null ]
+    ] ],
     [ "Arcane::IMultiArray2DataVisitor", "db/dd3/classArcane_1_1IMultiArray2DataVisitor.html", [
       [ "Arcane::AbstractMultiArray2DataVisitor", "dc/d74/classArcane_1_1AbstractMultiArray2DataVisitor.html", [
         [ "Arcane::AbstractDataVisitor", "d5/d50/classArcane_1_1AbstractDataVisitor.html", null ]
@@ -1373,15 +1115,14 @@ var hierarchy =
     [ "Arcane::IMultiReduce", "d2/d7c/classArcane_1_1IMultiReduce.html", [
       [ "Arcane::MultiReduce", "d8/d3b/classArcane_1_1MultiReduce.html", null ]
     ] ],
+    [ "Arcane::CartesianConnectivity::Index", "db/d96/structArcane_1_1CartesianConnectivity_1_1Index.html", null ],
     [ "Arcane::Item::Index", "d0/d48/classArcane_1_1Item_1_1Index.html", [
       [ "Arcane::Cell::Index", "da/d5e/classArcane_1_1Cell_1_1Index.html", null ],
       [ "Arcane::Edge::Index", "da/d6a/classArcane_1_1Edge_1_1Index.html", null ],
       [ "Arcane::Face::Index", "dc/d6c/classArcane_1_1Face_1_1Index.html", null ],
       [ "Arcane::Node::Index", "db/dcf/classArcane_1_1Node_1_1Index.html", null ]
     ] ],
-    [ "Arcane::CartesianConnectivity::Index", "db/d96/structArcane_1_1CartesianConnectivity_1_1Index.html", null ],
     [ "Arcane::IndexedItemConnectivityViewBase", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html", [
-      [ "Arcane::IndexedItemConnectivityGenericViewT< ItemType1, ItemType2 >", "df/dc1/classArcane_1_1IndexedItemConnectivityGenericViewT.html", null ],
       [ "Arcane::IndexedItemConnectivityGenericViewT< ItemType, Cell >", "df/dc1/classArcane_1_1IndexedItemConnectivityGenericViewT.html", [
         [ "Arcane::IndexedItemConnectivityViewT< ItemType, Cell >", "d0/d9f/classArcane_1_1IndexedItemConnectivityViewT_3_01ItemType_00_01Cell_01_4.html", null ]
       ] ],
@@ -1396,7 +1137,8 @@ var hierarchy =
       ] ],
       [ "Arcane::IndexedItemConnectivityGenericViewT< ItemType, Node >", "df/dc1/classArcane_1_1IndexedItemConnectivityGenericViewT.html", [
         [ "Arcane::IndexedItemConnectivityViewT< ItemType, Node >", "d6/d2d/classArcane_1_1IndexedItemConnectivityViewT_3_01ItemType_00_01Node_01_4.html", null ]
-      ] ]
+      ] ],
+      [ "Arcane::IndexedItemConnectivityGenericViewT< ItemType1, ItemType2 >", "df/dc1/classArcane_1_1IndexedItemConnectivityGenericViewT.html", null ]
     ] ],
     [ "Arcane::IndexedItemConnectivityViewT< ItemType1, ItemType2 >", "da/d60/classArcane_1_1IndexedItemConnectivityViewT.html", null ],
     [ "Arcane::IndexedItemConnectivityViewT< Cell, Edge >", "da/d60/classArcane_1_1IndexedItemConnectivityViewT.html", null ],
@@ -1420,8 +1162,8 @@ var hierarchy =
     [ "Arcane::IntegerHashFunctionT< Int32 >", "d1/deb/classArcane_1_1IntegerHashFunctionT_3_01Int32_01_4.html", null ],
     [ "Arcane::IntegerHashFunctionT< Int64 >", "d8/d9a/classArcane_1_1IntegerHashFunctionT_3_01Int64_01_4.html", null ],
     [ "Arcane::IntegerHashFunctionT< StringView >", "d8/dbf/classArcane_1_1IntegerHashFunctionT_3_01StringView_01_4.html", null ],
-    [ "StrongOptions::OptionTools::Internal< T, N, CurN, Args >", "d5/da1/structStrongOptions_1_1OptionTools_1_1Internal.html", null ],
     [ "Arcane::ItemPrinter::Internal", "d6/d9a/structArcane_1_1ItemPrinter_1_1Internal.html", null ],
+    [ "StrongOptions::OptionTools::Internal< T, N, CurN, Args >", "d5/da1/structStrongOptions_1_1OptionTools_1_1Internal.html", null ],
     [ "StrongOptions::OptionTools::Internal2< T, Nmin, Nmax, CurN, Args >", "da/ddc/structStrongOptions_1_1OptionTools_1_1Internal2.html", null ],
     [ "StrongOptions::OptionTools::Internal2< T, Nmin, Nmax, CurN >", "d8/dce/structStrongOptions_1_1OptionTools_1_1Internal2_3_01T_00_01Nmin_00_01Nmax_00_01CurN_01_4.html", null ],
     [ "StrongOptions::OptionTools::Internal2< T, Nmin, Nmax, CurN, Head, Tail... >", "d5/d8d/structStrongOptions_1_1OptionTools_1_1Internal2_3_01T_00_01Nmin_00_01Nmax_00_01CurN_00_01Head_00_01Tail_8_8_8_01_4.html", null ],
@@ -1496,7 +1238,9 @@ var hierarchy =
     ] ],
     [ "Arcane::IProfilingService", "d1/dbf/classArcane_1_1IProfilingService.html", null ],
     [ "Arcane::IPropertyMng", "da/d8d/classArcane_1_1IPropertyMng.html", null ],
-    [ "Arcane::properties::IPropertySetting", "d9/da9/classArcane_1_1properties_1_1IPropertySetting.html", null ],
+    [ "Arcane::properties::IPropertySetting", "d9/da9/classArcane_1_1properties_1_1IPropertySetting.html", [
+      [ "Arcane::properties::PropertySetting< T, DataType >", "da/d19/classArcane_1_1properties_1_1PropertySetting.html", null ]
+    ] ],
     [ "Arcane::properties::IPropertySettingsInfo", "d4/dfc/classArcane_1_1properties_1_1IPropertySettingsInfo.html", [
       [ "Arcane::properties::PropertySettingsInfo< T >", "d6/d9b/classArcane_1_1properties_1_1PropertySettingsInfo.html", null ]
     ] ],
@@ -1540,7 +1284,6 @@ var hierarchy =
     [ "Arcane::Accelerator::impl::IRunQueueStream", "da/dbb/classArcane_1_1Accelerator_1_1impl_1_1IRunQueueStream.html", [
       [ "Arcane::Accelerator::impl::HostRunQueueStream", "d7/d4b/classArcane_1_1Accelerator_1_1impl_1_1HostRunQueueStream.html", null ]
     ] ],
-    [ "Arcane::IScalarDataT< DataType >", "db/d09/classArcane_1_1IScalarDataT.html", null ],
     [ "Arcane::IScalarDataVisitor", "db/d50/classArcane_1_1IScalarDataVisitor.html", [
       [ "Arcane::AbstractScalarDataVisitor", "d2/d08/classArcane_1_1AbstractScalarDataVisitor.html", [
         [ "Arcane::AbstractDataVisitor", "d5/d50/classArcane_1_1AbstractDataVisitor.html", null ]
@@ -1559,13 +1302,11 @@ var hierarchy =
       ] ]
     ] ],
     [ "Arccore::MessagePassing::ISerializeMessageList", "d0/d54/classArccore_1_1MessagePassing_1_1ISerializeMessageList.html", [
-      [ "Arccore::MessagePassing::internal::SerializeMessageList", "db/d17/classArccore_1_1MessagePassing_1_1internal_1_1SerializeMessageList.html", null ],
-      [ "Arccore::MessagePassing::Mpi::MpiSerializeMessageList", "d0/de8/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiSerializeMessageList.html", null ]
+      [ "Arccore::MessagePassing::Mpi::MpiSerializeMessageList", "d0/de8/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiSerializeMessageList.html", null ],
+      [ "Arccore::MessagePassing::internal::SerializeMessageList", "db/d17/classArccore_1_1MessagePassing_1_1internal_1_1SerializeMessageList.html", null ]
     ] ],
     [ "Arccore::ISerializer", "dd/dcd/classArccore_1_1ISerializer.html", [
-      [ "Arccore::BasicSerializer", "de/d4b/classArccore_1_1BasicSerializer.html", [
-        [ "Arcane::SerializeBuffer", "d8/da2/classArcane_1_1SerializeBuffer.html", null ]
-      ] ]
+      [ "Arccore::BasicSerializer", "de/d4b/classArccore_1_1BasicSerializer.html", null ]
     ] ],
     [ "Arcane::IService", "da/d7e/classArcane_1_1IService.html", [
       [ "Arcane::AbstractService", "da/d61/classArcane_1_1AbstractService.html", [
@@ -1581,10 +1322,11 @@ var hierarchy =
     ] ],
     [ "Arcane::IServiceAndModuleFactoryMng", "d1/d69/classArcane_1_1IServiceAndModuleFactoryMng.html", null ],
     [ "Arcane::Internal::IServiceFactory2", "d1/dea/classArcane_1_1Internal_1_1IServiceFactory2.html", [
-      [ "Arcane::Internal::AbstractServiceFactory", "d1/dec/classArcane_1_1Internal_1_1AbstractServiceFactory.html", null ]
-    ] ],
-    [ "Arcane::Internal::IServiceFactory2T< InterfaceType >", "d0/d8a/classArcane_1_1Internal_1_1IServiceFactory2T.html", [
-      [ "Arcane::Internal::ServiceFactory2TV2< InterfaceType >", "de/d3b/classArcane_1_1Internal_1_1ServiceFactory2TV2.html", null ]
+      [ "Arcane::Internal::AbstractServiceFactory", "d1/dec/classArcane_1_1Internal_1_1AbstractServiceFactory.html", [
+        [ "Arcane::Internal::IServiceFactory2T< InterfaceType >", "d0/d8a/classArcane_1_1Internal_1_1IServiceFactory2T.html", [
+          [ "Arcane::Internal::ServiceFactory2TV2< InterfaceType >", "de/d3b/classArcane_1_1Internal_1_1ServiceFactory2TV2.html", null ]
+        ] ]
+      ] ]
     ] ],
     [ "Arcane::IServiceFactoryInfo", "d3/dd4/classArcane_1_1IServiceFactoryInfo.html", [
       [ "Arcane::Internal::ServiceFactoryInfo", "dc/d9a/classArcane_1_1Internal_1_1ServiceFactoryInfo.html", null ]
@@ -1593,13 +1335,13 @@ var hierarchy =
       [ "Arcane::Internal::ServiceInfo", "d7/db6/classArcane_1_1Internal_1_1ServiceInfo.html", null ]
     ] ],
     [ "Arcane::IServiceInstance", "de/d12/classArcane_1_1IServiceInstance.html", [
-      [ "Arcane::Internal::DotNetServiceInstance", "d8/d82/classArcane_1_1Internal_1_1DotNetServiceInstance.html", null ],
       [ "Arcane::IServiceInstanceT< InterfaceType >", "d1/de9/classArcane_1_1IServiceInstanceT.html", [
         [ "Arcane::Internal::ServiceInstanceT< InterfaceType >", "d1/d95/classArcane_1_1Internal_1_1ServiceInstanceT.html", null ]
       ] ],
       [ "Arcane::ISingletonServiceInstance", "d4/d41/classArcane_1_1ISingletonServiceInstance.html", [
         [ "Arcane::Internal::SingletonServiceFactoryBase::ServiceInstance", "df/dce/classArcane_1_1Internal_1_1SingletonServiceFactoryBase_1_1ServiceInstance.html", null ]
-      ] ]
+      ] ],
+      [ "Arcane::Internal::DotNetServiceInstance", "d8/d82/classArcane_1_1Internal_1_1DotNetServiceInstance.html", null ]
     ] ],
     [ "Arcane::Internal::IServiceInstanceAdder", "d1/d77/classArcane_1_1Internal_1_1IServiceInstanceAdder.html", [
       [ "Arcane::Internal::SingletonServiceFactoryBase::ServiceInstance", "df/dce/classArcane_1_1Internal_1_1SingletonServiceFactoryBase_1_1ServiceInstance.html", null ]
@@ -1631,13 +1373,13 @@ var hierarchy =
     [ "Arcane::IStandardFunction", "db/d86/classArcane_1_1IStandardFunction.html", [
       [ "Arcane::StandardCaseFunction", "de/d50/classArcane_1_1StandardCaseFunction.html", null ]
     ] ],
+    [ "Arcane::Parallel::IStat", "d0/dae/classArcane_1_1Parallel_1_1IStat.html", [
+      [ "Arcane::Parallel::Stat", "d1/d57/classArcane_1_1Parallel_1_1Stat.html", null ]
+    ] ],
     [ "Arccore::MessagePassing::IStat", "d4/d36/classArccore_1_1MessagePassing_1_1IStat.html", [
       [ "Arccore::MessagePassing::Stat", "d5/d92/classArccore_1_1MessagePassing_1_1Stat.html", [
         [ "Arcane::Parallel::Stat", "d1/d57/classArcane_1_1Parallel_1_1Stat.html", null ]
       ] ]
-    ] ],
-    [ "Arcane::Parallel::IStat", "d0/dae/classArcane_1_1Parallel_1_1IStat.html", [
-      [ "Arcane::Parallel::Stat", "d1/d57/classArcane_1_1Parallel_1_1Stat.html", null ]
     ] ],
     [ "Arccore::MessagePassing::ISubRequest", "dc/dda/classArccore_1_1MessagePassing_1_1ISubRequest.html", [
       [ "Arccore::MessagePassing::Mpi::MpiSerializeDispatcher::ReceiveSerializerSubRequest", "db/d92/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiSerializeDispatcher_1_1ReceiveSerializerSubRequest.html", null ],
@@ -1661,6 +1403,24 @@ var hierarchy =
         [ "Arcane::Edge", "d1/d16/classArcane_1_1Edge.html", null ],
         [ "Arcane::Face", "d1/db1/classArcane_1_1Face.html", null ]
       ] ],
+      [ "Arcane::Node", "d8/dd7/classArcane_1_1Node.html", [
+        [ "Arcane::Attr", "d4/d27/classArcane_1_1Attr.html", null ],
+        [ "Arcane::CharacterData", "d5/dd0/classArcane_1_1CharacterData.html", [
+          [ "Arcane::Comment", "de/d69/classArcane_1_1Comment.html", null ],
+          [ "Arcane::Text", "db/d81/classArcane_1_1Text.html", [
+            [ "Arcane::CDATASection", "de/d20/classArcane_1_1CDATASection.html", null ]
+          ] ]
+        ] ],
+        [ "Arcane::Document", "d3/d48/classArcane_1_1Document.html", null ],
+        [ "Arcane::DocumentFragment", "db/d70/classArcane_1_1DocumentFragment.html", null ],
+        [ "Arcane::DocumentType", "d0/dee/classArcane_1_1DocumentType.html", null ],
+        [ "Arcane::Element", "d0/d4f/classArcane_1_1Element.html", null ],
+        [ "Arcane::Entity", "dc/d6c/classArcane_1_1Entity.html", null ],
+        [ "Arcane::EntityReference", "d4/d84/classArcane_1_1EntityReference.html", null ],
+        [ "Arcane::Notation", "db/da4/classArcane_1_1Notation.html", null ],
+        [ "Arcane::ProcessingInstruction", "df/d39/classArcane_1_1ProcessingInstruction.html", null ],
+        [ "Arcane::XPathNamespace", "d8/dce/classArcane_1_1XPathNamespace.html", null ]
+      ] ],
       [ "Arcane::Particle", "dd/d6c/classArcane_1_1Particle.html", null ]
     ] ],
     [ "Arcane::ItemArrayEnumerator", "dd/d56/classArcane_1_1ItemArrayEnumerator.html", [
@@ -1674,11 +1434,11 @@ var hierarchy =
     [ "Arcane::ItemFamilyCompactInfos", "d4/d1f/classArcane_1_1ItemFamilyCompactInfos.html", null ],
     [ "Arcane::ItemFamilySerializeArgs", "df/dab/classArcane_1_1ItemFamilySerializeArgs.html", null ],
     [ "Arcane::ItemGroup", "d9/d27/classArcane_1_1ItemGroup.html", [
-      [ "Arcane::ItemGroupT< T >", "d8/d8e/classArcane_1_1ItemGroupT.html", null ],
+      [ "Arcane::ItemGroupT< Node >", "d8/d8e/classArcane_1_1ItemGroupT.html", null ],
       [ "Arcane::ItemGroupT< Cell >", "d8/d8e/classArcane_1_1ItemGroupT.html", null ],
       [ "Arcane::ItemGroupT< Edge >", "d8/d8e/classArcane_1_1ItemGroupT.html", null ],
       [ "Arcane::ItemGroupT< Face >", "d8/d8e/classArcane_1_1ItemGroupT.html", null ],
-      [ "Arcane::ItemGroupT< Node >", "d8/d8e/classArcane_1_1ItemGroupT.html", null ]
+      [ "Arcane::ItemGroupT< T >", "d8/d8e/classArcane_1_1ItemGroupT.html", null ]
     ] ],
     [ "ItemGroupBuilder< T >", "d5/da5/classItemGroupBuilder.html", null ],
     [ "Arcane::ItemGroupImplPrivate", "db/d8e/classArcane_1_1ItemGroupImplPrivate.html", null ],
@@ -1699,7 +1459,6 @@ var hierarchy =
     [ "Arcane::ItemLocalIdTraitsT< Item >", "df/df9/classArcane_1_1ItemLocalIdTraitsT_3_01Item_01_4.html", null ],
     [ "Arcane::ItemLocalIdViewT< ItemType >", "dc/d35/classArcane_1_1ItemLocalIdViewT.html", null ],
     [ "Arcane::Loop::ItemLoopFunctor< ItemType >", "d5/d1f/classArcane_1_1Loop_1_1ItemLoopFunctor.html", null ],
-    [ "Arcane::Materials::ItemMaterialVariableScalar< DataType >", "d3/d7e/classArcane_1_1Materials_1_1ItemMaterialVariableScalar.html", null ],
     [ "Arcane::ItemNumericOperation< DataTypeT >", "d0/d55/classArcane_1_1ItemNumericOperation.html", null ],
     [ "Arcane::ItemNumericOperation< Real >", "da/d62/classArcane_1_1ItemNumericOperation_3_01Real_01_4.html", null ],
     [ "Arcane::ItemPairEnumerator", "d5/d09/classArcane_1_1ItemPairEnumerator.html", [
@@ -1712,7 +1471,6 @@ var hierarchy =
     ] ],
     [ "Arcane::ItemPairGroupBuilder", "de/dc5/classArcane_1_1ItemPairGroupBuilder.html", null ],
     [ "Arcane::ItemPairGroupImplPrivate", "d7/dd4/classArcane_1_1ItemPairGroupImplPrivate.html", null ],
-    [ "Arcane::ItemPartialVariableScalarRefT< DataTypeT >", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html", null ],
     [ "Arcane::ItemPrinter", "d7/dcb/classArcane_1_1ItemPrinter.html", null ],
     [ "Arcane::ItemRefinementPatternT< type_id >", "dd/d84/classArcane_1_1ItemRefinementPatternT.html", null ],
     [ "Arcane::Accelerator::ItemRunCommand< ItemType >", "dd/dc2/classArcane_1_1Accelerator_1_1ItemRunCommand.html", null ],
@@ -1731,19 +1489,24 @@ var hierarchy =
     ] ],
     [ "Arcane::ItemTypeMng", "d7/dbb/classArcane_1_1ItemTypeMng.html", null ],
     [ "Arcane::ItemUniqueId", "df/d81/classArcane_1_1ItemUniqueId.html", null ],
-    [ "Arcane::ItemVariableScalarRefT< DataTypeT >", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html", null ],
     [ "Arcane::ItemVector", "d1/d71/classArcane_1_1ItemVector.html", [
-      [ "Arcane::ConnectivityItemVector", "dc/d3a/classArcane_1_1ConnectivityItemVector.html", null ]
+      [ "Arcane::ConnectivityItemVector", "dc/d3a/classArcane_1_1ConnectivityItemVector.html", null ],
+      [ "Arcane::ItemVectorT< VectorItemType >", "d5/ded/classArcane_1_1ItemVectorT.html", null ]
     ] ],
-    [ "Arcane::ItemVectorT< VectorItemType >", "d5/ded/classArcane_1_1ItemVectorT.html", null ],
-    [ "Arcane::ItemVectorView", "d6/df2/classArcane_1_1ItemVectorView.html", null ],
+    [ "Arcane::ItemVectorView", "d6/df2/classArcane_1_1ItemVectorView.html", [
+      [ "Arcane::ItemVectorViewT< ItemType >", "d7/d90/classArcane_1_1ItemVectorViewT.html", null ]
+    ] ],
     [ "Arcane::ItemVectorViewConstIterator", "d4/db6/classArcane_1_1ItemVectorViewConstIterator.html", [
       [ "Arcane::ItemVectorViewConstIteratorT< ItemType >", "da/d93/classArcane_1_1ItemVectorViewConstIteratorT.html", null ]
     ] ],
-    [ "Arcane::ItemVectorViewT< ItemType >", "d7/d90/classArcane_1_1ItemVectorViewT.html", null ],
     [ "Arcane::GraphBaseT< VertexType, EdgeType >::IterableEnsembleT< ContainerT >", "d2/d46/classArcane_1_1GraphBaseT_1_1IterableEnsembleT.html", null ],
     [ "Arccore::IteratorBase< IT, R, P, V >", "d3/d7e/classArccore_1_1IteratorBase.html", null ],
-    [ "Arccore::IterT< T >", "d1/d4f/classArccore_1_1IterT.html", null ],
+    [ "Arccore::IteratorBase< T::const_iterator, T::const_reference, T::const_pointer, const T::value_type * >", "d3/d7e/classArccore_1_1IteratorBase.html", [
+      [ "Arccore::ConstIterT< T >", "d7/d4a/classArccore_1_1ConstIterT.html", null ]
+    ] ],
+    [ "Arccore::IteratorBase< T::iterator, T::reference, T::pointer, T::value_type * >", "d3/d7e/classArccore_1_1IteratorBase.html", [
+      [ "Arccore::IterT< T >", "d1/d4f/classArccore_1_1IterT.html", null ]
+    ] ],
     [ "Arccore::IThreadBarrier", "d9/dbb/classArccore_1_1IThreadBarrier.html", [
       [ "Arccore::GlibThreadBarrier", "dc/d32/classArccore_1_1GlibThreadBarrier.html", null ],
       [ "Arccore::NullThreadBarrier", "db/d1d/classArccore_1_1NullThreadBarrier.html", null ]
@@ -1810,7 +1573,11 @@ var hierarchy =
       [ "Arcane::UserDataList", "d4/db9/classArcane_1_1UserDataList.html", null ]
     ] ],
     [ "Arcane::IVariable", "d5/d96/classArcane_1_1IVariable.html", [
-      [ "Arcane::Variable", "d6/df5/classArcane_1_1Variable.html", null ]
+      [ "Arcane::Variable", "d6/df5/classArcane_1_1Variable.html", [
+        [ "Arcane::Array2VariableT< T >", "d8/d38/classArcane_1_1Array2VariableT.html", null ],
+        [ "Arcane::VariableArrayT< T >", "d9/d83/classArcane_1_1VariableArrayT.html", null ],
+        [ "Arcane::VariableScalarT< T >", "da/dbf/classArcane_1_1VariableScalarT.html", null ]
+      ] ]
     ] ],
     [ "Arcane::IVariableComputeFunction", "d8/dc4/classArcane_1_1IVariableComputeFunction.html", [
       [ "Arcane::VariableComputeFunction", "d2/d1b/classArcane_1_1VariableComputeFunction.html", null ]
@@ -1834,6 +1601,7 @@ var hierarchy =
     ] ],
     [ "Arcane::IXmlDocumentHolder", "d0/da9/classArcane_1_1IXmlDocumentHolder.html", [
       [ "Arcane::NullXmlDocumentHolder", "de/d94/classArcane_1_1NullXmlDocumentHolder.html", null ],
+      [ "Arcane::XmlDocumentHolderLibXml2", "da/d3d/classArcane_1_1XmlDocumentHolderLibXml2.html", null ],
       [ "Arcane::XmlDocumentHolderLibXml2", "da/d3d/classArcane_1_1XmlDocumentHolderLibXml2.html", null ]
     ] ],
     [ "Arcane::IXmlUnitTest", "d6/d66/classArcane_1_1IXmlUnitTest.html", [
@@ -1847,8 +1615,8 @@ var hierarchy =
     [ "Arcane::JSONWrapperUtils", "d6/d9d/classArcane_1_1JSONWrapperUtils.html", null ],
     [ "Arcane::JSONWriter", "d9/d23/classArcane_1_1JSONWriter.html", null ],
     [ "Arcane::LeftLayout< RankValue >", "dc/dfc/classArcane_1_1LeftLayout.html", null ],
-    [ "Arcane::LIBXML2_DOMImplementation", "d6/d7f/classArcane_1_1LIBXML2__DOMImplementation.html", null ],
     [ "Arcane::LibXml2_DOMImplementation", "d4/d59/classArcane_1_1LibXml2__DOMImplementation.html", null ],
+    [ "Arcane::LIBXML2_DOMImplementation", "d6/d7f/classArcane_1_1LIBXML2__DOMImplementation.html", null ],
     [ "Arcane::LIBXML2_DOMNamespaceContext", "d7/dca/classArcane_1_1LIBXML2__DOMNamespaceContext.html", null ],
     [ "Arcane::LIBXML2_DOMWriter", "d6/d9f/classArcane_1_1LIBXML2__DOMWriter.html", null ],
     [ "Arcane::LibXml2_ErrorHandler", "da/dc9/classArcane_1_1LibXml2__ErrorHandler.html", null ],
@@ -1893,13 +1661,6 @@ var hierarchy =
     ] ],
     [ "Arcane::LimaTest", "d0/db2/classArcane_1_1LimaTest.html", null ],
     [ "Arcane::LimaVolume", "d5/dcf/classArcane_1_1LimaVolume.html", null ],
-    [ "Arcane::List< T >", "d2/ddc/classArcane_1_1List.html", null ],
-    [ "Arcane::List< Arcane::Internal::IServiceFactory2 * >", "d2/ddc/classArcane_1_1List.html", null ],
-    [ "Arcane::List< Arcane::IObserver * >", "d2/ddc/classArcane_1_1List.html", null ],
-    [ "Arcane::List< Arcane::ServiceInstanceRef >", "d2/ddc/classArcane_1_1List.html", null ],
-    [ "Arcane::List< Arcane::TimeLoopSingletonServiceInfo >", "d2/ddc/classArcane_1_1List.html", null ],
-    [ "Arcane::List< IAMRTransportFunctor * >", "d2/ddc/classArcane_1_1List.html", null ],
-    [ "Arcane::List< String >", "d2/ddc/classArcane_1_1List.html", null ],
     [ "Arcane::ListConstEnumeratorBase", "d2/d1e/classArcane_1_1ListConstEnumeratorBase.html", [
       [ "Arcane::ListConstEnumeratorT< T >", "d1/dfb/classArcane_1_1ListConstEnumeratorT.html", null ]
     ] ],
@@ -1924,6 +1685,7 @@ var hierarchy =
       [ "Arcane::MatItemVariableScalarOutViewT< ItemType, DataType >", "d1/d2b/classArcane_1_1MatItemVariableScalarOutViewT.html", null ]
     ] ],
     [ "md5_ctx", "d0/d9a/structmd5__ctx.html", null ],
+    [ "Arcane::MDSpan< DataType, RankValue, LayoutType >", "d8/d5d/classArcane_1_1MDSpan.html", null ],
     [ "Arcane::MDSpan< DataType, RankValue, LayoutType >", "d8/d5d/classArcane_1_1MDSpan.html", null ],
     [ "Arcane::MDSpanBase< DataType, RankValue, LayoutType >", "d8/df1/classArcane_1_1MDSpanBase.html", null ],
     [ "Arcane::MDSpanBase< DataType, 1, LayoutType >", "d8/df1/classArcane_1_1MDSpanBase.html", [
@@ -1955,23 +1717,19 @@ var hierarchy =
     [ "Arcane::MeshMaterialIndirectModifier", "d3/d0d/classArcane_1_1MeshMaterialIndirectModifier.html", null ],
     [ "Arcane::Materials::MeshMaterialInfo", "d7/d08/classArcane_1_1Materials_1_1MeshMaterialInfo.html", null ],
     [ "Arcane::MeshMaterialModifier", "df/d1d/classArcane_1_1MeshMaterialModifier.html", null ],
-    [ "Arcane::Materials::MeshMaterialVariableArray< ItemType, DataType >", "de/d18/classArcane_1_1Materials_1_1MeshMaterialVariableArray.html", null ],
     [ "Arcane::MeshMaterialVariableDependInfo", "d4/dae/classArcane_1_1MeshMaterialVariableDependInfo.html", null ],
     [ "Arcane::MeshMaterialVariablePrivate", "da/dee/classArcane_1_1MeshMaterialVariablePrivate.html", null ],
     [ "Arcane::Materials::MeshMaterialVariableRef", "d9/dee/classArcane_1_1Materials_1_1MeshMaterialVariableRef.html", [
       [ "Arcane::Materials::CellEnvironmentVariableArrayRef< DataType >", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html", null ],
       [ "Arcane::Materials::CellEnvironmentVariableScalarRef< DataType >", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html", null ],
-      [ "Arcane::Materials::CellMaterialVariableArrayRef< DataType >", "d1/dc1/classArcane_1_1Materials_1_1CellMaterialVariableArrayRef.html", null ]
+      [ "Arcane::Materials::CellMaterialVariableArrayRef< DataType >", "d1/dc1/classArcane_1_1Materials_1_1CellMaterialVariableArrayRef.html", null ],
+      [ "Arcane::Materials::CellMaterialVariableScalarRef< DataType >", "d4/dc4/classArcane_1_1Materials_1_1CellMaterialVariableScalarRef.html", null ]
     ] ],
-    [ "Arcane::Materials::MeshMaterialVariableScalar< ItemType, DataType >", "df/d28/classArcane_1_1Materials_1_1MeshMaterialVariableScalar.html", null ],
     [ "Arcane::Materials::MeshMaterialVariableSynchronizerList", "d8/d05/classArcane_1_1Materials_1_1MeshMaterialVariableSynchronizerList.html", null ],
-    [ "Arcane::MeshPartialVariableScalarRefT< ItemTypeT, DataTypeT >", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html", null ],
     [ "Arcane::MeshPartInfo", "d9/dfd/classArcane_1_1MeshPartInfo.html", null ],
     [ "Arcane::MeshReaderMng", "d5/de9/classArcane_1_1MeshReaderMng.html", null ],
     [ "Arcane::MeshToMeshTransposer", "dc/d9a/classArcane_1_1MeshToMeshTransposer.html", null ],
     [ "Arcane::MeshUtilsCheckConnectivity", "d3/db5/classArcane_1_1MeshUtilsCheckConnectivity.html", null ],
-    [ "Arcane::MeshVariableArrayRefT< ItemTypeT, DataTypeT >", "dd/d95/classArcane_1_1MeshVariableArrayRefT.html", null ],
-    [ "Arcane::MeshVariableArrayRefT< Cell, Real3 >", "dd/d95/classArcane_1_1MeshVariableArrayRefT.html", null ],
     [ "Arcane::MeshVariableInfoT< MeshItem, ValueType, Dimension >", "d5/df1/classArcane_1_1MeshVariableInfoT.html", null ],
     [ "Arcane::MeshVariableInfoT< Cell, Int32, 0 >", "df/d47/classArcane_1_1MeshVariableInfoT_3_01Cell_00_01Int32_00_010_01_4.html", null ],
     [ "Arcane::MeshVariableInfoT< Cell, Int32, 1 >", "d5/d4b/classArcane_1_1MeshVariableInfoT_3_01Cell_00_01Int32_00_011_01_4.html", null ],
@@ -2043,11 +1801,6 @@ var hierarchy =
     [ "Arcane::MeshVariableInfoT< Node, Real3, 1 >", "da/dc3/classArcane_1_1MeshVariableInfoT_3_01Node_00_01Real3_00_011_01_4.html", null ],
     [ "Arcane::MeshVariableInfoT< Node, Real3x3, 0 >", "d1/d88/classArcane_1_1MeshVariableInfoT_3_01Node_00_01Real3x3_00_010_01_4.html", null ],
     [ "Arcane::MeshVariableInfoT< Node, Real3x3, 1 >", "d5/d14/classArcane_1_1MeshVariableInfoT_3_01Node_00_01Real3x3_00_011_01_4.html", null ],
-    [ "Arcane::MeshVariableScalarRefT< ItemTypeT, DataTypeT >", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html", null ],
-    [ "Arcane::MeshVariableScalarRefT< Cell, Int32 >", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html", null ],
-    [ "Arcane::MeshVariableScalarRefT< Cell, Real >", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html", null ],
-    [ "Arcane::MeshVariableScalarRefT< Cell, Real3 >", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html", null ],
-    [ "Arcane::MeshVariableScalarRefT< Node, Real3 >", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html", null ],
     [ "Arccore::MessagePassing::MessageId", "d8/deb/classArccore_1_1MessagePassing_1_1MessageId.html", null ],
     [ "Arccore::MessagePassing::MessageRank", "d0/d13/classArccore_1_1MessagePassing_1_1MessageRank.html", null ],
     [ "Arccore::MessagePassing::MessageTag", "df/d1d/classArccore_1_1MessagePassing_1_1MessageTag.html", null ],
@@ -2083,43 +1836,25 @@ var hierarchy =
     [ "Arcane::CommandLineArguments::Impl::NameValuePair", "db/d9e/classArcane_1_1CommandLineArguments_1_1Impl_1_1NameValuePair.html", null ],
     [ "Arcane::ParameterList::Impl::NameValuePair", "de/d71/structArcane_1_1ParameterList_1_1Impl_1_1NameValuePair.html", null ],
     [ "Arcane::NeighborItemPrinter", "d7/dd2/classArcane_1_1NeighborItemPrinter.html", null ],
-    [ "Arcane::Node", "d8/dd7/classArcane_1_1Node.html", [
-      [ "Arcane::Attr", "d4/d27/classArcane_1_1Attr.html", null ],
-      [ "Arcane::CharacterData", "d5/dd0/classArcane_1_1CharacterData.html", [
-        [ "Arcane::Comment", "de/d69/classArcane_1_1Comment.html", null ],
-        [ "Arcane::Text", "db/d81/classArcane_1_1Text.html", [
-          [ "Arcane::CDATASection", "de/d20/classArcane_1_1CDATASection.html", null ]
-        ] ]
-      ] ],
-      [ "Arcane::Document", "d3/d48/classArcane_1_1Document.html", null ],
-      [ "Arcane::DocumentFragment", "db/d70/classArcane_1_1DocumentFragment.html", null ],
-      [ "Arcane::DocumentType", "d0/dee/classArcane_1_1DocumentType.html", null ],
-      [ "Arcane::Element", "d0/d4f/classArcane_1_1Element.html", null ],
-      [ "Arcane::Entity", "dc/d6c/classArcane_1_1Entity.html", null ],
-      [ "Arcane::EntityReference", "d4/d84/classArcane_1_1EntityReference.html", null ],
-      [ "Arcane::Notation", "db/da4/classArcane_1_1Notation.html", null ],
-      [ "Arcane::ProcessingInstruction", "df/d39/classArcane_1_1ProcessingInstruction.html", null ],
-      [ "Arcane::XPathNamespace", "d8/dce/classArcane_1_1XPathNamespace.html", null ]
-    ] ],
     [ "Arcane::geometric::NodeConnectic", "d4/d5d/structArcane_1_1geometric_1_1NodeConnectic.html", null ],
     [ "Arcane::NodeDirectionMng", "d8/d21/classArcane_1_1NodeDirectionMng.html", null ],
     [ "Arcane::NodeList", "d4/dfb/classArcane_1_1NodeList.html", null ],
     [ "Arcane::IItemFamilySerializeStep::NotifyActionArgs", "de/d48/classArcane_1_1IItemFamilySerializeStep_1_1NotifyActionArgs.html", null ],
     [ "Arcane::NumArray< DataType, RankValue, LayoutType >", "d9/d8e/classArcane_1_1NumArray.html", null ],
     [ "Arcane::NumArrayBaseCommon", "d1/dc3/classArcane_1_1NumArrayBaseCommon.html", [
-      [ "Arcane::NumArrayBase< DataType, RankValue, LayoutType >", "d8/d39/classArcane_1_1NumArrayBase.html", null ],
-      [ "Arcane::NumArrayBase< DataType, 1, LayoutType >", "d8/d39/classArcane_1_1NumArrayBase.html", [
-        [ "Arcane::NumArray< DataType, 1, LayoutType >", "d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html", null ]
-      ] ],
-      [ "Arcane::NumArrayBase< DataType, 2, LayoutType >", "d8/d39/classArcane_1_1NumArrayBase.html", [
-        [ "Arcane::NumArray< DataType, 2, LayoutType >", "d5/d2e/classArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4.html", null ]
+      [ "Arcane::NumArrayBase< DataType, 4, LayoutType >", "d8/d39/classArcane_1_1NumArrayBase.html", [
+        [ "Arcane::NumArray< DataType, 4, LayoutType >", "de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html", null ]
       ] ],
       [ "Arcane::NumArrayBase< DataType, 3, LayoutType >", "d8/d39/classArcane_1_1NumArrayBase.html", [
         [ "Arcane::NumArray< DataType, 3, LayoutType >", "d0/dfa/classArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4.html", null ]
       ] ],
-      [ "Arcane::NumArrayBase< DataType, 4, LayoutType >", "d8/d39/classArcane_1_1NumArrayBase.html", [
-        [ "Arcane::NumArray< DataType, 4, LayoutType >", "de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html", null ]
-      ] ]
+      [ "Arcane::NumArrayBase< DataType, 2, LayoutType >", "d8/d39/classArcane_1_1NumArrayBase.html", [
+        [ "Arcane::NumArray< DataType, 2, LayoutType >", "d5/d2e/classArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4.html", null ]
+      ] ],
+      [ "Arcane::NumArrayBase< DataType, 1, LayoutType >", "d8/d39/classArcane_1_1NumArrayBase.html", [
+        [ "Arcane::NumArray< DataType, 1, LayoutType >", "d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html", null ]
+      ] ],
+      [ "Arcane::NumArrayBase< DataType, RankValue, LayoutType >", "d8/d39/classArcane_1_1NumArrayBase.html", null ]
     ] ],
     [ "Arcane::Accelerator::NumArrayView< Accessor, N, LayoutType >", "df/d9d/classArcane_1_1Accelerator_1_1NumArrayView.html", null ],
     [ "Arcane::Accelerator::NumArrayViewBase", "d5/dea/classArcane_1_1Accelerator_1_1NumArrayViewBase.html", [
@@ -2171,6 +1906,7 @@ var hierarchy =
     [ "Arcane::ProfilingSentry", "d6/d0c/classArcane_1_1ProfilingSentry.html", null ],
     [ "Arcane::GeometricUtilities::ProjectionInfo", "de/d60/classArcane_1_1GeometricUtilities_1_1ProjectionInfo.html", null ],
     [ "Arcane::Properties", "d0/d62/classArcane_1_1Properties.html", null ],
+    [ "Arcane::ApplicationBuildInfo::Impl::Property< DataType >", "d7/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl_1_1Property.html", null ],
     [ "Arcane::Property", "d0/d0f/classArcane_1_1Property.html", [
       [ "Arcane::IPropertyType", "d8/dad/classArcane_1_1IPropertyType.html", [
         [ "Arcane::ArrayPropertyType< DataType >", "d9/dfc/classArcane_1_1ArrayPropertyType.html", null ],
@@ -2181,14 +1917,14 @@ var hierarchy =
         [ "Arcane::XmlPropertyValue", "d0/d8f/classArcane_1_1XmlPropertyValue.html", null ]
       ] ]
     ] ],
-    [ "Arcane::ApplicationBuildInfo::Impl::Property< DataType >", "d7/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl_1_1Property.html", null ],
     [ "Arcane::ApplicationBuildInfo::Impl::Property< Arcane::List >", "d7/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl_1_1Property.html", null ],
     [ "Arcane::ApplicationBuildInfo::Impl::Property< Arccore::String >", "d7/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl_1_1Property.html", null ],
     [ "Arcane::ApplicationBuildInfo::Impl::Property< bool >", "d7/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl_1_1Property.html", null ],
     [ "Arcane::ApplicationBuildInfo::Impl::Property< Int32 >", "d7/db2/classArcane_1_1ApplicationBuildInfo_1_1Impl_1_1Property.html", null ],
     [ "Arcane::properties::PropertyDeclaration< T >", "d6/d8f/classArcane_1_1properties_1_1PropertyDeclaration.html", null ],
-    [ "Arcane::properties::PropertySetting< T, DataType >", "da/d19/classArcane_1_1properties_1_1PropertySetting.html", null ],
-    [ "Arcane::properties::PropertySettingBase< T >", "df/de1/classArcane_1_1properties_1_1PropertySettingBase.html", null ],
+    [ "Arcane::properties::PropertySettingBase< T >", "df/de1/classArcane_1_1properties_1_1PropertySettingBase.html", [
+      [ "Arcane::properties::PropertySetting< T, DataType >", "da/d19/classArcane_1_1properties_1_1PropertySetting.html", null ]
+    ] ],
     [ "Arcane::properties::PropertySettingBuilder< T >", "db/da7/classArcane_1_1properties_1_1PropertySettingBuilder.html", null ],
     [ "Arcane::properties::PropertySettingsBuildInfo", "d3/d25/classArcane_1_1properties_1_1PropertySettingsBuildInfo.html", null ],
     [ "Arcane::properties::PropertySettingsRegisterer", "d6/d47/classArcane_1_1properties_1_1PropertySettingsRegisterer.html", null ],
@@ -2206,42 +1942,20 @@ var hierarchy =
       [ "Arcane::properties::ParameterListPropertyVisitor< T >", "df/def/classArcane_1_1properties_1_1ParameterListPropertyVisitor.html", null ]
     ] ],
     [ "Arcane::PtrT< T >", "dd/de0/classArcane_1_1PtrT.html", [
+      [ "Arcane::AutoRefT< Impl >", "de/d08/classArcane_1_1AutoRefT.html", null ],
+      [ "Arcane::AutoRefT< Arcane::EnumeratorImplBase >", "de/d08/classArcane_1_1AutoRefT.html", null ],
+      [ "Arcane::AutoRefT< Arcane::CollectionImplBase >", "de/d08/classArcane_1_1AutoRefT.html", null ],
+      [ "Arcane::AutoRefT< Arcane::ItemGroupImpl >", "de/d08/classArcane_1_1AutoRefT.html", null ],
+      [ "Arcane::AutoRefT< Arcane::ItemPairGroupImpl >", "de/d08/classArcane_1_1AutoRefT.html", null ],
+      [ "Arcane::AutoRefT< Arcane::PropertiesImplBase >", "de/d08/classArcane_1_1AutoRefT.html", null ],
+      [ "Arcane::ScopedPtrT< Arcane::Materials::IMeshMaterialVariableComputeFunction >", "db/d19/classArcane_1_1ScopedPtrT.html", null ],
+      [ "Arcane::ScopedPtrT< Arcane::Properties >", "db/d19/classArcane_1_1ScopedPtrT.html", null ],
+      [ "Arcane::ScopedPtrT< Arcane::IVariableComputeFunction >", "db/d19/classArcane_1_1ScopedPtrT.html", null ],
+      [ "Arcane::ScopedPtrT< Arcane::LimaGroupReader< LimaMaliReader > >", "db/d19/classArcane_1_1ScopedPtrT.html", null ],
+      [ "Arcane::SharedPtrT< Arcane::GroupIndexTable >", "d8/d23/classArcane_1_1SharedPtrT.html", null ],
       [ "Arcane::AutoRefT< T >", "de/d08/classArcane_1_1AutoRefT.html", null ],
       [ "Arcane::ScopedPtrT< T >", "db/d19/classArcane_1_1ScopedPtrT.html", null ],
       [ "Arcane::SharedPtrT< T >", "d8/d23/classArcane_1_1SharedPtrT.html", null ]
-    ] ],
-    [ "Arcane::PtrT< Arcane::CollectionImplBase >", "dd/de0/classArcane_1_1PtrT.html", [
-      [ "Arcane::AutoRefT< Arcane::CollectionImplBase >", "de/d08/classArcane_1_1AutoRefT.html", null ]
-    ] ],
-    [ "Arcane::PtrT< Arcane::EnumeratorImplBase >", "dd/de0/classArcane_1_1PtrT.html", [
-      [ "Arcane::AutoRefT< Arcane::EnumeratorImplBase >", "de/d08/classArcane_1_1AutoRefT.html", null ]
-    ] ],
-    [ "Arcane::PtrT< Arcane::GroupIndexTable >", "dd/de0/classArcane_1_1PtrT.html", [
-      [ "Arcane::SharedPtrT< Arcane::GroupIndexTable >", "d8/d23/classArcane_1_1SharedPtrT.html", null ]
-    ] ],
-    [ "Arcane::PtrT< Arcane::ItemGroupImpl >", "dd/de0/classArcane_1_1PtrT.html", [
-      [ "Arcane::AutoRefT< Arcane::ItemGroupImpl >", "de/d08/classArcane_1_1AutoRefT.html", null ]
-    ] ],
-    [ "Arcane::PtrT< Arcane::ItemPairGroupImpl >", "dd/de0/classArcane_1_1PtrT.html", [
-      [ "Arcane::AutoRefT< Arcane::ItemPairGroupImpl >", "de/d08/classArcane_1_1AutoRefT.html", null ]
-    ] ],
-    [ "Arcane::PtrT< Arcane::IVariableComputeFunction >", "dd/de0/classArcane_1_1PtrT.html", [
-      [ "Arcane::ScopedPtrT< Arcane::IVariableComputeFunction >", "db/d19/classArcane_1_1ScopedPtrT.html", null ]
-    ] ],
-    [ "Arcane::PtrT< Arcane::LimaGroupReader< LimaMaliReader > >", "dd/de0/classArcane_1_1PtrT.html", [
-      [ "Arcane::ScopedPtrT< Arcane::LimaGroupReader< LimaMaliReader > >", "db/d19/classArcane_1_1ScopedPtrT.html", null ]
-    ] ],
-    [ "Arcane::PtrT< Arcane::Materials::IMeshMaterialVariableComputeFunction >", "dd/de0/classArcane_1_1PtrT.html", [
-      [ "Arcane::ScopedPtrT< Arcane::Materials::IMeshMaterialVariableComputeFunction >", "db/d19/classArcane_1_1ScopedPtrT.html", null ]
-    ] ],
-    [ "Arcane::PtrT< Arcane::Properties >", "dd/de0/classArcane_1_1PtrT.html", [
-      [ "Arcane::ScopedPtrT< Arcane::Properties >", "db/d19/classArcane_1_1ScopedPtrT.html", null ]
-    ] ],
-    [ "Arcane::PtrT< Arcane::PropertiesImplBase >", "dd/de0/classArcane_1_1PtrT.html", [
-      [ "Arcane::AutoRefT< Arcane::PropertiesImplBase >", "de/d08/classArcane_1_1AutoRefT.html", null ]
-    ] ],
-    [ "Arcane::PtrT< Impl >", "dd/de0/classArcane_1_1PtrT.html", [
-      [ "Arcane::AutoRefT< Impl >", "de/d08/classArcane_1_1AutoRefT.html", null ]
     ] ],
     [ "Arcane::GeometricUtilities::QuadMapping", "de/d79/classArcane_1_1GeometricUtilities_1_1QuadMapping.html", null ],
     [ "Arcane::LIBXML2_Element::QualifiedName", "dd/d07/classArcane_1_1LIBXML2__Element_1_1QualifiedName.html", null ],
@@ -2290,44 +2004,24 @@ var hierarchy =
     ] ],
     [ "Arcane::ReduceSumOfRealHelper", "d3/d74/classArcane_1_1ReduceSumOfRealHelper.html", null ],
     [ "Arccore::RefBase", "d1/d10/classArccore_1_1RefBase.html", [
-      [ "Arccore::Ref< InstanceType, ImplTagId >", "de/d9f/classArccore_1_1Ref.html", null ],
-      [ "Arccore::Ref< Arcane::Accelerator::IAcceleratorMng >", "de/d9f/classArccore_1_1Ref.html", null ],
-      [ "Arccore::Ref< Arcane::Accelerator::Runner >", "de/d9f/classArccore_1_1Ref.html", null ],
-      [ "Arccore::Ref< Arcane::Accelerator::RunQueue >", "de/d9f/classArccore_1_1Ref.html", null ],
       [ "Arccore::Ref< Arcane::IData >", "de/d9f/classArccore_1_1Ref.html", null ],
-      [ "Arccore::Ref< Arcane::IMeshReader >", "de/d9f/classArccore_1_1Ref.html", null ],
-      [ "Arccore::Ref< Arcane::IModuleFactory2 >", "de/d9f/classArccore_1_1Ref.html", null ],
-      [ "Arccore::Ref< Arcane::IParallelMng >", "de/d9f/classArccore_1_1Ref.html", null ],
       [ "Arccore::Ref< Arcane::IVariableSynchronizer >", "de/d9f/classArccore_1_1Ref.html", null ],
-      [ "Arccore::Ref< Arcane::Materials::IMeshMaterialSynchronizeBuffer >", "de/d9f/classArccore_1_1Ref.html", null ],
+      [ "Arccore::Ref< IServiceInstance >", "de/d9f/classArccore_1_1Ref.html", null ],
+      [ "Arccore::Ref< InterfaceType >", "de/d9f/classArccore_1_1Ref.html", null ],
+      [ "Arccore::Ref< Arcane::Accelerator::RunQueue >", "de/d9f/classArccore_1_1Ref.html", null ],
       [ "Arccore::Ref< Arccore::ITraceMng >", "de/d9f/classArccore_1_1Ref.html", null ],
-      [ "Arccore::Ref< Arccore::MessagePassing::IRequestList >", "de/d9f/classArccore_1_1Ref.html", null ],
-      [ "Arccore::Ref< Arccore::MessagePassing::ISerializeMessage >", "de/d9f/classArccore_1_1Ref.html", null ],
+      [ "Arccore::Ref< Arcane::Accelerator::IAcceleratorMng >", "de/d9f/classArccore_1_1Ref.html", null ],
       [ "Arccore::Ref< Arccore::MessagePassing::ISerializeMessageList >", "de/d9f/classArccore_1_1Ref.html", null ],
       [ "Arccore::Ref< Arccore::MessagePassing::ISubRequest >", "de/d9f/classArccore_1_1Ref.html", null ],
+      [ "Arccore::Ref< Arccore::MessagePassing::IRequestList >", "de/d9f/classArccore_1_1Ref.html", null ],
+      [ "Arccore::Ref< Arcane::IParallelMng >", "de/d9f/classArccore_1_1Ref.html", null ],
+      [ "Arccore::Ref< Arcane::Materials::IMeshMaterialSynchronizeBuffer >", "de/d9f/classArccore_1_1Ref.html", null ],
+      [ "Arccore::Ref< Arcane::IModuleFactory2 >", "de/d9f/classArccore_1_1Ref.html", null ],
       [ "Arccore::Ref< CartesianMeshPatch >", "de/d9f/classArccore_1_1Ref.html", null ],
-      [ "Arccore::Ref< IInstanceFactory >", "de/d9f/classArccore_1_1Ref.html", null ],
-      [ "Arccore::Ref< impl::IInstanceFactory >", "de/d9f/classArccore_1_1Ref.html", null ],
-      [ "Arccore::Ref< InterfaceType >", "de/d9f/classArccore_1_1Ref.html", null ],
-      [ "Arccore::Ref< IServiceInstance >", "de/d9f/classArccore_1_1Ref.html", null ]
+      [ "Arccore::Ref< Arcane::Accelerator::Runner >", "de/d9f/classArccore_1_1Ref.html", null ],
+      [ "Arccore::Ref< InstanceType, ImplTagId >", "de/d9f/classArccore_1_1Ref.html", null ]
     ] ],
     [ "Arcane::RefCounter", "d8/d02/classArcane_1_1RefCounter.html", null ],
-    [ "Arccore::ReferenceCounter< T >", "d7/d42/classArccore_1_1ReferenceCounter.html", [
-      [ "Arcane::ModuleFactoryReference", "d4/d33/classArcane_1_1ModuleFactoryReference.html", null ]
-    ] ],
-    [ "Arccore::ReferenceCounter< Arcane::CaseOptionMultiServiceImpl >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
-    [ "Arccore::ReferenceCounter< Arcane::CaseOptionServiceImpl >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
-    [ "Arccore::ReferenceCounter< Arcane::CommandLineArguments::Impl >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
-    [ "Arccore::ReferenceCounter< Arcane::ICaseOptionList >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
-    [ "Arccore::ReferenceCounter< Arcane::ICaseOptions >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
-    [ "Arccore::ReferenceCounter< Arcane::Internal::IServiceFactory2 >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
-    [ "Arccore::ReferenceCounter< Arccore::IThreadImplementation >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
-    [ "Arccore::ReferenceCounter< Arccore::ITraceMng >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
-    [ "Arccore::ReferenceCounter< Arccore::ITraceStream >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
-    [ "Arccore::ReferenceCounter< Handle >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
-    [ "Arccore::ReferenceCounter< IModuleFactoryInfo >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
-    [ "Arccore::ReferenceCounter< InstanceType >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
-    [ "Arccore::ReferenceCounter< MeshHandleRef >", "d7/d42/classArccore_1_1ReferenceCounter.html", null ],
     [ "Arccore::ReferenceCounterAccessor< T >", "de/d6f/classArccore_1_1ReferenceCounterAccessor.html", null ],
     [ "Arccore::ReferenceCounterImpl", "db/d48/classArccore_1_1ReferenceCounterImpl.html", [
       [ "Arcane::ParallelMngContainerBase", "d7/d5d/classArcane_1_1ParallelMngContainerBase.html", null ],
@@ -2447,19 +2141,15 @@ var hierarchy =
     [ "Arccore::RefTraitsTagId< Arcane::Accelerator::Runner, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
     [ "Arccore::RefTraitsTagId< Arcane::Accelerator::RunQueue, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
     [ "Arccore::RefTraitsTagId< Arcane::IData, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
-    [ "Arccore::RefTraitsTagId< Arcane::IMeshReader, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
     [ "Arccore::RefTraitsTagId< Arcane::IModuleFactory2, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
     [ "Arccore::RefTraitsTagId< Arcane::IParallelMng, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
     [ "Arccore::RefTraitsTagId< Arcane::IVariableSynchronizer, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
     [ "Arccore::RefTraitsTagId< Arcane::Materials::IMeshMaterialSynchronizeBuffer, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
     [ "Arccore::RefTraitsTagId< Arccore::ITraceMng, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
     [ "Arccore::RefTraitsTagId< Arccore::MessagePassing::IRequestList, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
-    [ "Arccore::RefTraitsTagId< Arccore::MessagePassing::ISerializeMessage, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
     [ "Arccore::RefTraitsTagId< Arccore::MessagePassing::ISerializeMessageList, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
     [ "Arccore::RefTraitsTagId< Arccore::MessagePassing::ISubRequest, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
     [ "Arccore::RefTraitsTagId< CartesianMeshPatch, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
-    [ "Arccore::RefTraitsTagId< IInstanceFactory, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
-    [ "Arccore::RefTraitsTagId< impl::IInstanceFactory, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
     [ "Arccore::RefTraitsTagId< InstanceType, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
     [ "Arccore::RefTraitsTagId< InstanceType, REF_TAG_REFERENCE_COUNTER >", "d3/da1/structArccore_1_1RefTraitsTagId_3_01InstanceType_00_01REF__TAG__REFERENCE__COUNTER_01_4.html", null ],
     [ "Arccore::RefTraitsTagId< InstanceType, REF_TAG_SHARED_PTR >", "d0/d24/structArccore_1_1RefTraitsTagId_3_01InstanceType_00_01REF__TAG__SHARED__PTR_01_4.html", null ],
@@ -2479,8 +2169,8 @@ var hierarchy =
     [ "Arcane::Accelerator::RunQueueBuildInfo", "df/d13/classArcane_1_1Accelerator_1_1RunQueueBuildInfo.html", null ],
     [ "Arcane::Accelerator::RunQueueEvent", "d2/d0b/classArcane_1_1Accelerator_1_1RunQueueEvent.html", null ],
     [ "Arcane::Accelerator::impl::RunQueueImpl", "d1/d0a/classArcane_1_1Accelerator_1_1impl_1_1RunQueueImpl.html", null ],
-    [ "Arccore::Mutex::ScopedLock", "dc/d26/classArccore_1_1Mutex_1_1ScopedLock.html", null ],
     [ "Arccore::GlobalMutex::ScopedLock", "dd/d68/classArccore_1_1GlobalMutex_1_1ScopedLock.html", null ],
+    [ "Arccore::Mutex::ScopedLock", "dc/d26/classArccore_1_1Mutex_1_1ScopedLock.html", null ],
     [ "Arccore::SpinLock::ScopedLock", "dc/dea/classArccore_1_1SpinLock_1_1ScopedLock.html", null ],
     [ "Arccore::MessagePassing::Mpi::MpiLock::Section", "de/d6d/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiLock_1_1Section.html", null ],
     [ "StrongOptions::seq< Is >", "da/d53/structStrongOptions_1_1seq.html", null ],
@@ -2538,43 +2228,54 @@ var hierarchy =
     [ "Arcane::SimpleLoopRanges< N >", "d2/d7d/classArcane_1_1SimpleLoopRanges.html", null ],
     [ "Arcane::Accelerator::impl::SimpleMaxReduceOperator< T >", "d3/dff/structArcane_1_1Accelerator_1_1impl_1_1SimpleMaxReduceOperator.html", null ],
     [ "Arcane::Accelerator::impl::SimpleMinReduceOperator< T >", "db/d74/structArcane_1_1Accelerator_1_1impl_1_1SimpleMinReduceOperator.html", null ],
-    [ "Arcane::SimplePropertyT< T >", "d2/d4e/classArcane_1_1SimplePropertyT.html", null ],
     [ "Arcane::SimplePropertyTraitsT< T >", "d2/dc5/classArcane_1_1SimplePropertyTraitsT.html", null ],
     [ "Arcane::SimplePropertyTraitsT< String >", "db/df6/classArcane_1_1SimplePropertyTraitsT_3_01String_01_4.html", null ],
-    [ "Arcane::SimpleReadOnlyPropertyT< T >", "da/dd3/classArcane_1_1SimpleReadOnlyPropertyT.html", null ],
+    [ "Arcane::SimpleReadOnlyPropertyT< T >", "da/dd3/classArcane_1_1SimpleReadOnlyPropertyT.html", [
+      [ "Arcane::SimplePropertyT< T >", "d2/d4e/classArcane_1_1SimplePropertyT.html", null ]
+    ] ],
     [ "Arcane::Accelerator::impl::SimpleSumReduceOperator< T >", "d4/dbd/structArcane_1_1Accelerator_1_1impl_1_1SimpleSumReduceOperator.html", null ],
     [ "Arcane::SimpleSVGMeshExporter", "de/d9a/classArcane_1_1SimpleSVGMeshExporter.html", null ],
     [ "Arccore::BasicSerializerNewImpl::SizeInfo", "dc/de5/structArccore_1_1BasicSerializerNewImpl_1_1SizeInfo.html", null ],
     [ "Arccore::BasicSerializer::SizesPrinter", "d1/d18/classArccore_1_1BasicSerializer_1_1SizesPrinter.html", null ],
-    [ "Arccore::SmallSpan< T >", "d2/d75/classArccore_1_1SmallSpan.html", null ],
-    [ "Arccore::SmallSpan2< T >", "de/dde/classArccore_1_1SmallSpan2.html", null ],
-    [ "Arccore::SmallSpan2< const DataType >", "de/dde/classArccore_1_1SmallSpan2.html", null ],
-    [ "Arccore::SmallSpan2< DataType >", "de/dde/classArccore_1_1SmallSpan2.html", null ],
-    [ "Arccore::SmallSpan< const DataType >", "d2/d75/classArccore_1_1SmallSpan.html", null ],
-    [ "Arccore::SmallSpan< const Int32 >", "d2/d75/classArccore_1_1SmallSpan.html", null ],
-    [ "Arccore::SmallSpan< const LocalIdType >", "d2/d75/classArccore_1_1SmallSpan.html", null ],
-    [ "Arccore::SmallSpan< DataType >", "d2/d75/classArccore_1_1SmallSpan.html", null ],
     [ "Arcane::SmallVariant", "d8/db0/classArcane_1_1SmallVariant.html", null ],
     [ "Arcane::DirectedAcyclicGraphT< VertexType, EdgeType >::SortedElementSet< ContainerT >", "d2/dd9/classArcane_1_1DirectedAcyclicGraphT_1_1SortedElementSet.html", null ],
     [ "Arccore::MessagePassing::MessageId::SourceInfo", "da/d01/classArccore_1_1MessagePassing_1_1MessageId_1_1SourceInfo.html", null ],
-    [ "Arccore::Span< T >", "dd/d9f/classArccore_1_1Span.html", null ],
-    [ "Arccore::Span2< T >", "dd/d86/classArccore_1_1Span2.html", null ],
-    [ "Arccore::Span2< const DataType >", "dd/d86/classArccore_1_1Span2.html", null ],
-    [ "Arccore::Span2< DataType >", "dd/d86/classArccore_1_1Span2.html", null ],
-    [ "Arccore::Span2Impl< T, SizeType >", "d1/d75/classArccore_1_1Span2Impl.html", null ],
-    [ "Arccore::Span< Byte >", "dd/d9f/classArccore_1_1Span.html", null ],
-    [ "Arccore::Span< const Byte >", "dd/d9f/classArccore_1_1Span.html", null ],
-    [ "Arccore::Span< const DataType >", "dd/d9f/classArccore_1_1Span.html", null ],
-    [ "Arccore::Span< const Int32 >", "dd/d9f/classArccore_1_1Span.html", null ],
-    [ "Arccore::Span< const std::byte >", "dd/d9f/classArccore_1_1Span.html", null ],
-    [ "Arccore::Span< DataType >", "dd/d9f/classArccore_1_1Span.html", null ],
-    [ "Arccore::Span< Int16 >", "dd/d9f/classArccore_1_1Span.html", null ],
-    [ "Arccore::Span< Int32 >", "dd/d9f/classArccore_1_1Span.html", null ],
-    [ "Arccore::Span< Int64 >", "dd/d9f/classArccore_1_1Span.html", null ],
-    [ "Arccore::Span< Real >", "dd/d9f/classArccore_1_1Span.html", null ],
-    [ "Arccore::Span< SpanType >", "dd/d9f/classArccore_1_1Span.html", null ],
-    [ "Arccore::Span< std::byte >", "dd/d9f/classArccore_1_1Span.html", null ],
-    [ "Arccore::SpanImpl< T, SizeType >", "d6/d42/classArccore_1_1SpanImpl.html", null ],
+    [ "Arccore::Span2Impl< T, SizeType >", "d1/d75/classArccore_1_1Span2Impl.html", [
+      [ "Arccore::SmallSpan2< const DataType >", "de/dde/classArccore_1_1SmallSpan2.html", null ],
+      [ "Arccore::SmallSpan2< DataType >", "de/dde/classArccore_1_1SmallSpan2.html", null ],
+      [ "Arccore::Span2< const DataType >", "dd/d86/classArccore_1_1Span2.html", null ],
+      [ "Arccore::Span2< DataType >", "dd/d86/classArccore_1_1Span2.html", null ]
+    ] ],
+    [ "Arccore::Span2Impl< T, Int32 >", "d1/d75/classArccore_1_1Span2Impl.html", [
+      [ "Arccore::SmallSpan2< T >", "de/dde/classArccore_1_1SmallSpan2.html", null ]
+    ] ],
+    [ "Arccore::Span2Impl< T, Int64 >", "d1/d75/classArccore_1_1Span2Impl.html", [
+      [ "Arccore::Span2< T >", "dd/d86/classArccore_1_1Span2.html", null ]
+    ] ],
+    [ "Arccore::SpanImpl< T, SizeType >", "d6/d42/classArccore_1_1SpanImpl.html", [
+      [ "Arccore::SmallSpan< const DataType >", "d2/d75/classArccore_1_1SmallSpan.html", null ],
+      [ "Arccore::SmallSpan< const LocalIdType >", "d2/d75/classArccore_1_1SmallSpan.html", null ],
+      [ "Arccore::SmallSpan< DataType >", "d2/d75/classArccore_1_1SmallSpan.html", null ],
+      [ "Arccore::SmallSpan< const Int32 >", "d2/d75/classArccore_1_1SmallSpan.html", null ],
+      [ "Arccore::Span< const DataType >", "dd/d9f/classArccore_1_1Span.html", null ],
+      [ "Arccore::Span< const Byte >", "dd/d9f/classArccore_1_1Span.html", null ],
+      [ "Arccore::Span< Byte >", "dd/d9f/classArccore_1_1Span.html", null ],
+      [ "Arccore::Span< const std::byte >", "dd/d9f/classArccore_1_1Span.html", null ],
+      [ "Arccore::Span< SpanType >", "dd/d9f/classArccore_1_1Span.html", null ],
+      [ "Arccore::Span< Int64 >", "dd/d9f/classArccore_1_1Span.html", null ],
+      [ "Arccore::Span< Int16 >", "dd/d9f/classArccore_1_1Span.html", null ],
+      [ "Arccore::Span< DataType >", "dd/d9f/classArccore_1_1Span.html", null ],
+      [ "Arccore::Span< std::byte >", "dd/d9f/classArccore_1_1Span.html", null ],
+      [ "Arccore::Span< Int32 >", "dd/d9f/classArccore_1_1Span.html", null ],
+      [ "Arccore::Span< Real >", "dd/d9f/classArccore_1_1Span.html", null ],
+      [ "Arccore::Span< const Int32 >", "dd/d9f/classArccore_1_1Span.html", null ]
+    ] ],
+    [ "Arccore::SpanImpl< T, Int32 >", "d6/d42/classArccore_1_1SpanImpl.html", [
+      [ "Arccore::SmallSpan< T >", "d2/d75/classArccore_1_1SmallSpan.html", null ]
+    ] ],
+    [ "Arccore::SpanImpl< T, Int64 >", "d6/d42/classArccore_1_1SpanImpl.html", [
+      [ "Arccore::Span< T >", "dd/d9f/classArccore_1_1Span.html", null ]
+    ] ],
     [ "Arccore::SpinLock", "df/d4e/classArccore_1_1SpinLock.html", null ],
     [ "Arcane::SSESimdInfo", "d7/d9e/classArcane_1_1SSESimdInfo.html", null ],
     [ "Arcane::SSESimdX2Real", "d5/d51/classArcane_1_1SSESimdX2Real.html", null ],
@@ -2587,8 +2288,6 @@ var hierarchy =
     [ "Arccore::StandaloneTraceMessage", "d8/da2/classArccore_1_1StandaloneTraceMessage.html", null ],
     [ "Arccore::StandardPhaseTimeMetrics", "d8/d9c/classArccore_1_1StandardPhaseTimeMetrics.html", null ],
     [ "Arccore::MessagePassing::StatData", "d6/d71/classArccore_1_1MessagePassing_1_1StatData.html", null ],
-    [ "Arccore::StdFunctorWithArgumentT< ArgType >", "dd/de1/classArccore_1_1StdFunctorWithArgumentT.html", null ],
-    [ "Arccore::MessagePassing::Mpi::StdMpiReduceOperator< RealType >", "d5/d91/classArccore_1_1MessagePassing_1_1Mpi_1_1StdMpiReduceOperator.html", null ],
     [ "Arccore::String", "d2/ddb/classArccore_1_1String.html", null ],
     [ "Arccore::StringBuilder", "d5/df4/classArccore_1_1StringBuilder.html", null ],
     [ "Arcane::StringDictionary", "dd/d06/classArcane_1_1StringDictionary.html", null ],
@@ -2597,17 +2296,17 @@ var hierarchy =
     [ "Arccore::StringFormatterArgToString< U >", "dd/d0a/classArccore_1_1StringFormatterArgToString.html", null ],
     [ "Arccore::StringImpl", "d0/de1/classArccore_1_1StringImpl.html", null ],
     [ "Arccore::StringView", "d0/d06/classArccore_1_1StringView.html", null ],
+    [ "StrucInfoProc", "db/d16/structStrucInfoProc.html", null ],
+    [ "StrucListeDomMail", "d1/d8c/structStrucListeDomMail.html", null ],
+    [ "StrucListeVoisMail", "d5/db1/structStrucListeVoisMail.html", null ],
+    [ "StrucMaillage", "dc/d52/structStrucMaillage.html", null ],
+    [ "StructureBlocEtendu", "d9/d82/structStructureBlocEtendu.html", null ],
+    [ "StructureInterface", "d4/d1b/structStructureInterface.html", null ],
     [ "Arcane::SubDomainBuildInfo", "d9/de6/classArcane_1_1SubDomainBuildInfo.html", null ],
     [ "Arccore::MessagePassing::Mpi::MpiAdapter::SubRequestInfo", "d2/d7b/structArccore_1_1MessagePassing_1_1Mpi_1_1MpiAdapter_1_1SubRequestInfo.html", null ],
     [ "Arcane::Accelerator::impl::SumReduceOperator< T >", "d7/d09/structArcane_1_1Accelerator_1_1impl_1_1SumReduceOperator.html", null ],
     [ "Arcane::geometric::SVCFaceConnectic", "d3/d20/structArcane_1_1geometric_1_1SVCFaceConnectic.html", null ],
     [ "Arcane::SynchronizerMatrixPrinter", "d4/de8/classArcane_1_1SynchronizerMatrixPrinter.html", null ],
-    [ "Arcane::T_BLOC_ETENDU", "d5/d31/structArcane_1_1T__BLOC__ETENDU.html", null ],
-    [ "Arcane::T_InfoProc", "d0/dff/structArcane_1_1T__InfoProc.html", null ],
-    [ "Arcane::T_INTERFACE", "d6/d1f/structArcane_1_1T__INTERFACE.html", null ],
-    [ "Arcane::T_ListeDomMail", "d7/d60/structArcane_1_1T__ListeDomMail.html", null ],
-    [ "Arcane::T_ListeVoisMail", "dd/dcf/structArcane_1_1T__ListeVoisMail.html", null ],
-    [ "Arcane::T_Maillage", "d4/d15/structArcane_1_1T__Maillage.html", null ],
     [ "Arcane::TaskContext", "d3/df6/classArcane_1_1TaskContext.html", null ],
     [ "Arcane::TaskFactory", "d6/d0d/classArcane_1_1TaskFactory.html", null ],
     [ "Arcane::Accelerator::impl::RunCommandLaunchInfo::ThreadBlockInfo", "df/d5d/structArcane_1_1Accelerator_1_1impl_1_1RunCommandLaunchInfo_1_1ThreadBlockInfo.html", null ],
@@ -2625,6 +2324,9 @@ var hierarchy =
     [ "Arccore::TimeMetricId", "de/d2f/classArccore_1_1TimeMetricId.html", null ],
     [ "Arccore::TimeMetricSentry", "d9/dd1/classArccore_1_1TimeMetricSentry.html", null ],
     [ "Arccore::TraceAccessor", "d4/d0e/classArccore_1_1TraceAccessor.html", [
+      [ "Arcane::LimaMalippMeshBase< ReaderWrapper::LimaMaliReaderType >", "d6/d6b/classArcane_1_1LimaMalippMeshBase.html", [
+        [ "Arcane::LimaMalippReaderT< ReaderWrapper >", "d4/d6e/classArcane_1_1LimaMalippReaderT.html", null ]
+      ] ],
       [ "Arcane::AbstractModule", "dd/dde/classArcane_1_1AbstractModule.html", null ],
       [ "Arcane::AbstractService", "da/d61/classArcane_1_1AbstractService.html", null ],
       [ "Arcane::Accelerator::AcceleratorMng", "db/db8/classArcane_1_1Accelerator_1_1AcceleratorMng.html", null ],
@@ -2634,7 +2336,6 @@ var hierarchy =
       [ "Arcane::CaseOptionList", "db/d32/classArcane_1_1CaseOptionList.html", null ],
       [ "Arcane::DualUniqueIdMng", "d8/d35/classArcane_1_1DualUniqueIdMng.html", null ],
       [ "Arcane::EnumeratorTracer", "d5/dc2/classArcane_1_1EnumeratorTracer.html", null ],
-      [ "Arcane::internal::TraceAccessor2", "d7/d83/classArcane_1_1internal_1_1TraceAccessor2.html", null ],
       [ "Arcane::LimaCutInfosReader", "dd/d4b/classArcane_1_1LimaCutInfosReader.html", null ],
       [ "Arcane::LimaMalippMeshBase< LimaMaliReader >", "d6/d6b/classArcane_1_1LimaMalippMeshBase.html", null ],
       [ "Arcane::LimaMalippReader< LimaMaliReader >", "d2/d68/classArcane_1_1LimaMalippReader.html", null ],
@@ -2660,11 +2361,9 @@ var hierarchy =
       [ "Arcane::RayTriangle3DIntersection", "db/d06/classArcane_1_1RayTriangle3DIntersection.html", null ],
       [ "Arcane::Variable", "d6/df5/classArcane_1_1Variable.html", null ],
       [ "Arcane::VariableParallelOperationBase", "dc/d76/classArcane_1_1VariableParallelOperationBase.html", null ],
+      [ "Arcane::internal::TraceAccessor2", "d7/d83/classArcane_1_1internal_1_1TraceAccessor2.html", null ],
       [ "Arccore::MessagePassing::Mpi::MpiAdapter", "d5/d11/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiAdapter.html", null ],
-      [ "Arccore::MessagePassing::Mpi::MpiAdapter::RequestSet", "df/de9/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiAdapter_1_1RequestSet.html", null ],
-      [ "Arcane::LimaMalippMeshBase< ReaderWrapper::LimaMaliReaderType >", "d6/d6b/classArcane_1_1LimaMalippMeshBase.html", [
-        [ "Arcane::LimaMalippReaderT< ReaderWrapper >", "d4/d6e/classArcane_1_1LimaMalippReaderT.html", null ]
-      ] ]
+      [ "Arccore::MessagePassing::Mpi::MpiAdapter::RequestSet", "df/de9/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiAdapter_1_1RequestSet.html", null ]
     ] ],
     [ "Arccore::TraceClassConfig", "d3/d79/classArccore_1_1TraceClassConfig.html", null ],
     [ "Arccore::TraceInfo", "db/d6c/classArccore_1_1TraceInfo.html", null ],
@@ -2693,7 +2392,6 @@ var hierarchy =
     [ "Arcane::VariableRef::UpdateNotifyFunctorList", "da/db9/classArcane_1_1VariableRef_1_1UpdateNotifyFunctorList.html", null ],
     [ "Arcane::UserDataHandler", "d9/d09/classArcane_1_1UserDataHandler.html", null ],
     [ "Arcane::ValueChecker", "d1/d52/classArcane_1_1ValueChecker.html", null ],
-    [ "Arcane::VariableArrayT< T >", "d9/d83/classArcane_1_1VariableArrayT.html", null ],
     [ "Arcane::VariableBuildInfo", "df/d8a/classArcane_1_1VariableBuildInfo.html", [
       [ "Arcane::TemporaryVariableBuildInfo", "d7/d7d/classArcane_1_1TemporaryVariableBuildInfo.html", null ]
     ] ],
@@ -2725,26 +2423,40 @@ var hierarchy =
     ] ],
     [ "Arcane::VariablePrivate", "dd/d92/classArcane_1_1VariablePrivate.html", null ],
     [ "Arcane::VariableRef", "d6/d00/classArcane_1_1VariableRef.html", [
+      [ "Arcane::VariableRefScalarT< Integer >", "d0/db7/classArcane_1_1VariableRefScalarT.html", null ],
+      [ "Arcane::VariableRefScalarT< Real >", "d0/db7/classArcane_1_1VariableRefScalarT.html", null ],
+      [ "Arcane::VariableRefScalarT< Int32 >", "d0/db7/classArcane_1_1VariableRefScalarT.html", null ],
       [ "Arcane::MeshVariableRef", "de/d79/classArcane_1_1MeshVariableRef.html", [
-        [ "Arcane::PrivateVariableArrayT< DataType >", "d4/ddf/classArcane_1_1PrivateVariableArrayT.html", null ],
-        [ "Arcane::PrivateVariableScalarT< DataType >", "de/da9/classArcane_1_1PrivateVariableScalarT.html", null ],
         [ "Arcane::PrivateVariableArrayT< DataTypeT >", "d4/ddf/classArcane_1_1PrivateVariableArrayT.html", [
           [ "Arcane::ItemPartialVariableArrayRefT< DataTypeT >", "d0/d55/classArcane_1_1ItemPartialVariableArrayRefT.html", [
             [ "Arcane::MeshPartialVariableArrayRefT< ItemTypeT, DataTypeT >", "d5/dbe/classArcane_1_1MeshPartialVariableArrayRefT.html", null ]
           ] ],
-          [ "Arcane::ItemVariableArrayRefT< DataTypeT >", "d2/dbb/classArcane_1_1ItemVariableArrayRefT.html", null ]
-        ] ]
-      ] ]
+          [ "Arcane::ItemVariableArrayRefT< DataTypeT >", "d2/dbb/classArcane_1_1ItemVariableArrayRefT.html", [
+            [ "Arcane::MeshVariableArrayRefT< Cell, Real3 >", "dd/d95/classArcane_1_1MeshVariableArrayRefT.html", null ],
+            [ "Arcane::MeshVariableArrayRefT< ItemTypeT, DataTypeT >", "dd/d95/classArcane_1_1MeshVariableArrayRefT.html", null ]
+          ] ]
+        ] ],
+        [ "Arcane::PrivateVariableScalarT< DataTypeT >", "de/da9/classArcane_1_1PrivateVariableScalarT.html", [
+          [ "Arcane::ItemPartialVariableScalarRefT< DataTypeT >", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html", [
+            [ "Arcane::MeshPartialVariableScalarRefT< ItemTypeT, DataTypeT >", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html", null ]
+          ] ],
+          [ "Arcane::ItemVariableScalarRefT< DataTypeT >", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html", [
+            [ "Arcane::MeshVariableScalarRefT< Node, Real3 >", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html", null ],
+            [ "Arcane::MeshVariableScalarRefT< Cell, Int32 >", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html", null ],
+            [ "Arcane::MeshVariableScalarRefT< Cell, Real3 >", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html", null ],
+            [ "Arcane::MeshVariableScalarRefT< Cell, Real >", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html", null ],
+            [ "Arcane::MeshVariableScalarRefT< ItemTypeT, DataTypeT >", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html", null ]
+          ] ]
+        ] ],
+        [ "Arcane::PrivateVariableArrayT< DataType >", "d4/ddf/classArcane_1_1PrivateVariableArrayT.html", null ],
+        [ "Arcane::PrivateVariableScalarT< DataType >", "de/da9/classArcane_1_1PrivateVariableScalarT.html", null ]
+      ] ],
+      [ "Arcane::VariableRefArray2T< T >", "df/da3/classArcane_1_1VariableRefArray2T.html", null ],
+      [ "Arcane::VariableRefArrayT< T >", "d8/d30/classArcane_1_1VariableRefArrayT.html", null ],
+      [ "Arcane::VariableRefScalarT< DataType >", "d0/db7/classArcane_1_1VariableRefScalarT.html", null ]
     ] ],
-    [ "Arcane::VariableRefArray2T< T >", "df/da3/classArcane_1_1VariableRefArray2T.html", null ],
     [ "Arcane::VariableRefArrayLockT< DataType >", "d4/d80/classArcane_1_1VariableRefArrayLockT.html", null ],
-    [ "Arcane::VariableRefArrayT< T >", "d8/d30/classArcane_1_1VariableRefArrayT.html", null ],
     [ "Arcane::Materials::VariableReferenceGetter< VariableTrueType >", "d3/d99/classArcane_1_1Materials_1_1VariableReferenceGetter.html", null ],
-    [ "Arcane::VariableRefScalarT< DataType >", "d0/db7/classArcane_1_1VariableRefScalarT.html", null ],
-    [ "Arcane::VariableRefScalarT< Int32 >", "d0/db7/classArcane_1_1VariableRefScalarT.html", null ],
-    [ "Arcane::VariableRefScalarT< Integer >", "d0/db7/classArcane_1_1VariableRefScalarT.html", null ],
-    [ "Arcane::VariableRefScalarT< Real >", "d0/db7/classArcane_1_1VariableRefScalarT.html", null ],
-    [ "Arcane::VariableScalarT< T >", "da/dbf/classArcane_1_1VariableScalarT.html", null ],
     [ "Arcane::VariableStatusChangedEventArgs", "d8/dda/classArcane_1_1VariableStatusChangedEventArgs.html", null ],
     [ "Arcane::VariableSynchronizerEventArgs", "df/dde/classArcane_1_1VariableSynchronizerEventArgs.html", null ],
     [ "Arcane::VariableTypeInfo", "df/d46/classArcane_1_1VariableTypeInfo.html", null ],
@@ -2771,9 +2483,10 @@ var hierarchy =
     ] ],
     [ "Arcane::VarRefEnumerator", "d3/d8c/classArcane_1_1VarRefEnumerator.html", null ],
     [ "Arcane::VersionInfo", "d5/d14/classArcane_1_1VersionInfo.html", null ],
-    [ "Arcane::Accelerator::View1DGetterSetter< DataType >", "df/d0e/classArcane_1_1Accelerator_1_1View1DGetterSetter.html", null ],
     [ "Arcane::View1DGetterSetter< DataType >", "d0/dd5/classArcane_1_1View1DGetterSetter.html", null ],
-    [ "Arcane::Accelerator::View1DSetter< DataType >", "d8/de1/classArcane_1_1Accelerator_1_1View1DSetter.html", null ],
+    [ "Arcane::Accelerator::View1DSetter< DataType >", "d8/de1/classArcane_1_1Accelerator_1_1View1DSetter.html", [
+      [ "Arcane::Accelerator::View1DGetterSetter< DataType >", "df/d0e/classArcane_1_1Accelerator_1_1View1DGetterSetter.html", null ]
+    ] ],
     [ "Arcane::View1DSetter< DataType >", "dc/dc1/classArcane_1_1View1DSetter.html", null ],
     [ "Arccore::detail::View2TypeT< T >", "df/d60/classArccore_1_1detail_1_1View2TypeT.html", null ],
     [ "Arccore::detail::View2TypeT< const T >", "df/dc3/classArccore_1_1detail_1_1View2TypeT_3_01const_01T_01_4.html", null ],

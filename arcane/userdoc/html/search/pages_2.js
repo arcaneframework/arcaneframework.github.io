@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['configuration_20des_20options_20jeu_20de_20données_20_28fichier_20axl_29_12310',['Configuration des options jeu de données (fichier AXL)',['../de/d26/arcanedoc_caseoptions.html',1,'index']]],
-  ['comparaison_20bit_20à_20bit_12311',['Comparaison bit à bit',['../d8/d0c/arcanedoc_compare_bittobit.html',1,'index']]],
-  ['concurrence_20et_20multi_2dthreading_12312',['Concurrence et multi-threading',['../dd/db4/arcanedoc_concurrency.html',1,'index']]]
+  ['analyse_20de_20performances_20_28_3cem_3eprofiling_3c_2fem_3e_29_12303',['Analyse de performances (&lt;em&gt;Profiling&lt;/em&gt;)',['../db/df9/arcanedoc_profiling_toc.html',1,'index']]],
+  ['analyse_20de_20performances_20par_20instrumentation_20interne_12304',['Analyse de performances par instrumentation interne',['../d4/d23/arcanedoc_profiling_mpi.html',1,'arcanedoc_profiling_toc']]],
+  ['analyse_20de_20performances_20par_20échantillonage_12305',['Analyse de performances par échantillonage',['../d6/dff/arcanedoc_profiling.html',1,'arcanedoc_profiling_toc']]]
 ];

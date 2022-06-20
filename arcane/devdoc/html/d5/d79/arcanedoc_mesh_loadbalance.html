@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Arcane: Equilibrage de charge sur le maillage</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
@@ -30,10 +30,10 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.8.17 -->
+<!-- Généré par Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
@@ -66,7 +66,8 @@ $(function() {
 <div class="title">Equilibrage de charge sur le maillage </div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p>Arcane dispose d'un mécanisme d'équilibrage de la charge en redistribuant entre sous-domaines les mailles d'un maillage. Ce mécanisme gère l'échange des entités du maillage ainsi que les variables associées. Il est donc en grande partie transparent pour l'utilisateur.</p>
+<div class="textblock"><p><a class="anchor" id="md____w_arcaneframework_github_io_arcaneframework_github_io_framework_arcane_doc_load_balance"></a></p>
+<p>Arcane dispose d'un mécanisme d'équilibrage de la charge en redistribuant entre sous-domaines les mailles d'un maillage. Ce mécanisme gère l'échange des entités du maillage ainsi que les variables associées. Il est donc en grande partie transparent pour l'utilisateur.</p>
 <p>La gestion de l'équilibrage se fait via deux interfaces:</p><ul>
 <li>ILoadBalanceMng qui permet de spécifier les critères à prendre en compte pour le calcul de la charge.</li>
 <li>IMeshPartitioner qui permet de déterminer les entités qui doivent migrer et d'effectuer la migration.</li>
@@ -75,6 +76,7 @@ $(function() {
 <p>Par exemple: </p><div class="fragment"><div class="line"><a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> cells_weight(...);</div>
 <div class="line">ILoadBalanceMng* lb = subDomain()-&gt;loadBalanceMng();</div>
 <div class="line">lb-&gt;addCriterion(cells_weight);</div>
+<div class="ttc" id="agroup__Variable_html_ga135a2515548fbcacb89c3ce1a2410b79"><div class="ttname"><a href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">Arcane::VariableCellReal</a></div><div class="ttdeci">MeshVariableScalarRefT&lt; Cell, Real &gt; VariableCellReal</div><div class="ttdoc">Grandeur au centre des mailles de type réel.</div><div class="ttdef"><b>Definition:</b> VariableTypedef.h:290</div></div>
 </div><!-- fragment --><p>Le calcul du poids est du ressort du code utilisateur. Le partitionneur va ensuite redistribuer le maillage en tentant d'équilibrer au mieux les poids sur l'ensemble des sous-domaines. Par exemple, si une méthode couteuse est appelée un nombre différent de fois pour chaque maille, il est possible de remplir <em>cells_weight</em> avec le nombre d'appel effectué.</p>
 <p>En général après un repartitionnement ces variables qui servent de critères doivent être remises à zéro.</p>
 <p>Le repartitionnement et l'équilibrage se font via le service d'interface IMeshPartitioner. Il est possible d'obtenir une instance de ce service en spécifiant la ligne suivante dans le fichier 'axl':</p>
@@ -84,7 +86,7 @@ $(function() {
 <div class="line"> <span class="keyword">default</span> = <span class="stringliteral">&quot;DefaultPartitioner&quot;</span></div>
 <div class="line">/&gt;</div>
 </div><!-- fragment --><p>Dans ce cas, le partitionneur sera accessible via la méthode suivante:</p>
-<div class="fragment"><div class="line">options()-&gt;<a class="code" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html#a324fede717231fee3487c1f3be7a9a80">partitioner</a>()</div>
+<div class="fragment"><div class="line">options()-&gt;partitioner()</div>
 </div><!-- fragment --><p>Pour programmer un repartitionnement au cours du calcul, il faut appeler ITimeLoopMng::registerActionMeshPartition() en spécifiant le partitionneur souhaité. Le repartitionnement et sera effectué à la fin de l'itération courante. Dans un module, on peut donc faire comme cela:</p>
 <div class="fragment"><div class="line">subDomain()-&gt;timeLoopMng()-&gt;registerActionMeshPartition(options()-&gt;partitioner());</div>
 </div><!-- fragment --><p>Le repartionnement effectue le transfert de toutes les entités de maillage et les variables associées. Si le code utilisateur a besoin de faire d'autres opérations après un équilibrage, il est possible de spécifier un point d'entrée pour cela. Dans la boucle en temps, les points d'entrée avec l'attribut 'where="on-mesh-changed"' sont appelés après un équilibrage. Par exemple:</p>
@@ -97,13 +99,9 @@ $(function() {
 </div><!-- fragment --><dl class="section note"><dt>Note</dt><dd>Actuellement (mars 2017), l'équilibrage de charge ne fonctionne qu'avec une seule couche de mailles fantômes. </dd></dl>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
-<div class="ttc" id="agroup__Variable_html_ga135a2515548fbcacb89c3ce1a2410b79"><div class="ttname"><a href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">Arcane::VariableCellReal</a></div><div class="ttdeci">MeshVariableScalarRefT&lt; Cell, Real &gt; VariableCellReal</div><div class="ttdoc">Grandeur au centre des mailles de type réel.</div><div class="ttdef"><b>Definition:</b> VariableTypedef.h:290</div></div>
-<div class="ttc" id="aclassArcane_1_1ParallelLoopOptions_html_a324fede717231fee3487c1f3be7a9a80"><div class="ttname"><a href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html#a324fede717231fee3487c1f3be7a9a80">Arcane::ParallelLoopOptions::partitioner</a></div><div class="ttdeci">Partitioner partitioner() const</div><div class="ttdoc">Type du partitionneur.</div><div class="ttdef"><b>Definition:</b> ConcurrencyUtils.h:123</div></div>
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 20 Juin 2022 03:26:39 pour Arcane par &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="../../doxygen.png" alt="doxygen"/>
-</a> 1.8.17
+Généré le Lundi 20 Juin 2022 07:34:14 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

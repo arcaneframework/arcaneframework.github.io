@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Arcane: Le support des tests unitaires dans Arcane</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
@@ -34,10 +34,10 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.8.17 -->
+<!-- Généré par Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
@@ -98,7 +98,8 @@ $(document).ready(function(){initNavTree('d3/de9/arcanedoc_user_unit_tests.html'
 <li class="level1"><a href="#arcanedoc_user_unit_tests_own_timeloop">Utiliser sa propre boucle en temps</a></li>
 </ul>
 </div>
-<div class="textblock"><h1><a class="anchor" id="arcanedoc_user_unit_tests_intro"></a>
+<div class="textblock"><p><a class="anchor" id="md_doc_common_unit_tests"></a></p>
+<h1><a class="anchor" id="arcanedoc_user_unit_tests_intro"></a>
 Introduction</h1>
 <p>Les tests unitaires dans Arcane sont exécutés sans que la simulation ne soit lancée. Ils permettent de tester des services, pas des modules. Leur mise en oeuvre est simple et rapide : les services déclarent des méthodes de test dans le descripteur (fichier '.axl'). Ces méthodes sont exécutées par un module de test et une boucle en temps dédiés qui sont fournis par Arcane. Il suffit, pour exécuter les tests, d'ajouter le service à la liste des services du module de test.</p>
 <p>Cette page décrit les différentes étapes à suivre pour construire et exécuter des tests unitaires. Notons, qu'à ce jour, les test unitaires ne fonctionnent qu'en séquentiel. La génération du rapport de test n'est pas encore implémentée en parallèle.</p>
@@ -146,14 +147,21 @@ Les assertions</h1>
 <div class="line"><a class="code" href="../../d8/d6c/Assertion_8h.html#a8197fa52f3538588d20d8af4834c9003">ASSERT_FALSE</a>(i &gt; 5);</div>
 <div class="line"><a class="code" href="../../d8/d6c/Assertion_8h.html#ac80ccfa08e0e798d3b930c75a105a462">ASSERT_EQUAL</a>(5, x);</div>
 <div class="line"><a class="code" href="../../d8/d6c/Assertion_8h.html#af8734d456be225d2489ee2d6cb295bfd">ASSERT_NEARLY_EQUAL</a>(5.5, y);</div>
+<div class="ttc" id="aAssertion_8h_html_a8197fa52f3538588d20d8af4834c9003"><div class="ttname"><a href="../../d8/d6c/Assertion_8h.html#a8197fa52f3538588d20d8af4834c9003">ASSERT_FALSE</a></div><div class="ttdeci">#define ASSERT_FALSE(condition)</div><div class="ttdoc">Vérifie que condition est faux.</div><div class="ttdef"><b>Definition:</b> Assertion.h:138</div></div>
+<div class="ttc" id="aAssertion_8h_html_ac80ccfa08e0e798d3b930c75a105a462"><div class="ttname"><a href="../../d8/d6c/Assertion_8h.html#ac80ccfa08e0e798d3b930c75a105a462">ASSERT_EQUAL</a></div><div class="ttdeci">#define ASSERT_EQUAL(expected, actual)</div><div class="ttdoc">Vérifie que expected et actual sont égaux. La comparaison se fait via l'opérator==() du type.</div><div class="ttdef"><b>Definition:</b> Assertion.h:151</div></div>
+<div class="ttc" id="aAssertion_8h_html_ae9244bfbda562e8b798789b001993fa5"><div class="ttname"><a href="../../d8/d6c/Assertion_8h.html#ae9244bfbda562e8b798789b001993fa5">ASSERT_TRUE</a></div><div class="ttdeci">#define ASSERT_TRUE(condition)</div><div class="ttdoc">Vérifie que condition est vrai.</div><div class="ttdef"><b>Definition:</b> Assertion.h:126</div></div>
+<div class="ttc" id="aAssertion_8h_html_af8734d456be225d2489ee2d6cb295bfd"><div class="ttname"><a href="../../d8/d6c/Assertion_8h.html#af8734d456be225d2489ee2d6cb295bfd">ASSERT_NEARLY_EQUAL</a></div><div class="ttdeci">#define ASSERT_NEARLY_EQUAL(expected, actual)</div><div class="ttdoc">Vérifie que expected et actual sont presques égaux.</div><div class="ttdef"><b>Definition:</b> Assertion.h:165</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="arcanedoc_user_unit_tests_parallel"></a>
 Tests unitaires en parallèle</h2>
 <p>Depuis la version 2.20 de Arcane, il est possible d'utiliser les tests unitaires en parallèle. Pour cela, une version des macros est disponible en spécifiant en paramètre une instance de <a class="el" href="../../dc/d5a/classArcane_1_1IParallelMng.html" title="Interface du gestionnaire de parallélisme pour un sous-domaine.">Arcane::IParallelMng</a>. Ces macros sont identiques dans leur sémantiques à la version séquentielle et sont préfixées par <code>PARALLEL_</code>, comme par exemple PARALLEL_ASSERT_TRUE ou PARALLEL_ASSERT_NEARLY_EQUAL. Ces appels sont collectifs et le test est considéré comme ayant échoué si un des rangs a échoué.</p>
 <p>Voici un exemple d'utilisation:</p>
 <div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
-<div class="line"><a class="code" href="../../dc/d5a/classArcane_1_1IParallelMng.html">IParallelMng</a>* pm = ...;</div>
+<div class="line">IParallelMng* pm = ...;</div>
 <div class="line"><a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> deltat = ...;</div>
 <div class="line"><a class="code" href="../../d8/d6c/Assertion_8h.html#a27ff66e8b4578d6ad874fd9b4dafee1d">PARALLEL_ASSERT_NEARLY_EQUAL</a>(deltat,1.0,pm);</div>
+<div class="ttc" id="aAssertion_8h_html_a27ff66e8b4578d6ad874fd9b4dafee1d"><div class="ttname"><a href="../../d8/d6c/Assertion_8h.html#a27ff66e8b4578d6ad874fd9b4dafee1d">PARALLEL_ASSERT_NEARLY_EQUAL</a></div><div class="ttdeci">#define PARALLEL_ASSERT_NEARLY_EQUAL(expected, actual, parallel_mng)</div><div class="ttdoc">Vérifie que expected et actual sont presques égaux.</div><div class="ttdef"><b>Definition:</b> Assertion.h:172</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="anamespaceArccore_html_a5ab7f6a9c189227a5006d3f222aa61f6"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Arccore::Real</a></div><div class="ttdeci">double Real</div><div class="ttdoc">Type représentant un réel.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:214</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="arcanedoc_user_unit_tests_exception"></a>
 Cas particulier des exceptions</h2>
 <p>Parfois, on souhaite développer un test unitaire pour vérifier qu'une méthode déclenche une exception. Supposons qu'on veuille faire un test qui déclenche MyException dans la méthode myMethod(). La technique consiste à appeler la macro FAIL juste après myMethod(). Ainsi, si l'exception est déclenchée, la macro n'est pas appelée et le test passe. Il suffit alors de traiter l'exception dans un bloc catch. <br  />
@@ -247,21 +255,11 @@ Utiliser sa propre boucle en temps</h1>
 </div></div><!-- contents -->
 </div><!-- PageDoc -->
 </div><!-- doc-content -->
-<div class="ttc" id="aAssertion_8h_html_a8197fa52f3538588d20d8af4834c9003"><div class="ttname"><a href="../../d8/d6c/Assertion_8h.html#a8197fa52f3538588d20d8af4834c9003">ASSERT_FALSE</a></div><div class="ttdeci">#define ASSERT_FALSE(condition)</div><div class="ttdoc">Vérifie que condition est faux.</div><div class="ttdef"><b>Definition:</b> Assertion.h:138</div></div>
-<div class="ttc" id="aclassArcane_1_1IParallelMng_html"><div class="ttname"><a href="../../dc/d5a/classArcane_1_1IParallelMng.html">Arcane::IParallelMng</a></div><div class="ttdoc">Interface du gestionnaire de parallélisme pour un sous-domaine.</div><div class="ttdef"><b>Definition:</b> IParallelMng.h:70</div></div>
-<div class="ttc" id="aAssertion_8h_html_ae9244bfbda562e8b798789b001993fa5"><div class="ttname"><a href="../../d8/d6c/Assertion_8h.html#ae9244bfbda562e8b798789b001993fa5">ASSERT_TRUE</a></div><div class="ttdeci">#define ASSERT_TRUE(condition)</div><div class="ttdoc">Vérifie que condition est vrai.</div><div class="ttdef"><b>Definition:</b> Assertion.h:126</div></div>
-<div class="ttc" id="aAssertion_8h_html_af8734d456be225d2489ee2d6cb295bfd"><div class="ttname"><a href="../../d8/d6c/Assertion_8h.html#af8734d456be225d2489ee2d6cb295bfd">ASSERT_NEARLY_EQUAL</a></div><div class="ttdeci">#define ASSERT_NEARLY_EQUAL(expected, actual)</div><div class="ttdoc">Vérifie que expected et actual sont presques égaux.</div><div class="ttdef"><b>Definition:</b> Assertion.h:165</div></div>
-<div class="ttc" id="aAssertion_8h_html_ac80ccfa08e0e798d3b930c75a105a462"><div class="ttname"><a href="../../d8/d6c/Assertion_8h.html#ac80ccfa08e0e798d3b930c75a105a462">ASSERT_EQUAL</a></div><div class="ttdeci">#define ASSERT_EQUAL(expected, actual)</div><div class="ttdoc">Vérifie que expected et actual sont égaux. La comparaison se fait via l'opérator==() du type.</div><div class="ttdef"><b>Definition:</b> Assertion.h:151</div></div>
-<div class="ttc" id="aAssertion_8h_html_a27ff66e8b4578d6ad874fd9b4dafee1d"><div class="ttname"><a href="../../d8/d6c/Assertion_8h.html#a27ff66e8b4578d6ad874fd9b4dafee1d">PARALLEL_ASSERT_NEARLY_EQUAL</a></div><div class="ttdeci">#define PARALLEL_ASSERT_NEARLY_EQUAL(expected, actual, parallel_mng)</div><div class="ttdoc">Vérifie que expected et actual sont presques égaux.</div><div class="ttdef"><b>Definition:</b> Assertion.h:172</div></div>
-<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
-<div class="ttc" id="anamespaceArccore_html_a5ab7f6a9c189227a5006d3f222aa61f6"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Arccore::Real</a></div><div class="ttdeci">double Real</div><div class="ttdoc">Type représentant un réel.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:214</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li>
-    <li class="footer">Généré le Lundi 20 Juin 2022 03:25:36 pour Arcane par
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+    <li class="footer">Généré le Lundi 20 Juin 2022 07:32:36 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

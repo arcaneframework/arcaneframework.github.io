@@ -1,7 +1,5 @@
 var classArcane_1_1EMULSimdX4Int32 =
 [
-    [ "Length", "d0/dfd/classArcane_1_1EMULSimdX4Int32.html#a51c1d464a2a264eecefb26170c20a712aba6b46e71a9c6d2b358c675ffca0d47f", null ],
-    [ "Alignment", "d0/dfd/classArcane_1_1EMULSimdX4Int32.html#a51c1d464a2a264eecefb26170c20a712aaa352271b7da51200e1e0be53a87aceb", null ],
     [ "EMULSimdX4Int32", "d0/dfd/classArcane_1_1EMULSimdX4Int32.html#a8e845971afd5710c4b500d45ec72737d", null ],
     [ "EMULSimdX4Int32", "d0/dfd/classArcane_1_1EMULSimdX4Int32.html#a05a35c27380d8bbb58c25d86ef28233e", null ],
     [ "EMULSimdX4Int32", "d0/dfd/classArcane_1_1EMULSimdX4Int32.html#a26af9bac87e9e9c6d2b1897feedde719", null ],

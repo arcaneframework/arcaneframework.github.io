@@ -247,9 +247,11 @@ var group__CaseOption =
       [ "operator()", "da/da9/classArcane_1_1CaseOptionMultiServiceT.html#a5f1594e78927d7a56bb527214af4add7", null ]
     ] ],
     [ "ICaseFunctionProvider", "d4/d98/classArcane_1_1ICaseFunctionProvider.html", [
+      [ "~ICaseFunctionProvider", "d4/d98/classArcane_1_1ICaseFunctionProvider.html#a7a96de3c27b164e66cb7cd2eb2b5e633", null ],
       [ "registerCaseFunctions", "d4/d98/classArcane_1_1ICaseFunctionProvider.html#a2e611f8366ac84870321926996f0ec08", null ]
     ] ],
     [ "ICaseMng", "d3/dcf/classArcane_1_1ICaseMng.html", [
+      [ "~ICaseMng", "d3/dcf/classArcane_1_1ICaseMng.html#ada87e5d6061d65ea76ba0c1a60cd53b4", null ],
       [ "_internalReadOneOption", "d3/dcf/classArcane_1_1ICaseMng.html#af8c2d6931f5f482bba8c07f403c2e896", null ],
       [ "addFunction", "d3/dcf/classArcane_1_1ICaseMng.html#a0be1a304c72884d2c4e93219590d8a57", null ],
       [ "addFunction", "d3/dcf/classArcane_1_1ICaseMng.html#aae088b43f5d5f83bfd08c7e4e8360bed", null ],

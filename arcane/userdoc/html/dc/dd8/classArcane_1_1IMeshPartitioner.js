@@ -1,5 +1,6 @@
 var classArcane_1_1IMeshPartitioner =
 [
+    [ "~IMeshPartitioner", "dc/dd8/classArcane_1_1IMeshPartitioner.html#a97cdbd5cd37272da42233257853117df", null ],
     [ "build", "dc/dd8/classArcane_1_1IMeshPartitioner.html#a37b45d87d426f65de1fb921ce13d5b05", null ],
     [ "cellsWeight", "dc/dd8/classArcane_1_1IMeshPartitioner.html#a0969db180d5ad46c120d61e7b101b930", null ],
     [ "computationTimes", "dc/dd8/classArcane_1_1IMeshPartitioner.html#a0aaf99113538a8cb38b4af0d8b77d6fc", null ],

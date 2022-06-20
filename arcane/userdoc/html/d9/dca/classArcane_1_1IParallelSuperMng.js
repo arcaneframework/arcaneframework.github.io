@@ -2,6 +2,7 @@ var classArcane_1_1IParallelSuperMng =
 [
     [ "eReduceType", "d9/dca/classArcane_1_1IParallelSuperMng.html#a2fbeea14e3d8718d076f45e689ec0cff", null ],
     [ "Request", "d9/dca/classArcane_1_1IParallelSuperMng.html#ac9537febb7bf7f041c81a404ab46259e", null ],
+    [ "~IParallelSuperMng", "d9/dca/classArcane_1_1IParallelSuperMng.html#a5b7a25215578e741afbf12abfb2113f6", null ],
     [ "application", "d9/dca/classArcane_1_1IParallelSuperMng.html#a79fe68d708d6adaade26ac20f102171b", null ],
     [ "barrier", "d9/dca/classArcane_1_1IParallelSuperMng.html#a9248a517d578f8be82403ce6881f116b", null ],
     [ "broadcast", "d9/dca/classArcane_1_1IParallelSuperMng.html#a353b77df4f6ccdaeef6f508078d0d5f6", null ],

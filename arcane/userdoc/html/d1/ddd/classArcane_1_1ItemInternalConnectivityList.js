@@ -1,12 +1,5 @@
 var classArcane_1_1ItemInternalConnectivityList =
 [
-    [ "NODE_IDX", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#a1a1bbbb9ef1c71bf4fc2cff141944a9da0644bc0bf802292b658822eab7e84852", null ],
-    [ "EDGE_IDX", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#a1a1bbbb9ef1c71bf4fc2cff141944a9da3fcafc977d7300bf09976a4659fb0d52", null ],
-    [ "FACE_IDX", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#a1a1bbbb9ef1c71bf4fc2cff141944a9da6d0839aad419a167f43fe4a60046bfd5", null ],
-    [ "CELL_IDX", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#a1a1bbbb9ef1c71bf4fc2cff141944a9dab4dbadfd82037ac22ff16edfc4c223c3", null ],
-    [ "HPARENT_IDX", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#a1a1bbbb9ef1c71bf4fc2cff141944a9da878be9a27feebb7e9ef5eaf326cff8e4", null ],
-    [ "HCHILD_IDX", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#a1a1bbbb9ef1c71bf4fc2cff141944a9da2dd60213bd8e3480125bc21c639fd2d7", null ],
-    [ "MAX_ITEM_KIND", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#a1a1bbbb9ef1c71bf4fc2cff141944a9da107b722067912cb523455c18b627fd8e", null ],
     [ "ItemInternalConnectivityList", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#a66c877279a7cdbce0ba9890ad2b2f998", null ],
     [ "_cellLocalIdsV2", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#a79172f2cedbcaef550a829a76dc0dfaf", null ],
     [ "_cellLocalIdV2", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html#aec17e06605823723e2722eb3d73845f4", null ],

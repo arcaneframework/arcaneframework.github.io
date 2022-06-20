@@ -1,24 +1,26 @@
 /*
-@licstart  The following is the entire license notice for the
-JavaScript code in this file.
+ @licstart  The following is the entire license notice for the JavaScript code in this file.
 
-Copyright (C) 1997-2019 by Dimitri van Heesch
+ The MIT License (MIT)
 
-This program is free software; you can redistribute it and/or modify
-it under the terms of version 2 of the GNU General Public License as published by
-the Free Software Foundation
+ Copyright (C) 1997-2020 by Dimitri van Heesch
 
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-GNU General Public License for more details.
+ Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+ and associated documentation files (the "Software"), to deal in the Software without restriction,
+ including without limitation the rights to use, copy, modify, merge, publish, distribute,
+ sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is
+ furnished to do so, subject to the following conditions:
 
-You should have received a copy of the GNU General Public License along
-with this program; if not, write to the Free Software Foundation, Inc.,
-51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA.
+ The above copyright notice and this permission notice shall be included in all copies or
+ substantial portions of the Software.
 
-@licend  The above is the entire license notice
-for the JavaScript code in this file
+ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING
+ BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+ DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+ @licend  The above is the entire license notice for the JavaScript code in this file
 */
 var NAVTREE =
 [
@@ -310,89 +312,100 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-".html",
-"d0/d2a/classArcane_1_1CaseTable.html#a34c1f0a2daeaf7d57e16f8f488831949a3f99896f4d83337b2cda4ef938cb5a58",
-"d0/d62/classArcane_1_1Properties.html#a9c668556800a8e3d9ab252a894afa4fa",
-"d0/d7e/ArcaneTypes_8h.html#ae415955b5ba0949d23ba6e1ccefdf209",
-"d0/db7/classArcane_1_1VariableRefScalarT.html#a69cc5b80d5c9cb6110341ae27e7563bd",
-"d0/dee/classArcane_1_1XPathEvaluator.html#a7a0e48f6f219a7893701e1d61a691822",
-"d1/d15/classArcane_1_1IData.html#a85a4738060d8a18f91b01aa18dfdfd35",
-"d1/d5f/classArcane_1_1geometric_1_1GeomShapeView.html#a58739235edead3db17cca01a46bc6ce0",
-"d1/d75/classArccore_1_1Span2Impl.html#ae12315977cfd932e254296124a8b8eca",
-"d1/dae/classArcane_1_1MeshVariableInfoT_3_01DoF_00_01Real2_00_010_01_4.html#a25f4063c7050f58a210b65d58e82eca0",
-"d1/dd0/Messages_8h.html#a455d5899dc8032ebb73603f820e557a8",
-"d1/dd8/classArcane_1_1ServiceBuildInfoBase.html",
-"d2/d1e/classArcane_1_1ListConstEnumeratorBase.html#a1bfc950b0a049c85af8c44e744296348",
-"d2/d50/classArcane_1_1HashTableMapEnumeratorT.html#af632cf48d8069347f23e998b9b8b06bd",
-"d2/d80/classArcane_1_1Accelerator_1_1ItemVariableScalarInViewT.html#a9a6ab1c6d368a32fbf955872a824489c",
-"d2/dc3/classArcane_1_1ServiceRegisterer.html#a12b19d6036584345c213158ae758be22",
-"d3/d00/group__Variable.html#ga195c0f2e0f5a6c12d98c0c24ca8f1d0d",
-"d3/d00/group__Variable.html#gae9beabadb61133e075cad959e9e12cb3",
-"d3/d3d/SubDomainBuildInfo_8h_source.html",
-"d3/d60/classArcane_1_1CaseOptionMultiSimpleT.html#aa2a3415975cd70f3eb5d42127a626225",
-"d3/dac/SimdSSE_8h_source.html",
-"d3/de5/Runner_8h_source.html",
-"d4/d12/BaseTypes_8h.html#a1e63548c8490c3e5f7d9bf0be3b57f23",
-"d4/d46/arcane_2src_2arcane_2utils_2FatalErrorException_8h_source.html",
-"d4/d8b/classArcane_1_1IParallelDispatchT.html#a305d6af7a33aa6b1201681e54e9de073",
-"d4/da8/UtilsTypes_8h.html#ade8713256b82cb89fce9365f7ee13f68",
-"d4/dcb/classArcane_1_1DiTetra5RefinementPattern32DT.html#a14dd5b906838c377f98184602eef3832",
-"d4/dfc/classArccore_1_1GlibPrivate.html",
-"d5/d51/classArcane_1_1SSESimdX2Real.html",
-"d5/d96/classArcane_1_1IVariable.html#a75fa21462a709bc4a25a8d0ee28c6128",
-"d5/dc7/VariableTypedef_8h.html",
-"d5/dc7/VariableTypedef_8h.html#ga9af5059357fe52a084412377e98b0fbb",
-"d5/de7/classArcane_1_1Materials_1_1OneBufferMeshMaterialSynchronizeBuffer.html#a4057dc7d4ad78f14b44533e5d8170357",
-"d6/d0c/classArcane_1_1ProfilingSentry.html",
-"d6/d42/classArccore_1_1SpanImpl.html#abe8ad5a6f0a3f05ed5ab221572a23119",
-"d6/d8e/classArccore_1_1Internal_1_1ReferenceCounterWrapper.html#aa4c320b481dbfbcbebbb8a8637259008",
-"d6/ddc/classArcane_1_1AbstractCaseDocumentVisitor.html#af73cccaa5bd0c886d283afbc513e31b2",
-"d7/d02/classArccore_1_1ArrayView.html#a7a44e031d3781672b162da182dbeb324",
-"d7/d0f/classArcane_1_1Materials_1_1MeshMaterial.html#ade5f813ea711f46d1a89e0a6bf9eddcf",
-"d7/d41/IFunctorWithAddress_8h_source.html",
-"d7/d79/classTetraedron4Connectivity.html",
-"d7/db6/classArcane_1_1Internal_1_1ServiceInfo.html#adc73ac9347a285ab10789567e62d3899",
-"d7/dea/classOctaedron12ShapeView.html#ac61dcbba092c66fdfe618dddf272d9f5",
-"d8/d30/classArccore_1_1Trace_1_1Precision.html#a481ae4739cd31c7216aad87bb7e30b2b",
-"d8/d6c/Assertion_8h.html#ac80ccfa08e0e798d3b930c75a105a462",
-"d8/da4/classArcane_1_1AMRTransportFunctorT.html#aad60a0ffc839f1e3156b98d1ea18ee58",
-"d8/dd7/classArcane_1_1Node.html#ac7e94307b2da0a9cc327514221e9f715",
-"d8/dfb/classPyramid5Element.html#ac17bad4e02d0a938af741c24d5787f48",
-"d9/d23/classArcane_1_1JSONWriter.html#ae546b1b9726a3cd1535c5c28e3b1e4a9",
-"d9/d6e/classArccore_1_1MessagePassing_1_1MessagePassingMng.html#a4b43b6bfac2e638f430490800b730382",
-"d9/da6/classArcane_1_1CaseFunction.html#a99ba50502d64c1139629c03b92c6f0de",
-"d9/dcc/classArcane_1_1XmlNode.html#ad9764bf92de261cccbd840094a495ac3",
-"da/d03/SimdAVXGenerated_8h_source.html",
-"da/d47/IMeshMaterialVariable_8h_source.html",
-"da/d8c/classArcane_1_1CaseDatasetSource.html#a3083ee2cb1779d84818c9aa2d6171778",
-"da/dc0/classArcane_1_1IArray2DataVisitor.html#aa006a620086e15dd2ee313197d9c6de8",
-"da/df1/classArcane_1_1ItemGroupImpl.html#af5aadf1379c53b84719c27ad86516307",
-"db/d34/classArccore_1_1AbstractArray.html#a8023ff084b23452c72fc1050bfcb9fec",
-"db/d67/classArcane_1_1ItemTraitsT_3_01Face_01_4.html#a08ebd3ed8fa38b4489604baf16797afa",
-"db/d8e/classArcane_1_1ItemGroupImplPrivate.html#a7d776de82975ae3714f846f3e2c9eaf1",
-"db/dca/classArcane_1_1CaseOptionException.html",
-"dc/d14/classArcane_1_1DirectedAcyclicGraphT.html#a389164f296f02b6ddfbbc802e81c2afe",
-"dc/d3e/MathUtils_8h.html#ga0fdb008f0edc09e3b235c2062d203117",
-"dc/d5a/classArcane_1_1IParallelMng.html#a353ecf45232c2cea03a4ee7ff3356f08",
-"dc/d5a/classArcane_1_1IParallelMng.html#ab9ca3f12ab76507aa0a24e2f087185fd",
-"dc/d74/classArcane_1_1ItemTypeInfo.html#a281e34f4ef696d3f41dc6bd8f841bf77",
-"dc/dc4/classArcane_1_1ScalarVariant.html#a08233d194fc360e4572cb6827c51d3bd",
-"dd/d03/classArcane_1_1VariableDataTypeTraitsT_3_01Int64_01_4.html#a67a857e9798713633cf8856b399bdc65",
-"dd/d42/classPentaedron6ShapeView.html#aee97e0f09a8d782164c4534b49b66f90",
-"dd/d86/MeshEnvironmentVariableRef_8h.html",
-"dd/dc0/classArcane_1_1MultiArray2View.html#a08de5b8e11dc1cad3cfc28dc5b5cdbb4",
-"dd/dde/classArcane_1_1AbstractModule.html#a705c7dd142467ee2427bb8d1ef321b10",
-"dd/df9/classArcane_1_1ITaskImplementation.html#a671379b42476066865cd6853e9c89552",
-"de/d43/classArcane_1_1ParallelSuperMngDispatcher.html#a5e6641ae5d913f3f27fd05732e89e5f4",
-"de/d50/classArcane_1_1IItemFamilyNetwork.html#a61a085c52cee2323990bee78bf5727a9",
-"de/d86/classArcane_1_1ICaseOptionList.html#a7f4f0da4eb88f1a8cb3bbaa0cb94c060",
-"de/dc6/classArcane_1_1LIBXML2__Document.html#a0c3e90fd403c27f999a6a9e9828df09f",
-"de/df9/classArcane_1_1Real2Proxy.html#af837667b14b7e047f5208eb1ddbbcb56",
-"df/d28/classArcane_1_1Materials_1_1MeshMaterialVariableScalar.html#a1a9b33300b7d12edd7e0bdc491b34e0f",
-"df/d5f/classArcane_1_1Item.html#aea487edb5d391b0af6cabb6a94a7daad",
-"df/d99/classArcane_1_1NamedNodeMap.html#a38795b7efe5e2ab4cd40644c8821d598",
-"df/df8/classArcane_1_1HemiHex6RefinementPattern4HHex5__4HHex7.html#a72ea12a22e03dff7eaa70057ff0604b0",
-"namespacemembers_type_v.html"
+"annotated.html",
+"d0/d2a/classArcane_1_1CaseTable.html#a86ec69a9c32e056f68f28ad118b03da4",
+"d0/d32/namespaceArcane.html#a27843e446b6c4a0bf6aeb94a1524d7e2",
+"d0/d32/namespaceArcane.html#a5b3dd8a36a02784004abdfc623140d02a7b100f95d3b788e29fa9918613973966",
+"d0/d32/namespaceArcane.html#a8d4af54a9c6ec8f09be512c955ed6e8e",
+"d0/d32/namespaceArcane.html#ac12d45d58297ede9278d4055609d1413",
+"d0/d32/namespaceArcane.html#af2179f8176d71388c94523d765e2ecb1",
+"d0/d62/classArcane_1_1Properties.html#a460680717ef3fc021973c70f8a7d4779",
+"d0/d7e/ArcaneTypes_8h.html#aaa6951864e32e84c29b3cffca3d4b3f7adab840c7bc62b7527ab88c4f97503005",
+"d0/db6/classArcane_1_1ITimeHistoryCurveWriter.html#ad469c2c09c94b536e3aa149dfb4a43a9",
+"d0/de8/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiSerializeMessageList.html#a929c1a536fcbc609025d820256f1ed25",
+"d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#acdf7de37f7a12e30ccf39a7ef32448e2",
+"d1/d5c/classArcane_1_1TraceTimerT.html#a2d8fb0c4bc686db3c7e31d53a7de6c8e",
+"d1/d75/classArccore_1_1Span2Impl.html#a0c35731b202ec6083ab0ff1acab659ca",
+"d1/da6/classArcane_1_1Real3.html#a9fdcda8fc34698cf55a6be53718a3fab",
+"d1/dd0/Messages_8h.html#a3239e7784328c691e1877b22810d6aa9",
+"d1/dd0/Messages_8h.html#af37154fb2cb7771e571604c1fb47ec06",
+"d2/d12/DataTypes_8h.html#a272f938087122bffa005c09d51a29ae1aa3fb9010281e2289bbd93327eeb06b34",
+"d2/d4e/classArcane_1_1ICFParamSetter.html#a643f85e3f495aea4d35db78b1b9ca4ff",
+"d2/d7c/classArcane_1_1Accelerator_1_1impl_1_1RunCommandImpl.html#a6867266419cd39961e3000d2a556fe2f",
+"d2/db6/ComponentSimd_8h.html#a1bfa4b61027e320561d2e982c43c94db",
+"d2/dfa/classArccore_1_1GlobalMutex.html#a50e9ff2bfe2b13ac60838fc389153e7c",
+"d3/d00/group__Variable.html#ga65581d5cf8dcb32468d9ef19e8226bb0",
+"d3/d00/group__Variable.html#gad13683dabc8f9fc64ed8eb02aade9bdc",
+"d3/d1d/classArccore_1_1UniqueArray2.html#a87ea6bc31af2b77dc51487d2fef67319",
+"d3/d4e/classArcane_1_1IMeshCompacter.html#ae472a2a194aacf702db23316b2239b0ea41b73ca3290f12f50172470cc06678c9",
+"d3/d7e/classArcane_1_1Materials_1_1ItemMaterialVariableScalar.html#aac646a290a5ab7449983b229ed466727",
+"d3/db7/classArcane_1_1AntiWedgeLeft6RefinementPattern9AWL6__18Pr.html#a1969a169582a5534c62caa10965ae630",
+"d3/dff/structArcane_1_1Accelerator_1_1impl_1_1SimpleMaxReduceOperator.html",
+"d4/d2c/classArcane_1_1MeshVariableInfoT_3_01DoF_00_01Real2x2_00_010_01_4.html#a4ec869e05021265a64e3fcef8e5794a2",
+"d4/d67/classArcane_1_1DirectCodeFunctor.html#aec9e7b13af7692189e1cf27378f6d599",
+"d4/da8/UtilsTypes_8h.html#a077c4e229b76be7bb9ccea5d014b08cb",
+"d4/db3/classArcane_1_1MeshArea.html",
+"d4/de3/classArcane_1_1ListImplBase.html#a2c4cd325b8030b71b787ba5a0cfc66e3",
+"d5/d11/classArcane_1_1Materials_1_1MeshEnvironmentObserver.html",
+"d5/d60/namespaceArccore.html#a195428b74a9a4e81539e6a2b10fa1956",
+"d5/d86/classArcane_1_1VariableFactoryRegisterer.html#af34e9bf8bc9950699eb2d7c87da9c86b",
+"d5/daa/classArcane_1_1UnitTestServiceAdapter.html#a9beb8095ba4628feec8180db04ee1301",
+"d5/dc7/VariableTypedef_8h.html#ga2dc0c05f2990ea449e0fd0aab48f774d",
+"d5/dc7/VariableTypedef_8h.html#gafd1ad108a67aff912ac6f9ae8bdb7d25",
+"d5/df5/classArcane_1_1ApplicationInfoPrivate.html#a43d2a343fffefe7ea6b8ad249bb5c054",
+"d6/d24/classArcane_1_1Real2.html",
+"d6/d51/classArcane_1_1HashTraitsT_3_01ItemUniqueId_01_4.html#a6eca3adabc089b35239a1510b0b77e71",
+"d6/db2/classArcane_1_1DataTypeTraitsT_3_01Int32_01_4.html",
+"d6/df2/classArcane_1_1ItemVectorView.html#a769e6ee7c36c8b8f131aee378da9c3a9",
+"d7/d03/classArcane_1_1IParallelNonBlockingCollective.html#a7b50f05fd604ade4153074fdc096ff5c",
+"d7/d29/arcanedoc_changelog.html#arcanedoc_version280",
+"d7/d43/classArcane_1_1Materials_1_1MeshMaterialMng.html#a5459ef072d6ada838d265a33bd185848",
+"d7/d7d/classArcane_1_1TemporaryVariableBuildInfo.html#a0dfec6fdf52b16b6ea2f109877368330",
+"d7/dbe/classArcane_1_1GroupIndexTable.html#a0d4785c2c7c8668946af69a60c2d8836",
+"d7/dfb/classArcane_1_1IParallelNonBlockingCollectiveDispatchT.html#a0c8a4b634d522bbb7468cb9beed469e7",
+"d8/d39/classArcane_1_1NumArrayBase.html#a3c867b4359eaaf319dca7188a29509dc",
+"d8/d68/namespaceArcane_1_1math.html#adf359db747a5b7505c47d873ef4e16ef",
+"d8/da0/classArcane_1_1ListImplT.html#a1f0d73ec813b02b8ad4881a32713e995",
+"d8/dd7/classArcane_1_1Node.html#a3140ccc40fc1a1f5a14f9b9581844f94",
+"d8/deb/classArccore_1_1MessagePassing_1_1MessageId.html#aa9d4b97784ffcbdbec0c46a3f3d0b2c0",
+"d9/d1e/classArcane_1_1ISubDomain.html#a9250908c6151da6538d8706106712137",
+"d9/d5d/classArccore_1_1TraceMessage.html",
+"d9/d9c/XmlInfo_8h_source.html",
+"d9/dca/classArcane_1_1IParallelSuperMng.html#a93358bd9f09c9240e5ab14fdeb746c49",
+"d9/dd2/classArcane_1_1MeshVariableInfoT_3_01Face_00_01Real3x3_00_010_01_4.html",
+"da/d22/classArcane_1_1MeshMaterialExchangeMng_1_1ExchangeCellStep.html#a86e004d3cd25f8c5b6a66d3b049e8335",
+"da/d41/namespaceArccore_1_1MessagePassing.html#a630db14578c253a59ab6e3bc9c35790e",
+"da/d46/classArcane_1_1AbstractDataTypeDispatchingDataVisitor.html#ab4bb61e281ca84ba9dcd10d20da20cd0",
+"da/d82/classArcane_1_1EntryPointBuildInfo.html#a21cf72e9d29a3a44a5f1fe64ebd57d06",
+"da/dbf/classArcane_1_1VariableScalarT.html#aaf021a3406dd4fa4d67dfd3bef7aaf95",
+"da/df1/classArcane_1_1ItemGroupImpl.html#ac44c5eb75cd14d5f1904860c84f61bc2",
+"db/d34/classArccore_1_1AbstractArray.html#a3b65bdf8938fdb802efa71446adaccba",
+"db/d63/classArcane_1_1ModuleMaster.html#a8975f0d0315d44ae771ac5c2e811c7f5",
+"db/d8e/classArcane_1_1ItemGroupImplPrivate.html#a3929988fc24d52720113820b94520b7b",
+"db/dbe/classArcane_1_1FaceDirectionMng.html#a9a608da14e930885a44f2f45213ea7c3",
+"dc/d0e/classArcane_1_1JSONKeyValueList.html",
+"dc/d3e/MathUtils_8h.html#a54965c03391ffb5486fc855458379375",
+"dc/d5a/classArcane_1_1IParallelMng.html#a1eade0aa2a566398689ea957b4fe0987",
+"dc/d5a/classArcane_1_1IParallelMng.html#aa439aab2fb093b985bfc4d7390cd1e8b",
+"dc/d6b/classArcane_1_1LIBXML2__Node.html#aebf1a624c6a48b90ea394d598fb4e6a3",
+"dc/dae/classArcane_1_1LIBXML2__CharacterData.html#a6f2fa4fb7a86abe7747e898185ff2b21",
+"dc/de8/MeshUtils_8h.html#ad456bd212368ba6fe3598765dddd798f",
+"dd/d23/classArcane_1_1DataStorageBuildInfo.html",
+"dd/d6e/classArcane_1_1DirNode.html#a11a959136924600df55bb90825ab4f11",
+"dd/d9f/classArcane_1_1IIndexedIncrementalItemConnectivityMng.html#a0ba05a17d47b3961d604f3c2883e247d",
+"dd/dcd/classArccore_1_1ISerializer.html#a3d74429b3cdb3c2a7a48e61834346e01",
+"dd/def/classArccore_1_1ThreadPrivateBase_1_1ICreateFunctor.html",
+"de/d26/arcanedoc_caseoptions.html",
+"de/d4b/classArccore_1_1BasicSerializer.html#a17d9b3a3aa3c9a291d1876c1bf1eb95d",
+"de/d6e/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiTypeDispatcher.html#a9a3aebc44b88649c8a3f5423cd915427",
+"de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html#a6575db10af6b221b2e785d0315ccec2f",
+"de/dc3/classArcane_1_1ItemVariableScalarRefT.html#a4bc3b0c20c007de57ba92ff801744903",
+"de/df9/classArcane_1_1Real2Proxy.html#a31de100241e9fc524473ba5477d3d470",
+"df/d26/classArccore_1_1MessagePassing_1_1Mpi_1_1NoMpiProfiling.html#aa36c1f1c39e1b85545a51b4b9eece15a",
+"df/d5f/classArcane_1_1Item.html#a842be475d748e8799b538f23c4ce3029",
+"df/d97/classArcane_1_1CaseOptionMultiServiceImpl.html#a112bba5c811801aad81396de2ef35f4c",
+"df/de9/classArccore_1_1MessagePassing_1_1Mpi_1_1MpiAdapter_1_1RequestSet.html#ad212a882e9dc90c65565a97d8c5a52e5",
+"namespacemembers_type.html"
 ];
 
 var SYNCONMSG = 'cliquez pour désactiver la synchronisation du panel';

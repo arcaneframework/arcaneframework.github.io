@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['utilisation_20des_20accélérateurs_12342',['Utilisation des accélérateurs',['../d2/dc8/arcanedoc_accelerator.html',1,'index']]],
-  ['utilisation_20des_20types_20tableaux_12343',['Utilisation des types tableaux',['../d0/dc6/arcanedoc_array_usage.html',1,'index']]],
-  ['utilisation_20du_20c_23_20avec_20_25arcane_12344',['Utilisation du C# avec %Arcane',['../d6/d06/arcanedoc_dotnet.html',1,'index']]],
-  ['utilisation_20des_20traces_12345',['Utilisation des traces',['../d2/dcf/arcanedoc_traces.html',1,'index']]]
+  ['passage_20à_20la_20version_202_2e0_12336',['Passage à la version 2.0',['../d1/dc4/arcanedoc_cleanup_v2.html',1,'index']]],
+  ['prise_20en_20compte_20du_20parallélisme_20dans_20arcane_12337',['Prise en compte du parallélisme dans ARCANE',['../df/d78/arcanedoc_parallel.html',1,'index']]]
 ];

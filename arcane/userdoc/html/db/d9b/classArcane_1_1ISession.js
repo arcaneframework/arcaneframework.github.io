@@ -1,5 +1,6 @@
 var classArcane_1_1ISession =
 [
+    [ "~ISession", "db/d9b/classArcane_1_1ISession.html#adf5724805294a3ecd9858a5500a1d97d", null ],
     [ "application", "db/d9b/classArcane_1_1ISession.html#a5b0aff0f12ad2be3e02cd1debaaf07cc", null ],
     [ "checkIsValidCaseVersion", "db/d9b/classArcane_1_1ISession.html#a2400fc59791d8b0cbfbc685b7fcf9c53", null ],
     [ "createSubDomain", "db/d9b/classArcane_1_1ISession.html#aa848e16687ef9010229086d3e5dafd55", null ],

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['service_20interfaces_12341',['Service interfaces',['../de/d46/out_interfacemainpage_dox.html',1,'']]]
+  ['nouvelles_20fonctionnalités_12335',['Nouvelles fonctionnalités',['../d7/d29/arcanedoc_changelog.html',1,'index']]]
 ];

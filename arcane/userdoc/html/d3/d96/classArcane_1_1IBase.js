@@ -1,5 +1,6 @@
 var classArcane_1_1IBase =
 [
+    [ "~IBase", "d3/d96/classArcane_1_1IBase.html#aded8059813c0771a61e4df85566b4ad2", null ],
     [ "build", "d3/d96/classArcane_1_1IBase.html#a164ebab270d18543569bd2c4d283f139", null ],
     [ "initialize", "d3/d96/classArcane_1_1IBase.html#a9b2f7e51012d385a1f529c1011b96331", null ],
     [ "objectLocalName", "d3/d96/classArcane_1_1IBase.html#a65c3abd77f0c82025e8c18c5702e494a", null ],

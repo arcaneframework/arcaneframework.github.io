@@ -1,5 +1,6 @@
 var classArcane_1_1IPropertyMng =
 [
+    [ "~IPropertyMng", "da/d8d/classArcane_1_1IPropertyMng.html#a02d4a0d870aa594883ceb4f74b78c0fb", null ],
     [ "destroyProperties", "da/d8d/classArcane_1_1IPropertyMng.html#a955bc742fd899d862277976ba8b01b5e", null ],
     [ "getPropertiesImpl", "da/d8d/classArcane_1_1IPropertyMng.html#aa3af56a139e928e122e4c4a4dab70840", null ],
     [ "print", "da/d8d/classArcane_1_1IPropertyMng.html#a4677149254561662a08cfda462f25852", null ],

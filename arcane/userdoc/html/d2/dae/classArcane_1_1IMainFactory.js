@@ -1,5 +1,6 @@
 var classArcane_1_1IMainFactory =
 [
+    [ "~IMainFactory", "d2/dae/classArcane_1_1IMainFactory.html#a8668887448b74bd34cfaea9e224f0a5b", null ],
     [ "createAcceleratorMngRef", "d2/dae/classArcane_1_1IMainFactory.html#a15a10edcf487a9007652afcb40bd4e6f", null ],
     [ "createApplication", "d2/dae/classArcane_1_1IMainFactory.html#a92344e9d65873403864e3551a3158fc3", null ],
     [ "createArcaneMain", "d2/dae/classArcane_1_1IMainFactory.html#a0792b82702f06ab8baf7a2daceed2390", null ],

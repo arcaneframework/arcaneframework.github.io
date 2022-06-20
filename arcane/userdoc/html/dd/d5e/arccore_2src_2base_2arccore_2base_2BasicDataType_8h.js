@@ -14,7 +14,7 @@ var arccore_2src_2base_2arccore_2base_2BasicDataType_8h =
     ] ],
     [ "basicDataTypeFromName", "dd/d5e/arccore_2src_2base_2arccore_2base_2BasicDataType_8h.html#aa57d3c6da357e706b0d552ba35738e37", null ],
     [ "basicDataTypeFromName", "dd/d5e/arccore_2src_2base_2arccore_2base_2BasicDataType_8h.html#a033bdf9feed14b61a6fc74cbe4e858ae", null ],
-    [ "basicDataTypeName", "dd/d5e/arccore_2src_2base_2arccore_2base_2BasicDataType_8h.html#a234176ce68da59ae53e99865e63179c2", null ],
+    [ "basicDataTypeName", "dd/d5e/arccore_2src_2base_2arccore_2base_2BasicDataType_8h.html#a6336bc771f31857b1043b89e8f852b3b", null ],
     [ "basicDataTypeSize", "dd/d5e/arccore_2src_2base_2arccore_2base_2BasicDataType_8h.html#a4646787ff2ceb03ba75f58fdaff320ef", null ],
     [ "operator<<", "dd/d5e/arccore_2src_2base_2arccore_2base_2BasicDataType_8h.html#ad7f73acc05d338eca44fdc1aa468d376", null ],
     [ "operator>>", "dd/d5e/arccore_2src_2base_2arccore_2base_2BasicDataType_8h.html#a3dbe06ddd1ef426a70f52424ff128249", null ],

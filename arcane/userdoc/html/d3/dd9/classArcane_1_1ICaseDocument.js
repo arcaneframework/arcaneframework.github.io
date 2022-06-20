@@ -1,5 +1,6 @@
 var classArcane_1_1ICaseDocument =
 [
+    [ "~ICaseDocument", "d3/dd9/classArcane_1_1ICaseDocument.html#a8060d394ae74830ae6983d394e06cb04", null ],
     [ "addError", "d3/dd9/classArcane_1_1ICaseDocument.html#aedc07e7a7d7f7f07f26e3f6b543211e0", null ],
     [ "addWarning", "d3/dd9/classArcane_1_1ICaseDocument.html#a545bcb3d23cffd3fc18b442c678c6994", null ],
     [ "arcaneElement", "d3/dd9/classArcane_1_1ICaseDocument.html#abba830c75851c587b00a1f2edb497743", null ],

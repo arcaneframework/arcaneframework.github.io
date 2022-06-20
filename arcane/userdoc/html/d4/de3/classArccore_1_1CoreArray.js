@@ -1,6 +1,8 @@
 var classArccore_1_1CoreArray =
 [
     [ "const_iterator", "d4/de3/classArccore_1_1CoreArray.html#aca77ca193d283a7e1cb04109d6c6f9e3", null ],
+    [ "const_pointer", "d4/de3/classArccore_1_1CoreArray.html#ab80e988aaaf6d540cec8fb52f37dc62e", null ],
+    [ "const_reference", "d4/de3/classArccore_1_1CoreArray.html#a146c7a6f79ddd7cad0faef282dd8856e", null ],
     [ "difference_type", "d4/de3/classArccore_1_1CoreArray.html#a31caeb75ddf1748111872417e5093ca1", null ],
     [ "iterator", "d4/de3/classArccore_1_1CoreArray.html#a05b9961198610ccd41886ccbb9a0a853", null ],
     [ "pointer", "d4/de3/classArccore_1_1CoreArray.html#a5004a123cfda79833fe463984caa63f4", null ],
@@ -29,7 +31,5 @@ var classArccore_1_1CoreArray =
     [ "reserve", "d4/de3/classArccore_1_1CoreArray.html#a148cc5382b54eaa3bb31eb5625abebcd", null ],
     [ "resize", "d4/de3/classArccore_1_1CoreArray.html#a0bab51bbd04bf7887d1260c0e770b524", null ],
     [ "size", "d4/de3/classArccore_1_1CoreArray.html#a67929df423919911027edcee14c47296", null ],
-    [ "view", "d4/de3/classArccore_1_1CoreArray.html#adfc0e6f1f75054c245dfc92e8410426b", null ],
-    [ "const_pointer", "d4/de3/classArccore_1_1CoreArray.html#a6bb73be49d3f896d9e0f981c0d19011e", null ],
-    [ "const_reference", "d4/de3/classArccore_1_1CoreArray.html#ae7ea4ad4e4dd835f5761e2d675c62cfe", null ]
+    [ "view", "d4/de3/classArccore_1_1CoreArray.html#adfc0e6f1f75054c245dfc92e8410426b", null ]
 ];

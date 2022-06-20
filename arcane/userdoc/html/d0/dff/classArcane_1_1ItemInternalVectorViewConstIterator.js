@@ -2,6 +2,8 @@ var classArcane_1_1ItemInternalVectorViewConstIterator =
 [
     [ "difference_type", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#a57c1a8b91441124b903ebef9bb71b60e", null ],
     [ "iterator_category", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#a4d5e4833fe0c656afcc4bfaf119c0e58", null ],
+    [ "pointer", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#a2e7414fc1a6718b54d08dc727175e1fb", null ],
+    [ "reference", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#ad4dea45be5aa317e15d810b225f6c98b", null ],
     [ "size_type", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#ae43086b6e941a558c11635f88fa4e141", null ],
     [ "ThatClass", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#a8d553d995ebe04e0ab65e99fca0bf05f", null ],
     [ "value_type", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#a342e3a2d8e9c8e71450bbb769f01b9ca", null ],
@@ -18,7 +20,5 @@ var classArcane_1_1ItemInternalVectorViewConstIterator =
     [ "operator-", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#a165a3f222b7a290d0d46f8dcfba0dd07", null ],
     [ "operator-", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#a59d73b8060f0630f01b79e55adb7b974", null ],
     [ "operator<", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#a3ddf11d970339b8381b61e0ef8a91461", null ],
-    [ "operator==", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#aa53583a3b11d3e68292bd008906386f7", null ],
-    [ "pointer", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#ab34bb5d9b0a13adbcdc4438dbf9bf06d", null ],
-    [ "reference", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#a1fef7b705e922a7b8f62ebee204c3181", null ]
+    [ "operator==", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#aa53583a3b11d3e68292bd008906386f7", null ]
 ];

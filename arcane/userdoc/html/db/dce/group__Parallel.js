@@ -468,6 +468,7 @@ var group__Parallel =
     [ "IParallelNonBlockingCollective", "d7/d03/classArcane_1_1IParallelNonBlockingCollective.html", [
       [ "eReduceType", "d7/d03/classArcane_1_1IParallelNonBlockingCollective.html#a950ce8553fcdbcb4871e445606b6b422", null ],
       [ "Request", "d7/d03/classArcane_1_1IParallelNonBlockingCollective.html#a39af3bf6cf85e2b5542a07143ea4dd18", null ],
+      [ "~IParallelNonBlockingCollective", "d7/d03/classArcane_1_1IParallelNonBlockingCollective.html#aad4ad5ac6bb6db1befa31d39b0d143f9", null ],
       [ "allGather", "d7/d03/classArcane_1_1IParallelNonBlockingCollective.html#a533bf0391f0e7d10df03998ff3138c58", null ],
       [ "allGather", "d7/d03/classArcane_1_1IParallelNonBlockingCollective.html#a114a2f7e0de29c03584fd9bbbc33d5d7", null ],
       [ "allGather", "d7/d03/classArcane_1_1IParallelNonBlockingCollective.html#a60d2c657ba9ba28c526b15081ea03f89", null ],
@@ -597,6 +598,7 @@ var group__Parallel =
       [ "replicationRank", "de/dcc/classArcane_1_1IParallelReplication.html#ab1ad90c071cd1475b5d6f2819b21b85f", null ]
     ] ],
     [ "IParallelTopology", "da/d97/classArcane_1_1IParallelTopology.html", [
+      [ "~IParallelTopology", "da/d97/classArcane_1_1IParallelTopology.html#a44375486a5692bd591f4356f80c66204", null ],
       [ "isMasterMachine", "da/d97/classArcane_1_1IParallelTopology.html#a3d4267a7aa7489d80649c5348290b45f", null ],
       [ "isMasterProcess", "da/d97/classArcane_1_1IParallelTopology.html#a999037ef989dab9de4085df711e1bd89", null ],
       [ "machineRank", "da/d97/classArcane_1_1IParallelTopology.html#af2bf67cdfc42a10350f87aeac7e1c353", null ],

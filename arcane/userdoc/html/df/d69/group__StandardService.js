@@ -56,6 +56,7 @@ var group__StandardService =
       [ "setFileName", "d1/d93/classArcane_1_1ICheckpointWriter.html#af095d2423eac3d82b8196094fa18e744", null ]
     ] ],
     [ "ICodeService", "d0/d28/classArcane_1_1ICodeService.html", [
+      [ "~ICodeService", "d0/d28/classArcane_1_1ICodeService.html#abc1fb38ac56f62974fe9d2063c182667", null ],
       [ "allowExecution", "d0/d28/classArcane_1_1ICodeService.html#a77b11d2730ee38441c41c1b270c3bb19", null ],
       [ "createAndLoadCase", "d0/d28/classArcane_1_1ICodeService.html#a4549dd91ef55094d6782d214edb1471e", null ],
       [ "createSession", "d0/d28/classArcane_1_1ICodeService.html#a590698640854d05cbf6a7198c7d5b918", null ],
@@ -85,6 +86,7 @@ var group__StandardService =
       [ "writeMeshToFile", "dc/d13/classArcane_1_1IMeshWriter.html#ad10677ae2502995af0b5a055b9c6bc67", null ]
     ] ],
     [ "ITimeHistoryCurveWriter", "d0/db6/classArcane_1_1ITimeHistoryCurveWriter.html", [
+      [ "~ITimeHistoryCurveWriter", "d0/db6/classArcane_1_1ITimeHistoryCurveWriter.html#a26291ad46b19a881408ae99270891cc2", null ],
       [ "build", "d0/db6/classArcane_1_1ITimeHistoryCurveWriter.html#a30d13f2c6f222b2d4becfefa43ee3f95", null ],
       [ "name", "d0/db6/classArcane_1_1ITimeHistoryCurveWriter.html#a32ac8a3ee76c816ee8eb013edbb22c33", null ],
       [ "writeCurve", "d0/db6/classArcane_1_1ITimeHistoryCurveWriter.html#ad469c2c09c94b536e3aa149dfb4a43a9", null ]
@@ -105,6 +107,7 @@ var group__StandardService =
         [ "name", "da/d36/classArcane_1_1ITimeHistoryTransformer_1_1CommonInfo.html#a44dabe4636e9b020a38c2591e9c970ef", null ],
         [ "sub_size", "da/d36/classArcane_1_1ITimeHistoryTransformer_1_1CommonInfo.html#adb2bc47c2cb40e54ac5e29ebed923416", null ]
       ] ],
+      [ "~ITimeHistoryTransformer", "d7/d55/classArcane_1_1ITimeHistoryTransformer.html#a55ef42e410932a71437f4bb87e30da19", null ],
       [ "transform", "d7/d55/classArcane_1_1ITimeHistoryTransformer.html#ad2c93aa8e53b84d4a5c3b232c56d71ac", null ],
       [ "transform", "d7/d55/classArcane_1_1ITimeHistoryTransformer.html#a2a6c92198b796fdce23ab0c567693f4f", null ],
       [ "transform", "d7/d55/classArcane_1_1ITimeHistoryTransformer.html#a9454ad789fa10282c0d84e9ff068a60e", null ]

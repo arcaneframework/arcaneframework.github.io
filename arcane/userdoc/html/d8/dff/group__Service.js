@@ -14,6 +14,7 @@ var group__Service =
       [ "subDomain", "d1/d5e/classArcane_1_1BasicService.html#a606203edf67f81271143a5f444529a11", null ]
     ] ],
     [ "IServiceInfo", "de/df8/classArcane_1_1IServiceInfo.html", [
+      [ "~IServiceInfo", "de/df8/classArcane_1_1IServiceInfo.html#ace9425ce189552be09444ba087bd988d", null ],
       [ "addImplementedInterface", "de/df8/classArcane_1_1IServiceInfo.html#ae12d24e3f8b4eeb7caba6683957f49aa", null ],
       [ "allowDimension", "de/df8/classArcane_1_1IServiceInfo.html#a628589a3eb5b4f4058d09ef3d2989b3a", null ],
       [ "axlContent", "de/df8/classArcane_1_1IServiceInfo.html#a4be72e18e32301f332210803eb90338f", null ],

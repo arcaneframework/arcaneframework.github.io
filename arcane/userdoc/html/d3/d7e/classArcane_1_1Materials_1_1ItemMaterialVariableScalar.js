@@ -21,9 +21,7 @@ var classArcane_1_1Materials_1_1ItemMaterialVariableScalar =
     [ "fillToArray", "d3/d7e/classArcane_1_1Materials_1_1ItemMaterialVariableScalar.html#a0315853fac6630898c4aefc77e3a990a", null ],
     [ "operator[]", "d3/d7e/classArcane_1_1Materials_1_1ItemMaterialVariableScalar.html#a68f7031f7bcd4d7f1ec3ea4814cb1ec3", null ],
     [ "serialize", "d3/d7e/classArcane_1_1Materials_1_1ItemMaterialVariableScalar.html#a9623ece99d074d09496c98d389272240", null ],
-    [ "setValue", "d3/d7e/classArcane_1_1Materials_1_1ItemMaterialVariableScalar.html#a9bf0e15e7e9bb918afa6cf1ec7133524", null ],
     [ "synchronize", "d3/d7e/classArcane_1_1Materials_1_1ItemMaterialVariableScalar.html#a5eb4a328c22575cb161257b4d99f69c2", null ],
     [ "synchronize", "d3/d7e/classArcane_1_1Materials_1_1ItemMaterialVariableScalar.html#a4a3bf521ce82458c454a58f21d9edb37", null ],
-    [ "value", "d3/d7e/classArcane_1_1Materials_1_1ItemMaterialVariableScalar.html#a00f9ade74e210e091cd511cc16e5d51a", null ],
     [ "views", "d3/d7e/classArcane_1_1Materials_1_1ItemMaterialVariableScalar.html#ab77aba749d46c2535d6a8dc92d4f1ed0", null ]
 ];

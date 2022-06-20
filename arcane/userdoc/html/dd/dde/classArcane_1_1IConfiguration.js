@@ -1,5 +1,6 @@
 var classArcane_1_1IConfiguration =
 [
+    [ "~IConfiguration", "dd/dde/classArcane_1_1IConfiguration.html#a4d456557bba3010b75a6270bfea3895d", null ],
     [ "addValue", "dd/dde/classArcane_1_1IConfiguration.html#aff424569bc981d8842405948f20aff3d", null ],
     [ "clone", "dd/dde/classArcane_1_1IConfiguration.html#ae968ceb314fb9699ecac856335d57865", null ],
     [ "createSection", "dd/dde/classArcane_1_1IConfiguration.html#a2644efeaa23e6814f12772789f91cc45", null ],

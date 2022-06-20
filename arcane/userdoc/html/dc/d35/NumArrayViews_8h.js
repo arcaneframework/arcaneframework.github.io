@@ -1,7 +1,5 @@
 var NumArrayViews_8h =
 [
-    [ "NumArrayViewSetter", "de/d83/classArcane_1_1Accelerator_1_1NumArrayViewSetter.html", null ],
-    [ "NumArrayView", "df/d9d/classArcane_1_1Accelerator_1_1NumArrayView.html", null ],
     [ "NumArrayViewBase", "d5/dea/classArcane_1_1Accelerator_1_1NumArrayViewBase.html", "d5/dea/classArcane_1_1Accelerator_1_1NumArrayViewBase" ],
     [ "NumArrayView< Accessor, 1, LayoutType >", "d7/d42/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_011_00_01LayoutType_01_4.html", "d7/d42/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_011_00_01LayoutType_01_4" ],
     [ "NumArrayView< Accessor, 2, LayoutType >", "da/db8/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_012_00_01LayoutType_01_4.html", "da/db8/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_012_00_01LayoutType_01_4" ],

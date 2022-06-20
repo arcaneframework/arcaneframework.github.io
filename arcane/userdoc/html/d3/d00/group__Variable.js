@@ -3,6 +3,7 @@ var group__Variable =
     [ "CommonVariables", "d1/d74/classArcane_1_1CommonVariables.html", [
       [ "CommonVariables", "d1/d74/classArcane_1_1CommonVariables.html#abe28830aec3c9fe9438c2505186895e9", null ],
       [ "CommonVariables", "d1/d74/classArcane_1_1CommonVariables.html#a43e233d94e012c13e6905e535776bba2", null ],
+      [ "~CommonVariables", "d1/d74/classArcane_1_1CommonVariables.html#aaf26ea8c68cc3f818c586264284702b2", null ],
       [ "globalCPUTime", "d1/d74/classArcane_1_1CommonVariables.html#a7da4105bf6dd799b471eb4e0538d788d", null ],
       [ "globalDeltaT", "d1/d74/classArcane_1_1CommonVariables.html#a88e84e80ddcb329a3b73b23eadd4a553", null ],
       [ "globalElapsedTime", "d1/d74/classArcane_1_1CommonVariables.html#a98e8ebb5fd25102701739368a99d8e06", null ],
@@ -25,6 +26,7 @@ var group__Variable =
       [ "m_global_time", "d1/d74/classArcane_1_1CommonVariables.html#ab9036815b606e85b8178126d31a2b5d2", null ]
     ] ],
     [ "IVariableFilter", "d1/db0/classArcane_1_1IVariableFilter.html", [
+      [ "~IVariableFilter", "d1/db0/classArcane_1_1IVariableFilter.html#a8cdb501f7ec99b7cf01715cb5ae44442", null ],
       [ "applyFilter", "d1/db0/classArcane_1_1IVariableFilter.html#af995aef71e82bedca74fd04cef145aad", null ]
     ] ],
     [ "ItemPartialVariableArrayRefT", "d0/d55/classArcane_1_1ItemPartialVariableArrayRefT.html", [
@@ -77,6 +79,7 @@ var group__Variable =
     ] ],
     [ "ItemPartialVariableScalarRefT", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html", [
       [ "BaseClass", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#afa8dc5d40bc4c905919586b57622c358", null ],
+      [ "ConstReturnReferenceType", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#ac5f0b2f6520f18150e3fe47945ed64a6", null ],
       [ "DataType", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#a63c26cbd31b27d1427e7b1c633b6298e", null ],
       [ "DataTypeReturnReference", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#a301a392daca5ab06fd0a79e84e10ad49", null ],
       [ "PrivatePartType", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#a2c7fc395bd76b33e3e67a37f8dbd4e30", null ],
@@ -97,11 +100,11 @@ var group__Variable =
       [ "operator[]", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#affdfdbc08323eeeacfd193c767988ec6", null ],
       [ "operator[]", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#acdf7de37f7a12e30ccf39a7ef32448e2", null ],
       [ "operator[]", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#a6834b407d87a818ec501816eae5f5fe3", null ],
-      [ "ConstReturnReferenceType", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#a9a63c1b23298c2d328a74f69b80dbaef", null ],
       [ "m_table", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#a7680971be42c010c61d444eab62d2f35", null ]
     ] ],
     [ "MeshPartialVariableScalarRefT", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html", [
       [ "BaseClass", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#ae0c95a153f9bcb712971ceca6f78c091", null ],
+      [ "ConstReturnReferenceType", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#a4ecaf57901ff853d94490e70956fa2da", null ],
       [ "DataType", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#aa0a900a25d263dcad1e6ffee3b8dcd75", null ],
       [ "DataTypeReturnReference", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#af4495616d65446f1394c1dd64eaf2622", null ],
       [ "GroupType", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#aa4c36f3bedcaf3ed3d8333a8e9ca3b71", null ],
@@ -120,8 +123,7 @@ var group__Variable =
       [ "operator[]", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#a077c3ab61018392017a39ad6436ff376", null ],
       [ "operator[]", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#a0324a4a03f16558a6777e8405b34c937", null ],
       [ "operator[]", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#a71887601e454d91a1ae371197215235d", null ],
-      [ "refersTo", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#a2a04bf27232357a841696cd6656abe6d", null ],
-      [ "ConstReturnReferenceType", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#a1597f3e3a3ff7475e0405752f5d392a4", null ]
+      [ "refersTo", "d8/de4/classArcane_1_1MeshPartialVariableScalarRefT.html#a2a04bf27232357a841696cd6656abe6d", null ]
     ] ],
     [ "MeshVariableArrayRefT", "dd/d95/classArcane_1_1MeshVariableArrayRefT.html", [
       [ "ArrayBase", "dd/d95/classArcane_1_1MeshVariableArrayRefT.html#a1e4ca4a9a4a7fe788f1502c97b858d47", null ],
@@ -162,6 +164,7 @@ var group__Variable =
     [ "ItemVariableScalarRefT", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html", [
       [ "ArrayBase", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#abd7396fa2b881b82181a96b5530582d6", null ],
       [ "BaseClass", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#ad3a9fc11f18f17345f253e03b1d4057c", null ],
+      [ "ConstReturnReferenceType", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#a3770b0d8ff9d31b8cf56d792dcd8af15", null ],
       [ "DataType", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#aad955dc09188af1c24a5cab4a1365cfc", null ],
       [ "DataTypeReturnReference", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#afc5c1a5709129d5424f425450c607dfe", null ],
       [ "PrivatePartType", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#ac773371bfc6ef82a3180394edd6e727c", null ],
@@ -189,11 +192,11 @@ var group__Variable =
       [ "power", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#a5562a8167f05d8097519a64e4c170847", null ],
       [ "power", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#a62ac53c440058c4e54f28a6a000ea7b6", null ],
       [ "sub", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#a25be81673aa28eef355e898a5c89f2cf", null ],
-      [ "sub", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#ace501faa7412c411298180da17046e9f", null ],
-      [ "ConstReturnReferenceType", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#ac2af574250b141473e0cef6d1fe033c8", null ]
+      [ "sub", "de/dc3/classArcane_1_1ItemVariableScalarRefT.html#ace501faa7412c411298180da17046e9f", null ]
     ] ],
     [ "MeshVariableScalarRefT", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html", [
       [ "BaseClass", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#a765fe8c6cb10fbdc0517121a9df12f0d", null ],
+      [ "ConstReturnReferenceType", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#afaa20c4e0f6048ec2a50a851359d1262", null ],
       [ "DataType", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#a2948c44b74bf65be2d78d07b7a57ebba", null ],
       [ "DataTypeReturnReference", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#a49c803c59044dd42827bb771484aa5ad", null ],
       [ "GroupType", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#ad1ddf8caf85eec742ac3f4f94d35cec9", null ],
@@ -222,8 +225,7 @@ var group__Variable =
       [ "setIsSynchronized", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#a4e928e4d0578da3eddcc52dfbe8f5ac5", null ],
       [ "setIsSynchronized", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#a87ec1b08ec79e47e212f40a300b44e25", null ],
       [ "setItem", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#a0e62d9c63986a601ffc28966a760524a", null ],
-      [ "swapValues", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#aa03d47575b6cb96fff98c36f18dfaebc", null ],
-      [ "ConstReturnReferenceType", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#aa1ebf1ce6439cc6cccedd75877ea94e3", null ]
+      [ "swapValues", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#aa03d47575b6cb96fff98c36f18dfaebc", null ]
     ] ],
     [ "PrivateVariableArrayT", "d4/ddf/classArcane_1_1PrivateVariableArrayT.html", [
       [ "DataTypeReturnReference", "d4/ddf/classArcane_1_1PrivateVariableArrayT.html#a4fb92e295e87f63765183c93f0e65bc7", null ],

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
-<meta name="generator" content="Doxygen 1.8.17"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Arcane: Référence de la classe Arcane::IPrimaryMesh</title>
 <link href="../../tabs.css" rel="stylesheet" type="text/css"/>
@@ -34,10 +34,10 @@
 </table>
 </div>
 <!-- end header part -->
-<!-- Généré par Doxygen 1.8.17 -->
+<!-- Généré par Doxygen 1.9.1 -->
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
-var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche');
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
 /* @license-end */
 </script>
 <script type="text/javascript" src="../../menudata.js"></script>
@@ -479,6 +479,7 @@ virtual <a class="el" href="../../d0/d32/namespaceArcane.html#a713904d30616dee6a
 <div class="line">new_mesh-&gt;setDimension(2);</div>
 <div class="line">new_mesh-&gt;allocateCells(0,<a class="code" href="../../d0/d32/namespaceArcane.html#ad52ea8220f052e503f802c64c81e0222">Int64ConstArrayView</a>(),<span class="keyword">false</span>);</div>
 <div class="line">new_mesh-&gt;endAllocate();</div>
+<div class="ttc" id="anamespaceArcane_html_ad52ea8220f052e503f802c64c81e0222"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ad52ea8220f052e503f802c64c81e0222">Arcane::Int64ConstArrayView</a></div><div class="ttdeci">ConstArrayView&lt; Int64 &gt; Int64ConstArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension d'entiers 64 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:532</div></div>
 </div><!-- fragment --><p> Le maillage créé existe sur l'ensemble des rangs du <a class="el" href="../../dc/d5a/classArcane_1_1IParallelMng.html" title="Interface du gestionnaire de parallélisme pour un sous-domaine.">IParallelMng</a> passé en argument. Pour créér un maillage sur un seul processeur, on peut utiliser <a class="el" href="../../dc/d5a/classArcane_1_1IParallelMng.html#abd074fd398951fccd2bbd5c7f38497c6" title="Retourne un gestionnaire de parallélisme séquentiel.">IParallelMng::sequentialParallelMng()</a>.</p>
 <p>Il est aussi possible de lire directement un maillage à partir d'un fichier en utilisant une implémentation de <a class="el" href="../../d7/d2c/classArcane_1_1IMeshReader.html" title="Interface du service gérant la lecture d&#39;un maillage.">IMeshReader</a>. Par exemple, pour lire un fichier au format Vtk historique: </p><div class="fragment"><div class="line"><span class="comment">// sd est le sous-domaine courant.</span></div>
 <div class="line">ISubDomain* sd = ...;</div>
@@ -489,6 +490,7 @@ virtual <a class="el" href="../../d0/d32/namespaceArcane.html#a713904d30616dee6a
 <div class="line">IMeshReader* reader = <a class="code" href="../../d6/d63/classArcane_1_1ServiceBuilder.html#ab7c52b3df4b4e74ed1f7d766c14126bd">ServiceBuilder&lt;IMeshReader&gt;::createInstance</a>(sd,<span class="stringliteral">&quot;VtkLegacyMeshReader&quot;</span>);</div>
 <div class="line">reader-&gt;readMeshFromFile(new_mesh,XmlNode(),<span class="stringliteral">&quot;sod.vtk&quot;</span>,<span class="stringliteral">&quot;/tmp&quot;</span>,<span class="keyword">false</span>);</div>
 <div class="line"><span class="keyword">delete</span> reader;</div>
+<div class="ttc" id="aclassArcane_1_1ServiceBuilder_html_ab7c52b3df4b4e74ed1f7d766c14126bd"><div class="ttname"><a href="../../d6/d63/classArcane_1_1ServiceBuilder.html#ab7c52b3df4b4e74ed1f7d766c14126bd">Arcane::ServiceBuilder::createInstance</a></div><div class="ttdeci">InterfaceType * createInstance(const String &amp;name, eServiceBuilderProperties properties=SB_None)</div><div class="ttdoc">Créé une instance implémentant l'interface InterfaceType.</div><div class="ttdef"><b>Definition:</b> ServiceBuilder.h:292</div></div>
 </div><!-- fragment --><p>Il est possible par la suite de modifier le maillage via l'interface <a class="el" href="../../d9/d71/classArcane_1_1IMeshModifier.html" title="Interface de modification du maillage.">IMeshModifier</a> récupérable par <a class="el" href="../../d0/d9f/classArcane_1_1IMesh.html#a49590ea4d05b5d9b66eae9779631172b" title="Interface de modification associée.">modifier()</a>. Une fois les modifications effectuées, il faut impérativement appeler la méthode endUpdate().</p>
 <p>Un maillage possède certaines propriétés, accessibles par <a class="el" href="../../d0/d9f/classArcane_1_1IMesh.html#abeb3fae39c1314822fbff531fd2ee46c" title="Propriétés associées à ce maillage.">properties()</a>. Les propriétés suivantes sont valides:</p><ul>
 <li><b>"sort"</b>, booléen, vrai par défaut. Cette propriété indique que les entités doivent être triées après modification du maillage pour qu'elles soient rangées par numéro unique croissant. Cela n'est utile que pour permettre de garantir que les opérations se font toujours dans le même ordre en parallèle quel que soit le nombre de sous-domaines et que le maillage évolue.</li>
@@ -708,21 +710,17 @@ virtual <a class="el" href="../../d0/d32/namespaceArcane.html#a713904d30616dee6a
 
 </div>
 </div>
-<hr/>La documentation de cette classe a été générée à partir des fichiers suivants :<ul>
+<hr/>La documentation de cette classe a été générée à partir du fichier suivant :<ul>
 <li>arcane/<a class="el" href="../../dc/d18/IPrimaryMesh_8h_source.html">IPrimaryMesh.h</a></li>
 <li>arcane/Mesh.dox</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="anamespaceArcane_html_ad52ea8220f052e503f802c64c81e0222"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ad52ea8220f052e503f802c64c81e0222">Arcane::Int64ConstArrayView</a></div><div class="ttdeci">ConstArrayView&lt; Int64 &gt; Int64ConstArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension d'entiers 64 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:532</div></div>
-<div class="ttc" id="aclassArcane_1_1ServiceBuilder_html_ab7c52b3df4b4e74ed1f7d766c14126bd"><div class="ttname"><a href="../../d6/d63/classArcane_1_1ServiceBuilder.html#ab7c52b3df4b4e74ed1f7d766c14126bd">Arcane::ServiceBuilder::createInstance</a></div><div class="ttdeci">InterfaceType * createInstance(const String &amp;name, eServiceBuilderProperties properties=SB_None)</div><div class="ttdoc">Créé une instance implémentant l'interface InterfaceType.</div><div class="ttdef"><b>Definition:</b> ServiceBuilder.h:292</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../d0/d32/namespaceArcane.html">Arcane</a></li><li class="navelem"><a class="el" href="../../d7/d89/classArcane_1_1IPrimaryMesh.html">IPrimaryMesh</a></li>
-    <li class="footer">Généré le Lundi 20 Juin 2022 03:25:39 pour Arcane par
-    <a href="http://www.doxygen.org/index.html">
-    <img class="footer" src="../../doxygen.png" alt="doxygen"/></a> 1.8.17 </li>
+    <li class="footer">Généré le Lundi 20 Juin 2022 07:32:38 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

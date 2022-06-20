@@ -1,6 +1,7 @@
 var classArcane_1_1ItemPartialVariableScalarRefT =
 [
     [ "BaseClass", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#afa8dc5d40bc4c905919586b57622c358", null ],
+    [ "ConstReturnReferenceType", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#ac5f0b2f6520f18150e3fe47945ed64a6", null ],
     [ "DataType", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#a63c26cbd31b27d1427e7b1c633b6298e", null ],
     [ "DataTypeReturnReference", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#a301a392daca5ab06fd0a79e84e10ad49", null ],
     [ "PrivatePartType", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#a2c7fc395bd76b33e3e67a37f8dbd4e30", null ],
@@ -21,6 +22,5 @@ var classArcane_1_1ItemPartialVariableScalarRefT =
     [ "operator[]", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#affdfdbc08323eeeacfd193c767988ec6", null ],
     [ "operator[]", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#acdf7de37f7a12e30ccf39a7ef32448e2", null ],
     [ "operator[]", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#a6834b407d87a818ec501816eae5f5fe3", null ],
-    [ "ConstReturnReferenceType", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#a9a63c1b23298c2d328a74f69b80dbaef", null ],
     [ "m_table", "d1/d13/classArcane_1_1ItemPartialVariableScalarRefT.html#a7680971be42c010c61d444eab62d2f35", null ]
 ];

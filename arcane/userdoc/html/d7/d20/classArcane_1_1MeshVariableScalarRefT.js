@@ -1,6 +1,7 @@
 var classArcane_1_1MeshVariableScalarRefT =
 [
     [ "BaseClass", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#a765fe8c6cb10fbdc0517121a9df12f0d", null ],
+    [ "ConstReturnReferenceType", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#afaa20c4e0f6048ec2a50a851359d1262", null ],
     [ "DataType", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#a2948c44b74bf65be2d78d07b7a57ebba", null ],
     [ "DataTypeReturnReference", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#a49c803c59044dd42827bb771484aa5ad", null ],
     [ "GroupType", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#ad1ddf8caf85eec742ac3f4f94d35cec9", null ],
@@ -29,6 +30,5 @@ var classArcane_1_1MeshVariableScalarRefT =
     [ "setIsSynchronized", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#a4e928e4d0578da3eddcc52dfbe8f5ac5", null ],
     [ "setIsSynchronized", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#a87ec1b08ec79e47e212f40a300b44e25", null ],
     [ "setItem", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#a0e62d9c63986a601ffc28966a760524a", null ],
-    [ "swapValues", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#aa03d47575b6cb96fff98c36f18dfaebc", null ],
-    [ "ConstReturnReferenceType", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#aa1ebf1ce6439cc6cccedd75877ea94e3", null ]
+    [ "swapValues", "d7/d20/classArcane_1_1MeshVariableScalarRefT.html#aa03d47575b6cb96fff98c36f18dfaebc", null ]
 ];
