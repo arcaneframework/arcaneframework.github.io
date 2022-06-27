@@ -73,6 +73,9 @@ var namespaceArccore =
       [ "global_has_color_console", "d7/d35/namespaceArccore_1_1Platform.html#a892fd27cfcd96c10132c5c052e6cf28b", null ],
       [ "global_stack_trace_service", "d7/d35/namespaceArccore_1_1Platform.html#aadaf90d5c0d086ddeae7aa5605212d41", null ]
     ] ],
+    [ "StringUtils", null, [
+      [ "asUtf16BE", "d4/d8f/StringUtils_8h.html#ae436255d1b6c53e9ca1b68852afa5c97", null ]
+    ] ],
     [ "Trace", "d4/d56/namespaceArccore_1_1Trace.html", "d4/d56/namespaceArccore_1_1Trace" ],
     [ "APReal", "d6/de1/classArccore_1_1APReal.html", "d6/de1/classArccore_1_1APReal" ],
     [ "TrueType", "d8/dd2/structArccore_1_1TrueType.html", null ],
@@ -133,6 +136,7 @@ var namespaceArccore =
     [ "FixedStackFrameArray", "d9/d1f/classArccore_1_1FixedStackFrameArray.html", "d9/d1f/classArccore_1_1FixedStackFrameArray" ],
     [ "StackTrace", "df/d50/classArccore_1_1StackTrace.html", "df/d50/classArccore_1_1StackTrace" ],
     [ "StringFormatter", "db/dc1/classArccore_1_1StringFormatter.html", "db/dc1/classArccore_1_1StringFormatter" ],
+    [ "StringUtilsImpl", "da/d24/classArccore_1_1StringUtilsImpl.html", null ],
     [ "String", "d2/ddb/classArccore_1_1String.html", "d2/ddb/classArccore_1_1String" ],
     [ "StringFormatterArgToString", "dd/d0a/classArccore_1_1StringFormatterArgToString.html", null ],
     [ "StringFormatterArg", "d2/d8c/classArccore_1_1StringFormatterArg.html", "d2/d8c/classArccore_1_1StringFormatterArg" ],

@@ -186,6 +186,7 @@ var namespaceArccore_1_1MessagePassing =
     [ "mpBroadcast", "da/d41/namespaceArccore_1_1MessagePassing.html#a8635012c1f2a13658980cd08ca5b8b46", null ],
     [ "mpCreateRequestListRef", "da/d41/namespaceArccore_1_1MessagePassing.html#ac1eb424e84f79e76eb58ddb5fa26d6f7", null ],
     [ "mpCreateSerializeMessageListRef", "da/d41/namespaceArccore_1_1MessagePassing.html#a59887bc8362425a0fe8743d37f654faa", null ],
+    [ "mpDelete", "da/d41/namespaceArccore_1_1MessagePassing.html#a14d4bd45ae1761d9392e52200470efbf", null ],
     [ "mpGather", "da/d41/namespaceArccore_1_1MessagePassing.html#a2429224524e967eccba3c8550f4af29c", null ],
     [ "mpGather", "da/d41/namespaceArccore_1_1MessagePassing.html#a1c66f4ab8c69b902ebb2b098a1f99a5f", null ],
     [ "mpGather", "da/d41/namespaceArccore_1_1MessagePassing.html#a5db3f29c26970e17ff8fba83f4a55219", null ],

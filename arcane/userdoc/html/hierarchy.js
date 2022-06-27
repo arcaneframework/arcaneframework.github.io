@@ -579,6 +579,9 @@ var hierarchy =
     [ "Arcane::FullItemPrinter", "da/d57/classArcane_1_1FullItemPrinter.html", null ],
     [ "Arcane::IItemGroupObserver::FuncTraits< T >", "d8/db4/structArcane_1_1IItemGroupObserver_1_1FuncTraits.html", null ],
     [ "StrongOptions::gen_seq< N, Is >", "d6/d4b/structStrongOptions_1_1gen__seq.html", null ],
+    [ "Arcane::GenericRegistererBase", "df/d69/classArcane_1_1GenericRegistererBase.html", [
+      [ "Arcane::GenericRegisterer< Type >", "d8/d43/classArcane_1_1GenericRegisterer.html", null ]
+    ] ],
     [ "Arcane::geometric::GeomElementBase< NbNode >", "db/d41/classArcane_1_1geometric_1_1GeomElementBase.html", null ],
     [ "GeomElementBase", null, [
       [ "Heptaedron10Element", "d1/d3e/classHeptaedron10Element.html", null ],
@@ -1153,6 +1156,7 @@ var hierarchy =
     [ "Arcane::IndexedItemConnectivityViewT< Node, Cell >", "da/d60/classArcane_1_1IndexedItemConnectivityViewT.html", null ],
     [ "Arcane::IndexedItemConnectivityViewT< Node, Edge >", "da/d60/classArcane_1_1IndexedItemConnectivityViewT.html", null ],
     [ "Arcane::IndexedItemConnectivityViewT< Node, Face >", "da/d60/classArcane_1_1IndexedItemConnectivityViewT.html", null ],
+    [ "Arcane::GenericRegisterer< Type >::Info", "d8/d3c/classArcane_1_1GenericRegisterer_1_1Info.html", null ],
     [ "Arcane::InnerTimer_DAY", "d0/d3f/classArcane_1_1InnerTimer__DAY.html", null ],
     [ "InstanceBuilder< Interface >", "d7/d1f/classInstanceBuilder.html", null ],
     [ "Arcane::DependencyInjection::Injector::Impl::InstanceInfo", "d7/d90/classArcane_1_1DependencyInjection_1_1Injector_1_1Impl_1_1InstanceInfo.html", null ],
@@ -1615,8 +1619,8 @@ var hierarchy =
     [ "Arcane::JSONWrapperUtils", "d6/d9d/classArcane_1_1JSONWrapperUtils.html", null ],
     [ "Arcane::JSONWriter", "d9/d23/classArcane_1_1JSONWriter.html", null ],
     [ "Arcane::LeftLayout< RankValue >", "dc/dfc/classArcane_1_1LeftLayout.html", null ],
-    [ "Arcane::LibXml2_DOMImplementation", "d4/d59/classArcane_1_1LibXml2__DOMImplementation.html", null ],
     [ "Arcane::LIBXML2_DOMImplementation", "d6/d7f/classArcane_1_1LIBXML2__DOMImplementation.html", null ],
+    [ "Arcane::LibXml2_DOMImplementation", "d4/d59/classArcane_1_1LibXml2__DOMImplementation.html", null ],
     [ "Arcane::LIBXML2_DOMNamespaceContext", "d7/dca/classArcane_1_1LIBXML2__DOMNamespaceContext.html", null ],
     [ "Arcane::LIBXML2_DOMWriter", "d6/d9f/classArcane_1_1LIBXML2__DOMWriter.html", null ],
     [ "Arcane::LibXml2_ErrorHandler", "da/dc9/classArcane_1_1LibXml2__ErrorHandler.html", null ],
@@ -1864,6 +1868,15 @@ var hierarchy =
       [ "Arcane::Accelerator::NumArrayView< Accessor, 4, LayoutType >", "d8/d86/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_014_00_01LayoutType_01_4.html", null ]
     ] ],
     [ "Arcane::Accelerator::NumArrayViewSetter< DataType, N, LayoutType >", "de/d83/classArcane_1_1Accelerator_1_1NumArrayViewSetter.html", null ],
+    [ "Arcane::NumericTraitsT< DataType >", "dd/dd5/classArcane_1_1NumericTraitsT.html", null ],
+    [ "Arcane::NumericTraitsT< const Real2 >", "dd/d9d/classArcane_1_1NumericTraitsT_3_01const_01Real2_01_4.html", null ],
+    [ "Arcane::NumericTraitsT< const Real2x2 >", "d3/d6d/classArcane_1_1NumericTraitsT_3_01const_01Real2x2_01_4.html", null ],
+    [ "Arcane::NumericTraitsT< const Real3 >", "d4/de4/classArcane_1_1NumericTraitsT_3_01const_01Real3_01_4.html", null ],
+    [ "Arcane::NumericTraitsT< const Real3x3 >", "d1/d41/classArcane_1_1NumericTraitsT_3_01const_01Real3x3_01_4.html", null ],
+    [ "Arcane::NumericTraitsT< Real2 >", "dd/dce/classArcane_1_1NumericTraitsT_3_01Real2_01_4.html", null ],
+    [ "Arcane::NumericTraitsT< Real2x2 >", "d0/de9/classArcane_1_1NumericTraitsT_3_01Real2x2_01_4.html", null ],
+    [ "Arcane::NumericTraitsT< Real3 >", "d6/da1/classArcane_1_1NumericTraitsT_3_01Real3_01_4.html", null ],
+    [ "Arcane::NumericTraitsT< Real3x3 >", "d2/d9c/classArcane_1_1NumericTraitsT_3_01Real3x3_01_4.html", null ],
     [ "Arcane::JSONWriter::Object", "d3/da7/classArcane_1_1JSONWriter_1_1Object.html", null ],
     [ "Arcane::ObjectImpl", "d5/deb/classArcane_1_1ObjectImpl.html", [
       [ "Arcane::CollectionImplBase", "d3/daf/classArcane_1_1CollectionImplBase.html", [
@@ -2295,6 +2308,7 @@ var hierarchy =
     [ "Arccore::StringFormatterArg", "d2/d8c/classArccore_1_1StringFormatterArg.html", null ],
     [ "Arccore::StringFormatterArgToString< U >", "dd/d0a/classArccore_1_1StringFormatterArgToString.html", null ],
     [ "Arccore::StringImpl", "d0/de1/classArccore_1_1StringImpl.html", null ],
+    [ "Arccore::StringUtilsImpl", "da/d24/classArccore_1_1StringUtilsImpl.html", null ],
     [ "Arccore::StringView", "d0/d06/classArccore_1_1StringView.html", null ],
     [ "StrucInfoProc", "db/d16/structStrucInfoProc.html", null ],
     [ "StrucListeDomMail", "d1/d8c/structStrucListeDomMail.html", null ],

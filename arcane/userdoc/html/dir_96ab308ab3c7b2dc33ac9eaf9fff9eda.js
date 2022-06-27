@@ -37,6 +37,7 @@ var dir_96ab308ab3c7b2dc33ac9eaf9fff9eda =
     [ "String.h", "d1/ddc/arccore_2src_2base_2arccore_2base_2String_8h_source.html", null ],
     [ "StringBuilder.h", "df/d47/arccore_2src_2base_2arccore_2base_2StringBuilder_8h_source.html", null ],
     [ "StringImpl.h", "dc/dfe/arccore_2src_2base_2arccore_2base_2StringImpl_8h_source.html", null ],
+    [ "StringUtils.h", "d4/d8f/StringUtils_8h.html", "d4/d8f/StringUtils_8h" ],
     [ "StringView.h", "dd/dea/StringView_8h_source.html", null ],
     [ "TimeoutException.h", "d8/d78/arccore_2src_2base_2arccore_2base_2TimeoutException_8h_source.html", null ],
     [ "TraceInfo.h", "d5/dbe/arccore_2src_2base_2arccore_2base_2TraceInfo_8h_source.html", null ]

@@ -6,6 +6,7 @@ var classArcane_1_1impl_1_1NumArrayContainer =
     [ "bytes", "de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html#a51175dbf5022287dc544fbbaf249fc59", null ],
     [ "copy", "de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html#aec94057f6eef1b16c873ceee02c44819", null ],
     [ "copyInitializerList", "de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html#aba370f17b1383c7af96cb4ba656beebe", null ],
+    [ "operator=", "de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html#a96ae7f84f593b2fe696413763d0c4862", null ],
     [ "resize", "de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html#ae4991f1daaf0041ccc2d887c8fbdd3a9", null ],
     [ "swap", "de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html#a25c2a7780fa8d8a3ef8d13ad6e86e7f0", null ],
     [ "to1DSpan", "de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html#ac05c15896df92bc35404cc7cd80b0d46", null ],

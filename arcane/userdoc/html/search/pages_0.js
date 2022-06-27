@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_25arcane_12279',['%Arcane',['../index.html',1,'']]]
+  ['_25arcane_12313',['%Arcane',['../index.html',1,'']]]
 ];

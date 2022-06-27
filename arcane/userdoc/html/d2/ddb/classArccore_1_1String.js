@@ -12,6 +12,7 @@ var classArccore_1_1String =
     [ "String", "d2/ddb/classArccore_1_1String.html#adf028d1106c81c68eaa90177cd8cc805", null ],
     [ "String", "d2/ddb/classArccore_1_1String.html#ad4a5486825442b500257a4601321351e", null ],
     [ "String", "d2/ddb/classArccore_1_1String.html#a33ec3e413d8f41704032943a74952731", null ],
+    [ "String", "d2/ddb/classArccore_1_1String.html#a1308b3f6f652bc93257b6ef970f2ccac", null ],
     [ "~String", "d2/ddb/classArccore_1_1String.html#a186d2a1d2d7e94235eec94756035ce2e", null ],
     [ "bytes", "d2/ddb/classArccore_1_1String.html#a7354b8a6932c5cba5928cde278316a82", null ],
     [ "clone", "d2/ddb/classArccore_1_1String.html#a7a238cf0acc905be2f3344263b562639", null ],
@@ -43,6 +44,7 @@ var classArccore_1_1String =
     [ "operator=", "d2/ddb/classArccore_1_1String.html#a5477d74fd74448b594dac35dbce92bb8", null ],
     [ "operator=", "d2/ddb/classArccore_1_1String.html#a3200b11de5a6ea6b1cd0b21d57fe6c9c", null ],
     [ "operator=", "d2/ddb/classArccore_1_1String.html#a78447aea246d3f25016001c7baf7828c", null ],
+    [ "operator=", "d2/ddb/classArccore_1_1String.html#ab364dd0d3c2f4a47ddbd46ba1eb65e8b", null ],
     [ "operator=", "d2/ddb/classArccore_1_1String.html#a29780ede5d6f1b69590cd4798032e270", null ],
     [ "split", "d2/ddb/classArccore_1_1String.html#a8f7b01f73136664482e2d169871d003f", null ],
     [ "startsWith", "d2/ddb/classArccore_1_1String.html#a954fbbce7f96275803fac6fb13686136", null ],
@@ -56,5 +58,6 @@ var classArccore_1_1String =
     [ "writeBytes", "d2/ddb/classArccore_1_1String.html#a1218162be9b2b3cab2071e39aa1fbf9a", null ],
     [ "operator<", "d2/ddb/classArccore_1_1String.html#a7671e8463bcfe306052cdf706e0cbb58", null ],
     [ "operator==", "d2/ddb/classArccore_1_1String.html#a7ef42a805c82a927e746b6d5380dc4e3", null ],
-    [ "StringBuilder", "d2/ddb/classArccore_1_1String.html#a0499e7f0cafab51b99e453165e64d62b", null ]
+    [ "StringBuilder", "d2/ddb/classArccore_1_1String.html#a0499e7f0cafab51b99e453165e64d62b", null ],
+    [ "StringUtilsImpl", "d2/ddb/classArccore_1_1String.html#a662ad73ff394dd13f168572e4bde643a", null ]
 ];
