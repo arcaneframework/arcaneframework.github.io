@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.6.10.0</span>
+   &#160;<span id="projectnumber">3.6.11.0</span>
    </div>
   </td>
  </tr>
@@ -87,7 +87,7 @@ $(document).ready(function(){initNavTree('d7/d29/arcanedoc_changelog.html','../.
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table des matières</h3>
-<ul><li class="level1"><a href="#arcanedoc_version360">Arcane Version 3.6.5 (?? juin 2022)</a></li>
+<ul><li class="level1"><a href="#arcanedoc_version360">Arcane Version 3.6.11 (?? juin 2022)</a></li>
 <li class="level1"><a href="#arcanedoc_version350">Arcane Version 3.5.7 (07 avril 2022)</a></li>
 <li class="level1"><a href="#arcanedoc_version340">Arcane Version 3.4.5 (10 février 2022)</a></li>
 <li class="level1"><a href="#arcanedoc_version330">Arcane Version 3.3.0 (16 décembre 2021)</a></li>
@@ -129,7 +129,7 @@ $(document).ready(function(){initNavTree('d7/d29/arcanedoc_changelog.html','../.
 <div class="textblock"><p><a class="anchor" id="md_doc_changelog"></a></p>
 <p>Cette page contient les nouveautés de chaque version de Arcane.</p>
 <h1><a class="anchor" id="arcanedoc_version360"></a>
-Arcane Version 3.6.5 (?? juin 2022)</h1>
+Arcane Version 3.6.11 (?? juin 2022)</h1>
 <p>Nouveautés/Améliorations:</p>
 <ul>
 <li>Supprime allocation de la connectivité des noeuds dans les anciennes connectivités. Cela permet de réduire l'empreinte mémoire (#231).</li>
@@ -141,6 +141,9 @@ Arcane Version 3.6.5 (?? juin 2022)</h1>
 <li>Ajoute accès pour les accélérateurs à certaines méthodes de <a class="el" href="../../d8/d5d/classArcane_1_1MDSpan.html">Arcane::MDSpan</a> (#217).</li>
 <li>Ajoute accès aux connectivités aux arêtes dans <a class="el" href="../../d5/db4/classArcane_1_1UnstructuredMeshConnectivityView.html" title="Vue sur les connectivités standards d&#39;un maillage non structuré.">Arcane::UnstructuredMeshConnectivityView</a> (#216)</li>
 <li>Ajoute interface accessible via '<a class="el" href="../../d0/d9f/classArcane_1_1IMesh.html#afea4026a3c4f5b7bdd261f6c8805344b" title="Interface du gestionnaire des connectivités incrémentales indexées.">Arcane::IMesh::indexedConnectivityMng()</a>' permet de facilement ajouter de nouvelles connectivités (#201).</li>
+<li>Ajout d'un nouvel algorithme de calcul des uniqueId() des arêtes (Edge) pour les maillages cartésiens</li>
+<li>Ajoute support pour les classes de <a class="el" href="../../d5/d60/namespaceArccore.html" title="Espace de nom de Arccore.">Arccore</a> de l'opérateur <code>operator[]</code> avec arguments multiples (#241).</li>
+<li>Possibilité de rendre thread-safe les appels à <a class="el" href="../../de/dae/namespaceArcane_1_1Accelerator.html#a03c277b9b5cda10acc53f493d26ef2e2" title="Créé une file temporaire associée à runner.">Arcane::Accelerator::makeQueue()</a> en appelant la méthode <a class="el" href="../../d1/d61/classArcane_1_1Accelerator_1_1Runner.html#a09a3936aa207a91e8c79b468b7a8d6b1" title="Indique si on autorise la création de RunQueue depuis plusieurs threads.">Arcane::Accelerator::Runner::setConcurrentQueueCreation()</a> (#242)</li>
 </ul>
 <p>Changements:</p>
 <ul>
@@ -148,14 +151,37 @@ Arcane Version 3.6.5 (?? juin 2022)</h1>
 <li>Les types gérant le <code>localId()</code> associés aux entités (Arcane::NodeLocalId, Arcane::CellLocalId, ...) sont maintenant des <code>typedef</code> d'une classe template <a class="el" href="../../d6/d48/classArcane_1_1ItemLocalIdT.html" title="Index d&#39;une entité ItemType dans une variable.">Arcane::ItemLocalIdT</a>.</li>
 <li>Supprime dans les opérateurs d'accès aux variables (operator[]) les différentes surcharges. Il faut maintenant utiliser un '<a class="el" href="../../d6/d48/classArcane_1_1ItemLocalIdT.html" title="Index d&#39;une entité ItemType dans une variable.">Arcane::ItemLocalIdT</a>' comme indexeur. Des opérateurs de conversion vers ce type ont été ajoutés pour que le code source reste compatible.</li>
 <li>Désenregistre automatiquement les variables encores allouées lorsqu'on appelle <a class="el" href="../../d7/d7c/classArcane_1_1IVariableMng.html#af698dcee211de6441a69ee4a3500ec08" title="Supprime et détruit les variables gérées par ce gestionnaire.">Arcane::IVariableMng::removeAllVariables()</a>. Cela permet d'éviter des plantages lorsque des références aux variables existaient encore après cet appel. Cela peut notamment être le cas avec les extensions C# car les services et modules associés sont gérés par un 'Garbage Collector' (#200).</li>
+<li>Rend obsolète l'utilisation de <a class="el" href="../../d3/d97/classArcane_1_1Timer.html#a5ecbb50fcc50bbeb9fc6aefa917b76cfa673badf142cf3dcf49e494b1849a1004" title="Timer utilisant le temps CPU (obsolète).">Arcane::Timer::TimerVirtual</a>. Les timers qui utilisent cette propriété se comportent comme s'ils avaient l'attribut <a class="el" href="../../d3/d97/classArcane_1_1Timer.html#a5ecbb50fcc50bbeb9fc6aefa917b76cfa37c3cdc43847b81534b98a20b0464232" title="Timer utilisant le temps réel.">Arcane::Timer::TimerReal</a>.</li>
 </ul>
 <p>Corrections:</p>
 <ul>
 <li>Corrige mauvaises valeurs de <a class="el" href="../../dd/d0a/classArcane_1_1IItemFamily.html#af6353c856052dad1d80a8f38620ff632" title="Informations sur la connectivité locale au sous-domaine pour à cette famille.">Arcane::IItemFamily::localConnectivityInfos()</a> et <a class="el" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a645040c925b51b1c7522730b1ae6ed3b" title="Informations sur la connectivité globales à tous les sous-domaines.">Arcane::IItemFamily::globalConnectivityInfos()</a> pour les connectivités autres que celles aux noeuds. Ce bug avait été introduit lors du passage aux nouvelles connectivités (#230, #27).</li>
+<li>Corrige divers bugs dans la version 3 de BasicReaderWriter (#238)</li>
 </ul>
 <p>Interne:</p>
 <ul>
 <li>Utilise des variables pour conserver les champs <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html#a726ba1bd7454d63e65d3004f4afb98c4" title="Numéro du sous-domaine propriétaire de l&#39;entité">Arcane::ItemInternal::owner()</a> et <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html#a0bc5b25fcd222a6a16d71a83229351c2" title="Flags de l&#39;entité">Arcane::ItemInternal::flags()</a> au lieu de conserver l'information dans <a class="el" href="../../df/d0b/classArcane_1_1ItemSharedInfo.html">Arcane::ItemSharedInfo</a>. Cela permettra à terme de supprimer le champ correspondant dans <a class="el" href="../../df/d0b/classArcane_1_1ItemSharedInfo.html">Arcane::ItemSharedInfo</a> (#227).</li>
+<li>Passage version 2.0.3.0 de Axlstar:<ul>
+<li>Ajoute support dans les fichiers 'axl' des propriétés <a class="el" href="../../d5/d96/classArcane_1_1IVariable.html#a48f18c4778be07ab6b84feb05333efeda238fcf2bcda831cc90dcfa64c3ffbb9d" title="Indique que la variable ne doit pas être échangée.">Arcane::IVariable::PNoExchange</a>, <a class="el" href="../../d5/d96/classArcane_1_1IVariable.html#a48f18c4778be07ab6b84feb05333efeda4b0e4cce42148af5a5fbd5234bcf1b26" title="Indique que la variable n&#39;a pas forcément la même valeur entre les réplicas.">Arcane::IVariable::PNoReplicaSync</a> et <a class="el" href="../../d5/d96/classArcane_1_1IVariable.html#a48f18c4778be07ab6b84feb05333efeda95666b8d66545776f3b8692179544313" title="Indique que la variable est persistante.">Arcane::IVariable::PPersistant</a>.</li>
+</ul>
+</li>
+<li>Passage version 2.0.11.0 de Arccore:<ul>
+<li>Add function <code>mpDelete()</code> to destroy <code>IMessagePassingMng</code> instances (#258)</li>
+<li>Optimizations in class <code>String</code>(#256,#247)<ul>
+<li>Add move constructor String(String&amp;&amp;) and move copy operator operator=(String&amp;&amp;)</li>
+<li>Make <code>String</code> destructor inline</li>
+<li>Make method <code>String::utf16()</code> deprecated (replaced by <code><a class="el" href="../../d4/d8f/StringUtils_8h.html#ae436255d1b6c53e9ca1b68852afa5c97" title="Retourne la conversion de l&#39;instance dans l&#39;encodage UTF-16BE.">StringUtils::asUtf16BE()</a></code>)</li>
+<li>Methods <code>String::bytes()</code> and <code>String::format</code> no longer throws exceptions</li>
+<li>Add a namespace <code>StringUtils</code> to contains utilitarian functions.</li>
+</ul>
+</li>
+<li>Add support for multisubscript <code>operator[]</code> from C++23 (#241)</li>
+<li>Add <code>operator()</code> to access values of <code>ArrayView</code>, <code>ArrayView2</code>, <code>ArrayView3</code>, <code>ArrayView4</code>, <code>Span</code>, <code>Span2</code> and <code>const</code> versions of these views (#223).</li>
+<li>Add <code>SmallSpan2</code> implementation for 2D arrays whose <code>size_type</code> is an <code>Int32</code> (#223).</li>
+<li>Add <code>SpanImpl::findFirst()</code> method (#211)</li>
+<li>Fix build on Ubuntu 22.04</li>
+</ul>
+</li>
 </ul>
 <h1><a class="anchor" id="arcanedoc_version350"></a>
 Arcane Version 3.5.7 (07 avril 2022)</h1>
@@ -700,14 +726,15 @@ Arcane Version 2.5.2 (25 juillet 2017)</h1>
 <div class="line">MessagePassing::namedBarrier(pm,<span class="stringliteral">&quot;MyBarrier&quot;</span>);</div>
 <div class="ttc" id="aParallel_8h_html"><div class="ttname"><a href="../../db/d8b/Parallel_8h.html">Parallel.h</a></div><div class="ttdoc">Fichier contenant les déclarations concernant le modèle de programmation par échange de message.</div></div>
 </div><!-- fragment --></li>
-<li>possibilité de mixer déclarations de variables matériaux et milieux (pour des variables scalaires uniquement). Dans ce cas toutes les variables sont allouées sur les matériaux et les milieux. Par défaut cela n'est pas actif car cela consomme de la mémoire inutilement. <div class="fragment"><div class="line"><span class="keyword">using namespace </span>Arcane::Materials;</div>
+<li>possibilité de mixer déclarations de variables matériaux et milieux (pour des variables scalaires uniquement). Dans ce cas toutes les variables sont allouées sur les matériaux et les milieux. Par défaut cela n'est pas actif car cela consomme de la mémoire inutilement. <div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d4/d60/namespaceArcane_1_1Materials.html">Arcane::Materials</a>;</div>
 <div class="line">IMeshMaterialMng* mm = ...;</div>
 <div class="line">mm-&gt;setAllocateScalarEnvironmentVariableAsMaterial(<span class="keyword">true</span>);</div>
-<div class="line"><a class="code" href="../../d9/db2/MeshMaterialVariableRef_8h.html#ad42f72196acf6c2a74c142de7812132d">MaterialVariableCellReal</a> mat_var(MaterialVariableBuildInfo(mm,<span class="stringliteral">&quot;Var1&quot;</span>));</div>
-<div class="line"><a class="code" href="../../dd/d86/MeshEnvironmentVariableRef_8h.html#a9d3ab879ccb375e473eea4f6f4b2dd10">EnvironmentVariableCellReal</a> env_var(MaterialVariableBuildInfo(mm,<span class="stringliteral">&quot;Var1&quot;</span>));</div>
+<div class="line"><a class="code" href="../../d4/d60/namespaceArcane_1_1Materials.html#ad42f72196acf6c2a74c142de7812132d">MaterialVariableCellReal</a> mat_var(MaterialVariableBuildInfo(mm,<span class="stringliteral">&quot;Var1&quot;</span>));</div>
+<div class="line"><a class="code" href="../../d4/d60/namespaceArcane_1_1Materials.html#a9d3ab879ccb375e473eea4f6f4b2dd10">EnvironmentVariableCellReal</a> env_var(MaterialVariableBuildInfo(mm,<span class="stringliteral">&quot;Var1&quot;</span>));</div>
 <div class="line"><span class="comment">// &#39;mat_var&#39; et &#39;env var&#39; sont les mêmes variables.</span></div>
-<div class="ttc" id="aMeshEnvironmentVariableRef_8h_html_a9d3ab879ccb375e473eea4f6f4b2dd10"><div class="ttname"><a href="../../dd/d86/MeshEnvironmentVariableRef_8h.html#a9d3ab879ccb375e473eea4f6f4b2dd10">Arcane::Materials::EnvironmentVariableCellReal</a></div><div class="ttdeci">CellEnvironmentVariableScalarRef&lt; Real &gt; EnvironmentVariableCellReal</div><div class="ttdoc">Variable milieu de type #Real</div><div class="ttdef"><b>Definition:</b> MeshEnvironmentVariableRef.h:259</div></div>
-<div class="ttc" id="aMeshMaterialVariableRef_8h_html_ad42f72196acf6c2a74c142de7812132d"><div class="ttname"><a href="../../d9/db2/MeshMaterialVariableRef_8h.html#ad42f72196acf6c2a74c142de7812132d">Arcane::Materials::MaterialVariableCellReal</a></div><div class="ttdeci">CellMaterialVariableScalarRef&lt; Real &gt; MaterialVariableCellReal</div><div class="ttdoc">Variable matériau de type #Real</div><div class="ttdef"><b>Definition:</b> MeshMaterialVariableRef.h:487</div></div>
+<div class="ttc" id="anamespaceArcane_1_1Materials_html"><div class="ttname"><a href="../../d4/d60/namespaceArcane_1_1Materials.html">Arcane::Materials</a></div><div class="ttdoc">Active toujours les traces dans les parties Arcane concernant les matériaux.</div><div class="ttdef"><b>Definition:</b> CellToAllEnvCellConverter.h:24</div></div>
+<div class="ttc" id="anamespaceArcane_1_1Materials_html_a9d3ab879ccb375e473eea4f6f4b2dd10"><div class="ttname"><a href="../../d4/d60/namespaceArcane_1_1Materials.html#a9d3ab879ccb375e473eea4f6f4b2dd10">Arcane::Materials::EnvironmentVariableCellReal</a></div><div class="ttdeci">CellEnvironmentVariableScalarRef&lt; Real &gt; EnvironmentVariableCellReal</div><div class="ttdoc">Variable milieu de type #Real</div><div class="ttdef"><b>Definition:</b> MeshEnvironmentVariableRef.h:261</div></div>
+<div class="ttc" id="anamespaceArcane_1_1Materials_html_ad42f72196acf6c2a74c142de7812132d"><div class="ttname"><a href="../../d4/d60/namespaceArcane_1_1Materials.html#ad42f72196acf6c2a74c142de7812132d">Arcane::Materials::MaterialVariableCellReal</a></div><div class="ttdeci">CellMaterialVariableScalarRef&lt; Real &gt; MaterialVariableCellReal</div><div class="ttdoc">Variable matériau de type #Real</div><div class="ttdef"><b>Definition:</b> MeshMaterialVariableRef.h:484</div></div>
 </div><!-- fragment --></li>
 </ul>
 <h1><a class="anchor" id="arcanedoc_version251"></a>
@@ -786,11 +813,12 @@ Arcane Version 2.4.1 (01 Décembre 2016)</h1>
 Arcane Version 2.4.0 (Novembre 2016)</h1>
 <ul>
 <li>Support des variables uniquement sur les milieux. Ces variables s'utilisent comme les variables matériau mais n'ont de valeurs que sur les milieux et les mailles globales. Il ne faut donc pas les indexer avec des mailles matériaux (MatCell) sous peine de provoquer un accès mémoire illégal. La déclaration de ces variables se fait comme suit: <div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
-<div class="line"><a class="code" href="../../dd/d86/MeshEnvironmentVariableRef_8h.html#a9d3ab879ccb375e473eea4f6f4b2dd10">EnvironmentVariableCellReal</a> pressure(VariableBuildInfo(mesh,<span class="stringliteral">&quot;Pressure&quot;</span>));</div>
+<div class="line"><a class="code" href="../../d4/d60/namespaceArcane_1_1Materials.html#a9d3ab879ccb375e473eea4f6f4b2dd10">EnvironmentVariableCellReal</a> pressure(VariableBuildInfo(mesh,<span class="stringliteral">&quot;Pressure&quot;</span>));</div>
 <div class="line">IMeshEnvironment* env = ...;</div>
-<div class="line">ENUMERATE_ENVCELL(ienvcell,env){</div>
+<div class="line"><a class="code" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a568f790f7de72e2144399d55d8c63455">ENUMERATE_ENVCELL</a>(ienvcell,env){</div>
 <div class="line">  pressure[ienvcell] = 2.0;</div>
 <div class="line">}</div>
+<div class="ttc" id="acore_2materials_2MatItemEnumerator_8h_html_a568f790f7de72e2144399d55d8c63455"><div class="ttname"><a href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a568f790f7de72e2144399d55d8c63455">ENUMERATE_ENVCELL</a></div><div class="ttdeci">#define ENUMERATE_ENVCELL(iname, env)</div><div class="ttdoc">Macro pour itérer sur toutes les mailles d'un milieu.</div><div class="ttdef"><b>Definition:</b> MatItemEnumerator.h:594</div></div>
 </div><!-- fragment --></li>
 <li>Support du repartitionnement et de l'équilibrage de charge en conservant les informations des matériaux. Les valeurs partielles des mailles matériaux et milieux sont aussi conservées.</li>
 <li>Refonte interne de la gestion des échanges des entités lors d'un repartitionnement. Le but est de pouvoir ajouter plus facilement de nouvelles familles d'entités où de changer le traitement de l'un d'elle. Cette modification n'a aucun impact sur le code existant.</li>
@@ -861,7 +889,7 @@ Améliorations diverses</h2>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li>
-    <li class="footer">Généré le Lundi 27 Juin 2022 03:47:33 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Généré le Lundi 4 Juillet 2022 03:34:20 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

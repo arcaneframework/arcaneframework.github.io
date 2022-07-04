@@ -9,6 +9,7 @@ var classArcane_1_1Materials_1_1ItemMaterialVariableScalar =
     [ "ValueDataType", "d3/d7e/classArcane_1_1Materials_1_1ItemMaterialVariableScalar.html#aa40c305201370908b96535e2928f860c", null ],
     [ "VariableRefType", "d3/d7e/classArcane_1_1Materials_1_1ItemMaterialVariableScalar.html#aac646a290a5ab7449983b229ed466727", null ],
     [ "ItemMaterialVariableScalar", "d3/d7e/classArcane_1_1Materials_1_1ItemMaterialVariableScalar.html#a75876f93471f1c25deac71a9c673d834", null ],
+    [ "_trueViews", "d3/d7e/classArcane_1_1Materials_1_1ItemMaterialVariableScalar.html#ae74df03fd25f683b4f479caec70bf5f2", null ],
     [ "copyFromBuffer", "d3/d7e/classArcane_1_1Materials_1_1ItemMaterialVariableScalar.html#ab231a94ed8f6919431d48c245218dfcc", null ],
     [ "copyToBuffer", "d3/d7e/classArcane_1_1Materials_1_1ItemMaterialVariableScalar.html#ad3599004698bdd96534e82fdc4204162", null ],
     [ "dataTypeSize", "d3/d7e/classArcane_1_1Materials_1_1ItemMaterialVariableScalar.html#a0332880a91f775d30f30e4f3f1e95623", null ],

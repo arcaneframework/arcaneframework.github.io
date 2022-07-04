@@ -16,7 +16,7 @@ var modules =
     [ "IO", "d5/d82/group__IO.html", "d5/d82/group__IO" ],
     [ "Math", "df/d13/group__Math.html", null ],
     [ "Vectorisation", "d5/d04/group__ArcaneSimd.html", "d5/d04/group__ArcaneSimd" ],
-    [ "Maillages cartésiens.", "db/d83/group__ArcaneCartesianMesh.html", "db/d83/group__ArcaneCartesianMesh" ],
     [ "Matériaux et des milieux.", "d9/d01/group__ArcaneMaterials.html", "d9/d01/group__ArcaneMaterials" ],
+    [ "Maillages cartésiens.", "db/d83/group__ArcaneCartesianMesh.html", "db/d83/group__ArcaneCartesianMesh" ],
     [ "Eléments géométriques.", "d0/d4f/group__ArcaneGeometric.html", "d0/d4f/group__ArcaneGeometric" ]
 ];

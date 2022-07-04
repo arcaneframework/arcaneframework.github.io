@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.6.10.0</span>
+   &#160;<span id="projectnumber">3.6.11.0</span>
    </div>
   </td>
  </tr>
@@ -104,12 +104,12 @@ $(document).ready(function(){initNavTree('da/d7e/arcanedoc_materialloop.html','.
 <p>Au niveau du rangement mémoire pour une variable donnée, accéder à une entité pure revient à accéder à la valeur globale de cette variable.</p>
 <h1><a class="anchor" id="arcanedoc_material_loop"></a>
 Généralisation des boucles</h1>
-<p>Depuis la version 2.7.0 de Arcane, La macro générique ENUMERATE_COMPONENTITEM() permet d'itérer sur les entités d'un composant de manière globale ou par partie (pure/impure). Elle peut remplacer les macros ENUMERATE_COMPONENTCELL(), ENUMERATE_MATCELL() et ENUMERATE_ENVCELL().</p>
+<p>Depuis la version 2.7.0 de Arcane, La macro générique <a class="el" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a" title="Macro générique pour itérer sur les entités d&#39;un matériau ou d&#39;un milieu.">ENUMERATE_COMPONENTITEM()</a> permet d'itérer sur les entités d'un composant de manière globale ou par partie (pure/impure). Elle peut remplacer les macros <a class="el" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#ad0a44976a632ca375796818664c67977" title="Macro pour itérer sur toutes les mailles d&#39;un composant.">ENUMERATE_COMPONENTCELL()</a>, <a class="el" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#ab9c458f7fd0f80713f8229a6fcb9e3c0" title="Macro pour itérer sur toutes les mailles d&#39;un matériau.">ENUMERATE_MATCELL()</a> et <a class="el" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a568f790f7de72e2144399d55d8c63455" title="Macro pour itérer sur toutes les mailles d&#39;un milieu.">ENUMERATE_ENVCELL()</a>.</p>
 <p>Les valeurs suivantes sont disponibles pour l'itération:</p>
-<p>ENUMERATE_COMPONENTITEM(MatCell,icell,container) avec container de type IMeshMaterial* ou MatCellVector.</p>
+<p><a class="el" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a" title="Macro générique pour itérer sur les entités d&#39;un matériau ou d&#39;un milieu.">ENUMERATE_COMPONENTITEM(MatCell,icell,container)</a> avec container de type IMeshMaterial* ou MatCellVector.</p>
 <p>Il est possible d'itérer uniquement sur la partie pure ou impure d'un composant.</p>
 <dl class="section note"><dt>Note</dt><dd>Actuellement, l'ordre de parcours des boucles par partie pure ou impure n'est pas défini et pourra évoluer par la suite. Cela signifie que s'il y a des dépendances entre les itérations de la boucle le résultat peut varier d'une exécution à l'autre.</dd></dl>
-<p>Les exemples suivants montrent les différentes variantes de la macro ENUMERATE_COMPONENTITEM()</p>
+<p>Les exemples suivants montrent les différentes variantes de la macro <a class="el" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a" title="Macro générique pour itérer sur les entités d&#39;un matériau ou d&#39;un milieu.">ENUMERATE_COMPONENTITEM()</a></p>
 <h2><a class="anchor" id="arcanedoc_material_envloop"></a>
 Boucles sur les milieux</h2>
 <div class="fragment"><div class="line">      <a class="code" href="../../de/db5/group__Mesh.html#ga4d78be302ffdabc4e0f16578cc077314">CellGroup</a> test_env_group;</div>
@@ -117,41 +117,42 @@ Boucles sur les milieux</h2>
 <div class="line">      EnvCellVector env_vector(test_env_group,env);</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Boucle sur les mailles du milieu \a env</span></div>
-<div class="line">      ENUMERATE_COMPONENTITEM(EnvCell,ienvcell,env){</div>
+<div class="line">      <a class="code" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a">ENUMERATE_COMPONENTITEM</a>(EnvCell,ienvcell,env){</div>
 <div class="line">        EnvCell c = *ienvcell;</div>
 <div class="line">        mat_pressure[c] = mat_temperature[ienvcell];</div>
 <div class="line">      }</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Boucle sur les mailles du milieu \a env_vector</span></div>
-<div class="line">      ENUMERATE_COMPONENTITEM(EnvCell,ienvcell,env_vector){</div>
+<div class="line">      <a class="code" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a">ENUMERATE_COMPONENTITEM</a>(EnvCell,ienvcell,env_vector){</div>
 <div class="line">        EnvCell c = *ienvcell;</div>
 <div class="line">        mat_pressure[c] = mat_temperature[ienvcell];</div>
 <div class="line">      }</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Boucle sur les mailles pures du milieu \a env</span></div>
-<div class="line">      ENUMERATE_COMPONENTITEM(EnvPartCell,ienvcell,env-&gt;pureEnvItems()){</div>
+<div class="line">      <a class="code" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a">ENUMERATE_COMPONENTITEM</a>(EnvPartCell,ienvcell,env-&gt;pureEnvItems()){</div>
 <div class="line">        EnvCell c = *ienvcell;</div>
 <div class="line">        mat_pressure[c] = mat_temperature[ienvcell];</div>
 <div class="line">      }</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Boucle sur les mailles pures du milieu \a env</span></div>
-<div class="line">      ENUMERATE_COMPONENTITEM(EnvPartCell,ienvcell,env,eMatPart::Pure){</div>
+<div class="line">      <a class="code" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a">ENUMERATE_COMPONENTITEM</a>(EnvPartCell,ienvcell,env,eMatPart::Pure){</div>
 <div class="line">        EnvCell c = *ienvcell;</div>
 <div class="line">        mat_pressure[c] = mat_temperature[ienvcell];</div>
 <div class="line">      }</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Boucle sur les mailles impures du milieu \a env</span></div>
-<div class="line">      ENUMERATE_COMPONENTITEM(EnvPartCell,ienvcell,env-&gt;impureEnvItems()){</div>
+<div class="line">      <a class="code" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a">ENUMERATE_COMPONENTITEM</a>(EnvPartCell,ienvcell,env-&gt;impureEnvItems()){</div>
 <div class="line">        EnvCell c = *ienvcell;</div>
 <div class="line">        mat_pressure[c] = mat_temperature[ienvcell];</div>
 <div class="line">      }</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Boucle sur les mailles impures du milieu \a env</span></div>
-<div class="line">      ENUMERATE_COMPONENTITEM(EnvPartCell,ienvcell,env,eMatPart::Impure){</div>
+<div class="line">      <a class="code" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a">ENUMERATE_COMPONENTITEM</a>(EnvPartCell,ienvcell,env,eMatPart::Impure){</div>
 <div class="line">        EnvCell c = *ienvcell;</div>
 <div class="line">        mat_pressure[c] = mat_temperature[ienvcell];</div>
 <div class="line">      }</div>
 <div class="line"> </div>
+<div class="ttc" id="acore_2materials_2MatItemEnumerator_8h_html_a589e14233bca28cb7e45d6a54cf9476a"><div class="ttname"><a href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a">ENUMERATE_COMPONENTITEM</a></div><div class="ttdeci">#define ENUMERATE_COMPONENTITEM(enumerator_class_name, iname,...)</div><div class="ttdoc">Macro générique pour itérer sur les entités d'un matériau ou d'un milieu.</div><div class="ttdef"><b>Definition:</b> MatItemEnumerator.h:560</div></div>
 <div class="ttc" id="agroup__Mesh_html_ga4d78be302ffdabc4e0f16578cc077314"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga4d78be302ffdabc4e0f16578cc077314">Arcane::CellGroup</a></div><div class="ttdeci">ItemGroupT&lt; Cell &gt; CellGroup</div><div class="ttdoc">Groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:141</div></div>
 </div><!-- fragment --> <h2><a class="anchor" id="arcanedoc_material_matloop"></a>
 Boucles sur les matériaux</h2>
@@ -160,74 +161,74 @@ Boucles sur les matériaux</h2>
 <div class="line">      MatCellVector mat_vector(test_mat_group,mat);</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Boucle sur les mailles du matériau \a mat</span></div>
-<div class="line">      ENUMERATE_COMPONENTITEM(MatCell,imatcell,mat){</div>
+<div class="line">      <a class="code" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a">ENUMERATE_COMPONENTITEM</a>(MatCell,imatcell,mat){</div>
 <div class="line">        MatCell c = *imatcell;</div>
 <div class="line">        mat_pressure[c] = mat_temperature[imatcell];</div>
 <div class="line">      }</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Boucle sur les mailles du matériau \a mat_vector</span></div>
-<div class="line">      ENUMERATE_COMPONENTITEM(MatCell,imatcell,mat_vector){</div>
+<div class="line">      <a class="code" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a">ENUMERATE_COMPONENTITEM</a>(MatCell,imatcell,mat_vector){</div>
 <div class="line">        MatCell c = *imatcell;</div>
 <div class="line">        mat_pressure[c] = mat_temperature[imatcell];</div>
 <div class="line">      }</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Boucle sur les mailles pures du matériau \a mat</span></div>
-<div class="line">      ENUMERATE_COMPONENTITEM(MatPartCell,imatcell,mat-&gt;pureMatItems()){</div>
+<div class="line">      <a class="code" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a">ENUMERATE_COMPONENTITEM</a>(MatPartCell,imatcell,mat-&gt;pureMatItems()){</div>
 <div class="line">        MatCell c = *imatcell;</div>
 <div class="line">        mat_pressure[c] = mat_temperature[imatcell];</div>
 <div class="line">      }</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Boucle sur les mailles pures du matériau \a mat</span></div>
-<div class="line">      ENUMERATE_COMPONENTITEM(MatPartCell,imatcell,mat,eMatPart::Pure){</div>
+<div class="line">      <a class="code" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a">ENUMERATE_COMPONENTITEM</a>(MatPartCell,imatcell,mat,eMatPart::Pure){</div>
 <div class="line">        MatCell c = *imatcell;</div>
 <div class="line">        mat_pressure[c] = mat_temperature[imatcell];</div>
 <div class="line">      }</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Boucle sur les mailles impures du matériau \a mat</span></div>
-<div class="line">      ENUMERATE_COMPONENTITEM(MatPartCell,imatcell,mat-&gt;impureMatItems()){</div>
+<div class="line">      <a class="code" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a">ENUMERATE_COMPONENTITEM</a>(MatPartCell,imatcell,mat-&gt;impureMatItems()){</div>
 <div class="line">        MatCell c = *imatcell;</div>
 <div class="line">        mat_pressure[c] = mat_temperature[imatcell];</div>
 <div class="line">      }</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Boucle sur les mailles impures du matériau \a mat</span></div>
-<div class="line">      ENUMERATE_COMPONENTITEM(MatPartCell,imatcell,mat,eMatPart::Impure){</div>
+<div class="line">      <a class="code" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a">ENUMERATE_COMPONENTITEM</a>(MatPartCell,imatcell,mat,eMatPart::Impure){</div>
 <div class="line">        MatCell c = *imatcell;</div>
 <div class="line">        mat_pressure[c] = mat_temperature[imatcell];</div>
 <div class="line">      }</div>
 </div><!-- fragment --> <h2><a class="anchor" id="arcanedoc_material_componentloop"></a>
 Boucles génériques sur les composants</h2>
 <div class="fragment"><div class="line">      <span class="comment">// Boucle générique sur les mailles du matériau \a mat</span></div>
-<div class="line">      ENUMERATE_COMPONENTITEM(ComponentCell,iccell,mat){</div>
+<div class="line">      <a class="code" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a">ENUMERATE_COMPONENTITEM</a>(ComponentCell,iccell,mat){</div>
 <div class="line">        ComponentCell c = *iccell;</div>
 <div class="line">        mat_pressure[c] = mat_temperature[iccell];</div>
 <div class="line">      }</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Boucle générique sur les mailles du matériau \a mat_vector</span></div>
-<div class="line">      ENUMERATE_COMPONENTITEM(ComponentCell,iccell,mat_vector){</div>
+<div class="line">      <a class="code" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a">ENUMERATE_COMPONENTITEM</a>(ComponentCell,iccell,mat_vector){</div>
 <div class="line">        ComponentCell c = *iccell;</div>
 <div class="line">        mat_pressure[c] = mat_temperature[iccell];</div>
 <div class="line">      }</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Boucle générique sur les mailles pures du matériau \a mat</span></div>
-<div class="line">      ENUMERATE_COMPONENTITEM(ComponentPartCell,iccell,mat-&gt;pureItems()){</div>
+<div class="line">      <a class="code" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a">ENUMERATE_COMPONENTITEM</a>(ComponentPartCell,iccell,mat-&gt;pureItems()){</div>
 <div class="line">        ComponentCell c = *iccell;</div>
 <div class="line">        mat_pressure[c] = mat_temperature[iccell];</div>
 <div class="line">      }</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Boucle générique sur les mailles pures du matériau \a mat</span></div>
-<div class="line">      ENUMERATE_COMPONENTITEM(ComponentPartCell,iccell,mat,eMatPart::Pure){</div>
+<div class="line">      <a class="code" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a">ENUMERATE_COMPONENTITEM</a>(ComponentPartCell,iccell,mat,eMatPart::Pure){</div>
 <div class="line">        ComponentCell c = *iccell;</div>
 <div class="line">        mat_pressure[c] = mat_temperature[iccell];</div>
 <div class="line">      }</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Boucle générique sur les mailles impures du matériau \a mat</span></div>
-<div class="line">      ENUMERATE_COMPONENTITEM(ComponentPartCell,iccell,mat-&gt;impureItems()){</div>
+<div class="line">      <a class="code" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a">ENUMERATE_COMPONENTITEM</a>(ComponentPartCell,iccell,mat-&gt;impureItems()){</div>
 <div class="line">        ComponentCell c = *iccell;</div>
 <div class="line">        mat_pressure[c] = mat_temperature[iccell];</div>
 <div class="line">      }</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Boucle générique sur les mailles impures du matériau \a mat</span></div>
-<div class="line">      ENUMERATE_COMPONENTITEM(ComponentPartCell,iccell,mat,eMatPart::Impure){</div>
+<div class="line">      <a class="code" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a589e14233bca28cb7e45d6a54cf9476a">ENUMERATE_COMPONENTITEM</a>(ComponentPartCell,iccell,mat,eMatPart::Impure){</div>
 <div class="line">        ComponentCell c = *iccell;</div>
 <div class="line">        mat_pressure[c] = mat_temperature[iccell];</div>
 <div class="line">      }</div>
@@ -237,8 +238,9 @@ Boucles vectorielles sur les composants</h1>
 <p>Pour pouvoir utiliser la vectorisation sur les composants, il faut inclure le fichier suivant:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="../../d2/db6/ComponentSimd_8h.html">arcane/materials/ComponentSimd.h</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line"><span class="keyword">using namespace </span>Arcane::Materials;</div>
+<div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d4/d60/namespaceArcane_1_1Materials.html">Arcane::Materials</a>;</div>
 <div class="ttc" id="aComponentSimd_8h_html"><div class="ttname"><a href="../../d2/db6/ComponentSimd_8h.html">ComponentSimd.h</a></div></div>
+<div class="ttc" id="anamespaceArcane_1_1Materials_html"><div class="ttname"><a href="../../d4/d60/namespaceArcane_1_1Materials.html">Arcane::Materials</a></div><div class="ttdoc">Active toujours les traces dans les parties Arcane concernant les matériaux.</div><div class="ttdef"><b>Definition:</b> CellToAllEnvCellConverter.h:24</div></div>
 </div><!-- fragment --><p>Il est nécessaire d'utiliser le mécanisme des lambda du C++11 pour itérer sur les composants via des itérateurs vectoriels. Cela se fait via la macro suivante:</p>
 <div class="fragment"><div class="line"><a class="code" href="../../d2/db6/ComponentSimd_8h.html#a7e1950a58fb735ae92c9993a77f7123f">ENUMERATE_COMPONENTITEM_LAMBDA</a>(){</div>
 <div class="line">};</div>
@@ -246,10 +248,10 @@ Boucles vectorielles sur les composants</h1>
 </div><!-- fragment --><dl class="section warning"><dt>Avertissement</dt><dd>Il ne faut surtout pas oublier le point virgule ';' final. Pour plus d'informations, se reporter à la documentation de cette macro.</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Ce mécanisme est expérimental et pourra évoluer par la suite.</dd></dl>
 <p>Par exemple, avec les déclarations suivantes des variables:</p>
-<div class="fragment"><div class="line">      <a class="code" href="../../d9/db2/MeshMaterialVariableRef_8h.html#ad42f72196acf6c2a74c142de7812132d">MaterialVariableCellReal</a> mat_pressure(VariableBuildInfo(mesh,<span class="stringliteral">&quot;Pressure&quot;</span>));</div>
-<div class="line">      <a class="code" href="../../d9/db2/MeshMaterialVariableRef_8h.html#ad42f72196acf6c2a74c142de7812132d">MaterialVariableCellReal</a> mat_volume(VariableBuildInfo(mesh,<span class="stringliteral">&quot;Volume&quot;</span>));</div>
-<div class="line">      <a class="code" href="../../d9/db2/MeshMaterialVariableRef_8h.html#ad42f72196acf6c2a74c142de7812132d">MaterialVariableCellReal</a> mat_temperature(VariableBuildInfo(mesh,<span class="stringliteral">&quot;Temperature&quot;</span>));</div>
-<div class="ttc" id="aMeshMaterialVariableRef_8h_html_ad42f72196acf6c2a74c142de7812132d"><div class="ttname"><a href="../../d9/db2/MeshMaterialVariableRef_8h.html#ad42f72196acf6c2a74c142de7812132d">Arcane::Materials::MaterialVariableCellReal</a></div><div class="ttdeci">CellMaterialVariableScalarRef&lt; Real &gt; MaterialVariableCellReal</div><div class="ttdoc">Variable matériau de type #Real</div><div class="ttdef"><b>Definition:</b> MeshMaterialVariableRef.h:487</div></div>
+<div class="fragment"><div class="line">      <a class="code" href="../../d4/d60/namespaceArcane_1_1Materials.html#ad42f72196acf6c2a74c142de7812132d">MaterialVariableCellReal</a> mat_pressure(VariableBuildInfo(mesh,<span class="stringliteral">&quot;Pressure&quot;</span>));</div>
+<div class="line">      <a class="code" href="../../d4/d60/namespaceArcane_1_1Materials.html#ad42f72196acf6c2a74c142de7812132d">MaterialVariableCellReal</a> mat_volume(VariableBuildInfo(mesh,<span class="stringliteral">&quot;Volume&quot;</span>));</div>
+<div class="line">      <a class="code" href="../../d4/d60/namespaceArcane_1_1Materials.html#ad42f72196acf6c2a74c142de7812132d">MaterialVariableCellReal</a> mat_temperature(VariableBuildInfo(mesh,<span class="stringliteral">&quot;Temperature&quot;</span>));</div>
+<div class="ttc" id="anamespaceArcane_1_1Materials_html_ad42f72196acf6c2a74c142de7812132d"><div class="ttname"><a href="../../d4/d60/namespaceArcane_1_1Materials.html#ad42f72196acf6c2a74c142de7812132d">Arcane::Materials::MaterialVariableCellReal</a></div><div class="ttdeci">CellMaterialVariableScalarRef&lt; Real &gt; MaterialVariableCellReal</div><div class="ttdoc">Variable matériau de type #Real</div><div class="ttdef"><b>Definition:</b> MeshMaterialVariableRef.h:484</div></div>
 </div><!-- fragment --><p> Il est possible d'utiliser les boucles vectorielles comme suit:</p>
 <div class="fragment"><div class="line">      <a class="code" href="../../d5/d60/namespaceArccore.html#a5ab7f6a9c189227a5006d3f222aa61f6">Real</a> nr = 1.0;</div>
 <div class="line">      <span class="comment">// Température et volume en lecture seule</span></div>
@@ -278,7 +280,7 @@ Boucles vectorielles sur les composants</h1>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li>
-    <li class="footer">Généré le Lundi 27 Juin 2022 03:47:33 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Généré le Lundi 4 Juillet 2022 03:34:20 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

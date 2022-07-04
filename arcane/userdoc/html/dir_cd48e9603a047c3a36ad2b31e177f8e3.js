@@ -1,9 +1,11 @@
 var dir_cd48e9603a047c3a36ad2b31e177f8e3 =
 [
     [ "accelerator", "dir_0ae535d63c1c574fd7ac7e0cce1d5017.html", "dir_0ae535d63c1c574fd7ac7e0cce1d5017" ],
+    [ "core", "dir_8cabb88ec32c530181095530485eb04e.html", "dir_8cabb88ec32c530181095530485eb04e" ],
     [ "datatype", "dir_86a10b3600d6466fa7fa61842fe1063c.html", "dir_86a10b3600d6466fa7fa61842fe1063c" ],
     [ "geometry", "dir_a0e853b800bb24417a9e947486e4dac3.html", "dir_a0e853b800bb24417a9e947486e4dac3" ],
     [ "launcher", "dir_247550a8a6e91654120d18b6bc7d1def.html", "dir_247550a8a6e91654120d18b6bc7d1def" ],
+    [ "materials", "dir_a8dfc7e20e153710152e7994eb6626bc.html", "dir_a8dfc7e20e153710152e7994eb6626bc" ],
     [ "parallel", "dir_eb1838b4b1c6cfae37109cae5abc2bcb.html", "dir_eb1838b4b1c6cfae37109cae5abc2bcb" ],
     [ "utils", "dir_ec61ee1469f86161b003e941beb70d66.html", "dir_ec61ee1469f86161b003e941beb70d66" ],
     [ "AbstractCaseDocumentVisitor.h", "df/dcf/AbstractCaseDocumentVisitor_8h_source.html", null ],

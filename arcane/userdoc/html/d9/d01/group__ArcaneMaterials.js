@@ -1,90 +1,236 @@
 var group__ArcaneMaterials =
 [
-    [ "MeshBlockBuildInfo", "d4/d86/classArcane_1_1MeshBlockBuildInfo.html", [
-      [ "MeshBlockBuildInfo", "d4/d86/classArcane_1_1MeshBlockBuildInfo.html#acfd2b5f9977f02ef52f8ce6d611306be", null ],
-      [ "~MeshBlockBuildInfo", "d4/d86/classArcane_1_1MeshBlockBuildInfo.html#a04be82bbdd8a9f7e960d47a2d4e60347", null ],
-      [ "addEnvironment", "d4/d86/classArcane_1_1MeshBlockBuildInfo.html#a5484fb449da63a99f8e71911377e0d0b", null ],
-      [ "cells", "d4/d86/classArcane_1_1MeshBlockBuildInfo.html#a777e4cdfa2ac0ec53b8caeff1a30c815", null ],
-      [ "environments", "d4/d86/classArcane_1_1MeshBlockBuildInfo.html#a82d2e0240ea263929754027f137de4e9", null ],
-      [ "name", "d4/d86/classArcane_1_1MeshBlockBuildInfo.html#aad5d030967c88f31a8d8195081868a9e", null ]
+    [ "CellToAllEnvCellConverter", "d5/dd2/classArcane_1_1Materials_1_1CellToAllEnvCellConverter.html", [
+      [ "CellToAllEnvCellConverter", "d5/dd2/classArcane_1_1Materials_1_1CellToAllEnvCellConverter.html#ae4206825f3c1d5d6953a0e1169d2b5fb", null ],
+      [ "CellToAllEnvCellConverter", "d5/dd2/classArcane_1_1Materials_1_1CellToAllEnvCellConverter.html#a9aed9a1a7f132044e17be2daaa957ca5", null ],
+      [ "operator[]", "d5/dd2/classArcane_1_1Materials_1_1CellToAllEnvCellConverter.html#ae5f5f9fabd2e9ad97b5bbc3de574b41c", null ],
+      [ "operator[]", "d5/dd2/classArcane_1_1Materials_1_1CellToAllEnvCellConverter.html#a0cf140f809f9df05b03681e204f64112", null ]
     ] ],
-    [ "MeshEnvironmentBuildInfo", "d6/de3/classArcane_1_1MeshEnvironmentBuildInfo.html", [
-      [ "MatInfo", "d8/d22/classArcane_1_1MeshEnvironmentBuildInfo_1_1MatInfo.html", [
-        [ "MatInfo", "d8/d22/classArcane_1_1MeshEnvironmentBuildInfo_1_1MatInfo.html#a767f623ec57c20e7b5709c39938f7a62", null ],
-        [ "MatInfo", "d8/d22/classArcane_1_1MeshEnvironmentBuildInfo_1_1MatInfo.html#a2f02ffffdef373bebec98b7b7e20b589", null ],
-        [ "MatInfo", "d8/d22/classArcane_1_1MeshEnvironmentBuildInfo_1_1MatInfo.html#ada57d587340bd14e9307653bcb2d209c", null ],
-        [ "m_name", "d8/d22/classArcane_1_1MeshEnvironmentBuildInfo_1_1MatInfo.html#adfa9f581c32e5505ad3cc73f7422b761", null ],
-        [ "m_var_name", "d8/d22/classArcane_1_1MeshEnvironmentBuildInfo_1_1MatInfo.html#ab7493c492a5f60b4e041e0f50c94ae60", null ]
+    [ "ComponentCell", "dc/d9f/classArcane_1_1Materials_1_1ComponentCell.html", [
+      [ "ComponentCell", "dc/d9f/classArcane_1_1Materials_1_1ComponentCell.html#a251342de8f8af2fd643021d76ffbe84c", null ],
+      [ "ComponentCell", "dc/d9f/classArcane_1_1Materials_1_1ComponentCell.html#a317b46806b095381b34a95710f94272d", null ],
+      [ "_varIndex", "dc/d9f/classArcane_1_1Materials_1_1ComponentCell.html#a42f61c85f5c6ce7554158312324b2202", null ],
+      [ "component", "dc/d9f/classArcane_1_1Materials_1_1ComponentCell.html#a63629ddc23d51aefa40b0853a7e4d249", null ],
+      [ "componentId", "dc/d9f/classArcane_1_1Materials_1_1ComponentCell.html#af78f8d59292ee4fbed33a7045ef03fbc", null ],
+      [ "componentUniqueId", "dc/d9f/classArcane_1_1Materials_1_1ComponentCell.html#a51823e95e5edf067b2aebb59eaa5e1f1", null ],
+      [ "globalCell", "dc/d9f/classArcane_1_1Materials_1_1ComponentCell.html#a5e4e4254f0b8596a85947ce20db2d9dc", null ],
+      [ "internal", "dc/d9f/classArcane_1_1Materials_1_1ComponentCell.html#a67f257848e0ed39303287ecf93606e60", null ],
+      [ "level", "dc/d9f/classArcane_1_1Materials_1_1ComponentCell.html#a5afedfa6bf59cb0d990f362f04ddee9e", null ],
+      [ "nbSubItem", "dc/d9f/classArcane_1_1Materials_1_1ComponentCell.html#a5e4feb282b26b465292034f134463fde", null ],
+      [ "null", "dc/d9f/classArcane_1_1Materials_1_1ComponentCell.html#ad62bdd60d87f0d16f9ef8afa4ac2b581", null ],
+      [ "operator ComponentItemLocalId", "dc/d9f/classArcane_1_1Materials_1_1ComponentCell.html#a6da66b40c6b26d8ab5f279cad57985bf", null ],
+      [ "superCell", "dc/d9f/classArcane_1_1Materials_1_1ComponentCell.html#aae43966e5f2badf5d54020fb6c55682a", null ],
+      [ "m_internal", "dc/d9f/classArcane_1_1Materials_1_1ComponentCell.html#adaaeb28594571e3953a407787205748d", null ]
+    ] ],
+    [ "ComponentPartItemVectorView", "db/dfd/classArcane_1_1Materials_1_1ComponentPartItemVectorView.html", [
+      [ "ComponentPartItemVectorView", "db/dfd/classArcane_1_1Materials_1_1ComponentPartItemVectorView.html#a720f327f42672c6d97ab9bc581110579", null ],
+      [ "ComponentPartItemVectorView", "db/dfd/classArcane_1_1Materials_1_1ComponentPartItemVectorView.html#a601c1681caf52d923208b6b2cf211cc3", null ],
+      [ "component", "db/dfd/classArcane_1_1Materials_1_1ComponentPartItemVectorView.html#ad4dc75ba6a8012f85def2477bcfbc8e2", null ],
+      [ "componentPartIndex", "db/dfd/classArcane_1_1Materials_1_1ComponentPartItemVectorView.html#a77b34ee74f1e4e0fac0ba3476d062520", null ],
+      [ "itemIndexes", "db/dfd/classArcane_1_1Materials_1_1ComponentPartItemVectorView.html#a0343feb9fefe8b85b10bb4f0003e644b", null ],
+      [ "itemsInternal", "db/dfd/classArcane_1_1Materials_1_1ComponentPartItemVectorView.html#a30a4847fec99f8f5492c7be54c4aa5ff", null ],
+      [ "nbItem", "db/dfd/classArcane_1_1Materials_1_1ComponentPartItemVectorView.html#a3d78802e0e2621877fd970d89f09db38", null ],
+      [ "part", "db/dfd/classArcane_1_1Materials_1_1ComponentPartItemVectorView.html#ae510142938bcd45ca89178c2f24ba9bf", null ],
+      [ "valueIndexes", "db/dfd/classArcane_1_1Materials_1_1ComponentPartItemVectorView.html#ae1398def28178c4ec3c2a0bc2077c01a", null ]
+    ] ],
+    [ "ComponentPurePartItemVectorView", "da/db3/classArcane_1_1Materials_1_1ComponentPurePartItemVectorView.html", [
+      [ "ComponentPurePartItemVectorView", "da/db3/classArcane_1_1Materials_1_1ComponentPurePartItemVectorView.html#a012f417664daf0979af77ae4c43c4f31", null ],
+      [ "ComponentPurePartItemVectorView", "da/db3/classArcane_1_1Materials_1_1ComponentPurePartItemVectorView.html#a0b23f0a8e6607d4d761984b7c8a28e0a", null ]
+    ] ],
+    [ "ComponentImpurePartItemVectorView", "d8/d46/classArcane_1_1Materials_1_1ComponentImpurePartItemVectorView.html", [
+      [ "ComponentImpurePartItemVectorView", "d8/d46/classArcane_1_1Materials_1_1ComponentImpurePartItemVectorView.html#a842f23e64d8c26e7008732746726f5a5", null ],
+      [ "ComponentImpurePartItemVectorView", "d8/d46/classArcane_1_1Materials_1_1ComponentImpurePartItemVectorView.html#a702a12169cb4f7724cef7cb49fa6774d", null ]
+    ] ],
+    [ "MatPartItemVectorView", "d3/d0d/classArcane_1_1Materials_1_1MatPartItemVectorView.html", [
+      [ "MatPartItemVectorView", "d3/d0d/classArcane_1_1Materials_1_1MatPartItemVectorView.html#a121c905e67a93b1dda61ae40a2d0658f", null ],
+      [ "MatPartItemVectorView", "d3/d0d/classArcane_1_1Materials_1_1MatPartItemVectorView.html#a6007281ce6a8e2ada98b22a673c98b2d", null ],
+      [ "material", "d3/d0d/classArcane_1_1Materials_1_1MatPartItemVectorView.html#a909a0179650eb2cd8b34ce03a19579c2", null ]
+    ] ],
+    [ "MatPurePartItemVectorView", "d2/d1f/classArcane_1_1Materials_1_1MatPurePartItemVectorView.html", [
+      [ "MatPurePartItemVectorView", "d2/d1f/classArcane_1_1Materials_1_1MatPurePartItemVectorView.html#a3c3416681c146d35264d2116b7609769", null ],
+      [ "MatPurePartItemVectorView", "d2/d1f/classArcane_1_1Materials_1_1MatPurePartItemVectorView.html#ac0f058f8053578a4bcc63182fd98b1d2", null ],
+      [ "operator ComponentPurePartItemVectorView", "d2/d1f/classArcane_1_1Materials_1_1MatPurePartItemVectorView.html#aa2728006ef0aad4b7161e9e68cd37d74", null ]
+    ] ],
+    [ "MatImpurePartItemVectorView", "d0/dc5/classArcane_1_1Materials_1_1MatImpurePartItemVectorView.html", [
+      [ "MatImpurePartItemVectorView", "d0/dc5/classArcane_1_1Materials_1_1MatImpurePartItemVectorView.html#af29b703c830a799013389b300314b182", null ],
+      [ "MatImpurePartItemVectorView", "d0/dc5/classArcane_1_1Materials_1_1MatImpurePartItemVectorView.html#a944b76954e0add9bee1aa2a26fc68915", null ],
+      [ "operator ComponentImpurePartItemVectorView", "d0/dc5/classArcane_1_1Materials_1_1MatImpurePartItemVectorView.html#a82de5f552378efad04fbbc7d7784ec5c", null ]
+    ] ],
+    [ "EnvPartItemVectorView", "db/deb/classArcane_1_1Materials_1_1EnvPartItemVectorView.html", [
+      [ "EnvPartItemVectorView", "db/deb/classArcane_1_1Materials_1_1EnvPartItemVectorView.html#a86c69862826ba813bab2ce4c7cedb518", null ],
+      [ "EnvPartItemVectorView", "db/deb/classArcane_1_1Materials_1_1EnvPartItemVectorView.html#a88aaecf6226c25f23883f1cf165e4ab0", null ],
+      [ "environment", "db/deb/classArcane_1_1Materials_1_1EnvPartItemVectorView.html#afb0dcc27579bb31ae935247d19199dd1", null ]
+    ] ],
+    [ "EnvPurePartItemVectorView", "de/d0c/classArcane_1_1Materials_1_1EnvPurePartItemVectorView.html", [
+      [ "EnvPurePartItemVectorView", "de/d0c/classArcane_1_1Materials_1_1EnvPurePartItemVectorView.html#a59bfb207ba51590b75b6e859f5258c85", null ],
+      [ "EnvPurePartItemVectorView", "de/d0c/classArcane_1_1Materials_1_1EnvPurePartItemVectorView.html#aa346fc0e8d3dda4fccf559ea500188d0", null ],
+      [ "operator ComponentPurePartItemVectorView", "de/d0c/classArcane_1_1Materials_1_1EnvPurePartItemVectorView.html#ae0cc130c1b4e203ffd3030aacc92865a", null ]
+    ] ],
+    [ "EnvImpurePartItemVectorView", "d6/dfa/classArcane_1_1Materials_1_1EnvImpurePartItemVectorView.html", [
+      [ "EnvImpurePartItemVectorView", "d6/dfa/classArcane_1_1Materials_1_1EnvImpurePartItemVectorView.html#a6d5c56ea637d98093ac39af967d6b26a", null ],
+      [ "EnvImpurePartItemVectorView", "d6/dfa/classArcane_1_1Materials_1_1EnvImpurePartItemVectorView.html#a438d19e1d02560254a523fec559c544c", null ],
+      [ "operator ComponentImpurePartItemVectorView", "d6/dfa/classArcane_1_1Materials_1_1EnvImpurePartItemVectorView.html#a6df7e4efdf0f8dacd747ec3f287ba319", null ]
+    ] ],
+    [ "IMeshBlock", "d5/de7/classArcane_1_1Materials_1_1IMeshBlock.html", [
+      [ "~IMeshBlock", "d5/de7/classArcane_1_1Materials_1_1IMeshBlock.html#a8053ab602e698f33489d8327e6f36581", null ],
+      [ "cells", "d5/de7/classArcane_1_1Materials_1_1IMeshBlock.html#a637b62976a530a10ea78094f19f3d315", null ],
+      [ "environments", "d5/de7/classArcane_1_1Materials_1_1IMeshBlock.html#ac3e5cf632489190e4d1e75cc077d4786", null ],
+      [ "id", "d5/de7/classArcane_1_1Materials_1_1IMeshBlock.html#a5e863880ab7d028cc8bc9d200d96d701", null ],
+      [ "materialMng", "d5/de7/classArcane_1_1Materials_1_1IMeshBlock.html#a2b74cf670f2c90cd6f9e2874c3fe79f3", null ],
+      [ "name", "d5/de7/classArcane_1_1Materials_1_1IMeshBlock.html#a941bd2b74813ef2790dde70332df245f", null ],
+      [ "nbEnvironment", "d5/de7/classArcane_1_1Materials_1_1IMeshBlock.html#a8d2145098b09528d8a7fa0d4d037267e", null ],
+      [ "view", "d5/de7/classArcane_1_1Materials_1_1IMeshBlock.html#a77cefaa4b3cf2ec232e0cb28f04e812e", null ]
+    ] ],
+    [ "IMeshComponent", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html", [
+      [ "~IMeshComponent", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#a9a60f6bfe78a96f511ca313fa00a935f", null ],
+      [ "asEnvironment", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#a07494f83e58d3a94eb91cda65bdcb9cb", null ],
+      [ "asMaterial", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#a23550c1687e0023948d244cdffaae59e", null ],
+      [ "cells", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#a7b7c1a55de01459870b35712ae45b9b3", null ],
+      [ "checkValid", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#ae219fde07a6cf9befae8202785af9c4c", null ],
+      [ "findComponentCell", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#adceae06a311483d1ce72b73c5afd8ec5", null ],
+      [ "hasSpace", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#ab70f46051e230cef11547fd02b8ebe40", null ],
+      [ "id", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#a91be5c59c878a2b22b52def18477728c", null ],
+      [ "impureItems", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#a903ed0b129f8e43127e03e3beebe6d67", null ],
+      [ "isEnvironment", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#a93e2c3ae780c944064cbb1f99865db1a", null ],
+      [ "isMaterial", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#ac775949e31624f0fba94617369555ec4", null ],
+      [ "itemsInternalView", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#a87e5dc585d5b5e2c5dd82a0a7e7bc5c4", null ],
+      [ "materialMng", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#ac236a523a8076cb797dcdb42b623b892", null ],
+      [ "name", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#a7a63768436423421e1740f3dbf5fe25e", null ],
+      [ "partItems", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#abbbe0897910bd6966e87c9e183e61397", null ],
+      [ "pureItems", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#a44f29207639f279856dc07d5be67ef00", null ],
+      [ "traceMng", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#ab8abe3a23882510f3448dacd33df5916", null ],
+      [ "variableIndexer", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#a92abdd5857f6c0c6c29addfb7309bfae", null ],
+      [ "view", "d1/d55/classArcane_1_1Materials_1_1IMeshComponent.html#ada941462790162a93b05bb5506d12eca", null ]
+    ] ],
+    [ "IUserMeshEnvironment", "d0/d10/classArcane_1_1Materials_1_1IUserMeshEnvironment.html", [
+      [ "~IUserMeshEnvironment", "d0/d10/classArcane_1_1Materials_1_1IUserMeshEnvironment.html#a61a9285d92e578a52ab1a1f5e339ff36", null ]
+    ] ],
+    [ "IMeshEnvironment", "da/d0f/classArcane_1_1Materials_1_1IMeshEnvironment.html", [
+      [ "~IMeshEnvironment", "da/d0f/classArcane_1_1Materials_1_1IMeshEnvironment.html#abfb2b240220c2cc2c951411d2fcfced9", null ],
+      [ "envView", "da/d0f/classArcane_1_1Materials_1_1IMeshEnvironment.html#a52f4ed6b15ad9324e876dda19a32ec0c", null ],
+      [ "findEnvCell", "da/d0f/classArcane_1_1Materials_1_1IMeshEnvironment.html#aae30cf294d01eeb8068ac508e121d4b6", null ],
+      [ "impureEnvItems", "da/d0f/classArcane_1_1Materials_1_1IMeshEnvironment.html#ad70dfc6f5b6e332942553bf230d3f256", null ],
+      [ "materials", "da/d0f/classArcane_1_1Materials_1_1IMeshEnvironment.html#a5bddc0c238031e4bb867a5890833251e", null ],
+      [ "nbMaterial", "da/d0f/classArcane_1_1Materials_1_1IMeshEnvironment.html#a824369fba9a0d73008a2b2fac30887c0", null ],
+      [ "partEnvItems", "da/d0f/classArcane_1_1Materials_1_1IMeshEnvironment.html#add6f234c695905bb54157a58cfcfffd3", null ],
+      [ "pureEnvItems", "da/d0f/classArcane_1_1Materials_1_1IMeshEnvironment.html#a9fbc57a4ded05cd0f9ad4ef6a3b94eb1", null ],
+      [ "setUserEnvironment", "da/d0f/classArcane_1_1Materials_1_1IMeshEnvironment.html#ab4fa3585f1e1d754d131eb993ea00915", null ],
+      [ "userEnvironment", "da/d0f/classArcane_1_1Materials_1_1IMeshEnvironment.html#aff341b93837603003064fdaf028bad65", null ]
+    ] ],
+    [ "IUserMeshMaterial", "de/d11/classArcane_1_1Materials_1_1IUserMeshMaterial.html", [
+      [ "~IUserMeshMaterial", "de/d11/classArcane_1_1Materials_1_1IUserMeshMaterial.html#a9471f05132ff91737db9b5b593cff1a7", null ]
+    ] ],
+    [ "IMeshMaterial", "d9/ddb/classArcane_1_1Materials_1_1IMeshMaterial.html", [
+      [ "~IMeshMaterial", "d9/ddb/classArcane_1_1Materials_1_1IMeshMaterial.html#a0b312e4b0dc8ef4c315c35a0156ec53f", null ],
+      [ "IMeshMaterial", "d9/ddb/classArcane_1_1Materials_1_1IMeshMaterial.html#afc52bf090320cba515da87ff92d1ac5e", null ],
+      [ "environment", "d9/ddb/classArcane_1_1Materials_1_1IMeshMaterial.html#a08e53ada844aed1bbc8622b1afb8e500", null ],
+      [ "findMatCell", "d9/ddb/classArcane_1_1Materials_1_1IMeshMaterial.html#a985d6dd7451a8baa549315de8fc0af14", null ],
+      [ "firstImi", "d9/ddb/classArcane_1_1Materials_1_1IMeshMaterial.html#ac58268509206c0e97405ac647d6a9bb1", null ],
+      [ "impureMatItems", "d9/ddb/classArcane_1_1Materials_1_1IMeshMaterial.html#ad52daef0e3c24117570e8aec978c3486", null ],
+      [ "infos", "d9/ddb/classArcane_1_1Materials_1_1IMeshMaterial.html#ad40d60bc5b661f05bb3131f834849a94", null ],
+      [ "matView", "d9/ddb/classArcane_1_1Materials_1_1IMeshMaterial.html#a1c26ba8a6b02eb2d347d691a5b22f6b5", null ],
+      [ "nbImi", "d9/ddb/classArcane_1_1Materials_1_1IMeshMaterial.html#a0506e3e0bbcbffee5bb769d963b30add", null ],
+      [ "partMatItems", "d9/ddb/classArcane_1_1Materials_1_1IMeshMaterial.html#a68fc949d6d520e6d3fbb20013c1bffea", null ],
+      [ "pureMatItems", "d9/ddb/classArcane_1_1Materials_1_1IMeshMaterial.html#af1c93183230eb9f35bd24264ab1cff5f", null ],
+      [ "setImiInfo", "d9/ddb/classArcane_1_1Materials_1_1IMeshMaterial.html#a62af36a34f20f062c7d9005f7389ce05", null ],
+      [ "setUserMaterial", "d9/ddb/classArcane_1_1Materials_1_1IMeshMaterial.html#ad460758b16c1b1145c63d1ada78e2330", null ],
+      [ "userMaterial", "d9/ddb/classArcane_1_1Materials_1_1IMeshMaterial.html#a49f22133cc28f225cfa14457ebef2f78", null ]
+    ] ],
+    [ "IMeshMaterialMng", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html", [
+      [ "IFactory", "d8/dbd/classArcane_1_1Materials_1_1IMeshMaterialMng_1_1IFactory.html", [
+        [ "~IFactory", "d8/dbd/classArcane_1_1Materials_1_1IMeshMaterialMng_1_1IFactory.html#a0b0e2807c562c583cc6e161c41eb603a", null ],
+        [ "getTrueReference", "d8/dbd/classArcane_1_1Materials_1_1IMeshMaterialMng_1_1IFactory.html#ab279be44e01c6c0a696bfdb85b715d12", null ]
       ] ],
-      [ "MeshEnvironmentBuildInfo", "d6/de3/classArcane_1_1MeshEnvironmentBuildInfo.html#a6686f95b68c533e9cd325dc4f86397e4", null ],
-      [ "~MeshEnvironmentBuildInfo", "d6/de3/classArcane_1_1MeshEnvironmentBuildInfo.html#ab8b2be41b60f8c1817b00f185eaa1ebc", null ],
-      [ "addMaterial", "d6/de3/classArcane_1_1MeshEnvironmentBuildInfo.html#a80e61d22c062c292c1e56360c85b5969", null ],
-      [ "addMaterial", "d6/de3/classArcane_1_1MeshEnvironmentBuildInfo.html#a8bf273028e5ece8eed31b78ba5edb84e", null ],
-      [ "materials", "d6/de3/classArcane_1_1MeshEnvironmentBuildInfo.html#a97e9211ddaeacd83ac3d3834db4f5e89", null ],
-      [ "name", "d6/de3/classArcane_1_1MeshEnvironmentBuildInfo.html#a57b5771fd76cfe75bb263af9313ac466", null ]
+      [ "~IMeshMaterialMng", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#adbc07d4cd00379c15a7f315448727639", null ],
+      [ "_allCellsEnvOnlySynchronizer", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#abca7a11417105f7ba4cbf520a57b1518", null ],
+      [ "_allCellsMatEnvSynchronizer", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#ad28c61a886e7f0dca9842ce201cb941b", null ],
+      [ "addEnvironmentToBlock", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#ac8faf9fd96a741ad2595ba66db01388c", null ],
+      [ "addVariable", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a1b37e05f21a1f27b8573552d3053ea1a", null ],
+      [ "allEnvCells", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a3941ebe1275f13b22dbef64af6c2f0ad", null ],
+      [ "blocks", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#ad2940f44110ac07bf50851fa07302fbb", null ],
+      [ "cellToAllEnvCellConverter", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a6ba6313cda948b4aac109aa5728e429b", null ],
+      [ "checkMaterialsInCells", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a6c5df54ba1d4df2c6d16e4eaf09d9770", null ],
+      [ "checkValid", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#ad5b4701345d10d79e933144e65758f5e", null ],
+      [ "checkVariable", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a4352aa2858c3c2a73a9be4d8dff86af7", null ],
+      [ "components", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a155bf842b993217ae3a577ed02b419f2", null ],
+      [ "createBlock", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a9d3f7b54ec5cf48ad92c3a500da7fe0f", null ],
+      [ "createEnvironment", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a8b16ed16b9021d11f61b867580ef7193", null ],
+      [ "dumpCellInfos", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#ad6d4e0600066cd29d7d95b62835c77cb", null ],
+      [ "dumpInfos", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a541dc80e10b3e8e13ab04944d7b1a829", null ],
+      [ "endCreate", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a382fd47bea8817cc803dc432c09b50de", null ],
+      [ "environments", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#af09b7490433b8bf0c39cab4dd7d18d1e", null ],
+      [ "environmentsAsComponents", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#ad0a48b29739994c32355aae5fa903127", null ],
+      [ "fillWithUsedVariables", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#ab3e7b1cee1823ed25a383526c037904a", null ],
+      [ "findBlock", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a1232bc772968bdcb176ab0343f635e6f", null ],
+      [ "findEnvironment", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#ab41a2ae083e809817e7f9b03e161cbe1", null ],
+      [ "findVariable", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#afb57a53d0fc6811710c4c59c593b654e", null ],
+      [ "forceRecompute", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a574ec948519dc2184c6293d8716bcf0c", null ],
+      [ "isAllocateScalarEnvironmentVariableAsMaterial", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a46262ed240b2dac946653b175d80843e", null ],
+      [ "isDataInitialisationWithZero", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#abc40a1a3d115d3fbec45340bf81f8ac3", null ],
+      [ "isInMeshMaterialExchange", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a2b735e9aab3f5d3e4d3956ff0bae527d", null ],
+      [ "isKeepValuesAfterChange", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a1c5e5647d250c97cdbc01bffcd87d897", null ],
+      [ "isMeshModificationNotified", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a88ffa585c6b8cdc791cc415fb2455998", null ],
+      [ "materials", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a08e8bb15d2aa79a348beda292268ec6e", null ],
+      [ "materialsAsComponents", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a0ce018d2b6c7dee371ba2ebe00c0ac0d", null ],
+      [ "mesh", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#aa16be136e77009ef038f893570221edc", null ],
+      [ "modificationFlags", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a277cb532418bf43f7a15e57a230b60b5", null ],
+      [ "modifier", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a1360b971f3a2051ff837fff9171159c8", null ],
+      [ "name", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a9bca7b5486e1c16900018f134a010c04", null ],
+      [ "recreateFromDump", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#abd96b44580743a20e4d32af7796ae71a", null ],
+      [ "registerMaterialInfo", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#adabbb7c68ad87f6201999bd1e0c41bbc", null ],
+      [ "removeEnvironmentToBlock", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a8dcc775ca9be4d193b5d03387ef5e6cb", null ],
+      [ "removeVariable", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#af1817f6991936a4a332383c60a11c991", null ],
+      [ "setAllocateScalarEnvironmentVariableAsMaterial", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a445d6621ed231a9c5fa94dbccb626f4f", null ],
+      [ "setDataInitialisationWithZero", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a4834fa2ddb7b40925a8be23243b5a55b", null ],
+      [ "setKeepValuesAfterChange", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a6f3a74996c4f6f9165a05a7255114ed3", null ],
+      [ "setMeshModificationNotified", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a7b398d199c1228f0cfa4d5418c9a54b1", null ],
+      [ "setModificationFlags", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#aea99ed0a16ee39eab85e769c6b24cf32", null ],
+      [ "setSynchronizeVariableVersion", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a28f8edc8a5718a6fc0e2f9a3e0916f9c", null ],
+      [ "synchronizeMaterialsInCells", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a1edeb535395aee6b6de0fc1ea26acccc", null ],
+      [ "synchronizeVariableVersion", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a8ed03234d73dcc94d5dd675ece5656e6", null ],
+      [ "timestamp", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a38ebdafb9b2430da72f6a9ea69b77c08", null ],
+      [ "traceMng", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#aa6cb2b61749d1920205aa16a42ab9da5", null ],
+      [ "variableFactoryMng", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a0f8af85a5e7397c4557146e1d179f9c3", null ],
+      [ "variableLock", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#adb14ccef374d1fd3da2b5bf96ed69cdd", null ],
+      [ "variablesIndexer", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#adac41f6cfdd5d905d52bf772932783c9", null ],
+      [ "view", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#abb5dcf01017c89c734db5f45a47dfc5e", null ],
+      [ "view", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#ad87987c2c3320e2155326f3f6d83829b", null ],
+      [ "visitVariables", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#a6f05a6ad4e8e30276bf48081555937bc", null ],
+      [ "MeshMaterialMngFactory", "d5/df0/classArcane_1_1Materials_1_1IMeshMaterialMng.html#aa364068ef00cf244da87fd0fe5ab3fcc", null ]
     ] ],
-    [ "CellEnvironmentVariableScalarRef", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html", [
-      [ "GlobalVariableRefType", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a8e0391970da06b50e8fdc3c6890fc0c2", null ],
-      [ "ItemType", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#adb0485ecc77d9c9736acd8b6df9d29ee", null ],
-      [ "PrivatePartType", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a42033c97b092b0770cc5e6ecd8fb78d7", null ],
-      [ "CellEnvironmentVariableScalarRef", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#aa074f5a804205fea84693255c1b0a403", null ],
-      [ "CellEnvironmentVariableScalarRef", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#aad2521f2fa1d8487d610b6d062d3b281", null ],
-      [ "CellEnvironmentVariableScalarRef", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a4b77c9d880dfcc9900070cac976d905b", null ],
-      [ "~CellEnvironmentVariableScalarRef", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#afc5f7ad7328b79d62c4ff7834f23b2fe", null ],
-      [ "envValue", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a2fe3d996c2768669eb352ab38d588c32", null ],
-      [ "fill", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#afe69a12642ce587a283fb8be1c7343e6", null ],
-      [ "fillPartialValues", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a6f3ff292df0079f7e0e3dd4dbefefd79", null ],
-      [ "globalVariable", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#ab18ae9071f1c137ec4d05c5b0e8a8a7c", null ],
-      [ "globalVariable", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#aa064565d1aabfb8dd831093138b81e65", null ],
-      [ "operator[]", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#aa76e60b8d5895efbbe750fc5ef248a49", null ],
-      [ "operator[]", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a7e5038371d0308768cdea60dba5e24ac", null ],
-      [ "operator[]", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a30f02792ae91a4966f02356b153cdc25", null ],
-      [ "operator[]", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a838f3e9355acd4c33d4a681b11cdb128", null ],
-      [ "operator[]", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a10dff38840e02a0e1ab7bf6c4ff9e3a6", null ],
-      [ "operator[]", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#ac9073aa9736d12b315b9ea892a23bfa7", null ],
-      [ "refersTo", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#ac661ca7eb7ac588f73f9a52991d8266e", null ],
-      [ "updateFromInternal", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a8a775fc6d47ae0d95755915b612d840f", null ]
+    [ "MatCell", "da/d7c/classArcane_1_1Materials_1_1MatCell.html", [
+      [ "MatCell", "da/d7c/classArcane_1_1Materials_1_1MatCell.html#a8302e4478013d76bd9c180d93c59c204", null ],
+      [ "MatCell", "da/d7c/classArcane_1_1Materials_1_1MatCell.html#a4766e0914526e91d6c54cc6e74b323dc", null ],
+      [ "envCell", "da/d7c/classArcane_1_1Materials_1_1MatCell.html#a5b8f601a76826ea4b469c545bca41a02", null ],
+      [ "globalCell", "da/d7c/classArcane_1_1Materials_1_1MatCell.html#a42b457ace09abab9afa8ebce1a16858a", null ],
+      [ "material", "da/d7c/classArcane_1_1Materials_1_1MatCell.html#a1a01e0f20548c0beeefcd327bfbda4ab", null ],
+      [ "materialId", "da/d7c/classArcane_1_1Materials_1_1MatCell.html#a6ef367fbca6e614955d464be016bc0e3", null ],
+      [ "userMaterial", "da/d7c/classArcane_1_1Materials_1_1MatCell.html#a7067de916e9c460a8a15c9ddd0c25cdc", null ]
     ] ],
-    [ "CellEnvironmentVariableArrayRef", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html", [
-      [ "GlobalVariableRefType", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a1c8d7170b9860659d0fd02dee2ddb310", null ],
-      [ "ItemType", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#af0009770a347cb2a3ee4f9baffae68ce", null ],
-      [ "PrivatePartType", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a90bbaa8a6568ca8ca7f63c3170f5a9b1", null ],
-      [ "CellEnvironmentVariableArrayRef", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a217bc85e3a8bc64cad69dc55fa9443bf", null ],
-      [ "CellEnvironmentVariableArrayRef", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#ad7221f65d6136dc608132299d19fdacc", null ],
-      [ "CellEnvironmentVariableArrayRef", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#acfe5af57adb143c51c60670739ccbbf3", null ],
-      [ "~CellEnvironmentVariableArrayRef", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a794561009a63b19a725eb5b8d38d8f3a", null ],
-      [ "globalVariable", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a047bb91740298ebd52d137028021398d", null ],
-      [ "globalVariable", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#ad543056f0d26893dac1403b5d53f1cf9", null ],
-      [ "operator[]", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#aec10bac90a23035da8541f4b9956adcc", null ],
-      [ "operator[]", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a95c68e8fa741c9a038bfa80f012ed1ed", null ],
-      [ "operator[]", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a997e9ecade762fd626ae564f07687926", null ],
-      [ "operator[]", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#abf197a0f1ca45768ba55dcef95ead35f", null ],
-      [ "operator[]", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a3876a837d2aaf4a28e24c210ac626e5c", null ],
-      [ "operator[]", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a3c67d7922e691aa18e452bc0b0d30e9c", null ],
-      [ "refersTo", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a540bee2f94d13d3688add7946fe1733d", null ],
-      [ "resize", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a9ecb0449313dea9c8f1cf59c51d94474", null ],
-      [ "updateFromInternal", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a939e2c5c7724afaf530841dff53c7523", null ]
+    [ "EnvCell", "de/dd0/classArcane_1_1Materials_1_1EnvCell.html", [
+      [ "EnvCell", "de/dd0/classArcane_1_1Materials_1_1EnvCell.html#a40c55680de221d8fb4d69e10899ce80b", null ],
+      [ "EnvCell", "de/dd0/classArcane_1_1Materials_1_1EnvCell.html#aa227cc133592b8a7e7419207d65e6318", null ],
+      [ "allEnvCell", "de/dd0/classArcane_1_1Materials_1_1EnvCell.html#a961e200db835332912ccfa8f68585403", null ],
+      [ "cell", "de/dd0/classArcane_1_1Materials_1_1EnvCell.html#a83e7f34ce01073a6bbfb28f25bd2ad43", null ],
+      [ "environment", "de/dd0/classArcane_1_1Materials_1_1EnvCell.html#a93e4824000fe27a5e85cfa0294f7dd56", null ],
+      [ "environmentId", "de/dd0/classArcane_1_1Materials_1_1EnvCell.html#a64ed1b637e6a929564f236d8c3f353ff", null ],
+      [ "globalCell", "de/dd0/classArcane_1_1Materials_1_1EnvCell.html#a352b90ae525e0bf10862a52a616ee235", null ],
+      [ "nbMaterial", "de/dd0/classArcane_1_1Materials_1_1EnvCell.html#a2fda25ec5218c8be50a8631e925ecb2d", null ]
     ] ],
-    [ "MeshMaterialBackup", "d7/d88/classArcane_1_1MeshMaterialBackup.html", [
-      [ "MeshMaterialBackup", "d7/d88/classArcane_1_1MeshMaterialBackup.html#ab8ab42f6cddb727baf04e61cb324678c", null ],
-      [ "~MeshMaterialBackup", "d7/d88/classArcane_1_1MeshMaterialBackup.html#a7b5bded737eb57545ea5d74a27e64808", null ],
-      [ "restoreValues", "d7/d88/classArcane_1_1MeshMaterialBackup.html#a37026751191bdb8224c4ba4482a134cf", null ],
-      [ "saveValues", "d7/d88/classArcane_1_1MeshMaterialBackup.html#a5c8a368a93e180c605c0808d79b3cdd1", null ]
+    [ "AllEnvCell", "d1/d25/classArcane_1_1Materials_1_1AllEnvCell.html", [
+      [ "AllEnvCell", "d1/d25/classArcane_1_1Materials_1_1AllEnvCell.html#a2937c6bc3c3ceed9439040fe77668429", null ],
+      [ "cell", "d1/d25/classArcane_1_1Materials_1_1AllEnvCell.html#a8be3014349f9370949185f7547495336", null ],
+      [ "globalCell", "d1/d25/classArcane_1_1Materials_1_1AllEnvCell.html#a2f846bc39c674027c96342546b09e43d", null ],
+      [ "nbEnvironment", "d1/d25/classArcane_1_1Materials_1_1AllEnvCell.html#ac8b1262e53b6fadc5acba236bcbf869d", null ]
     ] ],
-    [ "MeshMaterialIndirectModifier", "d3/d0d/classArcane_1_1MeshMaterialIndirectModifier.html", [
-      [ "MeshMaterialIndirectModifier", "d3/d0d/classArcane_1_1MeshMaterialIndirectModifier.html#aeb7b45958b92b75a5be61fbbcc0116f6", null ],
-      [ "~MeshMaterialIndirectModifier", "d3/d0d/classArcane_1_1MeshMaterialIndirectModifier.html#a1103078c1e295577e4eef413c3716220", null ],
-      [ "beginUpdate", "d3/d0d/classArcane_1_1MeshMaterialIndirectModifier.html#afe91483be133ef218df53980640aff58", null ],
-      [ "endUpdate", "d3/d0d/classArcane_1_1MeshMaterialIndirectModifier.html#a4667f8479cc2a503086d2250401776d5", null ],
-      [ "endUpdateWithSort", "d3/d0d/classArcane_1_1MeshMaterialIndirectModifier.html#a9d761d118ecac35d26a00b48eda05945", null ]
+    [ "ComponentItemLocalId", "df/da9/classArcane_1_1Materials_1_1ComponentItemLocalId.html", [
+      [ "ComponentItemLocalId", "df/da9/classArcane_1_1Materials_1_1ComponentItemLocalId.html#adcdad29e82316f87e0566ee39a114ecd", null ],
+      [ "ComponentItemLocalId", "df/da9/classArcane_1_1Materials_1_1ComponentItemLocalId.html#a53e20c2e974066a0748bd0b0521f6e4d", null ],
+      [ "localId", "df/da9/classArcane_1_1Materials_1_1ComponentItemLocalId.html#ab9ff4dd4c6d92d1abda1261ca5cbe7e8", null ]
     ] ],
-    [ "MeshMaterialModifier", "df/d1d/classArcane_1_1MeshMaterialModifier.html", [
-      [ "MeshMaterialModifier", "df/d1d/classArcane_1_1MeshMaterialModifier.html#a3b4dd884242eb97637fb4c6ee2da9536", null ],
-      [ "~MeshMaterialModifier", "df/d1d/classArcane_1_1MeshMaterialModifier.html#afef50ae91bd208b6c62ef9ad50756874", null ],
-      [ "addCells", "df/d1d/classArcane_1_1MeshMaterialModifier.html#a532a8c646b9a04407bd590409a39d55e", null ],
-      [ "endUpdate", "df/d1d/classArcane_1_1MeshMaterialModifier.html#a666949bcf45d3811094a17bde7665a67", null ],
-      [ "removeCells", "df/d1d/classArcane_1_1MeshMaterialModifier.html#a7ce9060ab097133ce4b3503210005fd2", null ],
-      [ "setCells", "df/d1d/classArcane_1_1MeshMaterialModifier.html#add14e3bdd031633a62caa0f05de2cff0", null ]
+    [ "PureMatVarIndex", "d2/d39/classArcane_1_1Materials_1_1PureMatVarIndex.html", [
+      [ "PureMatVarIndex", "d2/d39/classArcane_1_1Materials_1_1PureMatVarIndex.html#aab8a62c37be08e36d99e3350daabb10f", null ],
+      [ "valueIndex", "d2/d39/classArcane_1_1Materials_1_1PureMatVarIndex.html#ab5ed12aa4f1f862859384764e6267d01", null ]
     ] ],
     [ "MeshMaterialVariableRef", "d9/dee/classArcane_1_1Materials_1_1MeshMaterialVariableRef.html", [
       [ "Enumerator", "d0/d66/classArcane_1_1Materials_1_1MeshMaterialVariableRef_1_1Enumerator.html", [
@@ -184,5 +330,93 @@ var group__ArcaneMaterials =
       [ "refersTo", "d1/dc1/classArcane_1_1Materials_1_1CellMaterialVariableArrayRef.html#a3f74eae131e2adfbd01ca140736ca72b", null ],
       [ "resize", "d1/dc1/classArcane_1_1Materials_1_1CellMaterialVariableArrayRef.html#aeb3da4ac91be1a55adb4b7ac874e87d9", null ],
       [ "updateFromInternal", "d1/dc1/classArcane_1_1Materials_1_1CellMaterialVariableArrayRef.html#a1fff7be5a1b6cc2dfa4210f87dd1a807", null ]
+    ] ],
+    [ "MeshBlockBuildInfo", "d4/d86/classArcane_1_1MeshBlockBuildInfo.html", [
+      [ "MeshBlockBuildInfo", "d4/d86/classArcane_1_1MeshBlockBuildInfo.html#acfd2b5f9977f02ef52f8ce6d611306be", null ],
+      [ "~MeshBlockBuildInfo", "d4/d86/classArcane_1_1MeshBlockBuildInfo.html#a04be82bbdd8a9f7e960d47a2d4e60347", null ],
+      [ "addEnvironment", "d4/d86/classArcane_1_1MeshBlockBuildInfo.html#a5484fb449da63a99f8e71911377e0d0b", null ],
+      [ "cells", "d4/d86/classArcane_1_1MeshBlockBuildInfo.html#a777e4cdfa2ac0ec53b8caeff1a30c815", null ],
+      [ "environments", "d4/d86/classArcane_1_1MeshBlockBuildInfo.html#a82d2e0240ea263929754027f137de4e9", null ],
+      [ "name", "d4/d86/classArcane_1_1MeshBlockBuildInfo.html#aad5d030967c88f31a8d8195081868a9e", null ]
+    ] ],
+    [ "MeshEnvironmentBuildInfo", "d6/de3/classArcane_1_1MeshEnvironmentBuildInfo.html", [
+      [ "MatInfo", "d8/d22/classArcane_1_1MeshEnvironmentBuildInfo_1_1MatInfo.html", [
+        [ "MatInfo", "d8/d22/classArcane_1_1MeshEnvironmentBuildInfo_1_1MatInfo.html#a767f623ec57c20e7b5709c39938f7a62", null ],
+        [ "MatInfo", "d8/d22/classArcane_1_1MeshEnvironmentBuildInfo_1_1MatInfo.html#a2f02ffffdef373bebec98b7b7e20b589", null ],
+        [ "MatInfo", "d8/d22/classArcane_1_1MeshEnvironmentBuildInfo_1_1MatInfo.html#ada57d587340bd14e9307653bcb2d209c", null ],
+        [ "m_name", "d8/d22/classArcane_1_1MeshEnvironmentBuildInfo_1_1MatInfo.html#adfa9f581c32e5505ad3cc73f7422b761", null ],
+        [ "m_var_name", "d8/d22/classArcane_1_1MeshEnvironmentBuildInfo_1_1MatInfo.html#ab7493c492a5f60b4e041e0f50c94ae60", null ]
+      ] ],
+      [ "MeshEnvironmentBuildInfo", "d6/de3/classArcane_1_1MeshEnvironmentBuildInfo.html#a6686f95b68c533e9cd325dc4f86397e4", null ],
+      [ "~MeshEnvironmentBuildInfo", "d6/de3/classArcane_1_1MeshEnvironmentBuildInfo.html#ab8b2be41b60f8c1817b00f185eaa1ebc", null ],
+      [ "addMaterial", "d6/de3/classArcane_1_1MeshEnvironmentBuildInfo.html#a80e61d22c062c292c1e56360c85b5969", null ],
+      [ "addMaterial", "d6/de3/classArcane_1_1MeshEnvironmentBuildInfo.html#a8bf273028e5ece8eed31b78ba5edb84e", null ],
+      [ "materials", "d6/de3/classArcane_1_1MeshEnvironmentBuildInfo.html#a97e9211ddaeacd83ac3d3834db4f5e89", null ],
+      [ "name", "d6/de3/classArcane_1_1MeshEnvironmentBuildInfo.html#a57b5771fd76cfe75bb263af9313ac466", null ]
+    ] ],
+    [ "CellEnvironmentVariableScalarRef", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html", [
+      [ "GlobalVariableRefType", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a8e0391970da06b50e8fdc3c6890fc0c2", null ],
+      [ "ItemType", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#adb0485ecc77d9c9736acd8b6df9d29ee", null ],
+      [ "PrivatePartType", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a4fb85439de7bae761168a80081fecc3a", null ],
+      [ "TruePrivatePartType", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a5ca4aeef0adb85a6689112e3cf2ec701", null ],
+      [ "CellEnvironmentVariableScalarRef", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#aa074f5a804205fea84693255c1b0a403", null ],
+      [ "CellEnvironmentVariableScalarRef", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#aad2521f2fa1d8487d610b6d062d3b281", null ],
+      [ "CellEnvironmentVariableScalarRef", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a4b77c9d880dfcc9900070cac976d905b", null ],
+      [ "~CellEnvironmentVariableScalarRef", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#afc5f7ad7328b79d62c4ff7834f23b2fe", null ],
+      [ "envValue", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a2fe3d996c2768669eb352ab38d588c32", null ],
+      [ "fill", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#afe69a12642ce587a283fb8be1c7343e6", null ],
+      [ "fillPartialValues", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a6f3ff292df0079f7e0e3dd4dbefefd79", null ],
+      [ "globalVariable", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#ab18ae9071f1c137ec4d05c5b0e8a8a7c", null ],
+      [ "globalVariable", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#aa064565d1aabfb8dd831093138b81e65", null ],
+      [ "operator[]", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#aa76e60b8d5895efbbe750fc5ef248a49", null ],
+      [ "operator[]", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a7e5038371d0308768cdea60dba5e24ac", null ],
+      [ "operator[]", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a30f02792ae91a4966f02356b153cdc25", null ],
+      [ "operator[]", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a838f3e9355acd4c33d4a681b11cdb128", null ],
+      [ "operator[]", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a10dff38840e02a0e1ab7bf6c4ff9e3a6", null ],
+      [ "operator[]", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#ac9073aa9736d12b315b9ea892a23bfa7", null ],
+      [ "refersTo", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#ac661ca7eb7ac588f73f9a52991d8266e", null ],
+      [ "updateFromInternal", "d6/d47/classArcane_1_1Materials_1_1CellEnvironmentVariableScalarRef.html#a8a775fc6d47ae0d95755915b612d840f", null ]
+    ] ],
+    [ "CellEnvironmentVariableArrayRef", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html", [
+      [ "GlobalVariableRefType", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a19a067a0725f11d22f66f28b26e0908e", null ],
+      [ "ItemType", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#ab3904ab1cbbe9cee0133c4763a94ad17", null ],
+      [ "PrivatePartType", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a79cfce497ae0bc8b871a722e54e73172", null ],
+      [ "TruePrivatePartType", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a0e39e7df37664177451971d7dbd0450f", null ],
+      [ "CellEnvironmentVariableArrayRef", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a217bc85e3a8bc64cad69dc55fa9443bf", null ],
+      [ "CellEnvironmentVariableArrayRef", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#ad7221f65d6136dc608132299d19fdacc", null ],
+      [ "CellEnvironmentVariableArrayRef", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#acfe5af57adb143c51c60670739ccbbf3", null ],
+      [ "~CellEnvironmentVariableArrayRef", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a794561009a63b19a725eb5b8d38d8f3a", null ],
+      [ "globalVariable", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a047bb91740298ebd52d137028021398d", null ],
+      [ "globalVariable", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#ad543056f0d26893dac1403b5d53f1cf9", null ],
+      [ "operator[]", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#aec10bac90a23035da8541f4b9956adcc", null ],
+      [ "operator[]", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a95c68e8fa741c9a038bfa80f012ed1ed", null ],
+      [ "operator[]", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a997e9ecade762fd626ae564f07687926", null ],
+      [ "operator[]", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#abf197a0f1ca45768ba55dcef95ead35f", null ],
+      [ "operator[]", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a3876a837d2aaf4a28e24c210ac626e5c", null ],
+      [ "operator[]", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a3c67d7922e691aa18e452bc0b0d30e9c", null ],
+      [ "refersTo", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a540bee2f94d13d3688add7946fe1733d", null ],
+      [ "resize", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a9ecb0449313dea9c8f1cf59c51d94474", null ],
+      [ "updateFromInternal", "d3/d56/classArcane_1_1Materials_1_1CellEnvironmentVariableArrayRef.html#a939e2c5c7724afaf530841dff53c7523", null ]
+    ] ],
+    [ "MeshMaterialBackup", "d7/d88/classArcane_1_1MeshMaterialBackup.html", [
+      [ "MeshMaterialBackup", "d7/d88/classArcane_1_1MeshMaterialBackup.html#ab8ab42f6cddb727baf04e61cb324678c", null ],
+      [ "~MeshMaterialBackup", "d7/d88/classArcane_1_1MeshMaterialBackup.html#a7b5bded737eb57545ea5d74a27e64808", null ],
+      [ "restoreValues", "d7/d88/classArcane_1_1MeshMaterialBackup.html#a37026751191bdb8224c4ba4482a134cf", null ],
+      [ "saveValues", "d7/d88/classArcane_1_1MeshMaterialBackup.html#a5c8a368a93e180c605c0808d79b3cdd1", null ]
+    ] ],
+    [ "MeshMaterialIndirectModifier", "d3/d0d/classArcane_1_1MeshMaterialIndirectModifier.html", [
+      [ "MeshMaterialIndirectModifier", "d3/d0d/classArcane_1_1MeshMaterialIndirectModifier.html#aeb7b45958b92b75a5be61fbbcc0116f6", null ],
+      [ "~MeshMaterialIndirectModifier", "d3/d0d/classArcane_1_1MeshMaterialIndirectModifier.html#a1103078c1e295577e4eef413c3716220", null ],
+      [ "beginUpdate", "d3/d0d/classArcane_1_1MeshMaterialIndirectModifier.html#afe91483be133ef218df53980640aff58", null ],
+      [ "endUpdate", "d3/d0d/classArcane_1_1MeshMaterialIndirectModifier.html#a4667f8479cc2a503086d2250401776d5", null ],
+      [ "endUpdateWithSort", "d3/d0d/classArcane_1_1MeshMaterialIndirectModifier.html#a9d761d118ecac35d26a00b48eda05945", null ]
+    ] ],
+    [ "MeshMaterialModifier", "df/d1d/classArcane_1_1MeshMaterialModifier.html", [
+      [ "MeshMaterialModifier", "df/d1d/classArcane_1_1MeshMaterialModifier.html#a3b4dd884242eb97637fb4c6ee2da9536", null ],
+      [ "~MeshMaterialModifier", "df/d1d/classArcane_1_1MeshMaterialModifier.html#afef50ae91bd208b6c62ef9ad50756874", null ],
+      [ "addCells", "df/d1d/classArcane_1_1MeshMaterialModifier.html#a532a8c646b9a04407bd590409a39d55e", null ],
+      [ "endUpdate", "df/d1d/classArcane_1_1MeshMaterialModifier.html#a666949bcf45d3811094a17bde7665a67", null ],
+      [ "removeCells", "df/d1d/classArcane_1_1MeshMaterialModifier.html#a7ce9060ab097133ce4b3503210005fd2", null ],
+      [ "setCells", "df/d1d/classArcane_1_1MeshMaterialModifier.html#add14e3bdd031633a62caa0f05de2cff0", null ]
     ] ]
 ];
