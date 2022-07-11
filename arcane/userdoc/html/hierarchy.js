@@ -275,6 +275,8 @@ var hierarchy =
     [ "Arccore::ArrayView< Arcane::Real2x2 >", "d7/d02/classArccore_1_1ArrayView.html", null ],
     [ "Arccore::ArrayView< Arcane::Real3 >", "d7/d02/classArccore_1_1ArrayView.html", null ],
     [ "Arccore::ArrayView< Arcane::Real3x3 >", "d7/d02/classArccore_1_1ArrayView.html", null ],
+    [ "Arccore::ArrayView< Arccore::Array2View< DataType > >", "d7/d02/classArccore_1_1ArrayView.html", null ],
+    [ "Arccore::ArrayView< Arccore::ArrayView< DataType > >", "d7/d02/classArccore_1_1ArrayView.html", null ],
     [ "Arccore::ArrayView< Arccore::String >", "d7/d02/classArccore_1_1ArrayView.html", null ],
     [ "Arccore::ArrayView< bool >", "d7/d02/classArccore_1_1ArrayView.html", null ],
     [ "Arccore::ArrayView< DataType >", "d7/d02/classArccore_1_1ArrayView.html", null ],
@@ -756,6 +758,9 @@ var hierarchy =
         [ "Arcane::AbstractDataVisitor", "d5/d50/classArcane_1_1AbstractDataVisitor.html", null ]
       ] ]
     ] ],
+    [ "Arcane::Materials::IArrayMeshMaterialVariable< ItemType, DataType >", "dd/d82/classArcane_1_1Materials_1_1IArrayMeshMaterialVariable.html", [
+      [ "Arcane::Materials::MeshMaterialVariableArray< ItemType, DataType >", "de/d18/classArcane_1_1Materials_1_1MeshMaterialVariableArray.html", null ]
+    ] ],
     [ "Arcane::IAsyncParticleExchanger", "de/d5b/classArcane_1_1IAsyncParticleExchanger.html", null ],
     [ "Arcane::IBackwardMng", "d3/d48/classArcane_1_1IBackwardMng.html", null ],
     [ "Arcane::IBase", "d3/d96/classArcane_1_1IBase.html", [
@@ -1063,9 +1068,6 @@ var hierarchy =
         [ "Arcane::Materials::ItemMaterialVariableBase< Traits >", "dd/dc8/classArcane_1_1Materials_1_1ItemMaterialVariableBase.html", null ]
       ] ]
     ] ],
-    [ "Arcane::Materials::IMeshMaterialVariableArray< ItemType, DataType >", "db/de5/classArcane_1_1Materials_1_1IMeshMaterialVariableArray.html", [
-      [ "Arcane::Materials::MeshMaterialVariableArray< ItemType, DataType >", "de/d18/classArcane_1_1Materials_1_1MeshMaterialVariableArray.html", null ]
-    ] ],
     [ "Arcane::Materials::IMeshMaterialVariableComputeFunction", "de/d4b/classArcane_1_1Materials_1_1IMeshMaterialVariableComputeFunction.html", [
       [ "Arcane::Materials::MeshMaterialVariableComputeFunction", "d2/d71/classArcane_1_1Materials_1_1MeshMaterialVariableComputeFunction.html", null ]
     ] ],
@@ -1074,9 +1076,6 @@ var hierarchy =
     ] ],
     [ "Arcane::Materials::IMeshMaterialVariableFactoryMng", "da/db2/classArcane_1_1Materials_1_1IMeshMaterialVariableFactoryMng.html", [
       [ "Arcane::Materials::MeshMaterialVariableFactoryMng", "da/dd8/classArcane_1_1Materials_1_1MeshMaterialVariableFactoryMng.html", null ]
-    ] ],
-    [ "Arcane::Materials::IMeshMaterialVariableScalar< ItemType, DataType >", "db/d48/classArcane_1_1Materials_1_1IMeshMaterialVariableScalar.html", [
-      [ "Arcane::Materials::MeshMaterialVariableScalar< ItemType, DataType >", "df/d28/classArcane_1_1Materials_1_1MeshMaterialVariableScalar.html", null ]
     ] ],
     [ "Arcane::Materials::IMeshMaterialVariableSynchronizer", "d8/dd6/classArcane_1_1Materials_1_1IMeshMaterialVariableSynchronizer.html", [
       [ "Arcane::Materials::MeshMaterialVariableSynchronizer", "dd/dd9/classArcane_1_1Materials_1_1MeshMaterialVariableSynchronizer.html", null ]
@@ -1311,6 +1310,7 @@ var hierarchy =
       [ "Arcane::properties::PropertySettingsInfo< T >", "d6/d9b/classArcane_1_1properties_1_1PropertySettingsInfo.html", null ]
     ] ],
     [ "Arcane::properties::IPropertyVisitor", "de/df1/classArcane_1_1properties_1_1IPropertyVisitor.html", null ],
+    [ "Arcane::IRandomNumberGenerator", "d6/de2/classArcane_1_1IRandomNumberGenerator.html", null ],
     [ "Arcane::IRangeFunctor", "d2/d8e/classArcane_1_1IRangeFunctor.html", [
       [ "Arcane::AbstractItemRangeFunctor", "d0/d16/classArcane_1_1AbstractItemRangeFunctor.html", [
         [ "Arcane::ItemRangeFunctorT< InstanceType, ItemType >", "df/d64/classArcane_1_1ItemRangeFunctorT.html", null ],
@@ -1354,6 +1354,9 @@ var hierarchy =
       [ "Arcane::AbstractScalarDataVisitor", "d2/d08/classArcane_1_1AbstractScalarDataVisitor.html", [
         [ "Arcane::AbstractDataVisitor", "d5/d50/classArcane_1_1AbstractDataVisitor.html", null ]
       ] ]
+    ] ],
+    [ "Arcane::Materials::IScalarMeshMaterialVariable< ItemType, DataType >", "d0/d68/classArcane_1_1Materials_1_1IScalarMeshMaterialVariable.html", [
+      [ "Arcane::Materials::MeshMaterialVariableScalar< ItemType, DataType >", "df/d28/classArcane_1_1Materials_1_1MeshMaterialVariableScalar.html", null ]
     ] ],
     [ "Arcane::ISerializedData", "d9/d08/classArcane_1_1ISerializedData.html", [
       [ "Arcane::SerializedData", "dc/de4/classArcane_1_1SerializedData.html", null ]
@@ -1430,6 +1433,7 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
+    [ "Arcane::ISimpleTableOutput", "d6/de8/classArcane_1_1ISimpleTableOutput.html", null ],
     [ "Arcane::Internal::ISingletonServiceFactory", "d5/d59/classArcane_1_1Internal_1_1ISingletonServiceFactory.html", [
       [ "Arcane::Internal::SingletonServiceFactoryBase", "d0/da9/classArcane_1_1Internal_1_1SingletonServiceFactoryBase.html", [
         [ "Arcane::Internal::SingletonServiceFactory< ServiceType, Interfaces >", "de/da0/classArcane_1_1Internal_1_1SingletonServiceFactory.html", null ]
@@ -2043,6 +2047,7 @@ var hierarchy =
     [ "Arcane::Materials::PureMatVarIndex", "d2/d39/classArcane_1_1Materials_1_1PureMatVarIndex.html", null ],
     [ "Arcane::GeometricUtilities::QuadMapping", "de/d79/classArcane_1_1GeometricUtilities_1_1QuadMapping.html", null ],
     [ "Arcane::LIBXML2_Element::QualifiedName", "dd/d07/classArcane_1_1LIBXML2__Element_1_1QualifiedName.html", null ],
+    [ "Arcane::RandomNumberGeneratorSeed", "d1/db0/classArcane_1_1RandomNumberGeneratorSeed.html", null ],
     [ "Arcane::RawCopy< T >", "db/d41/structArcane_1_1RawCopy.html", null ],
     [ "Arcane::RawCopy< Byte >", "d5/da4/structArcane_1_1RawCopy_3_01Byte_01_4.html", null ],
     [ "Arcane::RawCopy< Int16 >", "db/dd9/structArcane_1_1RawCopy_3_01Int16_01_4.html", null ],

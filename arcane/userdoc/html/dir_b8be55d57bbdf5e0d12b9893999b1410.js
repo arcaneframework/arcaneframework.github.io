@@ -28,6 +28,7 @@ var dir_b8be55d57bbdf5e0d12b9893999b1410 =
     [ "MatItemVector.h", "dc/d07/core_2materials_2MatItemVector_8h_source.html", null ],
     [ "MatVarIndex.h", "dd/d79/core_2materials_2MatVarIndex_8h_source.html", null ],
     [ "MeshComponentPartData.h", "d9/d50/core_2materials_2MeshComponentPartData_8h_source.html", null ],
+    [ "MeshEnvironmentVariableRef.h", "d0/de3/core_2materials_2MeshEnvironmentVariableRef_8h.html", "d0/de3/core_2materials_2MeshEnvironmentVariableRef_8h" ],
     [ "MeshMaterialVariableComputeFunction.h", "de/d2f/core_2materials_2MeshMaterialVariableComputeFunction_8h_source.html", null ],
     [ "MeshMaterialVariableIndexer.h", "d2/d22/core_2materials_2MeshMaterialVariableIndexer_8h_source.html", null ],
     [ "MeshMaterialVariableRef.h", "d0/d23/core_2materials_2MeshMaterialVariableRef_8h.html", "d0/d23/core_2materials_2MeshMaterialVariableRef_8h" ]

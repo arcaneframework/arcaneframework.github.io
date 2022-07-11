@@ -11,6 +11,6 @@ var arcanedoc_dotnet =
       [ "Création d'un binaire <tt>.Net</tt> utilisant %Arcane", "d6/d06/arcanedoc_dotnet.html#autotoc_md30", null ]
     ] ],
     [ "Extensions C# avec Swig", "d5/db6/arcanedoc_dotnet_swig.html", [
-      [ "Compilation du code généré par <tt>swig</tt>", "d5/db6/arcanedoc_dotnet_swig.html#autotoc_md31", null ]
+      [ "Compilation du code généré par <tt>swig</tt>", "d5/db6/arcanedoc_dotnet_swig.html#autotoc_md35", null ]
     ] ]
 ];
