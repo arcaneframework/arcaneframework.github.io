@@ -87,8 +87,5 @@ var classArcane_1_1ItemInternal =
     [ "typeInfo", "dd/df1/classArcane_1_1ItemInternal.html#a26ef80f33f195cac7e508413007a589e", null ],
     [ "uniqueId", "dd/df1/classArcane_1_1ItemInternal.html#abc13bc4235cbea2632f859b2e3c69b83", null ],
     [ "unsetUniqueId", "dd/df1/classArcane_1_1ItemInternal.html#a78639f66d081931408a82993fe0a646d", null ],
-    [ "whichChildAmI", "dd/df1/classArcane_1_1ItemInternal.html#a268dc89c8c7a19fe65c4577a342d3ab9", null ],
-    [ "Arcane::mesh::NodeFamily", "dd/df1/classArcane_1_1ItemInternal.html#aa9274b1c46a7b2c3fe02bcf4954bd51e", null ],
-    [ "Arcane::mesh::ParticleFamilyCompactPolicy", "dd/df1/classArcane_1_1ItemInternal.html#a1f0229e70b55911c421c1b6866a3d849", null ],
-    [ "Arcane::mesh::StandardItemFamilyCompactPolicy", "dd/df1/classArcane_1_1ItemInternal.html#a13dae71b2f740f9497f03efbfec5e7f0", null ]
+    [ "whichChildAmI", "dd/df1/classArcane_1_1ItemInternal.html#a268dc89c8c7a19fe65c4577a342d3ab9", null ]
 ];

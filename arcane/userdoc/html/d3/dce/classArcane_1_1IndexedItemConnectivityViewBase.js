@@ -1,16 +1,27 @@
 var classArcane_1_1IndexedItemConnectivityViewBase =
 [
+    [ "IndexedItemConnectivityViewBase", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#ab0b078f43d87abe45ac2493e23044f8f", null ],
+    [ "IndexedItemConnectivityViewBase", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#aa3842c1dfc09c8740cf1f1463f83cf90", null ],
     [ "_badConversion", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a697d1511bf7bb555ebcdc729cdbc9875", null ],
     [ "_checkValid", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a66752052dc10a59d5d7c0ffabdb1ea56", null ],
-    [ "init", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#ac4906714b4554525ec0ea4bb56bbe6bc", null ],
+    [ "ARCANE_DEPRECATED_REASON", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#adec5c463da6194cf4e93bbf6f2970845", null ],
     [ "items", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a70854ce470fd6714a8d0d8db067dd59d", null ],
     [ "nbItem", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a4b212a25aaf72f75280d4dd345991369", null ],
+    [ "nbSourceItem", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a6093aa28b72c52769371a91beb11ad04", null ],
     [ "set", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#adcd9c49993df1f6c8bb47c926397daf7", null ],
     [ "sourceItemKind", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a2e37ec016bbe2dc0352c80dca166f54b", null ],
     [ "targetItemKind", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a6cce6d9ec8f08e1abea40e1a8fc93b4f", null ],
+    [ "indexes", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a341b349738a73c00e211206c02cf8191", null ],
+    [ "list_data", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a622466a1e4225dac85db8720ca03cbf5", null ],
     [ "m_indexes", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a87bd6f364b8614b413a41242d057d213", null ],
+    [ "m_list_data", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#aac19be9ef5c79cea4596e18c16a22093", null ],
     [ "m_list_data", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#aa46b596ca92119ec90c8e3c02f2c2638", null ],
+    [ "m_nb_item", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a4044849d3696da38f4ae7cec8e410219", null ],
     [ "m_nb_item", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#ad39ccfff429ac0d8a46b0e8b53347cb5", null ],
+    [ "m_source_kind", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a9c7336b8393400cf0db00455791ea116", null ],
     [ "m_source_kind", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#ada6e112ec316f485aa1a291be4096987", null ],
-    [ "m_target_kind", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#ac19106c05f24d013715fd004168100cb", null ]
+    [ "m_target_kind", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#a2e74c5f56deee160e0b0b98480f833c1", null ],
+    [ "m_target_kind", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#ac19106c05f24d013715fd004168100cb", null ],
+    [ "source_kind", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#abb4625467663a3498fcf95d184443d0c", null ],
+    [ "target_kind", "d3/dce/classArcane_1_1IndexedItemConnectivityViewBase.html#aa3a784f3f98cd3830fd4be5ade016f54", null ]
 ];

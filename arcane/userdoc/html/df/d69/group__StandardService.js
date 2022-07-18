@@ -150,6 +150,8 @@ var group__StandardService =
       [ "print", "d6/de8/classArcane_1_1ISimpleTableOutput.html#abbed6452e9418f82c4d3bbc75376bbd7", null ],
       [ "row", "d6/de8/classArcane_1_1ISimpleTableOutput.html#ae00a705c2dc805498097ceb87e64c482", null ],
       [ "row", "d6/de8/classArcane_1_1ISimpleTableOutput.html#ae3f326e38a9cc2154ab09ff21b6ff0d9", null ],
+      [ "setFixed", "d6/de8/classArcane_1_1ISimpleTableOutput.html#adcb9d32f734e7450c6143fabdccd6901", null ],
+      [ "setPrecision", "d6/de8/classArcane_1_1ISimpleTableOutput.html#affb605d65ef309912371f9dbb2a826ee", null ],
       [ "sizeColumn", "d6/de8/classArcane_1_1ISimpleTableOutput.html#a5e922123cce5e68559319fe8c88344bc", null ],
       [ "sizeColumn", "d6/de8/classArcane_1_1ISimpleTableOutput.html#abc67e2a70ae71d464d8e26e9932b332b", null ],
       [ "sizeRow", "d6/de8/classArcane_1_1ISimpleTableOutput.html#a516e3275d82a23e4cdffedc997aafde6", null ],

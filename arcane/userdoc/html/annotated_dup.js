@@ -650,6 +650,7 @@ var annotated_dup =
       [ "ItemArrayEnumeratorT", "d3/dda/classArcane_1_1ItemArrayEnumeratorT.html", "d3/dda/classArcane_1_1ItemArrayEnumeratorT" ],
       [ "ItemCompare", "d1/d7c/classArcane_1_1ItemCompare.html", "d1/d7c/classArcane_1_1ItemCompare" ],
       [ "CompareItemIdsByLevel", "d4/d1a/classArcane_1_1CompareItemIdsByLevel.html", "d4/d1a/classArcane_1_1CompareItemIdsByLevel" ],
+      [ "ItemConnectivityContainerView", "d8/d77/classArcane_1_1ItemConnectivityContainerView.html", "d8/d77/classArcane_1_1ItemConnectivityContainerView" ],
       [ "ItemEnumerator", "d6/dcd/classArcane_1_1ItemEnumerator.html", "d6/dcd/classArcane_1_1ItemEnumerator" ],
       [ "ItemEnumeratorT", "d7/d74/classArcane_1_1ItemEnumeratorT.html", "d7/d74/classArcane_1_1ItemEnumeratorT" ],
       [ "ItemFamilyCompactInfos", "d4/d1f/classArcane_1_1ItemFamilyCompactInfos.html", "d4/d1f/classArcane_1_1ItemFamilyCompactInfos" ],

@@ -1498,6 +1498,7 @@ var hierarchy =
     ] ],
     [ "Arcane::ItemCheckSuppressedFunctor", "d9/d45/classArcane_1_1ItemCheckSuppressedFunctor.html", null ],
     [ "Arcane::ItemCompare", "d1/d7c/classArcane_1_1ItemCompare.html", null ],
+    [ "Arcane::ItemConnectivityContainerView", "d8/d77/classArcane_1_1ItemConnectivityContainerView.html", null ],
     [ "Arcane::ItemEnumerator", "d6/dcd/classArcane_1_1ItemEnumerator.html", [
       [ "Arcane::ItemEnumeratorT< ItemType >", "d7/d74/classArcane_1_1ItemEnumeratorT.html", null ]
     ] ],
@@ -1687,8 +1688,8 @@ var hierarchy =
     [ "Arcane::JSONWrapperUtils", "d6/d9d/classArcane_1_1JSONWrapperUtils.html", null ],
     [ "Arcane::JSONWriter", "d9/d23/classArcane_1_1JSONWriter.html", null ],
     [ "Arcane::LeftLayout< RankValue >", "dc/dfc/classArcane_1_1LeftLayout.html", null ],
-    [ "Arcane::LibXml2_DOMImplementation", "d4/d59/classArcane_1_1LibXml2__DOMImplementation.html", null ],
     [ "Arcane::LIBXML2_DOMImplementation", "d6/d7f/classArcane_1_1LIBXML2__DOMImplementation.html", null ],
+    [ "Arcane::LibXml2_DOMImplementation", "d4/d59/classArcane_1_1LibXml2__DOMImplementation.html", null ],
     [ "Arcane::LIBXML2_DOMNamespaceContext", "d7/dca/classArcane_1_1LIBXML2__DOMNamespaceContext.html", null ],
     [ "Arcane::LIBXML2_DOMWriter", "d6/d9f/classArcane_1_1LIBXML2__DOMWriter.html", null ],
     [ "Arcane::LibXml2_ErrorHandler", "da/dc9/classArcane_1_1LibXml2__ErrorHandler.html", null ],

@@ -297,7 +297,6 @@ var namespaceArcane =
       [ "vecMul", "d9/dcd/group__GroupMathUtils.html#ga21c2887b876bdb0ef85b4778fa627a7c", null ],
       [ "vecMul2D", "d9/dcd/group__GroupMathUtils.html#ga06d1394c1969e1c3e0f8d9714b63581c", null ]
     ] ],
-    [ "mesh", "d5/d7e/namespaceArcane_1_1mesh.html", null ],
     [ "mesh_utils", null, [
       [ "checkMeshConnectivity", "dc/de8/MeshUtils_8h.html#a0b6a0d4a24136b72a2f15e97dbe795ee", null ],
       [ "checkMeshConnectivity", "dc/de8/MeshUtils_8h.html#ad3ed8463d86242e77e19df142b0ea5ce", null ],
@@ -771,6 +770,7 @@ var namespaceArcane =
     [ "ItemArrayEnumeratorT", "d3/dda/classArcane_1_1ItemArrayEnumeratorT.html", "d3/dda/classArcane_1_1ItemArrayEnumeratorT" ],
     [ "ItemCompare", "d1/d7c/classArcane_1_1ItemCompare.html", "d1/d7c/classArcane_1_1ItemCompare" ],
     [ "CompareItemIdsByLevel", "d4/d1a/classArcane_1_1CompareItemIdsByLevel.html", "d4/d1a/classArcane_1_1CompareItemIdsByLevel" ],
+    [ "ItemConnectivityContainerView", "d8/d77/classArcane_1_1ItemConnectivityContainerView.html", "d8/d77/classArcane_1_1ItemConnectivityContainerView" ],
     [ "ItemEnumerator", "d6/dcd/classArcane_1_1ItemEnumerator.html", "d6/dcd/classArcane_1_1ItemEnumerator" ],
     [ "ItemEnumeratorT", "d7/d74/classArcane_1_1ItemEnumeratorT.html", "d7/d74/classArcane_1_1ItemEnumeratorT" ],
     [ "ItemFamilyCompactInfos", "d4/d1f/classArcane_1_1ItemFamilyCompactInfos.html", "d4/d1f/classArcane_1_1ItemFamilyCompactInfos" ],
