@@ -237,6 +237,7 @@ var dir_cd48e9603a047c3a36ad2b31e177f8e3 =
     [ "ItemPrinter.h", "de/dbf/ItemPrinter_8h_source.html", null ],
     [ "ItemRefinementPattern.h", "d0/dff/ItemRefinementPattern_8h_source.html", null ],
     [ "ItemSharedInfo.h", "df/d39/ItemSharedInfo_8h_source.html", null ],
+    [ "ItemTypeId.h", "da/d17/ItemTypeId_8h_source.html", null ],
     [ "ItemTypeInfo.h", "df/d19/ItemTypeInfo_8h_source.html", null ],
     [ "ItemTypeInfoBuilder.h", "d4/d3f/ItemTypeInfoBuilder_8h_source.html", null ],
     [ "ItemTypeMng.h", "d0/dbc/ItemTypeMng_8h_source.html", null ],

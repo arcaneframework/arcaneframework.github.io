@@ -15,5 +15,6 @@ var classArcane_1_1ItemTypeInfoBuilder =
     [ "addFaceTriangle6", "da/d41/classArcane_1_1ItemTypeInfoBuilder.html#afea9c20943dd9aaae4d419d78822ac01", null ],
     [ "addFaceVertex", "da/d41/classArcane_1_1ItemTypeInfoBuilder.html#a88d1ad07b83898fa71aaf860fd28b1ae", null ],
     [ "computeFaceEdgeInfos", "da/d41/classArcane_1_1ItemTypeInfoBuilder.html#ab29a82192dfdb7b3bbfc7cdeb5caed5d", null ],
-    [ "setInfos", "da/d41/classArcane_1_1ItemTypeInfoBuilder.html#ad3aa0ac0d088f04780a19227a0c98689", null ]
+    [ "setInfos", "da/d41/classArcane_1_1ItemTypeInfoBuilder.html#ad3aa0ac0d088f04780a19227a0c98689", null ],
+    [ "setInfos", "da/d41/classArcane_1_1ItemTypeInfoBuilder.html#aa8811e9e2cb044043d49767353776f6b", null ]
 ];

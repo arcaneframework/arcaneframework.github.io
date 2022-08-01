@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.7.0.0</span>
+   &#160;<span id="projectnumber">3.7.1.0</span>
    </div>
   </td>
  </tr>
@@ -323,7 +323,7 @@ Attributs protégés</h2></td></tr>
 <div class="line"><span class="keywordflow">if</span> (surface.empty())</div>
 <div class="line">  <span class="comment">// Surface existe mais est vide</span></div>
 <div class="ttc" id="aclassArcane_1_1ItemGroup_html_ae2c614db5fe47ff06b36f33a4a2965cc"><div class="ttname"><a href="../../d9/d27/classArcane_1_1ItemGroup.html#ae2c614db5fe47ff06b36f33a4a2965cc">Arcane::ItemGroup::ItemGroup</a></div><div class="ttdeci">ItemGroup()</div><div class="ttdoc">Construit un groupe nul.</div><div class="ttdef"><b>Definition:</b> ItemGroup.cc:147</div></div>
-<div class="ttc" id="agroup__Mesh_html_ga715f63c87800d630ab5c58d9328c2bf2"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga715f63c87800d630ab5c58d9328c2bf2">Arcane::FaceGroup</a></div><div class="ttdeci">ItemGroupT&lt; Face &gt; FaceGroup</div><div class="ttdoc">Groupe de faces.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:136</div></div>
+<div class="ttc" id="agroup__Mesh_html_ga715f63c87800d630ab5c58d9328c2bf2"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga715f63c87800d630ab5c58d9328c2bf2">Arcane::FaceGroup</a></div><div class="ttdeci">ItemGroupT&lt; Face &gt; FaceGroup</div><div class="ttdoc">Groupe de faces.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:137</div></div>
 </div><!-- fragment --><p>Il est possible de trier un groupe pour que ses éléments soient toujours être classés par ordre croissant des uniqueId() des éléments, afin de garantir que les codes séquentiels et parallèles peuvent donner le même résultat.</p>
 <p>Il existe un groupe spécial, dit groupe nul, permettant de représenter un groupe non référencé, c'est à dire qui n'existe pas. Ce groupe est le seul pour lequel <a class="el" href="../../d9/d27/classArcane_1_1ItemGroup.html#ac254583641d87f94267385604b3554b2" title="true is le groupe est le groupe nul">null()</a> retourne <code>true</code>. Le groupe nul possède les propriétés suivantes: </p><ul>
 <li><a class="el" href="../../d9/d27/classArcane_1_1ItemGroup.html#ac254583641d87f94267385604b3554b2" title="true is le groupe est le groupe nul">null()</a> == <code>true</code>; </li>
@@ -340,7 +340,7 @@ Attributs protégés</h2></td></tr>
 <div class="line">  m_mass[icell] = m_volume[icell] * m_density[icell];</div>
 <div class="line">}</div>
 <div class="ttc" id="aItemEnumerator_8h_html_aaf5910d68ad8428248f844535ab071f3"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#aaf5910d68ad8428248f844535ab071f3">ENUMERATE_CELL</a></div><div class="ttdeci">#define ENUMERATE_CELL(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:260</div></div>
-<div class="ttc" id="agroup__Mesh_html_ga4d78be302ffdabc4e0f16578cc077314"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga4d78be302ffdabc4e0f16578cc077314">Arcane::CellGroup</a></div><div class="ttdeci">ItemGroupT&lt; Cell &gt; CellGroup</div><div class="ttdoc">Groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:141</div></div>
+<div class="ttc" id="agroup__Mesh_html_ga4d78be302ffdabc4e0f16578cc077314"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga4d78be302ffdabc4e0f16578cc077314">Arcane::CellGroup</a></div><div class="ttdeci">ItemGroupT&lt; Cell &gt; CellGroup</div><div class="ttdoc">Groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:142</div></div>
 </div><!-- fragment --><p>Il est possible d'ajouter (<a class="el" href="../../d9/d27/classArcane_1_1ItemGroup.html#a84a07a02f1892d5830ba30b23f33b2dc" title="Ajoute des entités.">addItems()</a>) ou supprimer des entités d'un groupe (<a class="el" href="../../d9/d27/classArcane_1_1ItemGroup.html#a44d3aa68c48b6642f51851e0b386e4ec" title="Supprime des entités.">removeItems()</a>).</p>
 <p>Les groupes qui n'ont pas de parents sont persistants et peuvent être récupérés lors d'une reprise. Les éléments de ces groupes sont automatiquement mis à jour lors de la modification de la famille associée. Par exemple, si un élément d'une famille est supprimé et qu'il appartenait à un groupe, il est automatiquement supprimé de ce groupe. De même les groupes sont mis à jour lors d'un repartitionnement du maillage. Il existe cependant une petite restriction avec l'implémentation actuelle sur cette utilisation. Pour éviter de remettre à jour le groupe à chaque changement de la famille, le groupe est marqué comme devant être remis à jour (via <a class="el" href="../../d9/d27/classArcane_1_1ItemGroup.html#a4754c9dd3d7a18930eda7a1753e51771" title="Invalide le groupe.">invalidate()</a>) à chaque changement mais n'est réellement recalculé que lorsqu'il sera utilisé. Il est donc théoriquement possible que des ajouts et suppressions multiples entre deux utilisations du groupe rendent ses éléments incohérents (TODO: lien sur explication detaillée). Pour éviter ce problème, il est possible de forcer le recalcul du groupe en appelant <a class="el" href="../../d9/d27/classArcane_1_1ItemGroup.html#a4754c9dd3d7a18930eda7a1753e51771" title="Invalide le groupe.">invalidate()</a> avec comme argument <em>true</em>.</p>
 <p>Les groupes dits dérivés (qui ont un parent) comme les <a class="el" href="../../d9/d27/classArcane_1_1ItemGroup.html#aed729c7e255d2f11fdb5e597662c25d9" title="Groupe équivalent à celui-ci mais contenant uniquement les éléments propres au sous-domaine.">own()</a> ou les <a class="el" href="../../d9/d27/classArcane_1_1ItemGroup.html#a7216d0490f761408dc1f2b4a46ba89e2" title="Groupe des mailles des éléments de ce groupe.">cellGroup()</a> sont invalidés et vidés de leurs éléments lors d'une modification de la famille associée.</p>
@@ -838,7 +838,7 @@ Attributs protégés</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 25 Juillet 2022 03:42:24 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Généré le Lundi 1 Août 2022 04:01:37 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
