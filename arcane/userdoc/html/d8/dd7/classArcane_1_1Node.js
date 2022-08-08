@@ -9,6 +9,7 @@ var classArcane_1_1Node =
     [ "Node", "d8/dd7/classArcane_1_1Node.html#a8e6f156d93afa3d715822953a1cca566", null ],
     [ "Node", "d8/dd7/classArcane_1_1Node.html#a150776de79bc9d13db8bbb01215b7051", null ],
     [ "Node", "d8/dd7/classArcane_1_1Node.html#a48acb585312034c7ab0495ade2793ccb", null ],
+    [ "Node", "d8/dd7/classArcane_1_1Node.html#acf3d4f119f7ef0bdb8cb8c4b2a69f046", null ],
     [ "Node", "d8/dd7/classArcane_1_1Node.html#a2d3b7b4ed54fc520aa0c172d90a1acf7", null ],
     [ "_assign", "d8/dd7/classArcane_1_1Node.html#a0915f488cc32242867df161671c0b65f", null ],
     [ "_checkValid", "d8/dd7/classArcane_1_1Node.html#aed1fd77524081f88114fdea6ee30b381", null ],

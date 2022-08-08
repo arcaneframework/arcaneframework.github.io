@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.7.1.0</span>
+   &#160;<span id="projectnumber">3.7.2.0</span>
    </div>
   </td>
  </tr>
@@ -779,8 +779,8 @@ Calcul de la pseudo-viscosité</h2>
 <div class="line">      m_cell_viscosity_force[cell] = 0.;</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-<div class="ttc" id="agroup__GroupMathUtils_html_ga278e42edf5a6086340fc5d8c97bfc4ef"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#ga278e42edf5a6086340fc5d8c97bfc4ef">Arcane::math::min</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE Real2 min(Real2 a, Real2 b)</div><div class="ttdoc">Retourne le minimum de deux Real2.</div><div class="ttdef"><b>Definition:</b> MathUtils.h:374</div></div>
-<div class="ttc" id="agroup__GroupMathUtils_html_ga3ef4740d8d03399c8be478b2544d3d63"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#ga3ef4740d8d03399c8be478b2544d3d63">Arcane::math::scaMul</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE Real scaMul(Real2 u, Real2 v)</div><div class="ttdoc">Produit scalaire de u par v dans .</div><div class="ttdef"><b>Definition:</b> MathUtils.h:112</div></div>
+<div class="ttc" id="agroup__GroupMathUtils_html_ga278e42edf5a6086340fc5d8c97bfc4ef"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#ga278e42edf5a6086340fc5d8c97bfc4ef">Arcane::math::min</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE Real2 min(Real2 a, Real2 b)</div><div class="ttdoc">Retourne le minimum de deux Real2.</div><div class="ttdef"><b>Definition:</b> MathUtils.h:336</div></div>
+<div class="ttc" id="agroup__GroupMathUtils_html_ga3ef4740d8d03399c8be478b2544d3d63"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#ga3ef4740d8d03399c8be478b2544d3d63">Arcane::math::scaMul</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE Real scaMul(Real2 u, Real2 v)</div><div class="ttdoc">Produit scalaire de u par v dans .</div><div class="ttdef"><b>Definition:</b> MathUtils.h:113</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="simplehydro_describeentrypoints_impulsion"></a>
 Calcul de l'impulsion</h2>
 <p>Ce point d'entrée calcule la force (<code>m_force</code>) qui s'applique aux noeuds en ajoutant l'éventuelle contribution de la pseudo-viscosité. Il calcule ensuite la nouvelle vitesse (<code>m_velocity</code>) aux noeuds et le travail des forces de viscosité qui sera utilisé lors du calcul de l'énergie interne.</p>
@@ -1000,7 +1000,7 @@ de calculer son volume. </li>
 <div class="line">  m_cell_cqs[cell][7] = (5.*(n2a08 + n2a12 + n4a12 + n4a11 + n6a11 + n6a08) +</div>
 <div class="line">     (n2a04 + n2a05 + n4a09 + n4a10 + n6a07 + n6a03))*(1./12.);</div>
 <div class="line">}</div>
-<div class="ttc" id="agroup__GroupMathUtils_html_ga5d790fa25c5ae828b63d2f26cb4b1b7d"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">Arcane::math::vecMul</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE Real3 vecMul(Real3 u, Real3 v)</div><div class="ttdoc">Produit vectoriel de u par v. dans .</div><div class="ttdef"><b>Definition:</b> MathUtils.h:51</div></div>
+<div class="ttc" id="agroup__GroupMathUtils_html_ga5d790fa25c5ae828b63d2f26cb4b1b7d"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#ga5d790fa25c5ae828b63d2f26cb4b1b7d">Arcane::math::vecMul</a></div><div class="ttdeci">ARCCORE_HOST_DEVICE Real3 vecMul(Real3 u, Real3 v)</div><div class="ttdoc">Produit vectoriel de u par v. dans .</div><div class="ttdef"><b>Definition:</b> MathUtils.h:52</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="simplehydro_describeentrypoints_density"></a>
 Mise à jour de la densité</h2>
 <p>Ce point d'entrée calcule la nouvelle valeur de la densité des mailles, en considérant que la masse d'une maille est constante au cours du temps. Dans ce cas, la nouvelle densité est égal à la masse divisée par le nouveau volume. Cette routine sauve aussi la valeur maximale de l'acroissement de densité (<code>m_density_ratio_maximum</code>) qui sera utilisée pour contraindre le pas de temps.</p>
@@ -1025,7 +1025,7 @@ Mise à jour de la densité</h2>
 <div class="line">  m_density_ratio_maximum.reduce(<a class="code" href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3eaa8e2e6c3f405ec7aa2e4bc05f93d7d6d4">Parallel::ReduceMax</a>);</div>
 <div class="line"> </div>
 <div class="line">  m_density.synchronize();</div>
-<div class="ttc" id="agroup__GroupMathUtils_html_ga1fdb520cf182e9f868193f653daf3e2f"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">Arcane::math::max</a></div><div class="ttdeci">T max(const T &amp;a, const T &amp;b, const T &amp;c)</div><div class="ttdoc">Retourne le maximum de trois éléments.</div><div class="ttdef"><b>Definition:</b> MathUtils.h:430</div></div>
+<div class="ttc" id="agroup__GroupMathUtils_html_ga1fdb520cf182e9f868193f653daf3e2f"><div class="ttname"><a href="../../d9/dcd/group__GroupMathUtils.html#ga1fdb520cf182e9f868193f653daf3e2f">Arcane::math::max</a></div><div class="ttdeci">T max(const T &amp;a, const T &amp;b, const T &amp;c)</div><div class="ttdoc">Retourne le maximum de trois éléments.</div><div class="ttdef"><b>Definition:</b> MathUtils.h:392</div></div>
 <div class="ttc" id="anamespaceArccore_1_1MessagePassing_html_aaf52c72596590e6ea65e9e03e1adf3eaa8e2e6c3f405ec7aa2e4bc05f93d7d6d4"><div class="ttname"><a href="../../da/d41/namespaceArccore_1_1MessagePassing.html#aaf52c72596590e6ea65e9e03e1adf3eaa8e2e6c3f405ec7aa2e4bc05f93d7d6d4">Arccore::MessagePassing::ReduceMax</a></div><div class="ttdeci">@ ReduceMax</div><div class="ttdoc">Maximum des valeurs.</div><div class="ttdef"><b>Definition:</b> MessagePassingGlobal.h:74</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="simplehydro_describeentrypoints_eos"></a>
 Equation d'état</h2>
@@ -1183,7 +1183,7 @@ Prise en compte des protections/reprises</h1>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 1 Août 2022 04:01:25 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Généré le Lundi 8 Août 2022 03:38:37 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

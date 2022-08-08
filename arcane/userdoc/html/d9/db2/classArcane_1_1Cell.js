@@ -5,6 +5,7 @@ var classArcane_1_1Cell =
     [ "Cell", "d9/db2/classArcane_1_1Cell.html#aac84375de5ef724029bb9210d8934326", null ],
     [ "Cell", "d9/db2/classArcane_1_1Cell.html#ac200a1dc9777f1601a8ee831555d9cc0", null ],
     [ "Cell", "d9/db2/classArcane_1_1Cell.html#a3d1e9bba3762c5b19d3eda258fe8ef10", null ],
+    [ "Cell", "d9/db2/classArcane_1_1Cell.html#ab364e9ac3c92010d4276c1bb56fa693f", null ],
     [ "Cell", "d9/db2/classArcane_1_1Cell.html#a5c0f01359911cdc2c0781443d103f688", null ],
     [ "edge", "d9/db2/classArcane_1_1Cell.html#a989e2a361eb9b1ffd3e21902bbd914e9", null ],
     [ "edgeId", "d9/db2/classArcane_1_1Cell.html#a727ffc82d7f96836996c9a67e54b8e9f", null ],

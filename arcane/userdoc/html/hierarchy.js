@@ -492,6 +492,7 @@ var hierarchy =
     [ "Arcane::ConstArrayConverter< InputType, InputType, DefaultConverter< InputType, InputType > >", "d0/de7/classArcane_1_1ConstArrayConverter_3_01InputType_00_01InputType_00_01DefaultConverter_3_01InputType_00_01InputType_01_4_01_4.html", null ],
     [ "Arccore::ConstArrayView< T >", "db/d8c/classArccore_1_1ConstArrayView.html", null ],
     [ "Arccore::ConstArrayView< Arcane::HashTableMapT::Data * >", "db/d8c/classArccore_1_1ConstArrayView.html", null ],
+    [ "Arccore::ConstArrayView< Arcane::ItemInternal * >", "db/d8c/classArccore_1_1ConstArrayView.html", null ],
     [ "Arccore::ConstArrayView< Arcane::IVariable * >", "db/d8c/classArccore_1_1ConstArrayView.html", null ],
     [ "Arccore::ConstArrayView< Arcane::Materials::ComponentItemInternal * >", "db/d8c/classArccore_1_1ConstArrayView.html", null ],
     [ "Arccore::ConstArrayView< Arcane::Materials::IMeshComponent * >", "db/d8c/classArccore_1_1ConstArrayView.html", null ],
@@ -1468,36 +1469,40 @@ var hierarchy =
     [ "Arcane::ITaskImplementation", "dd/df9/classArcane_1_1ITaskImplementation.html", [
       [ "Arcane::NullTaskImplementation", "de/dd9/classArcane_1_1NullTaskImplementation.html", null ]
     ] ],
-    [ "Arcane::Item", "df/d5f/classArcane_1_1Item.html", [
-      [ "Arcane::DoF", "d0/d6c/classArcane_1_1DoF.html", null ],
-      [ "Arcane::ItemWithNodes", "d4/d55/classArcane_1_1ItemWithNodes.html", [
-        [ "Arcane::Cell", "d9/db2/classArcane_1_1Cell.html", null ],
-        [ "Arcane::Edge", "d1/d16/classArcane_1_1Edge.html", null ],
-        [ "Arcane::Face", "d1/db1/classArcane_1_1Face.html", null ]
-      ] ],
-      [ "Arcane::Node", "d8/dd7/classArcane_1_1Node.html", [
-        [ "Arcane::Attr", "d4/d27/classArcane_1_1Attr.html", null ],
-        [ "Arcane::CharacterData", "d5/dd0/classArcane_1_1CharacterData.html", [
-          [ "Arcane::Comment", "de/d69/classArcane_1_1Comment.html", null ],
-          [ "Arcane::Text", "db/d81/classArcane_1_1Text.html", [
-            [ "Arcane::CDATASection", "de/d20/classArcane_1_1CDATASection.html", null ]
-          ] ]
-        ] ],
-        [ "Arcane::Document", "d3/d48/classArcane_1_1Document.html", null ],
-        [ "Arcane::DocumentFragment", "db/d70/classArcane_1_1DocumentFragment.html", null ],
-        [ "Arcane::DocumentType", "d0/dee/classArcane_1_1DocumentType.html", null ],
-        [ "Arcane::Element", "d0/d4f/classArcane_1_1Element.html", null ],
-        [ "Arcane::Entity", "dc/d6c/classArcane_1_1Entity.html", null ],
-        [ "Arcane::EntityReference", "d4/d84/classArcane_1_1EntityReference.html", null ],
-        [ "Arcane::Notation", "db/da4/classArcane_1_1Notation.html", null ],
-        [ "Arcane::ProcessingInstruction", "df/d39/classArcane_1_1ProcessingInstruction.html", null ],
-        [ "Arcane::XPathNamespace", "d8/dce/classArcane_1_1XPathNamespace.html", null ]
-      ] ],
-      [ "Arcane::Particle", "dd/d6c/classArcane_1_1Particle.html", null ]
-    ] ],
     [ "Arcane::ItemArrayEnumerator", "dd/d56/classArcane_1_1ItemArrayEnumerator.html", [
       [ "Arcane::ItemArrayEnumeratorT< ItemType >", "d3/dda/classArcane_1_1ItemArrayEnumeratorT.html", null ]
     ] ],
+    [ "Arcane::ItemBase", "d7/dac/classArcane_1_1ItemBase.html", [
+      [ "Arcane::Item", "df/d5f/classArcane_1_1Item.html", [
+        [ "Arcane::DoF", "d0/d6c/classArcane_1_1DoF.html", null ],
+        [ "Arcane::ItemWithNodes", "d4/d55/classArcane_1_1ItemWithNodes.html", [
+          [ "Arcane::Cell", "d9/db2/classArcane_1_1Cell.html", null ],
+          [ "Arcane::Edge", "d1/d16/classArcane_1_1Edge.html", null ],
+          [ "Arcane::Face", "d1/db1/classArcane_1_1Face.html", null ]
+        ] ],
+        [ "Arcane::Node", "d8/dd7/classArcane_1_1Node.html", [
+          [ "Arcane::Attr", "d4/d27/classArcane_1_1Attr.html", null ],
+          [ "Arcane::CharacterData", "d5/dd0/classArcane_1_1CharacterData.html", [
+            [ "Arcane::Comment", "de/d69/classArcane_1_1Comment.html", null ],
+            [ "Arcane::Text", "db/d81/classArcane_1_1Text.html", [
+              [ "Arcane::CDATASection", "de/d20/classArcane_1_1CDATASection.html", null ]
+            ] ]
+          ] ],
+          [ "Arcane::Document", "d3/d48/classArcane_1_1Document.html", null ],
+          [ "Arcane::DocumentFragment", "db/d70/classArcane_1_1DocumentFragment.html", null ],
+          [ "Arcane::DocumentType", "d0/dee/classArcane_1_1DocumentType.html", null ],
+          [ "Arcane::Element", "d0/d4f/classArcane_1_1Element.html", null ],
+          [ "Arcane::Entity", "dc/d6c/classArcane_1_1Entity.html", null ],
+          [ "Arcane::EntityReference", "d4/d84/classArcane_1_1EntityReference.html", null ],
+          [ "Arcane::Notation", "db/da4/classArcane_1_1Notation.html", null ],
+          [ "Arcane::ProcessingInstruction", "df/d39/classArcane_1_1ProcessingInstruction.html", null ],
+          [ "Arcane::XPathNamespace", "d8/dce/classArcane_1_1XPathNamespace.html", null ]
+        ] ],
+        [ "Arcane::Particle", "dd/d6c/classArcane_1_1Particle.html", null ]
+      ] ],
+      [ "Arcane::ItemInternal", "dd/df1/classArcane_1_1ItemInternal.html", null ]
+    ] ],
+    [ "Arcane::ItemBaseBuildInfo", "da/d82/classArcane_1_1ItemBaseBuildInfo.html", null ],
     [ "Arcane::ItemCheckSuppressedFunctor", "d9/d45/classArcane_1_1ItemCheckSuppressedFunctor.html", null ],
     [ "Arcane::ItemCompare", "d1/d7c/classArcane_1_1ItemCompare.html", null ],
     [ "Arcane::ItemConnectivityContainerView", "d8/d77/classArcane_1_1ItemConnectivityContainerView.html", null ],
@@ -1519,7 +1524,6 @@ var hierarchy =
       [ "Arcane::ItemGroupRangeIteratorT< T >", "de/d97/classArcane_1_1ItemGroupRangeIteratorT.html", null ]
     ] ],
     [ "Arcane::ItemIndexArrayView", "df/d28/classArcane_1_1ItemIndexArrayView.html", null ],
-    [ "Arcane::ItemInternal", "dd/df1/classArcane_1_1ItemInternal.html", null ],
     [ "Arcane::ItemInternalConnectivityList", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html", null ],
     [ "Arcane::ItemInternalEnumerator", "d1/d62/classArcane_1_1ItemInternalEnumerator.html", null ],
     [ "Arcane::ItemInternalVectorView", "dd/dd5/classArcane_1_1ItemInternalVectorView.html", null ],

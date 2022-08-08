@@ -255,7 +255,7 @@ var annotated_dup =
         [ "IGeometryProperty", "dd/d4d/structArcane_1_1Numerics_1_1IGeometryProperty.html", "dd/d4d/structArcane_1_1Numerics_1_1IGeometryProperty" ],
         [ "IGeometryMng", "df/d38/classArcane_1_1Numerics_1_1IGeometryMng.html", "df/d38/classArcane_1_1Numerics_1_1IGeometryMng" ]
       ] ],
-      [ "Parallel", "d8/d8f/namespaceArcane_1_1Parallel.html", [
+      [ "Parallel", null, [
         [ "IStat", "d0/dae/classArcane_1_1Parallel_1_1IStat.html", "d0/dae/classArcane_1_1Parallel_1_1IStat" ],
         [ "Stat", "d1/d57/classArcane_1_1Parallel_1_1Stat.html", "d1/d57/classArcane_1_1Parallel_1_1Stat" ]
       ] ],
@@ -686,7 +686,9 @@ var annotated_dup =
       [ "ItemGroupRangeIterator", "da/d23/classArcane_1_1ItemGroupRangeIterator.html", "da/d23/classArcane_1_1ItemGroupRangeIterator" ],
       [ "ItemGroupRangeIteratorT", "de/d97/classArcane_1_1ItemGroupRangeIteratorT.html", "de/d97/classArcane_1_1ItemGroupRangeIteratorT" ],
       [ "ItemIndexArrayView", "df/d28/classArcane_1_1ItemIndexArrayView.html", "df/d28/classArcane_1_1ItemIndexArrayView" ],
+      [ "ItemBaseBuildInfo", "da/d82/classArcane_1_1ItemBaseBuildInfo.html", "da/d82/classArcane_1_1ItemBaseBuildInfo" ],
       [ "ItemInternalConnectivityList", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html", "d1/ddd/classArcane_1_1ItemInternalConnectivityList" ],
+      [ "ItemBase", "d7/dac/classArcane_1_1ItemBase.html", "d7/dac/classArcane_1_1ItemBase" ],
       [ "ItemInternal", "dd/df1/classArcane_1_1ItemInternal.html", "dd/df1/classArcane_1_1ItemInternal" ],
       [ "ItemInternalEnumerator", "d1/d62/classArcane_1_1ItemInternalEnumerator.html", "d1/d62/classArcane_1_1ItemInternalEnumerator" ],
       [ "ItemInternalSortFunction", "dd/d27/classArcane_1_1ItemInternalSortFunction.html", "dd/d27/classArcane_1_1ItemInternalSortFunction" ],

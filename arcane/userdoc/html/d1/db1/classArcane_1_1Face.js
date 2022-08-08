@@ -5,6 +5,7 @@ var classArcane_1_1Face =
     [ "Face", "d1/db1/classArcane_1_1Face.html#abaa84d035374b45b4c6ed524f95b11e1", null ],
     [ "Face", "d1/db1/classArcane_1_1Face.html#a68bc8cf330e8493af08cab5d572ba8bd", null ],
     [ "Face", "d1/db1/classArcane_1_1Face.html#ac2b7f75be4f3b7c194897f04b773ba35", null ],
+    [ "Face", "d1/db1/classArcane_1_1Face.html#a3d07a52ef99d67fcff8e88417b82af89", null ],
     [ "Face", "d1/db1/classArcane_1_1Face.html#aae43afc6de7f073a7d5d8fb19265ee7f", null ],
     [ "backCell", "d1/db1/classArcane_1_1Face.html#af5eb0ad8fc1568b4c59ff0bd5ece57bf", null ],
     [ "backCellId", "d1/db1/classArcane_1_1Face.html#aaaf62da87ec534574ea4b2d865102ca5", null ],

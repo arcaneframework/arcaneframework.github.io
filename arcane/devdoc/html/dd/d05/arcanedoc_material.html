@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.7.1.0</span>
+   &#160;<span id="projectnumber">3.7.2.0</span>
    </div>
   </td>
  </tr>
@@ -273,7 +273,7 @@ Itération sur les mailles matériaux</h1>
 <div class="line">    <a class="code" href="../../dd/df0/core_2materials_2MatItemEnumerator_8h.html#a568f790f7de72e2144399d55d8c63455">ENUMERATE_ENVCELL</a>(imatcell,env_cells){</div>
 <div class="line">      mat_density[imatcell] = 3.1;</div>
 <div class="line">    }</div>
-<div class="ttc" id="agroup__Mesh_html_ga4d78be302ffdabc4e0f16578cc077314"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga4d78be302ffdabc4e0f16578cc077314">Arcane::CellGroup</a></div><div class="ttdeci">ItemGroupT&lt; Cell &gt; CellGroup</div><div class="ttdoc">Groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:142</div></div>
+<div class="ttc" id="agroup__Mesh_html_ga4d78be302ffdabc4e0f16578cc077314"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga4d78be302ffdabc4e0f16578cc077314">Arcane::CellGroup</a></div><div class="ttdeci">ItemGroupT&lt; Cell &gt; CellGroup</div><div class="ttdoc">Groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:143</div></div>
 </div><!-- fragment --> <dl class="section note"><dt>Note</dt><dd>Actuellement, les classes MatCellVector et EnvCellVector ne sont pas copiables et ne sont valides que tant que le matériau (pour MatCellVector) ou le milieu (pour EnvCellVector) et le groupe de maille associé ne change pas. De plus, la conservation des informations consomme de la mémoire et la création à un cout en temps de calcul proportionnel au nombre de mailles du groupe.</dd></dl>
 <h1><a class="anchor" id="arcanedoc_material_conversion"></a>
 Conversion Cell vers AllEnvCell, MatCell ou EnvCell</h1>
@@ -544,7 +544,7 @@ Parallélisation des boucles sur les matériaux et milieux</h1>
 <p>De la même manière que les boucles sur les entités (voir <a class="el" href="../../dd/db4/arcanedoc_concurrency.html">Concurrence et multi-threading</a>), il est possible d'exécuter en parallèle des boucles sur les milieux où les matériaux. Cela se fait de manière similaire aux boucles sur les entités, en utilisant la méthode Parallel::Foreach. Par exemple:</p>
 <div class="fragment"><div class="line">      <span class="comment">// Boucle parallèle sur les mailles du milieu env1</span></div>
 <div class="line">      IMeshEnvironment* env = env1;</div>
-<div class="line">      <a class="code" href="../../d8/d8f/namespaceArcane_1_1Parallel.html#a277e2e6fcf1cb8b627771800e6afe0e7">Parallel::Foreach</a>(env-&gt;envView(),[&amp;](EnvItemVectorView view)</div>
+<div class="line">      <a class="code" href="../../d4/dad/group__Concurrency.html#gafe72b9ee3469b918af4c958bc16582be">Parallel::Foreach</a>(env-&gt;envView(),[&amp;](EnvItemVectorView view)</div>
 <div class="line">        {</div>
 <div class="line">          ENUMERATE_ENVCELL(ienvcell,view){</div>
 <div class="line">            mat_density[ienvcell] = 2.5;</div>
@@ -553,7 +553,7 @@ Parallélisation des boucles sur les matériaux et milieux</h1>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Boucle parallèle sur les mailles du premier matériaux de env1</span></div>
 <div class="line">      IMeshMaterial* mat = env1-&gt;materials()[0];</div>
-<div class="line">      <a class="code" href="../../d8/d8f/namespaceArcane_1_1Parallel.html#a277e2e6fcf1cb8b627771800e6afe0e7">Parallel::Foreach</a>(mat-&gt;matView(),[&amp;](MatItemVectorView view)</div>
+<div class="line">      <a class="code" href="../../d4/dad/group__Concurrency.html#gafe72b9ee3469b918af4c958bc16582be">Parallel::Foreach</a>(mat-&gt;matView(),[&amp;](MatItemVectorView view)</div>
 <div class="line">        {</div>
 <div class="line">          ENUMERATE_MATCELL(imatcell,view){</div>
 <div class="line">            mat_density[imatcell] = 2.5;</div>
@@ -568,14 +568,14 @@ Parallélisation des boucles sur les matériaux et milieux</h1>
 <div class="line">        }</div>
 <div class="line">      };</div>
 <div class="line">      <span class="comment">// Application en parallèle de \a func sur le matériau</span></div>
-<div class="line">      <a class="code" href="../../d8/d8f/namespaceArcane_1_1Parallel.html#a277e2e6fcf1cb8b627771800e6afe0e7">Parallel::Foreach</a>(mat-&gt;view(),func);</div>
+<div class="line">      <a class="code" href="../../d4/dad/group__Concurrency.html#gafe72b9ee3469b918af4c958bc16582be">Parallel::Foreach</a>(mat-&gt;view(),func);</div>
 <div class="line">      <span class="comment">// Application en parallèle de \a func sur le milieu</span></div>
-<div class="line">      <a class="code" href="../../d8/d8f/namespaceArcane_1_1Parallel.html#a277e2e6fcf1cb8b627771800e6afe0e7">Parallel::Foreach</a>(env-&gt;view(),func);</div>
+<div class="line">      <a class="code" href="../../d4/dad/group__Concurrency.html#gafe72b9ee3469b918af4c958bc16582be">Parallel::Foreach</a>(env-&gt;view(),func);</div>
 <div class="line"> </div>
 <div class="line">      <span class="comment">// Application en parallèle de \a func sur le milieu avec options</span></div>
 <div class="line">      ParallelLoopOptions options;</div>
-<div class="line">      <a class="code" href="../../d8/d8f/namespaceArcane_1_1Parallel.html#a277e2e6fcf1cb8b627771800e6afe0e7">Parallel::Foreach</a>(env-&gt;view(),options,func);</div>
-<div class="ttc" id="anamespaceArcane_1_1Parallel_html_a277e2e6fcf1cb8b627771800e6afe0e7"><div class="ttname"><a href="../../d8/d8f/namespaceArcane_1_1Parallel.html#a277e2e6fcf1cb8b627771800e6afe0e7">Arcane::Parallel::Foreach</a></div><div class="ttdeci">void Foreach(const ItemVectorView &amp;items_view, const ParallelLoopOptions &amp;options, InstanceType *instance, void(InstanceType::*function)(ItemVectorViewT&lt; ItemType &gt; items))</div><div class="ttdef"><b>Definition:</b> Concurrency.h:191</div></div>
+<div class="line">      <a class="code" href="../../d4/dad/group__Concurrency.html#gafe72b9ee3469b918af4c958bc16582be">Parallel::Foreach</a>(env-&gt;view(),options,func);</div>
+<div class="ttc" id="agroup__Concurrency_html_gafe72b9ee3469b918af4c958bc16582be"><div class="ttname"><a href="../../d4/dad/group__Concurrency.html#gafe72b9ee3469b918af4c958bc16582be">Arcane::Parallel::Foreach</a></div><div class="ttdeci">void Foreach(const ComponentItemVectorView &amp;items_view, const LambdaType &amp;lambda_function)</div><div class="ttdoc">Applique en concurrence la fonction lambda lambda_function instance sur la vue du composant items_vie...</div><div class="ttdef"><b>Definition:</b> MatConcurrency.h:164</div></div>
 </div><!-- fragment --> <h1><a class="anchor" id="arcanedoc_material_optimization"></a>
 Optimisation des modifications sur les matériaux et les milieux.</h1>
 <p>La modification des mailles matériaux et milieux se fait via la classe MeshMaterialModifier. Cette modification se fait via des appels successifs à MeshMaterialModifier::addCells() ou MeshMaterialModifier::removeCells(). Ces méthodes permettent d'enregistrer la liste des modifications mais ces dernières ne sont réellement exécutées que lors de la destruction de l'instance MeshMaterialModifier.</p>
@@ -659,7 +659,7 @@ Notes sur l'implémentation</h2>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 1 Août 2022 04:01:25 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Généré le Lundi 8 Août 2022 03:38:37 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

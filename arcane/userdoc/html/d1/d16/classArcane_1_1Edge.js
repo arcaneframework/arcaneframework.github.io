@@ -5,6 +5,7 @@ var classArcane_1_1Edge =
     [ "Edge", "d1/d16/classArcane_1_1Edge.html#a63a1000c79c2dd311b10194156cca78c", null ],
     [ "Edge", "d1/d16/classArcane_1_1Edge.html#a9e6ba314c1b1d8a25c92436856026b79", null ],
     [ "Edge", "d1/d16/classArcane_1_1Edge.html#a8a215c76c2a55681654053adb6fc103b", null ],
+    [ "Edge", "d1/d16/classArcane_1_1Edge.html#a2ae21e2e0e558ab24c94620808d83075", null ],
     [ "Edge", "d1/d16/classArcane_1_1Edge.html#a31a4eb3448ea53580b14cddd4612975f", null ],
     [ "cell", "d1/d16/classArcane_1_1Edge.html#a234f0b2c31159285fd0bddd39e301562", null ],
     [ "cellId", "d1/d16/classArcane_1_1Edge.html#acba755b52b5ee9316d14da38cc049749", null ],

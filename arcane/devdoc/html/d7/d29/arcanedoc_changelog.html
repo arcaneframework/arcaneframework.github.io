@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.7.1.0</span>
+   &#160;<span id="projectnumber">3.7.2.0</span>
    </div>
   </td>
  </tr>
@@ -67,7 +67,8 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table des matières</h3>
-<ul><li class="level1"><a href="#arcanedoc_version360">Arcane Version 3.6.13 (06 juillet 2022)</a></li>
+<ul><li class="level1"><a href="#arcanedoc_version370">Arcane Version 3.7.x (... aout 2022)</a></li>
+<li class="level1"><a href="#arcanedoc_version360">Arcane Version 3.6.13 (06 juillet 2022)</a></li>
 <li class="level1"><a href="#arcanedoc_version350">Arcane Version 3.5.7 (07 avril 2022)</a></li>
 <li class="level1"><a href="#arcanedoc_version340">Arcane Version 3.4.5 (10 février 2022)</a></li>
 <li class="level1"><a href="#arcanedoc_version330">Arcane Version 3.3.0 (16 décembre 2021)</a></li>
@@ -108,6 +109,34 @@ $(function() {
 </div>
 <div class="textblock"><p><a class="anchor" id="md____w_arcaneframework_github_io_arcaneframework_github_io_framework_arcane_doc_changelog"></a></p>
 <p>Cette page contient les nouveautés de chaque version de Arcane.</p>
+<h1><a class="anchor" id="arcanedoc_version370"></a>
+Arcane Version 3.7.x (... aout 2022)</h1>
+<p>WIP</p>
+<p>Nouveautés/Améliorations:</p>
+<ul>
+<li>Ajoute possibilité de spécifier le mot clé <code>Auto</code> pour la variable CMake <code>ARCANE_DEFAULT_PARTITIONER</code>. Cela permet de choisir automatiquement lors de la configuration le partitionneur utilisé en fonction de ceux disponibles (#279).</li>
+<li>Ajoute implémentation des synchronisations qui utilise la fonction <code>MPI_Neighbor_alltoallv</code> (#281).</li>
+<li>Réduction de l'empreinte mémoire utilisée pour la gestion des connectivités suite aux différentes modifications internes</li>
+</ul>
+<p>Changements:</p>
+<ul>
+<li>Ajoute classe <a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a>:ItemTypeId pour gérer le type de l'entité (#294)</li>
+<li>Le type de l'entité est maintenant conservé sur un Arcane::Int16 au lieu d'un Arcane::Int32 (#294)</li>
+</ul>
+<p>Corrections:</p>
+<ul>
+<li>Corrige bug lors de la lecture des informations avec le service <code>BasicReaderwriter</code> lorsqu'une compression est active (#299)</li>
+<li>Corrige bug introduit dans la version 3.6 qui changeait le nom du répertoire de sortie pour les comparaisons bit à bit avec le service <code>ArcaneCeaVerifier</code> (#300).</li>
+<li>Corrige mauvais recalcul du nombre maximum d'entités connectées à une entité dans le cas des particules (#301)</li>
+</ul>
+<p>Interne:</p>
+<ul>
+<li>Simplifie l'implémentation des synchronisations fournissant un mécanisme indépendant du type de la donnée (#282).</li>
+<li>Utilise des variables pour gérer certaines données sur les entités telles que <a class="el" href="../../df/d5f/classArcane_1_1Item.html#a5651b2880e289af4cf8b93ef9164272c" title="Numéro du sous-domaine propriétaire de l&#39;entité">Arcane::Item::owner()</a>, <a class="el" href="../../d7/dac/classArcane_1_1ItemBase.html#a95f27b8a13b84942b706e131915a9d93" title="Type de l&#39;entité">Arcane::Item::typeId()</a>. Cela permettra à terme de rendre ces informations accessibles sur accélérateurs (#284, #285, #292, #295)</li>
+<li>Ajout d'une classe <a class="el" href="../../d7/dac/classArcane_1_1ItemBase.html" title="Classe de base pour les entités du maillage.">Arcane::ItemBase</a> servant de classe de base pour <a class="el" href="../../df/d5f/classArcane_1_1Item.html" title="Classe de base d&#39;un élément de maillage.">Arcane::Item</a> et <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html" title="Structure interne d&#39;une entité de maillage.">Arcane::ItemInternal</a> (#298).</li>
+<li>Suppression d'une indirection lorsqu'on accède aux informations des connectivités à partir d'une entité (par exemple <a class="el" href="../../d4/d55/classArcane_1_1ItemWithNodes.html#a4e5c2583373ef18e3197574686d02775" title="i-ème noeud de l&#39;entité">Arcane::Cell::node()</a>) (#298).</li>
+<li>Simplification de la gestion des informations communes aux entités dans une famille pour qu'il n'y ait maintenant plus qu'une seule instance commune de '<a class="el" href="../../df/d0b/classArcane_1_1ItemSharedInfo.html" title="Structure interne partagée d&#39;une entité de maillage.">Arcane::ItemSharedInfo</a>' (#290, #292, #297).</li>
+</ul>
 <h1><a class="anchor" id="arcanedoc_version360"></a>
 Arcane Version 3.6.13 (06 juillet 2022)</h1>
 <p>Nouveautés/Améliorations:</p>
@@ -143,7 +172,7 @@ Arcane Version 3.6.13 (06 juillet 2022)</h1>
 </ul>
 <p>Interne:</p>
 <ul>
-<li>Utilise des variables pour conserver les champs <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html#a726ba1bd7454d63e65d3004f4afb98c4" title="Numéro du sous-domaine propriétaire de l&#39;entité">Arcane::ItemInternal::owner()</a> et <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html#a0bc5b25fcd222a6a16d71a83229351c2" title="Flags de l&#39;entité">Arcane::ItemInternal::flags()</a> au lieu de conserver l'information dans <a class="el" href="../../df/d0b/classArcane_1_1ItemSharedInfo.html" title="Structure interne partagée d&#39;une entité de maillage.">Arcane::ItemSharedInfo</a>. Cela permettra à terme de supprimer le champ correspondant dans <a class="el" href="../../df/d0b/classArcane_1_1ItemSharedInfo.html" title="Structure interne partagée d&#39;une entité de maillage.">Arcane::ItemSharedInfo</a> (#227).</li>
+<li>Utilise des variables pour conserver les champs <a class="el" href="../../d7/dac/classArcane_1_1ItemBase.html#a4ecbf8f24852890cfe6d09202c2ef17f" title="Numéro du sous-domaine propriétaire de l&#39;entité">Arcane::ItemInternal::owner()</a> et <a class="el" href="../../d7/dac/classArcane_1_1ItemBase.html#a5030296e5244ff3c2cc6fc65dba7d128" title="Flags de l&#39;entité">Arcane::ItemInternal::flags()</a> au lieu de conserver l'information dans <a class="el" href="../../df/d0b/classArcane_1_1ItemSharedInfo.html" title="Structure interne partagée d&#39;une entité de maillage.">Arcane::ItemSharedInfo</a>. Cela permettra à terme de supprimer le champ correspondant dans <a class="el" href="../../df/d0b/classArcane_1_1ItemSharedInfo.html" title="Structure interne partagée d&#39;une entité de maillage.">Arcane::ItemSharedInfo</a> (#227).</li>
 <li>Passage version 2.0.3.0 de Axlstar:<ul>
 <li>Ajoute support dans les fichiers 'axl' des propriétés <a class="el" href="../../d5/d96/classArcane_1_1IVariable.html#aed94d89f73c9b69c92a71b24d13da9fba238fcf2bcda831cc90dcfa64c3ffbb9d" title="Indique que la variable ne doit pas être échangée.">Arcane::IVariable::PNoExchange</a>, <a class="el" href="../../d5/d96/classArcane_1_1IVariable.html#aed94d89f73c9b69c92a71b24d13da9fba4b0e4cce42148af5a5fbd5234bcf1b26" title="Indique que la variable n&#39;a pas forcément la même valeur entre les réplicas.">Arcane::IVariable::PNoReplicaSync</a> et <a class="el" href="../../d5/d96/classArcane_1_1IVariable.html#aed94d89f73c9b69c92a71b24d13da9fba95666b8d66545776f3b8692179544313" title="Indique que la variable est persistante.">Arcane::IVariable::PPersistant</a>.</li>
 </ul>
@@ -373,7 +402,7 @@ Arcane Version 3.0.3 (Not released)</h1>
 <p>Changements:</p>
 <ul>
 <li>Rend obsolète les méthodes <a class="el" href="../../da/dc0/classArcane_1_1IArrayDataT.html#a51f6ee45cfaa8e3a738ab90d2825cdad" title="Valeur de la donnée.">Arcane::IArrayDataT::value()</a> et <a class="el" href="../../dc/d51/classArcane_1_1IArray2DataT.html#a20324e951a372dffee7fa72f4d7a4917" title="Valeur de la donnée.">Arcane::IArray2DataT::value()</a>. On peut à la place utiliser les méthodes <a class="el" href="../../da/dc0/classArcane_1_1IArrayDataT.html#a0d86df54d6cac21d79b2c6a93af36710" title="Vue sur la donnée.">Arcane::IArrayDataT::view()</a> et <a class="el" href="../../dc/d51/classArcane_1_1IArray2DataT.html#a3d2aa2bf890d2c05d62429e4ab48e416" title="Vue sur la donnée.">Arcane::IArray2DataT::view()</a>. Le but de ces changements est de pouvoir masquer le conteneur utilisé pour l'implémentation</li>
-<li>Ajoute méthodes <a class="el" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd" title="Applique en concurrence la fonction lambda lambda_function sur l&#39;intervalle d&#39;itération [i0,...">Arcane::arcaneParallelFor()</a> et <a class="el" href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c" title="Applique en concurrence la méthode function de l&#39;instance instance sur la vue items_view avec les opt...">Arcane::arcaneParallelForeach()</a> pour remplacer les différentes méthodes <a class="el" href="../../d8/d8f/namespaceArcane_1_1Parallel.html#acfb302138b3e60610f7ed6bf7f177d67">Arcane::Parallel::For()</a> et <a class="el" href="../../d8/d8f/namespaceArcane_1_1Parallel.html#a277e2e6fcf1cb8b627771800e6afe0e7">Arcane::Parallel::Foreach()</a>.</li>
+<li>Ajoute méthodes <a class="el" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd" title="Applique en concurrence la fonction lambda lambda_function sur l&#39;intervalle d&#39;itération [i0,...">Arcane::arcaneParallelFor()</a> et <a class="el" href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c" title="Applique en concurrence la méthode function de l&#39;instance instance sur la vue items_view avec les opt...">Arcane::arcaneParallelForeach()</a> pour remplacer les différentes méthodes Arcane::Parallel::For() et <a class="el" href="../../d4/dad/group__Concurrency.html#gafe72b9ee3469b918af4c958bc16582be" title="Applique en concurrence la fonction lambda lambda_function instance sur la vue du composant items_vie...">Arcane::Parallel::Foreach()</a>.</li>
 </ul>
 <p>Corrections:</p>
 <ul>
@@ -827,20 +856,20 @@ Amélioration de la vectorisation</h2>
 <div class="line"><a class="code" href="../../d5/d04/group__ArcaneSimd.html#ga0a9dc0b44f6c0935eefd6947014c937f">ENUMERATE_SIMD_CELL</a>(ivcell,vec_cells){ <span class="comment">// ERREUR car un CellVector n&#39;est pas toujours aligné</span></div>
 <div class="line">}</div>
 <div class="ttc" id="agroup__ArcaneSimd_html_ga0a9dc0b44f6c0935eefd6947014c937f"><div class="ttname"><a href="../../d5/d04/group__ArcaneSimd.html#ga0a9dc0b44f6c0935eefd6947014c937f">ENUMERATE_SIMD_CELL</a></div><div class="ttdeci">#define ENUMERATE_SIMD_CELL(name, group)</div><div class="ttdoc">Enumérateur SIMD sur un groupe ou liste de mailles.</div><div class="ttdef"><b>Definition:</b> SimdItem.h:473</div></div>
-<div class="ttc" id="agroup__Mesh_html_ga098f1d69085543e45c84e21aea721d8c"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga098f1d69085543e45c84e21aea721d8c">Arcane::CellVector</a></div><div class="ttdeci">ItemVectorT&lt; Cell &gt; CellVector</div><div class="ttdoc">Vecteur de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:415</div></div>
-<div class="ttc" id="agroup__Mesh_html_ga4d78be302ffdabc4e0f16578cc077314"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga4d78be302ffdabc4e0f16578cc077314">Arcane::CellGroup</a></div><div class="ttdeci">ItemGroupT&lt; Cell &gt; CellGroup</div><div class="ttdoc">Groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:142</div></div>
+<div class="ttc" id="agroup__Mesh_html_ga098f1d69085543e45c84e21aea721d8c"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga098f1d69085543e45c84e21aea721d8c">Arcane::CellVector</a></div><div class="ttdeci">ItemVectorT&lt; Cell &gt; CellVector</div><div class="ttdoc">Vecteur de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:416</div></div>
+<div class="ttc" id="agroup__Mesh_html_ga4d78be302ffdabc4e0f16578cc077314"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga4d78be302ffdabc4e0f16578cc077314">Arcane::CellGroup</a></div><div class="ttdeci">ItemGroupT&lt; Cell &gt; CellGroup</div><div class="ttdoc">Groupe de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:143</div></div>
 </div><!-- fragment --></li>
-<li>L'utilisation des méthodes <a class="el" href="../../d8/d8f/namespaceArcane_1_1Parallel.html#a277e2e6fcf1cb8b627771800e6afe0e7">Parallel::Foreach()</a> sur les groupes d'entités garantit que les itérations se feront sur des multiples de 8 valeurs. Il est ainsi valide d'écrire le code suivant: <div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<li>L'utilisation des méthodes <a class="el" href="../../d4/dad/group__Concurrency.html#gafe72b9ee3469b918af4c958bc16582be" title="Applique en concurrence la fonction lambda lambda_function instance sur la vue du composant items_vie...">Parallel::Foreach()</a> sur les groupes d'entités garantit que les itérations se feront sur des multiples de 8 valeurs. Il est ainsi valide d'écrire le code suivant: <div class="fragment"><div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
 <div class="line"><a class="code" href="../../de/db5/group__Mesh.html#ga4d78be302ffdabc4e0f16578cc077314">CellGroup</a> cells = ...;</div>
-<div class="line"><a class="code" href="../../d8/d8f/namespaceArcane_1_1Parallel.html#a277e2e6fcf1cb8b627771800e6afe0e7">Parallel::Foreach</a>(cells,[<span class="keyword">this</span>](<a class="code" href="../../de/db5/group__Mesh.html#ga914dea9362ea4dd4c2ca3023bcdbeb62">CellVectorView</a> cvv){</div>
+<div class="line"><a class="code" href="../../d4/dad/group__Concurrency.html#gafe72b9ee3469b918af4c958bc16582be">Parallel::Foreach</a>(cells,[<span class="keyword">this</span>](<a class="code" href="../../de/db5/group__Mesh.html#ga914dea9362ea4dd4c2ca3023bcdbeb62">CellVectorView</a> cvv){</div>
 <div class="line">  <a class="code" href="../../d5/d04/group__ArcaneSimd.html#ga0a9dc0b44f6c0935eefd6947014c937f">ENUMERATE_SIMD_CELL</a>(ivcell,cvv){</div>
 <div class="line">    <a class="code" href="../../d5/d04/group__ArcaneSimd.html#ga1fa29db17212b77758a93b80957fe001">SimdCell</a> cell = *ivcell;</div>
 <div class="line">    ...</div>
 <div class="line">  }</div>
 <div class="line">}</div>
 <div class="ttc" id="agroup__ArcaneSimd_html_ga1fa29db17212b77758a93b80957fe001"><div class="ttname"><a href="../../d5/d04/group__ArcaneSimd.html#ga1fa29db17212b77758a93b80957fe001">Arcane::SimdCell</a></div><div class="ttdeci">SimdItemT&lt; Cell &gt; SimdCell</div><div class="ttdoc">Vecteur SIMD de Cell.</div><div class="ttdef"><b>Definition:</b> SimdItem.h:431</div></div>
-<div class="ttc" id="agroup__Mesh_html_ga914dea9362ea4dd4c2ca3023bcdbeb62"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga914dea9362ea4dd4c2ca3023bcdbeb62">Arcane::CellVectorView</a></div><div class="ttdeci">ItemVectorViewT&lt; Cell &gt; CellVectorView</div><div class="ttdoc">Vue sur un vecteur de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:236</div></div>
-<div class="ttc" id="anamespaceArcane_1_1Parallel_html_a277e2e6fcf1cb8b627771800e6afe0e7"><div class="ttname"><a href="../../d8/d8f/namespaceArcane_1_1Parallel.html#a277e2e6fcf1cb8b627771800e6afe0e7">Arcane::Parallel::Foreach</a></div><div class="ttdeci">void Foreach(const ItemVectorView &amp;items_view, const ParallelLoopOptions &amp;options, InstanceType *instance, void(InstanceType::*function)(ItemVectorViewT&lt; ItemType &gt; items))</div><div class="ttdef"><b>Definition:</b> Concurrency.h:191</div></div>
+<div class="ttc" id="agroup__Concurrency_html_gafe72b9ee3469b918af4c958bc16582be"><div class="ttname"><a href="../../d4/dad/group__Concurrency.html#gafe72b9ee3469b918af4c958bc16582be">Arcane::Parallel::Foreach</a></div><div class="ttdeci">void Foreach(const ComponentItemVectorView &amp;items_view, const LambdaType &amp;lambda_function)</div><div class="ttdoc">Applique en concurrence la fonction lambda lambda_function instance sur la vue du composant items_vie...</div><div class="ttdef"><b>Definition:</b> MatConcurrency.h:164</div></div>
+<div class="ttc" id="agroup__Mesh_html_ga914dea9362ea4dd4c2ca3023bcdbeb62"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga914dea9362ea4dd4c2ca3023bcdbeb62">Arcane::CellVectorView</a></div><div class="ttdeci">ItemVectorViewT&lt; Cell &gt; CellVectorView</div><div class="ttdoc">Vue sur un vecteur de mailles.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:237</div></div>
 </div><!-- fragment --></li>
 <li>Ajoute le support pour la vectorisation de type AVX512 et supprime la vectorisation spécifique aux processeurs Intel Knight Corner (KNC). L'AVX512 est supportée à partir des Xeon Skylake et sur les processeurs de XeonPhi à partir de l'Intel Knight Landing (KNL).</li>
 <li>Autorise plusieurs types de vectorisation à la fois via les classes de vectorisation de Arcane. Par exemple, sur les machines haswell qui supportent l'AVX et le SSE les classes SSESimdReal et AVXSimdReal sont toujours disponibles. Dans les versions précédentes de Arcane, seul le type de vectorisation le plus performant était disponible (AVX512 &gt; AVX &gt; SSE).</li>
@@ -867,7 +896,7 @@ Améliorations diverses</h2>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 1 Août 2022 04:01:25 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Généré le Lundi 8 Août 2022 03:38:37 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>
