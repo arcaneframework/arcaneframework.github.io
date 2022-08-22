@@ -224,6 +224,7 @@ var dir_cd48e9603a047c3a36ad2b31e177f8e3 =
     [ "ItemGroupObserver.h", "d8/dfd/ItemGroupObserver_8h_source.html", null ],
     [ "ItemGroupRangeIterator.h", "d7/db0/ItemGroupRangeIterator_8h_source.html", null ],
     [ "ItemIndexArrayView.h", "d6/d6a/ItemIndexArrayView_8h_source.html", null ],
+    [ "ItemInfoListView.h", "d4/d3c/ItemInfoListView_8h_source.html", null ],
     [ "ItemInternal.h", "d5/d4d/ItemInternal_8h_source.html", null ],
     [ "ItemInternalEnumerator.h", "df/de5/ItemInternalEnumerator_8h_source.html", null ],
     [ "ItemInternalSortFunction.h", "d6/dc8/ItemInternalSortFunction_8h_source.html", null ],

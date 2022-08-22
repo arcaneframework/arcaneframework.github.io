@@ -1524,6 +1524,27 @@ var hierarchy =
       [ "Arcane::ItemGroupRangeIteratorT< T >", "de/d97/classArcane_1_1ItemGroupRangeIteratorT.html", null ]
     ] ],
     [ "Arcane::ItemIndexArrayView", "df/d28/classArcane_1_1ItemIndexArrayView.html", null ],
+    [ "Arcane::ItemInfoListView", "d9/d68/classArcane_1_1ItemInfoListView.html", [
+      [ "Arcane::ItemInfoListViewT< Node >", "d6/dbc/classArcane_1_1ItemInfoListViewT.html", [
+        [ "Arcane::NodeInfoListView", "d2/d54/classArcane_1_1NodeInfoListView.html", null ]
+      ] ],
+      [ "Arcane::ItemInfoListViewT< Particle >", "d6/dbc/classArcane_1_1ItemInfoListViewT.html", [
+        [ "Arcane::ParticleInfoListView", "d0/d14/classArcane_1_1ParticleInfoListView.html", null ]
+      ] ],
+      [ "Arcane::ItemInfoListViewT< Cell >", "d6/dbc/classArcane_1_1ItemInfoListViewT.html", [
+        [ "Arcane::CellInfoListView", "d8/d5f/classArcane_1_1CellInfoListView.html", null ]
+      ] ],
+      [ "Arcane::ItemInfoListViewT< DoF >", "d6/dbc/classArcane_1_1ItemInfoListViewT.html", [
+        [ "Arcane::DoFInfoListView", "da/dfe/classArcane_1_1DoFInfoListView.html", null ]
+      ] ],
+      [ "Arcane::ItemInfoListViewT< Face >", "d6/dbc/classArcane_1_1ItemInfoListViewT.html", [
+        [ "Arcane::FaceInfoListView", "da/dae/classArcane_1_1FaceInfoListView.html", null ]
+      ] ],
+      [ "Arcane::ItemInfoListViewT< Edge >", "d6/dbc/classArcane_1_1ItemInfoListViewT.html", [
+        [ "Arcane::EdgeInfoListView", "d8/d63/classArcane_1_1EdgeInfoListView.html", null ]
+      ] ],
+      [ "Arcane::ItemInfoListViewT< ItemType >", "d6/dbc/classArcane_1_1ItemInfoListViewT.html", null ]
+    ] ],
     [ "Arcane::ItemInternalConnectivityList", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html", null ],
     [ "Arcane::ItemInternalEnumerator", "d1/d62/classArcane_1_1ItemInternalEnumerator.html", null ],
     [ "Arcane::ItemInternalVectorView", "dd/dd5/classArcane_1_1ItemInternalVectorView.html", null ],
@@ -1695,8 +1716,8 @@ var hierarchy =
     [ "Arcane::JSONWrapperUtils", "d6/d9d/classArcane_1_1JSONWrapperUtils.html", null ],
     [ "Arcane::JSONWriter", "d9/d23/classArcane_1_1JSONWriter.html", null ],
     [ "Arcane::LeftLayout< RankValue >", "dc/dfc/classArcane_1_1LeftLayout.html", null ],
-    [ "Arcane::LibXml2_DOMImplementation", "d4/d59/classArcane_1_1LibXml2__DOMImplementation.html", null ],
     [ "Arcane::LIBXML2_DOMImplementation", "d6/d7f/classArcane_1_1LIBXML2__DOMImplementation.html", null ],
+    [ "Arcane::LibXml2_DOMImplementation", "d4/d59/classArcane_1_1LibXml2__DOMImplementation.html", null ],
     [ "Arcane::LIBXML2_DOMNamespaceContext", "d7/dca/classArcane_1_1LIBXML2__DOMNamespaceContext.html", null ],
     [ "Arcane::LIBXML2_DOMWriter", "d6/d9f/classArcane_1_1LIBXML2__DOMWriter.html", null ],
     [ "Arcane::LibXml2_ErrorHandler", "da/dc9/classArcane_1_1LibXml2__ErrorHandler.html", null ],

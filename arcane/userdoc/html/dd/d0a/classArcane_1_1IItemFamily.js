@@ -39,6 +39,7 @@ var classArcane_1_1IItemFamily =
     [ "groups", "dd/d0a/classArcane_1_1IItemFamily.html#a362b45810cef1ced23d1112a15352d51", null ],
     [ "hasUniqueIdMap", "dd/d0a/classArcane_1_1IItemFamily.html#a701ee67365509461d8ed7cfef4091780", null ],
     [ "internalRemoveItems", "dd/d0a/classArcane_1_1IItemFamily.html#ad5e7df0722cdc484cbdbf758e099aa10", null ],
+    [ "itemInfoListView", "dd/d0a/classArcane_1_1IItemFamily.html#a8576e4bd0e5f1d8b0b8dda3fedd18372", null ],
     [ "itemKind", "dd/d0a/classArcane_1_1IItemFamily.html#a9ad039c775d18575532c390f1f1eaab4", null ],
     [ "itemsInternal", "dd/d0a/classArcane_1_1IItemFamily.html#a5274480df9c2e1163d59cda218f882bf", null ],
     [ "itemsNewOwner", "dd/d0a/classArcane_1_1IItemFamily.html#a9763cb9fa15ce83dc325a1bdc376f576", null ],

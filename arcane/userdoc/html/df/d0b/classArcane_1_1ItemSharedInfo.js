@@ -62,6 +62,7 @@ var classArcane_1_1ItemSharedInfo =
     [ "print", "df/d0b/classArcane_1_1ItemSharedInfo.html#aaaca109190b8b1b83f79fad0d8b1dc48", null ],
     [ "typeInfoFromId", "df/d0b/classArcane_1_1ItemSharedInfo.html#a9f6e5df38d62efffa09ea3670cb0e5bd", null ],
     [ "ItemBase", "df/d0b/classArcane_1_1ItemSharedInfo.html#a0209fc01d750e3d129a257adc58f10e6", null ],
+    [ "ItemInfoListView", "df/d0b/classArcane_1_1ItemSharedInfo.html#ae02b05d490ae9da62a0cd26bddb2d16d", null ],
     [ "ItemInternal", "df/d0b/classArcane_1_1ItemSharedInfo.html#ab5a45f7a19563aed8af84613b3b97503", null ],
     [ "mesh::DynamicMeshKindInfos", "df/d0b/classArcane_1_1ItemSharedInfo.html#a25de759f6c7f38b7e9b2db2e1f79636a", null ],
     [ "mesh::ItemFamily", "df/d0b/classArcane_1_1ItemSharedInfo.html#a846277381b51d6e0f01b1b21005dc363", null ],
