@@ -2,11 +2,13 @@ var classArcane_1_1Face =
 [
     [ "Index", "dc/d6c/classArcane_1_1Face_1_1Index.html", "dc/d6c/classArcane_1_1Face_1_1Index" ],
     [ "LocalIdType", "d1/db1/classArcane_1_1Face.html#a297d78db7d43d9702fe07a8c76da88f2", null ],
-    [ "Face", "d1/db1/classArcane_1_1Face.html#abaa84d035374b45b4c6ed524f95b11e1", null ],
-    [ "Face", "d1/db1/classArcane_1_1Face.html#a68bc8cf330e8493af08cab5d572ba8bd", null ],
+    [ "Face", "d1/db1/classArcane_1_1Face.html#a26a6e8025f1424435654337e77617a70", null ],
     [ "Face", "d1/db1/classArcane_1_1Face.html#ac2b7f75be4f3b7c194897f04b773ba35", null ],
     [ "Face", "d1/db1/classArcane_1_1Face.html#a3d07a52ef99d67fcff8e88417b82af89", null ],
+    [ "Face", "d1/db1/classArcane_1_1Face.html#abb6b7c47cc072629c7d602c404a9b729", null ],
     [ "Face", "d1/db1/classArcane_1_1Face.html#aae43afc6de7f073a7d5d8fb19265ee7f", null ],
+    [ "ARCANE_DEPRECATED_REASON", "d1/db1/classArcane_1_1Face.html#a99990c44488e42d67bd1f1bfdb64eb4f", null ],
+    [ "ARCANE_DEPRECATED_REASON", "d1/db1/classArcane_1_1Face.html#aeb3ac812249eb51e44fbfddc571a332a", null ],
     [ "backCell", "d1/db1/classArcane_1_1Face.html#af5eb0ad8fc1568b4c59ff0bd5ece57bf", null ],
     [ "backCellId", "d1/db1/classArcane_1_1Face.html#aaaf62da87ec534574ea4b2d865102ca5", null ],
     [ "boundaryCell", "d1/db1/classArcane_1_1Face.html#acc1f762bd055a1abab3646dc965b03e0", null ],
@@ -31,11 +33,9 @@ var classArcane_1_1Face =
     [ "masterFace", "d1/db1/classArcane_1_1Face.html#a8df72f1292ebe164a6158abf5fcff871", null ],
     [ "nbCell", "d1/db1/classArcane_1_1Face.html#a500ee00b6481628cf99ec7f5cf94a6bb", null ],
     [ "nbEdge", "d1/db1/classArcane_1_1Face.html#ad59b58bbbd7e239c49dd6873147c7bf6", null ],
-    [ "operator->", "d1/db1/classArcane_1_1Face.html#a51c39154e503fb081b96fb4ded835b48", null ],
-    [ "operator->", "d1/db1/classArcane_1_1Face.html#a401cce5e332fe60d07310c06ae5dd9f4", null ],
-    [ "operator=", "d1/db1/classArcane_1_1Face.html#ad5f63f657a09cbaaf0e6d01cf7bdb793", null ],
     [ "operator=", "d1/db1/classArcane_1_1Face.html#a7b127db3e2134fa293093dfe6838dd81", null ],
     [ "oppositeCell", "d1/db1/classArcane_1_1Face.html#af8234b42868fb9baf6e02db4e99fd4f1", null ],
     [ "oppositeCellId", "d1/db1/classArcane_1_1Face.html#afa9272446a04d90e7224f7a2a68d1a6a", null ],
-    [ "slaveFaces", "d1/db1/classArcane_1_1Face.html#ae8982a659c722cbcb02bcf3b3a02ed9a", null ]
+    [ "slaveFaces", "d1/db1/classArcane_1_1Face.html#ae8982a659c722cbcb02bcf3b3a02ed9a", null ],
+    [ "ItemEnumeratorBaseT< Face >", "d1/db1/classArcane_1_1Face.html#a6b0245ac49ceb1458c53603678d7fb42", null ]
 ];

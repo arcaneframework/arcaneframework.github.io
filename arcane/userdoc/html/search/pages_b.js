@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['nouvelles_20fonctionnalités_12921',['Nouvelles fonctionnalités',['../d7/d29/arcanedoc_changelog.html',1,'index']]]
+  ['modifications_20dans_20la_20gestions_20des_20entités_20avec_20la_20version_203_2e7_2e_13022',['Modifications dans la gestions des entités avec la version 3.7.',['../d0/d14/md_doc_item_handling.html',1,'']]]
 ];

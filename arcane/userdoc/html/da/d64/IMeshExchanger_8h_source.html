@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('da/d64/IMeshExchanger_8h_source.html',
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* IMeshExchanger.h                                            (C) 2000-2016 */</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* IMeshExchanger.h                                            (C) 2000-2022 */</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Gestion d&#39;un échange de maillage entre sous-domaines.                     */</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
@@ -107,72 +107,73 @@ $(document).ready(function(){initNavTree('da/d64/IMeshExchanger_8h_source.html',
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;{</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">class </span>IPrimaryMesh;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">class </span>IItemFamily;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">class </span>IItemFamilyExchanger;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">class </span>IPrimaryMesh;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">class </span>IItemFamily;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">class </span>IItemFamilyExchanger;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
 <div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html">   40</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html">IMeshExchanger</a></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#ae9eeb1caf7134262c3d23084770a65d2">   44</a></span>&#160;  <span class="keyword">enum class</span> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#ae9eeb1caf7134262c3d23084770a65d2">ePhase</a></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  {</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    Init = 0,</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    ComputeInfos,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    ProcessExchange,</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    RemoveItems,</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    AllocateItems,</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    UpdateItemGroups,</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    UpdateVariables,</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    Finalize,</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    Ended</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  };</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html">IMeshExchanger</a>() {} <span class="comment">//&lt;! Libère les ressources</span></div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="line"><a name="l00084"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#aacb3b30a12f184da868ff10eacf772bd">   84</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#aacb3b30a12f184da868ff10eacf772bd">computeExchangeInfos</a>() =0;</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a518a17c8ce7b7866bd0fa34ea991228d">   98</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a518a17c8ce7b7866bd0fa34ea991228d">processExchange</a>() =0;</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a06c2d8eceaf1299ddea2d14cce7020a7">  110</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a06c2d8eceaf1299ddea2d14cce7020a7">removeNeededItems</a>() =0;</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
-<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a1154267a92e1c0b71ba5fd019ae0289d">  120</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a1154267a92e1c0b71ba5fd019ae0289d">allocateReceivedItems</a>() =0;</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#ae9687886cfb7f9fdc1354425a644ab32">  130</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#ae9687886cfb7f9fdc1354425a644ab32">updateItemGroups</a>() =0;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00140"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a9e945b4b90e52bb8a39192bd8e34be83">  140</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a9e945b4b90e52bb8a39192bd8e34be83">updateVariables</a>() =0;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a66308a9dfc3851501fd73162496e6751">  153</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a66308a9dfc3851501fd73162496e6751">finalizeExchange</a>() =0;</div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; </div>
-<div class="line"><a name="l00156"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#aae13ef173d0b179ba2c91413aac198a8">  156</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d7/d89/classArcane_1_1IPrimaryMesh.html">IPrimaryMesh</a>* <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#aae13ef173d0b179ba2c91413aac198a8">mesh</a>() <span class="keyword">const</span> =0;</div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160; </div>
-<div class="line"><a name="l00159"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a3af37ba47e23eac74c61377c35f4bcb1">  159</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d2/d3d/classArcane_1_1IItemFamilyExchanger.html">IItemFamilyExchanger</a>* <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a3af37ba47e23eac74c61377c35f4bcb1">findExchanger</a>(<a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html">IItemFamily</a>* family) =0;</div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
-<div class="line"><a name="l00162"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a154b5a573d5a364f30188508446b15e2">  162</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#ae9eeb1caf7134262c3d23084770a65d2">ePhase</a> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a154b5a573d5a364f30188508446b15e2">phase</a>() <span class="keyword">const</span> =0;</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;};</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html">   41</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html">IMeshExchanger</a></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00045"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#ae9eeb1caf7134262c3d23084770a65d2">   45</a></span>&#160;  <span class="keyword">enum class</span> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#ae9eeb1caf7134262c3d23084770a65d2">ePhase</a></div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  {</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    Init = 0,</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    ComputeInfos,</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    ProcessExchange,</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    RemoveItems,</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    AllocateItems,</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    UpdateItemGroups,</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    UpdateVariables,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    Finalize,</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    Ended</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  };</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html">IMeshExchanger</a>() {} <span class="comment">//&lt;! Libère les ressources</span></div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#aacb3b30a12f184da868ff10eacf772bd">   85</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#aacb3b30a12f184da868ff10eacf772bd">computeExchangeInfos</a>() =0;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00099"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a518a17c8ce7b7866bd0fa34ea991228d">   99</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a518a17c8ce7b7866bd0fa34ea991228d">processExchange</a>() =0;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a06c2d8eceaf1299ddea2d14cce7020a7">  111</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a06c2d8eceaf1299ddea2d14cce7020a7">removeNeededItems</a>() =0;</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a1154267a92e1c0b71ba5fd019ae0289d">  121</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a1154267a92e1c0b71ba5fd019ae0289d">allocateReceivedItems</a>() =0;</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
+<div class="line"><a name="l00131"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#ae9687886cfb7f9fdc1354425a644ab32">  131</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#ae9687886cfb7f9fdc1354425a644ab32">updateItemGroups</a>() =0;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00141"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a9e945b4b90e52bb8a39192bd8e34be83">  141</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a9e945b4b90e52bb8a39192bd8e34be83">updateVariables</a>() =0;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a66308a9dfc3851501fd73162496e6751">  154</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a66308a9dfc3851501fd73162496e6751">finalizeExchange</a>() =0;</div>
+<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
+<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#aae13ef173d0b179ba2c91413aac198a8">  157</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d7/d89/classArcane_1_1IPrimaryMesh.html">IPrimaryMesh</a>* <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#aae13ef173d0b179ba2c91413aac198a8">mesh</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
+<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a3af37ba47e23eac74c61377c35f4bcb1">  160</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d2/d3d/classArcane_1_1IItemFamilyExchanger.html">IItemFamilyExchanger</a>* <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a3af37ba47e23eac74c61377c35f4bcb1">findExchanger</a>(<a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html">IItemFamily</a>* family) =0;</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a154b5a573d5a364f30188508446b15e2">  163</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#ae9eeb1caf7134262c3d23084770a65d2">ePhase</a> <a class="code" href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a154b5a573d5a364f30188508446b15e2">phase</a>() <span class="keyword">const</span> =0;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;};</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
 <div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;ARCANE_END_NAMESPACE</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
 <div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;<span class="preprocessor">#endif  </span></div>
 <div class="ttc" id="aArcaneGlobal_8h_html"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html">ArcaneGlobal.h</a></div><div class="ttdoc">Fichier de configuration d'Arcane.</div></div>
 <div class="ttc" id="aclassArcane_1_1IItemFamilyExchanger_html"><div class="ttname"><a href="../../d2/d3d/classArcane_1_1IItemFamilyExchanger.html">Arcane::IItemFamilyExchanger</a></div><div class="ttdef"><b>Definition:</b> IItemFamilyExchanger.h:65</div></div>
 <div class="ttc" id="aclassArcane_1_1IItemFamily_html"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html">Arcane::IItemFamily</a></div><div class="ttdoc">Interface d'une famille d'entités.</div><div class="ttdef"><b>Definition:</b> IItemFamily.h:107</div></div>
-<div class="ttc" id="aclassArcane_1_1IMeshExchanger_html"><div class="ttname"><a href="../../d6/d1d/classArcane_1_1IMeshExchanger.html">Arcane::IMeshExchanger</a></div><div class="ttdoc">Gestion d'un échange de maillage entre sous-domaines.</div><div class="ttdef"><b>Definition:</b> IMeshExchanger.h:41</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshExchanger_html"><div class="ttname"><a href="../../d6/d1d/classArcane_1_1IMeshExchanger.html">Arcane::IMeshExchanger</a></div><div class="ttdoc">Gestion d'un échange de maillage entre sous-domaines.</div><div class="ttdef"><b>Definition:</b> IMeshExchanger.h:42</div></div>
 <div class="ttc" id="aclassArcane_1_1IMeshExchanger_html_a06c2d8eceaf1299ddea2d14cce7020a7"><div class="ttname"><a href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a06c2d8eceaf1299ddea2d14cce7020a7">Arcane::IMeshExchanger::removeNeededItems</a></div><div class="ttdeci">virtual void removeNeededItems()=0</div><div class="ttdoc">Supprime de ce sous-domaine les entités qui ne doivent plus s'y trouver suite à l'échange.</div></div>
 <div class="ttc" id="aclassArcane_1_1IMeshExchanger_html_a1154267a92e1c0b71ba5fd019ae0289d"><div class="ttname"><a href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a1154267a92e1c0b71ba5fd019ae0289d">Arcane::IMeshExchanger::allocateReceivedItems</a></div><div class="ttdeci">virtual void allocateReceivedItems()=0</div><div class="ttdoc">Alloue les entités réceptionnées depuis les autre sous-domaines.</div></div>
 <div class="ttc" id="aclassArcane_1_1IMeshExchanger_html_a154b5a573d5a364f30188508446b15e2"><div class="ttname"><a href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#a154b5a573d5a364f30188508446b15e2">Arcane::IMeshExchanger::phase</a></div><div class="ttdeci">virtual ePhase phase() const =0</div><div class="ttdoc">Phase de l'échange dans laquelle on se trouve.</div></div>
@@ -183,15 +184,16 @@ $(document).ready(function(){initNavTree('da/d64/IMeshExchanger_8h_source.html',
 <div class="ttc" id="aclassArcane_1_1IMeshExchanger_html_aacb3b30a12f184da868ff10eacf772bd"><div class="ttname"><a href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#aacb3b30a12f184da868ff10eacf772bd">Arcane::IMeshExchanger::computeExchangeInfos</a></div><div class="ttdeci">virtual bool computeExchangeInfos()=0</div><div class="ttdoc">Calcule les infos à envoyer/recevoir des autres sous-domaines.</div></div>
 <div class="ttc" id="aclassArcane_1_1IMeshExchanger_html_aae13ef173d0b179ba2c91413aac198a8"><div class="ttname"><a href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#aae13ef173d0b179ba2c91413aac198a8">Arcane::IMeshExchanger::mesh</a></div><div class="ttdeci">virtual IPrimaryMesh * mesh() const =0</div><div class="ttdoc">Maillage associé à cet échangeur.</div></div>
 <div class="ttc" id="aclassArcane_1_1IMeshExchanger_html_ae9687886cfb7f9fdc1354425a644ab32"><div class="ttname"><a href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#ae9687886cfb7f9fdc1354425a644ab32">Arcane::IMeshExchanger::updateItemGroups</a></div><div class="ttdeci">virtual void updateItemGroups()=0</div><div class="ttdoc">Mise à jour des groupes d'entités.</div></div>
-<div class="ttc" id="aclassArcane_1_1IMeshExchanger_html_ae9eeb1caf7134262c3d23084770a65d2"><div class="ttname"><a href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#ae9eeb1caf7134262c3d23084770a65d2">Arcane::IMeshExchanger::ePhase</a></div><div class="ttdeci">ePhase</div><div class="ttdoc">Indique les différentes phases de l'échange.</div><div class="ttdef"><b>Definition:</b> IMeshExchanger.h:45</div></div>
+<div class="ttc" id="aclassArcane_1_1IMeshExchanger_html_ae9eeb1caf7134262c3d23084770a65d2"><div class="ttname"><a href="../../d6/d1d/classArcane_1_1IMeshExchanger.html#ae9eeb1caf7134262c3d23084770a65d2">Arcane::IMeshExchanger::ePhase</a></div><div class="ttdeci">ePhase</div><div class="ttdoc">Indique les différentes phases de l'échange.</div><div class="ttdef"><b>Definition:</b> IMeshExchanger.h:46</div></div>
 <div class="ttc" id="aclassArcane_1_1IPrimaryMesh_html"><div class="ttname"><a href="../../d7/d89/classArcane_1_1IPrimaryMesh.html">Arcane::IPrimaryMesh</a></div><div class="ttdef"><b>Definition:</b> IPrimaryMesh.h:43</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_cd48e9603a047c3a36ad2b31e177f8e3.html">arcane</a></li><li class="navelem"><b>IMeshExchanger.h</b></li>
-    <li class="footer">Généré le Lundi 22 Août 2022 04:05:47 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Généré le Lundi 29 Août 2022 04:04:09 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

@@ -4,6 +4,7 @@ var classArcane_1_1ItemLocalId =
     [ "ItemLocalId", "de/dc8/classArcane_1_1ItemLocalId.html#aa5d85beefc065e33433d6cb8a3871d51", null ],
     [ "ItemLocalId", "de/dc8/classArcane_1_1ItemLocalId.html#a051521834929bd0c38422052534e56fb", null ],
     [ "ItemLocalId", "de/dc8/classArcane_1_1ItemLocalId.html#a0c6b0c5adfac6937e3761e9bb4f38f7f", null ],
+    [ "ItemLocalId", "de/dc8/classArcane_1_1ItemLocalId.html#a68a79e82372ebd38e5d7e8dd51decda9", null ],
     [ "ItemLocalId", "de/dc8/classArcane_1_1ItemLocalId.html#a4a9e3cf8173f6a0fc79a7d0586a02569", null ],
     [ "asInt32", "de/dc8/classArcane_1_1ItemLocalId.html#a5d1a666697e53ee4a7d4f53626897f34", null ],
     [ "asInteger", "de/dc8/classArcane_1_1ItemLocalId.html#abee5127ecefe406ffd5d2554c5dc7915", null ],

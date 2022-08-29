@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane: Modifications dans la gestions des entités avec la version 3.7.</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.7.2.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+</div><!-- top -->
+<div class="PageDoc"><div class="header">
+  <div class="headertitle">
+<div class="title">Modifications dans la gestions des entités avec la version 3.7. </div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>La version 3.7 de Arcane apporte plusieurs modifications dans la gestion des entités du maillage. Ces modifications ont pour objectif:</p>
+<ul>
+<li>de réduire l'empreinte mémoire</li>
+<li>de pouvoir accéder sur accélérateurs à certaines informations sur les entités comme par exemple <a class="el" href="../../df/d5f/classArcane_1_1Item.html#a5651b2880e289af4cf8b93ef9164272c" title="Numéro du sous-domaine propriétaire de l&#39;entité">Arcane::Item::owner()</a>.</li>
+<li>d'améliorer les performances</li>
+</ul>
+<p>Pour répondre à ces objectifs, les modifications suivantes ont été apportées:</p>
+<ul>
+<li>La classe <a class="el" href="../../df/d0b/classArcane_1_1ItemSharedInfo.html" title="Structure interne partagée d&#39;une entité de maillage.">Arcane::ItemSharedInfo</a> ne contient plus d'informations spécifiques sur une entité. Il n'y a donc besoin que d'une seule instance de cette classe par <a class="el" href="../../dd/d0a/classArcane_1_1IItemFamily.html" title="Interface d&#39;une famille d&#39;entités.">Arcane::IItemFamily</a>. La méthode Arcane::mesh::ItemFamily::commonItemSharedInfo() permet de récupérer cette instance.</li>
+<li>Comme il n'y a plus qu'une seule instance de <a class="el" href="../../df/d0b/classArcane_1_1ItemSharedInfo.html" title="Structure interne partagée d&#39;une entité de maillage.">Arcane::ItemSharedInfo</a>, l'utilisation de <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html" title="Structure interne d&#39;une entité de maillage.">Arcane::ItemInternal</a> devient optionnelle pour créer une instance de <a class="el" href="../../df/d5f/classArcane_1_1Item.html" title="Classe de base d&#39;un élément de maillage.">Arcane::Item</a> ou d'une des classes dérivées. Il est maintenant possible de créer une instance de ces classes uniquement avec un <a class="el" href="../../de/dc8/classArcane_1_1ItemLocalId.html" title="Index d&#39;un Item dans une variable.">Arcane::ItemLocalId</a> et un <a class="el" href="../../df/d0b/classArcane_1_1ItemSharedInfo.html" title="Structure interne partagée d&#39;une entité de maillage.">Arcane::ItemSharedInfo</a>*. La classe interne <a class="el" href="../../da/d82/classArcane_1_1ItemBaseBuildInfo.html" title="Classe pour construire une instance de ItemBase.">Arcane::ItemBaseBuildInfo</a> est utilisée pour cela.</li>
+<li>Une classe Arcane::ItemBase a été créée. Elle contient uniquement un <a class="el" href="../../de/dc8/classArcane_1_1ItemLocalId.html" title="Index d&#39;un Item dans une variable.">Arcane::ItemLocalId</a> et un <a class="el" href="../../df/d0b/classArcane_1_1ItemSharedInfo.html" title="Structure interne partagée d&#39;une entité de maillage.">Arcane::ItemSharedInfo</a>*. Elle sert de classe de base à <a class="el" href="../../df/d5f/classArcane_1_1Item.html" title="Classe de base d&#39;un élément de maillage.">Arcane::Item</a> et <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html" title="Structure interne d&#39;une entité de maillage.">Arcane::ItemInternal</a>. Cette classe est interne à <a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a> mais ne permet pas de modifier les valeurs d'une entité (par exemple elle contient une méthode Arcane::ItemBase::owner() mais pas de méthode <code>setOwner()</code>). Grâce à cette classe, <a class="el" href="../../df/d5f/classArcane_1_1Item.html" title="Classe de base d&#39;un élément de maillage.">Arcane::Item</a> ne dépend plus de <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html" title="Structure interne d&#39;une entité de maillage.">Arcane::ItemInternal</a> et peut directement récupérer les informations via <a class="el" href="../../df/d0b/classArcane_1_1ItemSharedInfo.html" title="Structure interne partagée d&#39;une entité de maillage.">Arcane::ItemSharedInfo</a> ce qui éviter un niveau d'indirection pour accéder aux connectivités par exemple.</li>
+<li>Les itérateurs sur les entités (<a class="el" href="../../d6/dcd/classArcane_1_1ItemEnumerator.html" title="Enumérateur sur une liste d&#39;entités.">Arcane::ItemEnumerator</a>) ont été modifiés pour qu'ils n'utilisent plus <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html" title="Structure interne d&#39;une entité de maillage.">Arcane::ItemInternal</a> à chaque incrémentation ce qui peut légèrement améliorer les performances car on évite une indirection supplémentaire à chaque fois.</li>
+<li>les données qui étaient portées par <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html" title="Structure interne d&#39;une entité de maillage.">Arcane::ItemInternal</a> (comme <code>owner()</code>, <code>flags()</code>) sont maintenant conservées par des variables tableaux (<a class="el" href="../../d3/d00/group__Variable.html#ga0e2b61714e05c0443f27740744606a69" title="Variable tableau de type entier 32 bits.">Arcane::VariableArrayInt32</a> ou <a class="el" href="../../d3/d00/group__Variable.html#ga60ba3b60eaf5a5ea5c050bfa45615f54" title="Variable tableau de type entier 16 bits.">Arcane::VariableArrayInt16</a>) gérées par la famille d'entité.</li>
+</ul>
+<p>Avec ces modifications, à terme il sera possible de supprimer entièrement l'utilisation de <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html" title="Structure interne d&#39;une entité de maillage.">Arcane::ItemInternal</a>.</p>
+<p>Cependant, cette classe est souvent utilisée dans les codes donc ce changement doit être progressif. Notamment, la méthode <a class="el" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a5274480df9c2e1163d59cda218f882bf" title="Tableau interne des entités.">Arcane::IItemFamily::itemsInternal()</a> est utilisée pour récupérer une instance de <a class="el" href="../../df/d5f/classArcane_1_1Item.html" title="Classe de base d&#39;un élément de maillage.">Arcane::Item</a> à partir d'un Arcane::ItemInternalArrayView (qui est le type retourné par cette méthode).</p>
+<p>Pour préparer cela et garder le code compatible, une nouvelle classe <a class="el" href="../../d9/d68/classArcane_1_1ItemInfoListView.html" title="Vue sur une liste pour obtenir des informations sur les entités.">Arcane::ItemInfoListView</a> (et les classes dérivées spécifiques aux entités comme <a class="el" href="../../d8/d5f/classArcane_1_1CellInfoListView.html" title="Vue sur les informations des mailles.">Arcane::CellInfoListView</a>, <a class="el" href="../../da/dfe/classArcane_1_1DoFInfoListView.html" title="Vue sur les informations des DoFs.">Arcane::DoFInfoListView</a>) permet de récupérer les informations sur les entités pour lesquelles il fallait auparavant utiliser <a class="el" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a5274480df9c2e1163d59cda218f882bf" title="Tableau interne des entités.">Arcane::IItemFamily::itemsInternal()</a>.</p>
+<p>Il est possible de modifier le code actuel comme suit:</p>
+<div class="fragment"><div class="line"><a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html">Arcane::IItemFamily</a>* cell_family = ...;</div>
+<div class="line"><a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arcane::ItemInternalArrayView</a> cells = cell_family-&gt;<a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html#a5274480df9c2e1163d59cda218f882bf">itemsInternal</a>();</div>
+<div class="line">Arcane::Int32 my_local_id = ...;</div>
+<div class="line"><a class="code" href="../../d9/db2/classArcane_1_1Cell.html">Arcane::Cell</a> my_cell = cells[my_local_id];</div>
+<div class="ttc" id="aclassArcane_1_1Cell_html"><div class="ttname"><a href="../../d9/db2/classArcane_1_1Cell.html">Arcane::Cell</a></div><div class="ttdoc">Maille d'un maillage.</div><div class="ttdef"><b>Definition:</b> Item.h:937</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html">Arcane::IItemFamily</a></div><div class="ttdoc">Interface d'une famille d'entités.</div><div class="ttdef"><b>Definition:</b> IItemFamily.h:107</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemFamily_html_a5274480df9c2e1163d59cda218f882bf"><div class="ttname"><a href="../../dd/d0a/classArcane_1_1IItemFamily.html#a5274480df9c2e1163d59cda218f882bf">Arcane::IItemFamily::itemsInternal</a></div><div class="ttdeci">virtual ItemInternalArrayView itemsInternal()=0</div><div class="ttdoc">Tableau interne des entités.</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:500</div></div>
+</div><!-- fragment --><p>Ce code est à remplacer par cela:</p>
+<div class="fragment"><div class="line"><a class="code" href="../../dd/d0a/classArcane_1_1IItemFamily.html">Arcane::IItemFamily</a>* cell_family = ...;</div>
+<div class="line"><a class="code" href="../../d8/d5f/classArcane_1_1CellInfoListView.html">Arcane::CellInfoListView</a> cells(cell_family);</div>
+<div class="line">Arcane::Int32 my_local_id = ...;</div>
+<div class="line"><a class="code" href="../../d9/db2/classArcane_1_1Cell.html">Arcane::Cell</a> my_cell = cells[my_local_id];</div>
+<div class="ttc" id="aclassArcane_1_1CellInfoListView_html"><div class="ttname"><a href="../../d8/d5f/classArcane_1_1CellInfoListView.html">Arcane::CellInfoListView</a></div><div class="ttdoc">Vue sur les informations des mailles.</div><div class="ttdef"><b>Definition:</b> ItemInfoListView.h:220</div></div>
+</div><!-- fragment --><p>Par la suite, si l'instance unique de <a class="el" href="../../df/d0b/classArcane_1_1ItemSharedInfo.html" title="Structure interne partagée d&#39;une entité de maillage.">Arcane::ItemSharedInfo</a> par famille est créée en mémoire unifiée, il sera possible d'accéder aux informations des entités sur accélérateur. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi 29 Août 2022 04:05:42 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

@@ -1,5 +1,6 @@
 var ItemEnumerator_8h =
 [
+    [ "ItemEnumeratorBaseT", "d3/d61/classArcane_1_1ItemEnumeratorBaseT.html", "d3/d61/classArcane_1_1ItemEnumeratorBaseT" ],
     [ "ItemEnumerator", "d6/dcd/classArcane_1_1ItemEnumerator.html", "d6/dcd/classArcane_1_1ItemEnumerator" ],
     [ "ItemEnumeratorT", "d7/d74/classArcane_1_1ItemEnumeratorT.html", "d7/d74/classArcane_1_1ItemEnumeratorT" ],
     [ "A_ENUMERATE_ITEM", "d6/d0f/ItemEnumerator_8h.html#af9cc2439474c031988b27cd8dcb4625f", null ],

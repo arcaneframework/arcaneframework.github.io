@@ -129,6 +129,7 @@ var annotated_dup =
         [ "ProjectionInfo", "de/d60/classArcane_1_1GeometricUtilities_1_1ProjectionInfo.html", "de/d60/classArcane_1_1GeometricUtilities_1_1ProjectionInfo" ]
       ] ],
       [ "impl", null, [
+        [ "ItemBase", "d7/d1e/classArcane_1_1impl_1_1ItemBase.html", "d7/d1e/classArcane_1_1impl_1_1ItemBase" ],
         [ "NumArrayContainer", "de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html", "de/d6c/classArcane_1_1impl_1_1NumArrayContainer" ]
       ] ],
       [ "internal", null, [
@@ -636,7 +637,13 @@ var annotated_dup =
       [ "IServiceMng", "d6/d35/classArcane_1_1IServiceMng.html", "d6/d35/classArcane_1_1IServiceMng" ],
       [ "ISession", "db/d9b/classArcane_1_1ISession.html", "db/d9b/classArcane_1_1ISession" ],
       [ "ISharedReference", "de/d86/classArcane_1_1ISharedReference.html", "de/d86/classArcane_1_1ISharedReference" ],
+      [ "ISimpleTableComparator", "d7/d51/classArcane_1_1ISimpleTableComparator.html", "d7/d51/classArcane_1_1ISimpleTableComparator" ],
+      [ "ISimpleTableInternalComparator", "d8/da4/classArcane_1_1ISimpleTableInternalComparator.html", "d8/da4/classArcane_1_1ISimpleTableInternalComparator" ],
+      [ "ISimpleTableInternalMng", "d4/dc7/classArcane_1_1ISimpleTableInternalMng.html", "d4/dc7/classArcane_1_1ISimpleTableInternalMng" ],
       [ "ISimpleTableOutput", "d6/de8/classArcane_1_1ISimpleTableOutput.html", "d6/de8/classArcane_1_1ISimpleTableOutput" ],
+      [ "SimpleTableReaderWriterUtils", "d0/d74/classArcane_1_1SimpleTableReaderWriterUtils.html", null ],
+      [ "ISimpleTableReaderWriter", "d9/d21/classArcane_1_1ISimpleTableReaderWriter.html", "d9/d21/classArcane_1_1ISimpleTableReaderWriter" ],
+      [ "ISimpleTableWriterHelper", "d9/d89/classArcane_1_1ISimpleTableWriterHelper.html", "d9/d89/classArcane_1_1ISimpleTableWriterHelper" ],
       [ "IStandardFunction", "db/d86/classArcane_1_1IStandardFunction.html", "db/d86/classArcane_1_1IStandardFunction" ],
       [ "ISubDomain", "d9/d1e/classArcane_1_1ISubDomain.html", "d9/d1e/classArcane_1_1ISubDomain" ],
       [ "Item", "df/d5f/classArcane_1_1Item.html", "df/d5f/classArcane_1_1Item" ],
@@ -651,6 +658,7 @@ var annotated_dup =
       [ "ItemCompare", "d1/d7c/classArcane_1_1ItemCompare.html", "d1/d7c/classArcane_1_1ItemCompare" ],
       [ "CompareItemIdsByLevel", "d4/d1a/classArcane_1_1CompareItemIdsByLevel.html", "d4/d1a/classArcane_1_1CompareItemIdsByLevel" ],
       [ "ItemConnectivityContainerView", "d8/d77/classArcane_1_1ItemConnectivityContainerView.html", "d8/d77/classArcane_1_1ItemConnectivityContainerView" ],
+      [ "ItemEnumeratorBaseT", "d3/d61/classArcane_1_1ItemEnumeratorBaseT.html", "d3/d61/classArcane_1_1ItemEnumeratorBaseT" ],
       [ "ItemEnumerator", "d6/dcd/classArcane_1_1ItemEnumerator.html", "d6/dcd/classArcane_1_1ItemEnumerator" ],
       [ "ItemEnumeratorT", "d7/d74/classArcane_1_1ItemEnumeratorT.html", "d7/d74/classArcane_1_1ItemEnumeratorT" ],
       [ "ItemFamilyCompactInfos", "d4/d1f/classArcane_1_1ItemFamilyCompactInfos.html", "d4/d1f/classArcane_1_1ItemFamilyCompactInfos" ],
@@ -695,8 +703,8 @@ var annotated_dup =
       [ "ParticleInfoListView", "d0/d14/classArcane_1_1ParticleInfoListView.html", "d0/d14/classArcane_1_1ParticleInfoListView" ],
       [ "DoFInfoListView", "da/dfe/classArcane_1_1DoFInfoListView.html", "da/dfe/classArcane_1_1DoFInfoListView" ],
       [ "ItemBaseBuildInfo", "da/d82/classArcane_1_1ItemBaseBuildInfo.html", "da/d82/classArcane_1_1ItemBaseBuildInfo" ],
+      [ "ItemFlags", "da/dcc/classArcane_1_1ItemFlags.html", null ],
       [ "ItemInternalConnectivityList", "d1/ddd/classArcane_1_1ItemInternalConnectivityList.html", "d1/ddd/classArcane_1_1ItemInternalConnectivityList" ],
-      [ "ItemBase", "d7/dac/classArcane_1_1ItemBase.html", "d7/dac/classArcane_1_1ItemBase" ],
       [ "ItemInternal", "dd/df1/classArcane_1_1ItemInternal.html", "dd/df1/classArcane_1_1ItemInternal" ],
       [ "ItemInternalEnumerator", "d1/d62/classArcane_1_1ItemInternalEnumerator.html", "d1/d62/classArcane_1_1ItemInternalEnumerator" ],
       [ "ItemInternalSortFunction", "dd/d27/classArcane_1_1ItemInternalSortFunction.html", "dd/d27/classArcane_1_1ItemInternalSortFunction" ],
@@ -967,6 +975,7 @@ var annotated_dup =
       [ "SimplePropertyTraitsT< String >", "db/df6/classArcane_1_1SimplePropertyTraitsT_3_01String_01_4.html", "db/df6/classArcane_1_1SimplePropertyTraitsT_3_01String_01_4" ],
       [ "SimpleReadOnlyPropertyT", "da/dd3/classArcane_1_1SimpleReadOnlyPropertyT.html", "da/dd3/classArcane_1_1SimpleReadOnlyPropertyT" ],
       [ "SimpleSVGMeshExporter", "de/d9a/classArcane_1_1SimpleSVGMeshExporter.html", "de/d9a/classArcane_1_1SimpleSVGMeshExporter" ],
+      [ "SimpleTableInternal", "d4/dee/structArcane_1_1SimpleTableInternal.html", "d4/dee/structArcane_1_1SimpleTableInternal" ],
       [ "StandardCaseFunction", "de/d50/classArcane_1_1StandardCaseFunction.html", "de/d50/classArcane_1_1StandardCaseFunction" ],
       [ "SubDomainBuildInfo", "d9/de6/classArcane_1_1SubDomainBuildInfo.html", "d9/de6/classArcane_1_1SubDomainBuildInfo" ],
       [ "SynchronizerMatrixPrinter", "d4/de8/classArcane_1_1SynchronizerMatrixPrinter.html", "d4/de8/classArcane_1_1SynchronizerMatrixPrinter" ],

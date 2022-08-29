@@ -2,11 +2,13 @@ var classArcane_1_1Cell =
 [
     [ "Index", "da/d5e/classArcane_1_1Cell_1_1Index.html", "da/d5e/classArcane_1_1Cell_1_1Index" ],
     [ "LocalIdType", "d9/db2/classArcane_1_1Cell.html#af17cd0cc3d67ca8107d940b4e67bebbb", null ],
-    [ "Cell", "d9/db2/classArcane_1_1Cell.html#aac84375de5ef724029bb9210d8934326", null ],
-    [ "Cell", "d9/db2/classArcane_1_1Cell.html#ac200a1dc9777f1601a8ee831555d9cc0", null ],
+    [ "Cell", "d9/db2/classArcane_1_1Cell.html#a99cd5ec36bc445050105a099a222f404", null ],
     [ "Cell", "d9/db2/classArcane_1_1Cell.html#a3d1e9bba3762c5b19d3eda258fe8ef10", null ],
     [ "Cell", "d9/db2/classArcane_1_1Cell.html#ab364e9ac3c92010d4276c1bb56fa693f", null ],
+    [ "Cell", "d9/db2/classArcane_1_1Cell.html#a8b7c72efb096cf3a91c5b5869a9d458a", null ],
     [ "Cell", "d9/db2/classArcane_1_1Cell.html#a5c0f01359911cdc2c0781443d103f688", null ],
+    [ "ARCANE_DEPRECATED_REASON", "d9/db2/classArcane_1_1Cell.html#a88555e2e6231895811ba913cdeaa543b", null ],
+    [ "ARCANE_DEPRECATED_REASON", "d9/db2/classArcane_1_1Cell.html#a54d20415ced56e93f4d9fe432dd559e2", null ],
     [ "edge", "d9/db2/classArcane_1_1Cell.html#a989e2a361eb9b1ffd3e21902bbd914e9", null ],
     [ "edgeId", "d9/db2/classArcane_1_1Cell.html#a727ffc82d7f96836996c9a67e54b8e9f", null ],
     [ "edgeIds", "d9/db2/classArcane_1_1Cell.html#a5e8165c4d7ceb3ee86b6a359b8dfe03b", null ],
@@ -26,10 +28,9 @@ var classArcane_1_1Cell =
     [ "nbEdge", "d9/db2/classArcane_1_1Cell.html#a098782868be5e9bcaeec8c6590e4c2db", null ],
     [ "nbFace", "d9/db2/classArcane_1_1Cell.html#a494fd27b44cee013544cb8a8a0078fe4", null ],
     [ "nbHChildren", "d9/db2/classArcane_1_1Cell.html#a18d5fa661ac488b69b3e2d9ffd459b32", null ],
-    [ "operator->", "d9/db2/classArcane_1_1Cell.html#a8c25cb2b485b4e84059b8bb9d5838731", null ],
-    [ "operator->", "d9/db2/classArcane_1_1Cell.html#a74397eda993358b69b30bd27dafe052a", null ],
-    [ "operator=", "d9/db2/classArcane_1_1Cell.html#a0fcf4742a95c196614a19baa6b19fadf", null ],
     [ "operator=", "d9/db2/classArcane_1_1Cell.html#a354467a0b2d9aa9c0033c121a574dda4", null ],
     [ "topHParent", "d9/db2/classArcane_1_1Cell.html#a06924f1a071792d50ff80323a8f2506d", null ],
-    [ "whichChildAmI", "d9/db2/classArcane_1_1Cell.html#a85c94823506c15a84ce31006a7b57659", null ]
+    [ "whichChildAmI", "d9/db2/classArcane_1_1Cell.html#a9f78674895aa1946badd4d925cb8126b", null ],
+    [ "whichChildAmI", "d9/db2/classArcane_1_1Cell.html#a85c94823506c15a84ce31006a7b57659", null ],
+    [ "ItemEnumeratorBaseT< Cell >", "d9/db2/classArcane_1_1Cell.html#a5f00c4702878a059570eaa0c05009d61", null ]
 ];

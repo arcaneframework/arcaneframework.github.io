@@ -21,7 +21,9 @@ var hierarchy =
           [ "Arccore::SharedArray< DataType >", "d4/dee/classArccore_1_1SharedArray.html", null ],
           [ "Arcane::impl::NumArrayContainer< DataType >", "de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html", null ]
         ] ],
-        [ "Arccore::Array2< DataType >", "d1/da2/classArccore_1_1Array2.html", null ]
+        [ "Arccore::Array2< DataType >", "d1/da2/classArccore_1_1Array2.html", [
+          [ "Arccore::UniqueArray2< Real >", "d3/d1d/classArccore_1_1UniqueArray2.html", null ]
+        ] ]
       ] ],
       [ "Arccore::AbstractArray< T >", "db/d34/classArccore_1_1AbstractArray.html", [
         [ "Arccore::Array< Cell >", "d9/d09/classArccore_1_1Array.html", null ],
@@ -1436,7 +1438,12 @@ var hierarchy =
         ] ]
       ] ]
     ] ],
+    [ "Arcane::ISimpleTableComparator", "d7/d51/classArcane_1_1ISimpleTableComparator.html", null ],
+    [ "Arcane::ISimpleTableInternalComparator", "d8/da4/classArcane_1_1ISimpleTableInternalComparator.html", null ],
+    [ "Arcane::ISimpleTableInternalMng", "d4/dc7/classArcane_1_1ISimpleTableInternalMng.html", null ],
     [ "Arcane::ISimpleTableOutput", "d6/de8/classArcane_1_1ISimpleTableOutput.html", null ],
+    [ "Arcane::ISimpleTableReaderWriter", "d9/d21/classArcane_1_1ISimpleTableReaderWriter.html", null ],
+    [ "Arcane::ISimpleTableWriterHelper", "d9/d89/classArcane_1_1ISimpleTableWriterHelper.html", null ],
     [ "Arcane::Internal::ISingletonServiceFactory", "d5/d59/classArcane_1_1Internal_1_1ISingletonServiceFactory.html", [
       [ "Arcane::Internal::SingletonServiceFactoryBase", "d0/da9/classArcane_1_1Internal_1_1SingletonServiceFactoryBase.html", [
         [ "Arcane::Internal::SingletonServiceFactory< ServiceType, Interfaces >", "de/da0/classArcane_1_1Internal_1_1SingletonServiceFactory.html", null ]
@@ -1472,45 +1479,50 @@ var hierarchy =
     [ "Arcane::ItemArrayEnumerator", "dd/d56/classArcane_1_1ItemArrayEnumerator.html", [
       [ "Arcane::ItemArrayEnumeratorT< ItemType >", "d3/dda/classArcane_1_1ItemArrayEnumeratorT.html", null ]
     ] ],
-    [ "Arcane::ItemBase", "d7/dac/classArcane_1_1ItemBase.html", [
-      [ "Arcane::Item", "df/d5f/classArcane_1_1Item.html", [
-        [ "Arcane::DoF", "d0/d6c/classArcane_1_1DoF.html", null ],
-        [ "Arcane::ItemWithNodes", "d4/d55/classArcane_1_1ItemWithNodes.html", [
-          [ "Arcane::Cell", "d9/db2/classArcane_1_1Cell.html", null ],
-          [ "Arcane::Edge", "d1/d16/classArcane_1_1Edge.html", null ],
-          [ "Arcane::Face", "d1/db1/classArcane_1_1Face.html", null ]
-        ] ],
-        [ "Arcane::Node", "d8/dd7/classArcane_1_1Node.html", [
-          [ "Arcane::Attr", "d4/d27/classArcane_1_1Attr.html", null ],
-          [ "Arcane::CharacterData", "d5/dd0/classArcane_1_1CharacterData.html", [
-            [ "Arcane::Comment", "de/d69/classArcane_1_1Comment.html", null ],
-            [ "Arcane::Text", "db/d81/classArcane_1_1Text.html", [
-              [ "Arcane::CDATASection", "de/d20/classArcane_1_1CDATASection.html", null ]
-            ] ]
-          ] ],
-          [ "Arcane::Document", "d3/d48/classArcane_1_1Document.html", null ],
-          [ "Arcane::DocumentFragment", "db/d70/classArcane_1_1DocumentFragment.html", null ],
-          [ "Arcane::DocumentType", "d0/dee/classArcane_1_1DocumentType.html", null ],
-          [ "Arcane::Element", "d0/d4f/classArcane_1_1Element.html", null ],
-          [ "Arcane::Entity", "dc/d6c/classArcane_1_1Entity.html", null ],
-          [ "Arcane::EntityReference", "d4/d84/classArcane_1_1EntityReference.html", null ],
-          [ "Arcane::Notation", "db/da4/classArcane_1_1Notation.html", null ],
-          [ "Arcane::ProcessingInstruction", "df/d39/classArcane_1_1ProcessingInstruction.html", null ],
-          [ "Arcane::XPathNamespace", "d8/dce/classArcane_1_1XPathNamespace.html", null ]
-        ] ],
-        [ "Arcane::Particle", "dd/d6c/classArcane_1_1Particle.html", null ]
-      ] ],
-      [ "Arcane::ItemInternal", "dd/df1/classArcane_1_1ItemInternal.html", null ]
-    ] ],
     [ "Arcane::ItemBaseBuildInfo", "da/d82/classArcane_1_1ItemBaseBuildInfo.html", null ],
     [ "Arcane::ItemCheckSuppressedFunctor", "d9/d45/classArcane_1_1ItemCheckSuppressedFunctor.html", null ],
     [ "Arcane::ItemCompare", "d1/d7c/classArcane_1_1ItemCompare.html", null ],
     [ "Arcane::ItemConnectivityContainerView", "d8/d77/classArcane_1_1ItemConnectivityContainerView.html", null ],
-    [ "Arcane::ItemEnumerator", "d6/dcd/classArcane_1_1ItemEnumerator.html", [
+    [ "Arcane::ItemEnumeratorBaseT< ItemType >", "d3/d61/classArcane_1_1ItemEnumeratorBaseT.html", [
       [ "Arcane::ItemEnumeratorT< ItemType >", "d7/d74/classArcane_1_1ItemEnumeratorT.html", null ]
+    ] ],
+    [ "Arcane::ItemEnumeratorBaseT< Item >", "d3/d61/classArcane_1_1ItemEnumeratorBaseT.html", [
+      [ "Arcane::ItemEnumerator", "d6/dcd/classArcane_1_1ItemEnumerator.html", null ]
     ] ],
     [ "Arcane::ItemFamilyCompactInfos", "d4/d1f/classArcane_1_1ItemFamilyCompactInfos.html", null ],
     [ "Arcane::ItemFamilySerializeArgs", "df/dab/classArcane_1_1ItemFamilySerializeArgs.html", null ],
+    [ "Arcane::ItemFlags", "da/dcc/classArcane_1_1ItemFlags.html", [
+      [ "Arcane::impl::ItemBase", "d7/d1e/classArcane_1_1impl_1_1ItemBase.html", [
+        [ "Arcane::Item", "df/d5f/classArcane_1_1Item.html", [
+          [ "Arcane::DoF", "d0/d6c/classArcane_1_1DoF.html", null ],
+          [ "Arcane::ItemWithNodes", "d4/d55/classArcane_1_1ItemWithNodes.html", [
+            [ "Arcane::Cell", "d9/db2/classArcane_1_1Cell.html", null ],
+            [ "Arcane::Edge", "d1/d16/classArcane_1_1Edge.html", null ],
+            [ "Arcane::Face", "d1/db1/classArcane_1_1Face.html", null ]
+          ] ],
+          [ "Arcane::Node", "d8/dd7/classArcane_1_1Node.html", [
+            [ "Arcane::Attr", "d4/d27/classArcane_1_1Attr.html", null ],
+            [ "Arcane::CharacterData", "d5/dd0/classArcane_1_1CharacterData.html", [
+              [ "Arcane::Comment", "de/d69/classArcane_1_1Comment.html", null ],
+              [ "Arcane::Text", "db/d81/classArcane_1_1Text.html", [
+                [ "Arcane::CDATASection", "de/d20/classArcane_1_1CDATASection.html", null ]
+              ] ]
+            ] ],
+            [ "Arcane::Document", "d3/d48/classArcane_1_1Document.html", null ],
+            [ "Arcane::DocumentFragment", "db/d70/classArcane_1_1DocumentFragment.html", null ],
+            [ "Arcane::DocumentType", "d0/dee/classArcane_1_1DocumentType.html", null ],
+            [ "Arcane::Element", "d0/d4f/classArcane_1_1Element.html", null ],
+            [ "Arcane::Entity", "dc/d6c/classArcane_1_1Entity.html", null ],
+            [ "Arcane::EntityReference", "d4/d84/classArcane_1_1EntityReference.html", null ],
+            [ "Arcane::Notation", "db/da4/classArcane_1_1Notation.html", null ],
+            [ "Arcane::ProcessingInstruction", "df/d39/classArcane_1_1ProcessingInstruction.html", null ],
+            [ "Arcane::XPathNamespace", "d8/dce/classArcane_1_1XPathNamespace.html", null ]
+          ] ],
+          [ "Arcane::Particle", "dd/d6c/classArcane_1_1Particle.html", null ]
+        ] ],
+        [ "Arcane::ItemInternal", "dd/df1/classArcane_1_1ItemInternal.html", null ]
+      ] ]
+    ] ],
     [ "Arcane::ItemGroup", "d9/d27/classArcane_1_1ItemGroup.html", [
       [ "Arcane::ItemGroupT< Node >", "d8/d8e/classArcane_1_1ItemGroupT.html", null ],
       [ "Arcane::ItemGroupT< Cell >", "d8/d8e/classArcane_1_1ItemGroupT.html", null ],
@@ -1716,8 +1728,8 @@ var hierarchy =
     [ "Arcane::JSONWrapperUtils", "d6/d9d/classArcane_1_1JSONWrapperUtils.html", null ],
     [ "Arcane::JSONWriter", "d9/d23/classArcane_1_1JSONWriter.html", null ],
     [ "Arcane::LeftLayout< RankValue >", "dc/dfc/classArcane_1_1LeftLayout.html", null ],
-    [ "Arcane::LIBXML2_DOMImplementation", "d6/d7f/classArcane_1_1LIBXML2__DOMImplementation.html", null ],
     [ "Arcane::LibXml2_DOMImplementation", "d4/d59/classArcane_1_1LibXml2__DOMImplementation.html", null ],
+    [ "Arcane::LIBXML2_DOMImplementation", "d6/d7f/classArcane_1_1LIBXML2__DOMImplementation.html", null ],
     [ "Arcane::LIBXML2_DOMNamespaceContext", "d7/dca/classArcane_1_1LIBXML2__DOMNamespaceContext.html", null ],
     [ "Arcane::LIBXML2_DOMWriter", "d6/d9f/classArcane_1_1LIBXML2__DOMWriter.html", null ],
     [ "Arcane::LibXml2_ErrorHandler", "da/dc9/classArcane_1_1LibXml2__ErrorHandler.html", null ],
@@ -2355,6 +2367,8 @@ var hierarchy =
     ] ],
     [ "Arcane::Accelerator::impl::SimpleSumReduceOperator< T >", "d4/dbd/structArcane_1_1Accelerator_1_1impl_1_1SimpleSumReduceOperator.html", null ],
     [ "Arcane::SimpleSVGMeshExporter", "de/d9a/classArcane_1_1SimpleSVGMeshExporter.html", null ],
+    [ "Arcane::SimpleTableInternal", "d4/dee/structArcane_1_1SimpleTableInternal.html", null ],
+    [ "Arcane::SimpleTableReaderWriterUtils", "d0/d74/classArcane_1_1SimpleTableReaderWriterUtils.html", null ],
     [ "Arccore::BasicSerializerNewImpl::SizeInfo", "dc/de5/structArccore_1_1BasicSerializerNewImpl_1_1SizeInfo.html", null ],
     [ "Arccore::BasicSerializer::SizesPrinter", "d1/d18/classArccore_1_1BasicSerializer_1_1SizesPrinter.html", null ],
     [ "Arcane::SmallVariant", "d8/db0/classArcane_1_1SmallVariant.html", null ],

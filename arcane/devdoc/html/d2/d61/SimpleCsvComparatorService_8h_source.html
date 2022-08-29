@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de SimpleCsvComparatorService.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.7.2.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="../../dir_cd48e9603a047c3a36ad2b31e177f8e3.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_a3e309b2fcc87469c5b99e55c99d7269.html">std</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">SimpleCsvComparatorService.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* SimpleCsvComparatorService.h                                (C) 2000-2022 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Service permettant de comparer un ISimpleTableOutput avec un fichier de   */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/* référence en format csv.                                                  */</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#ifndef ARCANE_STD_SIMPLECSVCOMPARATORSERVICE_H</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#define ARCANE_STD_SIMPLECSVCOMPARATORSERVICE_H</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;arcane/ISimpleTableComparator.h&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;arcane/ISimpleTableInternalMng.h&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;arcane/ISimpleTableOutput.h&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;arcane/std/SimpleCsvReaderWriter.h&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;arcane/std/SimpleTableInternalComparator.h&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;arcane/Directory.h&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;arcane/IMesh.h&quot;</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;arcane/std/SimpleCsvComparator_axl.h&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160; </div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html">   42</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html">SimpleCsvComparatorService</a></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;: <span class="keyword">public</span> <a class="code" href="../../dd/d2c/classArcaneSimpleCsvComparatorObject.html">ArcaneSimpleCsvComparatorObject</a></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;{</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">explicit</span> <a class="code" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html">SimpleCsvComparatorService</a>(<span class="keyword">const</span> <a class="code" href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">ServiceBuildInfo</a>&amp; sbi)</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  : <a class="code" href="../../dd/d2c/classArcaneSimpleCsvComparatorObject.html#af7a511380bf78b800ad67ff20e8daba5">ArcaneSimpleCsvComparatorObject</a>(sbi)</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  , m_simple_table_output_ptr(<span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  , m_reference_path()</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  , m_root_path()</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  , m_output_directory(<span class="stringliteral">&quot;_ref&quot;</span>)</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  , m_file_name(<span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  , m_table_name(<span class="stringliteral">&quot;&quot;</span>)</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  , m_is_file_open(<span class="keyword">false</span>)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  , m_is_file_read(<span class="keyword">false</span>)</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  , m_is_already_init(<span class="keyword">false</span>)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  {</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html">SimpleCsvComparatorService</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a0c5c0f1592a27f56ac1e25d45c2d22d6">init</a>(<a class="code" href="../../d6/de8/classArcane_1_1ISimpleTableOutput.html">ISimpleTableOutput</a>* simple_table_output_ptr) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a60cfdc5e3bd586c211089ca700a28efb">clear</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#adad14c280ce8dcf62d9c75981c3c3362">editRootDirectory</a>(<span class="keyword">const</span> <a class="code" href="../../d8/d8f/classArcane_1_1Directory.html">Directory</a>&amp; root_directory) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a666f19e05878a7f2c45fe330ea515517">print</a>(Integer rank) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a4e86a0f226dbdde21eb277a61e7fe068">writeReferenceFile</a>(Integer rank) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a9f307dfda63a8cd95f28bd76fa00db17">readReferenceFile</a>(Integer rank) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a7e802a0dd5b1ee493f0d014ad7e31870">isReferenceExist</a>(Integer rank) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a1bfe7f620762545e701844001e95d2ed">compareWithReference</a>(Integer rank, Integer epsilon, <span class="keywordtype">bool</span> compare_dimension_too) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a16bf385a6c39e734a0de8712a23dfc19">addColumnForComparing</a>(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; column_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a2f77ac46fd4dfa52c08a032288ff9b9a">addRowForComparing</a>(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; row_name) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a44680385319886c08514d1d943d55d35">isAnArrayExclusiveColumns</a>(<span class="keywordtype">bool</span> is_exclusive) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a82070f1d75fd2cd7ab482cbade878f59">isAnArrayExclusiveRows</a>(<span class="keywordtype">bool</span> is_exclusive) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a2c7b9b07d2b8d93e48209651674f4619">editRegexColumns</a>(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; regex_column) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a99f866a8fb7cfe96dbf007330fd16bd8">editRegexRows</a>(<span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; regex_row) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; </div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a586e97e01fe92634debedd3d53d9ed68">isARegexExclusiveColumns</a>(<span class="keywordtype">bool</span> is_exclusive) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#ab18e174bf423218583ca60985784838a">isARegexExclusiveRows</a>(<span class="keywordtype">bool</span> is_exclusive) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; </div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordtype">bool</span> _exploreColumn(Integer position);</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  <span class="keywordtype">bool</span> _exploreRows(Integer position);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;  <a class="code" href="../../d6/de8/classArcane_1_1ISimpleTableOutput.html">ISimpleTableOutput</a>* m_simple_table_output_ptr;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <a class="code" href="../../d8/d8f/classArcane_1_1Directory.html">Directory</a> m_reference_path;</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  <a class="code" href="../../d8/d8f/classArcane_1_1Directory.html">Directory</a> m_root_path;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> m_output_directory;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> m_file_name;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> m_table_name;</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  std::ifstream m_ifstream;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keywordtype">bool</span> m_is_file_open;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="keywordtype">bool</span> m_is_file_read;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;SimpleTableInternal&gt;</a> m_simple_table_internal_reference;</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <a class="code" href="../../de/d9f/classArccore_1_1Ref.html">Ref&lt;SimpleTableInternal&gt;</a> m_simple_table_internal_to_compare;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  <a class="code" href="../../d3/dba/classArcane_1_1SimpleTableInternalComparator.html">SimpleTableInternalComparator</a> m_simple_table_internal_comparator;</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  <a class="code" href="../../d2/dcf/classArcane_1_1SimpleCsvReaderWriter.html">SimpleCsvReaderWriter</a> m_simple_csv_reader_writer;</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  <span class="keywordtype">bool</span> m_is_already_init;</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;};</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;ARCANE_REGISTER_SERVICE_SIMPLECSVCOMPARATOR(SimpleCsvComparator, <a class="code" href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html">SimpleCsvComparatorService</a>);</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="ttc" id="aclassArcaneSimpleCsvComparatorObject_html"><div class="ttname"><a href="../../dd/d2c/classArcaneSimpleCsvComparatorObject.html">ArcaneSimpleCsvComparatorObject</a></div><div class="ttdoc">Generation de la classe de base du Service.</div><div class="ttdef"><b>Definition:</b> SimpleCsvComparator_axl.h:136</div></div>
+<div class="ttc" id="aclassArcaneSimpleCsvComparatorObject_html_af7a511380bf78b800ad67ff20e8daba5"><div class="ttname"><a href="../../dd/d2c/classArcaneSimpleCsvComparatorObject.html#af7a511380bf78b800ad67ff20e8daba5">ArcaneSimpleCsvComparatorObject::ArcaneSimpleCsvComparatorObject</a></div><div class="ttdeci">ArcaneSimpleCsvComparatorObject(const Arcane::ServiceBuildInfo &amp;sbi)</div><div class="ttdoc">Constructeur.</div><div class="ttdef"><b>Definition:</b> SimpleCsvComparator_axl.h:153</div></div>
+<div class="ttc" id="aclassArcane_1_1Directory_html"><div class="ttname"><a href="../../d8/d8f/classArcane_1_1Directory.html">Arcane::Directory</a></div><div class="ttdoc">Classe gérant un répertoire.</div><div class="ttdef"><b>Definition:</b> Directory.h:33</div></div>
+<div class="ttc" id="aclassArcane_1_1ISimpleTableOutput_html"><div class="ttname"><a href="../../d6/de8/classArcane_1_1ISimpleTableOutput.html">Arcane::ISimpleTableOutput</a></div><div class="ttdoc">Interface représentant une sortie de tableau simple.</div><div class="ttdef"><b>Definition:</b> ISimpleTableOutput.h:37</div></div>
+<div class="ttc" id="aclassArcane_1_1ServiceBuildInfo_html"><div class="ttname"><a href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">Arcane::ServiceBuildInfo</a></div><div class="ttdoc">Structure contenant les informations pour créer un service.</div><div class="ttdef"><b>Definition:</b> ServiceBuildInfo.h:124</div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvComparatorService_html"><div class="ttname"><a href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html">Arcane::SimpleCsvComparatorService</a></div><div class="ttdef"><b>Definition:</b> SimpleCsvComparatorService.h:44</div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvComparatorService_html_a0c5c0f1592a27f56ac1e25d45c2d22d6"><div class="ttname"><a href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a0c5c0f1592a27f56ac1e25d45c2d22d6">Arcane::SimpleCsvComparatorService::init</a></div><div class="ttdeci">void init(ISimpleTableOutput *simple_table_output_ptr) override</div><div class="ttdoc">Méthode permettant d'initialiser le service.</div><div class="ttdef"><b>Definition:</b> SimpleCsvComparatorService.cc:36</div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvComparatorService_html_a16bf385a6c39e734a0de8712a23dfc19"><div class="ttname"><a href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a16bf385a6c39e734a0de8712a23dfc19">Arcane::SimpleCsvComparatorService::addColumnForComparing</a></div><div class="ttdeci">bool addColumnForComparing(const String &amp;column_name) override</div><div class="ttdoc">Méthode permettant d'ajouter une colonne dans la liste des colonnes à comparer.</div><div class="ttdef"><b>Definition:</b> SimpleCsvComparatorService.cc:146</div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvComparatorService_html_a1bfe7f620762545e701844001e95d2ed"><div class="ttname"><a href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a1bfe7f620762545e701844001e95d2ed">Arcane::SimpleCsvComparatorService::compareWithReference</a></div><div class="ttdeci">bool compareWithReference(Integer rank, Integer epsilon, bool compare_dimension_too) override</div><div class="ttdoc">Méthode permettant de comparer l'objet de type ISimpleTableOutput aux fichiers de réferences.</div><div class="ttdef"><b>Definition:</b> SimpleCsvComparatorService.cc:131</div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvComparatorService_html_a2c7b9b07d2b8d93e48209651674f4619"><div class="ttname"><a href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a2c7b9b07d2b8d93e48209651674f4619">Arcane::SimpleCsvComparatorService::editRegexColumns</a></div><div class="ttdeci">void editRegexColumns(const String &amp;regex_column) override</div><div class="ttdoc">Méthode permettant d'ajouter une expression régulière permettant de déterminer les colonnes à compare...</div><div class="ttdef"><b>Definition:</b> SimpleCsvComparatorService.cc:168</div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvComparatorService_html_a2f77ac46fd4dfa52c08a032288ff9b9a"><div class="ttname"><a href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a2f77ac46fd4dfa52c08a032288ff9b9a">Arcane::SimpleCsvComparatorService::addRowForComparing</a></div><div class="ttdeci">bool addRowForComparing(const String &amp;row_name) override</div><div class="ttdoc">Méthode permettant d'ajouter une ligne dans la liste des lignes à comparer.</div><div class="ttdef"><b>Definition:</b> SimpleCsvComparatorService.cc:151</div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvComparatorService_html_a44680385319886c08514d1d943d55d35"><div class="ttname"><a href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a44680385319886c08514d1d943d55d35">Arcane::SimpleCsvComparatorService::isAnArrayExclusiveColumns</a></div><div class="ttdeci">void isAnArrayExclusiveColumns(bool is_exclusive) override</div><div class="ttdoc">Méthode permettant de définir si le tableau de colonnes représente les colonnes à inclure dans la com...</div><div class="ttdef"><b>Definition:</b> SimpleCsvComparatorService.cc:157</div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvComparatorService_html_a4e86a0f226dbdde21eb277a61e7fe068"><div class="ttname"><a href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a4e86a0f226dbdde21eb277a61e7fe068">Arcane::SimpleCsvComparatorService::writeReferenceFile</a></div><div class="ttdeci">bool writeReferenceFile(Integer rank) override</div><div class="ttdoc">Méthode permettant d'écrire les fichiers de référence.</div><div class="ttdef"><b>Definition:</b> SimpleCsvComparatorService.cc:89</div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvComparatorService_html_a586e97e01fe92634debedd3d53d9ed68"><div class="ttname"><a href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a586e97e01fe92634debedd3d53d9ed68">Arcane::SimpleCsvComparatorService::isARegexExclusiveColumns</a></div><div class="ttdeci">void isARegexExclusiveColumns(bool is_exclusive) override</div><div class="ttdoc">Méthode permettant de demander à ce que l'expression régulière exclut des colonnes au lieu d'en inclu...</div><div class="ttdef"><b>Definition:</b> SimpleCsvComparatorService.cc:179</div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvComparatorService_html_a60cfdc5e3bd586c211089ca700a28efb"><div class="ttname"><a href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a60cfdc5e3bd586c211089ca700a28efb">Arcane::SimpleCsvComparatorService::clear</a></div><div class="ttdeci">void clear() override</div><div class="ttdoc">Méthode permettant d'effacer les données lues par readReferenceFile().</div><div class="ttdef"><b>Definition:</b> SimpleCsvComparatorService.cc:63</div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvComparatorService_html_a666f19e05878a7f2c45fe330ea515517"><div class="ttname"><a href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a666f19e05878a7f2c45fe330ea515517">Arcane::SimpleCsvComparatorService::print</a></div><div class="ttdeci">void print(Integer rank) override</div><div class="ttdoc">Méthode permettant d'afficher le tableau lu.</div><div class="ttdef"><b>Definition:</b> SimpleCsvComparatorService.cc:81</div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvComparatorService_html_a7e802a0dd5b1ee493f0d014ad7e31870"><div class="ttname"><a href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a7e802a0dd5b1ee493f0d014ad7e31870">Arcane::SimpleCsvComparatorService::isReferenceExist</a></div><div class="ttdeci">bool isReferenceExist(Integer rank) override</div><div class="ttdoc">Méthode permettant de savoir si les fichiers de réferences existent.</div><div class="ttdef"><b>Definition:</b> SimpleCsvComparatorService.cc:122</div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvComparatorService_html_a82070f1d75fd2cd7ab482cbade878f59"><div class="ttname"><a href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a82070f1d75fd2cd7ab482cbade878f59">Arcane::SimpleCsvComparatorService::isAnArrayExclusiveRows</a></div><div class="ttdeci">void isAnArrayExclusiveRows(bool is_exclusive) override</div><div class="ttdoc">Méthode permettant de définir si le tableau de lignes représente les lignes à inclure dans la compara...</div><div class="ttdef"><b>Definition:</b> SimpleCsvComparatorService.cc:162</div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvComparatorService_html_a99f866a8fb7cfe96dbf007330fd16bd8"><div class="ttname"><a href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a99f866a8fb7cfe96dbf007330fd16bd8">Arcane::SimpleCsvComparatorService::editRegexRows</a></div><div class="ttdeci">void editRegexRows(const String &amp;regex_row) override</div><div class="ttdoc">Méthode permettant d'ajouter une expression régulière permettant de déterminer les lignes à comparer.</div><div class="ttdef"><b>Definition:</b> SimpleCsvComparatorService.cc:173</div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvComparatorService_html_a9f307dfda63a8cd95f28bd76fa00db17"><div class="ttname"><a href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#a9f307dfda63a8cd95f28bd76fa00db17">Arcane::SimpleCsvComparatorService::readReferenceFile</a></div><div class="ttdeci">bool readReferenceFile(Integer rank) override</div><div class="ttdoc">Méthode permettant de lire les fichiers de références.</div><div class="ttdef"><b>Definition:</b> SimpleCsvComparatorService.cc:111</div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvComparatorService_html_ab18e174bf423218583ca60985784838a"><div class="ttname"><a href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#ab18e174bf423218583ca60985784838a">Arcane::SimpleCsvComparatorService::isARegexExclusiveRows</a></div><div class="ttdeci">void isARegexExclusiveRows(bool is_exclusive) override</div><div class="ttdoc">Méthode permettant de demander à ce que l'expression régulière exclut des lignes au lieu d'en inclure...</div><div class="ttdef"><b>Definition:</b> SimpleCsvComparatorService.cc:184</div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvComparatorService_html_adad14c280ce8dcf62d9c75981c3c3362"><div class="ttname"><a href="../../d5/dd8/classArcane_1_1SimpleCsvComparatorService.html#adad14c280ce8dcf62d9c75981c3c3362">Arcane::SimpleCsvComparatorService::editRootDirectory</a></div><div class="ttdeci">void editRootDirectory(const Directory &amp;root_directory) override</div><div class="ttdoc">Méthode permettant de modifier le répertoire racine. Cela permet d'écrire ou de rechercher des fichie...</div><div class="ttdef"><b>Definition:</b> SimpleCsvComparatorService.cc:74</div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvReaderWriter_html"><div class="ttname"><a href="../../d2/dcf/classArcane_1_1SimpleCsvReaderWriter.html">Arcane::SimpleCsvReaderWriter</a></div><div class="ttdef"><b>Definition:</b> SimpleCsvReaderWriter.h:36</div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleTableInternalComparator_html"><div class="ttname"><a href="../../d3/dba/classArcane_1_1SimpleTableInternalComparator.html">Arcane::SimpleTableInternalComparator</a></div><div class="ttdef"><b>Definition:</b> SimpleTableInternalComparator.h:39</div></div>
+<div class="ttc" id="aclassArccore_1_1Ref_html"><div class="ttname"><a href="../../de/d9f/classArccore_1_1Ref.html">Arccore::Ref</a></div><div class="ttdoc">Référence à une instance.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/Ref.h:129</div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/String.h:70</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Généré le Lundi 29 Août 2022 04:05:36 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+</small></address>
+</body>
+</html>

@@ -12,7 +12,7 @@ var indexSectionsWithContent =
   9: "mo",
   10: "aepr",
   11: "cefilmpsvx",
-  12: "%'abcdegjklnpsuv"
+  12: "%'abcdegjklmnpsuv"
 };
 
 var indexSectionNames =

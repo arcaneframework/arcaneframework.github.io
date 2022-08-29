@@ -1,10 +1,10 @@
 var classArcane_1_1Item =
 [
     [ "Index", "d0/d48/classArcane_1_1Item_1_1Index.html", "d0/d48/classArcane_1_1Item_1_1Index" ],
+    [ "ItemBase", "df/d5f/classArcane_1_1Item.html#ab6b1fc4e092153a70c1a6d2f6167639a", null ],
     [ "ItemInternalPtr", "df/d5f/classArcane_1_1Item.html#ad99d83358646e92b575dcf40a9900bad", null ],
     [ "LocalIdType", "df/d5f/classArcane_1_1Item.html#a5de7c6350b99b10e63f3d02ed0165574", null ],
-    [ "Item", "df/d5f/classArcane_1_1Item.html#a0b791beb00c507b08fadbb52dfa5ffd4", null ],
-    [ "Item", "df/d5f/classArcane_1_1Item.html#a9e537b4d00a78a93b0b284aa60d8c714", null ],
+    [ "Item", "df/d5f/classArcane_1_1Item.html#a44e2392cc4c302f1b4dc4b7d01747abe", null ],
     [ "Item", "df/d5f/classArcane_1_1Item.html#a23be4c858850cd46d877f284e19dff01", null ],
     [ "Item", "df/d5f/classArcane_1_1Item.html#afdd48cfbedb642a83d9f7db902ccdf02", null ],
     [ "Item", "df/d5f/classArcane_1_1Item.html#a3716c8c2efe670f18965b65fe374a11b", null ],
@@ -12,6 +12,8 @@ var classArcane_1_1Item =
     [ "_checkKind", "df/d5f/classArcane_1_1Item.html#a1a7e5ff302406e8c9dc143f826135424", null ],
     [ "_set", "df/d5f/classArcane_1_1Item.html#a7cc9e610f6eb717570ddd0d518d64144", null ],
     [ "_set", "df/d5f/classArcane_1_1Item.html#ae90b0e9466071eda5eaf8da56a351502", null ],
+    [ "ARCANE_DEPRECATED_REASON", "df/d5f/classArcane_1_1Item.html#a7d2f20d512421e4e8d6a5290f7b31a81", null ],
+    [ "ARCANE_DEPRECATED_REASON", "df/d5f/classArcane_1_1Item.html#aa68bc237c00f2214c6ad69bdb2af69ed", null ],
     [ "internal", "df/d5f/classArcane_1_1Item.html#a9beb17a99adcdd450f9327004ea060eb", null ],
     [ "isCell", "df/d5f/classArcane_1_1Item.html#a544d7ef415e9bc9cc797bcf4474a9e66", null ],
     [ "isDoF", "df/d5f/classArcane_1_1Item.html#ad7ae44fec8ba6ba545c3957f7337c34e", null ],
@@ -28,9 +30,6 @@ var classArcane_1_1Item =
     [ "localId", "df/d5f/classArcane_1_1Item.html#a5c3dac466a25bb5c0e5b42c85d4304b8", null ],
     [ "nbParent", "df/d5f/classArcane_1_1Item.html#a04aac9347c0bd71c3c9bc36ead0a1399", null ],
     [ "null", "df/d5f/classArcane_1_1Item.html#a02a2c347c90124d6a4b9c75af7ab9fbe", null ],
-    [ "operator->", "df/d5f/classArcane_1_1Item.html#a8e36bbd88153a422127d285fffefe8a0", null ],
-    [ "operator->", "df/d5f/classArcane_1_1Item.html#aedf280efa5e420e74d8d04ba48d9c5a6", null ],
-    [ "operator=", "df/d5f/classArcane_1_1Item.html#a1ef597fb2aa86289f87ce054571103c9", null ],
     [ "operator=", "df/d5f/classArcane_1_1Item.html#a6abfa5f68cbb376f1a64c71d60a2d509", null ],
     [ "owner", "df/d5f/classArcane_1_1Item.html#a5651b2880e289af4cf8b93ef9164272c", null ],
     [ "parent", "df/d5f/classArcane_1_1Item.html#ad6d2f25e6483bc3eb81d59a09372591f", null ],
@@ -44,5 +43,6 @@ var classArcane_1_1Item =
     [ "toParticle", "df/d5f/classArcane_1_1Item.html#a842be475d748e8799b538f23c4ce3029", null ],
     [ "type", "df/d5f/classArcane_1_1Item.html#af723140c2f3c43807123ec46f9c39399", null ],
     [ "typeInfo", "df/d5f/classArcane_1_1Item.html#a9fcc226dcaf6d01e1901e1bc09f4233a", null ],
-    [ "uniqueId", "df/d5f/classArcane_1_1Item.html#a8e5cf3572ae8a043fae3e32fe400551b", null ]
+    [ "uniqueId", "df/d5f/classArcane_1_1Item.html#a8e5cf3572ae8a043fae3e32fe400551b", null ],
+    [ "ItemEnumeratorBaseT< Item >", "df/d5f/classArcane_1_1Item.html#ab42133c2e06e9c99d4c6e15a3f6c6135", null ]
 ];

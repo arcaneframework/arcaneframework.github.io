@@ -77,7 +77,7 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* FullItemInfo.h                                              (C) 2000-2021 */</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* FullItemInfo.h                                              (C) 2000-2022 */</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Information de sérialisation d&#39;une maille.                                */</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
@@ -86,146 +86,147 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/CheckedConvert.h&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/mesh/MeshGlobal.h&quot;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;arcane/ItemTypeMng.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;arcane/utils/CheckedConvert.h&quot;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;arcane/mesh/MeshGlobal.h&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;arcane/ItemTypeMng.h&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/daf/ItemTypes_8h.html">arcane/ItemTypes.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">class </span>ItemInternal;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d5/d7e/namespaceArcane_1_1mesh.html">Arcane::mesh</a></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html">   40</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html">FullCellInfo</a></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;{</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; <span class="keyword">public</span>:  </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="keyword">enum</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    { <span class="comment">// parent info</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;      PI_Node = 1 &lt;&lt; 1,</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;      PI_Edge = 1 &lt;&lt; 2,</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;      PI_Face = 1 &lt;&lt; 3,</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;      PI_Cell = 1 &lt;&lt; 4</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    };</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  </div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  <a class="code" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#a781d6cdb73c327ae56b3f366dff98f32">FullCellInfo</a>(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int64ConstArrayView</a> cells_infos, Integer cell_index,</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;               <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">ItemTypeMng</a>* itm, Integer parent_info, </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;               <span class="keywordtype">bool</span> has_edge, <span class="keywordtype">bool</span> has_amr, <span class="keywordtype">bool</span> with_flags=<span class="keyword">false</span>);</div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  </div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  </div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  <a class="code" href="../../dc/d74/classArcane_1_1ItemTypeInfo.html">ItemTypeInfo</a>* typeInfo()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_type; }</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  Integer typeId()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d6/d50/namespaceArcane_1_1CheckedConvert.html#a0b4c4b43b7054b52a5c9b15083b2ae00">CheckedConvert::toInteger</a>(m_infos[0]); }</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  Int64 uniqueId()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[1]; }</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  Integer owner()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d6/d50/namespaceArcane_1_1CheckedConvert.html#a0b4c4b43b7054b52a5c9b15083b2ae00">CheckedConvert::toInteger</a>(m_infos[2]); }</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  Integer nbNode()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_nb_node; }</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  Integer nbEdge()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_nb_edge; }</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  Integer nbFace()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_nb_face; }</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  Int64 faceUniqueId(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[m_first_face + (index*2)]; }</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  Int32 faceOwner(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d6/d50/namespaceArcane_1_1CheckedConvert.html#a911b86e824e700b63bd26475eb1b87dc">CheckedConvert::toInt32</a>(m_infos[m_first_face + (index*2) + 1]); }</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  Int64 edgeUniqueId(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[m_first_edge + (index*2)]; }</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  Int32 edgeOwner(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d6/d50/namespaceArcane_1_1CheckedConvert.html#a911b86e824e700b63bd26475eb1b87dc">CheckedConvert::toInt32</a>(m_infos[m_first_edge + (index*2) + 1]); }</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  Int64 nodeUniqueId(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[3 + (index*2)]; }</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  Int32 nodeOwner(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d6/d50/namespaceArcane_1_1CheckedConvert.html#a911b86e824e700b63bd26475eb1b87dc">CheckedConvert::toInt32</a>(m_infos[3 + (index*2) + 1]); }</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  Integer memoryUsed()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_memory_used; }</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keywordtype">bool</span> hasParentNode()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (m_parent_info &amp; PI_Node); }</div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  Int64 parentNodeUniqueId(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[m_first_parent_node + index]; }</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  <span class="keywordtype">bool</span> hasParentEdge()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (m_parent_info &amp; PI_Edge); }</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  Int64 parentEdgeUniqueId(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[m_first_parent_edge + (index*2)]; }</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  Int64 parentEdgeTypeId(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[m_first_parent_edge + (index*2) + 1]; }</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  <span class="keywordtype">bool</span> hasParentFace()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (m_parent_info &amp; PI_Face); }</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  Int64 parentFaceUniqueId(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[m_first_parent_face + (index*2)]; }</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  Int64 parentFaceTypeId(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[m_first_parent_face + (index*2) + 1]; }</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;  <span class="keywordtype">bool</span> hasParentCell()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (m_parent_info &amp; PI_Cell); }</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  Int64 parentCellUniqueId()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[m_first_parent_cell]; }</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  Int64 parentCellTypeId()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[m_first_parent_cell + 1]; }</div>
-<div class="line"><a name="l00089"></a><span class="lineno"><a class="line" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#a1904ff93c52d1dffdf56c16d1dfca7c6">   89</a></span>&#160;  Integer <a class="code" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#a1904ff93c52d1dffdf56c16d1dfca7c6">level</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d6/d50/namespaceArcane_1_1CheckedConvert.html#a0b4c4b43b7054b52a5c9b15083b2ae00">CheckedConvert::toInteger</a>(m_infos[<a class="code" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#aeed747f7974df6e1f0f98e986f42fcbd">m_first_hParent_cell</a>]); }</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  Int64 hParentCellUniqueId()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[<a class="code" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#aeed747f7974df6e1f0f98e986f42fcbd">m_first_hParent_cell</a> + 1]; }</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  Integer whichChildAmI ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d6/d50/namespaceArcane_1_1CheckedConvert.html#a0b4c4b43b7054b52a5c9b15083b2ae00">CheckedConvert::toInteger</a>(m_infos[<a class="code" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#aeed747f7974df6e1f0f98e986f42fcbd">m_first_hParent_cell</a> + 2]); }</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  Int32 flags()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d6/d50/namespaceArcane_1_1CheckedConvert.html#a911b86e824e700b63bd26475eb1b87dc">CheckedConvert::toInt32</a>(m_with_flags?m_infos[<a class="code" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#aeed747f7974df6e1f0f98e986f42fcbd">m_first_hParent_cell</a> + 3]:0) ; }</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keyword">friend</span> <span class="keyword">inline</span> std::ostream&amp; operator&lt;&lt;(std::ostream&amp; o,<span class="keyword">const</span> <a class="code" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#a781d6cdb73c327ae56b3f366dff98f32">FullCellInfo</a>&amp; i)</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  {</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    i.print(o);</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;    <span class="keywordflow">return</span> o;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  }</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d5/d7e/namespaceArcane_1_1mesh.html">Arcane::mesh</a></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;{</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno"><a class="line" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html">   36</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html">FullCellInfo</a></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;{</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; <span class="keyword">public</span>:  </div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">enum</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    { <span class="comment">// parent info</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;      PI_Node = 1 &lt;&lt; 1,</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;      PI_Edge = 1 &lt;&lt; 2,</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;      PI_Face = 1 &lt;&lt; 3,</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      PI_Cell = 1 &lt;&lt; 4</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    };</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <a class="code" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#a781d6cdb73c327ae56b3f366dff98f32">FullCellInfo</a>(<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int64ConstArrayView</a> cells_infos, Integer cell_index,</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;               <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">ItemTypeMng</a>* itm, Integer parent_info, </div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;               <span class="keywordtype">bool</span> has_edge, <span class="keywordtype">bool</span> has_amr, <span class="keywordtype">bool</span> with_flags=<span class="keyword">false</span>);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  </div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;  </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <a class="code" href="../../dc/d74/classArcane_1_1ItemTypeInfo.html">ItemTypeInfo</a>* typeInfo()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_type; }</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  Integer typeId()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d6/d50/namespaceArcane_1_1CheckedConvert.html#a0b4c4b43b7054b52a5c9b15083b2ae00">CheckedConvert::toInteger</a>(m_infos[0]); }</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  Int64 uniqueId()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[1]; }</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  Integer owner()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d6/d50/namespaceArcane_1_1CheckedConvert.html#a0b4c4b43b7054b52a5c9b15083b2ae00">CheckedConvert::toInteger</a>(m_infos[2]); }</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;  Integer nbNode()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_nb_node; }</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  Integer nbEdge()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_nb_edge; }</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  Integer nbFace()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_nb_face; }</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  Int64 faceUniqueId(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[m_first_face + (index*2)]; }</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  Int32 faceOwner(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d6/d50/namespaceArcane_1_1CheckedConvert.html#a911b86e824e700b63bd26475eb1b87dc">CheckedConvert::toInt32</a>(m_infos[m_first_face + (index*2) + 1]); }</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  Int64 edgeUniqueId(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[m_first_edge + (index*2)]; }</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  Int32 edgeOwner(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d6/d50/namespaceArcane_1_1CheckedConvert.html#a911b86e824e700b63bd26475eb1b87dc">CheckedConvert::toInt32</a>(m_infos[m_first_edge + (index*2) + 1]); }</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  Int64 nodeUniqueId(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[3 + (index*2)]; }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  Int32 nodeOwner(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d6/d50/namespaceArcane_1_1CheckedConvert.html#a911b86e824e700b63bd26475eb1b87dc">CheckedConvert::toInt32</a>(m_infos[3 + (index*2) + 1]); }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  Integer memoryUsed()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_memory_used; }</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;  <span class="keywordtype">bool</span> hasParentNode()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (m_parent_info &amp; PI_Node); }</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;  Int64 parentNodeUniqueId(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[m_first_parent_node + index]; }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <span class="keywordtype">bool</span> hasParentEdge()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (m_parent_info &amp; PI_Edge); }</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  Int64 parentEdgeUniqueId(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[m_first_parent_edge + (index*2)]; }</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  Int64 parentEdgeTypeId(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[m_first_parent_edge + (index*2) + 1]; }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  <span class="keywordtype">bool</span> hasParentFace()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (m_parent_info &amp; PI_Face); }</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;  Int64 parentFaceUniqueId(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[m_first_parent_face + (index*2)]; }</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  Int64 parentFaceTypeId(Integer index)<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[m_first_parent_face + (index*2) + 1]; }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordtype">bool</span> hasParentCell()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> (m_parent_info &amp; PI_Cell); }</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  Int64 parentCellUniqueId()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[m_first_parent_cell]; }</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  Int64 parentCellTypeId()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[m_first_parent_cell + 1]; }</div>
+<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#a1904ff93c52d1dffdf56c16d1dfca7c6">   85</a></span>&#160;  Integer <a class="code" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#a1904ff93c52d1dffdf56c16d1dfca7c6">level</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d6/d50/namespaceArcane_1_1CheckedConvert.html#a0b4c4b43b7054b52a5c9b15083b2ae00">CheckedConvert::toInteger</a>(m_infos[<a class="code" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#aeed747f7974df6e1f0f98e986f42fcbd">m_first_hParent_cell</a>]); }</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;  Int64 hParentCellUniqueId()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_infos[<a class="code" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#aeed747f7974df6e1f0f98e986f42fcbd">m_first_hParent_cell</a> + 1]; }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  Integer whichChildAmI ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d6/d50/namespaceArcane_1_1CheckedConvert.html#a0b4c4b43b7054b52a5c9b15083b2ae00">CheckedConvert::toInteger</a>(m_infos[<a class="code" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#aeed747f7974df6e1f0f98e986f42fcbd">m_first_hParent_cell</a> + 2]); }</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  Int32 flags()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> <a class="code" href="../../d6/d50/namespaceArcane_1_1CheckedConvert.html#a911b86e824e700b63bd26475eb1b87dc">CheckedConvert::toInt32</a>(m_with_flags?m_infos[<a class="code" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#aeed747f7974df6e1f0f98e986f42fcbd">m_first_hParent_cell</a> + 3]:0) ; }</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160; </div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;  <span class="keyword">friend</span> <span class="keyword">inline</span> std::ostream&amp; operator&lt;&lt;(std::ostream&amp; o,<span class="keyword">const</span> <a class="code" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#a781d6cdb73c327ae56b3f366dff98f32">FullCellInfo</a>&amp; i)</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  {</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;    i.print(o);</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keywordflow">return</span> o;</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  }</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keywordtype">void</span> print(std::ostream&amp; o) <span class="keyword">const</span>;</div>
 <div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
 <div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keywordtype">void</span> print(std::ostream&amp; o) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
 <div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;  ARCCORE_DEPRECATED_2020(<span class="stringliteral">&quot;Use dump() overload with buffer&quot;</span>)</div>
-<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  static Integer memoryUsed(ItemTypeInfo* it, Integer parent_info, <span class="keywordtype">bool</span> has_edge, <span class="keywordtype">bool</span> has_amr,<span class="keywordtype">bool</span> with_flags);</div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  ARCCORE_DEPRECATED_2020(&quot;Use dump() overload with buffer&quot;)</div>
-<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160;  static <span class="keywordtype">void</span> dump(ItemInternal* cell, ISerializer* buf, Integer parent_info, <span class="keywordtype">bool</span> has_edge, <span class="keywordtype">bool</span> has_amr,<span class="keywordtype">bool</span> with_flags);</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;  static <span class="keywordtype">void</span> dump(ItemInternal* cell, Array&lt;Int64&gt;&amp; buf, Integer parent_info, <span class="keywordtype">bool</span> has_edge, <span class="keywordtype">bool</span> has_amr,<span class="keywordtype">bool</span> with_flags);</div>
-<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  static Integer parentInfo(IMesh* mesh);</div>
-<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
-<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; protected:</div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; </div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#a73fc588f03e09eed93019bec72aa9f8e">_setInternalInfos</a>();</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; public:</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  <a class="code" href="../../d0/d32/namespaceArcane.html#ad52ea8220f052e503f802c64c81e0222">Int64ConstArrayView</a> m_infos;</div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; private:</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  Integer m_nb_node;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  Integer m_nb_edge;</div>
-<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160;  Integer m_nb_face;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  ARCCORE_DEPRECATED_2020(<span class="stringliteral">&quot;Use dump() overload with buffer&quot;</span>)</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;  static Integer memoryUsed(ItemTypeInfo* it, Integer parent_info, <span class="keywordtype">bool</span> has_edge, <span class="keywordtype">bool</span> has_amr,<span class="keywordtype">bool</span> with_flags);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;  ARCCORE_DEPRECATED_2020(&quot;Use dump() overload with buffer&quot;)</div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;  static <span class="keywordtype">void</span> dump(ItemInternal* cell, ISerializer* buf, Integer parent_info, <span class="keywordtype">bool</span> has_edge, <span class="keywordtype">bool</span> has_amr,<span class="keywordtype">bool</span> with_flags);</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160; </div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;  static <span class="keywordtype">void</span> dump(Cell cell, Array&lt;Int64&gt;&amp; buf, Integer parent_info, <span class="keywordtype">bool</span> has_edge, <span class="keywordtype">bool</span> has_amr,<span class="keywordtype">bool</span> with_flags);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  static Integer parentInfo(IMesh* mesh);</div>
+<div class="line"><a name="l00111"></a><span class="lineno">  111</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; protected:</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160; </div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  <span class="keywordtype">void</span> <a class="code" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#a73fc588f03e09eed93019bec72aa9f8e">_setInternalInfos</a>();</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160; public:</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <a class="code" href="../../d0/d32/namespaceArcane.html#ad52ea8220f052e503f802c64c81e0222">Int64ConstArrayView</a> m_infos;</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; private:</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  Integer m_nb_node;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  Integer m_nb_edge;</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  Integer m_nb_face;</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
 <div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160; public:</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  Integer m_first_edge;</div>
-<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  Integer m_first_face;</div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  Integer m_memory_used;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  ItemTypeInfo* m_type;</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  Integer m_first_parent_node;</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  Integer m_first_parent_edge;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  Integer m_first_parent_face;</div>
-<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  Integer m_first_parent_cell;</div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  Integer m_parent_info;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  <span class="keywordtype">bool</span> m_has_edge;</div>
-<div class="line"><a name="l00138"></a><span class="lineno"><a class="line" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#aeed747f7974df6e1f0f98e986f42fcbd">  138</a></span>&#160;  Integer <a class="code" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#aeed747f7974df6e1f0f98e986f42fcbd">m_first_hParent_cell</a>;</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;  <span class="keywordtype">bool</span> m_has_amr;</div>
-<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <span class="keywordtype">bool</span> m_with_flags;</div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;};</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
-<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  Integer m_first_edge;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  Integer m_first_face;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  Integer m_memory_used;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  ItemTypeInfo* m_type;</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  Integer m_first_parent_node;</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  Integer m_first_parent_edge;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;  Integer m_first_parent_face;</div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  Integer m_first_parent_cell;</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  Integer m_parent_info;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;  <span class="keywordtype">bool</span> m_has_edge;</div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#aeed747f7974df6e1f0f98e986f42fcbd">  139</a></span>&#160;  Integer <a class="code" href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#aeed747f7974df6e1f0f98e986f42fcbd">m_first_hParent_cell</a>;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  <span class="keywordtype">bool</span> m_has_amr;</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="keywordtype">bool</span> m_with_flags;</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;};</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
 <div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;} <span class="comment">// End namespace Arcane::mesh</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160; </div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;} <span class="comment">// End namespace Arcane::mesh</span></div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aItemTypes_8h_html"><div class="ttname"><a href="../../db/daf/ItemTypes_8h.html">ItemTypes.h</a></div><div class="ttdoc">Déclarations de types sur les entités.</div></div>
 <div class="ttc" id="aclassArcane_1_1ItemTypeInfo_html"><div class="ttname"><a href="../../dc/d74/classArcane_1_1ItemTypeInfo.html">Arcane::ItemTypeInfo</a></div><div class="ttdoc">Infos sur un type d'entité du maillage.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfo.h:47</div></div>
 <div class="ttc" id="aclassArcane_1_1ItemTypeMng_html"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">Arcane::ItemTypeMng</a></div><div class="ttdoc">Gestionnaire des types d'entités de maillage.</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:64</div></div>
-<div class="ttc" id="aclassArcane_1_1mesh_1_1FullCellInfo_html"><div class="ttname"><a href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html">Arcane::mesh::FullCellInfo</a></div><div class="ttdoc">Infos pour créer/sérialiser une maille connaissant les uniqueId() et owner() de toutes ces sous-entit...</div><div class="ttdef"><b>Definition:</b> FullItemInfo.h:41</div></div>
-<div class="ttc" id="aclassArcane_1_1mesh_1_1FullCellInfo_html_a1904ff93c52d1dffdf56c16d1dfca7c6"><div class="ttname"><a href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#a1904ff93c52d1dffdf56c16d1dfca7c6">Arcane::mesh::FullCellInfo::level</a></div><div class="ttdeci">Integer level() const</div><div class="ttdoc">AMR.</div><div class="ttdef"><b>Definition:</b> FullItemInfo.h:89</div></div>
-<div class="ttc" id="aclassArcane_1_1mesh_1_1FullCellInfo_html_a73fc588f03e09eed93019bec72aa9f8e"><div class="ttname"><a href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#a73fc588f03e09eed93019bec72aa9f8e">Arcane::mesh::FullCellInfo::_setInternalInfos</a></div><div class="ttdeci">void _setInternalInfos()</div><div class="ttdef"><b>Definition:</b> FullItemInfo.cc:241</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1FullCellInfo_html"><div class="ttname"><a href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html">Arcane::mesh::FullCellInfo</a></div><div class="ttdoc">Infos pour créer/sérialiser une maille connaissant les uniqueId() et owner() de toutes ces sous-entit...</div><div class="ttdef"><b>Definition:</b> FullItemInfo.h:37</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1FullCellInfo_html_a1904ff93c52d1dffdf56c16d1dfca7c6"><div class="ttname"><a href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#a1904ff93c52d1dffdf56c16d1dfca7c6">Arcane::mesh::FullCellInfo::level</a></div><div class="ttdeci">Integer level() const</div><div class="ttdoc">AMR.</div><div class="ttdef"><b>Definition:</b> FullItemInfo.h:85</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1FullCellInfo_html_a73fc588f03e09eed93019bec72aa9f8e"><div class="ttname"><a href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#a73fc588f03e09eed93019bec72aa9f8e">Arcane::mesh::FullCellInfo::_setInternalInfos</a></div><div class="ttdeci">void _setInternalInfos()</div><div class="ttdef"><b>Definition:</b> FullItemInfo.cc:240</div></div>
 <div class="ttc" id="aclassArcane_1_1mesh_1_1FullCellInfo_html_a781d6cdb73c327ae56b3f366dff98f32"><div class="ttname"><a href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#a781d6cdb73c327ae56b3f366dff98f32">Arcane::mesh::FullCellInfo::FullCellInfo</a></div><div class="ttdeci">FullCellInfo(Int64ConstArrayView cells_infos, Integer cell_index, ItemTypeMng *itm, Integer parent_info, bool has_edge, bool has_amr, bool with_flags=false)</div><div class="ttdoc">Référence les infos d'une maille.</div><div class="ttdef"><b>Definition:</b> FullItemInfo.cc:32</div></div>
-<div class="ttc" id="aclassArcane_1_1mesh_1_1FullCellInfo_html_aeed747f7974df6e1f0f98e986f42fcbd"><div class="ttname"><a href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#aeed747f7974df6e1f0f98e986f42fcbd">Arcane::mesh::FullCellInfo::m_first_hParent_cell</a></div><div class="ttdeci">Integer m_first_hParent_cell</div><div class="ttdoc">AMR.</div><div class="ttdef"><b>Definition:</b> FullItemInfo.h:138</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1FullCellInfo_html_aeed747f7974df6e1f0f98e986f42fcbd"><div class="ttname"><a href="../../db/d2b/classArcane_1_1mesh_1_1FullCellInfo.html#aeed747f7974df6e1f0f98e986f42fcbd">Arcane::mesh::FullCellInfo::m_first_hParent_cell</a></div><div class="ttdeci">Integer m_first_hParent_cell</div><div class="ttdoc">AMR.</div><div class="ttdef"><b>Definition:</b> FullItemInfo.h:139</div></div>
 <div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:500</div></div>
 <div class="ttc" id="anamespaceArcane_1_1CheckedConvert_html_a0b4c4b43b7054b52a5c9b15083b2ae00"><div class="ttname"><a href="../../d6/d50/namespaceArcane_1_1CheckedConvert.html#a0b4c4b43b7054b52a5c9b15083b2ae00">Arcane::CheckedConvert::toInteger</a></div><div class="ttdeci">Integer toInteger(Real r)</div><div class="ttdoc">Converti un Int64 en un Integer.</div><div class="ttdef"><b>Definition:</b> CheckedConvert.h:44</div></div>
 <div class="ttc" id="anamespaceArcane_1_1CheckedConvert_html_a911b86e824e700b63bd26475eb1b87dc"><div class="ttname"><a href="../../d6/d50/namespaceArcane_1_1CheckedConvert.html#a911b86e824e700b63bd26475eb1b87dc">Arcane::CheckedConvert::toInt32</a></div><div class="ttdeci">Int32 toInt32(Int64 v)</div><div class="ttdoc">Converti un Int64 en un Int32.</div><div class="ttdef"><b>Definition:</b> CheckedConvert.h:125</div></div>
 <div class="ttc" id="anamespaceArcane_1_1mesh_html"><div class="ttname"><a href="../../d5/d7e/namespaceArcane_1_1mesh.html">Arcane::mesh</a></div><div class="ttdoc">AMR.</div><div class="ttdef"><b>Definition:</b> IItemFamily.h:47</div></div>
-<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
 <div class="ttc" id="anamespaceArcane_html_ad52ea8220f052e503f802c64c81e0222"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ad52ea8220f052e503f802c64c81e0222">Arcane::Int64ConstArrayView</a></div><div class="ttdeci">ConstArrayView&lt; Int64 &gt; Int64ConstArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension d'entiers 64 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:532</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 22 Août 2022 04:06:27 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Généré le Lundi 29 Août 2022 04:04:55 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

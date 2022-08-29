@@ -2,11 +2,13 @@ var classArcane_1_1Edge =
 [
     [ "Index", "da/d6a/classArcane_1_1Edge_1_1Index.html", "da/d6a/classArcane_1_1Edge_1_1Index" ],
     [ "LocalIdType", "d1/d16/classArcane_1_1Edge.html#a97eb704a813e357b378285eeb56530fc", null ],
-    [ "Edge", "d1/d16/classArcane_1_1Edge.html#a63a1000c79c2dd311b10194156cca78c", null ],
-    [ "Edge", "d1/d16/classArcane_1_1Edge.html#a9e6ba314c1b1d8a25c92436856026b79", null ],
+    [ "Edge", "d1/d16/classArcane_1_1Edge.html#a80f390619599640bf5db96765cbf9bca", null ],
     [ "Edge", "d1/d16/classArcane_1_1Edge.html#a8a215c76c2a55681654053adb6fc103b", null ],
-    [ "Edge", "d1/d16/classArcane_1_1Edge.html#a2ae21e2e0e558ab24c94620808d83075", null ],
+    [ "Edge", "d1/d16/classArcane_1_1Edge.html#a7903b46f3458ec60b01f4fb337f0e808", null ],
+    [ "Edge", "d1/d16/classArcane_1_1Edge.html#ae30a84e05861d1cfe42ef321af543151", null ],
     [ "Edge", "d1/d16/classArcane_1_1Edge.html#a31a4eb3448ea53580b14cddd4612975f", null ],
+    [ "ARCANE_DEPRECATED_REASON", "d1/d16/classArcane_1_1Edge.html#a26ffdd1c42b9acf98ee6434087f302f4", null ],
+    [ "ARCANE_DEPRECATED_REASON", "d1/d16/classArcane_1_1Edge.html#a6ae5e45449ea52ce05733ebb17c56bd4", null ],
     [ "cell", "d1/d16/classArcane_1_1Edge.html#a234f0b2c31159285fd0bddd39e301562", null ],
     [ "cellId", "d1/d16/classArcane_1_1Edge.html#acba755b52b5ee9316d14da38cc049749", null ],
     [ "cellIds", "d1/d16/classArcane_1_1Edge.html#a60d7d0a805de06d08337041c918de18f", null ],
@@ -19,8 +21,6 @@ var classArcane_1_1Edge =
     [ "nbCell", "d1/d16/classArcane_1_1Edge.html#ad21898737fcb216a9e22593653e3be34", null ],
     [ "nbFace", "d1/d16/classArcane_1_1Edge.html#a5f3250defbf44066546de88d142cbf8f", null ],
     [ "nbNode", "d1/d16/classArcane_1_1Edge.html#ac644e1fd03b10ae4ae9a368c726f9cbb", null ],
-    [ "operator->", "d1/d16/classArcane_1_1Edge.html#a5e77794980894fa751cbfe73bc7d4b4f", null ],
-    [ "operator->", "d1/d16/classArcane_1_1Edge.html#ab890f5080295f63421587cebdf9dbaae", null ],
-    [ "operator=", "d1/d16/classArcane_1_1Edge.html#ace850f516709c0f19616e3a0da3596a7", null ],
-    [ "operator=", "d1/d16/classArcane_1_1Edge.html#ae652a398472324f3da519479d8407645", null ]
+    [ "operator=", "d1/d16/classArcane_1_1Edge.html#ae652a398472324f3da519479d8407645", null ],
+    [ "ItemEnumeratorBaseT< Edge >", "d1/d16/classArcane_1_1Edge.html#aa46b9896e27a889e6f7d73cabad56007", null ]
 ];
