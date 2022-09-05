@@ -3,7 +3,7 @@ var classArcane_1_1Particle =
     [ "LocalIdType", "dd/d6c/classArcane_1_1Particle.html#ab6f86b6fd3c29113ab77f976076305e6", null ],
     [ "Particle", "dd/d6c/classArcane_1_1Particle.html#a2c42a7ecea75b564d93e7535feac27cd", null ],
     [ "Particle", "dd/d6c/classArcane_1_1Particle.html#af9aa81a3a058881a125225204e2930e7", null ],
-    [ "Particle", "dd/d6c/classArcane_1_1Particle.html#a47d0ff20bd5082f60b56b7ddeb461d69", null ],
+    [ "Particle", "dd/d6c/classArcane_1_1Particle.html#a174b4ce3d40c735209367ca0bf4063e0", null ],
     [ "Particle", "dd/d6c/classArcane_1_1Particle.html#a32f8834471b8707e9ac6553e5cdee9f2", null ],
     [ "Particle", "dd/d6c/classArcane_1_1Particle.html#a766d1fbd2fd7969a021eedf96c0c0586", null ],
     [ "ARCANE_DEPRECATED_REASON", "dd/d6c/classArcane_1_1Particle.html#ac49d5c8db536ee1ba9b1714932aea3db", null ],
@@ -14,5 +14,7 @@ var classArcane_1_1Particle =
     [ "hasCell", "dd/d6c/classArcane_1_1Particle.html#a3a1ee3868ef0bf650b44232cb607704b", null ],
     [ "itemLocalId", "dd/d6c/classArcane_1_1Particle.html#a539b505a2818fe5641cd1305cf3922f8", null ],
     [ "operator=", "dd/d6c/classArcane_1_1Particle.html#a8c4f2aaf72950f4430d9622abf03b431", null ],
-    [ "ItemEnumeratorBaseT< Particle >", "dd/d6c/classArcane_1_1Particle.html#ab49a562138659f4ff12ceac5070dd93c", null ]
+    [ "ItemEnumeratorBaseV1T< Particle >", "dd/d6c/classArcane_1_1Particle.html#afd533b6c573646806472ed8b65525a95", null ],
+    [ "ItemEnumeratorBaseV2T< Particle >", "dd/d6c/classArcane_1_1Particle.html#ab04049ab6840c3feac702eb9136257e5", null ],
+    [ "ItemEnumeratorBaseV3T< Particle >", "dd/d6c/classArcane_1_1Particle.html#ae67c5b9596c640220bfeaf0cdfa361bd", null ]
 ];

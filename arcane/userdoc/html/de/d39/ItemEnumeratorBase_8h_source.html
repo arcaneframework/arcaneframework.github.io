@@ -1,0 +1,471 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.9.1"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Arcane:  Fichier source de arcane/ItemEnumeratorBase.h</title>
+<link href="../../tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../jquery.js"></script>
+<script type="text/javascript" src="../../dynsections.js"></script>
+<link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+<link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Arcane
+   &#160;<span id="projectnumber">3.7.4.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Généré par Doxygen 1.9.1 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+var searchBox = new SearchBox("searchBox", "../../search",false,'Recherche','.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(document).ready(function(){initNavTree('de/d39/ItemEnumeratorBase_8h_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">ItemEnumeratorBase.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* ItemEnumeratorBase.h                                        (C) 2000-2022 */</span></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Classe de base des énumérateurs sur les entités du maillage.              */</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#ifndef ARCANE_ITEMENUMERATORBASE_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define ARCANE_ITEMENUMERATORBASE_H</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;arcane/ItemInternalEnumerator.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;arcane/Item.h&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;{</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">class </span>ItemEnumeratorCS;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">class </span>ItemGroupImpl;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> ItemType&gt;</div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="line" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html">   41</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html">ItemEnumeratorBaseV1T</a></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;{</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../dd/df1/classArcane_1_1ItemInternal.html">ItemInternalPtr</a> = <a class="code" href="../../dd/df1/classArcane_1_1ItemInternal.html">ItemInternal</a>*;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">using</span> LocalIdType = <span class="keyword">typename</span> <a class="code" href="../../d0/d32/namespaceArcane.html#ac650e48d9de89ce3dc2bb14806a73a1c">ItemType::LocalIdType</a>;</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <a class="code" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html">ItemEnumeratorBaseV1T</a>()</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  : m_items(<span class="keyword">nullptr</span>), m_local_ids(<span class="keyword">nullptr</span>), m_index(0), m_count(0), m_group_impl(<span class="keyword">nullptr</span>) { _init(); }</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  <a class="code" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html">ItemEnumeratorBaseV1T</a>(<span class="keyword">const</span> <a class="code" href="../../dd/df1/classArcane_1_1ItemInternal.html">ItemInternalPtr</a>* items,<span class="keyword">const</span> Int32* local_ids,Integer n, <span class="keyword">const</span> <a class="code" href="../../da/df1/classArcane_1_1ItemGroupImpl.html">ItemGroupImpl</a> * agroup = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  : m_items(items), m_local_ids(local_ids), m_index(0), m_count(n), m_group_impl(agroup) { _init(); }</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;  <a class="code" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html">ItemEnumeratorBaseV1T</a>(<span class="keyword">const</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ItemInternalArrayView</a>&amp; items,<span class="keyword">const</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a>&amp; local_ids, <span class="keyword">const</span> <a class="code" href="../../da/df1/classArcane_1_1ItemGroupImpl.html">ItemGroupImpl</a> * agroup = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;  : m_items(items.data()), m_local_ids(local_ids.data()), m_index(0), m_count(local_ids.size()), m_group_impl(agroup) { _init(); }</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <a class="code" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html">ItemEnumeratorBaseV1T</a>(<span class="keyword">const</span> <a class="code" href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html">ItemInternalVectorView</a>&amp; view, <span class="keyword">const</span> <a class="code" href="../../da/df1/classArcane_1_1ItemGroupImpl.html">ItemGroupImpl</a> * agroup = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  : m_items(view.<a class="code" href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html#a7ff68d2ef31721aaf66a3aaa955c397b">items</a>().<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html#ad4cea3b710626d977d328485119df6f0">data</a>()), m_local_ids(view.<a class="code" href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html#a7f4a78f65d595584b5db14967caea2d2">localIds</a>().<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html#ad4cea3b710626d977d328485119df6f0">data</a>()),</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    m_index(0), m_count(view.<a class="code" href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html#ac6fe119e7710fa902e893aa6213155c8">size</a>()), m_group_impl(agroup) { _init(); }</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;  <a class="code" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html">ItemEnumeratorBaseV1T</a>(<span class="keyword">const</span> <a class="code" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a>&amp; rhs)</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;  : <a class="code" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html">ItemEnumeratorBaseV1T</a>((<span class="keyword">const</span> <a class="code" href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html">ItemInternalVectorView</a>&amp;)rhs) {}</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;  <a class="code" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html">ItemEnumeratorBaseV1T</a>(<span class="keyword">const</span> <a class="code" href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">ItemVectorViewT&lt;ItemType&gt;</a>&amp; rhs)</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  : <a class="code" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html">ItemEnumeratorBaseV1T</a>((<span class="keyword">const</span> <a class="code" href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html">ItemInternalVectorView</a>&amp;)rhs) {}</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;  <a class="code" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html">ItemEnumeratorBaseV1T</a>(<span class="keyword">const</span> <a class="code" href="../../d6/dcd/classArcane_1_1ItemEnumerator.html">ItemEnumerator</a>&amp; rhs);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <a class="code" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html">ItemEnumeratorBaseV1T</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d62/classArcane_1_1ItemInternalEnumerator.html">ItemInternalEnumerator</a>&amp; rhs);</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno"><a class="line" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#a68296ef1b706749d694518846d4818b4">   70</a></span>&#160;  constexpr <span class="keywordtype">void</span> <a class="code" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#a68296ef1b706749d694518846d4818b4">operator++</a>() { ++m_index; }</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  constexpr <span class="keywordtype">bool</span> operator()() { <span class="keywordflow">return</span> m_index&lt;m_count; }</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno"><a class="line" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#a0e8b0486533f2820051920f7af1632bc">   74</a></span>&#160;  constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#a0e8b0486533f2820051920f7af1632bc">hasNext</a>() { <span class="keywordflow">return</span> m_index&lt;m_count; }</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno"><a class="line" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#a106a5b38d0b22e75778af29f13863113">   77</a></span>&#160;  constexpr Integer <a class="code" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#a106a5b38d0b22e75778af29f13863113">count</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_count; }</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#afd1a0e25ff3953f8aee3558c5b6d4c07">   80</a></span>&#160;  constexpr Integer <a class="code" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#afd1a0e25ff3953f8aee3558c5b6d4c07">index</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_index; }</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno"><a class="line" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#a3cb6dbd5aceb05b581f357f232f7fe1c">   83</a></span>&#160;  constexpr Int32 <a class="code" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#a3cb6dbd5aceb05b581f357f232f7fe1c">itemLocalId</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_local_ids[m_index]; }</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00086"></a><span class="lineno"><a class="line" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#a1f2975867fe197f0faf27fb18fc2e79e">   86</a></span>&#160;  constexpr Int32 <a class="code" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#a1f2975867fe197f0faf27fb18fc2e79e">localId</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_local_ids[m_index]; }</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  constexpr <span class="keyword">const</span> Int32* unguardedLocalIds()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_local_ids; }</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160; </div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  constexpr <span class="keyword">const</span> ItemInternalPtr* unguardedItems()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_items; }</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;  constexpr ItemInternal* <span class="keyword">internal</span>() <span class="keyword">const</span> { <span class="keywordflow">return</span> m_items[m_local_ids[m_index]]; }</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; </div>
+<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#ab2ca7c2aa86aaef6e122b437490a5ea6">  111</a></span>&#160;  constexpr <span class="keyword">const</span> <a class="code" href="../../da/df1/classArcane_1_1ItemGroupImpl.html">ItemGroupImpl</a>* <a class="code" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#ab2ca7c2aa86aaef6e122b437490a5ea6">group</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_group_impl; }</div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  constexpr ItemType operator*()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_items[ m_local_ids[m_index] ]; }</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  constexpr <span class="keyword">const</span> ItemType* operator-&gt;()<span class="keyword"> const </span>{ m_item = m_items[ m_local_ids[m_index] ]; <span class="keywordflow">return</span> &amp;m_item; }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;  constexpr LocalIdType asItemLocalId()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> LocalIdType{m_local_ids[m_index]}; }</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> version() { <span class="keywordflow">return</span> 1; }</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;  ItemEnumerator toItemEnumerator() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <span class="keyword">const</span> ItemInternalPtr* m_items;</div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <span class="keyword">const</span> Int32* ARCANE_RESTRICT m_local_ids;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;  Int32 m_index;</div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  Int32 m_count;</div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <span class="keyword">mutable</span> ItemType m_item;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;  <span class="keyword">const</span> ItemGroupImpl* m_group_impl; <span class="comment">// pourrait être retiré en mode release si nécessaire</span></div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  ItemEnumeratorBaseV1T(<span class="keyword">const</span> ItemEnumerator&amp; rhs,<span class="keywordtype">bool</span>);</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  ItemEnumeratorBaseV1T(<span class="keyword">const</span> ItemInternalPtr* items,<span class="keyword">const</span> Int32* local_ids,Int32 <a class="code" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#afd1a0e25ff3953f8aee3558c5b6d4c07">index</a>,Int32 n,</div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;                      <span class="keyword">const</span> ItemGroupImpl * agroup,impl::ItemBase item_base)</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;  : m_items(items), m_local_ids(local_ids), m_index(<a class="code" href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#afd1a0e25ff3953f8aee3558c5b6d4c07">index</a>), m_count(n), m_item(item_base), m_group_impl(agroup)</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  {</div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  }</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  <span class="keywordtype">void</span> _init() {}</div>
+<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;};</div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> ItemType&gt;</div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html">  158</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html">ItemEnumeratorBaseV2T</a></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;{</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../dd/df1/classArcane_1_1ItemInternal.html">ItemInternalPtr</a> = <a class="code" href="../../dd/df1/classArcane_1_1ItemInternal.html">ItemInternal</a>*;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;  <span class="keyword">using</span> LocalIdType = <span class="keyword">typename</span> <a class="code" href="../../d0/d32/namespaceArcane.html#ac650e48d9de89ce3dc2bb14806a73a1c">ItemType::LocalIdType</a>;</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;  <a class="code" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html">ItemEnumeratorBaseV2T</a>()</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;  : m_items(<span class="keyword">nullptr</span>), m_local_ids(<span class="keyword">nullptr</span>), m_index(0), m_count(0), m_group_impl(<span class="keyword">nullptr</span>) { _init(); }</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;  <a class="code" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html">ItemEnumeratorBaseV2T</a>(<span class="keyword">const</span> <a class="code" href="../../dd/df1/classArcane_1_1ItemInternal.html">ItemInternalPtr</a>* items,<span class="keyword">const</span> Int32* local_ids,Integer n, <span class="keyword">const</span> <a class="code" href="../../da/df1/classArcane_1_1ItemGroupImpl.html">ItemGroupImpl</a> * agroup = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;  : m_items(items), m_local_ids(local_ids), m_index(0), m_count(n), m_group_impl(agroup) { _init(); }</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;  <a class="code" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html">ItemEnumeratorBaseV2T</a>(<span class="keyword">const</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ItemInternalArrayView</a>&amp; items,<span class="keyword">const</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a>&amp; local_ids, <span class="keyword">const</span> <a class="code" href="../../da/df1/classArcane_1_1ItemGroupImpl.html">ItemGroupImpl</a> * agroup = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;  : m_items(items.data()), m_local_ids(local_ids.data()), m_index(0), m_count(local_ids.size()), m_group_impl(agroup) { _init(); }</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;  <a class="code" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html">ItemEnumeratorBaseV2T</a>(<span class="keyword">const</span> <a class="code" href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html">ItemInternalVectorView</a>&amp; view, <span class="keyword">const</span> <a class="code" href="../../da/df1/classArcane_1_1ItemGroupImpl.html">ItemGroupImpl</a> * agroup = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;  : m_items(view.<a class="code" href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html#a7ff68d2ef31721aaf66a3aaa955c397b">items</a>().<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html#ad4cea3b710626d977d328485119df6f0">data</a>()), m_local_ids(view.<a class="code" href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html#a7f4a78f65d595584b5db14967caea2d2">localIds</a>().<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html#ad4cea3b710626d977d328485119df6f0">data</a>()),</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;    m_index(0), m_count(view.<a class="code" href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html#ac6fe119e7710fa902e893aa6213155c8">size</a>()), m_group_impl(agroup) { _init(); }</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;  <a class="code" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html">ItemEnumeratorBaseV2T</a>(<span class="keyword">const</span> <a class="code" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a>&amp; rhs)</div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;  : <a class="code" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html">ItemEnumeratorBaseV2T</a>((<span class="keyword">const</span> <a class="code" href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html">ItemInternalVectorView</a>&amp;)rhs) {}</div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;  <a class="code" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html">ItemEnumeratorBaseV2T</a>(<span class="keyword">const</span> <a class="code" href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">ItemVectorViewT&lt;ItemType&gt;</a>&amp; rhs)</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;  : <a class="code" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html">ItemEnumeratorBaseV2T</a>((<span class="keyword">const</span> <a class="code" href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html">ItemInternalVectorView</a>&amp;)rhs) {}</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;  <a class="code" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html">ItemEnumeratorBaseV2T</a>(<span class="keyword">const</span> <a class="code" href="../../d6/dcd/classArcane_1_1ItemEnumerator.html">ItemEnumerator</a>&amp; rhs);</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;  <a class="code" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html">ItemEnumeratorBaseV2T</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d62/classArcane_1_1ItemInternalEnumerator.html">ItemInternalEnumerator</a>&amp; rhs);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#a48c4a93f3d9e1f0837ce8bbc6059127e">  187</a></span>&#160;  constexpr <span class="keywordtype">void</span> <a class="code" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#a48c4a93f3d9e1f0837ce8bbc6059127e">operator++</a>()</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;  {</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;    ++m_index;</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;    m_is_not_end = (m_index&lt;m_count);</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;    <span class="keywordflow">if</span> (m_is_not_end)</div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;      m_base.m_local_id = m_local_ids[m_index];</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;  }</div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;  constexpr <span class="keywordtype">bool</span> operator()() { <span class="keywordflow">return</span> m_is_not_end; }</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00197"></a><span class="lineno"><a class="line" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#a5e01a5da1b1393064a3b17415b55c882">  197</a></span>&#160;  constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#a5e01a5da1b1393064a3b17415b55c882">hasNext</a>() { <span class="keywordflow">return</span> m_is_not_end; }</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00200"></a><span class="lineno"><a class="line" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#add327700e94b7d701bfdb008bd55e4f3">  200</a></span>&#160;  constexpr Integer <a class="code" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#add327700e94b7d701bfdb008bd55e4f3">count</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_count; }</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno"><a class="line" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#a30c4e92b240e1748c10a9d6425a0105a">  203</a></span>&#160;  constexpr Integer <a class="code" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#a30c4e92b240e1748c10a9d6425a0105a">index</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_index; }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00206"></a><span class="lineno"><a class="line" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#a1f3a0ebac140fc18bc7c8c0c6d1856aa">  206</a></span>&#160;  constexpr Int32 <a class="code" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#a1f3a0ebac140fc18bc7c8c0c6d1856aa">itemLocalId</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_base.m_local_id; }</div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno"><a class="line" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#a4ed25e3b6bd9a1af2134b16400832d57">  209</a></span>&#160;  constexpr Int32 <a class="code" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#a4ed25e3b6bd9a1af2134b16400832d57">localId</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_base.m_local_id; }</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
+<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160;  constexpr <span class="keyword">const</span> Int32* unguardedLocalIds()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_local_ids; }</div>
+<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160; </div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;  constexpr <span class="keyword">const</span> ItemInternalPtr* unguardedItems()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_items; }</div>
+<div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;  constexpr ItemInternal* <span class="keyword">internal</span>() <span class="keyword">const</span> { <span class="keywordflow">return</span> m_items[m_base.m_local_id]; }</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160; </div>
+<div class="line"><a name="l00234"></a><span class="lineno"><a class="line" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#a03625c3761cd9c8666e177abae507928">  234</a></span>&#160;  constexpr <span class="keyword">const</span> <a class="code" href="../../da/df1/classArcane_1_1ItemGroupImpl.html">ItemGroupImpl</a>* <a class="code" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#a03625c3761cd9c8666e177abae507928">group</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_group_impl; }</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160; </div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;  constexpr ItemType operator*()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_base; }</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160;  constexpr <span class="keyword">const</span> ItemType* operator-&gt;()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> &amp;m_base; }</div>
+<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160; </div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;  constexpr LocalIdType asItemLocalId()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> LocalIdType{m_base.m_local_id}; }</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160; </div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;  <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> version() { <span class="keywordflow">return</span> 2; }</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160; </div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
+<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;  ItemEnumerator toItemEnumerator() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160; </div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;  <span class="comment">// TODO Rendre privé</span></div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;  ItemType m_base;</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;  <span class="keyword">const</span> ItemInternalPtr* m_items;</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;  <span class="keyword">const</span> Int32* ARCANE_RESTRICT m_local_ids;</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;  Int32 m_index;</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;  Int32 m_count;</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160;  <span class="keywordtype">bool</span> m_is_not_end;</div>
+<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;  <span class="keyword">const</span> ItemGroupImpl* m_group_impl; <span class="comment">// pourrait être retiré en mode release si nécessaire</span></div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160; </div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160; </div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;  ItemEnumeratorBaseV2T(<span class="keyword">const</span> ItemEnumerator&amp; rhs,<span class="keywordtype">bool</span>);</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160; </div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;  ItemEnumeratorBaseV2T(<span class="keyword">const</span> ItemInternalPtr* items,<span class="keyword">const</span> Int32* local_ids,Int32 <a class="code" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#a30c4e92b240e1748c10a9d6425a0105a">index</a>,Int32 n,</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;                      <span class="keyword">const</span> ItemGroupImpl * agroup,impl::ItemBase item_base)</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;  : m_base(item_base), m_items(items), m_local_ids(local_ids), m_index(<a class="code" href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#a30c4e92b240e1748c10a9d6425a0105a">index</a>), m_count(n), m_group_impl(agroup)</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;  {</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160;    m_is_not_end = (m_index&lt;m_count);</div>
+<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;  }</div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160; </div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160; </div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <span class="keywordtype">void</span> _init()</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  {</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    m_is_not_end = (m_index&lt;m_count);</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;    <span class="keywordflow">if</span> (m_is_not_end){</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;      Int32 lid = m_local_ids[m_index];</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;      <span class="comment">// Vérifie qu&#39;on n&#39;indexe pas &#39;m_items&#39; avec un localId() nul.</span></div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;      <span class="comment">// Cela n&#39;est pas possible avec les groupes d&#39;entités mais ca l&#39;est avec</span></div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;      <span class="comment">// les ItemVector par exemple.</span></div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;      <span class="comment">// De même, &#39;m_items&#39; peut-être nul si tous les localId() sont nuls.</span></div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;      <span class="comment">// Si c&#39;est le cas, alors on prend comme ItemSharedInfo l&#39;instance nulle.</span></div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;      <span class="comment">// A terme le ItemSharedInfo sera renseigné directement dans le constructeur de</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;      <span class="comment">// cette classe.</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;      Int32 idx = lid;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;      <span class="keywordflow">if</span> (idx==NULL_ITEM_LOCAL_ID)</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;        idx = 0;</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;      ItemSharedInfo* isi = (m_items) ? m_items[idx]-&gt;sharedInfo() : ItemSharedInfo::nullInstance();</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;      m_base = ItemType(ItemBaseBuildInfo(lid,isi));</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;    }</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  }</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;};</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160; </div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> ItemType&gt;</div>
+<div class="line"><a name="l00302"></a><span class="lineno"><a class="line" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html">  302</a></span>&#160;<span class="keyword">class </span><a class="code" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html">ItemEnumeratorBaseV3T</a></div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;{</div>
+<div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;  <span class="keyword">using</span> <a class="code" href="../../dd/df1/classArcane_1_1ItemInternal.html">ItemInternalPtr</a> = <a class="code" href="../../dd/df1/classArcane_1_1ItemInternal.html">ItemInternal</a>*;</div>
+<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;  <span class="keyword">using</span> LocalIdType = <span class="keyword">typename</span> <a class="code" href="../../d0/d32/namespaceArcane.html#ac650e48d9de89ce3dc2bb14806a73a1c">ItemType::LocalIdType</a>;</div>
+<div class="line"><a name="l00308"></a><span class="lineno">  308</span>&#160; </div>
+<div class="line"><a name="l00309"></a><span class="lineno">  309</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160; </div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;  <a class="code" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html">ItemEnumeratorBaseV3T</a>()</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160;  : m_items(<span class="keyword">nullptr</span>), m_local_ids(<span class="keyword">nullptr</span>), m_index(0), m_count(0), m_group_impl(<span class="keyword">nullptr</span>) { _init(); }</div>
+<div class="line"><a name="l00313"></a><span class="lineno">  313</span>&#160;  <a class="code" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html">ItemEnumeratorBaseV3T</a>(<span class="keyword">const</span> <a class="code" href="../../dd/df1/classArcane_1_1ItemInternal.html">ItemInternalPtr</a>* items,<span class="keyword">const</span> Int32* local_ids,Integer n, <span class="keyword">const</span> <a class="code" href="../../da/df1/classArcane_1_1ItemGroupImpl.html">ItemGroupImpl</a> * agroup = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00314"></a><span class="lineno">  314</span>&#160;  : m_items(items), m_local_ids(local_ids), m_index(0), m_count(n), m_group_impl(agroup) { _init(); }</div>
+<div class="line"><a name="l00315"></a><span class="lineno">  315</span>&#160;  <a class="code" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html">ItemEnumeratorBaseV3T</a>(<span class="keyword">const</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ItemInternalArrayView</a>&amp; items,<span class="keyword">const</span> <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a>&amp; local_ids, <span class="keyword">const</span> <a class="code" href="../../da/df1/classArcane_1_1ItemGroupImpl.html">ItemGroupImpl</a> * agroup = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00316"></a><span class="lineno">  316</span>&#160;  : m_items(items.data()), m_local_ids(local_ids.data()), m_index(0), m_count(local_ids.size()), m_group_impl(agroup) { _init(); }</div>
+<div class="line"><a name="l00317"></a><span class="lineno">  317</span>&#160;  <a class="code" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html">ItemEnumeratorBaseV3T</a>(<span class="keyword">const</span> <a class="code" href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html">ItemInternalVectorView</a>&amp; view, <span class="keyword">const</span> <a class="code" href="../../da/df1/classArcane_1_1ItemGroupImpl.html">ItemGroupImpl</a> * agroup = <span class="keyword">nullptr</span>)</div>
+<div class="line"><a name="l00318"></a><span class="lineno">  318</span>&#160;  : m_items(view.<a class="code" href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html#a7ff68d2ef31721aaf66a3aaa955c397b">items</a>().<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html#ad4cea3b710626d977d328485119df6f0">data</a>()), m_local_ids(view.<a class="code" href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html#a7f4a78f65d595584b5db14967caea2d2">localIds</a>().<a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html#ad4cea3b710626d977d328485119df6f0">data</a>()),</div>
+<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;    m_index(0), m_count(view.<a class="code" href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html#ac6fe119e7710fa902e893aa6213155c8">size</a>()), m_group_impl(agroup) { _init(); }</div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;  <a class="code" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html">ItemEnumeratorBaseV3T</a>(<span class="keyword">const</span> <a class="code" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a>&amp; rhs)</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;  : <a class="code" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html">ItemEnumeratorBaseV3T</a>((<span class="keyword">const</span> <a class="code" href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html">ItemInternalVectorView</a>&amp;)rhs) {}</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160;  <a class="code" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html">ItemEnumeratorBaseV3T</a>(<span class="keyword">const</span> <a class="code" href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">ItemVectorViewT&lt;ItemType&gt;</a>&amp; rhs)</div>
+<div class="line"><a name="l00323"></a><span class="lineno">  323</span>&#160;  : <a class="code" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html">ItemEnumeratorBaseV3T</a>((<span class="keyword">const</span> <a class="code" href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html">ItemInternalVectorView</a>&amp;)rhs) {}</div>
+<div class="line"><a name="l00324"></a><span class="lineno">  324</span>&#160; </div>
+<div class="line"><a name="l00325"></a><span class="lineno">  325</span>&#160;  <a class="code" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html">ItemEnumeratorBaseV3T</a>(<span class="keyword">const</span> <a class="code" href="../../d6/dcd/classArcane_1_1ItemEnumerator.html">ItemEnumerator</a>&amp; rhs);</div>
+<div class="line"><a name="l00326"></a><span class="lineno">  326</span>&#160;  <a class="code" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html">ItemEnumeratorBaseV3T</a>(<span class="keyword">const</span> <a class="code" href="../../d1/d62/classArcane_1_1ItemInternalEnumerator.html">ItemInternalEnumerator</a>&amp; rhs);</div>
+<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160; </div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
+<div class="line"><a name="l00331"></a><span class="lineno"><a class="line" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#a77cf4ac05dc3a3c4efb530c23d36f60b">  331</a></span>&#160;  constexpr <span class="keywordtype">void</span> <a class="code" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#a77cf4ac05dc3a3c4efb530c23d36f60b">operator++</a>() { ++m_index; }</div>
+<div class="line"><a name="l00332"></a><span class="lineno">  332</span>&#160;  constexpr <span class="keywordtype">bool</span> operator()() { <span class="keywordflow">return</span> m_index&lt;m_count; }</div>
+<div class="line"><a name="l00333"></a><span class="lineno">  333</span>&#160; </div>
+<div class="line"><a name="l00335"></a><span class="lineno"><a class="line" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#ac007def7d2c7c27e2dc7fc7fddf3c71a">  335</a></span>&#160;  constexpr <span class="keywordtype">bool</span> <a class="code" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#ac007def7d2c7c27e2dc7fc7fddf3c71a">hasNext</a>() { <span class="keywordflow">return</span> m_index&lt;m_count; }</div>
+<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160; </div>
+<div class="line"><a name="l00338"></a><span class="lineno"><a class="line" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#abbb1f80c601df44f7bf733230898eba2">  338</a></span>&#160;  constexpr Integer <a class="code" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#abbb1f80c601df44f7bf733230898eba2">count</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_count; }</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
+<div class="line"><a name="l00341"></a><span class="lineno"><a class="line" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#a9b8fe2bc1f1908cb21ebe4bf553c72bc">  341</a></span>&#160;  constexpr Integer <a class="code" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#a9b8fe2bc1f1908cb21ebe4bf553c72bc">index</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_index; }</div>
+<div class="line"><a name="l00342"></a><span class="lineno">  342</span>&#160; </div>
+<div class="line"><a name="l00344"></a><span class="lineno"><a class="line" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#a7dccfa8ee6ce52890082bd4c1a3a0bf9">  344</a></span>&#160;  constexpr Int32 <a class="code" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#a7dccfa8ee6ce52890082bd4c1a3a0bf9">itemLocalId</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_local_ids[m_index]; }</div>
+<div class="line"><a name="l00345"></a><span class="lineno">  345</span>&#160; </div>
+<div class="line"><a name="l00347"></a><span class="lineno"><a class="line" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#ae1ec4629c2edf185a36d2ee82aabd433">  347</a></span>&#160;  constexpr Int32 <a class="code" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#ae1ec4629c2edf185a36d2ee82aabd433">localId</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_local_ids[m_index]; }</div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160; </div>
+<div class="line"><a name="l00353"></a><span class="lineno">  353</span>&#160;  constexpr <span class="keyword">const</span> Int32* unguardedLocalIds()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_local_ids; }</div>
+<div class="line"><a name="l00354"></a><span class="lineno">  354</span>&#160; </div>
+<div class="line"><a name="l00359"></a><span class="lineno">  359</span>&#160;  constexpr <span class="keyword">const</span> ItemInternalPtr* unguardedItems()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_items; }</div>
+<div class="line"><a name="l00360"></a><span class="lineno">  360</span>&#160; </div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160;  constexpr ItemInternal* <span class="keyword">internal</span>() <span class="keyword">const</span> { <span class="keywordflow">return</span> m_items[m_local_ids[m_index]]; }</div>
+<div class="line"><a name="l00366"></a><span class="lineno">  366</span>&#160; </div>
+<div class="line"><a name="l00372"></a><span class="lineno"><a class="line" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#a4c32f36f717f52dbfa3c39889a8600b1">  372</a></span>&#160;  constexpr <span class="keyword">const</span> <a class="code" href="../../da/df1/classArcane_1_1ItemGroupImpl.html">ItemGroupImpl</a>* <a class="code" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#a4c32f36f717f52dbfa3c39889a8600b1">group</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_group_impl; }</div>
+<div class="line"><a name="l00373"></a><span class="lineno">  373</span>&#160; </div>
+<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;  constexpr ItemType operator*()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> ItemType(<a class="code" href="../../da/d82/classArcane_1_1ItemBaseBuildInfo.html">ItemBaseBuildInfo</a>(m_local_ids[m_index],m_shared_info)); }</div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;  constexpr <span class="keyword">const</span> ItemType* operator-&gt;()<span class="keyword"> const </span>{ m_item_for_operator_arrow = this-&gt;operator*(); <span class="keywordflow">return</span> &amp;m_item_for_operator_arrow; }</div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160; </div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;  constexpr LocalIdType asItemLocalId()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> LocalIdType{m_local_ids[m_index]}; }</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;  <span class="keyword">static</span> constexpr <span class="keywordtype">int</span> version() { <span class="keywordflow">return</span> 3; }</div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160; </div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160; </div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;  ItemEnumerator toItemEnumerator() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00384"></a><span class="lineno">  384</span>&#160; </div>
+<div class="line"><a name="l00385"></a><span class="lineno">  385</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00386"></a><span class="lineno">  386</span>&#160; </div>
+<div class="line"><a name="l00387"></a><span class="lineno">  387</span>&#160;  ItemSharedInfo* m_shared_info = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00388"></a><span class="lineno">  388</span>&#160;  <span class="keyword">const</span> ItemInternalPtr* m_items;</div>
+<div class="line"><a name="l00389"></a><span class="lineno">  389</span>&#160;  <span class="keyword">const</span> Int32* ARCANE_RESTRICT m_local_ids;</div>
+<div class="line"><a name="l00390"></a><span class="lineno">  390</span>&#160;  Int32 m_index;</div>
+<div class="line"><a name="l00391"></a><span class="lineno">  391</span>&#160;  Int32 m_count;</div>
+<div class="line"><a name="l00392"></a><span class="lineno">  392</span>&#160;  <span class="keyword">const</span> ItemGroupImpl* m_group_impl; <span class="comment">// pourrait être retiré en mode release si nécessaire</span></div>
+<div class="line"><a name="l00393"></a><span class="lineno">  393</span>&#160;  <span class="keyword">mutable</span> ItemType m_item_for_operator_arrow;</div>
+<div class="line"><a name="l00394"></a><span class="lineno">  394</span>&#160; </div>
+<div class="line"><a name="l00395"></a><span class="lineno">  395</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00396"></a><span class="lineno">  396</span>&#160; </div>
+<div class="line"><a name="l00398"></a><span class="lineno">  398</span>&#160;  ItemEnumeratorBaseV3T(<span class="keyword">const</span> ItemEnumerator&amp; rhs,<span class="keywordtype">bool</span>);</div>
+<div class="line"><a name="l00399"></a><span class="lineno">  399</span>&#160; </div>
+<div class="line"><a name="l00400"></a><span class="lineno">  400</span>&#160;  ItemEnumeratorBaseV3T(<span class="keyword">const</span> ItemInternalPtr* items,<span class="keyword">const</span> Int32* local_ids,Int32 <a class="code" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#a9b8fe2bc1f1908cb21ebe4bf553c72bc">index</a>,Int32 n,</div>
+<div class="line"><a name="l00401"></a><span class="lineno">  401</span>&#160;                        <span class="keyword">const</span> ItemGroupImpl * agroup,impl::ItemBase item_base)</div>
+<div class="line"><a name="l00402"></a><span class="lineno">  402</span>&#160;  : m_items(items), m_local_ids(local_ids), m_index(<a class="code" href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#a9b8fe2bc1f1908cb21ebe4bf553c72bc">index</a>), m_count(n), m_group_impl(agroup), m_item_for_operator_arrow(item_base)</div>
+<div class="line"><a name="l00403"></a><span class="lineno">  403</span>&#160;  {</div>
+<div class="line"><a name="l00404"></a><span class="lineno">  404</span>&#160;    _init();</div>
+<div class="line"><a name="l00405"></a><span class="lineno">  405</span>&#160;  }</div>
+<div class="line"><a name="l00406"></a><span class="lineno">  406</span>&#160; </div>
+<div class="line"><a name="l00407"></a><span class="lineno">  407</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00408"></a><span class="lineno">  408</span>&#160; </div>
+<div class="line"><a name="l00409"></a><span class="lineno">  409</span>&#160;  <span class="keywordtype">void</span> _init()</div>
+<div class="line"><a name="l00410"></a><span class="lineno">  410</span>&#160;  {</div>
+<div class="line"><a name="l00411"></a><span class="lineno">  411</span>&#160;    m_shared_info = (m_items) ? m_items[0]-&gt;sharedInfo() : ItemSharedInfo::nullInstance();</div>
+<div class="line"><a name="l00412"></a><span class="lineno">  412</span>&#160;  }</div>
+<div class="line"><a name="l00413"></a><span class="lineno">  413</span>&#160;};</div>
+<div class="line"><a name="l00414"></a><span class="lineno">  414</span>&#160; </div>
+<div class="line"><a name="l00415"></a><span class="lineno">  415</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00416"></a><span class="lineno">  416</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00417"></a><span class="lineno">  417</span>&#160; </div>
+<div class="line"><a name="l00418"></a><span class="lineno">  418</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00419"></a><span class="lineno">  419</span>&#160; </div>
+<div class="line"><a name="l00420"></a><span class="lineno">  420</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00421"></a><span class="lineno">  421</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00422"></a><span class="lineno">  422</span>&#160; </div>
+<div class="line"><a name="l00423"></a><span class="lineno">  423</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aclassArcane_1_1ItemBaseBuildInfo_html"><div class="ttname"><a href="../../da/d82/classArcane_1_1ItemBaseBuildInfo.html">Arcane::ItemBaseBuildInfo</a></div><div class="ttdef"><b>Definition:</b> ItemInternal.h:49</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV1T_html"><div class="ttname"><a href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html">Arcane::ItemEnumeratorBaseV1T</a></div><div class="ttdoc">Classe de base des énumérateurs sur une liste d'entité.</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:42</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV1T_html_a0e8b0486533f2820051920f7af1632bc"><div class="ttname"><a href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#a0e8b0486533f2820051920f7af1632bc">Arcane::ItemEnumeratorBaseV1T::hasNext</a></div><div class="ttdeci">constexpr bool hasNext()</div><div class="ttdoc">Vrai si on n'a pas atteint la fin de l'énumérateur (index()&lt;count())</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:74</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV1T_html_a106a5b38d0b22e75778af29f13863113"><div class="ttname"><a href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#a106a5b38d0b22e75778af29f13863113">Arcane::ItemEnumeratorBaseV1T::count</a></div><div class="ttdeci">constexpr Integer count() const</div><div class="ttdoc">Nombre d'éléments de l'énumérateur.</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:77</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV1T_html_a1f2975867fe197f0faf27fb18fc2e79e"><div class="ttname"><a href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#a1f2975867fe197f0faf27fb18fc2e79e">Arcane::ItemEnumeratorBaseV1T::localId</a></div><div class="ttdeci">constexpr Int32 localId() const</div><div class="ttdoc">localId() de l'entité courante.</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:86</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV1T_html_a3cb6dbd5aceb05b581f357f232f7fe1c"><div class="ttname"><a href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#a3cb6dbd5aceb05b581f357f232f7fe1c">Arcane::ItemEnumeratorBaseV1T::itemLocalId</a></div><div class="ttdeci">constexpr Int32 itemLocalId() const</div><div class="ttdoc">localId() de l'entité courante.</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:83</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV1T_html_a68296ef1b706749d694518846d4818b4"><div class="ttname"><a href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#a68296ef1b706749d694518846d4818b4">Arcane::ItemEnumeratorBaseV1T::operator++</a></div><div class="ttdeci">constexpr void operator++()</div><div class="ttdoc">Incrémente l'index de l'énumérateur.</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:70</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV1T_html_ab2ca7c2aa86aaef6e122b437490a5ea6"><div class="ttname"><a href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#ab2ca7c2aa86aaef6e122b437490a5ea6">Arcane::ItemEnumeratorBaseV1T::group</a></div><div class="ttdeci">constexpr const ItemGroupImpl * group() const</div><div class="ttdoc">Groupe sous-jacent s'il existe (nullptr sinon)</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:111</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV1T_html_afd1a0e25ff3953f8aee3558c5b6d4c07"><div class="ttname"><a href="../../d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html#afd1a0e25ff3953f8aee3558c5b6d4c07">Arcane::ItemEnumeratorBaseV1T::index</a></div><div class="ttdeci">constexpr Integer index() const</div><div class="ttdoc">Indice courant de l'énumérateur.</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:80</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV2T_html"><div class="ttname"><a href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html">Arcane::ItemEnumeratorBaseV2T</a></div><div class="ttdoc">Classe de base des énumérateurs sur une liste d'entité.</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:159</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV2T_html_a03625c3761cd9c8666e177abae507928"><div class="ttname"><a href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#a03625c3761cd9c8666e177abae507928">Arcane::ItemEnumeratorBaseV2T::group</a></div><div class="ttdeci">constexpr const ItemGroupImpl * group() const</div><div class="ttdoc">Groupe sous-jacent s'il existe (nullptr sinon)</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:234</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV2T_html_a1f3a0ebac140fc18bc7c8c0c6d1856aa"><div class="ttname"><a href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#a1f3a0ebac140fc18bc7c8c0c6d1856aa">Arcane::ItemEnumeratorBaseV2T::itemLocalId</a></div><div class="ttdeci">constexpr Int32 itemLocalId() const</div><div class="ttdoc">localId() de l'entité courante.</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:206</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV2T_html_a30c4e92b240e1748c10a9d6425a0105a"><div class="ttname"><a href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#a30c4e92b240e1748c10a9d6425a0105a">Arcane::ItemEnumeratorBaseV2T::index</a></div><div class="ttdeci">constexpr Integer index() const</div><div class="ttdoc">Indice courant de l'énumérateur.</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:203</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV2T_html_a48c4a93f3d9e1f0837ce8bbc6059127e"><div class="ttname"><a href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#a48c4a93f3d9e1f0837ce8bbc6059127e">Arcane::ItemEnumeratorBaseV2T::operator++</a></div><div class="ttdeci">constexpr void operator++()</div><div class="ttdoc">Incrémente l'index de l'énumérateur.</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:187</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV2T_html_a4ed25e3b6bd9a1af2134b16400832d57"><div class="ttname"><a href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#a4ed25e3b6bd9a1af2134b16400832d57">Arcane::ItemEnumeratorBaseV2T::localId</a></div><div class="ttdeci">constexpr Int32 localId() const</div><div class="ttdoc">localId() de l'entité courante.</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:209</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV2T_html_a5e01a5da1b1393064a3b17415b55c882"><div class="ttname"><a href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#a5e01a5da1b1393064a3b17415b55c882">Arcane::ItemEnumeratorBaseV2T::hasNext</a></div><div class="ttdeci">constexpr bool hasNext()</div><div class="ttdoc">Vrai si on n'a pas atteint la fin de l'énumérateur (index()&lt;count())</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:197</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV2T_html_add327700e94b7d701bfdb008bd55e4f3"><div class="ttname"><a href="../../d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html#add327700e94b7d701bfdb008bd55e4f3">Arcane::ItemEnumeratorBaseV2T::count</a></div><div class="ttdeci">constexpr Integer count() const</div><div class="ttdoc">Nombre d'éléments de l'énumérateur.</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:200</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV3T_html"><div class="ttname"><a href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html">Arcane::ItemEnumeratorBaseV3T</a></div><div class="ttdoc">Classe de base des énumérateurs sur une liste d'entité.</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:303</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV3T_html_a4c32f36f717f52dbfa3c39889a8600b1"><div class="ttname"><a href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#a4c32f36f717f52dbfa3c39889a8600b1">Arcane::ItemEnumeratorBaseV3T::group</a></div><div class="ttdeci">constexpr const ItemGroupImpl * group() const</div><div class="ttdoc">Groupe sous-jacent s'il existe (nullptr sinon)</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:372</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV3T_html_a77cf4ac05dc3a3c4efb530c23d36f60b"><div class="ttname"><a href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#a77cf4ac05dc3a3c4efb530c23d36f60b">Arcane::ItemEnumeratorBaseV3T::operator++</a></div><div class="ttdeci">constexpr void operator++()</div><div class="ttdoc">Incrémente l'index de l'énumérateur.</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:331</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV3T_html_a7dccfa8ee6ce52890082bd4c1a3a0bf9"><div class="ttname"><a href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#a7dccfa8ee6ce52890082bd4c1a3a0bf9">Arcane::ItemEnumeratorBaseV3T::itemLocalId</a></div><div class="ttdeci">constexpr Int32 itemLocalId() const</div><div class="ttdoc">localId() de l'entité courante.</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:344</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV3T_html_a9b8fe2bc1f1908cb21ebe4bf553c72bc"><div class="ttname"><a href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#a9b8fe2bc1f1908cb21ebe4bf553c72bc">Arcane::ItemEnumeratorBaseV3T::index</a></div><div class="ttdeci">constexpr Integer index() const</div><div class="ttdoc">Indice courant de l'énumérateur.</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:341</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV3T_html_abbb1f80c601df44f7bf733230898eba2"><div class="ttname"><a href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#abbb1f80c601df44f7bf733230898eba2">Arcane::ItemEnumeratorBaseV3T::count</a></div><div class="ttdeci">constexpr Integer count() const</div><div class="ttdoc">Nombre d'éléments de l'énumérateur.</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:338</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV3T_html_ac007def7d2c7c27e2dc7fc7fddf3c71a"><div class="ttname"><a href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#ac007def7d2c7c27e2dc7fc7fddf3c71a">Arcane::ItemEnumeratorBaseV3T::hasNext</a></div><div class="ttdeci">constexpr bool hasNext()</div><div class="ttdoc">Vrai si on n'a pas atteint la fin de l'énumérateur (index()&lt;count())</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:335</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumeratorBaseV3T_html_ae1ec4629c2edf185a36d2ee82aabd433"><div class="ttname"><a href="../../d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html#ae1ec4629c2edf185a36d2ee82aabd433">Arcane::ItemEnumeratorBaseV3T::localId</a></div><div class="ttdeci">constexpr Int32 localId() const</div><div class="ttdoc">localId() de l'entité courante.</div><div class="ttdef"><b>Definition:</b> ItemEnumeratorBase.h:347</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemEnumerator_html"><div class="ttname"><a href="../../d6/dcd/classArcane_1_1ItemEnumerator.html">Arcane::ItemEnumerator</a></div><div class="ttdoc">Enumérateur sur une liste d'entités.</div><div class="ttdef"><b>Definition:</b> ItemEnumerator.h:52</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemGroupImpl_html"><div class="ttname"><a href="../../da/df1/classArcane_1_1ItemGroupImpl.html">Arcane::ItemGroupImpl</a></div><div class="ttdef"><b>Definition:</b> ItemGroupImpl.h:72</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternalEnumerator_html"><div class="ttname"><a href="../../d1/d62/classArcane_1_1ItemInternalEnumerator.html">Arcane::ItemInternalEnumerator</a></div><div class="ttdef"><b>Definition:</b> ItemInternalEnumerator.h:37</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternalVectorView_html"><div class="ttname"><a href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html">Arcane::ItemInternalVectorView</a></div><div class="ttdef"><b>Definition:</b> ItemInternalVectorView.h:115</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternalVectorView_html_a7f4a78f65d595584b5db14967caea2d2"><div class="ttname"><a href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html#a7f4a78f65d595584b5db14967caea2d2">Arcane::ItemInternalVectorView::localIds</a></div><div class="ttdeci">Int32ConstArrayView localIds() const</div><div class="ttdoc">Tableau des numéros locaux des entités.</div><div class="ttdef"><b>Definition:</b> ItemInternalVectorView.h:150</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternalVectorView_html_a7ff68d2ef31721aaf66a3aaa955c397b"><div class="ttname"><a href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html#a7ff68d2ef31721aaf66a3aaa955c397b">Arcane::ItemInternalVectorView::items</a></div><div class="ttdeci">ItemInternalArrayView items() const</div><div class="ttdoc">Tableau des entités.</div><div class="ttdef"><b>Definition:</b> ItemInternalVectorView.h:147</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternalVectorView_html_ac6fe119e7710fa902e893aa6213155c8"><div class="ttname"><a href="../../dd/dd5/classArcane_1_1ItemInternalVectorView.html#ac6fe119e7710fa902e893aa6213155c8">Arcane::ItemInternalVectorView::size</a></div><div class="ttdeci">Integer size() const</div><div class="ttdoc">Nombre d'éléments du vecteur.</div><div class="ttdef"><b>Definition:</b> ItemInternalVectorView.h:144</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemInternal_html"><div class="ttname"><a href="../../dd/df1/classArcane_1_1ItemInternal.html">Arcane::ItemInternal</a></div><div class="ttdef"><b>Definition:</b> ItemInternal.h:720</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemVectorViewT_html"><div class="ttname"><a href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">Arcane::ItemVectorViewT</a></div><div class="ttdoc">Vue sur un tableau typé d'entités.</div><div class="ttdef"><b>Definition:</b> ItemVectorView.h:255</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemVectorView_html"><div class="ttname"><a href="../../d6/df2/classArcane_1_1ItemVectorView.html">Arcane::ItemVectorView</a></div><div class="ttdoc">Vue sur un vecteur d'entités.</div><div class="ttdef"><b>Definition:</b> ItemVectorView.h:164</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:500</div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html_ad4cea3b710626d977d328485119df6f0"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html#ad4cea3b710626d977d328485119df6f0">Arccore::ConstArrayView::data</a></div><div class="ttdeci">constexpr const_pointer data() const noexcept</div><div class="ttdoc">Pointeur sur la mémoire allouée.</div><div class="ttdef"><b>Definition:</b> ArrayView.h:711</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
+<div class="ttc" id="anamespaceArcane_html_ac650e48d9de89ce3dc2bb14806a73a1c"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ac650e48d9de89ce3dc2bb14806a73a1c">Arcane::LocalIdType</a></div><div class="ttdeci">Int32 LocalIdType</div><div class="ttdoc">Type des entiers utilisés pour stocker les identifiants locaux des entités.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:240</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_cd48e9603a047c3a36ad2b31e177f8e3.html">arcane</a></li><li class="navelem"><b>ItemEnumeratorBase.h</b></li>
+    <li class="footer">Généré le Lundi 5 Septembre 2022 04:17:49 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+  </ul>
+</div>
+</body>
+</html>

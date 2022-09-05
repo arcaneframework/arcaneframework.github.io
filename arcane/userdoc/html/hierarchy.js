@@ -1483,12 +1483,12 @@ var hierarchy =
     [ "Arcane::ItemCheckSuppressedFunctor", "d9/d45/classArcane_1_1ItemCheckSuppressedFunctor.html", null ],
     [ "Arcane::ItemCompare", "d1/d7c/classArcane_1_1ItemCompare.html", null ],
     [ "Arcane::ItemConnectivityContainerView", "d8/d77/classArcane_1_1ItemConnectivityContainerView.html", null ],
-    [ "Arcane::ItemEnumeratorBaseT< ItemType >", "d3/d61/classArcane_1_1ItemEnumeratorBaseT.html", [
+    [ "Arcane::ItemEnumeratorBaseV1T< ItemType >", "d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html", null ],
+    [ "Arcane::ItemEnumeratorBaseV2T< ItemType >", "d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html", [
+      [ "Arcane::ItemEnumerator", "d6/dcd/classArcane_1_1ItemEnumerator.html", null ],
       [ "Arcane::ItemEnumeratorT< ItemType >", "d7/d74/classArcane_1_1ItemEnumeratorT.html", null ]
     ] ],
-    [ "Arcane::ItemEnumeratorBaseT< Item >", "d3/d61/classArcane_1_1ItemEnumeratorBaseT.html", [
-      [ "Arcane::ItemEnumerator", "d6/dcd/classArcane_1_1ItemEnumerator.html", null ]
-    ] ],
+    [ "Arcane::ItemEnumeratorBaseV3T< ItemType >", "d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html", null ],
     [ "Arcane::ItemFamilyCompactInfos", "d4/d1f/classArcane_1_1ItemFamilyCompactInfos.html", null ],
     [ "Arcane::ItemFamilySerializeArgs", "df/dab/classArcane_1_1ItemFamilySerializeArgs.html", null ],
     [ "Arcane::ItemFlags", "da/dcc/classArcane_1_1ItemFlags.html", [
@@ -1728,8 +1728,8 @@ var hierarchy =
     [ "Arcane::JSONWrapperUtils", "d6/d9d/classArcane_1_1JSONWrapperUtils.html", null ],
     [ "Arcane::JSONWriter", "d9/d23/classArcane_1_1JSONWriter.html", null ],
     [ "Arcane::LeftLayout< RankValue >", "dc/dfc/classArcane_1_1LeftLayout.html", null ],
-    [ "Arcane::LibXml2_DOMImplementation", "d4/d59/classArcane_1_1LibXml2__DOMImplementation.html", null ],
     [ "Arcane::LIBXML2_DOMImplementation", "d6/d7f/classArcane_1_1LIBXML2__DOMImplementation.html", null ],
+    [ "Arcane::LibXml2_DOMImplementation", "d4/d59/classArcane_1_1LibXml2__DOMImplementation.html", null ],
     [ "Arcane::LIBXML2_DOMNamespaceContext", "d7/dca/classArcane_1_1LIBXML2__DOMNamespaceContext.html", null ],
     [ "Arcane::LIBXML2_DOMWriter", "d6/d9f/classArcane_1_1LIBXML2__DOMWriter.html", null ],
     [ "Arcane::LibXml2_ErrorHandler", "da/dc9/classArcane_1_1LibXml2__ErrorHandler.html", null ],

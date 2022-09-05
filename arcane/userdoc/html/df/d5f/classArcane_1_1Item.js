@@ -44,5 +44,7 @@ var classArcane_1_1Item =
     [ "type", "df/d5f/classArcane_1_1Item.html#af723140c2f3c43807123ec46f9c39399", null ],
     [ "typeInfo", "df/d5f/classArcane_1_1Item.html#a9fcc226dcaf6d01e1901e1bc09f4233a", null ],
     [ "uniqueId", "df/d5f/classArcane_1_1Item.html#a8e5cf3572ae8a043fae3e32fe400551b", null ],
-    [ "ItemEnumeratorBaseT< Item >", "df/d5f/classArcane_1_1Item.html#ab42133c2e06e9c99d4c6e15a3f6c6135", null ]
+    [ "ItemEnumeratorBaseV1T< Item >", "df/d5f/classArcane_1_1Item.html#a203241fe8b5dce5f5f6a7016c2929c33", null ],
+    [ "ItemEnumeratorBaseV2T< Item >", "df/d5f/classArcane_1_1Item.html#aca9ee1969bd5784710ff64b61bd22192", null ],
+    [ "ItemEnumeratorBaseV3T< Item >", "df/d5f/classArcane_1_1Item.html#abdbc3c1b096818b7abeebe6e41f674b8", null ]
 ];
