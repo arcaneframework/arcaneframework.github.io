@@ -22,7 +22,5 @@ var classArcane_1_1Edge =
     [ "nbFace", "d1/d16/classArcane_1_1Edge.html#a5f3250defbf44066546de88d142cbf8f", null ],
     [ "nbNode", "d1/d16/classArcane_1_1Edge.html#ac644e1fd03b10ae4ae9a368c726f9cbb", null ],
     [ "operator=", "d1/d16/classArcane_1_1Edge.html#ae652a398472324f3da519479d8407645", null ],
-    [ "ItemEnumeratorBaseV1T< Edge >", "d1/d16/classArcane_1_1Edge.html#a9efd017037e2625f02c9f16456952beb", null ],
-    [ "ItemEnumeratorBaseV2T< Edge >", "d1/d16/classArcane_1_1Edge.html#ac974104e30c48bf8e3e0be70e03cb4c4", null ],
     [ "ItemEnumeratorBaseV3T< Edge >", "d1/d16/classArcane_1_1Edge.html#a455ef6f7b133ea33a251fcd229d5ed25", null ]
 ];

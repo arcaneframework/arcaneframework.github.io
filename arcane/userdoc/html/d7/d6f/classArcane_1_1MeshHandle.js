@@ -4,6 +4,7 @@ var classArcane_1_1MeshHandle =
     [ "_destroyMesh", "d7/d6f/classArcane_1_1MeshHandle.html#ad63b40df8be4511ea5963495cbb6453a", null ],
     [ "_internalMeshOrNull", "d7/d6f/classArcane_1_1MeshHandle.html#a0bd2a5718b4e5741b2ea409dca61948e", null ],
     [ "_setMesh", "d7/d6f/classArcane_1_1MeshHandle.html#a35bf6a6be4220db511b1f55f49df2e76", null ],
+    [ "application", "d7/d6f/classArcane_1_1MeshHandle.html#a92a8a5e6b56fd0dc7bc53408c0a96404", null ],
     [ "hasMesh", "d7/d6f/classArcane_1_1MeshHandle.html#a3545d2c84f6f3eaa8bf927789c047aca", null ],
     [ "isNull", "d7/d6f/classArcane_1_1MeshHandle.html#a720e331e77e128352fc19c2367269cb7", null ],
     [ "mesh", "d7/d6f/classArcane_1_1MeshHandle.html#a7b31d224556f6c703eb114dabafaf5cd", null ],
@@ -13,5 +14,6 @@ var classArcane_1_1MeshHandle =
     [ "reference", "d7/d6f/classArcane_1_1MeshHandle.html#ab055af89fc4e7672f34c069abd5ef082", null ],
     [ "subDomain", "d7/d6f/classArcane_1_1MeshHandle.html#a9c06334611148a871bcdb6a493b7001d", null ],
     [ "traceMng", "d7/d6f/classArcane_1_1MeshHandle.html#a22db9494ddc0e57cc97eefd890df4c0e", null ],
+    [ "variableMng", "d7/d6f/classArcane_1_1MeshHandle.html#ac25bccf8901477cd7baa640734b793f0", null ],
     [ "MeshMng", "d7/d6f/classArcane_1_1MeshHandle.html#a1d1f73cc571ca4e23ca70f6e194184ec", null ]
 ];

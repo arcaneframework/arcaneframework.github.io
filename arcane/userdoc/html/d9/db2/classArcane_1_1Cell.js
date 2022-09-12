@@ -32,7 +32,5 @@ var classArcane_1_1Cell =
     [ "topHParent", "d9/db2/classArcane_1_1Cell.html#a06924f1a071792d50ff80323a8f2506d", null ],
     [ "whichChildAmI", "d9/db2/classArcane_1_1Cell.html#a9f78674895aa1946badd4d925cb8126b", null ],
     [ "whichChildAmI", "d9/db2/classArcane_1_1Cell.html#a85c94823506c15a84ce31006a7b57659", null ],
-    [ "ItemEnumeratorBaseV1T< Cell >", "d9/db2/classArcane_1_1Cell.html#abf800bba63656c1b5a9829b01327cdc4", null ],
-    [ "ItemEnumeratorBaseV2T< Cell >", "d9/db2/classArcane_1_1Cell.html#ac67aa1087c50279f00862fda6eadee91", null ],
     [ "ItemEnumeratorBaseV3T< Cell >", "d9/db2/classArcane_1_1Cell.html#a8d69bed7f7d7ab8f2028705d9fa0207b", null ]
 ];

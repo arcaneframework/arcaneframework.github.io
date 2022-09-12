@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.7.4.0</span>
+   &#160;<span id="projectnumber">3.7.6.0</span>
    </div>
   </td>
  </tr>
@@ -211,7 +211,7 @@ $(function() {
 <div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;  {</div>
 <div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;  }</div>
 <div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  <a class="code" href="../../d1/df2/classArcane_1_1StaticAlloc.html">StaticAlloc</a>(<span class="keyword">const</span> <a class="code" href="../../d1/df2/classArcane_1_1StaticAlloc.html">StaticAlloc</a>&amp; __a) ARCANE_NOEXCEPT</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  <a class="code" href="../../d1/df2/classArcane_1_1StaticAlloc.html">StaticAlloc</a>(<span class="keyword">const</span> <a class="code" href="../../d1/df2/classArcane_1_1StaticAlloc.html">StaticAlloc</a>&amp;) ARCANE_NOEXCEPT</div>
 <div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;  {</div>
 <div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  }</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;  </div>
@@ -331,42 +331,41 @@ $(function() {
 <div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;  Int64 m_total_event;</div>
 <div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;  Int64 m_total_stack;</div>
 <div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;  Int64 m_counters[MAX_COUNTER];</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  <span class="keywordtype">bool</span> m_is_running;</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  Int32 m_current_func_info;</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  ProfFuncInfo m_func_info_buffer[MAX_FUNC];</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  <span class="keywordtype">int</span> m_period;</div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  Int64 m_nb_event_before_getting_stack;</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  <span class="keywordtype">int</span> m_function_depth;</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  <span class="keywordtype">bool</span> m_use_backtrace;</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  <span class="keywordtype">bool</span> m_use_libunwind;</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  MonoFuncAddrGetter* m_mono_func_getter;</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  <span class="keywordtype">bool</span> m_is_started;</div>
-<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  IFuncInfoProvider* m_default_func_info_provider;</div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  IFuncInfoProvider* m_libunwind_func_info_provider;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  IFuncInfoProvider* m_backtrace_func_info_provider;</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;  IFuncInfoProvider* m_func_info_provider;</div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160; <span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;  <span class="keywordtype">void</span> _addEvent(<span class="keywordtype">void</span>* address,<span class="keywordtype">int</span> overflow_event[MAX_COUNTER],<span class="keywordtype">int</span> nb_overflow_event,</div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;                 IStackInfoProvider&amp; stack_info,Integer function_depth);</div>
-<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  <span class="keywordtype">bool</span> _getFunc(<span class="keywordtype">void</span>* addr,FuncAddrInfo&amp; <a class="code" href="../../d4/d0e/classArccore_1_1TraceAccessor.html#ac97ca3cda108d93dceb8e1a4800246a7">info</a>);</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;  <span class="keywordtype">void</span> _sortFunctions(std::set&lt;ProfFuncInfo*,ProfFuncComparer&gt;&amp; sorted_func);</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  ProfFuncInfo* _getNextFuncInfo();</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  ProfFuncInfo&amp; _funcInfoFromIndex(Int32 index) { <span class="keywordflow">return</span> m_func_info_buffer[index]; }</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;  <span class="keywordtype">void</span> _storeAddress(<span class="keywordtype">void</span>* address,<span class="keywordtype">bool</span> is_counter0,<span class="keywordtype">int</span> overflow_event[MAX_COUNTER],<span class="keywordtype">int</span> nb_overflow_event,</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;                     <span class="keywordtype">bool</span>* do_add,<span class="keywordtype">bool</span>* do_stack,<span class="keywordtype">bool</span>* func_already_added);</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;  <span class="keywordtype">void</span> _checkNotStarted();</div>
-<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160;};</div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160; </div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;  Int32 m_current_func_info;</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;  ProfFuncInfo m_func_info_buffer[MAX_FUNC];</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;  <span class="keywordtype">int</span> m_period;</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  Int64 m_nb_event_before_getting_stack;</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;  <span class="keywordtype">int</span> m_function_depth;</div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;  <span class="keywordtype">bool</span> m_use_backtrace;</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  <span class="keywordtype">bool</span> m_use_libunwind;</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;  MonoFuncAddrGetter* m_mono_func_getter;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  <span class="keywordtype">bool</span> m_is_started;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  IFuncInfoProvider* m_default_func_info_provider;</div>
+<div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160;  IFuncInfoProvider* m_libunwind_func_info_provider;</div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  IFuncInfoProvider* m_backtrace_func_info_provider;</div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;  IFuncInfoProvider* m_func_info_provider;</div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;  <span class="keywordtype">void</span> _addEvent(<span class="keywordtype">void</span>* address,<span class="keywordtype">int</span> overflow_event[MAX_COUNTER],<span class="keywordtype">int</span> nb_overflow_event,</div>
+<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160;                 IStackInfoProvider&amp; stack_info,Integer function_depth);</div>
+<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;  <span class="keywordtype">bool</span> _getFunc(<span class="keywordtype">void</span>* addr,FuncAddrInfo&amp; <a class="code" href="../../d4/d0e/classArccore_1_1TraceAccessor.html#ac97ca3cda108d93dceb8e1a4800246a7">info</a>);</div>
+<div class="line"><a name="l00289"></a><span class="lineno">  289</span>&#160;  <span class="keywordtype">void</span> _sortFunctions(std::set&lt;ProfFuncInfo*,ProfFuncComparer&gt;&amp; sorted_func);</div>
+<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;  ProfFuncInfo* _getNextFuncInfo();</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;  ProfFuncInfo&amp; _funcInfoFromIndex(Int32 index) { <span class="keywordflow">return</span> m_func_info_buffer[index]; }</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;  <span class="keywordtype">void</span> _storeAddress(<span class="keywordtype">void</span>* address,<span class="keywordtype">bool</span> is_counter0,<span class="keywordtype">int</span> overflow_event[MAX_COUNTER],<span class="keywordtype">int</span> nb_overflow_event,</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;                     <span class="keywordtype">bool</span>* do_add,<span class="keywordtype">bool</span>* do_stack,<span class="keywordtype">bool</span>* func_already_added);</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;  <span class="keywordtype">void</span> _checkNotStarted();</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;};</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; </div>
+<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160; </div>
-<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
-<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160; </div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160; </div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
+<div class="line"><a name="l00303"></a><span class="lineno">  303</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00304"></a><span class="lineno">  304</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160; </div>
-<div class="line"><a name="l00307"></a><span class="lineno">  307</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00305"></a><span class="lineno">  305</span>&#160; </div>
+<div class="line"><a name="l00306"></a><span class="lineno">  306</span>&#160;<span class="preprocessor">#endif  </span></div>
 <div class="ttc" id="aclassArcane_1_1Array_html"><div class="ttname"><a href="../../d1/dfb/classArcane_1_1Array.html">Arcane::Array&lt; Int64 &gt;</a></div></div>
 <div class="ttc" id="aclassArcane_1_1JSONWriter_html"><div class="ttname"><a href="../../d9/d23/classArcane_1_1JSONWriter.html">Arcane::JSONWriter</a></div><div class="ttdoc">Ecrivain au format JSON.</div><div class="ttdef"><b>Definition:</b> JSONWriter.h:33</div></div>
 <div class="ttc" id="aclassArcane_1_1ProfAddrInfo_html"><div class="ttname"><a href="../../dd/dde/classArcane_1_1ProfAddrInfo.html">Arcane::ProfAddrInfo</a></div><div class="ttdef"><b>Definition:</b> ProfilingInfo.h:91</div></div>
@@ -388,7 +387,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 5 Septembre 2022 04:19:04 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Généré le Lundi 12 Septembre 2022 04:39:22 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

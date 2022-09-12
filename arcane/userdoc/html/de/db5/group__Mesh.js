@@ -120,9 +120,14 @@ var group__Mesh =
     ] ],
     [ "IItemFamilyModifier", "d6/dd8/classArcane_1_1IItemFamilyModifier.html", [
       [ "~IItemFamilyModifier", "d6/dd8/classArcane_1_1IItemFamilyModifier.html#a5f10d6c29202e2ae0e924856444364fe", null ],
-      [ "allocOne", "d6/dd8/classArcane_1_1IItemFamilyModifier.html#ae7f62906ca75652643d755a3282c459f", null ],
+      [ "allocOne", "d6/dd8/classArcane_1_1IItemFamilyModifier.html#a4de87aa6bd5f0e6f22f99b52db506926", null ],
+      [ "ARCANE_DEPRECATED_REASON", "d6/dd8/classArcane_1_1IItemFamilyModifier.html#a5889a96048bb4559af36e0b43535c578", null ],
+      [ "ARCANE_DEPRECATED_REASON", "d6/dd8/classArcane_1_1IItemFamilyModifier.html#a399981bb96e2e50630acc17c0cd5d748", null ],
       [ "family", "d6/dd8/classArcane_1_1IItemFamilyModifier.html#a0b2a40912532d1fbfca92f80ce53360e", null ],
-      [ "findOrAllocOne", "d6/dd8/classArcane_1_1IItemFamilyModifier.html#a66ea73a142a827c8be3305f2b6024da2", null ]
+      [ "findOrAllocOne", "d6/dd8/classArcane_1_1IItemFamilyModifier.html#afe0a946c33fd6a48baa559cd45032517", null ],
+      [ "is_alloc", "d6/dd8/classArcane_1_1IItemFamilyModifier.html#ad780c15d207155d93272231e214727a1", null ],
+      [ "mesh_info", "d6/dd8/classArcane_1_1IItemFamilyModifier.html#a9fefd5df42f7ef2ee3b9e8171fc95337", null ],
+      [ "type", "d6/dd8/classArcane_1_1IItemFamilyModifier.html#afd04c680b67842cb03b36dfe411cc2f1", null ]
     ] ],
     [ "IItemFamilyTopologyModifier", "d6/df1/classArcane_1_1IItemFamilyTopologyModifier.html", [
       [ "~IItemFamilyTopologyModifier", "d6/df1/classArcane_1_1IItemFamilyTopologyModifier.html#af661d28d54370b6ff600967e93bf989e", null ],
@@ -251,8 +256,6 @@ var group__Mesh =
       [ "type", "df/d5f/classArcane_1_1Item.html#af723140c2f3c43807123ec46f9c39399", null ],
       [ "typeInfo", "df/d5f/classArcane_1_1Item.html#a9fcc226dcaf6d01e1901e1bc09f4233a", null ],
       [ "uniqueId", "df/d5f/classArcane_1_1Item.html#a8e5cf3572ae8a043fae3e32fe400551b", null ],
-      [ "ItemEnumeratorBaseV1T< Item >", "df/d5f/classArcane_1_1Item.html#a203241fe8b5dce5f5f6a7016c2929c33", null ],
-      [ "ItemEnumeratorBaseV2T< Item >", "df/d5f/classArcane_1_1Item.html#aca9ee1969bd5784710ff64b61bd22192", null ],
       [ "ItemEnumeratorBaseV3T< Item >", "df/d5f/classArcane_1_1Item.html#abdbc3c1b096818b7abeebe6e41f674b8", null ]
     ] ],
     [ "Node", "d8/dd7/classArcane_1_1Node.html", [
@@ -276,7 +279,7 @@ var group__Mesh =
       [ "_checkValid", "d8/dd7/classArcane_1_1Node.html#aed1fd77524081f88114fdea6ee30b381", null ],
       [ "_impl", "d8/dd7/classArcane_1_1Node.html#a0a9f0961e54315059a18a6ef0b2a1686", null ],
       [ "_null", "d8/dd7/classArcane_1_1Node.html#ae8f1eb6020dddbff5c4b9f0717133236", null ],
-      [ "activeCells", "d8/dd7/classArcane_1_1Node.html#a934e5c3da50998e95f2177de0410dfb6", null ],
+      [ "activeCells", "d8/dd7/classArcane_1_1Node.html#a60bdd9384c026a5fbd01c695a3b2a511", null ],
       [ "activeEdges", "d8/dd7/classArcane_1_1Node.html#ab5b2847d86b10a511e1272d90e01cdb1", null ],
       [ "activeFaces", "d8/dd7/classArcane_1_1Node.html#a2bcf9806fdff15939f96fd8b61ed3999", null ],
       [ "appendChild", "d8/dd7/classArcane_1_1Node.html#a70bc6d391a2e0c37f1e2dd840a5a9685", null ],
@@ -344,8 +347,6 @@ var group__Mesh =
       [ "Element", "d8/dd7/classArcane_1_1Node.html#a016b821f88c7c0a2de1451c175cefbf9", null ],
       [ "IDOM_Document", "d8/dd7/classArcane_1_1Node.html#a3140ccc40fc1a1f5a14f9b9581844f94", null ],
       [ "IDOM_Node", "d8/dd7/classArcane_1_1Node.html#a356b566efe1833922cc8040a7fb1b9a7", null ],
-      [ "ItemEnumeratorBaseV1T< Node >", "d8/dd7/classArcane_1_1Node.html#a9f2049852f11c5aedfb8cfe2b74925f6", null ],
-      [ "ItemEnumeratorBaseV2T< Node >", "d8/dd7/classArcane_1_1Node.html#ad202746faf6ba33e81a73570cf182350", null ],
       [ "ItemEnumeratorBaseV3T< Node >", "d8/dd7/classArcane_1_1Node.html#a707456bc1d1848f53edbbbd8d4707042", null ],
       [ "NamedNodeMap", "d8/dd7/classArcane_1_1Node.html#a67946c208a2ad23e5f3b47323d695968", null ],
       [ "operator==", "d8/dd7/classArcane_1_1Node.html#a156456698e98563a77c4c0af13c20db1", null ],
@@ -367,8 +368,6 @@ var group__Mesh =
       [ "nodeIds", "d4/d55/classArcane_1_1ItemWithNodes.html#aeba73b13cb32056ecacbb971fb3d560b", null ],
       [ "nodes", "d4/d55/classArcane_1_1ItemWithNodes.html#af7f9ed5132b928e270e92f715683117d", null ],
       [ "operator=", "d4/d55/classArcane_1_1ItemWithNodes.html#a245629d0f35b57307db89ee664fad746", null ],
-      [ "ItemEnumeratorBaseV1T< ItemWithNodes >", "d4/d55/classArcane_1_1ItemWithNodes.html#ad9aba0eb20e7883b529c30db894de39b", null ],
-      [ "ItemEnumeratorBaseV2T< ItemWithNodes >", "d4/d55/classArcane_1_1ItemWithNodes.html#a7d625115edf54f427138768a9366e4f3", null ],
       [ "ItemEnumeratorBaseV3T< ItemWithNodes >", "d4/d55/classArcane_1_1ItemWithNodes.html#a9eac9f82e530c0de1c452f2219d6b946", null ]
     ] ],
     [ "Edge", "d1/d16/classArcane_1_1Edge.html", [
@@ -399,8 +398,6 @@ var group__Mesh =
       [ "nbFace", "d1/d16/classArcane_1_1Edge.html#a5f3250defbf44066546de88d142cbf8f", null ],
       [ "nbNode", "d1/d16/classArcane_1_1Edge.html#ac644e1fd03b10ae4ae9a368c726f9cbb", null ],
       [ "operator=", "d1/d16/classArcane_1_1Edge.html#ae652a398472324f3da519479d8407645", null ],
-      [ "ItemEnumeratorBaseV1T< Edge >", "d1/d16/classArcane_1_1Edge.html#a9efd017037e2625f02c9f16456952beb", null ],
-      [ "ItemEnumeratorBaseV2T< Edge >", "d1/d16/classArcane_1_1Edge.html#ac974104e30c48bf8e3e0be70e03cb4c4", null ],
       [ "ItemEnumeratorBaseV3T< Edge >", "d1/d16/classArcane_1_1Edge.html#a455ef6f7b133ea33a251fcd229d5ed25", null ]
     ] ],
     [ "Face", "d1/db1/classArcane_1_1Face.html", [
@@ -446,8 +443,6 @@ var group__Mesh =
       [ "oppositeCell", "d1/db1/classArcane_1_1Face.html#af8234b42868fb9baf6e02db4e99fd4f1", null ],
       [ "oppositeCellId", "d1/db1/classArcane_1_1Face.html#afa9272446a04d90e7224f7a2a68d1a6a", null ],
       [ "slaveFaces", "d1/db1/classArcane_1_1Face.html#ae8982a659c722cbcb02bcf3b3a02ed9a", null ],
-      [ "ItemEnumeratorBaseV1T< Face >", "d1/db1/classArcane_1_1Face.html#a35f23ed51b9628e38a64757ea9dbcce6", null ],
-      [ "ItemEnumeratorBaseV2T< Face >", "d1/db1/classArcane_1_1Face.html#aa4f210ac7511eebc98fb0a1ab3481603", null ],
       [ "ItemEnumeratorBaseV3T< Face >", "d1/db1/classArcane_1_1Face.html#a42f1b94ded758f39d380462d3177e632", null ]
     ] ],
     [ "Cell", "d9/db2/classArcane_1_1Cell.html", [
@@ -488,8 +483,6 @@ var group__Mesh =
       [ "topHParent", "d9/db2/classArcane_1_1Cell.html#a06924f1a071792d50ff80323a8f2506d", null ],
       [ "whichChildAmI", "d9/db2/classArcane_1_1Cell.html#a9f78674895aa1946badd4d925cb8126b", null ],
       [ "whichChildAmI", "d9/db2/classArcane_1_1Cell.html#a85c94823506c15a84ce31006a7b57659", null ],
-      [ "ItemEnumeratorBaseV1T< Cell >", "d9/db2/classArcane_1_1Cell.html#abf800bba63656c1b5a9829b01327cdc4", null ],
-      [ "ItemEnumeratorBaseV2T< Cell >", "d9/db2/classArcane_1_1Cell.html#ac67aa1087c50279f00862fda6eadee91", null ],
       [ "ItemEnumeratorBaseV3T< Cell >", "d9/db2/classArcane_1_1Cell.html#a8d69bed7f7d7ab8f2028705d9fa0207b", null ]
     ] ],
     [ "Particle", "dd/d6c/classArcane_1_1Particle.html", [
@@ -507,8 +500,6 @@ var group__Mesh =
       [ "hasCell", "dd/d6c/classArcane_1_1Particle.html#a3a1ee3868ef0bf650b44232cb607704b", null ],
       [ "itemLocalId", "dd/d6c/classArcane_1_1Particle.html#a539b505a2818fe5641cd1305cf3922f8", null ],
       [ "operator=", "dd/d6c/classArcane_1_1Particle.html#a8c4f2aaf72950f4430d9622abf03b431", null ],
-      [ "ItemEnumeratorBaseV1T< Particle >", "dd/d6c/classArcane_1_1Particle.html#afd533b6c573646806472ed8b65525a95", null ],
-      [ "ItemEnumeratorBaseV2T< Particle >", "dd/d6c/classArcane_1_1Particle.html#ab04049ab6840c3feac702eb9136257e5", null ],
       [ "ItemEnumeratorBaseV3T< Particle >", "dd/d6c/classArcane_1_1Particle.html#ae67c5b9596c640220bfeaf0cdfa361bd", null ]
     ] ],
     [ "DoF", "d0/d6c/classArcane_1_1DoF.html", [
@@ -521,8 +512,6 @@ var group__Mesh =
       [ "ARCANE_DEPRECATED_REASON", "d0/d6c/classArcane_1_1DoF.html#adeccd4013dc8720daf66c9473492a398", null ],
       [ "itemLocalId", "d0/d6c/classArcane_1_1DoF.html#a55a121457051ff91ec342e231e36ecfb", null ],
       [ "operator=", "d0/d6c/classArcane_1_1DoF.html#a1d4e08b40e567fc23e159c2f016794cc", null ],
-      [ "ItemEnumeratorBaseV1T< DoF >", "d0/d6c/classArcane_1_1DoF.html#a1acea39e604e87e3ffa43874e4e55a4f", null ],
-      [ "ItemEnumeratorBaseV2T< DoF >", "d0/d6c/classArcane_1_1DoF.html#abae9c0b7a45ff1cc311c24f21a71ac54", null ],
       [ "ItemEnumeratorBaseV3T< DoF >", "d0/d6c/classArcane_1_1DoF.html#a790a79a1a4205c096740653339cfa257", null ]
     ] ],
     [ "ItemFamilySerializeArgs", "df/dab/classArcane_1_1ItemFamilySerializeArgs.html", [

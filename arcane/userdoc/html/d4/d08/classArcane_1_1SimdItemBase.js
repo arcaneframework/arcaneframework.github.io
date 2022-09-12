@@ -2,12 +2,15 @@ var classArcane_1_1SimdItemBase =
 [
     [ "ItemInternalPtr", "d4/d08/classArcane_1_1SimdItemBase.html#ac00ac0b922af6a107b06c0c7684cf2f9", null ],
     [ "SimdIndexType", "d4/d08/classArcane_1_1SimdItemBase.html#aba8d9d6d4d92fd18980db1256342e31c", null ],
-    [ "SimdItemBase", "d4/d08/classArcane_1_1SimdItemBase.html#adcf43f7111642837948162888e83f5e8", null ],
-    [ "item", "d4/d08/classArcane_1_1SimdItemBase.html#a2fb4dee6e5251b7260e6af322f83ceb6", null ],
+    [ "SimdItemBase", "d4/d08/classArcane_1_1SimdItemBase.html#abf0c845c61ef8cf3beb619808ca31fc3", null ],
+    [ "ARCANE_DEPRECATED_REASON", "d4/d08/classArcane_1_1SimdItemBase.html#a9fa147eb898b4e9c2336482a2bb2e425", null ],
+    [ "ARCANE_DEPRECATED_REASON", "d4/d08/classArcane_1_1SimdItemBase.html#ae0d32d4ef66f6bce0017831bd24e2883", null ],
+    [ "ARCANE_DEPRECATED_REASON", "d4/d08/classArcane_1_1SimdItemBase.html#a1892ce75ba12f53237382964632016a2", null ],
     [ "localId", "d4/d08/classArcane_1_1SimdItemBase.html#a74a5242d83c1515df8263b86cfac9c04", null ],
     [ "localIds", "d4/d08/classArcane_1_1SimdItemBase.html#adaa68066c7849621210e2973e3d536ce", null ],
-    [ "operator[]", "d4/d08/classArcane_1_1SimdItemBase.html#a2a37bbfcddd4a30c0436baeaa99f4673", null ],
+    [ "m_shared_info", "d4/d08/classArcane_1_1SimdItemBase.html#ab039a8f68a51fd0a28fb9ccfe7ee7fd4", null ],
     [ "simdLocalIds", "d4/d08/classArcane_1_1SimdItemBase.html#a835d8c2561c7353f0bd8338f97d3019a", null ],
-    [ "m_items", "d4/d08/classArcane_1_1SimdItemBase.html#a09a28ded00f065365881fb7ebff4b397", null ],
+    [ "ids", "d4/d08/classArcane_1_1SimdItemBase.html#a4b4e7f87944425e8fd70ad38a5bd40ea", null ],
+    [ "m_shared_info", "d4/d08/classArcane_1_1SimdItemBase.html#ada2ae32628970fba5be1a72594fb690c", null ],
     [ "m_simd_local_ids", "d4/d08/classArcane_1_1SimdItemBase.html#adf2d6cb9727277061f9178ad182c9034", null ]
 ];

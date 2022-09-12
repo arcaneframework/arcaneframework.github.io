@@ -1,5 +1,6 @@
 var classArcane_1_1ItemInternal =
 [
+    [ "ItemInternalPtr", "dd/df1/classArcane_1_1ItemInternal.html#a146147e57ec05c1f74592c5aedeabd2f", null ],
     [ "_setFaceBackAndFrontCells", "dd/df1/classArcane_1_1ItemInternal.html#a776aeabb39b79dae979b3a0054d99999", null ],
     [ "addFlags", "dd/df1/classArcane_1_1ItemInternal.html#a25f5ee19b03245cc6a49768a5be19b63", null ],
     [ "ARCANE_DEPRECATED_REASON", "dd/df1/classArcane_1_1ItemInternal.html#a04d14c183eb8856c0148a8901dbae4b9", null ],

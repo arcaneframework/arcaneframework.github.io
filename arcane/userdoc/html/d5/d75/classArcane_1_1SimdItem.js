@@ -1,6 +1,5 @@
 var classArcane_1_1SimdItem =
 [
-    [ "SimdItem", "d5/d75/classArcane_1_1SimdItem.html#a1a58dfe7774899e0cb189fa636568b52", null ],
-    [ "item", "d5/d75/classArcane_1_1SimdItem.html#a9c3daa1fbfe390e53d7ee0192547ddb8", null ],
-    [ "operator[]", "d5/d75/classArcane_1_1SimdItem.html#a7156b0123aedd67046a226fa40fca174", null ]
+    [ "ARCANE_DEPRECATED_REASON", "d5/d75/classArcane_1_1SimdItem.html#af7032d9c2d3f16b9741f2e50eb464e7f", null ],
+    [ "ids", "d5/d75/classArcane_1_1SimdItem.html#a846e4d1a58dcb47026c738c5a6062762", null ]
 ];

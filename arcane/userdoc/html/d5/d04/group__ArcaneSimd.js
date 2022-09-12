@@ -3,31 +3,34 @@ var group__ArcaneSimd =
     [ "SimdItemBase", "d4/d08/classArcane_1_1SimdItemBase.html", [
       [ "ItemInternalPtr", "d4/d08/classArcane_1_1SimdItemBase.html#ac00ac0b922af6a107b06c0c7684cf2f9", null ],
       [ "SimdIndexType", "d4/d08/classArcane_1_1SimdItemBase.html#aba8d9d6d4d92fd18980db1256342e31c", null ],
-      [ "SimdItemBase", "d4/d08/classArcane_1_1SimdItemBase.html#adcf43f7111642837948162888e83f5e8", null ],
-      [ "item", "d4/d08/classArcane_1_1SimdItemBase.html#a2fb4dee6e5251b7260e6af322f83ceb6", null ],
+      [ "SimdItemBase", "d4/d08/classArcane_1_1SimdItemBase.html#abf0c845c61ef8cf3beb619808ca31fc3", null ],
+      [ "ARCANE_DEPRECATED_REASON", "d4/d08/classArcane_1_1SimdItemBase.html#a9fa147eb898b4e9c2336482a2bb2e425", null ],
+      [ "ARCANE_DEPRECATED_REASON", "d4/d08/classArcane_1_1SimdItemBase.html#ae0d32d4ef66f6bce0017831bd24e2883", null ],
+      [ "ARCANE_DEPRECATED_REASON", "d4/d08/classArcane_1_1SimdItemBase.html#a1892ce75ba12f53237382964632016a2", null ],
       [ "localId", "d4/d08/classArcane_1_1SimdItemBase.html#a74a5242d83c1515df8263b86cfac9c04", null ],
       [ "localIds", "d4/d08/classArcane_1_1SimdItemBase.html#adaa68066c7849621210e2973e3d536ce", null ],
-      [ "operator[]", "d4/d08/classArcane_1_1SimdItemBase.html#a2a37bbfcddd4a30c0436baeaa99f4673", null ],
+      [ "m_shared_info", "d4/d08/classArcane_1_1SimdItemBase.html#ab039a8f68a51fd0a28fb9ccfe7ee7fd4", null ],
       [ "simdLocalIds", "d4/d08/classArcane_1_1SimdItemBase.html#a835d8c2561c7353f0bd8338f97d3019a", null ],
-      [ "m_items", "d4/d08/classArcane_1_1SimdItemBase.html#a09a28ded00f065365881fb7ebff4b397", null ],
+      [ "ids", "d4/d08/classArcane_1_1SimdItemBase.html#a4b4e7f87944425e8fd70ad38a5bd40ea", null ],
+      [ "m_shared_info", "d4/d08/classArcane_1_1SimdItemBase.html#ada2ae32628970fba5be1a72594fb690c", null ],
       [ "m_simd_local_ids", "d4/d08/classArcane_1_1SimdItemBase.html#adf2d6cb9727277061f9178ad182c9034", null ]
     ] ],
     [ "SimdItem", "d5/d75/classArcane_1_1SimdItem.html", [
-      [ "SimdItem", "d5/d75/classArcane_1_1SimdItem.html#a1a58dfe7774899e0cb189fa636568b52", null ],
-      [ "item", "d5/d75/classArcane_1_1SimdItem.html#a9c3daa1fbfe390e53d7ee0192547ddb8", null ],
-      [ "operator[]", "d5/d75/classArcane_1_1SimdItem.html#a7156b0123aedd67046a226fa40fca174", null ]
+      [ "ARCANE_DEPRECATED_REASON", "d5/d75/classArcane_1_1SimdItem.html#af7032d9c2d3f16b9741f2e50eb464e7f", null ],
+      [ "ids", "d5/d75/classArcane_1_1SimdItem.html#a846e4d1a58dcb47026c738c5a6062762", null ]
     ] ],
     [ "SimdItemT", "d3/d82/classArcane_1_1SimdItemT.html", [
       [ "ItemInternalPtr", "d3/d82/classArcane_1_1SimdItemT.html#ac240e6e2b1a1aad7a9a0ca342e3a218a", null ],
-      [ "SimdItemT", "d3/d82/classArcane_1_1SimdItemT.html#a51db84520991c1f3d5c11f2255bb4d90", null ],
-      [ "item", "d3/d82/classArcane_1_1SimdItemT.html#a898b805cc39866dd6aa6f19d778eba6a", null ],
-      [ "operator SimdItemIndexT< ItemType >", "d3/d82/classArcane_1_1SimdItemT.html#aa04176e4143af53c2a8bf39e3b413397", null ],
-      [ "operator[]", "d3/d82/classArcane_1_1SimdItemT.html#a5fe29a65e100160963ac8148e831c983", null ]
+      [ "ARCANE_DEPRECATED_REASON", "d3/d82/classArcane_1_1SimdItemT.html#a8c3e3f5832b86e8402401ee8bf736334", null ],
+      [ "SimdItemEnumeratorT< ItemType >", "d3/d82/classArcane_1_1SimdItemT.html#a479bc173d0990201dc0055dbf65ffdd4", null ],
+      [ "ids", "d3/d82/classArcane_1_1SimdItemT.html#a04e666ae4341e0c8af2fa44f3a8c44c2", null ]
     ] ],
     [ "SimdItemDirectT", "d7/d6d/classArcane_1_1SimdItemDirectT.html", [
       [ "ItemInternalPtr", "d7/d6d/classArcane_1_1SimdItemDirectT.html#ad3a9776e75db05e33ecaa634575a8045", null ],
-      [ "SimdItemDirectT", "d7/d6d/classArcane_1_1SimdItemDirectT.html#a5ecbc51b3d889acd5e696e94cee77921", null ],
-      [ "operator SimdItemDirectIndexT< ItemType >", "d7/d6d/classArcane_1_1SimdItemDirectT.html#a18659db4287111c7e470a0808b3bff42", null ]
+      [ "ARCANE_DEPRECATED_REASON", "d7/d6d/classArcane_1_1SimdItemDirectT.html#a502493f7dfddc51062259407ae31bf92", null ],
+      [ "SimdItemEnumeratorT< ItemType >", "d7/d6d/classArcane_1_1SimdItemDirectT.html#a479bc173d0990201dc0055dbf65ffdd4", null ],
+      [ "base_local_id", "d7/d6d/classArcane_1_1SimdItemDirectT.html#a92588e8d698b95f1ea1e14fd641768a5", null ],
+      [ "nb_valid", "d7/d6d/classArcane_1_1SimdItemDirectT.html#ade7a0a99ff107e6382e720edb22f438b", null ]
     ] ],
     [ "SimdDirectSetter", "db/d44/classArcane_1_1SimdDirectSetter.html", [
       [ "SimdDirectSetter", "db/d44/classArcane_1_1SimdDirectSetter.html#a1362b51cd0abffd273d545440ee04a9b", null ],
@@ -36,22 +39,22 @@ var group__ArcaneSimd =
     [ "SimdItemEnumeratorBase", "df/dc4/classArcane_1_1SimdItemEnumeratorBase.html", [
       [ "ItemInternalPtr", "df/dc4/classArcane_1_1SimdItemEnumeratorBase.html#a3d23be0f928b19ec4e32c30e96504f00", null ],
       [ "SimdIndexType", "df/dc4/classArcane_1_1SimdItemEnumeratorBase.html#ad2dfaf207c18c50a16eec78e4fd64566", null ],
-      [ "SimdItemEnumeratorBase", "df/dc4/classArcane_1_1SimdItemEnumeratorBase.html#aa491e63ed6c25aa905e6ce355112990c", null ],
-      [ "SimdItemEnumeratorBase", "df/dc4/classArcane_1_1SimdItemEnumeratorBase.html#af5558e98e94a7f1b7e57d7d2f19ec684", null ],
-      [ "SimdItemEnumeratorBase", "df/dc4/classArcane_1_1SimdItemEnumeratorBase.html#aa760e08cfef2da112ea644f1517ac6f7", null ],
+      [ "SimdItemEnumeratorBase", "df/dc4/classArcane_1_1SimdItemEnumeratorBase.html#a0a0d891e7ea8014de3f89a4637d495bd", null ],
       [ "SimdItemEnumeratorBase", "df/dc4/classArcane_1_1SimdItemEnumeratorBase.html#ac238c0465d7fb006fccf5df92dde570b", null ],
       [ "SimdItemEnumeratorBase", "df/dc4/classArcane_1_1SimdItemEnumeratorBase.html#ac9c5d20da99f74b37512742bbeb53a50", null ],
+      [ "SimdItemEnumeratorBase", "df/dc4/classArcane_1_1SimdItemEnumeratorBase.html#af5558e98e94a7f1b7e57d7d2f19ec684", null ],
+      [ "SimdItemEnumeratorBase", "df/dc4/classArcane_1_1SimdItemEnumeratorBase.html#aa760e08cfef2da112ea644f1517ac6f7", null ],
       [ "unguardedItems", "df/dc4/classArcane_1_1SimdItemEnumeratorBase.html#a2f344fd640924de767e0636321caee1c", null ],
-      [ "m_items", "df/dc4/classArcane_1_1SimdItemEnumeratorBase.html#a6c3fdc8288480464551f0f31575aaa5d", null ]
+      [ "m_shared_info", "df/dc4/classArcane_1_1SimdItemEnumeratorBase.html#aee2b8b3a7db58b1510a45f6a6cd202f7", null ]
     ] ],
     [ "SimdItemEnumeratorT", "dd/d73/classArcane_1_1SimdItemEnumeratorT.html", [
       [ "ItemInternalPtr", "dd/d73/classArcane_1_1SimdItemEnumeratorT.html#acf31a215f9592a13d0ec1516ad67d660", null ],
       [ "SimdItemType", "dd/d73/classArcane_1_1SimdItemEnumeratorT.html#a5eef42ae6a623275b3db9ec1cd117c10", null ],
       [ "SimdItemEnumeratorT", "dd/d73/classArcane_1_1SimdItemEnumeratorT.html#a3e29311ef676d66f765ae1f7b70e9614", null ],
-      [ "SimdItemEnumeratorT", "dd/d73/classArcane_1_1SimdItemEnumeratorT.html#ac5a2d8e2a3c9824a18cead9f7a2be86c", null ],
-      [ "SimdItemEnumeratorT", "dd/d73/classArcane_1_1SimdItemEnumeratorT.html#a6d2db5e16ba5c278c02402b6b507a3a4", null ],
       [ "SimdItemEnumeratorT", "dd/d73/classArcane_1_1SimdItemEnumeratorT.html#a84235c907cea492467e03f25e99f19ab", null ],
       [ "SimdItemEnumeratorT", "dd/d73/classArcane_1_1SimdItemEnumeratorT.html#a2d5a4df3af981ab6fff95596a98ca45e", null ],
+      [ "SimdItemEnumeratorT", "dd/d73/classArcane_1_1SimdItemEnumeratorT.html#ac5a2d8e2a3c9824a18cead9f7a2be86c", null ],
+      [ "SimdItemEnumeratorT", "dd/d73/classArcane_1_1SimdItemEnumeratorT.html#a6d2db5e16ba5c278c02402b6b507a3a4", null ],
       [ "direct", "dd/d73/classArcane_1_1SimdItemEnumeratorT.html#a7aada44fefe5281b7b55c46f06911d27", null ],
       [ "enumerator", "dd/d73/classArcane_1_1SimdItemEnumeratorT.html#a919777d8f00fe620c614cae3fb2583b1", null ],
       [ "operator SimdItemIndexT< ItemType >", "dd/d73/classArcane_1_1SimdItemEnumeratorT.html#a50dc1866bf1dceedcf035f1a96c90895", null ],

@@ -19,7 +19,6 @@ var classArcane_1_1ItemVectorView =
     [ "operator[]", "d6/df2/classArcane_1_1ItemVectorView.html#ad8b6131c8f931a192ab7c8c509b6a3a2", null ],
     [ "size", "d6/df2/classArcane_1_1ItemVectorView.html#aaf5e9079b72120006741a1d02fbe1c9b", null ],
     [ "subView", "d6/df2/classArcane_1_1ItemVectorView.html#a2dd48cbbb17f0e9d41a40fdcce5fcd6a", null ],
-    [ "m_items", "d6/df2/classArcane_1_1ItemVectorView.html#a769e6ee7c36c8b8f131aee378da9c3a9", null ],
     [ "m_local_ids", "d6/df2/classArcane_1_1ItemVectorView.html#a2ca8564ea8470d285622676bba449465", null ],
     [ "m_shared_info", "d6/df2/classArcane_1_1ItemVectorView.html#ab689b7b4d00e85e1103dde27280a52df", null ]
 ];

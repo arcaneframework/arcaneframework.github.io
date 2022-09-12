@@ -1,8 +1,7 @@
 var classArcane_1_1SimdItemT =
 [
     [ "ItemInternalPtr", "d3/d82/classArcane_1_1SimdItemT.html#ac240e6e2b1a1aad7a9a0ca342e3a218a", null ],
-    [ "SimdItemT", "d3/d82/classArcane_1_1SimdItemT.html#a51db84520991c1f3d5c11f2255bb4d90", null ],
-    [ "item", "d3/d82/classArcane_1_1SimdItemT.html#a898b805cc39866dd6aa6f19d778eba6a", null ],
-    [ "operator SimdItemIndexT< ItemType >", "d3/d82/classArcane_1_1SimdItemT.html#aa04176e4143af53c2a8bf39e3b413397", null ],
-    [ "operator[]", "d3/d82/classArcane_1_1SimdItemT.html#a5fe29a65e100160963ac8148e831c983", null ]
+    [ "ARCANE_DEPRECATED_REASON", "d3/d82/classArcane_1_1SimdItemT.html#a8c3e3f5832b86e8402401ee8bf736334", null ],
+    [ "SimdItemEnumeratorT< ItemType >", "d3/d82/classArcane_1_1SimdItemT.html#a479bc173d0990201dc0055dbf65ffdd4", null ],
+    [ "ids", "d3/d82/classArcane_1_1SimdItemT.html#a04e666ae4341e0c8af2fa44f3a8c44c2", null ]
 ];

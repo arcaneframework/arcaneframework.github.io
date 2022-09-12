@@ -1,9 +1,8 @@
 var classArcane_1_1ItemVectorT =
 [
     [ "ItemType", "d5/ded/classArcane_1_1ItemVectorT.html#a91565c8b9394bea8a4b78e56447870d4", null ],
-    [ "ItemVectorT", "d5/ded/classArcane_1_1ItemVectorT.html#af6bee0a420315bf1d5bfc4a51d87702b", null ],
+    [ "ItemVectorT", "d5/ded/classArcane_1_1ItemVectorT.html#a82a76b55f723b78005a7d46dc82e3f17", null ],
     [ "ItemVectorT", "d5/ded/classArcane_1_1ItemVectorT.html#aa802282cf322b035031419c3dfab0483", null ],
-    [ "ItemVectorT", "d5/ded/classArcane_1_1ItemVectorT.html#ab37217d441e05a325951505b0140f7b7", null ],
     [ "ItemVectorT", "d5/ded/classArcane_1_1ItemVectorT.html#a2a45d8b28f259ccd5c4a2b53f9d64fc5", null ],
     [ "ItemVectorT", "d5/ded/classArcane_1_1ItemVectorT.html#addaace4e371cdea8bea38cd1afe57e09", null ],
     [ "ItemVectorT", "d5/ded/classArcane_1_1ItemVectorT.html#a8444d1a8a7e35bc6faa0762d19be8f77", null ],

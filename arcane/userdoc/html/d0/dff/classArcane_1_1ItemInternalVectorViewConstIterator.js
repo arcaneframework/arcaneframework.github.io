@@ -7,7 +7,6 @@ var classArcane_1_1ItemInternalVectorViewConstIterator =
     [ "size_type", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#ae43086b6e941a558c11635f88fa4e141", null ],
     [ "ThatClass", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#a8d553d995ebe04e0ab65e99fca0bf05f", null ],
     [ "value_type", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#a342e3a2d8e9c8e71450bbb769f01b9ca", null ],
-    [ "ItemInternalVectorViewConstIterator", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#affd3c258ec03e4637175aae4808a2075", null ],
     [ "operator*", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#a5103116fea47927b818e4f8d9cb9f02c", null ],
     [ "operator++", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#ae0762d6f0ad5edd05bb392dda300008a", null ],
     [ "operator+=", "d0/dff/classArcane_1_1ItemInternalVectorViewConstIterator.html#ac336255c87d997948e3a3c6c1f862f35", null ],

@@ -14,7 +14,5 @@ var classArcane_1_1Particle =
     [ "hasCell", "dd/d6c/classArcane_1_1Particle.html#a3a1ee3868ef0bf650b44232cb607704b", null ],
     [ "itemLocalId", "dd/d6c/classArcane_1_1Particle.html#a539b505a2818fe5641cd1305cf3922f8", null ],
     [ "operator=", "dd/d6c/classArcane_1_1Particle.html#a8c4f2aaf72950f4430d9622abf03b431", null ],
-    [ "ItemEnumeratorBaseV1T< Particle >", "dd/d6c/classArcane_1_1Particle.html#afd533b6c573646806472ed8b65525a95", null ],
-    [ "ItemEnumeratorBaseV2T< Particle >", "dd/d6c/classArcane_1_1Particle.html#ab04049ab6840c3feac702eb9136257e5", null ],
     [ "ItemEnumeratorBaseV3T< Particle >", "dd/d6c/classArcane_1_1Particle.html#ae67c5b9596c640220bfeaf0cdfa361bd", null ]
 ];

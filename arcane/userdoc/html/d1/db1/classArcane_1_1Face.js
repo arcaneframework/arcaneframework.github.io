@@ -37,7 +37,5 @@ var classArcane_1_1Face =
     [ "oppositeCell", "d1/db1/classArcane_1_1Face.html#af8234b42868fb9baf6e02db4e99fd4f1", null ],
     [ "oppositeCellId", "d1/db1/classArcane_1_1Face.html#afa9272446a04d90e7224f7a2a68d1a6a", null ],
     [ "slaveFaces", "d1/db1/classArcane_1_1Face.html#ae8982a659c722cbcb02bcf3b3a02ed9a", null ],
-    [ "ItemEnumeratorBaseV1T< Face >", "d1/db1/classArcane_1_1Face.html#a35f23ed51b9628e38a64757ea9dbcce6", null ],
-    [ "ItemEnumeratorBaseV2T< Face >", "d1/db1/classArcane_1_1Face.html#aa4f210ac7511eebc98fb0a1ab3481603", null ],
     [ "ItemEnumeratorBaseV3T< Face >", "d1/db1/classArcane_1_1Face.html#a42f1b94ded758f39d380462d3177e632", null ]
 ];

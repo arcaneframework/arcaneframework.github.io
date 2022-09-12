@@ -1482,13 +1482,14 @@ var hierarchy =
     [ "Arcane::ItemBaseBuildInfo", "da/d82/classArcane_1_1ItemBaseBuildInfo.html", null ],
     [ "Arcane::ItemCheckSuppressedFunctor", "d9/d45/classArcane_1_1ItemCheckSuppressedFunctor.html", null ],
     [ "Arcane::ItemCompare", "d1/d7c/classArcane_1_1ItemCompare.html", null ],
+    [ "Arcane::ItemCompatibility", "dd/d4d/classArcane_1_1ItemCompatibility.html", null ],
     [ "Arcane::ItemConnectivityContainerView", "d8/d77/classArcane_1_1ItemConnectivityContainerView.html", null ],
-    [ "Arcane::ItemEnumeratorBaseV1T< ItemType >", "d8/d84/classArcane_1_1ItemEnumeratorBaseV1T.html", null ],
-    [ "Arcane::ItemEnumeratorBaseV2T< ItemType >", "d8/d4b/classArcane_1_1ItemEnumeratorBaseV2T.html", [
-      [ "Arcane::ItemEnumerator", "d6/dcd/classArcane_1_1ItemEnumerator.html", null ],
-      [ "Arcane::ItemEnumeratorT< ItemType >", "d7/d74/classArcane_1_1ItemEnumeratorT.html", null ]
+    [ "Arcane::ItemEnumeratorBaseV3", "d4/dd6/classArcane_1_1ItemEnumeratorBaseV3.html", [
+      [ "Arcane::ItemEnumeratorBaseV3T< ItemType >", "d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html", [
+        [ "Arcane::ItemEnumerator", "d6/dcd/classArcane_1_1ItemEnumerator.html", null ],
+        [ "Arcane::ItemEnumeratorT< ItemType >", "d7/d74/classArcane_1_1ItemEnumeratorT.html", null ]
+      ] ]
     ] ],
-    [ "Arcane::ItemEnumeratorBaseV3T< ItemType >", "d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html", null ],
     [ "Arcane::ItemFamilyCompactInfos", "d4/d1f/classArcane_1_1ItemFamilyCompactInfos.html", null ],
     [ "Arcane::ItemFamilySerializeArgs", "df/dab/classArcane_1_1ItemFamilySerializeArgs.html", null ],
     [ "Arcane::ItemFlags", "da/dcc/classArcane_1_1ItemFlags.html", [
@@ -2142,6 +2143,7 @@ var hierarchy =
       [ "Arccore::Ref< Arcane::Accelerator::IAcceleratorMng >", "de/d9f/classArccore_1_1Ref.html", null ],
       [ "Arccore::Ref< Arccore::MessagePassing::ISerializeMessageList >", "de/d9f/classArccore_1_1Ref.html", null ],
       [ "Arccore::Ref< Arccore::MessagePassing::ISubRequest >", "de/d9f/classArccore_1_1Ref.html", null ],
+      [ "Arccore::Ref< Arccore::MessagePassing::MessagePassingMng >", "de/d9f/classArccore_1_1Ref.html", null ],
       [ "Arccore::Ref< Arccore::MessagePassing::IRequestList >", "de/d9f/classArccore_1_1Ref.html", null ],
       [ "Arccore::Ref< Arcane::IParallelMng >", "de/d9f/classArccore_1_1Ref.html", null ],
       [ "Arccore::Ref< Arcane::Materials::IMeshMaterialSynchronizeBuffer >", "de/d9f/classArccore_1_1Ref.html", null ],
@@ -2278,6 +2280,7 @@ var hierarchy =
     [ "Arccore::RefTraitsTagId< Arccore::MessagePassing::IRequestList, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
     [ "Arccore::RefTraitsTagId< Arccore::MessagePassing::ISerializeMessageList, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
     [ "Arccore::RefTraitsTagId< Arccore::MessagePassing::ISubRequest, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
+    [ "Arccore::RefTraitsTagId< Arccore::MessagePassing::MessagePassingMng, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
     [ "Arccore::RefTraitsTagId< CartesianMeshPatch, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
     [ "Arccore::RefTraitsTagId< InstanceType, ImplTagId >", "da/d4f/structArccore_1_1RefTraitsTagId.html", null ],
     [ "Arccore::RefTraitsTagId< InstanceType, REF_TAG_REFERENCE_COUNTER >", "d3/da1/structArccore_1_1RefTraitsTagId_3_01InstanceType_00_01REF__TAG__REFERENCE__COUNTER_01_4.html", null ],

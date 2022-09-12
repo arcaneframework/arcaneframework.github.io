@@ -13,7 +13,5 @@ var classArcane_1_1ItemWithNodes =
     [ "nodeIds", "d4/d55/classArcane_1_1ItemWithNodes.html#aeba73b13cb32056ecacbb971fb3d560b", null ],
     [ "nodes", "d4/d55/classArcane_1_1ItemWithNodes.html#af7f9ed5132b928e270e92f715683117d", null ],
     [ "operator=", "d4/d55/classArcane_1_1ItemWithNodes.html#a245629d0f35b57307db89ee664fad746", null ],
-    [ "ItemEnumeratorBaseV1T< ItemWithNodes >", "d4/d55/classArcane_1_1ItemWithNodes.html#ad9aba0eb20e7883b529c30db894de39b", null ],
-    [ "ItemEnumeratorBaseV2T< ItemWithNodes >", "d4/d55/classArcane_1_1ItemWithNodes.html#a7d625115edf54f427138768a9366e4f3", null ],
     [ "ItemEnumeratorBaseV3T< ItemWithNodes >", "d4/d55/classArcane_1_1ItemWithNodes.html#a9eac9f82e530c0de1c452f2219d6b946", null ]
 ];

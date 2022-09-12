@@ -1,5 +1,13 @@
 var NAVTREEINDEX48 =
 {
+"d7/d03/classArcane_1_1IParallelNonBlockingCollective.html#af625b43370537bbff25cbc45151f101d":[39,10,1,101],
+"d7/d03/classArcane_1_1IParallelNonBlockingCollective.html#af6b6724bfc3dea6adf58559495d39dcc":[39,10,1,84],
+"d7/d03/classArcane_1_1IParallelNonBlockingCollective.html#af8764c906dee595c0a67f29dda0a2105":[39,10,1,27],
+"d7/d03/classArcane_1_1IParallelNonBlockingCollective.html#afbcf075e69ffc5981ee4432035f56b89":[39,10,1,44],
+"d7/d03/classArcane_1_1IParallelNonBlockingCollective.html#afc8b516ed354558b0a8ce3249fa6e33c":[39,10,1,41],
+"d7/d03/classArcane_1_1IParallelNonBlockingCollective.html#afe15932df96757f846d7d520598108fc":[39,10,1,59],
+"d7/d06/SimdAVX512Generated_8h.html#a0366a02184478559c78218533bafd22c":[40,0,5,20],
+"d7/d06/SimdAVX512Generated_8h.html#a119a48a3c3616d48187406c39458722b":[40,0,5,9],
 "d7/d06/SimdAVX512Generated_8h.html#a1ced46723f327b1e8c4dae44bdcf27db":[40,0,5,21],
 "d7/d06/SimdAVX512Generated_8h.html#a4d3c84ad1ce622cb5e7415d5181d1b18":[40,0,5,15],
 "d7/d06/SimdAVX512Generated_8h.html#a5bf566d9003de634a8170db690396941":[40,0,5,27],
@@ -15,8 +23,8 @@ var NAVTREEINDEX48 =
 "d7/d08/classArcane_1_1Materials_1_1MeshMaterialInfo.html#abcbd11fe2e0ebfbef18b8e88a64d3f00":[41,0,1,9,74,1],
 "d7/d08/classArcane_1_1Materials_1_1MeshMaterialInfo.html#abe52a98f9e843f8c547bd22e96307603":[41,0,1,9,74,2],
 "d7/d08/classArcane_1_1Materials_1_1MeshMaterialInfo.html#af511abd46252b69baef1d3fac9894715":[41,0,1,9,74,4],
-"d7/d08/classArcane_1_1OwnItemGroupComputeFunctor.html":[41,0,1,401],
-"d7/d08/classArcane_1_1OwnItemGroupComputeFunctor.html#a1819530b3d2d37392c8aafb93d9b35ed":[41,0,1,401,0],
+"d7/d08/classArcane_1_1OwnItemGroupComputeFunctor.html":[41,0,1,400],
+"d7/d08/classArcane_1_1OwnItemGroupComputeFunctor.html#a1819530b3d2d37392c8aafb93d9b35ed":[41,0,1,400,0],
 "d7/d09/ServiceUtils_8h_source.html":[42,0,1,341],
 "d7/d09/cartesianmesh_2NodeDirectionMng_8h_source.html":[42,0,0,0,7],
 "d7/d09/classArcane_1_1ActionWrapperService.html":[41,0,1,22],
@@ -241,13 +249,5 @@ var NAVTREEINDEX48 =
 "d7/d28/classArcane_1_1Materials_1_1EnvCellVector.html#a1406c80476b0937eaaed84ef5d5cf8f5":[41,0,1,9,18,0],
 "d7/d28/classArcane_1_1Materials_1_1EnvCellVector.html#a1e5d12ba7a0132ed2f3a59c09980eeb1":[41,0,1,9,18,3],
 "d7/d28/classArcane_1_1Materials_1_1EnvCellVector.html#a3efc051a154de29f91f47ef2671b6f77":[41,0,1,9,18,4],
-"d7/d28/classArcane_1_1Materials_1_1EnvCellVector.html#a47206cf73a45e42bf144fa25801fa066":[41,0,1,9,18,7],
-"d7/d28/classArcane_1_1Materials_1_1EnvCellVector.html#a992d420d2dff7a8e185359a06b5afeaa":[41,0,1,9,18,6],
-"d7/d28/classArcane_1_1Materials_1_1EnvCellVector.html#afa318ac92e06f6230b6e7e7ab8611e53":[41,0,1,9,18,2],
-"d7/d28/classArcane_1_1Materials_1_1EnvCellVector.html#afdd16ed258eb7bcf547230a35ac6595c":[41,0,1,9,18,1],
-"d7/d29/arcanedoc_changelog.html":[0],
-"d7/d29/arcanedoc_changelog.html#arcanedoc_version2100":[0,22],
-"d7/d29/arcanedoc_changelog.html#arcanedoc_version2101":[0,21],
-"d7/d29/arcanedoc_changelog.html#arcanedoc_version2110":[0,20],
-"d7/d29/arcanedoc_changelog.html#arcanedoc_version2120":[0,19]
+"d7/d28/classArcane_1_1Materials_1_1EnvCellVector.html#a47206cf73a45e42bf144fa25801fa066":[41,0,1,9,18,7]
 };
