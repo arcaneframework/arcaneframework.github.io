@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.7.6.0</span>
+   &#160;<span id="projectnumber">3.7.7.0</span>
    </div>
   </td>
  </tr>
@@ -206,7 +206,7 @@ Exemple d'utilisation d'une boucle complexe</h1>
 <div class="ttc" id="aclassArcane_1_1Accelerator_1_1Runner_html"><div class="ttname"><a href="../../d1/d61/classArcane_1_1Accelerator_1_1Runner.html">Arcane::Accelerator::Runner</a></div><div class="ttdoc">Gestionnaire d'exécution pour accélérateur.</div><div class="ttdef"><b>Definition:</b> Runner.h:37</div></div>
 <div class="ttc" id="anamespaceArcane_1_1Accelerator_html_a03c277b9b5cda10acc53f493d26ef2e2"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#a03c277b9b5cda10acc53f493d26ef2e2">Arcane::Accelerator::makeQueue</a></div><div class="ttdeci">RunQueue makeQueue(Runner &amp;runner)</div><div class="ttdoc">Créé une file temporaire associée à runner.</div><div class="ttdef"><b>Definition:</b> Runner.h:112</div></div>
 <div class="ttc" id="anamespaceArcane_1_1Accelerator_html_ab0f1c90b13cbdf91573f92b6be402a2c"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#ab0f1c90b13cbdf91573f92b6be402a2c">Arcane::Accelerator::viewOut</a></div><div class="ttdeci">auto viewOut(RunCommand &amp;command, NumArray&lt; DataType, N, LayoutType &gt; &amp;var)</div><div class="ttdoc">Vue en écriture.</div><div class="ttdef"><b>Definition:</b> NumArrayViews.h:224</div></div>
-<div class="ttc" id="anamespaceArcane_html_a8d4af54a9c6ec8f09be512c955ed6e8e"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a8d4af54a9c6ec8f09be512c955ed6e8e">Arcane::makeLoopRanges</a></div><div class="ttdeci">SimpleLoopRanges&lt; 1 &gt; makeLoopRanges(Int32 n1)</div><div class="ttdoc">Créé un intervalle d'itération [0,n1[.</div><div class="ttdef"><b>Definition:</b> LoopRanges.h:112</div></div>
+<div class="ttc" id="anamespaceArcane_html_a8d4af54a9c6ec8f09be512c955ed6e8e"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a8d4af54a9c6ec8f09be512c955ed6e8e">Arcane::makeLoopRanges</a></div><div class="ttdeci">SimpleLoopRanges&lt; 1 &gt; makeLoopRanges(Int32 n1)</div><div class="ttdoc">Créé un intervalle d'itération [0,n1[.</div><div class="ttdef"><b>Definition:</b> LoopRanges.h:118</div></div>
 </div><!-- fragment --><h1><a class="anchor" id="autotoc_md9"></a>
 Compilation</h1>
 <p>Arcane propose une intégration pour compiler avec le support des accélérateurs via CMake. Ceux qui utilisent un autre système de compilation doivent gérer aux même ce support.</p>
@@ -232,7 +232,7 @@ Utilisation des vues</h1>
 <p>Les accélérateurs ont en général leur propre mémoire qui est différente de celle de l'hôte. Il est donc nécessaire de spécifier comment seront utiliser les données pour gérer les éventuels transferts entre les mémoire. Pour cela Arcane fournit un mécanisme appelé une vue qui permet de spécifier pour une variable ou un tableau s'il va être utilisé en entrée, en sortie ou les deux.</p>
 <dl class="section warning"><dt>Avertissement</dt><dd>Une vue est un objet <b>TEMPORAIRE</b> et est toujours associée à une commande (<a class="el" href="../../dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html" title="Gestion d&#39;une commande sur accélérateur.">Arcane::Accelerator::RunCommand</a>) et un conteneur (Variable Arcane ou tableau) et ne doit pas être utilisée lorsque la commande associée est terminée ou le conteneur associé est modifié.</dd></dl>
 <p>Arcane propose des vues sur les variables (<a class="el" href="../../d5/d96/classArcane_1_1IVariable.html">Arcane::IVariable</a>) ou sur la classe <a class="el" href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray</a>.</p>
-<p>Quel que soit le conteneur associé, la déclaration des vues est la même:</p>
+<p>Quel que soit le conteneur associé, la déclaration des vues est la même. Les constantes <a class="el" href="../../d0/d32/namespaceArcane.html#a1a897a82fdd9cb2a25d0ce71ac78d31c" title="Constante pour un tableau de rang 1.">Arcane::MDDim1</a>, <a class="el" href="../../d0/d32/namespaceArcane.html#ae72f7509944fa7b1cf5a71aa4296fc72" title="Constante pour un tableau de rang 2.">Arcane::MDDim2</a>, <a class="el" href="../../d0/d32/namespaceArcane.html#ade81d1f2d79edc9946c82ee8a70dde43" title="Constante pour un tableau de rang 3.">Arcane::MDDim3</a> et <a class="el" href="../../d0/d32/namespaceArcane.html#a9017186c4ca8254f4276753f6cc94003" title="Constante pour un tableau de rang 4.">Arcane::MDDim4</a> permettent de spécifier le rang (la dimension) du tableau <a class="el" href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray</a> (A partir de la version 3.7.7 de Arcane).</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &quot;arcane/utils/NumArray.h&quot;</span></div>
 <div class="line"><span class="comment">// Pour avoir les vues sur les variables</span></div>
 <div class="line"><span class="preprocessor">#include &quot;arcane/accelerator/VariableViews.h&quot;</span></div>
@@ -241,15 +241,15 @@ Utilisation des vues</h1>
 <div class="line"><span class="keyword">using namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
 <div class="line"><span class="keyword">using namespace </span><a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html">Arcane::Accelerator</a>;</div>
 <div class="line">RunCommand&amp; command = ...;</div>
-<div class="line"><a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray&lt;Real,1&gt;</a> a;</div>
-<div class="line"><a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray&lt;Real,1&gt;</a> b;</div>
-<div class="line"><a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray&lt;Real,1&gt;</a> c;</div>
+<div class="line"><a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray&lt;Real,MDDim1&gt;</a> a;</div>
+<div class="line"><a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray&lt;Real,MDDim1&gt;</a> b;</div>
+<div class="line"><a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray&lt;Real,MDDim1&gt;</a> c;</div>
 <div class="line"><a class="code" href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">VariableCellReal</a> var_c = ...;</div>
 <div class="line"><span class="keyword">auto</span> in_a = <a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html#af5e3637c5f9d9188788d641122e18400">viewIn</a>(command,a); <span class="comment">// Vue en entrée</span></div>
 <div class="line"><span class="keyword">auto</span> inout_b = <a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html#a62fbccd426ee33afa1d458dc826376d1">viewInOut</a>(command,b); <span class="comment">// Vue en entrée/sortie</span></div>
 <div class="line"><span class="keyword">auto</span> out_c = <a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html#ab0f1c90b13cbdf91573f92b6be402a2c">viewOut</a>(command,var_c); <span class="comment">// Vue en sortie.</span></div>
 <div class="ttc" id="aNumArrayViews_8h_html"><div class="ttname"><a href="../../dc/d35/NumArrayViews_8h.html">NumArrayViews.h</a></div></div>
-<div class="ttc" id="aclassArcane_1_1NumArray_html"><div class="ttname"><a href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray</a></div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:196</div></div>
+<div class="ttc" id="aclassArcane_1_1NumArray_html"><div class="ttname"><a href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray</a></div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:246</div></div>
 <div class="ttc" id="agroup__Variable_html_ga135a2515548fbcacb89c3ce1a2410b79"><div class="ttname"><a href="../../d3/d00/group__Variable.html#ga135a2515548fbcacb89c3ce1a2410b79">Arcane::VariableCellReal</a></div><div class="ttdeci">MeshVariableScalarRefT&lt; Cell, Real &gt; VariableCellReal</div><div class="ttdoc">Grandeur au centre des mailles de type réel.</div><div class="ttdef"><b>Definition:</b> VariableTypedef.h:290</div></div>
 <div class="ttc" id="anamespaceArcane_1_1Accelerator_html_a62fbccd426ee33afa1d458dc826376d1"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#a62fbccd426ee33afa1d458dc826376d1">Arcane::Accelerator::viewInOut</a></div><div class="ttdeci">auto viewInOut(RunCommand &amp;command, NumArray&lt; DataType, N, LayoutType &gt; &amp;v)</div><div class="ttdoc">Vue en lecture/écriture.</div><div class="ttdef"><b>Definition:</b> NumArrayViews.h:237</div></div>
 <div class="ttc" id="anamespaceArcane_1_1Accelerator_html_af5e3637c5f9d9188788d641122e18400"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#af5e3637c5f9d9188788d641122e18400">Arcane::Accelerator::viewIn</a></div><div class="ttdeci">auto viewIn(RunCommand &amp;command, const NumArray&lt; DataType, N, LayoutType &gt; &amp;v)</div><div class="ttdoc">Vue en lecture.</div><div class="ttdef"><b>Definition:</b> NumArrayViews.h:249</div></div>
@@ -285,8 +285,8 @@ Utilisation des lambda</h1>
 <div class="line"><span class="keyword">using namespace </span><a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html">Arcane::Accelerator</a>;</div>
 <div class="line">RunQueue&amp; queue = ...;</div>
 <div class="line">queue.setAsync(<span class="keyword">true</span>);</div>
-<div class="line"><a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray&lt;Real,1&gt;</a> a;</div>
-<div class="line"><a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray&lt;Real,1&gt;</a> b;</div>
+<div class="line"><a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray&lt;Real,MDDim1&gt;</a> a;</div>
+<div class="line"><a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray&lt;Real,MDDim1&gt;</a> b;</div>
 <div class="line"> </div>
 <div class="line">RunCommand&amp; command = <a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html#af725069ceba4d3878d643f0aa9ee9dd6">makeCommand</a>(queue);</div>
 <div class="line"><span class="keyword">auto</span> in_a = <a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html#af5e3637c5f9d9188788d641122e18400">viewIn</a>(command,a);</div>
@@ -332,7 +332,7 @@ Utilisation des champs d'une instance de classe</h2>
 <div class="line"><span class="keywordtype">void</span> A::f1()</div>
 <div class="line">{</div>
 <div class="line">  <a class="code" href="../../dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html">Arcane::Accelerator::RunCommand</a>&amp; command = ...</div>
-<div class="line">  <a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray&lt;int,1&gt;</a> a(100);</div>
+<div class="line">  <a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray&lt;int,MDDim1&gt;</a> a(100);</div>
 <div class="line">  <span class="keyword">auto</span> out_a = <a class="code" href="../../d0/d32/namespaceArcane.html#a903f5f1e1b28b41667d66e7600fb9ef4">viewIn</a>(command,a);</div>
 <div class="line">  command &lt;&lt; <a class="code" href="../../d6/d52/RunCommandLoop_8h.html#a306b2a3f7b21b54f64f2c910b7bdc093">RUNCOMMAND_LOOP1</a>(iter,100){</div>
 <div class="line">    out_a(iter) = my_value+5; <span class="comment">// BAD !!</span></div>
@@ -341,7 +341,7 @@ Utilisation des champs d'une instance de classe</h2>
 <div class="line"><span class="keywordtype">void</span> A::f2()</div>
 <div class="line">{</div>
 <div class="line">  <a class="code" href="../../dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html">Arcane::Accelerator::RunCommand</a>&amp; command = ...</div>
-<div class="line">  <a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray&lt;int,1&gt;</a> a(100);</div>
+<div class="line">  <a class="code" href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray&lt;int,MDDim1&gt;</a> a(100);</div>
 <div class="line">  <span class="keyword">auto</span> out_a = <a class="code" href="../../d0/d32/namespaceArcane.html#a903f5f1e1b28b41667d66e7600fb9ef4">viewIn</a>(command,a);</div>
 <div class="line">  <span class="keywordtype">int</span> v = my_value;</div>
 <div class="line">  command &lt;&lt; <a class="code" href="../../d6/d52/RunCommandLoop_8h.html#a306b2a3f7b21b54f64f2c910b7bdc093">RUNCOMMAND_LOOP1</a>(iter,100){</div>
@@ -367,8 +367,8 @@ Mode Autonome</h1>
 <div class="line"> </div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Définit 2 tableaux &#39;a&#39; et &#39;b&#39; et effectue leur initialisation.</span></div>
-<div class="line">    NumArray&lt;Int64,1&gt; a(nb_value);</div>
-<div class="line">    NumArray&lt;Int64,1&gt; b(nb_value);</div>
+<div class="line">    NumArray&lt;Int64,MDDim1&gt; a(nb_value);</div>
+<div class="line">    NumArray&lt;Int64,MDDim1&gt; b(nb_value);</div>
 <div class="line">    <span class="keywordflow">for</span>( <span class="keywordtype">int</span> i=0; i&lt;nb_value; ++i ){</div>
 <div class="line">      a.s(i) = i+2;</div>
 <div class="line">      b.s(i) = i+3;</div>
@@ -411,7 +411,7 @@ TODO</h1>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li>
-    <li class="footer">Généré le Lundi 12 Septembre 2022 04:37:52 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Généré le Lundi 19 Septembre 2022 04:39:36 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

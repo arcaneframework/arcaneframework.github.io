@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.7.6.0</span>
+   &#160;<span id="projectnumber">3.7.7.0</span>
    </div>
   </td>
  </tr>
@@ -67,7 +67,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 <div class="toc"><h3>Table des matières</h3>
-<ul><li class="level1"><a href="#arcanedoc_version370">Arcane Version 3.7.x (... aout 2022)</a></li>
+<ul><li class="level1"><a href="#arcanedoc_version370">Arcane Version 3.7.x (... septembre 2022)</a></li>
 <li class="level1"><a href="#arcanedoc_version360">Arcane Version 3.6.13 (06 juillet 2022)</a></li>
 <li class="level1"><a href="#arcanedoc_version350">Arcane Version 3.5.7 (07 avril 2022)</a></li>
 <li class="level1"><a href="#arcanedoc_version340">Arcane Version 3.4.5 (10 février 2022)</a></li>
@@ -110,18 +110,39 @@ $(function() {
 <div class="textblock"><p><a class="anchor" id="md____w_arcaneframework_github_io_arcaneframework_github_io_framework_arcane_doc_changelog"></a></p>
 <p>Cette page contient les nouveautés de chaque version de Arcane.</p>
 <h1><a class="anchor" id="arcanedoc_version370"></a>
-Arcane Version 3.7.x (... aout 2022)</h1>
+Arcane Version 3.7.x (... septembre 2022)</h1>
 <p>WIP</p>
 <p>Nouveautés/Améliorations:</p>
 <ul>
+<li>Ajoute un service de gestion de sorties au format CSV (voir <a class="el" href="../../d5/d1d/arcanedoc_services.html#arcanedoc_services_csv">Documentation pour le service SimpleCsvOutput</a>) (#277)</li>
 <li>Ajoute possibilité de spécifier le mot clé <code>Auto</code> pour la variable CMake <code>ARCANE_DEFAULT_PARTITIONER</code>. Cela permet de choisir automatiquement lors de la configuration le partitionneur utilisé en fonction de ceux disponibles (#279).</li>
 <li>Ajoute implémentation des synchronisations qui utilise la fonction <code>MPI_Neighbor_alltoallv</code> (#281).</li>
 <li>Réduction de l'empreinte mémoire utilisée pour la gestion des connectivités suite aux différentes modifications internes</li>
+<li>Optimisations lors de l'initialisation (#302):<ul>
+<li>Utilise <code>std::unordered_set</code> à la place de <code>std::set</code> pour les vérifications de duplication des uniqueId().</li>
+<li>Lors de la création de maillage, ne Vérifie la non-duplication des uniqueId() que en mode check.</li>
+</ul>
+</li>
+<li>Crée une classe <a class="el" href="../../d9/d68/classArcane_1_1ItemInfoListView.html" title="Vue sur une liste pour obtenir des informations sur les entités.">Arcane::ItemInfoListView</a> pour remplacer à terme <a class="el" href="../../d0/d32/namespaceArcane.html#a6946176a3fcbd7087f23d5b720bcefa3" title="Type de la liste interne des entités.">Arcane::ItemInternalList</a> et accéder aux informations des entités à partir de leur localId() (#305)</li>
 </ul>
 <p>Changements:</p>
 <ul>
+<li>Modifie les classes associées à <a class="el" href="../../d9/d8e/classArcane_1_1NumArray.html">Arcane::NumArray</a> (<a class="el" href="../../d8/d5d/classArcane_1_1MDSpan.html">Arcane::MDSpan</a>, <a class="el" href="../../df/d48/classArcane_1_1ArrayBounds.html">Arcane::ArrayBounds</a>, ...) pour que le paramètre template gérant le rang soit une classe et pas un entier. Le but à terme est d'avoir les mêmes paramètres templates que les classes std::mdspan et std::mdarray du C++. Il faut remplacer les dimensions en dur par les mots clés <a class="el" href="../../d0/d32/namespaceArcane.html#a1a897a82fdd9cb2a25d0ce71ac78d31c" title="Constante pour un tableau de rang 1.">Arcane::MDDim1</a>, <a class="el" href="../../d0/d32/namespaceArcane.html#ae72f7509944fa7b1cf5a71aa4296fc72" title="Constante pour un tableau de rang 2.">Arcane::MDDim2</a>, <a class="el" href="../../d0/d32/namespaceArcane.html#ade81d1f2d79edc9946c82ee8a70dde43" title="Constante pour un tableau de rang 3.">Arcane::MDDim3</a> ou <a class="el" href="../../d0/d32/namespaceArcane.html#a9017186c4ca8254f4276753f6cc94003" title="Constante pour un tableau de rang 4.">Arcane::MDDim4</a> (#333)</li>
 <li>Ajoute classe <a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a>:ItemTypeId pour gérer le type de l'entité (#294)</li>
 <li>Le type de l'entité est maintenant conservé sur un Arcane::Int16 au lieu d'un Arcane::Int32 (#294)</li>
+<li>Supprime méthodes obsolètes de '<a class="el" href="../../d4/d05/Concurrency_8h.html" title="Classes, Types et macros pour gérer la concurrence.">Concurrency.h</a>'. Il s'agit des méthodes qui se trouvaient dans le namespace '<a class="el" href="../../d8/d8f/namespaceArcane_1_1Parallel.html" title="Types des classes du parallélisme.">Arcane::Parallel</a>' et qui sont maintenant dans le namespace '<a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a>' mais préfixée par <code>arcaneParallel</code> (#303)</li>
+<li>Supprime méthodes obsolètes de <a class="el" href="../../d1/d71/classArcane_1_1ItemVector.html" title="Vecteur d&#39;entités.">Arcane::ItemVector</a>, <code><a class="el" href="../../dc/d3e/MathUtils_8h.html" title="Fonctions mathématiques diverses.">MathUtils.h</a></code>, <a class="el" href="../../d9/d7f/classArcane_1_1IApplication.html" title="Interface de l&#39;application.">Arcane::IApplication</a>, <a class="el" href="../../d0/d62/classArcane_1_1Properties.html" title="Liste de propriétés.">Arcane::Properties</a>, <a class="el" href="../../dd/d0a/classArcane_1_1IItemFamily.html" title="Interface d&#39;une famille d&#39;entités.">Arcane::IItemFamily</a> (#304).</li>
+<li>Supprime la classe de base <a class="el" href="../../d6/dcd/classArcane_1_1ItemEnumerator.html" title="Enumérateur sur une liste d&#39;entités.">Arcane::ItemEnumerator</a> de <a class="el" href="../../d7/d74/classArcane_1_1ItemEnumeratorT.html" title="Enumérateur sur une liste typée d&#39;entités de type ItemType.">Arcane::ItemEnumeratorT</a>. L'héritage est remplacé par un opérateur de conversion (#308).</li>
+<li>Refonte de la gestion du fichier de configuration <code>ArcaneConfig.cmake</code> géneré (#318):<ul>
+<li>N'exporte plus par défaut les packages externes dans <code>ArcaneTargets.cmake</code>. Le fichier <code>ArcaneConfig.cmake</code> fait maintenant des appels à la commande CMake <code>find_dependency</code>. La variable CMake <code>FRAMEWORK_NO_EXPORT_PACKAGES</code> n'est donc plus utilisé par défaut.</li>
+<li>Ajoute dans <code>ArcaneConfig.cmake</code> la variable <code>ARCANE_USE_CONFIGURATION_PATH</code> pour permettre de charger les chemins des packages issus de la configuration de <a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a>. Cette variable est positionnée à <code>TRUE</code> définie par défaut.</li>
+</ul>
+</li>
+<li>Modifie le prototype de certaines méthodes de classes implémentant <a class="el" href="../../dd/d0a/classArcane_1_1IItemFamily.html" title="Interface d&#39;une famille d&#39;entités.">Arcane::IItemFamily</a> pour utiliser <a class="el" href="../../df/d5f/classArcane_1_1Item.html" title="Classe de base d&#39;un élément de maillage.">Arcane::Item</a> à la place de <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html" title="Structure interne d&#39;une entité de maillage.">Arcane::ItemInternal</a> (#311)</li>
+<li>Crée une classe <a class="el" href="../../da/dcc/classArcane_1_1ItemFlags.html" title="Flags pour les caractéristiques des entités.">Arcane::ItemFlags</a> pour gérer les flags concernant les propriétés des objets qui étaient avant dans <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html" title="Structure interne d&#39;une entité de maillage.">Arcane::ItemInternal</a> (#312)</li>
+<li>Rend obsolète l'opérateur <code>operator-&gt;</code> pour la classe <a class="el" href="../../df/d5f/classArcane_1_1Item.html" title="Classe de base d&#39;un élément de maillage.">Arcane::Item</a> et les classes dérivées (#313)</li>
+<li>Change la valeur par défaut de la numérotation des faces dans le service de génération cartésien pour utiliser la numérotation cartésienne (#315)</li>
+<li>Modification de la signature des méthodes de Arcane::IItemFamilyModifierInterface et Arcane::OneMeshItemAdder pour utiliser <a class="el" href="../../df/d8d/classArcane_1_1ItemTypeId.html" title="Type d&#39;une entité (Item).">Arcane::ItemTypeId</a> au lieu de <a class="el" href="../../dc/d74/classArcane_1_1ItemTypeInfo.html" title="Infos sur un type d&#39;entité du maillage.">Arcane::ItemTypeInfo</a> et <a class="el" href="../../df/d5f/classArcane_1_1Item.html" title="Classe de base d&#39;un élément de maillage.">Arcane::Item</a> au lieu de <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html" title="Structure interne d&#39;une entité de maillage.">Arcane::ItemInternal</a> (#322)</li>
 </ul>
 <p>Corrections:</p>
 <ul>
@@ -135,7 +156,12 @@ Arcane Version 3.7.x (... aout 2022)</h1>
 <li>Utilise des variables pour gérer certaines données sur les entités telles que <a class="el" href="../../df/d5f/classArcane_1_1Item.html#a5651b2880e289af4cf8b93ef9164272c" title="Numéro du sous-domaine propriétaire de l&#39;entité">Arcane::Item::owner()</a>, <a class="el" href="../../d7/d1e/classArcane_1_1impl_1_1ItemBase.html#ad1d985d0fc3be1f7ad4432cfb55eafce" title="Type de l&#39;entité">Arcane::Item::typeId()</a>. Cela permettra à terme de rendre ces informations accessibles sur accélérateurs (#284, #285, #292, #295)</li>
 <li>Ajout d'une classe Arcane::ItemBase servant de classe de base pour <a class="el" href="../../df/d5f/classArcane_1_1Item.html" title="Classe de base d&#39;un élément de maillage.">Arcane::Item</a> et <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html" title="Structure interne d&#39;une entité de maillage.">Arcane::ItemInternal</a> (#298).</li>
 <li>Suppression d'une indirection lorsqu'on accède aux informations des connectivités à partir d'une entité (par exemple <a class="el" href="../../d4/d55/classArcane_1_1ItemWithNodes.html#a4e5c2583373ef18e3197574686d02775" title="i-ème noeud de l&#39;entité">Arcane::Cell::node()</a>) (#298).</li>
-<li>Simplification de la gestion des informations communes aux entités dans une famille pour qu'il n'y ait maintenant plus qu'une seule instance commune de '<a class="el" href="../../df/d0b/classArcane_1_1ItemSharedInfo.html" title="Structure interne partagée d&#39;une entité de maillage.">Arcane::ItemSharedInfo</a>' (#290, #292, #297).</li>
+<li>Simplification de la gestion des informations communes aux entités dans une famille pour qu'il n'y ait maintenant plus qu'une seule instance commune de <a class="el" href="../../df/d0b/classArcane_1_1ItemSharedInfo.html" title="Structure interne partagée d&#39;une entité de maillage.">Arcane::ItemSharedInfo</a> (#290, #292, #297).</li>
+<li>Supprime certains usages de <a class="el" href="../../d9/d1e/classArcane_1_1ISubDomain.html" title="Interface du gestionnaire d&#39;un sous-domaine.">Arcane::ISubDomain</a> (#327)<ul>
+<li>Ajoute possibilité de créer une instance de <a class="el" href="../../d6/d63/classArcane_1_1ServiceBuilder.html" title="Classe utilitaire pour instantier un service d&#39;une interface donnée.">Arcane::ServiceBuilder</a> à partir d'un <a class="el" href="../../d7/d6f/classArcane_1_1MeshHandle.html" title="Handle sur un maillage.">Arcane::MeshHandle</a>.</li>
+<li>Ajoute possibilité de créer une instance de <a class="el" href="../../df/d8a/classArcane_1_1VariableBuildInfo.html" title="Paramètres nécessaires à la construction d&#39;une variable.">Arcane::VariableBuildInfo</a> via un <a class="el" href="../../d7/d7c/classArcane_1_1IVariableMng.html" title="Interface du gestionnaire de variables.">Arcane::IVariableMng</a>.</li>
+</ul>
+</li>
 </ul>
 <h1><a class="anchor" id="arcanedoc_version360"></a>
 Arcane Version 3.6.13 (06 juillet 2022)</h1>
@@ -896,7 +922,7 @@ Améliorations diverses</h2>
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 12 Septembre 2022 04:39:31 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Généré le Lundi 19 Septembre 2022 04:41:02 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

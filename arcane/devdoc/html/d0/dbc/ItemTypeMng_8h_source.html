@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.7.6.0</span>
+   &#160;<span id="projectnumber">3.7.7.0</span>
    </div>
   </td>
  </tr>
@@ -92,145 +92,157 @@ $(function() {
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="../../db/daf/ItemTypes_8h.html">arcane/ItemTypes.h</a>&quot;</span></div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span>mesh</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &lt;set&gt;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;{</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment">// TEMPORAIRE: pour que ces classes aient accès au singleton.</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">class </span>DynamicMesh;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span>PolyhedralMesh;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">class </span>ArcaneMain;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">class </span>ItemTypeInfo;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="keyword">class </span>ItemTypeInfoBuilder;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">class </span>IParallelSuperMng;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">class</span> T&gt;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">class </span>MultiBufferT;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00063"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">   63</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">ItemTypeMng</a></div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;{</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;  <span class="comment">// Ces classes sont ici temporairement tant que le singleton est accessible.</span></div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../d2/daa/classArcane_1_1mesh_1_1DynamicMesh.html">mesh::DynamicMesh</a>;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../d7/d15/classArcane_1_1mesh_1_1PolyhedralMesh.html">mesh::PolyhedralMesh</a>;</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../d6/d2a/classArcane_1_1Application.html">Application</a>;</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../da/dae/classArcane_1_1ArcaneMain.html">ArcaneMain</a>;</div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../df/d5f/classArcane_1_1Item.html">Item</a>;</div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160; </div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keyword">namespace </span>mesh</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <span class="comment">// TEMPORAIRE: pour que ces classes aient accès au singleton.</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <span class="keyword">class </span>DynamicMesh;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;  <span class="keyword">class </span>PolyhedralMesh;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;} <span class="comment">// namespace mesh</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">class </span>ArcaneMain;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">class </span>ItemTypeInfo;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="keyword">class </span>ItemTypeInfoBuilder;</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">class </span>IParallelSuperMng;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">template</span> &lt;<span class="keyword">class</span> T&gt;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="keyword">class </span>MultiBufferT;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">   65</a></span>&#160;<span class="keyword">class </span>ARCANE_CORE_EXPORT <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">ItemTypeMng</a></div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;{</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;  <span class="comment">// Ces classes sont ici temporairement tant que le singleton est accessible.</span></div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../d2/daa/classArcane_1_1mesh_1_1DynamicMesh.html">mesh::DynamicMesh</a>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../d7/d15/classArcane_1_1mesh_1_1PolyhedralMesh.html">mesh::PolyhedralMesh</a>;</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../d6/d2a/classArcane_1_1Application.html">Application</a>;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../da/dae/classArcane_1_1ArcaneMain.html">ArcaneMain</a>;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code" href="../../df/d5f/classArcane_1_1Item.html">Item</a>;</div>
 <div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;  <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">ItemTypeMng</a>();</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;  ~<a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">ItemTypeMng</a>();</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; <span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160; </div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">ItemTypeMng</a>();</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;  ~<a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">ItemTypeMng</a>();</div>
 <div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keywordtype">void</span> build(<a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html">IParallelSuperMng</a>* parallel_mng, <a class="code" href="../../d0/df9/classArccore_1_1ITraceMng.html">ITraceMng</a>* trace);</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">ItemTypeMng</a>* _singleton();</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> _destroySingleton();</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> _legacyTypeName(Integer t);</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
-<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160;  ARCCORE_DEPRECATED_2021(<span class="stringliteral">&quot;Use IMesh::itemTypeMng() to get an instance of ItemTypeMng&quot;</span>)</div>
-<div class="line"><a name="l00111"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a02878433eb8e92f494809b31d0585e5a">  111</a></span>&#160;  static <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">ItemTypeMng</a>* singleton() { <span class="keywordflow">return</span> _singleton(); }</div>
-<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  ARCCORE_DEPRECATED_2021(<span class="stringliteral">&quot;Do not use this method&quot;</span>)</div>
-<div class="line"><a name="l00119"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#af8c4614922a5de16fd31c2546d92517e">  119</a></span>&#160;  static <span class="keywordtype">void</span> destroySingleton() { _destroySingleton(); }</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;ItemTypeInfo*&gt;</a> types() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; </div>
-<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;  <a class="code" href="../../dc/d74/classArcane_1_1ItemTypeInfo.html">ItemTypeInfo</a>* typeFromId(Integer <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160; </div>
-<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160;  <a class="code" href="../../dc/d74/classArcane_1_1ItemTypeInfo.html">ItemTypeInfo</a>* typeFromId(<a class="code" href="../../df/d8d/classArcane_1_1ItemTypeId.html">ItemTypeId</a> <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160; </div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;  <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> typeName(Integer <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
-<div class="line"><a name="l00135"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#ab6c57e89dfc4af8d12a081a55c31286c">  135</a></span>&#160;  <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#ab6c57e89dfc4af8d12a081a55c31286c">typeName</a>(<a class="code" href="../../df/d8d/classArcane_1_1ItemTypeId.html">ItemTypeId</a> <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;  <span class="keywordtype">void</span> printTypes(std::ostream&amp; ostr);</div>
-<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160; </div>
-<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160;  <span class="keyword">static</span> Integer nbBasicItemType();</div>
-<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160; </div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;  <span class="keyword">static</span> Integer nbBuiltInItemType();</div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;  <span class="comment">// AMR</span></div>
-<div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;  <span class="keyword">static</span> Int32 nbHChildrenByItemType(Integer type);</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160; </div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160; </div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;  <span class="keywordtype">void</span> readTypes(<a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html">IParallelSuperMng</a> * parallel_mng, <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> &amp; filename);</div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160; </div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;  <span class="keywordtype">void</span> build(<a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html">IParallelSuperMng</a>* parallel_mng, <a class="code" href="../../d0/df9/classArccore_1_1ITraceMng.html">ITraceMng</a>* trace);</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160; </div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">ItemTypeMng</a>* _singleton();</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;  <span class="keyword">static</span> <span class="keywordtype">void</span> _destroySingleton();</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> _legacyTypeName(Integer t);</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  ARCCORE_DEPRECATED_2021(<span class="stringliteral">&quot;Use IMesh::itemTypeMng() to get an instance of ItemTypeMng&quot;</span>)</div>
+<div class="line"><a name="l00114"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a02878433eb8e92f494809b31d0585e5a">  114</a></span>&#160;  static <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">ItemTypeMng</a>* singleton() { <span class="keywordflow">return</span> _singleton(); }</div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160; </div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;  ARCCORE_DEPRECATED_2021(<span class="stringliteral">&quot;Do not use this method&quot;</span>)</div>
+<div class="line"><a name="l00122"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#af8c4614922a5de16fd31c2546d92517e">  122</a></span>&#160;  static <span class="keywordtype">void</span> destroySingleton() { _destroySingleton(); }</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160; </div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;  <a class="code" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ConstArrayView&lt;ItemTypeInfo*&gt;</a> types() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;  <a class="code" href="../../dc/d74/classArcane_1_1ItemTypeInfo.html">ItemTypeInfo</a>* typeFromId(Integer <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;  <a class="code" href="../../dc/d74/classArcane_1_1ItemTypeInfo.html">ItemTypeInfo</a>* typeFromId(<a class="code" href="../../df/d8d/classArcane_1_1ItemTypeId.html">ItemTypeId</a> <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160; </div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;  <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> typeName(Integer <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
+<div class="line"><a name="l00139"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#ab6c57e89dfc4af8d12a081a55c31286c">  139</a></span>&#160;  <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a> <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#ab6c57e89dfc4af8d12a081a55c31286c">typeName</a>(<a class="code" href="../../df/d8d/classArcane_1_1ItemTypeId.html">ItemTypeId</a> <span class="keywordtype">id</span>) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;  <span class="keywordtype">void</span> printTypes(std::ostream&amp; ostr);</div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160; </div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  <span class="keywordtype">bool</span> hasGeneralCells(<a class="code" href="../../d0/d9f/classArcane_1_1IMesh.html">IMesh</a>* mesh) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;  <span class="keywordtype">void</span> setMeshWithGeneralCells(<a class="code" href="../../d0/d9f/classArcane_1_1IMesh.html">IMesh</a>* mesh) noexcept;</div>
+<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160; </div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;  <span class="keyword">static</span> Integer nbBasicItemType();</div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
+<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;  <span class="keyword">static</span> Integer nbBuiltInItemType();</div>
 <div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160; </div>
-<div class="line"><a name="l00157"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a91c7937c1a8263f11a45f1fab9222d37">  157</a></span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">ItemTypeMng</a>* <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a91c7937c1a8263f11a45f1fab9222d37">singleton_instance</a>;</div>
+<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;  <span class="comment">// AMR</span></div>
+<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;  <span class="keyword">static</span> Int32 nbHChildrenByItemType(Integer type);</div>
 <div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160; </div>
-<div class="line"><a name="l00160"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#ac1751bcc64ca359f4cd4ee5fadb274b9">  160</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> Integer <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#ac1751bcc64ca359f4cd4ee5fadb274b9">m_nb_builtin_item_type</a>;</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
-<div class="line"><a name="l00163"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a7ce034806c2b7baf340b9fb62bc18c03">  163</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a7ce034806c2b7baf340b9fb62bc18c03">m_initialized</a>;</div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;  <a class="code" href="../../de/d2f/classArcane_1_1AtomicInt32.html">AtomicInt32</a> m_initialized_counter;</div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#afeb275db0cf5938213d718c8290e54cb">  168</a></span>&#160;  Integer <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#afeb275db0cf5938213d718c8290e54cb">m_nb_basic_item_type</a>;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
-<div class="line"><a name="l00171"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a477fd92c6bf6b2ed90b7c65ca03f6f45">  171</a></span>&#160;  <a class="code" href="../../d0/df9/classArccore_1_1ITraceMng.html">ITraceMng</a>* <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a477fd92c6bf6b2ed90b7c65ca03f6f45">m_trace</a>;</div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
-<div class="line"><a name="l00174"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a7f169cf7d455c3967d8649c98658252b">  174</a></span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">UniqueArray&lt;ItemTypeInfo*&gt;</a> <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a7f169cf7d455c3967d8649c98658252b">m_types</a>;</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160; </div>
-<div class="line"><a name="l00177"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a9da091f5e554d7bbe641563f1355f648">  177</a></span>&#160;  <a class="code" href="../../dd/d37/classArcane_1_1MultiBufferT.html">MultiBufferT&lt;ItemTypeInfoBuilder&gt;</a>* <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a9da091f5e554d7bbe641563f1355f648">m_types_buffer</a>;</div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160; </div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
-<div class="line"><a name="l00186"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a41d406f126a781d05ff73d946aa3d4b4">  186</a></span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">UniqueArray&lt;Integer&gt;</a> <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a41d406f126a781d05ff73d946aa3d4b4">m_ids_buffer</a>;</div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;  </div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; <span class="keyword">private</span>:</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;  </div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;  <span class="keywordtype">void</span> _build(<a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html">IParallelSuperMng</a> * parallel_mng, <a class="code" href="../../d0/df9/classArccore_1_1ITraceMng.html">ITraceMng</a> * trace);</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;};</div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; </div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160; </div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;  <span class="keywordtype">void</span> readTypes(<a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html">IParallelSuperMng</a>* parallel_mng, <span class="keyword">const</span> <a class="code" href="../../d2/ddb/classArccore_1_1String.html">String</a>&amp; filename);</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a91c7937c1a8263f11a45f1fab9222d37">  167</a></span>&#160;  <span class="keyword">static</span> <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">ItemTypeMng</a>* <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a91c7937c1a8263f11a45f1fab9222d37">singleton_instance</a>;</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#ac1751bcc64ca359f4cd4ee5fadb274b9">  170</a></span>&#160;  <span class="keyword">static</span> <span class="keyword">const</span> Integer <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#ac1751bcc64ca359f4cd4ee5fadb274b9">m_nb_builtin_item_type</a>;</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160; </div>
+<div class="line"><a name="l00173"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a7ce034806c2b7baf340b9fb62bc18c03">  173</a></span>&#160;  <span class="keywordtype">bool</span> <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a7ce034806c2b7baf340b9fb62bc18c03">m_initialized</a>;</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160; </div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;  <a class="code" href="../../de/d2f/classArcane_1_1AtomicInt32.html">AtomicInt32</a> m_initialized_counter;</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#afeb275db0cf5938213d718c8290e54cb">  178</a></span>&#160;  Integer <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#afeb275db0cf5938213d718c8290e54cb">m_nb_basic_item_type</a>;</div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a477fd92c6bf6b2ed90b7c65ca03f6f45">  181</a></span>&#160;  <a class="code" href="../../d0/df9/classArccore_1_1ITraceMng.html">ITraceMng</a>* <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a477fd92c6bf6b2ed90b7c65ca03f6f45">m_trace</a>;</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a7f169cf7d455c3967d8649c98658252b">  184</a></span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">UniqueArray&lt;ItemTypeInfo*&gt;</a> <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a7f169cf7d455c3967d8649c98658252b">m_types</a>;</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
+<div class="line"><a name="l00187"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a9da091f5e554d7bbe641563f1355f648">  187</a></span>&#160;  <a class="code" href="../../dd/d37/classArcane_1_1MultiBufferT.html">MultiBufferT&lt;ItemTypeInfoBuilder&gt;</a>* <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a9da091f5e554d7bbe641563f1355f648">m_types_buffer</a>;</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
+<div class="line"><a name="l00190"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a4ff0c48bd3ec8d02739bc89ea7c3b9b3">  190</a></span>&#160;  std::set&lt;IMesh*&gt; <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a4ff0c48bd3ec8d02739bc89ea7c3b9b3">m_mesh_with_general_cells</a>;</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160; </div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno"><a class="line" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a41d406f126a781d05ff73d946aa3d4b4">  199</a></span>&#160;  <a class="code" href="../../da/daa/classArccore_1_1UniqueArray.html">UniqueArray&lt;Integer&gt;</a> <a class="code" href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a41d406f126a781d05ff73d946aa3d4b4">m_ids_buffer</a>;</div>
 <div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160; </div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160; <span class="keyword">private</span>:</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160; </div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  <span class="keywordtype">void</span> _build(<a class="code" href="../../d9/dca/classArcane_1_1IParallelSuperMng.html">IParallelSuperMng</a>* parallel_mng, <a class="code" href="../../d0/df9/classArccore_1_1ITraceMng.html">ITraceMng</a>* trace);</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;};</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160; </div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160; </div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
+<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160; </div>
+<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aItemTypes_8h_html"><div class="ttname"><a href="../../db/daf/ItemTypes_8h.html">ItemTypes.h</a></div><div class="ttdoc">Déclarations de types sur les entités.</div></div>
 <div class="ttc" id="aUtilsTypes_8h_html"><div class="ttname"><a href="../../d4/da8/UtilsTypes_8h.html">UtilsTypes.h</a></div><div class="ttdoc">Déclarations des types utilisés dans Arcane.</div></div>
 <div class="ttc" id="aclassArcane_1_1Application_html"><div class="ttname"><a href="../../d6/d2a/classArcane_1_1Application.html">Arcane::Application</a></div><div class="ttdoc">Superviseur.</div><div class="ttdef"><b>Definition:</b> Application.h:49</div></div>
 <div class="ttc" id="aclassArcane_1_1ArcaneMain_html"><div class="ttname"><a href="../../da/dae/classArcane_1_1ArcaneMain.html">Arcane::ArcaneMain</a></div><div class="ttdoc">Classe de gestion de l'exécution.</div><div class="ttdef"><b>Definition:</b> ArcaneMain.h:78</div></div>
 <div class="ttc" id="aclassArcane_1_1AtomicInt32_html"><div class="ttname"><a href="../../de/d2f/classArcane_1_1AtomicInt32.html">Arcane::AtomicInt32</a></div><div class="ttdoc">Type 'Int32' atomique.</div><div class="ttdef"><b>Definition:</b> Atomic.h:30</div></div>
+<div class="ttc" id="aclassArcane_1_1IMesh_html"><div class="ttname"><a href="../../d0/d9f/classArcane_1_1IMesh.html">Arcane::IMesh</a></div><div class="ttdef"><b>Definition:</b> IMesh.h:56</div></div>
 <div class="ttc" id="aclassArcane_1_1IParallelSuperMng_html"><div class="ttname"><a href="../../d9/dca/classArcane_1_1IParallelSuperMng.html">Arcane::IParallelSuperMng</a></div><div class="ttdoc">Classe abstraite du superviseur de parallélisme.</div><div class="ttdef"><b>Definition:</b> IParallelSuperMng.h:41</div></div>
 <div class="ttc" id="aclassArcane_1_1ItemTypeId_html"><div class="ttname"><a href="../../df/d8d/classArcane_1_1ItemTypeId.html">Arcane::ItemTypeId</a></div><div class="ttdoc">Type d'une entité (Item).</div><div class="ttdef"><b>Definition:</b> ItemTypeId.h:32</div></div>
 <div class="ttc" id="aclassArcane_1_1ItemTypeInfo_html"><div class="ttname"><a href="../../dc/d74/classArcane_1_1ItemTypeInfo.html">Arcane::ItemTypeInfo</a></div><div class="ttdoc">Infos sur un type d'entité du maillage.</div><div class="ttdef"><b>Definition:</b> ItemTypeInfo.h:47</div></div>
-<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">Arcane::ItemTypeMng</a></div><div class="ttdoc">Gestionnaire des types d'entités de maillage.</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:64</div></div>
-<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html_a41d406f126a781d05ff73d946aa3d4b4"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a41d406f126a781d05ff73d946aa3d4b4">Arcane::ItemTypeMng::m_ids_buffer</a></div><div class="ttdeci">UniqueArray&lt; Integer &gt; m_ids_buffer</div><div class="ttdoc">Tampon d'allocation des données de type.</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:186</div></div>
-<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html_a477fd92c6bf6b2ed90b7c65ca03f6f45"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a477fd92c6bf6b2ed90b7c65ca03f6f45">Arcane::ItemTypeMng::m_trace</a></div><div class="ttdeci">ITraceMng * m_trace</div><div class="ttdoc">Gestionnaire de traces.</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:171</div></div>
-<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html_a7ce034806c2b7baf340b9fb62bc18c03"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a7ce034806c2b7baf340b9fb62bc18c03">Arcane::ItemTypeMng::m_initialized</a></div><div class="ttdeci">bool m_initialized</div><div class="ttdoc">Flag d'initialisation.</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:163</div></div>
-<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html_a7f169cf7d455c3967d8649c98658252b"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a7f169cf7d455c3967d8649c98658252b">Arcane::ItemTypeMng::m_types</a></div><div class="ttdeci">UniqueArray&lt; ItemTypeInfo * &gt; m_types</div><div class="ttdoc">Liste des types.</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:174</div></div>
-<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html_a91c7937c1a8263f11a45f1fab9222d37"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a91c7937c1a8263f11a45f1fab9222d37">Arcane::ItemTypeMng::singleton_instance</a></div><div class="ttdeci">static ItemTypeMng * singleton_instance</div><div class="ttdoc">Instance singleton.</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:157</div></div>
-<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html_a9da091f5e554d7bbe641563f1355f648"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a9da091f5e554d7bbe641563f1355f648">Arcane::ItemTypeMng::m_types_buffer</a></div><div class="ttdeci">MultiBufferT&lt; ItemTypeInfoBuilder &gt; * m_types_buffer</div><div class="ttdoc">Allocations des objets de type (il faut un pointeur pour eviter inclusion multiple)</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:177</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html">Arcane::ItemTypeMng</a></div><div class="ttdoc">Gestionnaire des types d'entités de maillage.</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:66</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html_a41d406f126a781d05ff73d946aa3d4b4"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a41d406f126a781d05ff73d946aa3d4b4">Arcane::ItemTypeMng::m_ids_buffer</a></div><div class="ttdeci">UniqueArray&lt; Integer &gt; m_ids_buffer</div><div class="ttdoc">Tampon d'allocation des données de type.</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:199</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html_a477fd92c6bf6b2ed90b7c65ca03f6f45"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a477fd92c6bf6b2ed90b7c65ca03f6f45">Arcane::ItemTypeMng::m_trace</a></div><div class="ttdeci">ITraceMng * m_trace</div><div class="ttdoc">Gestionnaire de traces.</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:181</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html_a4ff0c48bd3ec8d02739bc89ea7c3b9b3"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a4ff0c48bd3ec8d02739bc89ea7c3b9b3">Arcane::ItemTypeMng::m_mesh_with_general_cells</a></div><div class="ttdeci">std::set&lt; IMesh * &gt; m_mesh_with_general_cells</div><div class="ttdoc">Ensemble des maillages contenant des mailles générales (sans type défini)</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:190</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html_a7ce034806c2b7baf340b9fb62bc18c03"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a7ce034806c2b7baf340b9fb62bc18c03">Arcane::ItemTypeMng::m_initialized</a></div><div class="ttdeci">bool m_initialized</div><div class="ttdoc">Flag d'initialisation.</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:173</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html_a7f169cf7d455c3967d8649c98658252b"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a7f169cf7d455c3967d8649c98658252b">Arcane::ItemTypeMng::m_types</a></div><div class="ttdeci">UniqueArray&lt; ItemTypeInfo * &gt; m_types</div><div class="ttdoc">Liste des types.</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:184</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html_a91c7937c1a8263f11a45f1fab9222d37"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a91c7937c1a8263f11a45f1fab9222d37">Arcane::ItemTypeMng::singleton_instance</a></div><div class="ttdeci">static ItemTypeMng * singleton_instance</div><div class="ttdoc">Instance singleton.</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:167</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html_a9da091f5e554d7bbe641563f1355f648"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#a9da091f5e554d7bbe641563f1355f648">Arcane::ItemTypeMng::m_types_buffer</a></div><div class="ttdeci">MultiBufferT&lt; ItemTypeInfoBuilder &gt; * m_types_buffer</div><div class="ttdoc">Allocations des objets de type (il faut un pointeur pour eviter inclusion multiple)</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:187</div></div>
 <div class="ttc" id="aclassArcane_1_1ItemTypeMng_html_ab6c57e89dfc4af8d12a081a55c31286c"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#ab6c57e89dfc4af8d12a081a55c31286c">Arcane::ItemTypeMng::typeName</a></div><div class="ttdeci">String typeName(ItemTypeId id) const</div><div class="ttdoc">Nom du type correspondant au numéro id.</div></div>
-<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html_ac1751bcc64ca359f4cd4ee5fadb274b9"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#ac1751bcc64ca359f4cd4ee5fadb274b9">Arcane::ItemTypeMng::m_nb_builtin_item_type</a></div><div class="ttdeci">static const Integer m_nb_builtin_item_type</div><div class="ttdoc">Nombre de types intégrés (hors types additionnels)</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:160</div></div>
-<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html_afeb275db0cf5938213d718c8290e54cb"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#afeb275db0cf5938213d718c8290e54cb">Arcane::ItemTypeMng::m_nb_basic_item_type</a></div><div class="ttdeci">Integer m_nb_basic_item_type</div><div class="ttdoc">Nombre de types disponibles.</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:168</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html_ac1751bcc64ca359f4cd4ee5fadb274b9"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#ac1751bcc64ca359f4cd4ee5fadb274b9">Arcane::ItemTypeMng::m_nb_builtin_item_type</a></div><div class="ttdeci">static const Integer m_nb_builtin_item_type</div><div class="ttdoc">Nombre de types intégrés (hors types additionnels)</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:170</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemTypeMng_html_afeb275db0cf5938213d718c8290e54cb"><div class="ttname"><a href="../../d7/dbb/classArcane_1_1ItemTypeMng.html#afeb275db0cf5938213d718c8290e54cb">Arcane::ItemTypeMng::m_nb_basic_item_type</a></div><div class="ttdeci">Integer m_nb_basic_item_type</div><div class="ttdoc">Nombre de types disponibles.</div><div class="ttdef"><b>Definition:</b> ItemTypeMng.h:178</div></div>
 <div class="ttc" id="aclassArcane_1_1Item_html"><div class="ttname"><a href="../../df/d5f/classArcane_1_1Item.html">Arcane::Item</a></div><div class="ttdoc">Classe de base d'un élément de maillage.</div><div class="ttdef"><b>Definition:</b> Item.h:72</div></div>
 <div class="ttc" id="aclassArcane_1_1MultiBufferT_html"><div class="ttname"><a href="../../dd/d37/classArcane_1_1MultiBufferT.html">Arcane::MultiBufferT</a></div><div class="ttdoc">Tampon pour allocation multiple.</div><div class="ttdef"><b>Definition:</b> MultiBuffer.h:44</div></div>
 <div class="ttc" id="aclassArcane_1_1mesh_1_1DynamicMesh_html"><div class="ttname"><a href="../../d2/daa/classArcane_1_1mesh_1_1DynamicMesh.html">Arcane::mesh::DynamicMesh</a></div><div class="ttdoc">Implémentation d'un maillage.</div><div class="ttdef"><b>Definition:</b> DynamicMesh.h:92</div></div>
-<div class="ttc" id="aclassArcane_1_1mesh_1_1PolyhedralMesh_html"><div class="ttname"><a href="../../d7/d15/classArcane_1_1mesh_1_1PolyhedralMesh.html">Arcane::mesh::PolyhedralMesh</a></div><div class="ttdef"><b>Definition:</b> PolyhedralMesh.h:56</div></div>
+<div class="ttc" id="aclassArcane_1_1mesh_1_1PolyhedralMesh_html"><div class="ttname"><a href="../../d7/d15/classArcane_1_1mesh_1_1PolyhedralMesh.html">Arcane::mesh::PolyhedralMesh</a></div><div class="ttdef"><b>Definition:</b> PolyhedralMesh.h:58</div></div>
 <div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/ArrayView.h:500</div></div>
 <div class="ttc" id="aclassArccore_1_1ITraceMng_html"><div class="ttname"><a href="../../d0/df9/classArccore_1_1ITraceMng.html">Arccore::ITraceMng</a></div><div class="ttdoc">Interface du gestionnaire de traces.</div><div class="ttdef"><b>Definition:</b> arccore/src/trace/arccore/trace/ITraceMng.h:156</div></div>
 <div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition:</b> arccore/src/base/arccore/base/String.h:70</div></div>
@@ -239,7 +251,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 12 Septembre 2022 04:38:49 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Généré le Lundi 19 Septembre 2022 04:40:26 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

@@ -1,7 +1,7 @@
 var classArcane_1_1SerializedData =
 [
     [ "SerializedData", "dc/de4/classArcane_1_1SerializedData.html#af601e257ac297aa44af64d0d634b47a6", null ],
-    [ "SerializedData", "dc/de4/classArcane_1_1SerializedData.html#a9bc2b53284e3423b13518a30948b22de", null ],
+    [ "SerializedData", "dc/de4/classArcane_1_1SerializedData.html#a89b6de3d4618ba90fee14592de510c2b", null ],
     [ "allocateMemory", "dc/de4/classArcane_1_1SerializedData.html#a46fe18dbdc1696a50ca6ae74be599b2a", null ],
     [ "baseDataType", "dc/de4/classArcane_1_1SerializedData.html#a78919dcd45d77b77fe745e2fed7cd0de", null ],
     [ "buffer", "dc/de4/classArcane_1_1SerializedData.html#a2d22c72ab4b77a930e735ba350d7e3ba", null ],
@@ -24,5 +24,6 @@ var classArcane_1_1SerializedData =
     [ "setBytes", "dc/de4/classArcane_1_1SerializedData.html#aac83c554711a7a2451e7be2c37afad85", null ],
     [ "setConstBytes", "dc/de4/classArcane_1_1SerializedData.html#a3b445b8599fda964c040d681714076cc", null ],
     [ "setWritableBytes", "dc/de4/classArcane_1_1SerializedData.html#a903528e9b65a0fc0ce1add51988a7295", null ],
+    [ "shape", "dc/de4/classArcane_1_1SerializedData.html#afaa2cd6a23ec6e175c2eddce97bde300", null ],
     [ "writableBytes", "dc/de4/classArcane_1_1SerializedData.html#abfe1e60d29bb9ecd9f5356aacbabedee", null ]
 ];

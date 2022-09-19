@@ -18,6 +18,8 @@ var classArcane_1_1IData =
     [ "serialize", "d1/d15/classArcane_1_1IData.html#a1b1eb029f89f73816b990495a7fef422", null ],
     [ "serialize", "d1/d15/classArcane_1_1IData.html#a600ae1ce8df12ae8f50e60ece853eebf", null ],
     [ "setName", "d1/d15/classArcane_1_1IData.html#a6ddd3b6ad98487c172d73f879f700006", null ],
+    [ "setShape", "d1/d15/classArcane_1_1IData.html#ade088410d09f15f86d2a99a0b2ab0c52", null ],
+    [ "shape", "d1/d15/classArcane_1_1IData.html#afc1e4593b0ecf1a2832b69f586b081d0", null ],
     [ "storageTypeInfo", "d1/d15/classArcane_1_1IData.html#ae506995fb107917a318da2d9772e87da", null ],
     [ "swapValues", "d1/d15/classArcane_1_1IData.html#a3d33201f2fb9e8016657f4a4fea57db0", null ],
     [ "visit", "d1/d15/classArcane_1_1IData.html#a82a90fd530712fb1362e6a31349fc69c", null ],

@@ -11,6 +11,7 @@ var classArcane_1_1MeshHandle =
     [ "meshMng", "d7/d6f/classArcane_1_1MeshHandle.html#adcc4255f2466aa66e717cb3b14e176fd", null ],
     [ "meshName", "d7/d6f/classArcane_1_1MeshHandle.html#aea95de71204bc3635917886acaf12ae6", null ],
     [ "meshUserDataList", "d7/d6f/classArcane_1_1MeshHandle.html#a6b1017842feebf24185e35ef19d659d2", null ],
+    [ "onDestroyObservable", "d7/d6f/classArcane_1_1MeshHandle.html#adf7f8b1a910038433357a366ae5af9a5", null ],
     [ "reference", "d7/d6f/classArcane_1_1MeshHandle.html#ab055af89fc4e7672f34c069abd5ef082", null ],
     [ "subDomain", "d7/d6f/classArcane_1_1MeshHandle.html#a9c06334611148a871bcdb6a493b7001d", null ],
     [ "traceMng", "d7/d6f/classArcane_1_1MeshHandle.html#a22db9494ddc0e57cc97eefd890df4c0e", null ],

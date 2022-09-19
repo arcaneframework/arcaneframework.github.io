@@ -153,8 +153,8 @@ var hierarchy =
     [ "Arccore::Array3View< DataType >", "da/d11/classArccore_1_1Array3View.html", null ],
     [ "Arccore::Array4View< DataType >", "df/d8d/classArccore_1_1Array4View.html", null ],
     [ "Arcane::Accelerator::ArrayBoundRunCommand< N, LoopBoundType >", "d6/d2f/classArcane_1_1Accelerator_1_1ArrayBoundRunCommand.html", null ],
-    [ "Arcane::ArrayBounds< RankValue >", "df/d48/classArcane_1_1ArrayBounds.html", null ],
-    [ "Arcane::ArrayBounds< N >", "df/d48/classArcane_1_1ArrayBounds.html", null ],
+    [ "Arcane::ArrayBounds<>", "df/d48/classArcane_1_1ArrayBounds.html", null ],
+    [ "Arcane::ArrayBounds< A_MDDIM(N)>", "df/d48/classArcane_1_1ArrayBounds.html", null ],
     [ "Arcane::ArrayBoundsIndex< RankValue >", "d9/dd0/classArcane_1_1ArrayBoundsIndex.html", null ],
     [ "Arcane::ArrayBoundsIndex< N >", "d9/dd0/classArcane_1_1ArrayBoundsIndex.html", null ],
     [ "Arcane::ArrayBoundsIndexBase< RankValue >", "d9/de8/classArcane_1_1ArrayBoundsIndexBase.html", null ],
@@ -172,41 +172,42 @@ var hierarchy =
     ] ],
     [ "Arcane::ArrayConverter< InputType, OutputType, Converter >", "da/def/classArcane_1_1ArrayConverter.html", null ],
     [ "Arcane::ArrayConverter< InputType, InputType, DefaultConverter< InputType, InputType > >", "d7/dba/classArcane_1_1ArrayConverter_3_01InputType_00_01InputType_00_01DefaultConverter_3_01InputType_00_01InputType_01_4_01_4.html", null ],
+    [ "Arcane::ArrayExtents<>", "da/d2e/classArcane_1_1ArrayExtents.html", null ],
     [ "Arcane::ArrayExtents< RankValue >", "da/d2e/classArcane_1_1ArrayExtents.html", [
-      [ "Arcane::ArrayBoundsBase< 1 >", "dc/db2/classArcane_1_1ArrayBoundsBase.html", [
-        [ "Arcane::ArrayBounds< 1 >", "d0/d8d/classArcane_1_1ArrayBounds_3_011_01_4.html", null ]
+      [ "Arcane::ArrayBoundsBase< MDDim3 >", "dc/db2/classArcane_1_1ArrayBoundsBase.html", [
+        [ "Arcane::ArrayBounds< MDDim3 >", "df/dd8/classArcane_1_1ArrayBounds_3_01MDDim3_01_4.html", null ]
       ] ],
-      [ "Arcane::ArrayBoundsBase< 2 >", "dc/db2/classArcane_1_1ArrayBoundsBase.html", [
-        [ "Arcane::ArrayBounds< 2 >", "db/dda/classArcane_1_1ArrayBounds_3_012_01_4.html", null ]
+      [ "Arcane::ArrayBoundsBase< MDDim2 >", "dc/db2/classArcane_1_1ArrayBoundsBase.html", [
+        [ "Arcane::ArrayBounds< MDDim2 >", "d4/dbe/classArcane_1_1ArrayBounds_3_01MDDim2_01_4.html", null ]
       ] ],
-      [ "Arcane::ArrayBoundsBase< 3 >", "dc/db2/classArcane_1_1ArrayBoundsBase.html", [
-        [ "Arcane::ArrayBounds< 3 >", "df/d37/classArcane_1_1ArrayBounds_3_013_01_4.html", null ]
+      [ "Arcane::ArrayBoundsBase< MDDim4 >", "dc/db2/classArcane_1_1ArrayBoundsBase.html", [
+        [ "Arcane::ArrayBounds< MDDim4 >", "d8/ddd/classArcane_1_1ArrayBounds_3_01MDDim4_01_4.html", null ]
       ] ],
-      [ "Arcane::ArrayBoundsBase< 4 >", "dc/db2/classArcane_1_1ArrayBoundsBase.html", [
-        [ "Arcane::ArrayBounds< 4 >", "dc/dca/classArcane_1_1ArrayBounds_3_014_01_4.html", null ]
+      [ "Arcane::ArrayBoundsBase< MDDim1 >", "dc/db2/classArcane_1_1ArrayBoundsBase.html", [
+        [ "Arcane::ArrayBounds< MDDim1 >", "d5/d0c/classArcane_1_1ArrayBounds_3_01MDDim1_01_4.html", null ]
       ] ],
-      [ "Arcane::ArrayBoundsBase< RankValue >", "dc/db2/classArcane_1_1ArrayBoundsBase.html", null ]
+      [ "Arcane::ArrayBoundsBase<>", "dc/db2/classArcane_1_1ArrayBoundsBase.html", null ]
     ] ],
-    [ "Arcane::ArrayExtentsBase< RankValue >", "db/de6/classArcane_1_1ArrayExtentsBase.html", null ],
-    [ "Arcane::ArrayExtentsBase< 0 >", "da/d3d/classArcane_1_1ArrayExtentsBase_3_010_01_4.html", null ],
-    [ "Arcane::ArrayExtentsBase< 1 >", "db/de6/classArcane_1_1ArrayExtentsBase.html", [
-      [ "Arcane::ArrayExtents< 1 >", "d0/dc3/classArcane_1_1ArrayExtents_3_011_01_4.html", [
-        [ "Arcane::ArrayExtentsWithOffset< 1, LayoutType >", "dd/d3c/classArcane_1_1ArrayExtentsWithOffset_3_011_00_01LayoutType_01_4.html", null ]
+    [ "Arcane::ArrayExtentsBase<>", "db/de6/classArcane_1_1ArrayExtentsBase.html", null ],
+    [ "Arcane::ArrayExtentsBase< MDDim0 >", "d0/d15/classArcane_1_1ArrayExtentsBase_3_01MDDim0_01_4.html", null ],
+    [ "Arcane::ArrayExtentsBase< MDDim1 >", "db/de6/classArcane_1_1ArrayExtentsBase.html", [
+      [ "Arcane::ArrayExtents< MDDim1 >", "d4/dcb/classArcane_1_1ArrayExtents_3_01MDDim1_01_4.html", [
+        [ "Arcane::ArrayExtentsWithOffset< MDDim1, LayoutType >", "d6/d0d/classArcane_1_1ArrayExtentsWithOffset_3_01MDDim1_00_01LayoutType_01_4.html", null ]
       ] ]
     ] ],
-    [ "Arcane::ArrayExtentsBase< 2 >", "db/de6/classArcane_1_1ArrayExtentsBase.html", [
-      [ "Arcane::ArrayExtents< 2 >", "d6/d20/classArcane_1_1ArrayExtents_3_012_01_4.html", [
-        [ "Arcane::ArrayExtentsWithOffset< 2, LayoutType >", "d3/d85/classArcane_1_1ArrayExtentsWithOffset_3_012_00_01LayoutType_01_4.html", null ]
+    [ "Arcane::ArrayExtentsBase< MDDim2 >", "db/de6/classArcane_1_1ArrayExtentsBase.html", [
+      [ "Arcane::ArrayExtents< MDDim2 >", "d9/d7b/classArcane_1_1ArrayExtents_3_01MDDim2_01_4.html", [
+        [ "Arcane::ArrayExtentsWithOffset< MDDim2, LayoutType >", "dd/de5/classArcane_1_1ArrayExtentsWithOffset_3_01MDDim2_00_01LayoutType_01_4.html", null ]
       ] ]
     ] ],
-    [ "Arcane::ArrayExtentsBase< 3 >", "db/de6/classArcane_1_1ArrayExtentsBase.html", [
-      [ "Arcane::ArrayExtents< 3 >", "dc/dd8/classArcane_1_1ArrayExtents_3_013_01_4.html", [
-        [ "Arcane::ArrayExtentsWithOffset< 3, LayoutType >", "d6/da5/classArcane_1_1ArrayExtentsWithOffset_3_013_00_01LayoutType_01_4.html", null ]
+    [ "Arcane::ArrayExtentsBase< MDDim3 >", "db/de6/classArcane_1_1ArrayExtentsBase.html", [
+      [ "Arcane::ArrayExtents< MDDim3 >", "d9/d7c/classArcane_1_1ArrayExtents_3_01MDDim3_01_4.html", [
+        [ "Arcane::ArrayExtentsWithOffset< MDDim3, LayoutType >", "d7/d40/classArcane_1_1ArrayExtentsWithOffset_3_01MDDim3_00_01LayoutType_01_4.html", null ]
       ] ]
     ] ],
-    [ "Arcane::ArrayExtentsBase< 4 >", "db/de6/classArcane_1_1ArrayExtentsBase.html", [
-      [ "Arcane::ArrayExtents< 4 >", "d2/d3c/classArcane_1_1ArrayExtents_3_014_01_4.html", [
-        [ "Arcane::ArrayExtentsWithOffset< 4, LayoutType >", "da/d9a/classArcane_1_1ArrayExtentsWithOffset_3_014_00_01LayoutType_01_4.html", null ]
+    [ "Arcane::ArrayExtentsBase< MDDim4 >", "db/de6/classArcane_1_1ArrayExtentsBase.html", [
+      [ "Arcane::ArrayExtents< MDDim4 >", "d7/d0e/classArcane_1_1ArrayExtents_3_01MDDim4_01_4.html", [
+        [ "Arcane::ArrayExtentsWithOffset< MDDim4, LayoutType >", "d3/d68/classArcane_1_1ArrayExtentsWithOffset_3_01MDDim4_00_01LayoutType_01_4.html", null ]
       ] ]
     ] ],
     [ "Arcane::detail::ArrayExtentsTraits< RankValue >", "d4/d93/classArcane_1_1detail_1_1ArrayExtentsTraits.html", null ],
@@ -215,6 +216,7 @@ var hierarchy =
     [ "Arcane::detail::ArrayExtentsTraits< 2 >", "d4/d71/classArcane_1_1detail_1_1ArrayExtentsTraits_3_012_01_4.html", null ],
     [ "Arcane::detail::ArrayExtentsTraits< 3 >", "d1/d71/classArcane_1_1detail_1_1ArrayExtentsTraits_3_013_01_4.html", null ],
     [ "Arcane::detail::ArrayExtentsTraits< 4 >", "da/ded/classArcane_1_1detail_1_1ArrayExtentsTraits_3_014_01_4.html", null ],
+    [ "Arcane::ArrayExtentsWithOffset<, LayoutType >", "d8/db2/classArcane_1_1ArrayExtentsWithOffset.html", null ],
     [ "Arcane::ArrayExtentsWithOffset< RankValue, LayoutType >", "d8/db2/classArcane_1_1ArrayExtentsWithOffset.html", null ],
     [ "Arcane::ArrayFullAccessorT< T >", "d6/dff/classArcane_1_1ArrayFullAccessorT.html", null ],
     [ "Arccore::ArrayImplBase", "d8/d09/classArccore_1_1ArrayImplBase.html", [
@@ -223,24 +225,25 @@ var hierarchy =
     [ "Arccore::ArrayIterator< _Iterator >", "d3/d2f/classArccore_1_1ArrayIterator.html", null ],
     [ "Arcane::ArrayLayout2< I, J >", "d3/dc8/classArcane_1_1ArrayLayout2.html", null ],
     [ "Arcane::ArrayLayout2< 0, 1 >", "d3/dc8/classArcane_1_1ArrayLayout2.html", [
-      [ "Arcane::RightLayout< 2 >", "d2/dad/classArcane_1_1RightLayout_3_012_01_4.html", [
-        [ "Arcane::DefaultLayout< 2 >", "d7/d29/classArcane_1_1DefaultLayout_3_012_01_4.html", null ]
+      [ "Arcane::RightLayout< MDDim2 >", "de/d83/classArcane_1_1RightLayout_3_01MDDim2_01_4.html", [
+        [ "Arcane::DefaultLayout< MDDim2 >", "d9/d48/classArcane_1_1DefaultLayout_3_01MDDim2_01_4.html", null ]
       ] ]
     ] ],
     [ "Arcane::ArrayLayout2< 1, 0 >", "d3/dc8/classArcane_1_1ArrayLayout2.html", [
-      [ "Arcane::LeftLayout< 2 >", "db/dfb/classArcane_1_1LeftLayout_3_012_01_4.html", null ]
+      [ "Arcane::LeftLayout< MDDim2 >", "d5/d6a/classArcane_1_1LeftLayout_3_01MDDim2_01_4.html", null ]
     ] ],
     [ "Arcane::ArrayLayout3< I, J, K >", "d2/d94/classArcane_1_1ArrayLayout3.html", null ],
     [ "Arcane::ArrayLayout3< 0, 1, 2 >", "d2/d94/classArcane_1_1ArrayLayout3.html", [
-      [ "Arcane::RightLayout< 3 >", "d6/d5d/classArcane_1_1RightLayout_3_013_01_4.html", [
-        [ "Arcane::DefaultLayout< 3 >", "d4/dbd/classArcane_1_1DefaultLayout_3_013_01_4.html", null ]
+      [ "Arcane::RightLayout< MDDim3 >", "d8/d36/classArcane_1_1RightLayout_3_01MDDim3_01_4.html", [
+        [ "Arcane::DefaultLayout< MDDim3 >", "d7/d2f/classArcane_1_1DefaultLayout_3_01MDDim3_01_4.html", null ]
       ] ]
     ] ],
     [ "Arcane::ArrayLayout3< 2, 1, 0 >", "d2/d94/classArcane_1_1ArrayLayout3.html", [
-      [ "Arcane::LeftLayout< 3 >", "d1/d4d/classArcane_1_1LeftLayout_3_013_01_4.html", null ]
+      [ "Arcane::LeftLayout< MDDim3 >", "d3/df8/classArcane_1_1LeftLayout_3_01MDDim3_01_4.html", null ]
     ] ],
     [ "Arccore::ArrayMetaData", "d3/df1/classArccore_1_1ArrayMetaData.html", null ],
     [ "Arccore::ArrayRange< T >", "d8/d5a/classArccore_1_1ArrayRange.html", null ],
+    [ "Arcane::ArrayShape", "d8/d57/classArcane_1_1ArrayShape.html", null ],
     [ "Arccore::ArraySizeChecker< IntType >", "d5/d41/classArccore_1_1ArraySizeChecker.html", null ],
     [ "Arccore::ArraySizeChecker< Int32 >", "db/d32/classArccore_1_1ArraySizeChecker_3_01Int32_01_4.html", null ],
     [ "Arccore::ArraySizeChecker< Int64 >", "d8/d1a/classArccore_1_1ArraySizeChecker_3_01Int64_01_4.html", null ],
@@ -537,7 +540,7 @@ var hierarchy =
     ] ],
     [ "Arcane::DefaultConverter< TypeA, TypeB >", "da/d59/classArcane_1_1DefaultConverter.html", null ],
     [ "Arcane::DefaultConverter< InputType, OutputType >", "da/d59/classArcane_1_1DefaultConverter.html", null ],
-    [ "Arcane::DefaultLayout< RankValue >", "db/d8e/classArcane_1_1DefaultLayout.html", null ],
+    [ "Arcane::DefaultLayout<>", "db/d8e/classArcane_1_1DefaultLayout.html", null ],
     [ "Arcane::DeleteOnDestroyBehaviour< T >", "db/d88/classArcane_1_1DeleteOnDestroyBehaviour.html", null ],
     [ "Arcane::Deleter", "d0/dcb/classArcane_1_1Deleter.html", null ],
     [ "Arccore::RefBase::DeleterBase", "d4/d57/classArccore_1_1RefBase_1_1DeleterBase.html", null ],
@@ -1728,9 +1731,9 @@ var hierarchy =
     [ "Arcane::JSONValueList", "d4/dd2/classArcane_1_1JSONValueList.html", null ],
     [ "Arcane::JSONWrapperUtils", "d6/d9d/classArcane_1_1JSONWrapperUtils.html", null ],
     [ "Arcane::JSONWriter", "d9/d23/classArcane_1_1JSONWriter.html", null ],
-    [ "Arcane::LeftLayout< RankValue >", "dc/dfc/classArcane_1_1LeftLayout.html", null ],
-    [ "Arcane::LIBXML2_DOMImplementation", "d6/d7f/classArcane_1_1LIBXML2__DOMImplementation.html", null ],
+    [ "Arcane::LeftLayout<>", "dc/dfc/classArcane_1_1LeftLayout.html", null ],
     [ "Arcane::LibXml2_DOMImplementation", "d4/d59/classArcane_1_1LibXml2__DOMImplementation.html", null ],
+    [ "Arcane::LIBXML2_DOMImplementation", "d6/d7f/classArcane_1_1LIBXML2__DOMImplementation.html", null ],
     [ "Arcane::LIBXML2_DOMNamespaceContext", "d7/dca/classArcane_1_1LIBXML2__DOMNamespaceContext.html", null ],
     [ "Arcane::LIBXML2_DOMWriter", "d6/d9f/classArcane_1_1LIBXML2__DOMWriter.html", null ],
     [ "Arcane::LibXml2_ErrorHandler", "da/dc9/classArcane_1_1LibXml2__ErrorHandler.html", null ],
@@ -1802,20 +1805,21 @@ var hierarchy =
     ] ],
     [ "Arcane::Materials::MatVarIndex", "d1/d89/classArcane_1_1Materials_1_1MatVarIndex.html", null ],
     [ "md5_ctx", "d0/d9a/structmd5__ctx.html", null ],
+    [ "Arcane::MDDim< RankValue >", "d4/d10/classArcane_1_1MDDim.html", null ],
+    [ "Arcane::MDSpan< DataType,, LayoutType >", "d8/d5d/classArcane_1_1MDSpan.html", null ],
     [ "Arcane::MDSpan< DataType, RankValue, LayoutType >", "d8/d5d/classArcane_1_1MDSpan.html", null ],
-    [ "Arcane::MDSpan< DataType, RankValue, LayoutType >", "d8/d5d/classArcane_1_1MDSpan.html", null ],
-    [ "Arcane::MDSpanBase< DataType, RankValue, LayoutType >", "d8/df1/classArcane_1_1MDSpanBase.html", null ],
-    [ "Arcane::MDSpanBase< DataType, 1, LayoutType >", "d8/df1/classArcane_1_1MDSpanBase.html", [
-      [ "Arcane::MDSpan< DataType, 1, LayoutType >", "d1/d78/classArcane_1_1MDSpan_3_01DataType_00_011_00_01LayoutType_01_4.html", null ]
+    [ "Arcane::MDSpanBase< DataType,, LayoutType >", "d8/df1/classArcane_1_1MDSpanBase.html", null ],
+    [ "Arcane::MDSpanBase< DataType, MDDim1, LayoutType >", "d8/df1/classArcane_1_1MDSpanBase.html", [
+      [ "Arcane::MDSpan< DataType, MDDim1, LayoutType >", "d1/d8e/classArcane_1_1MDSpan_3_01DataType_00_01MDDim1_00_01LayoutType_01_4.html", null ]
     ] ],
-    [ "Arcane::MDSpanBase< DataType, 2, LayoutType >", "d8/df1/classArcane_1_1MDSpanBase.html", [
-      [ "Arcane::MDSpan< DataType, 2, LayoutType >", "d5/de8/classArcane_1_1MDSpan_3_01DataType_00_012_00_01LayoutType_01_4.html", null ]
+    [ "Arcane::MDSpanBase< DataType, MDDim2, LayoutType >", "d8/df1/classArcane_1_1MDSpanBase.html", [
+      [ "Arcane::MDSpan< DataType, MDDim2, LayoutType >", "d9/d8d/classArcane_1_1MDSpan_3_01DataType_00_01MDDim2_00_01LayoutType_01_4.html", null ]
     ] ],
-    [ "Arcane::MDSpanBase< DataType, 3, LayoutType >", "d8/df1/classArcane_1_1MDSpanBase.html", [
-      [ "Arcane::MDSpan< DataType, 3, LayoutType >", "d3/dfd/classArcane_1_1MDSpan_3_01DataType_00_013_00_01LayoutType_01_4.html", null ]
+    [ "Arcane::MDSpanBase< DataType, MDDim3, LayoutType >", "d8/df1/classArcane_1_1MDSpanBase.html", [
+      [ "Arcane::MDSpan< DataType, MDDim3, LayoutType >", "df/db1/classArcane_1_1MDSpan_3_01DataType_00_01MDDim3_00_01LayoutType_01_4.html", null ]
     ] ],
-    [ "Arcane::MDSpanBase< DataType, 4, LayoutType >", "d8/df1/classArcane_1_1MDSpanBase.html", [
-      [ "Arcane::MDSpan< DataType, 4, LayoutType >", "d7/d56/classArcane_1_1MDSpan_3_01DataType_00_014_00_01LayoutType_01_4.html", null ]
+    [ "Arcane::MDSpanBase< DataType, MDDim4, LayoutType >", "d8/df1/classArcane_1_1MDSpanBase.html", [
+      [ "Arcane::MDSpan< DataType, MDDim4, LayoutType >", "d6/d13/classArcane_1_1MDSpan_3_01DataType_00_01MDDim4_00_01LayoutType_01_4.html", null ]
     ] ],
     [ "Arcane::MemoryAccessInfo", "da/d2a/classArcane_1_1MemoryAccessInfo.html", null ],
     [ "Arcane::Accelerator::MemoryCopyArgs", "de/d00/classArcane_1_1Accelerator_1_1MemoryCopyArgs.html", null ],
@@ -1959,30 +1963,30 @@ var hierarchy =
     [ "Arcane::NodeDirectionMng", "d8/d21/classArcane_1_1NodeDirectionMng.html", null ],
     [ "Arcane::NodeList", "d4/dfb/classArcane_1_1NodeList.html", null ],
     [ "Arcane::IItemFamilySerializeStep::NotifyActionArgs", "de/d48/classArcane_1_1IItemFamilySerializeStep_1_1NotifyActionArgs.html", null ],
-    [ "Arcane::NumArray< DataType, RankValue, LayoutType >", "d9/d8e/classArcane_1_1NumArray.html", null ],
+    [ "Arcane::NumArray< DataType,, LayoutType >", "d9/d8e/classArcane_1_1NumArray.html", null ],
     [ "Arcane::NumArrayBaseCommon", "d1/dc3/classArcane_1_1NumArrayBaseCommon.html", [
-      [ "Arcane::NumArrayBase< DataType, 4, LayoutType >", "d8/d39/classArcane_1_1NumArrayBase.html", [
-        [ "Arcane::NumArray< DataType, 4, LayoutType >", "de/da4/classArcane_1_1NumArray_3_01DataType_00_014_00_01LayoutType_01_4.html", null ]
+      [ "Arcane::NumArrayBase< DataType, MDDim1, LayoutType >", "d8/d39/classArcane_1_1NumArrayBase.html", [
+        [ "Arcane::NumArray< DataType, MDDim1, LayoutType >", "de/dac/classArcane_1_1NumArray_3_01DataType_00_01MDDim1_00_01LayoutType_01_4.html", null ]
       ] ],
-      [ "Arcane::NumArrayBase< DataType, 3, LayoutType >", "d8/d39/classArcane_1_1NumArrayBase.html", [
-        [ "Arcane::NumArray< DataType, 3, LayoutType >", "d0/dfa/classArcane_1_1NumArray_3_01DataType_00_013_00_01LayoutType_01_4.html", null ]
+      [ "Arcane::NumArrayBase< DataType, MDDim4, LayoutType >", "d8/d39/classArcane_1_1NumArrayBase.html", [
+        [ "Arcane::NumArray< DataType, MDDim4, LayoutType >", "d9/dcc/classArcane_1_1NumArray_3_01DataType_00_01MDDim4_00_01LayoutType_01_4.html", null ]
       ] ],
-      [ "Arcane::NumArrayBase< DataType, 2, LayoutType >", "d8/d39/classArcane_1_1NumArrayBase.html", [
-        [ "Arcane::NumArray< DataType, 2, LayoutType >", "d5/d2e/classArcane_1_1NumArray_3_01DataType_00_012_00_01LayoutType_01_4.html", null ]
+      [ "Arcane::NumArrayBase< DataType, MDDim3, LayoutType >", "d8/d39/classArcane_1_1NumArrayBase.html", [
+        [ "Arcane::NumArray< DataType, MDDim3, LayoutType >", "d7/d69/classArcane_1_1NumArray_3_01DataType_00_01MDDim3_00_01LayoutType_01_4.html", null ]
       ] ],
-      [ "Arcane::NumArrayBase< DataType, 1, LayoutType >", "d8/d39/classArcane_1_1NumArrayBase.html", [
-        [ "Arcane::NumArray< DataType, 1, LayoutType >", "d6/d62/classArcane_1_1NumArray_3_01DataType_00_011_00_01LayoutType_01_4.html", null ]
+      [ "Arcane::NumArrayBase< DataType, MDDim2, LayoutType >", "d8/d39/classArcane_1_1NumArrayBase.html", [
+        [ "Arcane::NumArray< DataType, MDDim2, LayoutType >", "dd/d77/classArcane_1_1NumArray_3_01DataType_00_01MDDim2_00_01LayoutType_01_4.html", null ]
       ] ],
-      [ "Arcane::NumArrayBase< DataType, RankValue, LayoutType >", "d8/d39/classArcane_1_1NumArrayBase.html", null ]
+      [ "Arcane::NumArrayBase< DataType,, LayoutType >", "d8/d39/classArcane_1_1NumArrayBase.html", null ]
     ] ],
-    [ "Arcane::Accelerator::NumArrayView< Accessor, N, LayoutType >", "df/d9d/classArcane_1_1Accelerator_1_1NumArrayView.html", null ],
+    [ "Arcane::Accelerator::NumArrayView< Accessor,, LayoutType >", "df/d9d/classArcane_1_1Accelerator_1_1NumArrayView.html", null ],
     [ "Arcane::Accelerator::NumArrayViewBase", "d5/dea/classArcane_1_1Accelerator_1_1NumArrayViewBase.html", [
-      [ "Arcane::Accelerator::NumArrayView< Accessor, 1, LayoutType >", "d7/d42/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_011_00_01LayoutType_01_4.html", null ],
-      [ "Arcane::Accelerator::NumArrayView< Accessor, 2, LayoutType >", "da/db8/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_012_00_01LayoutType_01_4.html", null ],
-      [ "Arcane::Accelerator::NumArrayView< Accessor, 3, LayoutType >", "d6/dfa/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_013_00_01LayoutType_01_4.html", null ],
-      [ "Arcane::Accelerator::NumArrayView< Accessor, 4, LayoutType >", "d8/d86/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_014_00_01LayoutType_01_4.html", null ]
+      [ "Arcane::Accelerator::NumArrayView< Accessor, MDDim1, LayoutType >", "d8/d6c/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_01MDDim1_00_01LayoutType_01_4.html", null ],
+      [ "Arcane::Accelerator::NumArrayView< Accessor, MDDim2, LayoutType >", "d8/dcb/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_01MDDim2_00_01LayoutType_01_4.html", null ],
+      [ "Arcane::Accelerator::NumArrayView< Accessor, MDDim3, LayoutType >", "df/d44/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_01MDDim3_00_01LayoutType_01_4.html", null ],
+      [ "Arcane::Accelerator::NumArrayView< Accessor, MDDim4, LayoutType >", "d2/d75/classArcane_1_1Accelerator_1_1NumArrayView_3_01Accessor_00_01MDDim4_00_01LayoutType_01_4.html", null ]
     ] ],
-    [ "Arcane::Accelerator::NumArrayViewSetter< DataType, N, LayoutType >", "de/d83/classArcane_1_1Accelerator_1_1NumArrayViewSetter.html", null ],
+    [ "Arcane::Accelerator::NumArrayViewSetter< DataType,, LayoutType >", "de/d83/classArcane_1_1Accelerator_1_1NumArrayViewSetter.html", null ],
     [ "Arcane::NumericTraitsT< DataType >", "dd/dd5/classArcane_1_1NumericTraitsT.html", null ],
     [ "Arcane::NumericTraitsT< const Real2 >", "dd/d9d/classArcane_1_1NumericTraitsT_3_01const_01Real2_01_4.html", null ],
     [ "Arcane::NumericTraitsT< const Real2x2 >", "d3/d6d/classArcane_1_1NumericTraitsT_3_01const_01Real2x2_01_4.html", null ],
@@ -2292,7 +2296,7 @@ var hierarchy =
     ] ],
     [ "Arccore::MessagePassing::Mpi::MpiAdapter::RequestSet::RequestInfo", "d8/da9/structArccore_1_1MessagePassing_1_1Mpi_1_1MpiAdapter_1_1RequestSet_1_1RequestInfo.html", null ],
     [ "Arcane::DirectedAcyclicGraphT< VertexType, EdgeType >::SortedElementSet< ContainerT >::ReverseOrderSet< T >", "d6/d2b/classArcane_1_1DirectedAcyclicGraphT_1_1SortedElementSet_1_1ReverseOrderSet.html", null ],
-    [ "Arcane::RightLayout< RankValue >", "d8/ded/classArcane_1_1RightLayout.html", null ],
+    [ "Arcane::RightLayout<>", "d8/ded/classArcane_1_1RightLayout.html", null ],
     [ "Arcane::RNGSeedHelper", "d4/d6b/classArcane_1_1RNGSeedHelper.html", null ],
     [ "Arcane::Accelerator::RunCommand", "dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html", null ],
     [ "Arcane::Accelerator::impl::RunCommandImpl", "d2/d7c/classArcane_1_1Accelerator_1_1impl_1_1RunCommandImpl.html", null ],

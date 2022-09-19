@@ -23,5 +23,6 @@ var classArcane_1_1ISerializedData =
     [ "setBytes", "d9/d08/classArcane_1_1ISerializedData.html#ab8c3e8f7e7f8e2f336cbd2fd66b4e72d", null ],
     [ "setConstBytes", "d9/d08/classArcane_1_1ISerializedData.html#a4b5eac8b5065e58e158d881c303bf835", null ],
     [ "setWritableBytes", "d9/d08/classArcane_1_1ISerializedData.html#a4b42e0ae250c4169173a05016230d0c6", null ],
+    [ "shape", "d9/d08/classArcane_1_1ISerializedData.html#a0ae4a31875947020d6400a382b83059f", null ],
     [ "writableBytes", "d9/d08/classArcane_1_1ISerializedData.html#ae6de6100e4c7c9b8cccf1897112ad984", null ]
 ];
