@@ -81,6 +81,13 @@ var annotated_dup =
         [ "DataViewGetterSetter", "df/dfe/classArcane_1_1Accelerator_1_1DataViewGetterSetter.html", "df/dfe/classArcane_1_1Accelerator_1_1DataViewGetterSetter" ],
         [ "DataViewGetter", "de/da3/classArcane_1_1Accelerator_1_1DataViewGetter.html", "de/da3/classArcane_1_1Accelerator_1_1DataViewGetter" ]
       ] ],
+      [ "Convert", "d5/dee/namespaceArcane_1_1Convert.html", [
+        [ "Type", "d2/d43/classArcane_1_1Convert_1_1Type.html", null ],
+        [ "ScalarType", "d4/d87/classArcane_1_1Convert_1_1ScalarType.html", null ],
+        [ "Type< Int64 >", "d3/d28/classArcane_1_1Convert_1_1Type_3_01Int64_01_4.html", null ],
+        [ "Type< Int32 >", "d7/d69/classArcane_1_1Convert_1_1Type_3_01Int32_01_4.html", null ],
+        [ "Type< Real >", "dc/d81/classArcane_1_1Convert_1_1Type_3_01Real_01_4.html", null ]
+      ] ],
       [ "DependencyInjection", null, [
         [ "impl", null, [
           [ "FactoryInfo", null, [
@@ -130,7 +137,8 @@ var annotated_dup =
       ] ],
       [ "impl", null, [
         [ "ItemBase", "d7/d1e/classArcane_1_1impl_1_1ItemBase.html", "d7/d1e/classArcane_1_1impl_1_1ItemBase" ],
-        [ "NumArrayContainer", "de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html", "de/d6c/classArcane_1_1impl_1_1NumArrayContainer" ]
+        [ "NumArrayContainer", "de/d6c/classArcane_1_1impl_1_1NumArrayContainer.html", "de/d6c/classArcane_1_1impl_1_1NumArrayContainer" ],
+        [ "CartesianItemDirectionInfo", "da/d1b/classArcane_1_1impl_1_1CartesianItemDirectionInfo.html", "da/d1b/classArcane_1_1impl_1_1CartesianItemDirectionInfo" ]
       ] ],
       [ "internal", null, [
         [ "TraceAccessor2", "d7/d83/classArcane_1_1internal_1_1TraceAccessor2.html", "d7/d83/classArcane_1_1internal_1_1TraceAccessor2" ],

@@ -2,11 +2,12 @@ var classArcane_1_1CellDirectionMng =
 [
     [ "Impl", "d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html", "d6/d45/classArcane_1_1CellDirectionMng_1_1Impl" ],
     [ "CellDirectionMng", "da/d4d/classArcane_1_1CellDirectionMng.html#a96225a909dfad237464f09229040f623", null ],
-    [ "~CellDirectionMng", "da/d4d/classArcane_1_1CellDirectionMng.html#a148aba737193b9bff4d22eb2ecb55ad6", null ],
     [ "_internalComputeInnerAndOuterItems", "da/d4d/classArcane_1_1CellDirectionMng.html#ae549f833c0a9b18fae3096fe623fca1a", null ],
     [ "_internalDestroy", "da/d4d/classArcane_1_1CellDirectionMng.html#a0bdada240b6b488d3c657d1b90aac250", null ],
     [ "_internalInit", "da/d4d/classArcane_1_1CellDirectionMng.html#a7e3493731d53831acc56347bad914615", null ],
+    [ "_internalResizeInfos", "da/d4d/classArcane_1_1CellDirectionMng.html#adc0ba253b06e105047adece27a5ea2e6", null ],
     [ "_internalSetLocalFaceIndex", "da/d4d/classArcane_1_1CellDirectionMng.html#a9627902c032e6da5c417d5537887bc2e", null ],
+    [ "_internalSetOffsetAndNbCellInfos", "da/d4d/classArcane_1_1CellDirectionMng.html#a28f34497f6a1c672033ac43f4ba1914c", null ],
     [ "allCells", "da/d4d/classArcane_1_1CellDirectionMng.html#a32f26f5458316dfb63d52b604384bda2", null ],
     [ "cell", "da/d4d/classArcane_1_1CellDirectionMng.html#a763755f75dfc388ea7a2a46397527628", null ],
     [ "cell", "da/d4d/classArcane_1_1CellDirectionMng.html#a42d4f7d94af03bc498cce2d8d20d38dc", null ],

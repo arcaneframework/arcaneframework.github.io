@@ -42,7 +42,6 @@ var hierarchy =
         [ "Arccore::Array< T >", "d9/d09/classArccore_1_1Array.html", [
           [ "Arccore::SharedArray< XmlNode >", "d4/dee/classArccore_1_1SharedArray.html", null ],
           [ "Arccore::SharedArray< Integer >", "d4/dee/classArccore_1_1SharedArray.html", null ],
-          [ "Arccore::SharedArray< ItemDirectionInfo >", "d4/dee/classArccore_1_1SharedArray.html", null ],
           [ "Arccore::SharedArray< Real >", "d4/dee/classArccore_1_1SharedArray.html", null ],
           [ "Arccore::UniqueArray< Arccore::MessagePassing::Request >", "da/daa/classArccore_1_1UniqueArray.html", null ],
           [ "Arccore::UniqueArray< Arccore::Ref< Arccore::MessagePassing::ISerializeMessage > >", "da/daa/classArccore_1_1UniqueArray.html", null ],
@@ -88,6 +87,7 @@ var hierarchy =
           [ "Arccore::UniqueArray< PrivatePartType * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
           [ "Arccore::UniqueArray< Arcane::Materials::ComponentItemInternal * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
           [ "Arccore::UniqueArray< Arcane::ItemGroupImpl * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< Arcane::impl::CartesianItemDirectionInfo >", "da/daa/classArccore_1_1UniqueArray.html", null ],
           [ "Arccore::UniqueArray< Arccore::Ref< InterfaceType > >", "da/daa/classArccore_1_1UniqueArray.html", null ],
           [ "Arccore::UniqueArray< Arccore::MessagePassing::Mpi::MpiSerializeDispatcher::SerializeSubRequest * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
           [ "Arccore::UniqueArray< Arcane::MeshMaterialModifierImpl::Operation * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
@@ -105,6 +105,7 @@ var hierarchy =
           [ "Arccore::UniqueArray< Arcane::Materials::IMeshMaterial * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
           [ "Arccore::UniqueArray< OutputType >", "da/daa/classArccore_1_1UniqueArray.html", null ],
           [ "Arccore::UniqueArray< Arccore::MessagePassing::Mpi::MpiSerializeMessageRequest >", "da/daa/classArccore_1_1UniqueArray.html", null ],
+          [ "Arccore::UniqueArray< ItemDirectionInfo >", "da/daa/classArccore_1_1UniqueArray.html", null ],
           [ "Arccore::UniqueArray< Arcane::Materials::MeshMaterialVariableIndexer * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
           [ "Arccore::UniqueArray< InterfaceType * >", "da/daa/classArccore_1_1UniqueArray.html", null ],
           [ "Arccore::UniqueArray< Arcane::ApplicationBuildInfo::Impl::NameValuePair >", "da/daa/classArccore_1_1UniqueArray.html", null ],
@@ -323,6 +324,7 @@ var hierarchy =
     [ "Arcane::BuiltInProxy< Type >", "d7/dc2/classArcane_1_1BuiltInProxy.html", null ],
     [ "Arcane::BuiltInProxy< Real >", "d7/dc2/classArcane_1_1BuiltInProxy.html", null ],
     [ "Arcane::CartesianConnectivity", "d2/d47/classArcane_1_1CartesianConnectivity.html", null ],
+    [ "Arcane::impl::CartesianItemDirectionInfo", "da/d1b/classArcane_1_1impl_1_1CartesianItemDirectionInfo.html", null ],
     [ "Arcane::CartesianMeshRenumberingInfo", "d6/d6b/classArcane_1_1CartesianMeshRenumberingInfo.html", null ],
     [ "Arcane::CaseDatasetSource", "da/d8c/classArcane_1_1CaseDatasetSource.html", null ],
     [ "Arcane::CaseFunctionBuildInfo", "dc/d19/classArcane_1_1CaseFunctionBuildInfo.html", null ],
@@ -2306,6 +2308,16 @@ var hierarchy =
     [ "Arcane::Accelerator::RunQueueBuildInfo", "df/d13/classArcane_1_1Accelerator_1_1RunQueueBuildInfo.html", null ],
     [ "Arcane::Accelerator::RunQueueEvent", "d2/d0b/classArcane_1_1Accelerator_1_1RunQueueEvent.html", null ],
     [ "Arcane::Accelerator::impl::RunQueueImpl", "d1/d0a/classArcane_1_1Accelerator_1_1impl_1_1RunQueueImpl.html", null ],
+    [ "Arcane::Convert::ScalarType< T >", "d4/d87/classArcane_1_1Convert_1_1ScalarType.html", null ],
+    [ "Arcane::Convert::ScalarType< Int32 >", "d4/d87/classArcane_1_1Convert_1_1ScalarType.html", [
+      [ "Arcane::Convert::Type< Int32 >", "d7/d69/classArcane_1_1Convert_1_1Type_3_01Int32_01_4.html", null ]
+    ] ],
+    [ "Arcane::Convert::ScalarType< Int64 >", "d4/d87/classArcane_1_1Convert_1_1ScalarType.html", [
+      [ "Arcane::Convert::Type< Int64 >", "d3/d28/classArcane_1_1Convert_1_1Type_3_01Int64_01_4.html", null ]
+    ] ],
+    [ "Arcane::Convert::ScalarType< Real >", "d4/d87/classArcane_1_1Convert_1_1ScalarType.html", [
+      [ "Arcane::Convert::Type< Real >", "dc/d81/classArcane_1_1Convert_1_1Type_3_01Real_01_4.html", null ]
+    ] ],
     [ "Arccore::GlobalMutex::ScopedLock", "dd/d68/classArccore_1_1GlobalMutex_1_1ScopedLock.html", null ],
     [ "Arccore::Mutex::ScopedLock", "dc/d26/classArccore_1_1Mutex_1_1ScopedLock.html", null ],
     [ "Arccore::SpinLock::ScopedLock", "dc/dea/classArccore_1_1SpinLock_1_1ScopedLock.html", null ],
@@ -2396,7 +2408,9 @@ var hierarchy =
     [ "Arccore::SpanImpl< T, SizeType >", "d6/d42/classArccore_1_1SpanImpl.html", [
       [ "Arccore::SmallSpan< const DataType >", "d2/d75/classArccore_1_1SmallSpan.html", null ],
       [ "Arccore::SmallSpan< const LocalIdType >", "d2/d75/classArccore_1_1SmallSpan.html", null ],
+      [ "Arccore::SmallSpan< Arcane::impl::CartesianItemDirectionInfo >", "d2/d75/classArccore_1_1SmallSpan.html", null ],
       [ "Arccore::SmallSpan< DataType >", "d2/d75/classArccore_1_1SmallSpan.html", null ],
+      [ "Arccore::SmallSpan< ItemDirectionInfo >", "d2/d75/classArccore_1_1SmallSpan.html", null ],
       [ "Arccore::SmallSpan< const Int32 >", "d2/d75/classArccore_1_1SmallSpan.html", null ],
       [ "Arccore::Span< const DataType >", "dd/d9f/classArccore_1_1Span.html", null ],
       [ "Arccore::Span< const Byte >", "dd/d9f/classArccore_1_1Span.html", null ],
@@ -2530,6 +2544,7 @@ var hierarchy =
     ] ],
     [ "Arcane::TrueType", "d4/dc3/structArcane_1_1TrueType.html", null ],
     [ "Arccore::TrueType", "d8/dd2/structArccore_1_1TrueType.html", null ],
+    [ "Arcane::Convert::Type< T >", "d2/d43/classArcane_1_1Convert_1_1Type.html", null ],
     [ "Arcane::TypeEqualT< T >", "da/d09/classArcane_1_1TypeEqualT.html", null ],
     [ "TypesMicroHydro", "da/d1c/structTypesMicroHydro.html", null ],
     [ "TypesPoisson", "d8/dc2/structTypesPoisson.html", null ],

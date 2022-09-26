@@ -1,6 +1,7 @@
 var dir_226583552bc7daec70a5143879a500d9 =
 [
     [ "CartesianConnectivity.h", "d5/dd9/cartesianmesh_2CartesianConnectivity_8h_source.html", null ],
+    [ "CartesianItemDirectionInfo.h", "d0/db0/CartesianItemDirectionInfo_8h_source.html", null ],
     [ "CartesianMeshGlobal.h", "d3/da4/CartesianMeshGlobal_8h_source.html", null ],
     [ "CartesianMeshRenumberingInfo.h", "d4/d8c/cartesianmesh_2CartesianMeshRenumberingInfo_8h_source.html", null ],
     [ "CellDirectionMng.h", "df/d84/cartesianmesh_2CellDirectionMng_8h_source.html", null ],

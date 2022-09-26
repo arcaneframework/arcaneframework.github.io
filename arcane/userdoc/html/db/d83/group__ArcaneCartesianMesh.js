@@ -2,8 +2,7 @@ var group__ArcaneCartesianMesh =
 [
     [ "CartesianConnectivity", "d2/d47/classArcane_1_1CartesianConnectivity.html", [
       [ "Index", "db/d96/structArcane_1_1CartesianConnectivity_1_1Index.html", [
-        [ "fill", "db/d96/structArcane_1_1CartesianConnectivity_1_1Index.html#a5af11fc34c66a7eb3b39a576f04345bd", null ],
-        [ "v", "db/d96/structArcane_1_1CartesianConnectivity_1_1Index.html#a372da1ae9f920e09b7e812a5541f2dc4", null ]
+        [ "CartesianConnectivity", "db/d96/structArcane_1_1CartesianConnectivity_1_1Index.html#a5980b6c11edcfad5d3634ec219b2a4b0", null ]
       ] ],
       [ "computeInfos", "d2/d47/classArcane_1_1CartesianConnectivity.html#a47b97a5529db14a1857aa4d425a2898c", null ],
       [ "lowerLeft", "d2/d47/classArcane_1_1CartesianConnectivity.html#ab546ce3ea5d85df3c32be465613af879", null ],
@@ -81,16 +80,22 @@ var group__ArcaneCartesianMesh =
       [ "Impl", "d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html", [
         [ "m_all_items", "d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html#ab3c0ec08efef938622f538835b756172", null ],
         [ "m_cartesian_mesh", "d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html#aa426602d8c359e1d83a7d1b9d91d57c4", null ],
+        [ "m_global_nb_cell", "d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html#ae2071ee7057d73ed8bf08b1924dc6e5b", null ],
+        [ "m_infos", "d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html#a761fe26e2fc216fbf4af1979573f16be", null ],
         [ "m_inner_all_items", "d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html#a0a23637ac4d99ec0931271ea6b8888ae", null ],
         [ "m_outer_all_items", "d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html#a0fb70a0a1508eb7b899c6359f60a7022", null ],
-        [ "m_patch_index", "d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html#a34cda4afe097454c38a26a9292190444", null ]
+        [ "m_own_cell_offset", "d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html#aa949b89714957aa63a9aaa92ddde07ce", null ],
+        [ "m_own_nb_cell", "d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html#a1999a7e80ab6d06f77c6efbcaed5c0f4", null ],
+        [ "m_patch_index", "d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html#a34cda4afe097454c38a26a9292190444", null ],
+        [ "m_sub_domain_offset", "d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html#a2b743754cfcc235c5684e6785bbda419", null ]
       ] ],
       [ "CellDirectionMng", "da/d4d/classArcane_1_1CellDirectionMng.html#a96225a909dfad237464f09229040f623", null ],
-      [ "~CellDirectionMng", "da/d4d/classArcane_1_1CellDirectionMng.html#a148aba737193b9bff4d22eb2ecb55ad6", null ],
       [ "_internalComputeInnerAndOuterItems", "da/d4d/classArcane_1_1CellDirectionMng.html#ae549f833c0a9b18fae3096fe623fca1a", null ],
       [ "_internalDestroy", "da/d4d/classArcane_1_1CellDirectionMng.html#a0bdada240b6b488d3c657d1b90aac250", null ],
       [ "_internalInit", "da/d4d/classArcane_1_1CellDirectionMng.html#a7e3493731d53831acc56347bad914615", null ],
+      [ "_internalResizeInfos", "da/d4d/classArcane_1_1CellDirectionMng.html#adc0ba253b06e105047adece27a5ea2e6", null ],
       [ "_internalSetLocalFaceIndex", "da/d4d/classArcane_1_1CellDirectionMng.html#a9627902c032e6da5c417d5537887bc2e", null ],
+      [ "_internalSetOffsetAndNbCellInfos", "da/d4d/classArcane_1_1CellDirectionMng.html#a28f34497f6a1c672033ac43f4ba1914c", null ],
       [ "allCells", "da/d4d/classArcane_1_1CellDirectionMng.html#a32f26f5458316dfb63d52b604384bda2", null ],
       [ "cell", "da/d4d/classArcane_1_1CellDirectionMng.html#a763755f75dfc388ea7a2a46397527628", null ],
       [ "cell", "da/d4d/classArcane_1_1CellDirectionMng.html#a42d4f7d94af03bc498cce2d8d20d38dc", null ],
@@ -119,15 +124,12 @@ var group__ArcaneCartesianMesh =
       [ "Impl", "d1/d38/classArcane_1_1FaceDirectionMng_1_1Impl.html", [
         [ "m_all_items", "d1/d38/classArcane_1_1FaceDirectionMng_1_1Impl.html#a8dadf1a3561b7bd7ea3ad4164d9e0f0f", null ],
         [ "m_cartesian_mesh", "d1/d38/classArcane_1_1FaceDirectionMng_1_1Impl.html#ae5b00ecb6959b8bf40053c6b4dca284f", null ],
+        [ "m_infos", "d1/d38/classArcane_1_1FaceDirectionMng_1_1Impl.html#a47d699bef7d08f6488611182c7fb8e35", null ],
         [ "m_inner_all_items", "d1/d38/classArcane_1_1FaceDirectionMng_1_1Impl.html#a2ee061490373359cf13f82f61c04df01", null ],
         [ "m_outer_all_items", "d1/d38/classArcane_1_1FaceDirectionMng_1_1Impl.html#a45b6cc1c47a33e2095c8089abc22db96", null ],
         [ "m_patch_index", "d1/d38/classArcane_1_1FaceDirectionMng_1_1Impl.html#ae17635582425358f6cda456310231421", null ]
       ] ],
       [ "FaceDirectionMng", "db/dbe/classArcane_1_1FaceDirectionMng.html#a73e25b6ec727bbe2427677cf1fc6648e", null ],
-      [ "~FaceDirectionMng", "db/dbe/classArcane_1_1FaceDirectionMng.html#aa5dd2de55752c7ab0af77346d4ef8b23", null ],
-      [ "_internalComputeInfos", "db/dbe/classArcane_1_1FaceDirectionMng.html#a399dbb32541ad0f73512c20a87844496", null ],
-      [ "_internalDestroy", "db/dbe/classArcane_1_1FaceDirectionMng.html#a55eb01bb33a9cbd68403dabd3fc45051", null ],
-      [ "_internalInit", "db/dbe/classArcane_1_1FaceDirectionMng.html#a7d06c47ee834836a8c549fda89c0aa77", null ],
       [ "allFaces", "db/dbe/classArcane_1_1FaceDirectionMng.html#ad8b33477955a8cf34e61bbba4e91e117", null ],
       [ "direction", "db/dbe/classArcane_1_1FaceDirectionMng.html#af72adce95de53f9cc9fac000571eb783", null ],
       [ "face", "db/dbe/classArcane_1_1FaceDirectionMng.html#a0e2a8006a976670544556d47d1173359", null ],
@@ -198,22 +200,21 @@ var group__ArcaneCartesianMesh =
       [ "Impl", "da/da7/classArcane_1_1NodeDirectionMng_1_1Impl.html", [
         [ "m_all_items", "da/da7/classArcane_1_1NodeDirectionMng_1_1Impl.html#a8bde638138dd849c2b735da10e065070", null ],
         [ "m_cartesian_mesh", "da/da7/classArcane_1_1NodeDirectionMng_1_1Impl.html#a0500642861c464993c20a27e1922318c", null ],
+        [ "m_infos", "da/da7/classArcane_1_1NodeDirectionMng_1_1Impl.html#a8d2b1bca51e014cc96243d6b21a79be0", null ],
         [ "m_inner_all_items", "da/da7/classArcane_1_1NodeDirectionMng_1_1Impl.html#a6de9f16749e208d330b9726689795976", null ],
         [ "m_outer_all_items", "da/da7/classArcane_1_1NodeDirectionMng_1_1Impl.html#a23af5f6edfd56ddb83094b5986d00ff3", null ],
         [ "m_patch_index", "da/da7/classArcane_1_1NodeDirectionMng_1_1Impl.html#a1e0b50da150942a86e6f72d215d24185", null ]
       ] ],
       [ "NodeDirectionMng", "d8/d21/classArcane_1_1NodeDirectionMng.html#a3016a116d2443363fb2bf294b3f54183", null ],
-      [ "NodeDirectionMng", "d8/d21/classArcane_1_1NodeDirectionMng.html#afb0b0a5419ad2bf8be0ac759983df5a3", null ],
-      [ "~NodeDirectionMng", "d8/d21/classArcane_1_1NodeDirectionMng.html#aaf802f97abdd6306ff947c31a3eeb0d2", null ],
       [ "_internalComputeInfos", "d8/d21/classArcane_1_1NodeDirectionMng.html#a11bae0087d41477a9567d62324586e39", null ],
       [ "_internalDestroy", "d8/d21/classArcane_1_1NodeDirectionMng.html#a61cba79815ba645181f4d0a19c7a3421", null ],
       [ "_internalInit", "d8/d21/classArcane_1_1NodeDirectionMng.html#a44899bd396ca7842eb379a91da973ab8", null ],
+      [ "_internalResizeInfos", "d8/d21/classArcane_1_1NodeDirectionMng.html#aec8921b2367b42bf28f715e32efe5c43", null ],
       [ "allNodes", "d8/d21/classArcane_1_1NodeDirectionMng.html#aa2de1abd19de8b7ce61fa42efb459edb", null ],
       [ "direction", "d8/d21/classArcane_1_1NodeDirectionMng.html#aaf31d2b8a30130c03db72431a808035c", null ],
       [ "innerNodes", "d8/d21/classArcane_1_1NodeDirectionMng.html#a1d5ef6b21c386627d49c27fad1ad12e1", null ],
       [ "node", "d8/d21/classArcane_1_1NodeDirectionMng.html#ad70e45c89f193546a2b4773ed26256f5", null ],
       [ "node", "d8/d21/classArcane_1_1NodeDirectionMng.html#a8ee4d2bca81d05d952a63c4e1508f520", null ],
-      [ "operator=", "d8/d21/classArcane_1_1NodeDirectionMng.html#a6f4bf8d3c09c9b392cae876184dbba38", null ],
       [ "operator[]", "d8/d21/classArcane_1_1NodeDirectionMng.html#a640797385f195aa7280f92041860b55b", null ],
       [ "operator[]", "d8/d21/classArcane_1_1NodeDirectionMng.html#a2386e5db48f05fc118a300e98aef99d0", null ],
       [ "operator[]", "d8/d21/classArcane_1_1NodeDirectionMng.html#a0896f26337cf1900303134d0508385a5", null ],
