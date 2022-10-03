@@ -13,7 +13,7 @@ var classArcane_1_1ICaseFunction =
       [ "ValueString", "d6/dec/classArcane_1_1ICaseFunction.html#a3823ebd42b7e3a0529fd19d92038cf4ba55f29c23156d3f2e84da1d6a426687ea", null ],
       [ "ValueReal3", "d6/dec/classArcane_1_1ICaseFunction.html#a3823ebd42b7e3a0529fd19d92038cf4ba1da7c9c630a12ca7e79ca112f8a4d90b", null ]
     ] ],
-    [ "~ICaseFunction", "d6/dec/classArcane_1_1ICaseFunction.html#a29d258132ad7b5f6b4db79f8cea4742c", null ],
+    [ "~ICaseFunction", "d6/dec/classArcane_1_1ICaseFunction.html#a1249fef900a787b0f24f27bd88c89ea7", null ],
     [ "checkIfValid", "d6/dec/classArcane_1_1ICaseFunction.html#a9c38af28f20eb1ae18275561997d469f", null ],
     [ "deltatCoef", "d6/dec/classArcane_1_1ICaseFunction.html#a2a2a3fabb0e9c593a987501c662215ae", null ],
     [ "name", "d6/dec/classArcane_1_1ICaseFunction.html#a8859eae7b27b83d9647030b4eabfabe8", null ],

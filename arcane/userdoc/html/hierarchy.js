@@ -431,12 +431,15 @@ var hierarchy =
     [ "Arcane::Accelerator::impl::CommonCudaHipAtomicAdd< DataType >", "d5/d7e/classArcane_1_1Accelerator_1_1impl_1_1CommonCudaHipAtomicAdd.html", null ],
     [ "Arcane::Accelerator::impl::CommonCudaHipAtomicAdd< double >", "da/d17/classArcane_1_1Accelerator_1_1impl_1_1CommonCudaHipAtomicAdd_3_01double_01_4.html", null ],
     [ "Arcane::Accelerator::impl::CommonCudaHipAtomicAdd< int >", "d7/db0/classArcane_1_1Accelerator_1_1impl_1_1CommonCudaHipAtomicAdd_3_01int_01_4.html", null ],
+    [ "Arcane::Accelerator::impl::CommonCudaHipAtomicAdd< Int64 >", "db/d4f/classArcane_1_1Accelerator_1_1impl_1_1CommonCudaHipAtomicAdd_3_01Int64_01_4.html", null ],
     [ "Arcane::Accelerator::impl::CommonCudaHipAtomicMax< DataType >", "de/df5/classArcane_1_1Accelerator_1_1impl_1_1CommonCudaHipAtomicMax.html", null ],
     [ "Arcane::Accelerator::impl::CommonCudaHipAtomicMax< double >", "dc/db9/classArcane_1_1Accelerator_1_1impl_1_1CommonCudaHipAtomicMax_3_01double_01_4.html", null ],
     [ "Arcane::Accelerator::impl::CommonCudaHipAtomicMax< int >", "d4/d99/classArcane_1_1Accelerator_1_1impl_1_1CommonCudaHipAtomicMax_3_01int_01_4.html", null ],
+    [ "Arcane::Accelerator::impl::CommonCudaHipAtomicMax< Int64 >", "df/dc5/classArcane_1_1Accelerator_1_1impl_1_1CommonCudaHipAtomicMax_3_01Int64_01_4.html", null ],
     [ "Arcane::Accelerator::impl::CommonCudaHipAtomicMin< DataType >", "d4/d60/classArcane_1_1Accelerator_1_1impl_1_1CommonCudaHipAtomicMin.html", null ],
     [ "Arcane::Accelerator::impl::CommonCudaHipAtomicMin< double >", "db/d19/classArcane_1_1Accelerator_1_1impl_1_1CommonCudaHipAtomicMin_3_01double_01_4.html", null ],
     [ "Arcane::Accelerator::impl::CommonCudaHipAtomicMin< int >", "d5/da4/classArcane_1_1Accelerator_1_1impl_1_1CommonCudaHipAtomicMin_3_01int_01_4.html", null ],
+    [ "Arcane::Accelerator::impl::CommonCudaHipAtomicMin< Int64 >", "d8/d12/classArcane_1_1Accelerator_1_1impl_1_1CommonCudaHipAtomicMin_3_01Int64_01_4.html", null ],
     [ "Arcane::ITimeHistoryTransformer::CommonInfo", "da/d36/classArcane_1_1ITimeHistoryTransformer_1_1CommonInfo.html", null ],
     [ "Arcane::CommonVariables", "d1/d74/classArcane_1_1CommonVariables.html", [
       [ "Arcane::BasicModule", "d5/d47/classArcane_1_1BasicModule.html", null ],
@@ -1481,6 +1484,33 @@ var hierarchy =
     [ "Arcane::ITaskImplementation", "dd/df9/classArcane_1_1ITaskImplementation.html", [
       [ "Arcane::NullTaskImplementation", "de/dd9/classArcane_1_1NullTaskImplementation.html", null ]
     ] ],
+    [ "Arcane::Item", "df/d5f/classArcane_1_1Item.html", [
+      [ "Arcane::DoF", "d0/d6c/classArcane_1_1DoF.html", null ],
+      [ "Arcane::ItemWithNodes", "d4/d55/classArcane_1_1ItemWithNodes.html", [
+        [ "Arcane::Cell", "d9/db2/classArcane_1_1Cell.html", null ],
+        [ "Arcane::Edge", "d1/d16/classArcane_1_1Edge.html", null ],
+        [ "Arcane::Face", "d1/db1/classArcane_1_1Face.html", null ]
+      ] ],
+      [ "Arcane::Node", "d8/dd7/classArcane_1_1Node.html", [
+        [ "Arcane::Attr", "d4/d27/classArcane_1_1Attr.html", null ],
+        [ "Arcane::CharacterData", "d5/dd0/classArcane_1_1CharacterData.html", [
+          [ "Arcane::Comment", "de/d69/classArcane_1_1Comment.html", null ],
+          [ "Arcane::Text", "db/d81/classArcane_1_1Text.html", [
+            [ "Arcane::CDATASection", "de/d20/classArcane_1_1CDATASection.html", null ]
+          ] ]
+        ] ],
+        [ "Arcane::Document", "d3/d48/classArcane_1_1Document.html", null ],
+        [ "Arcane::DocumentFragment", "db/d70/classArcane_1_1DocumentFragment.html", null ],
+        [ "Arcane::DocumentType", "d0/dee/classArcane_1_1DocumentType.html", null ],
+        [ "Arcane::Element", "d0/d4f/classArcane_1_1Element.html", null ],
+        [ "Arcane::Entity", "dc/d6c/classArcane_1_1Entity.html", null ],
+        [ "Arcane::EntityReference", "d4/d84/classArcane_1_1EntityReference.html", null ],
+        [ "Arcane::Notation", "db/da4/classArcane_1_1Notation.html", null ],
+        [ "Arcane::ProcessingInstruction", "df/d39/classArcane_1_1ProcessingInstruction.html", null ],
+        [ "Arcane::XPathNamespace", "d8/dce/classArcane_1_1XPathNamespace.html", null ]
+      ] ],
+      [ "Arcane::Particle", "dd/d6c/classArcane_1_1Particle.html", null ]
+    ] ],
     [ "Arcane::ItemArrayEnumerator", "dd/d56/classArcane_1_1ItemArrayEnumerator.html", [
       [ "Arcane::ItemArrayEnumeratorT< ItemType >", "d3/dda/classArcane_1_1ItemArrayEnumeratorT.html", null ]
     ] ],
@@ -1499,33 +1529,6 @@ var hierarchy =
     [ "Arcane::ItemFamilySerializeArgs", "df/dab/classArcane_1_1ItemFamilySerializeArgs.html", null ],
     [ "Arcane::ItemFlags", "da/dcc/classArcane_1_1ItemFlags.html", [
       [ "Arcane::impl::ItemBase", "d7/d1e/classArcane_1_1impl_1_1ItemBase.html", [
-        [ "Arcane::Item", "df/d5f/classArcane_1_1Item.html", [
-          [ "Arcane::DoF", "d0/d6c/classArcane_1_1DoF.html", null ],
-          [ "Arcane::ItemWithNodes", "d4/d55/classArcane_1_1ItemWithNodes.html", [
-            [ "Arcane::Cell", "d9/db2/classArcane_1_1Cell.html", null ],
-            [ "Arcane::Edge", "d1/d16/classArcane_1_1Edge.html", null ],
-            [ "Arcane::Face", "d1/db1/classArcane_1_1Face.html", null ]
-          ] ],
-          [ "Arcane::Node", "d8/dd7/classArcane_1_1Node.html", [
-            [ "Arcane::Attr", "d4/d27/classArcane_1_1Attr.html", null ],
-            [ "Arcane::CharacterData", "d5/dd0/classArcane_1_1CharacterData.html", [
-              [ "Arcane::Comment", "de/d69/classArcane_1_1Comment.html", null ],
-              [ "Arcane::Text", "db/d81/classArcane_1_1Text.html", [
-                [ "Arcane::CDATASection", "de/d20/classArcane_1_1CDATASection.html", null ]
-              ] ]
-            ] ],
-            [ "Arcane::Document", "d3/d48/classArcane_1_1Document.html", null ],
-            [ "Arcane::DocumentFragment", "db/d70/classArcane_1_1DocumentFragment.html", null ],
-            [ "Arcane::DocumentType", "d0/dee/classArcane_1_1DocumentType.html", null ],
-            [ "Arcane::Element", "d0/d4f/classArcane_1_1Element.html", null ],
-            [ "Arcane::Entity", "dc/d6c/classArcane_1_1Entity.html", null ],
-            [ "Arcane::EntityReference", "d4/d84/classArcane_1_1EntityReference.html", null ],
-            [ "Arcane::Notation", "db/da4/classArcane_1_1Notation.html", null ],
-            [ "Arcane::ProcessingInstruction", "df/d39/classArcane_1_1ProcessingInstruction.html", null ],
-            [ "Arcane::XPathNamespace", "d8/dce/classArcane_1_1XPathNamespace.html", null ]
-          ] ],
-          [ "Arcane::Particle", "dd/d6c/classArcane_1_1Particle.html", null ]
-        ] ],
         [ "Arcane::ItemInternal", "dd/df1/classArcane_1_1ItemInternal.html", null ]
       ] ]
     ] ],
@@ -2122,12 +2125,17 @@ var hierarchy =
     [ "Arcane::Real3x3Proxy", "d8/dc7/classArcane_1_1Real3x3Proxy.html", null ],
     [ "Arcane::RealArray2Variant", "d3/d3b/classArcane_1_1RealArray2Variant.html", null ],
     [ "Arcane::RealArrayVariant", "dc/d3a/classArcane_1_1RealArrayVariant.html", null ],
+    [ "Arcane::Accelerator::impl::ReduceAtomicSum< DataType >", "d1/d32/classArcane_1_1Accelerator_1_1impl_1_1ReduceAtomicSum.html", null ],
+    [ "Arcane::Accelerator::impl::ReduceAtomicSum< double >", "d0/d17/classArcane_1_1Accelerator_1_1impl_1_1ReduceAtomicSum_3_01double_01_4.html", null ],
+    [ "Arcane::Accelerator::impl::ReduceAtomicSum< Int32 >", "d8/dcf/classArcane_1_1Accelerator_1_1impl_1_1ReduceAtomicSum_3_01Int32_01_4.html", null ],
+    [ "Arcane::Accelerator::impl::ReduceAtomicSum< Int64 >", "d8/d8c/classArcane_1_1Accelerator_1_1impl_1_1ReduceAtomicSum_3_01Int64_01_4.html", null ],
     [ "Arcane::Accelerator::impl::ReduceFunctorMax< DataType >", "dd/d7e/classArcane_1_1Accelerator_1_1impl_1_1ReduceFunctorMax.html", null ],
     [ "Arcane::Accelerator::impl::ReduceFunctorMin< DataType >", "de/d9c/classArcane_1_1Accelerator_1_1impl_1_1ReduceFunctorMin.html", null ],
     [ "Arcane::Accelerator::impl::ReduceFunctorSum< DataType >", "df/d55/classArcane_1_1Accelerator_1_1impl_1_1ReduceFunctorSum.html", null ],
     [ "Arcane::Accelerator::impl::ReduceIdentity< DataType >", "dd/db0/classArcane_1_1Accelerator_1_1impl_1_1ReduceIdentity.html", null ],
     [ "Arcane::Accelerator::impl::ReduceIdentity< double >", "d0/ded/classArcane_1_1Accelerator_1_1impl_1_1ReduceIdentity_3_01double_01_4.html", null ],
-    [ "Arcane::Accelerator::impl::ReduceIdentity< int >", "dd/d51/classArcane_1_1Accelerator_1_1impl_1_1ReduceIdentity_3_01int_01_4.html", null ],
+    [ "Arcane::Accelerator::impl::ReduceIdentity< Int32 >", "db/da2/classArcane_1_1Accelerator_1_1impl_1_1ReduceIdentity_3_01Int32_01_4.html", null ],
+    [ "Arcane::Accelerator::impl::ReduceIdentity< Int64 >", "de/d1c/classArcane_1_1Accelerator_1_1impl_1_1ReduceIdentity_3_01Int64_01_4.html", null ],
     [ "Arcane::Accelerator::Reducer< DataType, ReduceFunctor >", "d3/d12/classArcane_1_1Accelerator_1_1Reducer.html", null ],
     [ "Arcane::Accelerator::Reducer< DataType, impl::ReduceFunctorMax< DataType > >", "d3/d12/classArcane_1_1Accelerator_1_1Reducer.html", [
       [ "Arcane::Accelerator::ReducerMax< DataType >", "d8/df2/classArcane_1_1Accelerator_1_1ReducerMax.html", null ]
@@ -2161,6 +2169,7 @@ var hierarchy =
     [ "Arcane::RefCounter", "d8/d02/classArcane_1_1RefCounter.html", null ],
     [ "Arccore::ReferenceCounterAccessor< T >", "de/d6f/classArccore_1_1ReferenceCounterAccessor.html", null ],
     [ "Arccore::ReferenceCounterImpl", "db/d48/classArccore_1_1ReferenceCounterImpl.html", [
+      [ "Arcane::CaseFunction", "d9/da6/classArcane_1_1CaseFunction.html", null ],
       [ "Arcane::ParallelMngContainerBase", "d7/d5d/classArcane_1_1ParallelMngContainerBase.html", null ],
       [ "Arcane::ParallelMngDispatcher", "d8/dd7/classArcane_1_1ParallelMngDispatcher.html", null ],
       [ "Arcane::SerializedData", "dc/de4/classArcane_1_1SerializedData.html", null ],

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.7.9.0</span>
+   &#160;<span id="projectnumber">3.7.12.0</span>
    </div>
   </td>
  </tr>
@@ -77,8 +77,8 @@ $(function() {
 <p>Il permet de résoudre les deux inconvénients précédents avec en contre partie pour les maillages non structurés une augmentation de la mémoire utilisée. Avec l'ancien mécanisme, pour chaque entité 1 indice (de type Arcane::Int32) suffisait pour accéder aux infos de connectivité alors qu'avec le nouveau il faut 2 indices (position + nombre de connectivité) par connectivité. Par exemple dans le cas des entités classiques de maillage (noeud, arête, face ou maille), il faut donc 8 indices au lieu de 1.</p>
 <p>Le mécanisme historique permet d'accéder aux informations de connectivité directement via l'entité. Par exemple, pour accéder au 4ème noeud d'une maille: </p><div class="fragment"><div class="line"><a class="code" href="../../d9/db2/classArcane_1_1Cell.html">Arcane::Cell</a> cell;</div>
 <div class="line"><a class="code" href="../../d8/dd7/classArcane_1_1Node.html">Arcane::Node</a> node = cell.<a class="code" href="../../d4/d55/classArcane_1_1ItemWithNodes.html#a4e5c2583373ef18e3197574686d02775">node</a>(3);</div>
-<div class="ttc" id="aclassArcane_1_1Cell_html"><div class="ttname"><a href="../../d9/db2/classArcane_1_1Cell.html">Arcane::Cell</a></div><div class="ttdoc">Maille d'un maillage.</div><div class="ttdef"><b>Definition:</b> Item.h:925</div></div>
-<div class="ttc" id="aclassArcane_1_1ItemWithNodes_html_a4e5c2583373ef18e3197574686d02775"><div class="ttname"><a href="../../d4/d55/classArcane_1_1ItemWithNodes.html#a4e5c2583373ef18e3197574686d02775">Arcane::ItemWithNodes::node</a></div><div class="ttdeci">Node node(Int32 i) const</div><div class="ttdoc">i-ème noeud de l'entité</div><div class="ttdef"><b>Definition:</b> Item.h:552</div></div>
+<div class="ttc" id="aclassArcane_1_1Cell_html"><div class="ttname"><a href="../../d9/db2/classArcane_1_1Cell.html">Arcane::Cell</a></div><div class="ttdoc">Maille d'un maillage.</div><div class="ttdef"><b>Definition:</b> Item.h:1094</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemWithNodes_html_a4e5c2583373ef18e3197574686d02775"><div class="ttname"><a href="../../d4/d55/classArcane_1_1ItemWithNodes.html#a4e5c2583373ef18e3197574686d02775">Arcane::ItemWithNodes::node</a></div><div class="ttdeci">Node node(Int32 i) const</div><div class="ttdoc">i-ème noeud de l'entité</div><div class="ttdef"><b>Definition:</b> Item.h:695</div></div>
 <div class="ttc" id="aclassArcane_1_1Node_html"><div class="ttname"><a href="../../d8/dd7/classArcane_1_1Node.html">Arcane::Node</a></div><div class="ttdoc">Noeud d'un maillage.</div><div class="ttdef"><b>Definition:</b> Dom.h:204</div></div>
 </div><!-- fragment --><p>A terme, l'accès aux connectivités pourrait être disponible sous une autre forme mais en attendant il faut pouvoir continuer à utiliser ce mécanisme sous peine de rendre tous les codes actuels incompatibles.</p>
 <p>Pour effectuer la transition entre l'ancienne et la nouvelle gestion des connectivités, des mécanismes de compatibilité ont été mis en place. L'objectif de ces mécanismes est de garantir la compatibilité au niveau des sources des codes utilisant Arcane: ces codes doivent pouvoir compiler sans modification avec les versions d'Arcane intégrant les nouvelles connectivités.</p>
@@ -89,7 +89,7 @@ $(function() {
 <div class="line"><a class="code" href="../../de/db5/group__Mesh.html#ga043244d96e0f701a5037a8d9620ab667">NodeVectorView</a> Cell::node() { <span class="keywordflow">return</span> m_internal-&gt;nodes(); }</div>
 <div class="line"><span class="comment">// nouvelle version si macro non définie</span></div>
 <div class="line"><a class="code" href="../../de/db5/group__Mesh.html#ga043244d96e0f701a5037a8d9620ab667">NodeVectorView</a> Cell::node() { <span class="keywordflow">return</span> m_internal-&gt;nodesV2(); }</div>
-<div class="ttc" id="agroup__Mesh_html_ga043244d96e0f701a5037a8d9620ab667"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga043244d96e0f701a5037a8d9620ab667">Arcane::NodeVectorView</a></div><div class="ttdeci">ItemVectorViewT&lt; Node &gt; NodeVectorView</div><div class="ttdoc">Vue sur un vecteur de noeuds.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:240</div></div>
+<div class="ttc" id="agroup__Mesh_html_ga043244d96e0f701a5037a8d9620ab667"><div class="ttname"><a href="../../de/db5/group__Mesh.html#ga043244d96e0f701a5037a8d9620ab667">Arcane::NodeVectorView</a></div><div class="ttdeci">ItemVectorViewT&lt; Node &gt; NodeVectorView</div><div class="ttdoc">Vue sur un vecteur de noeuds.</div><div class="ttdef"><b>Definition:</b> ItemTypes.h:242</div></div>
 </div><!-- fragment --><p>Cette macro est définie uniquement si on compile Arcane avec dans le configure l'option <b>&ndash;with-legacy-connectivity</b>. Si cette option est active, il est impossible d'accéder aux nouvelles connectivités via Item. Le seul intérêt de cette option est de vérifier si le nouveau mécanisme ne contient pas de bugs et de valider les nouvelles versions de Arcane sur d'anciens codes utilisateur. On supposera par la suite que cette option n'est pas utilisée et donc qu'on accède aux connectivités via les méthodes V2. Pour cela, il faut utiliser l'option de configuration <b>&ndash;without-legacy-connectiviy</b> dans le configure.</p>
 <p>Lorsqu'on utilise les méthodes V2, les accès de chaque connectivité se font via la classe <a class="el" href="../../d1/ddd/classArcane_1_1ItemInternalConnectivityList.html" title="Informations de connectivité, pour une famille d&#39;entité, permettant la transition entre les anciennes...">Arcane::ItemInternalConnectivityList</a>. Pour chaque connectivité, il y a trois tableaux:</p><ul>
 <li>nb_item: nombre d'entité connectée</li>
@@ -121,7 +121,7 @@ $(function() {
 </div><!-- PageDoc -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 26 Septembre 2022 04:29:09 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Généré le Lundi 3 Octobre 2022 03:31:45 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

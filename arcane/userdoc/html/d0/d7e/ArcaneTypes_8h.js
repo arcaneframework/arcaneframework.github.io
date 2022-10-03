@@ -1,7 +1,5 @@
 var ArcaneTypes_8h =
 [
-    [ "CaseFunctionCollection", "d0/d7e/ArcaneTypes_8h.html#abb6f43c1de5abf93145bc6d9f9aecd61", null ],
-    [ "CaseFunctionList", "d0/d7e/ArcaneTypes_8h.html#af4a63fc970da74f6df3f92fb0d72dd61", null ],
     [ "CaseOptionsCollection", "d0/d7e/ArcaneTypes_8h.html#a8c19f1d483d04156c5335c6c89b1f414", null ],
     [ "CaseOptionsList", "d0/d7e/ArcaneTypes_8h.html#a5773c335c6e3c4cb25b52ae95580cb49", null ],
     [ "EntryPointCollection", "d0/d7e/ArcaneTypes_8h.html#acdbc1133053b04b3b13818f9f563d1e8", null ],

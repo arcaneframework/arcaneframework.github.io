@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.7.9.0</span>
+   &#160;<span id="projectnumber">3.7.12.0</span>
    </div>
   </td>
  </tr>
@@ -77,7 +77,7 @@ $(function() {
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* MeshUtils.h                                                 (C) 2000-2015 */</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* MeshUtils.h                                                 (C) 2000-2022 */</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Fonctions diverses sur les éléments du maillage.                          */</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
@@ -93,105 +93,108 @@ $(function() {
 <div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;ARCANE_BEGIN_NAMESPACE</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">class </span>XmlNode;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">namespace </span><a class="code" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;{</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">class </span>XmlNode;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">class </span>IVariableSynchronizer;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;}</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">namespace </span>mesh_utils</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  writeMeshItemInfo(ISubDomain*,Cell cell,<span class="keywordtype">bool</span> depend_info=<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  writeMeshItemInfo(ISubDomain*,Node node,<span class="keywordtype">bool</span> depend_info=<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  writeMeshItemInfo(ISubDomain*,Edge edge,<span class="keywordtype">bool</span> depend_info=<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  writeMeshItemInfo(ISubDomain*,Face face,<span class="keywordtype">bool</span> depend_info=<span class="keyword">true</span>);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">namespace </span>Arcane::mesh_utils</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;{</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  writeMeshItemInfo(ISubDomain*,Cell cell,<span class="keywordtype">bool</span> depend_info=<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  writeMeshItemInfo(ISubDomain*,Node node,<span class="keywordtype">bool</span> depend_info=<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  writeMeshItemInfo(ISubDomain*,Edge edge,<span class="keywordtype">bool</span> depend_info=<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  writeMeshItemInfo(ISubDomain*,Face face,<span class="keywordtype">bool</span> depend_info=<span class="keyword">true</span>);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#a9ede58e72e1fec2e876f2a4d0fe6abb7">reorderNodesOfFace</a>(<a class="code" href="../../d0/d32/namespaceArcane.html#ad52ea8220f052e503f802c64c81e0222">Int64ConstArrayView</a> before_ids,<a class="code" href="../../d0/d32/namespaceArcane.html#a7332a70f38a2f4925865259192b0fac3">Int64ArrayView</a> after_ids);</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#a9ede58e72e1fec2e876f2a4d0fe6abb7">reorderNodesOfFace</a>(<a class="code" href="../../d0/d32/namespaceArcane.html#ad52ea8220f052e503f802c64c81e0222">Int64ConstArrayView</a> before_ids,<a class="code" href="../../d0/d32/namespaceArcane.html#a7332a70f38a2f4925865259192b0fac3">Int64ArrayView</a> after_ids);</div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">bool</span></div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#ab45bfa183a340d2a89a1ccfddc8d1fa6">reorderNodesOfFace2</a>(<a class="code" href="../../d0/d32/namespaceArcane.html#ad52ea8220f052e503f802c64c81e0222">Int64ConstArrayView</a> nodes_unique_id,<a class="code" href="../../d0/d32/namespaceArcane.html#a2df52243d7f3a1477580a34d28deb326">IntegerArrayView</a> new_index);</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">bool</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#ab45bfa183a340d2a89a1ccfddc8d1fa6">reorderNodesOfFace2</a>(<a class="code" href="../../d0/d32/namespaceArcane.html#ad52ea8220f052e503f802c64c81e0222">Int64ConstArrayView</a> nodes_unique_id,<a class="code" href="../../d0/d32/namespaceArcane.html#a2df52243d7f3a1477580a34d28deb326">IntegerArrayView</a> new_index);</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;ARCANE_CORE_EXPORT Face</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#acaa6fd6c9e8e5b3c9a50d18a6cc00ecb">getFaceFromNodesLocal</a>(Node node,<a class="code" href="../../d0/d32/namespaceArcane.html#a638ab0b5813a316efa87a4e382bedc59">Int32ConstArrayView</a> face_nodes_local_id);</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;ARCANE_CORE_EXPORT Face</div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#acaa6fd6c9e8e5b3c9a50d18a6cc00ecb">getFaceFromNodesLocal</a>(Node node,<a class="code" href="../../d0/d32/namespaceArcane.html#a638ab0b5813a316efa87a4e382bedc59">Int32ConstArrayView</a> face_nodes_local_id);</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160; </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;ARCANE_CORE_EXPORT Face</div>
-<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#a22e4e4449176b411037b2b4bd1a34528">getFaceFromNodesUnique</a>(Node node,<a class="code" href="../../d0/d32/namespaceArcane.html#ad52ea8220f052e503f802c64c81e0222">Int64ConstArrayView</a> face_nodes_unique_id);</div>
-<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;ARCANE_CORE_EXPORT Face</div>
+<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#a22e4e4449176b411037b2b4bd1a34528">getFaceFromNodesUnique</a>(Node node,<a class="code" href="../../d0/d32/namespaceArcane.html#ad52ea8220f052e503f802c64c81e0222">Int64ConstArrayView</a> face_nodes_unique_id);</div>
+<div class="line"><a name="l00132"></a><span class="lineno">  132</span>&#160; </div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00134"></a><span class="lineno">  134</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160; </div>
-<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#a4866266c64def42badecfba752eff3d0">removeItemAndKeepOrder</a>(<a class="code" href="../../d0/d32/namespaceArcane.html#afec99f57f5dac88c46422be9cd3d3224">Int32ArrayView</a> items,Int32 local_id);</div>
-<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160; </div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#a4866266c64def42badecfba752eff3d0">removeItemAndKeepOrder</a>(<a class="code" href="../../d0/d32/namespaceArcane.html#afec99f57f5dac88c46422be9cd3d3224">Int32ArrayView</a> items,Int32 local_id);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00147"></a><span class="lineno">  147</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#a3751bfeb8293e780de66227939f00b09">checkMeshProperties</a>(IMesh* mesh,<span class="keywordtype">bool</span> is_sorted,<span class="keywordtype">bool</span> has_no_hole,<span class="keywordtype">bool</span> check_faces);</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160; </div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#a111a18a0b367bdfef2d32fcebaccc062">writeMeshInfosSorted</a>(IMesh* mesh,<span class="keyword">const</span> String&amp; file_name);</div>
-<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;writeMeshInfos(IMesh* mesh,<span class="keyword">const</span> String&amp; file_name);</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160; </div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#aa1ac643bb0ae9c0af1e4779d84af7d4d">writeMeshConnectivity</a>(IMesh* mesh,<span class="keyword">const</span> String&amp; file_name);</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160; </div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;checkMeshConnectivity(IMesh* mesh,<span class="keyword">const</span> XmlNode&amp; root_node,<span class="keywordtype">bool</span> check_sub_domain);</div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160; </div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;checkMeshConnectivity(IMesh* mesh,<span class="keyword">const</span> String&amp; file_name,<span class="keywordtype">bool</span> check_sub_domain);</div>
+<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#a3751bfeb8293e780de66227939f00b09">checkMeshProperties</a>(IMesh* mesh,<span class="keywordtype">bool</span> is_sorted,<span class="keywordtype">bool</span> has_no_hole,<span class="keywordtype">bool</span> check_faces);</div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160; </div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#a111a18a0b367bdfef2d32fcebaccc062">writeMeshInfosSorted</a>(IMesh* mesh,<span class="keyword">const</span> String&amp; file_name);</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160; </div>
+<div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;writeMeshInfos(IMesh* mesh,<span class="keyword">const</span> String&amp; file_name);</div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160; </div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#aa1ac643bb0ae9c0af1e4779d84af7d4d">writeMeshConnectivity</a>(IMesh* mesh,<span class="keyword">const</span> String&amp; file_name);</div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160; </div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;checkMeshConnectivity(IMesh* mesh,<span class="keyword">const</span> XmlNode&amp; root_node,<span class="keywordtype">bool</span> check_sub_domain);</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160; </div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;checkMeshConnectivity(IMesh* mesh,<span class="keyword">const</span> String&amp; file_name,<span class="keywordtype">bool</span> check_sub_domain);</div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160; </div>
 <div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160; </div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160; </div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#afc1e84a2d0de0a7dcaf5c3cd081a9246">printItems</a>(std::ostream&amp; ostr,<span class="keyword">const</span> String&amp; name,ItemGroup item_group);</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160; </div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;ARCANE_CORE_EXPORT Int64</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#a971d995f4b6dce8b2044e0647dc3081d">printMeshGroupsMemoryUsage</a>(IMesh* mesh,Int32 print_level);</div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160; </div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#a6faaf6603de9c225a1d4d9767c1b8df1">shrinkMeshGroups</a>(IMesh* mesh);</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;}</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
-<div class="line"><a name="l00213"></a><span class="lineno">  213</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00214"></a><span class="lineno">  214</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00215"></a><span class="lineno">  215</span>&#160; </div>
-<div class="line"><a name="l00216"></a><span class="lineno">  216</span>&#160;ARCANE_END_NAMESPACE</div>
-<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160; </div>
-<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160; </div>
-<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#afc1e84a2d0de0a7dcaf5c3cd081a9246">printItems</a>(std::ostream&amp; ostr,<span class="keyword">const</span> String&amp; name,ItemGroup item_group);</div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160; </div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;ARCANE_CORE_EXPORT Int64</div>
+<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#a971d995f4b6dce8b2044e0647dc3081d">printMeshGroupsMemoryUsage</a>(IMesh* mesh,Int32 print_level);</div>
+<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
+<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#a6faaf6603de9c225a1d4d9767c1b8df1">shrinkMeshGroups</a>(IMesh* mesh);</div>
+<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160; </div>
+<div class="line"><a name="l00217"></a><span class="lineno">  217</span>&#160;ARCANE_CORE_EXPORT <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00218"></a><span class="lineno">  218</span>&#160;<a class="code" href="../../dc/de8/MeshUtils_8h.html#a65a0aba5d1fa8c76addec462323a8e87">dumpSynchronizerTopologyJSON</a>(IVariableSynchronizer* var_syncer,<span class="keyword">const</span> String&amp; filename);</div>
+<div class="line"><a name="l00219"></a><span class="lineno">  219</span>&#160; </div>
+<div class="line"><a name="l00220"></a><span class="lineno">  220</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00221"></a><span class="lineno">  221</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00222"></a><span class="lineno">  222</span>&#160; </div>
-<div class="ttc" id="aMeshUtils_8h_html_a111a18a0b367bdfef2d32fcebaccc062"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#a111a18a0b367bdfef2d32fcebaccc062">Arcane::mesh_utils::writeMeshInfosSorted</a></div><div class="ttdeci">void writeMeshInfosSorted(IMesh *mesh, const String &amp;file_name)</div><div class="ttdoc">Ecrit sur le fichier file_name les infos du maillage mesh.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:510</div></div>
-<div class="ttc" id="aMeshUtils_8h_html_a22e4e4449176b411037b2b4bd1a34528"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#a22e4e4449176b411037b2b4bd1a34528">Arcane::mesh_utils::getFaceFromNodesUnique</a></div><div class="ttdeci">Face getFaceFromNodesUnique(Node node, Int64ConstArrayView face_nodes_unique_id)</div><div class="ttdoc">Recherche une entité face à partir des numéros uniques de ces noeuds.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:1502</div></div>
-<div class="ttc" id="aMeshUtils_8h_html_a3751bfeb8293e780de66227939f00b09"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#a3751bfeb8293e780de66227939f00b09">Arcane::mesh_utils::checkMeshProperties</a></div><div class="ttdeci">void checkMeshProperties(IMesh *mesh, bool is_sorted, bool has_no_hole, bool check_faces)</div><div class="ttdoc">Vérifie que le maillage possède certaines propriétés.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:1293</div></div>
-<div class="ttc" id="aMeshUtils_8h_html_a4866266c64def42badecfba752eff3d0"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#a4866266c64def42badecfba752eff3d0">Arcane::mesh_utils::removeItemAndKeepOrder</a></div><div class="ttdeci">void removeItemAndKeepOrder(Int32ArrayView items, Int32 local_id)</div><div class="ttdoc">Supprime une entité en conservant l'ordre.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:1526</div></div>
-<div class="ttc" id="aMeshUtils_8h_html_a6faaf6603de9c225a1d4d9767c1b8df1"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#a6faaf6603de9c225a1d4d9767c1b8df1">Arcane::mesh_utils::shrinkMeshGroups</a></div><div class="ttdeci">void shrinkMeshGroups(IMesh *mesh)</div><div class="ttdoc">Limite au plus juste l'usage mémoire des groupes.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:1557</div></div>
-<div class="ttc" id="aMeshUtils_8h_html_a971d995f4b6dce8b2044e0647dc3081d"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#a971d995f4b6dce8b2044e0647dc3081d">Arcane::mesh_utils::printMeshGroupsMemoryUsage</a></div><div class="ttdeci">Int64 printMeshGroupsMemoryUsage(IMesh *mesh, Int32 print_level)</div><div class="ttdoc">Affiche l'utilisation mémoire des groupes du maillage.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:1570</div></div>
-<div class="ttc" id="aMeshUtils_8h_html_a9ede58e72e1fec2e876f2a4d0fe6abb7"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#a9ede58e72e1fec2e876f2a4d0fe6abb7">Arcane::mesh_utils::reorderNodesOfFace</a></div><div class="ttdeci">bool reorderNodesOfFace(Int64ConstArrayView before_ids, Int64ArrayView after_ids)</div><div class="ttdoc">Réordonne les noeuds d'une face.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:1350</div></div>
-<div class="ttc" id="aMeshUtils_8h_html_aa1ac643bb0ae9c0af1e4779d84af7d4d"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#aa1ac643bb0ae9c0af1e4779d84af7d4d">Arcane::mesh_utils::writeMeshConnectivity</a></div><div class="ttdeci">void writeMeshConnectivity(IMesh *mesh, const String &amp;file_name)</div><div class="ttdoc">Ecrit sur le fichier file_name la connectivité du maillage mesh.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:802</div></div>
-<div class="ttc" id="aMeshUtils_8h_html_ab45bfa183a340d2a89a1ccfddc8d1fa6"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#ab45bfa183a340d2a89a1ccfddc8d1fa6">Arcane::mesh_utils::reorderNodesOfFace2</a></div><div class="ttdeci">bool reorderNodesOfFace2(Int64ConstArrayView nodes_unique_id, IntegerArrayView new_index)</div><div class="ttdoc">Réordonne les noeuds d'une face.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:1414</div></div>
-<div class="ttc" id="aMeshUtils_8h_html_acaa6fd6c9e8e5b3c9a50d18a6cc00ecb"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#acaa6fd6c9e8e5b3c9a50d18a6cc00ecb">Arcane::mesh_utils::getFaceFromNodesLocal</a></div><div class="ttdeci">Face getFaceFromNodesLocal(Node node, Int32ConstArrayView face_nodes_local_id)</div><div class="ttdoc">Recherche une entité face à partir des numéros locaux de ces noeuds.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:1478</div></div>
-<div class="ttc" id="aMeshUtils_8h_html_afc1e84a2d0de0a7dcaf5c3cd081a9246"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#afc1e84a2d0de0a7dcaf5c3cd081a9246">Arcane::mesh_utils::printItems</a></div><div class="ttdeci">void printItems(std::ostream &amp;ostr, const String &amp;name, ItemGroup item_group)</div><div class="ttdoc">Ecrit dans le flux ostr la description des items du groupe item_group.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:1338</div></div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;} <span class="comment">// End namespace Arcane::mesh_utils</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160; </div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160; </div>
+<div class="ttc" id="aMeshUtils_8h_html_a111a18a0b367bdfef2d32fcebaccc062"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#a111a18a0b367bdfef2d32fcebaccc062">Arcane::mesh_utils::writeMeshInfosSorted</a></div><div class="ttdeci">void writeMeshInfosSorted(IMesh *mesh, const String &amp;file_name)</div><div class="ttdoc">Ecrit sur le fichier file_name les infos du maillage mesh.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:512</div></div>
+<div class="ttc" id="aMeshUtils_8h_html_a22e4e4449176b411037b2b4bd1a34528"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#a22e4e4449176b411037b2b4bd1a34528">Arcane::mesh_utils::getFaceFromNodesUnique</a></div><div class="ttdeci">Face getFaceFromNodesUnique(Node node, Int64ConstArrayView face_nodes_unique_id)</div><div class="ttdoc">Recherche une entité face à partir des numéros uniques de ces noeuds.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:1504</div></div>
+<div class="ttc" id="aMeshUtils_8h_html_a3751bfeb8293e780de66227939f00b09"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#a3751bfeb8293e780de66227939f00b09">Arcane::mesh_utils::checkMeshProperties</a></div><div class="ttdeci">void checkMeshProperties(IMesh *mesh, bool is_sorted, bool has_no_hole, bool check_faces)</div><div class="ttdoc">Vérifie que le maillage possède certaines propriétés.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:1295</div></div>
+<div class="ttc" id="aMeshUtils_8h_html_a4866266c64def42badecfba752eff3d0"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#a4866266c64def42badecfba752eff3d0">Arcane::mesh_utils::removeItemAndKeepOrder</a></div><div class="ttdeci">void removeItemAndKeepOrder(Int32ArrayView items, Int32 local_id)</div><div class="ttdoc">Supprime une entité en conservant l'ordre.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:1528</div></div>
+<div class="ttc" id="aMeshUtils_8h_html_a65a0aba5d1fa8c76addec462323a8e87"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#a65a0aba5d1fa8c76addec462323a8e87">Arcane::mesh_utils::dumpSynchronizerTopologyJSON</a></div><div class="ttdeci">void dumpSynchronizerTopologyJSON(IVariableSynchronizer *var_syncer, const String &amp;filename)</div><div class="ttdoc">Ecrit dans un fichier les informations sur la topologie d'une synchronisation.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:1601</div></div>
+<div class="ttc" id="aMeshUtils_8h_html_a6faaf6603de9c225a1d4d9767c1b8df1"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#a6faaf6603de9c225a1d4d9767c1b8df1">Arcane::mesh_utils::shrinkMeshGroups</a></div><div class="ttdeci">void shrinkMeshGroups(IMesh *mesh)</div><div class="ttdoc">Limite au plus juste l'usage mémoire des groupes.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:1559</div></div>
+<div class="ttc" id="aMeshUtils_8h_html_a971d995f4b6dce8b2044e0647dc3081d"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#a971d995f4b6dce8b2044e0647dc3081d">Arcane::mesh_utils::printMeshGroupsMemoryUsage</a></div><div class="ttdeci">Int64 printMeshGroupsMemoryUsage(IMesh *mesh, Int32 print_level)</div><div class="ttdoc">Affiche l'utilisation mémoire des groupes du maillage.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:1572</div></div>
+<div class="ttc" id="aMeshUtils_8h_html_a9ede58e72e1fec2e876f2a4d0fe6abb7"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#a9ede58e72e1fec2e876f2a4d0fe6abb7">Arcane::mesh_utils::reorderNodesOfFace</a></div><div class="ttdeci">bool reorderNodesOfFace(Int64ConstArrayView before_ids, Int64ArrayView after_ids)</div><div class="ttdoc">Réordonne les noeuds d'une face.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:1352</div></div>
+<div class="ttc" id="aMeshUtils_8h_html_aa1ac643bb0ae9c0af1e4779d84af7d4d"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#aa1ac643bb0ae9c0af1e4779d84af7d4d">Arcane::mesh_utils::writeMeshConnectivity</a></div><div class="ttdeci">void writeMeshConnectivity(IMesh *mesh, const String &amp;file_name)</div><div class="ttdoc">Ecrit sur le fichier file_name la connectivité du maillage mesh.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:804</div></div>
+<div class="ttc" id="aMeshUtils_8h_html_ab45bfa183a340d2a89a1ccfddc8d1fa6"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#ab45bfa183a340d2a89a1ccfddc8d1fa6">Arcane::mesh_utils::reorderNodesOfFace2</a></div><div class="ttdeci">bool reorderNodesOfFace2(Int64ConstArrayView nodes_unique_id, IntegerArrayView new_index)</div><div class="ttdoc">Réordonne les noeuds d'une face.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:1416</div></div>
+<div class="ttc" id="aMeshUtils_8h_html_acaa6fd6c9e8e5b3c9a50d18a6cc00ecb"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#acaa6fd6c9e8e5b3c9a50d18a6cc00ecb">Arcane::mesh_utils::getFaceFromNodesLocal</a></div><div class="ttdeci">Face getFaceFromNodesLocal(Node node, Int32ConstArrayView face_nodes_local_id)</div><div class="ttdoc">Recherche une entité face à partir des numéros locaux de ces noeuds.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:1480</div></div>
+<div class="ttc" id="aMeshUtils_8h_html_afc1e84a2d0de0a7dcaf5c3cd081a9246"><div class="ttname"><a href="../../dc/de8/MeshUtils_8h.html#afc1e84a2d0de0a7dcaf5c3cd081a9246">Arcane::mesh_utils::printItems</a></div><div class="ttdeci">void printItems(std::ostream &amp;ostr, const String &amp;name, ItemGroup item_group)</div><div class="ttdoc">Ecrit dans le flux ostr la description des items du groupe item_group.</div><div class="ttdef"><b>Definition:</b> MeshUtils.cc:1340</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> AbstractCaseDocumentVisitor.cc:20</div></div>
 <div class="ttc" id="anamespaceArcane_html_a2df52243d7f3a1477580a34d28deb326"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a2df52243d7f3a1477580a34d28deb326">Arcane::IntegerArrayView</a></div><div class="ttdeci">ArrayView&lt; Integer &gt; IntegerArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension d'entiers.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:559</div></div>
 <div class="ttc" id="anamespaceArcane_html_a638ab0b5813a316efa87a4e382bedc59"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a638ab0b5813a316efa87a4e382bedc59">Arcane::Int32ConstArrayView</a></div><div class="ttdeci">ConstArrayView&lt; Int32 &gt; Int32ConstArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension d'entiers 32 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:584</div></div>
 <div class="ttc" id="anamespaceArcane_html_a7332a70f38a2f4925865259192b0fac3"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a7332a70f38a2f4925865259192b0fac3">Arcane::Int64ArrayView</a></div><div class="ttdeci">ArrayView&lt; Int64 &gt; Int64ArrayView</div><div class="ttdoc">Equivalent C d'un tableau à une dimension d'entiers 64 bits.</div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:553</div></div>
@@ -200,7 +203,7 @@ $(function() {
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Généré le Lundi 26 Septembre 2022 04:28:48 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
+Généré le Lundi 3 Octobre 2022 03:31:27 pour Arcane par&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
 </small></address>
 </body>
 </html>

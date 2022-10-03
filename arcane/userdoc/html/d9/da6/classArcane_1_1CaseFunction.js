@@ -1,7 +1,7 @@
 var classArcane_1_1CaseFunction =
 [
     [ "CaseFunction", "d9/da6/classArcane_1_1CaseFunction.html#a86ee7000dc73f6be6f45f6aaed37123f", null ],
-    [ "~CaseFunction", "d9/da6/classArcane_1_1CaseFunction.html#a816d15aaf580a2389ee0242f7fcfaf2c", null ],
+    [ "~CaseFunction", "d9/da6/classArcane_1_1CaseFunction.html#ab6def0d2786760914cb48d10a1ef6873", null ],
     [ "_applyParamTransform", "d9/da6/classArcane_1_1CaseFunction.html#aa9d6ab9dcabe1f9e0003dbdc7b48e1e1", null ],
     [ "_applyParamTransform", "d9/da6/classArcane_1_1CaseFunction.html#af9083292d4478c8384d257a6681e6d02", null ],
     [ "_applyParamTransform2", "d9/da6/classArcane_1_1CaseFunction.html#a8227fdce905a1e2ca8f9e8c57eae985c", null ],
@@ -26,6 +26,7 @@ var classArcane_1_1CaseFunction =
     [ "setTransformParamFunction", "d9/da6/classArcane_1_1CaseFunction.html#a09290952ac8ef3e14639d07d0f01ee13", null ],
     [ "setTransformValueFunction", "d9/da6/classArcane_1_1CaseFunction.html#a8e0c4e75a56664a0196155a1ddbc53d4", null ],
     [ "setValueType", "d9/da6/classArcane_1_1CaseFunction.html#a8b8aff4f3aeaf8dc03adca115f16eb76", null ],
+    [ "toReference", "d9/da6/classArcane_1_1CaseFunction.html#af1447b8fcbaa8c366906ab2c6c9a6645", null ],
     [ "traceMng", "d9/da6/classArcane_1_1CaseFunction.html#a2eaae4b78d613a37dcb0d0a6a83f4c13", null ],
     [ "transformParamFunction", "d9/da6/classArcane_1_1CaseFunction.html#ad91fcf71b83022b1226d1b4b31003722", null ],
     [ "transformValueFunction", "d9/da6/classArcane_1_1CaseFunction.html#a1eca82d84cf6edefe1135a3df3ee5a6f", null ],

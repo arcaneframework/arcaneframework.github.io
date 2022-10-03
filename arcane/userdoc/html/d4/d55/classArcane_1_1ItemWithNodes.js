@@ -1,5 +1,6 @@
 var classArcane_1_1ItemWithNodes =
 [
+    [ "ItemWithNodes", "d4/d55/classArcane_1_1ItemWithNodes.html#a5c84c08450a30f7ff084a1a9467d3ee7", null ],
     [ "ItemWithNodes", "d4/d55/classArcane_1_1ItemWithNodes.html#adb94b869e3099e3d12f5f13f54f11391", null ],
     [ "ItemWithNodes", "d4/d55/classArcane_1_1ItemWithNodes.html#ad263d67b47e80da05def53055edaa4ea", null ],
     [ "ItemWithNodes", "d4/d55/classArcane_1_1ItemWithNodes.html#a33f0231b5fb0b7c02692b7d42d70d399", null ],
@@ -13,5 +14,8 @@ var classArcane_1_1ItemWithNodes =
     [ "nodeIds", "d4/d55/classArcane_1_1ItemWithNodes.html#aeba73b13cb32056ecacbb971fb3d560b", null ],
     [ "nodes", "d4/d55/classArcane_1_1ItemWithNodes.html#af7f9ed5132b928e270e92f715683117d", null ],
     [ "operator=", "d4/d55/classArcane_1_1ItemWithNodes.html#a245629d0f35b57307db89ee664fad746", null ],
-    [ "ItemEnumeratorBaseV3T< ItemWithNodes >", "d4/d55/classArcane_1_1ItemWithNodes.html#a9eac9f82e530c0de1c452f2219d6b946", null ]
+    [ "ItemEnumeratorBaseV3T< ItemWithNodes >", "d4/d55/classArcane_1_1ItemWithNodes.html#a9eac9f82e530c0de1c452f2219d6b946", null ],
+    [ "ItemVectorViewConstIteratorT< ItemWithNodes >", "d4/d55/classArcane_1_1ItemWithNodes.html#ada9726e07628fdebfd7597e9981116d7", null ],
+    [ "ItemVectorViewT< ItemWithNodes >", "d4/d55/classArcane_1_1ItemWithNodes.html#ac9123197def6bfc9fa0636581fe42cc4", null ],
+    [ "SimdItemT< ItemWithNodes >", "d4/d55/classArcane_1_1ItemWithNodes.html#a6a0e1796d21bcd452f36f99db7738326", null ]
 ];

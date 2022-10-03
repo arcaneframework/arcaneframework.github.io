@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.7.9.0</span>
+   &#160;<span id="projectnumber">3.7.12.0</span>
    </div>
   </td>
  </tr>
@@ -480,63 +480,70 @@ $(document).ready(function(){initNavTree('d7/d3c/ConcurrencyUtils_8h_source.html
 <div class="line"><a name="l00605"></a><span class="lineno">  605</span>&#160;  <span class="keyword">static</span> Integer m_verbose_level;</div>
 <div class="line"><a name="l00606"></a><span class="lineno">  606</span>&#160;};</div>
 <div class="line"><a name="l00607"></a><span class="lineno">  607</span>&#160; </div>
-<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160; </div>
+<div class="line"><a name="l00608"></a><span class="lineno">  608</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
 <div class="line"><a name="l00609"></a><span class="lineno">  609</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00610"></a><span class="lineno">  610</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00615"></a><span class="lineno">  615</span>&#160;<span class="keyword">template</span>&lt;<span class="keywordtype">int</span> RankValue,<span class="keyword">typename</span> LambdaType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00616"></a><span class="lineno"><a class="line" href="../../d0/d32/namespaceArcane.html#ac1a99bf1ceb80e13f24ef242d292f3d9">  616</a></span>&#160;<a class="code" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd">arcaneParallelFor</a>(<span class="keyword">const</span> <a class="code" href="../../d4/d30/classArcane_1_1ComplexLoopRanges.html">ComplexLoopRanges&lt;RankValue&gt;</a>&amp; loop_ranges,</div>
-<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;                  <span class="keyword">const</span> <a class="code" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a>&amp; options,</div>
-<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;                  <span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
-<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;{</div>
-<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;  <span class="keyword">auto</span> xfunc = [=] (<span class="keyword">const</span> <a class="code" href="../../d4/d30/classArcane_1_1ComplexLoopRanges.html">ComplexLoopRanges&lt;RankValue&gt;</a>&amp; sub_bounds)</div>
-<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;  {</div>
-<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;    <a class="code" href="../../d0/d32/namespaceArcane.html#a3370d1087ecb65b00211d44b70ba2a51">arcaneSequentialFor</a>(sub_bounds,lambda_function);</div>
-<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;  };</div>
-<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;  <a class="code" href="../../d4/dd9/classArcane_1_1LambdaMDRangeFunctor.html">LambdaMDRangeFunctor</a>&lt;RankValue,decltype(xfunc)&gt; ipf(xfunc);</div>
-<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;  <a class="code" href="../../d6/d0d/classArcane_1_1TaskFactory.html#a73949ddfeb992edab891aff30258205b">TaskFactory::executeParallelFor</a>(loop_ranges,options,&amp;ipf);</div>
-<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;}</div>
-<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160; </div>
-<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160;<span class="keyword">template</span>&lt;<span class="keywordtype">int</span> RankValue,<span class="keyword">typename</span> LambdaType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00635"></a><span class="lineno"><a class="line" href="../../d0/d32/namespaceArcane.html#a5843ad7da23c51b39e71619363d6e5f9">  635</a></span>&#160;<a class="code" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd">arcaneParallelFor</a>(<span class="keyword">const</span> <a class="code" href="../../d2/d7d/classArcane_1_1SimpleLoopRanges.html">SimpleLoopRanges&lt;RankValue&gt;</a>&amp; loop_ranges,</div>
-<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;                  <span class="keyword">const</span> <a class="code" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a>&amp; options,</div>
-<div class="line"><a name="l00637"></a><span class="lineno">  637</span>&#160;                  <span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
-<div class="line"><a name="l00638"></a><span class="lineno">  638</span>&#160;{</div>
-<div class="line"><a name="l00639"></a><span class="lineno">  639</span>&#160;  <a class="code" href="../../d4/d30/classArcane_1_1ComplexLoopRanges.html">ComplexLoopRanges&lt;RankValue&gt;</a> complex_loop_ranges{loop_ranges};</div>
-<div class="line"><a name="l00640"></a><span class="lineno">  640</span>&#160;  <a class="code" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd">arcaneParallelFor</a>(complex_loop_ranges,options,lambda_function);</div>
-<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;}</div>
-<div class="line"><a name="l00642"></a><span class="lineno">  642</span>&#160; </div>
-<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160;<span class="keyword">template</span>&lt;<span class="keywordtype">int</span> RankValue,<span class="keyword">typename</span> LambdaType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00650"></a><span class="lineno"><a class="line" href="../../d0/d32/namespaceArcane.html#a493c32bfddc2bf4cdcde37addae77c2c">  650</a></span>&#160;<a class="code" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd">arcaneParallelFor</a>(<span class="keyword">const</span> <a class="code" href="../../d4/d30/classArcane_1_1ComplexLoopRanges.html">ComplexLoopRanges&lt;RankValue&gt;</a>&amp; loop_ranges,</div>
-<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;                  <span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
-<div class="line"><a name="l00652"></a><span class="lineno">  652</span>&#160;{</div>
-<div class="line"><a name="l00653"></a><span class="lineno">  653</span>&#160;  <a class="code" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a> options;</div>
-<div class="line"><a name="l00654"></a><span class="lineno">  654</span>&#160;  <a class="code" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd">arcaneParallelFor</a>(loop_ranges,options,lambda_function);</div>
-<div class="line"><a name="l00655"></a><span class="lineno">  655</span>&#160;}</div>
-<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160; </div>
-<div class="line"><a name="l00657"></a><span class="lineno">  657</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160;<span class="keyword">template</span>&lt;<span class="keywordtype">int</span> RankValue,<span class="keyword">typename</span> LambdaType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
-<div class="line"><a name="l00664"></a><span class="lineno"><a class="line" href="../../d0/d32/namespaceArcane.html#abde4f7b27ffd6f80c8570a73b74fa718">  664</a></span>&#160;<a class="code" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd">arcaneParallelFor</a>(<span class="keyword">const</span> <a class="code" href="../../d2/d7d/classArcane_1_1SimpleLoopRanges.html">SimpleLoopRanges&lt;RankValue&gt;</a>&amp; loop_ranges,</div>
-<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;                  <span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
-<div class="line"><a name="l00666"></a><span class="lineno">  666</span>&#160;{</div>
-<div class="line"><a name="l00667"></a><span class="lineno">  667</span>&#160;  <a class="code" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a> options;</div>
-<div class="line"><a name="l00668"></a><span class="lineno">  668</span>&#160;  <a class="code" href="../../d4/d30/classArcane_1_1ComplexLoopRanges.html">ComplexLoopRanges&lt;RankValue&gt;</a> complex_loop_ranges{loop_ranges};</div>
-<div class="line"><a name="l00669"></a><span class="lineno">  669</span>&#160;  <a class="code" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd">arcaneParallelFor</a>(complex_loop_ranges,options,lambda_function);</div>
-<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;}</div>
-<div class="line"><a name="l00671"></a><span class="lineno">  671</span>&#160; </div>
-<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160; </div>
-<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
-<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160; </div>
-<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160; </div>
-<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00614"></a><span class="lineno">  614</span>&#160;<span class="keyword">template</span>&lt;<span class="keywordtype">int</span> RankValue,<span class="keyword">typename</span> LambdaType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00615"></a><span class="lineno"><a class="line" href="../../d0/d32/namespaceArcane.html#ac1a99bf1ceb80e13f24ef242d292f3d9">  615</a></span>&#160;<a class="code" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd">arcaneParallelFor</a>(<span class="keyword">const</span> <a class="code" href="../../d4/d30/classArcane_1_1ComplexLoopRanges.html">ComplexLoopRanges&lt;RankValue&gt;</a>&amp; loop_ranges,</div>
+<div class="line"><a name="l00616"></a><span class="lineno">  616</span>&#160;                  <span class="keyword">const</span> <a class="code" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a>&amp; options,</div>
+<div class="line"><a name="l00617"></a><span class="lineno">  617</span>&#160;                  <span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
+<div class="line"><a name="l00618"></a><span class="lineno">  618</span>&#160;{</div>
+<div class="line"><a name="l00619"></a><span class="lineno">  619</span>&#160;  <span class="comment">// Modif Arcane 3.7.9 (septembre 2022)</span></div>
+<div class="line"><a name="l00620"></a><span class="lineno">  620</span>&#160;  <span class="comment">// Effectue une copie pour privatiser au thread courant les valeurs de la lambda.</span></div>
+<div class="line"><a name="l00621"></a><span class="lineno">  621</span>&#160;  <span class="comment">// Cela est nécessaire pour que objets comme les reducers soient bien pris</span></div>
+<div class="line"><a name="l00622"></a><span class="lineno">  622</span>&#160;  <span class="comment">// en compte.</span></div>
+<div class="line"><a name="l00623"></a><span class="lineno">  623</span>&#160;  <span class="comment">// TODO: regarder si on pourrait faire la copie uniquement une fois par thread</span></div>
+<div class="line"><a name="l00624"></a><span class="lineno">  624</span>&#160;  <span class="comment">// si cette copie devient couteuse.</span></div>
+<div class="line"><a name="l00625"></a><span class="lineno">  625</span>&#160;  <span class="keyword">auto</span> xfunc = [&amp;lambda_function] (<span class="keyword">const</span> <a class="code" href="../../d4/d30/classArcane_1_1ComplexLoopRanges.html">ComplexLoopRanges&lt;RankValue&gt;</a>&amp; sub_bounds)</div>
+<div class="line"><a name="l00626"></a><span class="lineno">  626</span>&#160;  {</div>
+<div class="line"><a name="l00627"></a><span class="lineno">  627</span>&#160;    <span class="keyword">using</span> Type = <span class="keyword">typename</span> std::remove_reference&lt;LambdaType&gt;::type;</div>
+<div class="line"><a name="l00628"></a><span class="lineno">  628</span>&#160;    Type private_lambda(lambda_function);</div>
+<div class="line"><a name="l00629"></a><span class="lineno">  629</span>&#160;    <a class="code" href="../../d0/d32/namespaceArcane.html#a3370d1087ecb65b00211d44b70ba2a51">arcaneSequentialFor</a>(sub_bounds,private_lambda);</div>
+<div class="line"><a name="l00630"></a><span class="lineno">  630</span>&#160;  };</div>
+<div class="line"><a name="l00631"></a><span class="lineno">  631</span>&#160;  <a class="code" href="../../d4/dd9/classArcane_1_1LambdaMDRangeFunctor.html">LambdaMDRangeFunctor</a>&lt;RankValue,decltype(xfunc)&gt; ipf(xfunc);</div>
+<div class="line"><a name="l00632"></a><span class="lineno">  632</span>&#160;  <a class="code" href="../../d6/d0d/classArcane_1_1TaskFactory.html#a73949ddfeb992edab891aff30258205b">TaskFactory::executeParallelFor</a>(loop_ranges,options,&amp;ipf);</div>
+<div class="line"><a name="l00633"></a><span class="lineno">  633</span>&#160;}</div>
+<div class="line"><a name="l00634"></a><span class="lineno">  634</span>&#160; </div>
+<div class="line"><a name="l00635"></a><span class="lineno">  635</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00636"></a><span class="lineno">  636</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00641"></a><span class="lineno">  641</span>&#160;<span class="keyword">template</span>&lt;<span class="keywordtype">int</span> RankValue,<span class="keyword">typename</span> LambdaType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00642"></a><span class="lineno"><a class="line" href="../../d0/d32/namespaceArcane.html#a5843ad7da23c51b39e71619363d6e5f9">  642</a></span>&#160;<a class="code" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd">arcaneParallelFor</a>(<span class="keyword">const</span> <a class="code" href="../../d2/d7d/classArcane_1_1SimpleLoopRanges.html">SimpleLoopRanges&lt;RankValue&gt;</a>&amp; loop_ranges,</div>
+<div class="line"><a name="l00643"></a><span class="lineno">  643</span>&#160;                  <span class="keyword">const</span> <a class="code" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a>&amp; options,</div>
+<div class="line"><a name="l00644"></a><span class="lineno">  644</span>&#160;                  <span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
+<div class="line"><a name="l00645"></a><span class="lineno">  645</span>&#160;{</div>
+<div class="line"><a name="l00646"></a><span class="lineno">  646</span>&#160;  <a class="code" href="../../d4/d30/classArcane_1_1ComplexLoopRanges.html">ComplexLoopRanges&lt;RankValue&gt;</a> complex_loop_ranges{loop_ranges};</div>
+<div class="line"><a name="l00647"></a><span class="lineno">  647</span>&#160;  <a class="code" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd">arcaneParallelFor</a>(complex_loop_ranges,options,lambda_function);</div>
+<div class="line"><a name="l00648"></a><span class="lineno">  648</span>&#160;}</div>
+<div class="line"><a name="l00649"></a><span class="lineno">  649</span>&#160; </div>
+<div class="line"><a name="l00650"></a><span class="lineno">  650</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00651"></a><span class="lineno">  651</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00656"></a><span class="lineno">  656</span>&#160;<span class="keyword">template</span>&lt;<span class="keywordtype">int</span> RankValue,<span class="keyword">typename</span> LambdaType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00657"></a><span class="lineno"><a class="line" href="../../d0/d32/namespaceArcane.html#a493c32bfddc2bf4cdcde37addae77c2c">  657</a></span>&#160;<a class="code" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd">arcaneParallelFor</a>(<span class="keyword">const</span> <a class="code" href="../../d4/d30/classArcane_1_1ComplexLoopRanges.html">ComplexLoopRanges&lt;RankValue&gt;</a>&amp; loop_ranges,</div>
+<div class="line"><a name="l00658"></a><span class="lineno">  658</span>&#160;                  <span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
+<div class="line"><a name="l00659"></a><span class="lineno">  659</span>&#160;{</div>
+<div class="line"><a name="l00660"></a><span class="lineno">  660</span>&#160;  <a class="code" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a> options;</div>
+<div class="line"><a name="l00661"></a><span class="lineno">  661</span>&#160;  <a class="code" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd">arcaneParallelFor</a>(loop_ranges,options,lambda_function);</div>
+<div class="line"><a name="l00662"></a><span class="lineno">  662</span>&#160;}</div>
+<div class="line"><a name="l00663"></a><span class="lineno">  663</span>&#160; </div>
+<div class="line"><a name="l00664"></a><span class="lineno">  664</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00665"></a><span class="lineno">  665</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00670"></a><span class="lineno">  670</span>&#160;<span class="keyword">template</span>&lt;<span class="keywordtype">int</span> RankValue,<span class="keyword">typename</span> LambdaType&gt; <span class="keyword">inline</span> <span class="keywordtype">void</span></div>
+<div class="line"><a name="l00671"></a><span class="lineno"><a class="line" href="../../d0/d32/namespaceArcane.html#abde4f7b27ffd6f80c8570a73b74fa718">  671</a></span>&#160;<a class="code" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd">arcaneParallelFor</a>(<span class="keyword">const</span> <a class="code" href="../../d2/d7d/classArcane_1_1SimpleLoopRanges.html">SimpleLoopRanges&lt;RankValue&gt;</a>&amp; loop_ranges,</div>
+<div class="line"><a name="l00672"></a><span class="lineno">  672</span>&#160;                  <span class="keyword">const</span> LambdaType&amp; lambda_function)</div>
+<div class="line"><a name="l00673"></a><span class="lineno">  673</span>&#160;{</div>
+<div class="line"><a name="l00674"></a><span class="lineno">  674</span>&#160;  <a class="code" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a> options;</div>
+<div class="line"><a name="l00675"></a><span class="lineno">  675</span>&#160;  <a class="code" href="../../d4/d30/classArcane_1_1ComplexLoopRanges.html">ComplexLoopRanges&lt;RankValue&gt;</a> complex_loop_ranges{loop_ranges};</div>
+<div class="line"><a name="l00676"></a><span class="lineno">  676</span>&#160;  <a class="code" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd">arcaneParallelFor</a>(complex_loop_ranges,options,lambda_function);</div>
+<div class="line"><a name="l00677"></a><span class="lineno">  677</span>&#160;}</div>
+<div class="line"><a name="l00678"></a><span class="lineno">  678</span>&#160; </div>
+<div class="line"><a name="l00679"></a><span class="lineno">  679</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00680"></a><span class="lineno">  680</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00681"></a><span class="lineno">  681</span>&#160; </div>
+<div class="line"><a name="l00682"></a><span class="lineno">  682</span>&#160;} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a name="l00683"></a><span class="lineno">  683</span>&#160; </div>
+<div class="line"><a name="l00684"></a><span class="lineno">  684</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00685"></a><span class="lineno">  685</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00686"></a><span class="lineno">  686</span>&#160; </div>
+<div class="line"><a name="l00687"></a><span class="lineno">  687</span>&#160;<span class="preprocessor">#endif  </span></div>
 <div class="ttc" id="aArcaneGlobal_8h_html_a3fb196870fc917614437a98517be2ed4"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a3fb196870fc917614437a98517be2ed4">ARCANE_CHECK_POINTER</a></div><div class="ttdeci">#define ARCANE_CHECK_POINTER(ptr)</div><div class="ttdoc">Macro retournant le pointeur ptr s'il est non nul ou lancant une exception s'il est nul.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:820</div></div>
 <div class="ttc" id="aArcaneGlobal_8h_html_a9d85d5fb84c5371348dd56600999e564"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a></div><div class="ttdeci">#define ARCANE_FATAL(...)</div><div class="ttdoc">Macro envoyant une exception FatalErrorException.</div><div class="ttdef"><b>Definition:</b> ArcaneGlobal.h:761</div></div>
 <div class="ttc" id="aUtilsTypes_8h_html"><div class="ttname"><a href="../../d4/da8/UtilsTypes_8h.html">UtilsTypes.h</a></div><div class="ttdoc">Déclarations des types utilisés dans Arcane.</div></div>
@@ -612,7 +619,7 @@ $(document).ready(function(){initNavTree('d7/d3c/ConcurrencyUtils_8h_source.html
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_cd48e9603a047c3a36ad2b31e177f8e3.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_ec61ee1469f86161b003e941beb70d66.html">utils</a></li><li class="navelem"><a class="el" href="../../d7/d3c/ConcurrencyUtils_8h.html">ConcurrencyUtils.h</a></li>
-    <li class="footer">Généré le Lundi 26 Septembre 2022 04:27:25 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Généré le Lundi 3 Octobre 2022 03:30:16 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

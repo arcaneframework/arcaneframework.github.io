@@ -3,6 +3,7 @@ var MeshUtils_8h =
     [ "checkMeshConnectivity", "dc/de8/MeshUtils_8h.html#a0b6a0d4a24136b72a2f15e97dbe795ee", null ],
     [ "checkMeshConnectivity", "dc/de8/MeshUtils_8h.html#ad3ed8463d86242e77e19df142b0ea5ce", null ],
     [ "checkMeshProperties", "dc/de8/MeshUtils_8h.html#a3751bfeb8293e780de66227939f00b09", null ],
+    [ "dumpSynchronizerTopologyJSON", "dc/de8/MeshUtils_8h.html#a65a0aba5d1fa8c76addec462323a8e87", null ],
     [ "getFaceFromNodesLocal", "dc/de8/MeshUtils_8h.html#acaa6fd6c9e8e5b3c9a50d18a6cc00ecb", null ],
     [ "getFaceFromNodesUnique", "dc/de8/MeshUtils_8h.html#a22e4e4449176b411037b2b4bd1a34528", null ],
     [ "printItems", "dc/de8/MeshUtils_8h.html#afc1e84a2d0de0a7dcaf5c3cd081a9246", null ],

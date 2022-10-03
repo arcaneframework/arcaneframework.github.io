@@ -9,5 +9,8 @@ var classArcane_1_1DoF =
     [ "ARCANE_DEPRECATED_REASON", "d0/d6c/classArcane_1_1DoF.html#adeccd4013dc8720daf66c9473492a398", null ],
     [ "itemLocalId", "d0/d6c/classArcane_1_1DoF.html#a55a121457051ff91ec342e231e36ecfb", null ],
     [ "operator=", "d0/d6c/classArcane_1_1DoF.html#a1d4e08b40e567fc23e159c2f016794cc", null ],
-    [ "ItemEnumeratorBaseV3T< DoF >", "d0/d6c/classArcane_1_1DoF.html#a790a79a1a4205c096740653339cfa257", null ]
+    [ "ItemEnumeratorBaseV3T< DoF >", "d0/d6c/classArcane_1_1DoF.html#a790a79a1a4205c096740653339cfa257", null ],
+    [ "ItemVectorViewConstIteratorT< DoF >", "d0/d6c/classArcane_1_1DoF.html#a438eae2fc6d0199092c7c61b38d63be8", null ],
+    [ "ItemVectorViewT< DoF >", "d0/d6c/classArcane_1_1DoF.html#a9211e339e6daa8317fd9e86ee7566063", null ],
+    [ "SimdItemT< DoF >", "d0/d6c/classArcane_1_1DoF.html#a0feb066d62252acfdef45cc0ba285ad5", null ]
 ];
