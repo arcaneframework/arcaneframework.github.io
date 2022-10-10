@@ -64,7 +64,7 @@ var classArcane_1_1ItemSharedInfo =
     [ "impl::ItemBase", "df/d0b/classArcane_1_1ItemSharedInfo.html#aeedc340d15e0491ea4a7c5f687e4236d", null ],
     [ "Item", "df/d0b/classArcane_1_1ItemSharedInfo.html#aad85754f188b769ff61150eaf36106c4", null ],
     [ "ItemCompatibility", "df/d0b/classArcane_1_1ItemSharedInfo.html#a153cd433cff097dec1fa052dd8eb3842", null ],
-    [ "ItemEnumeratorBaseV3", "df/d0b/classArcane_1_1ItemSharedInfo.html#add11e1b3d75cdc9a0b446994a29b6e15", null ],
+    [ "ItemEnumeratorBase", "df/d0b/classArcane_1_1ItemSharedInfo.html#ab91795be47b0e7dffc617f8653a96616", null ],
     [ "ItemInfoListView", "df/d0b/classArcane_1_1ItemSharedInfo.html#ae02b05d490ae9da62a0cd26bddb2d16d", null ],
     [ "ItemInternal", "df/d0b/classArcane_1_1ItemSharedInfo.html#ab5a45f7a19563aed8af84613b3b97503", null ],
     [ "ItemInternalVectorView", "df/d0b/classArcane_1_1ItemSharedInfo.html#a584169d7799815262b7bc32a8daa9d7b", null ],

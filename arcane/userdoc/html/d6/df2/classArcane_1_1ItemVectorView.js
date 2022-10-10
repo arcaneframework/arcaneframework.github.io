@@ -1,6 +1,10 @@
 var classArcane_1_1ItemVectorView =
 [
     [ "const_iterator", "d6/df2/classArcane_1_1ItemVectorView.html#a3b8ab4d6a5ecfafceaf809732da3fb5c", null ],
+    [ "const_reference_type", "d6/df2/classArcane_1_1ItemVectorView.html#aaea928ddb8011aea8e3f9c9a6b87c19f", null ],
+    [ "difference_type", "d6/df2/classArcane_1_1ItemVectorView.html#a4d4021dff29e3b61393aed3655a5f389", null ],
+    [ "reference_type", "d6/df2/classArcane_1_1ItemVectorView.html#a2a29814a5485173f1e07620598c1b3d0", null ],
+    [ "value_type", "d6/df2/classArcane_1_1ItemVectorView.html#abf4dd32ae980360de764874e2dc38a28", null ],
     [ "ItemVectorView", "d6/df2/classArcane_1_1ItemVectorView.html#a2378758f7a08c727635fb85dd3e4bc28", null ],
     [ "ItemVectorView", "d6/df2/classArcane_1_1ItemVectorView.html#a552a14c9501605cdc12cf6e00258aad9", null ],
     [ "ItemVectorView", "d6/df2/classArcane_1_1ItemVectorView.html#a5acef818fcdd8f5c8d5837eb9eab0796", null ],

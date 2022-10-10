@@ -82,7 +82,7 @@ var classArcane_1_1Node =
     [ "Element", "d8/dd7/classArcane_1_1Node.html#a016b821f88c7c0a2de1451c175cefbf9", null ],
     [ "IDOM_Document", "d8/dd7/classArcane_1_1Node.html#a3140ccc40fc1a1f5a14f9b9581844f94", null ],
     [ "IDOM_Node", "d8/dd7/classArcane_1_1Node.html#a356b566efe1833922cc8040a7fb1b9a7", null ],
-    [ "ItemEnumeratorBaseV3T< Node >", "d8/dd7/classArcane_1_1Node.html#a707456bc1d1848f53edbbbd8d4707042", null ],
+    [ "ItemEnumeratorBaseT< Node >", "d8/dd7/classArcane_1_1Node.html#a1255b02578b260f074d66f91aa4eb0d9", null ],
     [ "ItemVectorViewConstIteratorT< Node >", "d8/dd7/classArcane_1_1Node.html#a3c78b3e0da069cc1925badf5496b1b3a", null ],
     [ "ItemVectorViewT< Node >", "d8/dd7/classArcane_1_1Node.html#a0ec1e8e1023e58e051e970b7082c21a9", null ],
     [ "NamedNodeMap", "d8/dd7/classArcane_1_1Node.html#a67946c208a2ad23e5f3b47323d695968", null ],

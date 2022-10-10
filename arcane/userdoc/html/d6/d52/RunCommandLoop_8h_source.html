@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.7.12.0</span>
+   &#160;<span id="projectnumber">3.7.15.0</span>
    </div>
   </td>
  </tr>
@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('d6/d52/RunCommandLoop_8h_source.html',
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* RunCommandLoop.h                                            (C) 2000-2021 */</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* RunCommandLoop.h                                            (C) 2000-2022 */</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Macros pour exécuter une boucle sur une commande.                         */</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
@@ -125,14 +125,14 @@ $(document).ready(function(){initNavTree('d6/d52/RunCommandLoop_8h_source.html',
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> vsize = bounds.nbElement();</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keywordflow">if</span> (vsize==0)</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <a class="code" href="../../d1/d86/classArcane_1_1Accelerator_1_1impl_1_1RunCommandLaunchInfo.html">impl::RunCommandLaunchInfo</a> launch_info(command);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <a class="code" href="../../d1/d86/classArcane_1_1Accelerator_1_1impl_1_1RunCommandLaunchInfo.html">impl::RunCommandLaunchInfo</a> launch_info(command,vsize);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">const</span> <a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857df">eExecutionPolicy</a> exec_policy = launch_info.executionPolicy();</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keywordflow">switch</span>(exec_policy){</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keywordflow">case</span> <a class="code" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfaa33b7755e5f9b504d2d038eaca4ff28d">eExecutionPolicy::CUDA</a>:</div>
 <div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#if defined(ARCANE_COMPILING_CUDA)</span></div>
 <div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    {</div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      launch_info.<a class="code" href="../../d1/d86/classArcane_1_1Accelerator_1_1impl_1_1RunCommandLaunchInfo.html#a0fad4027af05b18792b6d1aaf6ed3f9e">beginExecute</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keyword">auto</span> [b,t] = launch_info.computeThreadBlockInfo(vsize);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;      <span class="keyword">auto</span> [b,t] = launch_info.<a class="code" href="../../d1/d86/classArcane_1_1Accelerator_1_1impl_1_1RunCommandLaunchInfo.html#a384ba7990c7162943ff5f0b6f9981fd5">threadBlockInfo</a>();</div>
 <div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;      cudaStream_t* s = <span class="keyword">reinterpret_cast&lt;</span>cudaStream_t*<span class="keyword">&gt;</span>(launch_info._internalStreamImpl());</div>
 <div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;      <span class="comment">// TODO: utiliser cudaLaunchKernel() à la place.</span></div>
 <div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;      impl::doDirectGPULambdaArrayBounds&lt;LoopBoundType&lt;N&gt;,Lambda&gt; &lt;&lt;&lt;b, t, 0, *s&gt;&gt;&gt;(bounds,func);</div>
@@ -145,7 +145,7 @@ $(document).ready(function(){initNavTree('d6/d52/RunCommandLoop_8h_source.html',
 <div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#if defined(ARCANE_COMPILING_HIP)</span></div>
 <div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    {</div>
 <div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;      launch_info.<a class="code" href="../../d1/d86/classArcane_1_1Accelerator_1_1impl_1_1RunCommandLaunchInfo.html#a0fad4027af05b18792b6d1aaf6ed3f9e">beginExecute</a>();</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keyword">auto</span> [b,t] = launch_info.computeThreadBlockInfo(vsize);</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;      <span class="keyword">auto</span> [b,t] = launch_info.<a class="code" href="../../d1/d86/classArcane_1_1Accelerator_1_1impl_1_1RunCommandLaunchInfo.html#a384ba7990c7162943ff5f0b6f9981fd5">threadBlockInfo</a>();</div>
 <div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;      hipStream_t* s = <span class="keyword">reinterpret_cast&lt;</span>hipStream_t*<span class="keyword">&gt;</span>(launch_info._internalStreamImpl());</div>
 <div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;      <span class="keyword">auto</span>&amp; loop_func = impl::doDirectGPULambdaArrayBounds&lt;LoopBoundType&lt;N&gt;,Lambda&gt;;</div>
 <div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;      hipLaunchKernelGGL(loop_func, b, t, 0, *s, bounds, func);</div>
@@ -277,8 +277,9 @@ $(document).ready(function(){initNavTree('d6/d52/RunCommandLoop_8h_source.html',
 <div class="ttc" id="aclassArcane_1_1Accelerator_1_1ArrayBoundRunCommand_html"><div class="ttname"><a href="../../d6/d2f/classArcane_1_1Accelerator_1_1ArrayBoundRunCommand.html">Arcane::Accelerator::ArrayBoundRunCommand</a></div><div class="ttdef"><b>Definition:</b> RunCommandLoop.h:126</div></div>
 <div class="ttc" id="aclassArcane_1_1Accelerator_1_1RunCommand_html"><div class="ttname"><a href="../../dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html">Arcane::Accelerator::RunCommand</a></div><div class="ttdoc">Gestion d'une commande sur accélérateur.</div><div class="ttdef"><b>Definition:</b> RunCommand.h:36</div></div>
 <div class="ttc" id="aclassArcane_1_1Accelerator_1_1impl_1_1RunCommandLaunchInfo_html"><div class="ttname"><a href="../../d1/d86/classArcane_1_1Accelerator_1_1impl_1_1RunCommandLaunchInfo.html">Arcane::Accelerator::impl::RunCommandLaunchInfo</a></div><div class="ttdef"><b>Definition:</b> RunCommandLaunchInfo.h:40</div></div>
-<div class="ttc" id="aclassArcane_1_1Accelerator_1_1impl_1_1RunCommandLaunchInfo_html_a0fad4027af05b18792b6d1aaf6ed3f9e"><div class="ttname"><a href="../../d1/d86/classArcane_1_1Accelerator_1_1impl_1_1RunCommandLaunchInfo.html#a0fad4027af05b18792b6d1aaf6ed3f9e">Arcane::Accelerator::impl::RunCommandLaunchInfo::beginExecute</a></div><div class="ttdeci">void beginExecute()</div><div class="ttdoc">Indique qu'on commence l'exécution de la commande.</div><div class="ttdef"><b>Definition:</b> RunCommandLaunchInfo.cc:66</div></div>
-<div class="ttc" id="aclassArcane_1_1Accelerator_1_1impl_1_1RunCommandLaunchInfo_html_a4842e8ff688ff661eaf72668bd331931"><div class="ttname"><a href="../../d1/d86/classArcane_1_1Accelerator_1_1impl_1_1RunCommandLaunchInfo.html#a4842e8ff688ff661eaf72668bd331931">Arcane::Accelerator::impl::RunCommandLaunchInfo::endExecute</a></div><div class="ttdeci">void endExecute()</div><div class="ttdoc">Signale la fin de l'exécution.</div><div class="ttdef"><b>Definition:</b> RunCommandLaunchInfo.cc:78</div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1impl_1_1RunCommandLaunchInfo_html_a0fad4027af05b18792b6d1aaf6ed3f9e"><div class="ttname"><a href="../../d1/d86/classArcane_1_1Accelerator_1_1impl_1_1RunCommandLaunchInfo.html#a0fad4027af05b18792b6d1aaf6ed3f9e">Arcane::Accelerator::impl::RunCommandLaunchInfo::beginExecute</a></div><div class="ttdeci">void beginExecute()</div><div class="ttdoc">Indique qu'on commence l'exécution de la commande.</div><div class="ttdef"><b>Definition:</b> RunCommandLaunchInfo.cc:78</div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1impl_1_1RunCommandLaunchInfo_html_a384ba7990c7162943ff5f0b6f9981fd5"><div class="ttname"><a href="../../d1/d86/classArcane_1_1Accelerator_1_1impl_1_1RunCommandLaunchInfo.html#a384ba7990c7162943ff5f0b6f9981fd5">Arcane::Accelerator::impl::RunCommandLaunchInfo::threadBlockInfo</a></div><div class="ttdeci">ThreadBlockInfo threadBlockInfo() const</div><div class="ttdoc">Informations sur le nombre de block/thread/grille du noyau à lancer.</div><div class="ttdef"><b>Definition:</b> RunCommandLaunchInfo.h:79</div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1impl_1_1RunCommandLaunchInfo_html_a4842e8ff688ff661eaf72668bd331931"><div class="ttname"><a href="../../d1/d86/classArcane_1_1Accelerator_1_1impl_1_1RunCommandLaunchInfo.html#a4842e8ff688ff661eaf72668bd331931">Arcane::Accelerator::impl::RunCommandLaunchInfo::endExecute</a></div><div class="ttdeci">void endExecute()</div><div class="ttdoc">Signale la fin de l'exécution.</div><div class="ttdef"><b>Definition:</b> RunCommandLaunchInfo.cc:90</div></div>
 <div class="ttc" id="aclassArcane_1_1ArrayBounds_html"><div class="ttname"><a href="../../df/d48/classArcane_1_1ArrayBounds.html">Arcane::ArrayBounds</a></div><div class="ttdef"><b>Definition:</b> UtilsTypes.h:247</div></div>
 <div class="ttc" id="aclassArcane_1_1ComplexLoopRanges_html"><div class="ttname"><a href="../../d4/d30/classArcane_1_1ComplexLoopRanges.html">Arcane::ComplexLoopRanges</a></div><div class="ttdef"><b>Definition:</b> LoopRanges.h:87</div></div>
 <div class="ttc" id="aclassArcane_1_1SimpleLoopRanges_html"><div class="ttname"><a href="../../d2/d7d/classArcane_1_1SimpleLoopRanges.html">Arcane::SimpleLoopRanges</a></div><div class="ttdoc">Interval d'itération simple.</div><div class="ttdef"><b>Definition:</b> LoopRanges.h:57</div></div>
@@ -299,7 +300,7 @@ $(document).ready(function(){initNavTree('d6/d52/RunCommandLoop_8h_source.html',
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_cd48e9603a047c3a36ad2b31e177f8e3.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_0ae535d63c1c574fd7ac7e0cce1d5017.html">accelerator</a></li><li class="navelem"><a class="el" href="../../d6/d52/RunCommandLoop_8h.html">RunCommandLoop.h</a></li>
-    <li class="footer">Généré le Lundi 3 Octobre 2022 03:30:12 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Généré le Lundi 10 Octobre 2022 04:08:48 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

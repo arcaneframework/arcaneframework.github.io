@@ -11,6 +11,7 @@ var classArcane_1_1Accelerator_1_1impl_1_1RunCommandImpl =
     [ "reset", "d2/d7c/classArcane_1_1Accelerator_1_1impl_1_1RunCommandImpl.html#a2eb4f8e0498fdd8e11c5eba9877ab7a7", null ],
     [ "traceInfo", "d2/d7c/classArcane_1_1Accelerator_1_1impl_1_1RunCommandImpl.html#a340ceb755c31e516a13105bebe627020", null ],
     [ "RunCommand", "d2/d7c/classArcane_1_1Accelerator_1_1impl_1_1RunCommandImpl.html#af6ef8e14faed463a3e6604d5e8a31e50", null ],
+    [ "m_active_reduce_memory_list", "d2/d7c/classArcane_1_1Accelerator_1_1impl_1_1RunCommandImpl.html#abcc5b0b17551e20bee8ed0b783354d79", null ],
     [ "m_kernel_name", "d2/d7c/classArcane_1_1Accelerator_1_1impl_1_1RunCommandImpl.html#a15f4e8ffe925600348f5aac87cf92021", null ],
     [ "m_queue", "d2/d7c/classArcane_1_1Accelerator_1_1impl_1_1RunCommandImpl.html#a2bfebe2e1c559220d293d3131b0eebbe", null ],
     [ "m_reduce_memory_pool", "d2/d7c/classArcane_1_1Accelerator_1_1impl_1_1RunCommandImpl.html#a6867266419cd39961e3000d2a556fe2f", null ],

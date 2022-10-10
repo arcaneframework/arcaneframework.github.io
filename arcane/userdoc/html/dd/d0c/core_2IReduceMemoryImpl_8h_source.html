@@ -26,7 +26,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Arcane
-   &#160;<span id="projectnumber">3.7.12.0</span>
+   &#160;<span id="projectnumber">3.7.15.0</span>
    </div>
   </td>
  </tr>
@@ -93,7 +93,7 @@ $(document).ready(function(){initNavTree('dd/d0c/core_2IReduceMemoryImpl_8h_sour
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">//-----------------------------------------------------------------------------</span></div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* IReduceMemoryImpl.h                                         (C) 2000-2021 */</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment">/* IReduceMemoryImpl.h                                         (C) 2000-2022 */</span></div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/*                                                                           */</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment">/* Interface de la gestion mémoire pour les réductions.                      */</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
@@ -117,39 +117,66 @@ $(document).ready(function(){initNavTree('dd/d0c/core_2IReduceMemoryImpl_8h_sour
 <div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="../../da/dc8/classArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl.html">   34</a></span>&#160;<span class="keyword">class </span>ARCANE_ACCELERATOR_CORE_EXPORT <a class="code" href="../../da/dc8/classArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl.html">IReduceMemoryImpl</a></div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;{</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../da/dc8/classArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl.html">IReduceMemoryImpl</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span>* allocateMemory(<a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> size) = 0;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> release() =0;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="../../dc/d19/structArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl_1_1GridMemoryInfo.html">   39</a></span>&#160;  <span class="keyword">struct </span><a class="code" href="../../dc/d19/structArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl_1_1GridMemoryInfo.html">GridMemoryInfo</a></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  {</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;   <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; T*</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;allocateReduceMemory(<a class="code" href="../../da/dc8/classArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl.html">IReduceMemoryImpl</a>* p)</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;{</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span>T*<span class="keyword">&gt;</span>(p-&gt;allocateMemory(<span class="keyword">sizeof</span>(T)));</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;}</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="../../dc/d19/structArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl_1_1GridMemoryInfo.html#a7118139a25f146d6ab4d9dc9c4c53536">   44</a></span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#af4260c062445b7d729a8e7b292e83936">Byte</a>* m_grid_memory_value_as_bytes = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="line" href="../../dc/d19/structArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl_1_1GridMemoryInfo.html#ad2d6a79f0651cd9ac99b3569ae8ec07b">   46</a></span>&#160;    <a class="code" href="../../d5/d60/namespaceArccore.html#ab32c98ae2c2cf8372feb620983bb5b67">Int32</a> m_grid_memory_size = 0;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="../../dc/d19/structArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl_1_1GridMemoryInfo.html#af971962d99e1581a24779259e576f432">   48</a></span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>* m_grid_device_count = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  };</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;  <span class="keyword">virtual</span> ~<a class="code" href="../../da/dc8/classArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl.html">IReduceMemoryImpl</a>() = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;} <span class="comment">// End namespace Arcane::Accelerator::impl</span></div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; <span class="keyword">public</span>:</div>
 <div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00058"></a><span class="lineno"><a class="line" href="../../da/dc8/classArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl.html#a0e4b3b80edaef8702c467e48c3d6b045">   58</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span>* <a class="code" href="../../da/dc8/classArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl.html#a0e4b3b80edaef8702c467e48c3d6b045">allocateReduceDataMemory</a>(<a class="code" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> data_size) = 0;</div>
 <div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif  </span></div>
+<div class="line"><a name="l00061"></a><span class="lineno"><a class="line" href="../../da/dc8/classArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl.html#ae0017f9a02ceeba15bfda66bb25fda80">   61</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../da/dc8/classArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl.html#ae0017f9a02ceeba15bfda66bb25fda80">setGridSizeAndAllocate</a>(<a class="code" href="../../d5/d60/namespaceArccore.html#ab32c98ae2c2cf8372feb620983bb5b67">Int32</a> grid_size) = 0;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../d5/d60/namespaceArccore.html#ab32c98ae2c2cf8372feb620983bb5b67">Int32</a> gridSize() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160; </div>
+<div class="line"><a name="l00065"></a><span class="lineno"><a class="line" href="../../da/dc8/classArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl.html#a309fec2ddaa0db94e8087592e6f911fe">   65</a></span>&#160;  <span class="keyword">virtual</span> <a class="code" href="../../dc/d19/structArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl_1_1GridMemoryInfo.html">GridMemoryInfo</a> <a class="code" href="../../da/dc8/classArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl.html#a309fec2ddaa0db94e8087592e6f911fe">gridMemoryInfo</a>() = 0;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160; </div>
+<div class="line"><a name="l00068"></a><span class="lineno"><a class="line" href="../../da/dc8/classArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl.html#aa2e43acdfbcf99977949cef61a730edc">   68</a></span>&#160;  <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../da/dc8/classArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl.html#aa2e43acdfbcf99977949cef61a730edc">release</a>() = 0;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160; </div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt; T*</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;allocateReduceDataMemory(<a class="code" href="../../da/dc8/classArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl.html">IReduceMemoryImpl</a>* p)</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;{</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;  <span class="keywordflow">return</span> <span class="keyword">reinterpret_cast&lt;</span>T*<span class="keyword">&gt;</span>(p-&gt;<a class="code" href="../../da/dc8/classArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl.html#a0e4b3b80edaef8702c467e48c3d6b045">allocateReduceDataMemory</a>(<span class="keyword">sizeof</span>(T)));</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;}</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160; </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160; </div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;} <span class="comment">// End namespace Arcane::Accelerator::impl</span></div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;<span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;<span class="preprocessor">#endif  </span></div>
 <div class="ttc" id="aclassArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl_html"><div class="ttname"><a href="../../da/dc8/classArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl.html">Arcane::Accelerator::impl::IReduceMemoryImpl</a></div><div class="ttdef"><b>Definition:</b> IReduceMemoryImpl.h:35</div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl_html_a0e4b3b80edaef8702c467e48c3d6b045"><div class="ttname"><a href="../../da/dc8/classArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl.html#a0e4b3b80edaef8702c467e48c3d6b045">Arcane::Accelerator::impl::IReduceMemoryImpl::allocateReduceDataMemory</a></div><div class="ttdeci">virtual void * allocateReduceDataMemory(Int64 data_size)=0</div><div class="ttdoc">Alloue la mémoire pour une donnée réduite dont la taille du type est data_size.</div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl_html_a309fec2ddaa0db94e8087592e6f911fe"><div class="ttname"><a href="../../da/dc8/classArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl.html#a309fec2ddaa0db94e8087592e6f911fe">Arcane::Accelerator::impl::IReduceMemoryImpl::gridMemoryInfo</a></div><div class="ttdeci">virtual GridMemoryInfo gridMemoryInfo()=0</div><div class="ttdoc">Informations sur la mémoire utilisée par la réduction.</div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl_html_aa2e43acdfbcf99977949cef61a730edc"><div class="ttname"><a href="../../da/dc8/classArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl.html#aa2e43acdfbcf99977949cef61a730edc">Arcane::Accelerator::impl::IReduceMemoryImpl::release</a></div><div class="ttdeci">virtual void release()=0</div><div class="ttdoc">Libère l'instance.</div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl_html_ae0017f9a02ceeba15bfda66bb25fda80"><div class="ttname"><a href="../../da/dc8/classArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl.html#ae0017f9a02ceeba15bfda66bb25fda80">Arcane::Accelerator::impl::IReduceMemoryImpl::setGridSizeAndAllocate</a></div><div class="ttdeci">virtual void setGridSizeAndAllocate(Int32 grid_size)=0</div><div class="ttdoc">Positionne la taille de la grille GPU (le nombre de blocs)</div></div>
 <div class="ttc" id="anamespaceArccore_html_a7cde9b16416e2271fa90d200e7c9e276"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Arccore::Int64</a></div><div class="ttdeci">std::int64_t Int64</div><div class="ttdoc">Type entier signé sur 64 bits.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:179</div></div>
+<div class="ttc" id="anamespaceArccore_html_ab32c98ae2c2cf8372feb620983bb5b67"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#ab32c98ae2c2cf8372feb620983bb5b67">Arccore::Int32</a></div><div class="ttdeci">std::int32_t Int32</div><div class="ttdoc">Type entier signé sur 32 bits.</div><div class="ttdef"><b>Definition:</b> ArccoreGlobal.h:178</div></div>
+<div class="ttc" id="anamespaceArccore_html_af4260c062445b7d729a8e7b292e83936"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#af4260c062445b7d729a8e7b292e83936">Arccore::Byte</a></div><div class="ttdeci">unsigned char Byte</div><div class="ttdoc">Type d'un octet.</div><div class="ttdef"><b>Definition:</b> BaseTypes.h:37</div></div>
+<div class="ttc" id="astructArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl_1_1GridMemoryInfo_html"><div class="ttname"><a href="../../dc/d19/structArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl_1_1GridMemoryInfo.html">Arcane::Accelerator::impl::IReduceMemoryImpl::GridMemoryInfo</a></div><div class="ttdoc">Informations mémoire pour la réduction sur les accélérateurs.</div><div class="ttdef"><b>Definition:</b> IReduceMemoryImpl.h:40</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="../../dir_cd48e9603a047c3a36ad2b31e177f8e3.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_0ae535d63c1c574fd7ac7e0cce1d5017.html">accelerator</a></li><li class="navelem"><a class="el" href="../../dir_ff188eb48cb0fa1d03a4aa371be53eb7.html">core</a></li><li class="navelem"><b>IReduceMemoryImpl.h</b></li>
-    <li class="footer">Généré le Lundi 3 Octobre 2022 03:30:12 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Généré le Lundi 10 Octobre 2022 04:08:48 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

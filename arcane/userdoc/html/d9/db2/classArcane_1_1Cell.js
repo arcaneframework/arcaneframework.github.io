@@ -32,7 +32,7 @@ var classArcane_1_1Cell =
     [ "topHParent", "d9/db2/classArcane_1_1Cell.html#a06924f1a071792d50ff80323a8f2506d", null ],
     [ "whichChildAmI", "d9/db2/classArcane_1_1Cell.html#a9f78674895aa1946badd4d925cb8126b", null ],
     [ "whichChildAmI", "d9/db2/classArcane_1_1Cell.html#a85c94823506c15a84ce31006a7b57659", null ],
-    [ "ItemEnumeratorBaseV3T< Cell >", "d9/db2/classArcane_1_1Cell.html#a8d69bed7f7d7ab8f2028705d9fa0207b", null ],
+    [ "ItemEnumeratorBaseT< Cell >", "d9/db2/classArcane_1_1Cell.html#a5f00c4702878a059570eaa0c05009d61", null ],
     [ "ItemVectorViewConstIteratorT< Cell >", "d9/db2/classArcane_1_1Cell.html#a6089cb45007b44de22d6770f5a0c25e9", null ],
     [ "ItemVectorViewT< Cell >", "d9/db2/classArcane_1_1Cell.html#a705eeef2039a584af7e6d8bd8772db04", null ],
     [ "SimdItemT< Cell >", "d9/db2/classArcane_1_1Cell.html#a7e3ec5d6e8f3c6a2643c2c0ccb316c21", null ]

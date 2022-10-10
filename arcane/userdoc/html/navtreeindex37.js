@@ -1,6 +1,5 @@
 var NAVTREEINDEX37 =
 {
-"d5/d60/namespaceArccore.html#a3124477869172be2134de3935637b2a9":[40,0,2,265],
 "d5/d60/namespaceArccore.html#a334aa94858646709f40b8aaa4bd41118":[40,0,2,206],
 "d5/d60/namespaceArccore.html#a340238f0760379df351cab1f7cdd284c":[40,0,2,202],
 "d5/d60/namespaceArccore.html#a3544261cff80020ad4572f126b1268de":[40,0,2,208],
@@ -249,5 +248,6 @@ var NAVTREEINDEX37 =
 "d5/d8b/classArcane_1_1IndexedItemConnectivityViewT_3_01ItemType_00_01Edge_01_4.html#ad5435e7849d65edd1b449ec1b44f264f":[41,0,1,322,1],
 "d5/d8b/classArcane_1_1IndexedItemConnectivityViewT_3_01ItemType_00_01Edge_01_4.html#ad87bfce4d0f32449583cd5e3538ff687":[41,0,1,322,8],
 "d5/d8b/classArcane_1_1IndexedItemConnectivityViewT_3_01ItemType_00_01Edge_01_4.html#af9f6fe0643ee0ea7ee49bd38613b1641":[41,0,1,322,3],
-"d5/d8d/structStrongOptions_1_1OptionTools_1_1Internal2_3_01T_00_01Nmin_00_01Nmax_00_01CurN_00_01Head_00_01Tail_8_8_8_01_4.html":[41,0,3,3,3]
+"d5/d8d/structStrongOptions_1_1OptionTools_1_1Internal2_3_01T_00_01Nmin_00_01Nmax_00_01CurN_00_01Head_00_01Tail_8_8_8_01_4.html":[41,0,3,3,3],
+"d5/d8f/classArcane_1_1IMeshPartitionConstraintMng.html":[41,0,1,305]
 };

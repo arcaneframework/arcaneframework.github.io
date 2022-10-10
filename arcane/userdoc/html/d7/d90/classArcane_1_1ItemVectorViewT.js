@@ -1,6 +1,10 @@
 var classArcane_1_1ItemVectorViewT =
 [
     [ "const_iterator", "d7/d90/classArcane_1_1ItemVectorViewT.html#afed46adbc5990492de5335b32dc7f79c", null ],
+    [ "const_reference_type", "d7/d90/classArcane_1_1ItemVectorViewT.html#a80ab75b91b4e2be037def63eafee51b9", null ],
+    [ "difference_type", "d7/d90/classArcane_1_1ItemVectorViewT.html#a5110c25acd08825347d944ffc16eadd5", null ],
+    [ "reference_type", "d7/d90/classArcane_1_1ItemVectorViewT.html#ac106f8c6de217d35c76f1f7abc4475ff", null ],
+    [ "value_type", "d7/d90/classArcane_1_1ItemVectorViewT.html#aea15d58f47bba7a81082ce459470524e", null ],
     [ "ItemVectorViewT", "d7/d90/classArcane_1_1ItemVectorViewT.html#a6186ed86ebe6ccbe2fddae3c13d46de5", null ],
     [ "ItemVectorViewT", "d7/d90/classArcane_1_1ItemVectorViewT.html#a3e339d00ae2be52540c1af395f447fdc", null ],
     [ "ItemVectorViewT", "d7/d90/classArcane_1_1ItemVectorViewT.html#ad8cf127a47688b9dcc2d0ab7c71088bb", null ],

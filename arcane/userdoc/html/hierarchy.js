@@ -727,6 +727,7 @@ var hierarchy =
       [ "Arcane::DirectedAcyclicGraphT< VertexType, EdgeType >", "dc/d14/classArcane_1_1DirectedAcyclicGraphT.html", null ],
       [ "Arcane::DirectedGraphT< VertexType, EdgeType >", "d1/d29/classArcane_1_1DirectedGraphT.html", null ]
     ] ],
+    [ "Arcane::Accelerator::impl::IReduceMemoryImpl::GridMemoryInfo", "dc/d19/structArcane_1_1Accelerator_1_1impl_1_1IReduceMemoryImpl_1_1GridMemoryInfo.html", null ],
     [ "Arcane::HashTableBaseT< KeyType, TraitsType >::HashData", "d3/d63/structArcane_1_1HashTableBaseT_1_1HashData.html", null ],
     [ "Arcane::HashTableBase", "d8/d03/classArcane_1_1HashTableBase.html", [
       [ "Arcane::GroupIndexTable", "d7/dbe/classArcane_1_1GroupIndexTable.html", null ],
@@ -1519,9 +1520,11 @@ var hierarchy =
     [ "Arcane::ItemCompare", "d1/d7c/classArcane_1_1ItemCompare.html", null ],
     [ "Arcane::ItemCompatibility", "dd/d4d/classArcane_1_1ItemCompatibility.html", null ],
     [ "Arcane::ItemConnectivityContainerView", "d8/d77/classArcane_1_1ItemConnectivityContainerView.html", null ],
-    [ "Arcane::ItemEnumeratorBaseV3", "d4/dd6/classArcane_1_1ItemEnumeratorBaseV3.html", [
-      [ "Arcane::ItemEnumeratorBaseV3T< ItemType >", "d0/db6/classArcane_1_1ItemEnumeratorBaseV3T.html", [
-        [ "Arcane::ItemEnumerator", "d6/dcd/classArcane_1_1ItemEnumerator.html", null ],
+    [ "Arcane::ItemEnumeratorBase", "d6/db7/classArcane_1_1ItemEnumeratorBase.html", [
+      [ "Arcane::ItemEnumeratorBaseT< Item >", "d3/d61/classArcane_1_1ItemEnumeratorBaseT.html", [
+        [ "Arcane::ItemEnumerator", "d6/dcd/classArcane_1_1ItemEnumerator.html", null ]
+      ] ],
+      [ "Arcane::ItemEnumeratorBaseT< ItemType >", "d3/d61/classArcane_1_1ItemEnumeratorBaseT.html", [
         [ "Arcane::ItemEnumeratorT< ItemType >", "d7/d74/classArcane_1_1ItemEnumeratorT.html", null ]
       ] ]
     ] ],
@@ -2129,6 +2132,7 @@ var hierarchy =
     [ "Arcane::Accelerator::impl::ReduceAtomicSum< double >", "d0/d17/classArcane_1_1Accelerator_1_1impl_1_1ReduceAtomicSum_3_01double_01_4.html", null ],
     [ "Arcane::Accelerator::impl::ReduceAtomicSum< Int32 >", "d8/dcf/classArcane_1_1Accelerator_1_1impl_1_1ReduceAtomicSum_3_01Int32_01_4.html", null ],
     [ "Arcane::Accelerator::impl::ReduceAtomicSum< Int64 >", "d8/d8c/classArcane_1_1Accelerator_1_1impl_1_1ReduceAtomicSum_3_01Int64_01_4.html", null ],
+    [ "Arcane::Accelerator::impl::ReduceDeviceInfo< DataType >", "d8/de8/classArcane_1_1Accelerator_1_1impl_1_1ReduceDeviceInfo.html", null ],
     [ "Arcane::Accelerator::impl::ReduceFunctorMax< DataType >", "dd/d7e/classArcane_1_1Accelerator_1_1impl_1_1ReduceFunctorMax.html", null ],
     [ "Arcane::Accelerator::impl::ReduceFunctorMin< DataType >", "de/d9c/classArcane_1_1Accelerator_1_1impl_1_1ReduceFunctorMin.html", null ],
     [ "Arcane::Accelerator::impl::ReduceFunctorSum< DataType >", "df/d55/classArcane_1_1Accelerator_1_1impl_1_1ReduceFunctorSum.html", null ],

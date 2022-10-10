@@ -4,6 +4,7 @@ var classArcane_1_1Real2 =
     [ "Real2", "d6/d24/classArcane_1_1Real2.html#addfd52a881319e836a0087f6d7d47722", null ],
     [ "Real2", "d6/d24/classArcane_1_1Real2.html#a60b391759d8e57ee097284dedca9f9c8", null ],
     [ "Real2", "d6/d24/classArcane_1_1Real2.html#ab6e6521be6752932867c05e24161ec10", null ],
+    [ "Real2", "d6/d24/classArcane_1_1Real2.html#a81f4fd7ce9a25cbc4f7cd395f938a5ca", null ],
     [ "abs", "d6/d24/classArcane_1_1Real2.html#aba2325866d8a29e36538349a48c3ec91", null ],
     [ "abs2", "d6/d24/classArcane_1_1Real2.html#acd6d21c51c0dd1a111b05bb215b3a5fe", null ],
     [ "absolute", "d6/d24/classArcane_1_1Real2.html#a62e9c23e579d22abc54e758292b6e153", null ],
@@ -41,6 +42,10 @@ var classArcane_1_1Real2 =
     [ "squareNormL2", "d6/d24/classArcane_1_1Real2.html#a267a2c2964510946ca659deaca2d6918", null ],
     [ "sub", "d6/d24/classArcane_1_1Real2.html#ac8536955cc1797d3032df7c319b0f743", null ],
     [ "subSame", "d6/d24/classArcane_1_1Real2.html#a6768d17e415e11bcd00d92784c9241fe", null ],
-    [ "operator<<", "d6/d24/classArcane_1_1Real2.html#a36183e3cdb88bbb418f60678da812ddd", null ],
-    [ "operator>>", "d6/d24/classArcane_1_1Real2.html#a4b161ff876a61af6444bb55ede63f134", null ]
+    [ "operator*", "d6/d24/classArcane_1_1Real2.html#acda682e30091d1c1c728b98a48c5160b", null ],
+    [ "operator*", "d6/d24/classArcane_1_1Real2.html#af3e248461404ea4538eb4211cc9f148c", null ],
+    [ "operator/", "d6/d24/classArcane_1_1Real2.html#a2fcbc9c1ecc9c0f0b2de08f86430fdd4", null ],
+    [ "operator<", "d6/d24/classArcane_1_1Real2.html#a2f5cced93bd92fcd3616a45aafc601a2", null ],
+    [ "operator<<", "d6/d24/classArcane_1_1Real2.html#aa5851f25ba618ace952c782e7fa136d3", null ],
+    [ "operator>>", "d6/d24/classArcane_1_1Real2.html#ad539c269413e342abc96b72aa267c2f8", null ]
 ];

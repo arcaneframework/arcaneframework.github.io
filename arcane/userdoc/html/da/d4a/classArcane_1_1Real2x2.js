@@ -5,6 +5,7 @@ var classArcane_1_1Real2x2 =
     [ "Real2x2", "da/d4a/classArcane_1_1Real2x2.html#a2a9cbe6bc3c0e69bdd831c5045c68cd5", null ],
     [ "Real2x2", "da/d4a/classArcane_1_1Real2x2.html#ad6477ad20eab109f6686babfd259c878", null ],
     [ "Real2x2", "da/d4a/classArcane_1_1Real2x2.html#aed18181184461176e36eb680f9948033", null ],
+    [ "Real2x2", "da/d4a/classArcane_1_1Real2x2.html#aebcea0c856c24425a6d1d1640a354006", null ],
     [ "add", "da/d4a/classArcane_1_1Real2x2.html#a5fd975e457f2b7c568d5daeeef7ed9ad", null ],
     [ "addSame", "da/d4a/classArcane_1_1Real2x2.html#aaf38359daab29a9db09638748c3a3f1e", null ],
     [ "assign", "da/d4a/classArcane_1_1Real2x2.html#a592a1347383b1a535589b6990427e37e", null ],
@@ -33,8 +34,12 @@ var classArcane_1_1Real2x2 =
     [ "reset", "da/d4a/classArcane_1_1Real2x2.html#ab424432aa8e66fd230df00c04f0f303f", null ],
     [ "sub", "da/d4a/classArcane_1_1Real2x2.html#a297bfa8a4e5d9a13b9a1e06d03d4187a", null ],
     [ "subSame", "da/d4a/classArcane_1_1Real2x2.html#a8aaf89f0a26e7a50ea2cc035bf341891", null ],
-    [ "operator<<", "da/d4a/classArcane_1_1Real2x2.html#acf85ee19cc9c27e21a65f0812be83097", null ],
-    [ "operator>>", "da/d4a/classArcane_1_1Real2x2.html#a689e9613d81ad49ad1a631003d4024b8", null ],
+    [ "operator*", "da/d4a/classArcane_1_1Real2x2.html#a23c1f2ae6b502411d2d3d4a20d3f4ae6", null ],
+    [ "operator*", "da/d4a/classArcane_1_1Real2x2.html#a4656fe522c0d3094218607eeba711916", null ],
+    [ "operator/", "da/d4a/classArcane_1_1Real2x2.html#ab7ba59997500a65378a6fdc94b1ac32e", null ],
+    [ "operator<", "da/d4a/classArcane_1_1Real2x2.html#a7045ab2ae12eb985d9d860ca8ede3ef9", null ],
+    [ "operator<<", "da/d4a/classArcane_1_1Real2x2.html#a010aa456ee37a2c0b47a6ad530d80309", null ],
+    [ "operator>>", "da/d4a/classArcane_1_1Real2x2.html#a63756e1e7fd70e4f3a71af8c96ea3c46", null ],
     [ "x", "da/d4a/classArcane_1_1Real2x2.html#a27e3c5cb68c130a7096887d6a8e7cb3d", null ],
     [ "y", "da/d4a/classArcane_1_1Real2x2.html#a2cb73a7d24d422396fdcc3c02385a419", null ]
 ];

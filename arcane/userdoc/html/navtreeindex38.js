@@ -1,6 +1,5 @@
 var NAVTREEINDEX38 =
 {
-"d5/d8f/classArcane_1_1IMeshPartitionConstraintMng.html":[41,0,1,305],
 "d5/d8f/classArcane_1_1IMeshPartitionConstraintMng.html#a174fa9f11cb22dde83bc7ae67914a78f":[41,0,1,305,1],
 "d5/d8f/classArcane_1_1IMeshPartitionConstraintMng.html#a52220db4491e179d0bd19d91fbc91315":[41,0,1,305,6],
 "d5/d8f/classArcane_1_1IMeshPartitionConstraintMng.html#a61d14948df9d0a252dbb3a26df3599ff":[41,0,1,305,7],
@@ -249,5 +248,6 @@ var NAVTREEINDEX38 =
 "d5/db1/structStrucListeVoisMail.html":[41,0,54],
 "d5/db1/structStrucListeVoisMail.html#a256386a91697098a660ae0ae84f732e5":[41,0,54,0],
 "d5/db1/structStrucListeVoisMail.html#a6820b5e02c9711a5a56573577a569f24":[41,0,54,2],
-"d5/db1/structStrucListeVoisMail.html#adc0deabed457ba8e97bc3547555a47ec":[41,0,54,1]
+"d5/db1/structStrucListeVoisMail.html#adc0deabed457ba8e97bc3547555a47ec":[41,0,54,1],
+"d5/db4/classArcane_1_1UnstructuredMeshConnectivityView.html":[41,0,1,721]
 };

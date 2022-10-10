@@ -1,5 +1,12 @@
 var NAVTREEINDEX44 =
 {
+"d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html#a0fb70a0a1508eb7b899c6359f60a7022":[39,17,4,0,5],
+"d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html#a1999a7e80ab6d06f77c6efbcaed5c0f4":[39,17,4,0,7],
+"d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html#a2b743754cfcc235c5684e6785bbda419":[39,17,4,0,9],
+"d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html#a34cda4afe097454c38a26a9292190444":[39,17,4,0,8],
+"d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html#a761fe26e2fc216fbf4af1979573f16be":[39,17,4,0,3],
+"d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html#aa426602d8c359e1d83a7d1b9d91d57c4":[39,17,4,0,1],
+"d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html#aa949b89714957aa63a9aaa92ddde07ce":[39,17,4,0,6],
 "d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html#ab3c0ec08efef938622f538835b756172":[39,17,4,0,0],
 "d6/d45/classArcane_1_1CellDirectionMng_1_1Impl.html#ae2071ee7057d73ed8bf08b1924dc6e5b":[39,17,4,0,2],
 "d6/d46/ItemVector_8h_source.html":[42,0,1,250],
@@ -88,7 +95,7 @@ var NAVTREEINDEX44 =
 "d6/d52/RunCommandLoop_8h.html#a306b2a3f7b21b54f64f2c910b7bdc093":[42,0,1,0,13,2],
 "d6/d52/RunCommandLoop_8h.html#a4ae6285699929be5c00e41eb55689880":[42,0,1,0,13,10],
 "d6/d52/RunCommandLoop_8h.html#a4b9953cf9a35f33f231b0c2c30447631":[42,0,1,0,13,7],
-"d6/d52/RunCommandLoop_8h.html#a4b9953cf9a35f33f231b0c2c30447631":[40,0,1,0,0,40],
+"d6/d52/RunCommandLoop_8h.html#a4b9953cf9a35f33f231b0c2c30447631":[40,0,1,0,0,42],
 "d6/d52/RunCommandLoop_8h.html#a667d8ca0a39bdd4bc5f82042691221c6":[42,0,1,0,13,6],
 "d6/d52/RunCommandLoop_8h.html#a681d04cf6f2dbd68751cc7366dc60e40":[42,0,1,0,13,4],
 "d6/d52/RunCommandLoop_8h.html#a7fd31b8ce665552fa3cf0c04095464b3":[42,0,1,0,13,3],
@@ -242,12 +249,5 @@ var NAVTREEINDEX44 =
 "d6/d9d/classArcane_1_1DotNetRuntimeInitialisationInfo_1_1Impl.html#acddfea6432c0f2f9ab53fc0cce6ef2e3":[41,0,1,200,0,3],
 "d6/d9d/classArcane_1_1JSONWrapperUtils.html":[41,0,1,921],
 "d6/d9f/classArcane_1_1IItemFamilySerializer.html":[41,0,1,282],
-"d6/d9f/classArcane_1_1IItemFamilySerializer.html#a0bad90dfadc79cbdd0e7e5b9f651164a":[41,0,1,282,4],
-"d6/d9f/classArcane_1_1IItemFamilySerializer.html#a1355a05e6444ad0c9e3f56cbfe92c8b8":[41,0,1,282,3],
-"d6/d9f/classArcane_1_1IItemFamilySerializer.html#a142d9cbeebefb176e070fb6b2b972a9a":[41,0,1,282,2],
-"d6/d9f/classArcane_1_1IItemFamilySerializer.html#a1c0a8441b2d75282ed297eef11868b6f":[41,0,1,282,0],
-"d6/d9f/classArcane_1_1IItemFamilySerializer.html#a94344c9855741c585e340b3df5feb01a":[41,0,1,282,1],
-"d6/d9f/classArcane_1_1IItemFamilySerializer.html#aefc6b8d04854eaa5c96ebac4a404f52d":[41,0,1,282,5],
-"d6/d9f/classArcane_1_1LIBXML2__DOMWriter.html":[41,0,1,179],
-"d6/d9f/classArcane_1_1LIBXML2__DOMWriter.html#a07016560fcfcf617b024fee05107cd06":[41,0,1,179,4]
+"d6/d9f/classArcane_1_1IItemFamilySerializer.html#a0bad90dfadc79cbdd0e7e5b9f651164a":[41,0,1,282,4]
 };

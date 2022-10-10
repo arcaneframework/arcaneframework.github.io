@@ -52,7 +52,6 @@ var ItemTypes_8h =
     [ "FaceVector", "db/daf/ItemTypes_8h.html#ga7d45af5a421c5274da8d77d38dc4a1e2", null ],
     [ "FaceVectorView", "db/daf/ItemTypes_8h.html#gaa2c4853186b74a5337b3a5c3d4bec269", null ],
     [ "instead", "db/daf/ItemTypes_8h.html#a4ca43041c97e14727ba133d3d30bf772", null ],
-    [ "ItemEnumeratorBaseT", "db/daf/ItemTypes_8h.html#a071419de3e3ec299c0044a8d8ee73cc0", null ],
     [ "ItemInternalArrayView", "db/daf/ItemTypes_8h.html#a7e8b811e5250ed779122e6b399ac61fb", null ],
     [ "ItemInternalList", "db/daf/ItemTypes_8h.html#a6946176a3fcbd7087f23d5b720bcefa3", null ],
     [ "ItemInternalMutableArrayView", "db/daf/ItemTypes_8h.html#a5fd50b799cd2fcb5f22899dca1d581e1", null ],
