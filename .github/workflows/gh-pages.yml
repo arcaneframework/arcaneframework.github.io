@@ -15,7 +15,7 @@ env:
   DOC_DIR: '/__w/arcaneframework.github.io/arcaneframework.github.io/doc'
 
   # ccache
-  CC_KEY_PREFIX: 'doc_gcc-11'
+  CC_KEY_PREFIX: 'doc'
   CCACHE_COMPRESS: true
   CCACHE_COMPRESSLEVEL: 6
   CCACHE_DIR: '/__w/arcaneframework.github.io/arcaneframework.github.io/ccache'
@@ -31,7 +31,7 @@ jobs:
     name: Build Arcane and documentations
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/arcaneframework/ubuntu-2204:gcc-12_clang-14_doc_20220617
+      image: ghcr.io/arcaneframework/ubuntu-2204:gcc-12_clang-14_doc_20220908
 
     steps:
       - name: Checkout doc
@@ -52,7 +52,7 @@ jobs:
         run: echo "::set-output name=date::$(/bin/date -u '+%Y%m%d%H%M%S')"
 
       - name: Get cache for ccache tool
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: ${{env.CCACHE_DIR}}
           key: ${{ env.CC_KEY_PREFIX }}-arcane-${{ env.CM_BUILD_TYPE }}-${{ steps.get-date.outputs.date }}-${{ github.run_number }}
