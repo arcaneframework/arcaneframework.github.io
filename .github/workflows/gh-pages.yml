@@ -1,0 +1,76 @@
+name: Documentation generator
+
+on:
+  schedule:
+    - cron: '23 1 * * 1' # Tous les lundis à 01:23 (du matin).
+  # A executer lorsque l'on demande.
+  workflow_dispatch:
+  
+
+env:
+
+  SOURCE_DIR: '/__w/arcaneframework.github.io/arcaneframework.github.io/framework'
+  BUILD_DIR: '/__w/arcaneframework.github.io/arcaneframework.github.io/build'
+  CCACHE_DIR: '/__w/arcaneframework.github.io/arcaneframework.github.io/ccache'
+  DOC_DIR: '/__w/arcaneframework.github.io/arcaneframework.github.io/doc'
+
+
+jobs:
+  arcane_build:
+    name: Build Arcane and documentations
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/arcaneframework/ubuntu-2204:gcc_doc_latest
+
+    steps:
+      - name: Checkout doc
+        uses: actions/checkout@v4
+        with:
+          path: ${{ env.DOC_DIR }}
+
+      - name: Checkout framework
+        uses: actions/checkout@v4
+        with:
+          repository: arcaneframework/framework
+          path: ${{ env.SOURCE_DIR }}
+          submodules: true
+
+      - name: Get date
+        id: get-date
+        shell: bash
+        run: echo "m_date=$(/bin/date -u '+%Y%m%d%H%M%S')" >> $GITHUB_ENV
+
+      - name: Get cache for ccache tool
+        uses: actions/cache@v3
+        with:
+          path: ${{env.CCACHE_DIR}}
+          key: doc-${{ env.m_date }}-${{ github.run_number }}
+          restore-keys: doc-
+
+      - name: Build framework
+        uses: arcaneframework/gh_actions/build_install_framework@v1
+        with:
+          source_dir: ${{ env.SOURCE_DIR }}
+          build_dir: ${{ env.BUILD_DIR }}
+          cache_dir: ${{ env.CCACHE_DIR }}
+          with_userdoc: true
+          with_devdoc: true
+
+      - name: Move userdoc and devdoc
+        shell: bash
+        run: |
+          rm -rf ${{ env.DOC_DIR }}/arcane
+          mkdir -p ${{ env.DOC_DIR }}/arcane
+          mv ${{ env.BUILD_DIR }}/share/userdoc ${{ env.DOC_DIR }}/arcane
+          mv ${{ env.BUILD_DIR }}/share/devdoc ${{ env.DOC_DIR }}/arcane
+
+      - name: Deploy Docs
+        uses: peaceiris/actions-gh-pages@v3.9.2
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: main
+          publish_dir: ${{ env.DOC_DIR }}
+          force_orphan: true
+          exclude_assets: ''
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'

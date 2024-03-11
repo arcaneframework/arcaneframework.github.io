@@ -1,0 +1,340 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <meta name="generator" content="Doxygen 1.9.6" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arcane: Service RNG</title>
+    <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../../jquery.js"></script>
+    <script type="text/javascript" src="../../dynsections.js"></script>
+    <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+    <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+    <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../user_colors.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+    <script type="text/javascript" src="../../script-helper.js"></script>
+    <script type="text/javascript" src="../../script-resize.js"></script>
+    <script type="text/javascript" src="../../script-num-lines-code.js"></script>
+    <script type="text/javascript" src="../../script-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-edit-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-alternative-theme.js"></script>
+    <script type="text/javascript">
+      // On demande l'activation de la personnalisation de la page.
+      var no_custom_theme = false;
+      DoxygenAwesomeDarkModeToggle.title = "Thème clair/sombre";
+      DoxygenAwesomeDarkModeToggle.init();
+      DoxygenAwesomeFragmentCopyButton.title = "Copier le code dans le presse-papier";
+      DoxygenAwesomeFragmentCopyButton.init();
+      DoxygenAwesomeParagraphLink.init();
+      DoxygenAwesomeInteractiveToc.init();
+      DoxygenAwesomeTabs.init()
+      waitElemForResizeSideNav();
+      setOldSize();
+      //waitItemExpandCurrent();
+    </script>
+  </head>
+  <body>
+    <!--BEGIN CORNER_GITHUB-->
+    <!-- https://tholman.com/github-corners/ -->
+    <a href="https://github.com/arcaneframework/framework" class="github-corner" aria-label="Voir les sources sur GitHub">
+      <svg width="70" height="70" viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <!--END CORNER_GITHUB-->
+      <div id="top">
+        <!-- do not remove this div, it is closed by doxygen! -->
+        <div id="titlearea">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr id="projectrow">
+                <td id="projectlogo">
+                  <a href="../../index.html" title="Aller à la page principale">
+                    <img alt="Logo" src="../../arcane_logo.webp" />
+                  </a>
+                </td>
+              </tr>
+              <tr id="projectrow">
+                <td id="projectalign">
+                  <div id="projectname">Arcane
+                    <span id="projectnumber">&#160;v3.12.9.0</span>
+                  </div>
+                  <div id="projectbrief">Documentation utilisateur</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- end header part --><!-- Généré par Doxygen 1.9.6 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('d2/d13/arcanedoc_examples_concret_example_rng.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Service RNG </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="toc"><h3>Table des matières</h3>
+<ul><li class="level1"><a href="#arcanedoc_examples_concret_example_rng_irandomnumbergeneratorh">IRandomNumberGenerator.h</a></li>
+<li class="level1"><a href="#arcanedoc_examples_concret_example_rng_rngaxl">RNG.axl</a></li>
+<li class="level1"><a href="#arcanedoc_examples_concret_example_rng_rngserviceh">RNGService.h</a></li>
+</ul>
+</div>
+<div class="textblock"><p><a class="anchor" id="md_doc_doc_user_chap_examples_subchap_concret_example_3_rng"></a></p>
+<p>Dans ce sous-chapitre, nous n'allons pas parler des modules puisque la majeure partie de ce qu'il y avait à dire a été abordé dans le sous-chapitre <a class="el" href="../../d1/dd5/arcanedoc_examples_simple_example.html">Exemple simple</a>.</p>
+<p>Ici, nous allons parler service, et plus précisément du service RNG. Nous n'allons pas parler de l'implémentation des différentes méthodes de l'interface, ce n'est pas le but de ce sous-chapitre. Donc, le fichier <code>RNGService.cc</code> sera volontairement omis.</p>
+<h1><a class="anchor" id="arcanedoc_examples_concret_example_rng_irandomnumbergeneratorh"></a>
+IRandomNumberGenerator.h</h1>
+<p>Voici l'interface utilisée par ce service : </p><div class="fragment"><div class="line"><span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><span class="comment">/* IRandomNumberGenerator.h                                    (C) 2000-2022 */</span></div>
+<div class="line"><span class="comment">/*                                                                           */</span></div>
+<div class="line"><span class="comment">/* Interface pour générateur de nombres aléatoires.                          */</span></div>
+<div class="line"><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#ifndef ARCANE_IRANDOMNUMBERGENERATOR_H</span></div>
+<div class="line"><span class="preprocessor">#define ARCANE_IRANDOMNUMBERGENERATOR_H</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &quot;arcane/utils/Array.h&quot;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;<a class="code" href="../../d4/da8/UtilsTypes_8h.html">arcane/utils/UtilsTypes.h</a>&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line">{</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>ARCANE_CORE_EXPORT IRandomNumberGenerator</div>
+<div class="line">{</div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keyword">virtual</span> ~IRandomNumberGenerator() = <span class="keywordflow">default</span>;</div>
+<div class="line"> </div>
+<div class="line"> <span class="keyword">public</span>:</div>
+<div class="line">  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> initSeed() = 0;</div>
+<div class="line">  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> initSeed(ByteArrayView seed) = 0;</div>
+<div class="line">  <span class="keyword">virtual</span> ByteConstArrayView viewSeed() = 0;</div>
+<div class="line">  <span class="keyword">virtual</span> ByteUniqueArray emptySeed() = 0;</div>
+<div class="line">  <span class="keyword">virtual</span> Integer neededSizeOfSeed() = 0;</div>
+<div class="line">  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isLeapSeedSupported() = 0;</div>
+<div class="line">  <span class="keyword">virtual</span> ByteUniqueArray generateRandomSeed(Integer leap = 0) = 0;</div>
+<div class="line">  <span class="keyword">virtual</span> ByteUniqueArray generateRandomSeed(ByteArrayView parent_seed, Integer leap = 0) = 0;</div>
+<div class="line">  <span class="keyword">virtual</span> <span class="keywordtype">bool</span> isLeapNumberSupported() = 0;</div>
+<div class="line">  <span class="keyword">virtual</span> Real generateRandomNumber(Integer leap = 0) = 0;</div>
+<div class="line">  <span class="keyword">virtual</span> Real generateRandomNumber(ByteArrayView seed, Integer leap = 0) = 0;</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aUtilsTypes_8h_html"><div class="ttname"><a href="../../d4/da8/UtilsTypes_8h.html">UtilsTypes.h</a></div><div class="ttdoc">Déclarations des types utilisés dans Arcane.</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition:</b> <a href="../../de/df4/AbstractCaseDocumentVisitor_8cc_source.html#l00020">AbstractCaseDocumentVisitor.cc:20</a></div></div>
+</div><!-- fragment --><p> Il n'y a pas grand-chose à dire ici, c'est une interface assez classique. On a les premières lignes avec la licence et une courte description de l'interface (lignes 1-12). Ensuite, on a une classe avec des méthodes virtuelles égales à 0, ce qui en fait des méthodes virtuelles pures que l'on doit implémenter dans une implémentation.</p>
+<p>`A noter cependant que les graines sont représentées par des tableaux de Bytes (ByteUniqueArray) et sont manipulées par des vues (ByteArrayView). Cela permet de rendre l'application indépendante de l'implémentation de <code><a class="el" href="../../d6/de2/classArcane_1_1IRandomNumberGenerator.html" title="Interface pour un générateur de nombre aléatoire.">Arcane::IRandomNumberGenerator</a></code>.</p>
+<p>En effet, l'implémentation présente dans notre mini-app utilise des graines sur 64 bits (donc 8 octets) mais il se pourrait qu'une autre implémentation utilise des graines sur 32 bits. Donc on utilise des tableaux de tailles définis lors de l'exécution (le choix de l'implémentation étant faite dans le jeu de données, impossible de connaitre la taille d'une graine à la compilation).</p>
+<h1><a class="anchor" id="arcanedoc_examples_concret_example_rng_rngaxl"></a>
+RNG.axl</h1>
+<p>Voyons maintenant le <code>.axl</code> : </p><div class="fragment"><div class="line">&lt;?<span class="keyword">xml</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.0&quot;</span>?&gt;</div>
+<div class="line">&lt;<span class="keywordtype">service</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;RNG&quot;</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.0&quot;</span> <span class="keyword">singleton</span>=<span class="stringliteral">&quot;true&quot;</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">  &lt;<span class="keywordtype">description</span>&gt;<span class="keyword">Jeu</span> <span class="keyword">de</span> <span class="keyword">données</span> <span class="keyword">du</span> <span class="keyword">service</span> <span class="keyword">RNG</span>&lt;/<span class="keywordtype">description</span>&gt;</div>
+<div class="line">  &lt;<span class="keywordtype">interface</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;IRandomNumberGenerator&quot;</span> /&gt;</div>
+<div class="line"> </div>
+<div class="line">  &lt;<span class="keywordtype">variables</span>&gt;</div>
+<div class="line">  &lt;/<span class="keywordtype">variables</span>&gt;</div>
+<div class="line"> </div>
+<div class="line">  &lt;<span class="keywordtype">options</span>&gt;</div>
+<div class="line">  &lt;/<span class="keywordtype">options</span>&gt;</div>
+<div class="line">&lt;/<span class="keywordtype">service</span>&gt;</div>
+</div><!-- fragment --><p> On peut voir que ça ressemble fortement à un <code>.axl</code> de module. </p><div class="fragment"><div class="line">&lt;<span class="keywordtype">service</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;RNG&quot;</span> <span class="keyword">version</span>=<span class="stringliteral">&quot;1.0&quot;</span> <span class="keyword">singleton</span>=<span class="stringliteral">&quot;true&quot;</span>&gt;</div>
+</div><!-- fragment --><p> Ici, on a une nouveauté : <code>singleton="true"</code>. Cette partie nous dit qu'il est possible d'utiliser ce service en tant que singleton.</p>
+<hr  />
+<div class="fragment"><div class="line">&lt;<span class="keywordtype">interface</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;IRandomNumberGenerator&quot;</span> /&gt;</div>
+</div><!-- fragment --><p> On donne à Arcane l'interface du service. En effet, comme on le verra après, la classe <code>RNGService</code> n'hérite pas directement de l'interface <code><a class="el" href="../../d6/de2/classArcane_1_1IRandomNumberGenerator.html" title="Interface pour un générateur de nombre aléatoire.">Arcane::IRandomNumberGenerator</a></code>. C'est géré par le fichier généré <code>RNG_axl.h</code>.</p>
+<h1><a class="anchor" id="arcanedoc_examples_concret_example_rng_rngserviceh"></a>
+RNGService.h</h1>
+<p>Voici le header du service RNG : </p><div class="fragment"><div class="line"><span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><span class="comment">/* RNGService.hh                                               (C) 2000-2022 */</span></div>
+<div class="line"><span class="comment">/*                                                                           */</span></div>
+<div class="line"><span class="comment">/* Implémentation d&#39;un générateur de nombres aléatoires.                     */</span></div>
+<div class="line"><span class="comment">/* Basé sur le générateur de Quicksilver (LLNL).                             */</span></div>
+<div class="line"><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;arcane/IRandomNumberGenerator.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;rng/RNG_axl.h&quot;</span></div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">class </span>RNGService</div>
+<div class="line">: <span class="keyword">public</span> ArcaneRNGObject</div>
+<div class="line">{</div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">  RNGService(<span class="keyword">const</span> <a class="code hl_class" href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">ServiceBuildInfo</a> &amp; sbi)</div>
+<div class="line">    : ArcaneRNGObject(sbi)</div>
+<div class="line">    , m_seed(0)</div>
+<div class="line">    {}</div>
+<div class="line">  </div>
+<div class="line">  <span class="keyword">virtual</span> ~RNGService() {};</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">public</span>:</div>
+<div class="line">  <span class="keywordtype">bool</span> initSeed() <span class="keyword">override</span>;</div>
+<div class="line">  <span class="keywordtype">bool</span> initSeed(<a class="code hl_class" href="../../d7/d02/classArccore_1_1ArrayView.html">ByteArrayView</a> seed) <span class="keyword">override</span>;</div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_class" href="../../da/daa/classArccore_1_1UniqueArray.html">ByteUniqueArray</a> emptySeed() <span class="keyword">override</span>;</div>
+<div class="line">  <a class="code hl_class" href="../../db/d8c/classArccore_1_1ConstArrayView.html">ByteConstArrayView</a> viewSeed() <span class="keyword">override</span>;</div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_typedef" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> neededSizeOfSeed() <span class="keyword">override</span>;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">bool</span> isLeapSeedSupported()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; };</div>
+<div class="line">  <a class="code hl_class" href="../../da/daa/classArccore_1_1UniqueArray.html">ByteUniqueArray</a> generateRandomSeed(<a class="code hl_typedef" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> leap = 0) <span class="keyword">override</span>;</div>
+<div class="line">  <a class="code hl_class" href="../../da/daa/classArccore_1_1UniqueArray.html">ByteUniqueArray</a> generateRandomSeed(<a class="code hl_class" href="../../d7/d02/classArccore_1_1ArrayView.html">ByteArrayView</a> parent_seed, <a class="code hl_typedef" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> leap = 0) <span class="keyword">override</span>;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">bool</span> isLeapNumberSupported()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> <span class="keyword">false</span>; };</div>
+<div class="line">  <a class="code hl_typedef" href="../../d5/d60/namespaceArccore.html#a186895d3c679e34cffb1ecf0db5c3aaa">Real</a> generateRandomNumber(<a class="code hl_typedef" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> leap) <span class="keyword">override</span>;</div>
+<div class="line">  <a class="code hl_typedef" href="../../d5/d60/namespaceArccore.html#a186895d3c679e34cffb1ecf0db5c3aaa">Real</a> generateRandomNumber(<a class="code hl_class" href="../../d7/d02/classArccore_1_1ArrayView.html">ByteArrayView</a> seed, <a class="code hl_typedef" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> leap = 0) <span class="keyword">override</span>;</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">protected</span>:</div>
+<div class="line">  <a class="code hl_typedef" href="../../d5/d60/namespaceArccore.html#a186895d3c679e34cffb1ecf0db5c3aaa">Real</a> _rngSample(Int64* seed);</div>
+<div class="line">  <span class="keywordtype">void</span> _breakupUInt64(uint64_t uint64_in, uint32_t&amp; front_bits, uint32_t&amp; back_bits);</div>
+<div class="line">  uint64_t _reconstructUInt64(uint32_t front_bits, uint32_t back_bits);</div>
+<div class="line">  <span class="keywordtype">void</span> _pseudoDES(uint32_t&amp; lword, uint32_t&amp; irword);</div>
+<div class="line">  uint64_t _hashState(uint64_t initial_number);</div>
+<div class="line"> </div>
+<div class="line"><span class="keyword">protected</span>:</div>
+<div class="line">  Int64 m_seed;</div>
+<div class="line">  <span class="keyword">const</span> <a class="code hl_typedef" href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Integer</a> m_size_of_seed = <span class="keyword">sizeof</span>(Int64);</div>
+<div class="line">};</div>
+<div class="line"> </div>
+<div class="line">ARCANE_REGISTER_SERVICE_RNG(RNG, RNGService);</div>
+<div class="ttc" id="aclassArcane_1_1ServiceBuildInfo_html"><div class="ttname"><a href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">Arcane::ServiceBuildInfo</a></div><div class="ttdoc">Structure contenant les informations pour créer un service.</div><div class="ttdef"><b>Definition:</b> <a href="../../d0/dd2/ServiceBuildInfo_8h_source.html#l00196">ServiceBuildInfo.h:198</a></div></div>
+<div class="ttc" id="aclassArccore_1_1ArrayView_html"><div class="ttname"><a href="../../d7/d02/classArccore_1_1ArrayView.html">Arccore::ArrayView&lt; Byte &gt;</a></div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/d51/arccore_2src_2base_2arccore_2base_2ArrayView_8h_source.html#l00535">arccore/src/base/arccore/base/ArrayView.h:536</a></div></div>
+<div class="ttc" id="aclassArccore_1_1UniqueArray_html"><div class="ttname"><a href="../../da/daa/classArccore_1_1UniqueArray.html">Arccore::UniqueArray&lt; Byte &gt;</a></div></div>
+<div class="ttc" id="anamespaceArccore_html_a186895d3c679e34cffb1ecf0db5c3aaa"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a186895d3c679e34cffb1ecf0db5c3aaa">Arccore::Real</a></div><div class="ttdeci">double Real</div><div class="ttdoc">Type représentant un réel.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d76/ArccoreGlobal_8h_source.html#l00218">ArccoreGlobal.h:218</a></div></div>
+<div class="ttc" id="anamespaceArccore_html_a19fea02f94d4da203710fd2070c0f2fb"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a19fea02f94d4da203710fd2070c0f2fb">Arccore::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition:</b> <a href="../../dd/d76/ArccoreGlobal_8h_source.html#l00235">ArccoreGlobal.h:235</a></div></div>
+</div><!-- fragment --><p> Là aussi, c'est très semblable à un module. La plus grosse différence est au niveau des méthodes override. En effet, dans un module, on override les points d'entrées que l'on a défini dans le <code>.axl</code>. Ici, dans ce service, on override les méthodes virtuelles de notre interface. Les services ne peuvent pas avoir de points d'entrées.</p>
+<dl class="section note"><dt>Note</dt><dd>Au niveau des <code>includes</code>, il faut s'assurer que l'interface déclarée dans le <code>.axl</code> soit accessible par le <code>.h</code> généré à partir du <code>.axl</code>. Par exemple, ici, l'ordre des <code>includes</code> est très important. Dans le <code>.axl</code>, on déclare ceci : <div class="fragment"><div class="line">&lt;<span class="keywordtype">interface</span> <span class="keyword">name</span>=<span class="stringliteral">&quot;IRandomNumberGenerator&quot;</span> /&gt;</div>
+</div><!-- fragment --> Dans le fichier <code>RNG_axl.h</code> qui sera généré, on obtiendra cela : <div class="fragment"><div class="line"><span class="comment">//[...]</span></div>
+<div class="line"><span class="keyword">class </span>ArcaneRNGObject</div>
+<div class="line">  : <span class="keyword">public</span> <a class="code hl_class" href="../../d1/d5e/classArcane_1_1BasicService.html">Arcane::BasicService</a></div>
+<div class="line">  , <span class="keyword">public</span> <a class="code hl_class" href="../../d6/de2/classArcane_1_1IRandomNumberGenerator.html">Arcane::IRandomNumberGenerator</a></div>
+<div class="line">{</div>
+<div class="line"><span class="comment">//[...]</span></div>
+<div class="ttc" id="aclassArcane_1_1BasicService_html"><div class="ttname"><a href="../../d1/d5e/classArcane_1_1BasicService.html">Arcane::BasicService</a></div><div class="ttdoc">Classe de base de service lié à un sous-domaine.</div><div class="ttdef"><b>Definition:</b> <a href="../../d6/da2/BasicService_8h_source.html#l00039">BasicService.h:43</a></div></div>
+<div class="ttc" id="aclassArcane_1_1IRandomNumberGenerator_html"><div class="ttname"><a href="../../d6/de2/classArcane_1_1IRandomNumberGenerator.html">Arcane::IRandomNumberGenerator</a></div><div class="ttdoc">Interface pour un générateur de nombre aléatoire.</div><div class="ttdef"><b>Definition:</b> <a href="../../db/dba/IRandomNumberGenerator_8h_source.html#l00202">IRandomNumberGenerator.h:203</a></div></div>
+</div><!-- fragment --> Il faut donc inclure l'interface avant ce fichier : <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;arcane/IRandomNumberGenerator.h&gt;</span></div>
+<div class="line"><span class="preprocessor">#include &quot;rng/RNG_axl.h&quot;</span></div>
+</div><!-- fragment --></dd></dl>
+<hr  />
+<div class="section_buttons"> <span class="back_section_button"> <a class="el" href="../../d2/dad/arcanedoc_examples_concret_example_config.html">Fichier de configuration</a> </span> <span class="next_section_button"> <a class="el" href="../../db/d6c/arcanedoc_examples_concret_example_build.html">Compilation et lancement</a> </span> </div> </div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.9.5-->
+<!-- start footer part -->
+  <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+    <ul>
+      <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li><li class="navelem"><a class="el" href="../../db/d53/arcanedoc_examples.html">Exemples et didacticiel</a></li><li class="navelem"><a class="el" href="../../dd/d4f/arcanedoc_examples_concret_example.html">Exemple concret</a></li>
+      <li class="footer">Généré le Lundi 11 Mars 2024 02:14:46 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6 </li>
+    </ul>
+  </div>
+  <script type="text/javascript" src="../../script-apply-config-theme.js"></script>
+  <script type="text/javascript">
+    // On met l'appel à cette fonction dans le footer dans le cas où
+    // une page ne veut pas de personnalisation (changement de la 
+    // variable globale "no_custom_theme").
+    applyConfigWithCookies();
+  </script>
+</body>
+</html>
