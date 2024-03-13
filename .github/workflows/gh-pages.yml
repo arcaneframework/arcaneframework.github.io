@@ -55,14 +55,18 @@ jobs:
           cache_dir: ${{ env.CCACHE_DIR }}
           with_userdoc: true
           with_devdoc: true
+          with_aliendoc: true
 
-      - name: Move userdoc and devdoc
+      - name: Move userdoc devdoc and aliendoc
         shell: bash
         run: |
           rm -rf ${{ env.DOC_DIR }}/arcane
           mkdir -p ${{ env.DOC_DIR }}/arcane
           mv ${{ env.BUILD_DIR }}/share/userdoc ${{ env.DOC_DIR }}/arcane
           mv ${{ env.BUILD_DIR }}/share/devdoc ${{ env.DOC_DIR }}/arcane
+          rm -rf ${{ env.DOC_DIR }}/framework
+          mkdir -p ${{ env.DOC_DIR }}/framework
+          mv ${{ env.BUILD_DIR }}/share/aliendoc ${{ env.DOC_DIR }}/framework
 
       - name: Deploy Docs
         uses: peaceiris/actions-gh-pages@v3.9.2
