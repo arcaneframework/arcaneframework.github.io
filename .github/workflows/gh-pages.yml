@@ -41,7 +41,7 @@ jobs:
         run: echo "m_date=$(/bin/date -u '+%Y%m%d%H%M%S')" >> $GITHUB_ENV
 
       - name: Get cache for ccache tool
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ${{env.CCACHE_DIR}}
           key: doc-${{ env.m_date }}-${{ github.run_number }}
@@ -61,15 +61,15 @@ jobs:
         shell: bash
         run: |
           rm -rf ${{ env.DOC_DIR }}/arcane
+          rm -rf ${{ env.DOC_DIR }}/framework
           mkdir -p ${{ env.DOC_DIR }}/arcane
+          mkdir -p ${{ env.DOC_DIR }}/framework
           mv ${{ env.BUILD_DIR }}/share/userdoc ${{ env.DOC_DIR }}/arcane
           mv ${{ env.BUILD_DIR }}/share/devdoc ${{ env.DOC_DIR }}/arcane
-          rm -rf ${{ env.DOC_DIR }}/framework
-          mkdir -p ${{ env.DOC_DIR }}/framework
           mv ${{ env.BUILD_DIR }}/share/aliendoc ${{ env.DOC_DIR }}/framework
 
       - name: Deploy Docs
-        uses: peaceiris/actions-gh-pages@v3.9.2
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: main
