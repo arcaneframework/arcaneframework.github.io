@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Tutorial C API &#8212; Alien 1.2.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css" />
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorial FORTRAN API" href="tutorialF.html" />
+    <link rel="prev" title="Tutorial C++ API" href="tutorial.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="tutorial-c-api">
+<h1>Tutorial C API<a class="headerlink" href="#tutorial-c-api" title="Permalink to this headline">¶</a></h1>
+<section id="intro">
+<h2>Intro<a class="headerlink" href="#intro" title="Permalink to this headline">¶</a></h2>
+<p>Alien provide a C API for C codes.</p>
+<p>This tutorial illustrates how to build a linear system and solve it with various linear solver algorithm with the C API.</p>
+<p>We consider the Laplacian problem on a 2D square mesh of size <span class="math notranslate nohighlight">\(N_X \times N_Y\)</span>. Unknowns are related to the mesh nodes
+indexed by <span class="math notranslate nohighlight">\((i,j)\)</span>. We use a 5-Points stencil to discretize the problem.</p>
+<p>First of all Alien provides tools to initialize the library, the MPI parallel environment to parametrize IO.
+The following code illustrates how to initialize :</p>
+<ul class="simple">
+<li><p>the ParallelMng object</p></li>
+<li><p>the TraceMng object</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>int nprocs, my_rank, domain_offset <span class="p">;</span>
+MPI_Comm comm<span class="p">;</span>
+
+/*
+ * MPI Initialization
+ */
+MPI_Init<span class="o">(</span><span class="p">&amp;</span>argc,<span class="p">&amp;</span>argv<span class="o">)</span> <span class="p">;</span>
+<span class="nv">comm</span> <span class="o">=</span> MPI_COMM_WORLD <span class="p">;</span>
+MPI_Comm_size<span class="o">(</span>comm,<span class="p">&amp;</span>nprocs<span class="o">)</span> <span class="p">;</span>
+MPI_Comm_rank<span class="o">(</span>comm,<span class="p">&amp;</span>my_rank<span class="o">)</span> <span class="p">;</span>
+printf<span class="o">(</span><span class="s2">&quot;NPROCS %d RANK %d \n&quot;</span>,nprocs,my_rank<span class="o">)</span><span class="p">;</span>
+
+/*
+ * INITIALIZE ALIEN
+ */
+ALIEN_init<span class="o">(</span>argc,argv<span class="o">)</span> <span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="linear-system-set-up">
+<h2>Linear System Set Up<a class="headerlink" href="#linear-system-set-up" title="Permalink to this headline">¶</a></h2>
+<p>The Matrix concept represents a set of <span class="math notranslate nohighlight">\(N_i\)</span> linear equations (rows) <span class="math notranslate nohighlight">\((y_i)\)</span> of <span class="math notranslate nohighlight">\(N_j\)</span> unknowns <span class="math notranslate nohighlight">\((x_j)\)</span> (columns).
+This represents a linear application <span class="math notranslate nohighlight">\(S_X \mapsto S_Y\)</span> with <span class="math notranslate nohighlight">\(x \in S_X\)</span>, <span class="math notranslate nohighlight">\(y \in S_Y\)</span> and <span class="math notranslate nohighlight">\(x \mapsto y=A*x\)</span>.
+Usually the dimension of <span class="math notranslate nohighlight">\(S_X\)</span> and <span class="math notranslate nohighlight">\(S_Y\)</span> are equal, <span class="math notranslate nohighlight">\(N_i=N_j\)</span>. In that case the matrix is square.</p>
+<p>A linear system is a set of a Matrix A, two vectors B the right hand side and X the solution of the system A*X=B</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>int i,k, r<span class="p">;</span>
+int system_id, solver_id, error<span class="p">;</span>
+int global_nrows, local_nrows, nb_ghosts <span class="p">;</span>
+int row_size, local_nnz <span class="p">;</span>
+int* row_offset, *ghost_owners<span class="p">;</span>
+uid_type *row_uids, *col_uids, *ghost_uids <span class="p">;</span>
+double diag_values, offdiag_values, rhs_value, norm2, err, err2, gnorm2, gerr2 <span class="p">;</span>
+double *matrix_values, *rhs_values, *solution_values, *ref_solution_values <span class="p">;</span>
+/*
+ * CREATE LINEAR SYSTEM A*X<span class="o">=</span>B : MATRIX A, VECTOR SOLUTION X, VECTOR RHS B
+ */
+<span class="nv">system_id</span> <span class="o">=</span> ALIEN_create_linear_system<span class="o">(</span>comm<span class="o">)</span> <span class="p">;</span>
+
+printf<span class="o">(</span><span class="s2">&quot;SYSTEM ID %d: \n&quot;</span>,system_id<span class="o">)</span><span class="p">;</span>
+/*
+ * DEFINE MATRIX PROFILE
+ */
+<span class="nv">global_nrows</span> <span class="o">=</span> <span class="m">32</span> <span class="p">;</span>
+<span class="nv">local_nrows</span> <span class="o">=</span> global_nrows / nprocs <span class="p">;</span>
+<span class="nv">r</span> <span class="o">=</span> global_nrows % nprocs <span class="p">;</span>
+<span class="k">if</span><span class="o">(</span>my_rank &lt; r<span class="o">)</span>
+<span class="o">{</span>
+  ++local_nrows <span class="p">;</span>
+  <span class="nv">domain_offset</span> <span class="o">=</span> my_rank*local_nrows <span class="p">;</span>
+<span class="o">}</span>
+<span class="k">else</span>
+<span class="o">{</span>
+  <span class="nv">domain_offset</span> <span class="o">=</span> my_rank * local_nrows + r <span class="p">;</span>
+<span class="o">}</span>
+
+<span class="nv">row_uids</span> <span class="o">=</span> <span class="o">(</span>uid_type*<span class="o">)</span> malloc<span class="o">(</span>local_nrows*sizeof<span class="o">(</span>uid_type<span class="o">))</span> <span class="p">;</span>
+<span class="nv">row_offset</span> <span class="o">=</span> <span class="o">(</span>int*<span class="o">)</span> malloc<span class="o">((</span>local_nrows+1<span class="o">)</span>*sizeof<span class="o">(</span>int<span class="o">))</span> <span class="p">;</span>
+row_offset<span class="o">[</span><span class="m">0</span><span class="o">]</span> <span class="o">=</span> <span class="m">0</span> <span class="p">;</span>
+<span class="k">for</span><span class="o">(</span><span class="nv">i</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>i&lt;local_nrows<span class="p">;</span>++i<span class="o">)</span>
+<span class="o">{</span>
+  row_uids<span class="o">[</span>i<span class="o">]</span> <span class="o">=</span> domain_offset+i <span class="p">;</span>
+  <span class="nv">row_size</span> <span class="o">=</span> <span class="m">3</span> <span class="p">;</span>
+  <span class="k">if</span><span class="o">((</span>domain_offset+i <span class="o">==</span> <span class="m">0</span> <span class="o">)</span> <span class="o">||</span> <span class="o">(</span>domain_offset+i <span class="o">==</span> global_nrows -1<span class="o">))</span> <span class="nv">row_size</span> <span class="o">=</span> <span class="m">2</span> <span class="p">;</span>
+  row_offset<span class="o">[</span>i+1<span class="o">]</span> <span class="o">=</span> row_offset<span class="o">[</span>i<span class="o">]</span> + row_size <span class="p">;</span>
+<span class="o">}</span>
+
+<span class="nv">ghost_uids</span> <span class="o">=</span> <span class="o">(</span>uid_type*<span class="o">)</span> malloc<span class="o">(</span><span class="m">2</span>*sizeof<span class="o">(</span>uid_type<span class="o">))</span> <span class="p">;</span>
+<span class="nv">ghost_owners</span> <span class="o">=</span> <span class="o">(</span>int*<span class="o">)</span> malloc<span class="o">(</span><span class="m">2</span>*sizeof<span class="o">(</span>int<span class="o">))</span> <span class="p">;</span>
+<span class="nv">nb_ghosts</span> <span class="o">=</span> <span class="m">0</span> <span class="p">;</span>
+<span class="k">if</span><span class="o">(</span>my_rank&gt;0<span class="o">)</span>
+<span class="o">{</span>
+  ghost_uids<span class="o">[</span>nb_ghosts<span class="o">]</span> <span class="o">=</span> domain_offset-1 <span class="p">;</span>
+  ghost_owners<span class="o">[</span>nb_ghosts<span class="o">]</span> <span class="o">=</span> my_rank-1 <span class="p">;</span>
+  ++nb_ghosts <span class="p">;</span>
+<span class="o">}</span>
+<span class="k">if</span><span class="o">(</span>my_rank&lt;nprocs-1<span class="o">)</span>
+<span class="o">{</span>
+  ghost_uids<span class="o">[</span>nb_ghosts<span class="o">]</span> <span class="o">=</span> domain_offset+local_nrows <span class="p">;</span>
+  ghost_owners<span class="o">[</span>nb_ghosts<span class="o">]</span> <span class="o">=</span> my_rank+1 <span class="p">;</span>
+  ++nb_ghosts <span class="p">;</span>
+<span class="o">}</span>
+
+
+<span class="nv">local_nnz</span> <span class="o">=</span> row_offset<span class="o">[</span>local_nrows<span class="o">]</span> <span class="p">;</span>
+<span class="nv">col_uids</span> <span class="o">=</span> <span class="o">(</span>uid_type*<span class="o">)</span> malloc<span class="o">(</span>local_nnz*sizeof<span class="o">(</span>uid_type<span class="o">))</span> <span class="p">;</span>
+<span class="nv">matrix_values</span> <span class="o">=</span> <span class="o">(</span>double*<span class="o">)</span> malloc<span class="o">(</span>local_nnz*sizeof<span class="o">(</span>double<span class="o">))</span> <span class="p">;</span>
+
+<span class="nv">rhs_values</span>          <span class="o">=</span> <span class="o">(</span>double*<span class="o">)</span> malloc<span class="o">(</span>local_nrows*sizeof<span class="o">(</span>double<span class="o">))</span> <span class="p">;</span>
+<span class="nv">solution_values</span>     <span class="o">=</span> <span class="o">(</span>double*<span class="o">)</span> malloc<span class="o">(</span>local_nrows*sizeof<span class="o">(</span>double<span class="o">))</span> <span class="p">;</span>
+<span class="nv">ref_solution_values</span> <span class="o">=</span> <span class="o">(</span>double*<span class="o">)</span> malloc<span class="o">(</span>local_nrows*sizeof<span class="o">(</span>double<span class="o">))</span> <span class="p">;</span>
+
+<span class="nv">diag_values</span> <span class="o">=</span> <span class="m">10</span>. <span class="p">;</span>
+<span class="nv">offdiag_values</span>  <span class="o">=</span> -1. <span class="p">;</span>
+<span class="nv">k</span> <span class="o">=</span> <span class="m">0</span> <span class="p">;</span>
+<span class="k">for</span><span class="o">(</span><span class="nv">i</span><span class="o">=</span><span class="m">0</span><span class="p">;</span>i&lt;local_nrows<span class="p">;</span>++i<span class="o">)</span>
+<span class="o">{</span>
+  col_uids<span class="o">[</span>k<span class="o">]</span> <span class="o">=</span> domain_offset+i <span class="p">;</span>
+  matrix_values<span class="o">[</span>k<span class="o">]</span> <span class="o">=</span> diag_values <span class="p">;</span>
+  <span class="nv">rhs_value</span> <span class="o">=</span> diag_values*<span class="o">(</span>domain_offset+i<span class="o">)</span> <span class="p">;</span>
+  ++k <span class="p">;</span>
+  <span class="k">if</span><span class="o">(</span>domain_offset+i !<span class="o">=</span> <span class="m">0</span> <span class="o">)</span>
+  <span class="o">{</span>
+    col_uids<span class="o">[</span>k<span class="o">]</span> <span class="o">=</span> domain_offset+i-1 <span class="p">;</span>
+    matrix_values<span class="o">[</span>k<span class="o">]</span> <span class="o">=</span> offdiag_values <span class="p">;</span>
+    <span class="nv">rhs_value</span> <span class="o">+=</span> offdiag_values*<span class="o">(</span>domain_offset+i-1<span class="o">)</span> <span class="p">;</span>
+    ++k <span class="p">;</span>
+  <span class="o">}</span>
+  <span class="k">if</span><span class="o">(</span>domain_offset+i !<span class="o">=</span> global_nrows -1<span class="o">)</span>
+  <span class="o">{</span>
+    col_uids<span class="o">[</span>k<span class="o">]</span> <span class="o">=</span> domain_offset+i+1 <span class="p">;</span>
+    matrix_values<span class="o">[</span>k<span class="o">]</span> <span class="o">=</span> offdiag_values <span class="p">;</span>
+    <span class="nv">rhs_value</span> <span class="o">+=</span> offdiag_values*<span class="o">(</span>domain_offset+i+1<span class="o">)</span> <span class="p">;</span>
+    ++k <span class="p">;</span>
+  <span class="o">}</span>
+  rhs_values<span class="o">[</span>i<span class="o">]</span> <span class="o">=</span> rhs_value <span class="p">;</span>
+  ref_solution_values<span class="o">[</span>i<span class="o">]</span> <span class="o">=</span> domain_offset+i <span class="p">;</span>
+<span class="o">}</span>
+
+printf<span class="o">(</span><span class="s2">&quot;INIT SYSTEM ID %d: gsize=%d lsize=%d\n&quot;</span>,system_id,global_nrows,local_nrows<span class="o">)</span><span class="p">;</span>
+<span class="nv">error</span> <span class="o">=</span> ALIEN_init_linear_system<span class="o">(</span>system_id,global_nrows,local_nrows,row_uids,nb_ghosts,ghost_uids,ghost_owners<span class="o">)</span> <span class="p">;</span>
+
+printf<span class="o">(</span><span class="s2">&quot;DEFINE MATRIX PROFILE ID %d: gsize=%d lsize=%d\n&quot;</span>,system_id,global_nrows,local_nrows<span class="o">)</span><span class="p">;</span>
+<span class="nv">error</span> <span class="o">+=</span> ALIEN_define_matrix_profile<span class="o">(</span>system_id,local_nrows,row_uids,row_offset,col_uids<span class="o">)</span> <span class="p">;</span>
+
+/*
+ * SET MATRIX VALUES
+ */
+
+printf<span class="o">(</span><span class="s2">&quot;SET MATRIX VALUES %d: gsize=%d lsize=%d\n&quot;</span>,system_id,global_nrows,local_nrows<span class="o">)</span><span class="p">;</span>
+<span class="nv">error</span> <span class="o">+=</span> ALIEN_set_matrix_values<span class="o">(</span>system_id,local_nrows,row_uids,row_offset,col_uids,matrix_values<span class="o">)</span> <span class="p">;</span>
+
+/*
+ * SET RHS VALUES
+ */
+
+printf<span class="o">(</span><span class="s2">&quot;SET RHS VALUES %d: gsize=%d lsize=%d\n&quot;</span>,system_id,global_nrows,local_nrows<span class="o">)</span><span class="p">;</span>
+<span class="nv">error</span> <span class="o">+=</span> ALIEN_set_rhs_values<span class="o">(</span>system_id,local_nrows,row_uids,rhs_values<span class="o">)</span> <span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="linear-systems-resolution">
+<h2>Linear Systems resolution<a class="headerlink" href="#linear-systems-resolution" title="Permalink to this headline">¶</a></h2>
+<p>A linear system is reprensented by a matrix <span class="math notranslate nohighlight">\(A\)</span>, and two vectors <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(X\)</span> where <span class="math notranslate nohighlight">\(B\)</span> is the system right hand side and <span class="math notranslate nohighlight">\(X\)</span> the solution.</p>
+<p>Solving the linear system consists in finding the solution X such that <span class="math notranslate nohighlight">\(A*X=B\)</span> applying a linear solver algorithm.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/*
+ * CREATE SOLVER
+ */
+printf<span class="o">(</span><span class="s2">&quot;CREATE SOLVER \n&quot;</span><span class="o">)</span> <span class="p">;</span>
+<span class="nv">solver_id</span> <span class="o">=</span> ALIEN_create_solver<span class="o">(</span>comm,<span class="s2">&quot;./solver_config.xml&quot;</span><span class="o">)</span> <span class="p">;</span>
+
+printf<span class="o">(</span><span class="s2">&quot;INIT SOLVER \n&quot;</span><span class="o">)</span> <span class="p">;</span>
+ALIEN_init_solver<span class="o">(</span>solver_id,argc,argv<span class="o">)</span> <span class="p">;</span>
+
+    /*
+ * LINEAR SYSTEM RESOLUTION
+ */
+
+printf<span class="o">(</span><span class="s2">&quot; SOLVE \n&quot;</span><span class="o">)</span> <span class="p">;</span>
+<span class="nv">error</span> <span class="o">+=</span> ALIEN_solve<span class="o">(</span>solver_id,system_id<span class="o">)</span> <span class="p">;</span>
+
+/*
+ * GET SOLUTION VALUES
+ */
+<span class="nv">error</span> <span class="o">+=</span> ALIEN_get_solution_values<span class="o">(</span>system_id,local_nrows,row_uids,solution_values<span class="o">)</span> <span class="p">;</span>
+
+ALIEN_get_solver_status<span class="o">(</span>solver_id,<span class="p">&amp;</span>solver_status<span class="o">)</span> <span class="p">;</span>
+<span class="k">if</span><span class="o">(</span>solver_status.code <span class="o">==</span> <span class="m">0</span><span class="o">)</span>
+<span class="o">{</span>
+  /*
+   * COMPUTE ERROR TO REF SOLUTION
+   */
+  <span class="nv">norm2</span> <span class="o">=</span> <span class="m">0</span>. <span class="p">;</span>
+  <span class="k">for</span><span class="o">(</span><span class="nv">i</span> <span class="o">=</span> <span class="m">0</span><span class="p">;</span>i&lt;local_nrows<span class="p">;</span>++i<span class="o">)</span>
+  <span class="o">{</span>
+    <span class="nv">norm2</span> <span class="o">+=</span> rhs_values<span class="o">[</span>i<span class="o">]</span>*rhs_values<span class="o">[</span>i<span class="o">]</span> <span class="p">;</span>
+    <span class="nv">err</span> <span class="o">=</span> solution_values<span class="o">[</span>i<span class="o">]</span> - ref_solution_values<span class="o">[</span>i<span class="o">]</span> <span class="p">;</span>
+    <span class="nv">err2</span> <span class="o">+=</span> err*err <span class="p">;</span>
+  <span class="o">}</span>
+
+  MPI_Allreduce<span class="o">(</span><span class="p">&amp;</span>norm2,<span class="p">&amp;</span>gnorm2,1,MPI_DOUBLE,MPI_SUM,comm<span class="o">)</span> <span class="p">;</span>
+  MPI_Allreduce<span class="o">(</span><span class="p">&amp;</span>err2,<span class="p">&amp;</span>gerr2,1,MPI_DOUBLE,MPI_SUM,comm<span class="o">)</span> <span class="p">;</span>
+
+  printf<span class="o">(</span><span class="s2">&quot;REL ERROR2 : %f\n&quot;</span>,gerr2/gnorm2<span class="o">)</span> <span class="p">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</section>
+<section id="destroy-linear-system-objects">
+<h2>Destroy Linear System Objects<a class="headerlink" href="#destroy-linear-system-objects" title="Permalink to this headline">¶</a></h2>
+<p>You have to destroy all created objects</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/*
+ * DESTROY SOLVER AND LINEAR SYSTEM
+ */
+ALIEN_destroy_solver<span class="o">(</span>solver_id<span class="o">)</span> <span class="p">;</span>
+ALIEN_destroy_linear_system<span class="o">(</span>system_id<span class="o">)</span> <span class="p">;</span>
+
+free<span class="o">(</span>row_uids<span class="o">)</span> <span class="p">;</span>
+free<span class="o">(</span>col_uids<span class="o">)</span> <span class="p">;</span>
+free<span class="o">(</span>row_offset<span class="o">)</span> <span class="p">;</span>
+free<span class="o">(</span>matrix_values<span class="o">)</span> <span class="p">;</span>
+free<span class="o">(</span>rhs_values<span class="o">)</span> <span class="p">;</span>
+free<span class="o">(</span>solution_values<span class="o">)</span> <span class="p">;</span>
+free<span class="o">(</span>ref_solution_values<span class="o">)</span> <span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="finalyze-alien">
+<h2>Finalyze ALIEN<a class="headerlink" href="#finalyze-alien" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/*
+ * FINALYZE ALIEN
+ */
+ALIEN_finalize<span class="o">()</span> <span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Alien</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="user/index.html">Alien user documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial C++ API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial C API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#intro">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linear-system-set-up">Linear System Set Up</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linear-systems-resolution">Linear Systems resolution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#destroy-linear-system-objects">Destroy Linear System Objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#finalyze-alien">Finalyze ALIEN</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorialF.html">Tutorial FORTRAN API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer/index.html">Alien developer documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sycl/index.html">Alien SYCL documentation</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="tutorial.html" title="previous chapter">Tutorial C++ API</a></li>
+      <li>Next: <a href="tutorialF.html" title="next chapter">Tutorial FORTRAN API</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2024, CEA, IFPEN.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 4.3.2</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/tutorialC.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

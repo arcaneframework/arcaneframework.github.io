@@ -1,0 +1,298 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <meta name="generator" content="Doxygen 1.9.8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arcane: Optimisations de la connectivité des entités</title>
+    <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../../jquery.js"></script>
+    <script type="text/javascript" src="../../dynsections.js"></script>
+    <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+    <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+    <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../user_colors.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+    <script type="text/javascript" src="../../script-helper.js"></script>
+    <script type="text/javascript" src="../../script-resize.js"></script>
+    <script type="text/javascript" src="../../script-num-lines-code.js"></script>
+    <script type="text/javascript" src="../../script-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-edit-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-alternative-theme.js"></script>
+    <script type="text/javascript">
+      // On demande l'activation de la personnalisation de la page.
+      var no_custom_theme = false;
+      DoxygenAwesomeDarkModeToggle.title = "Thème clair/sombre";
+      DoxygenAwesomeDarkModeToggle.init();
+      DoxygenAwesomeFragmentCopyButton.title = "Copier le code dans le presse-papier";
+      DoxygenAwesomeFragmentCopyButton.init();
+      DoxygenAwesomeParagraphLink.init();
+      DoxygenAwesomeInteractiveToc.init();
+      DoxygenAwesomeTabs.init()
+      waitElemForResizeSideNav();
+      setOldSize();
+      //waitItemExpandCurrent();
+    </script>
+  </head>
+  <body>
+    <!--BEGIN CORNER_GITHUB-->
+    <!-- https://tholman.com/github-corners/ -->
+    <a href="https://github.com/arcaneframework/framework" class="github-corner" aria-label="Voir les sources sur GitHub">
+      <svg width="70" height="70" viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <!--END CORNER_GITHUB-->
+      <div id="top">
+        <!-- do not remove this div, it is closed by doxygen! -->
+        <div id="titlearea">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr id="projectrow">
+                <td id="projectlogo">
+                  <a href="../../index.html" title="Aller à la page principale">
+                    <img alt="Logo" src="../../arcane_logo.webp" />
+                  </a>
+                </td>
+              </tr>
+              <tr id="projectrow">
+                <td id="projectalign">
+                  <div id="projectname">Arcane
+                    <span id="projectnumber">&#160;v3.12.18.0</span>
+                  </div>
+                  <div id="projectbrief">Documentation utilisateur</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- end header part --><!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('de/d46/arcanedoc_new_optimisations_connectivity.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Optimisations de la connectivité des entités</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="toc"><h3>Table des matières</h3>
+<ul><li class="level1"><a href="#autotoc_md8">Contexte</a></li>
+<li class="level1"><a href="#autotoc_md9">Optimisations envisagées</a><ul><li class="level2"><a href="#autotoc_md10">Optimisations des connectivités</a></li>
+<li class="level2"><a href="#autotoc_md11">Démarche pour mettre en place ces optimisations</a></li>
+<li class="level2"><a href="#autotoc_md12">Optimisations des groupes</a></li>
+<li class="level2"><a href="#autotoc_md13">Démarche pour mettre en place ces optimisations</a></li>
+<li class="level2"><a href="#autotoc_md14">Planning</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="textblock"><h1><a class="anchor" id="autotoc_md8"></a>
+Contexte</h1>
+<p>Dans la version actuelle de Arcane (3.x), les connectivités des entités et des groupes d'entités sont gérés comme si tout était non-structuré même si le maillage est cartésien ou structuré. Notamment, on conserve toutes les informations de connectivités entre les entités ce qui consomme de la mémoire. Ce coût mémoire est difficilement réductible lorsque le maillage est vraiment non structuré, mais il pourrait l'être pour les maillages structurés et cartésiens. Particulièrement pour ces derniers cas, on a souvent beaucoup de mailles et peu de variables et proportionnellement ce cout mémoire de conservation des connectivités est important.</p>
+<p>Il a donc été décidé de modifier la gestion interne à Arcane de ces informations de connectivité afin de réduire la consommation mémoire et de permettre des optimisations supplémentaires.</p>
+<p>Ces optimisations doivent répondre aux contraintes suivantes :</p>
+<ul>
+<li>Impacter le moins possible les codes utilisant Arcane et donc ces évolutions devront être progressive pour laisser les codes faire les évolutions nécessaires (comme cela a été le cas avec les nouvelles connectivités pour la version 3.0).</li>
+<li>le mécanisme de gestion des connectivités doit rester générique pour s'appliquer à tous les types de maillage avec les mécanismes actuels de boucle et d'itération.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md9"></a>
+Optimisations envisagées</h1>
+<p>Les optimisations envisagées partent du principe que le schéma des connectivités et des groupes est souvent le même pour un grand nombre d'entités. Les optimisations proposées se décomposent en deux groupes :</p>
+<ul>
+<li>les optimisations sur les connectivités (par exemple <a class="el" href="../../d4/d55/classArcane_1_1ItemWithNodes.html#ac6be927b92f077cf8b023d3b8cc8c2e8">Cell::nodes()</a>)</li>
+<li>les optimisations sur les groupes d'entités (<a class="el" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a>).</li>
+</ul>
+<h2><a class="anchor" id="autotoc_md10"></a>
+Optimisations des connectivités</h2>
+<p>Actuellement, les connectivités sont gérées par la classe mesh::IncrementalItemConnectivity et il y a trois tableaux (de Int32) pour conserver la connectivité d'une entité vers une autre :</p>
+<ol type="1">
+<li>un tableau contenant la connectivité. La taille de ce tableau est au moins égal à la somme des entités connectées. Par exemple si on a 40 hexaèdres, alors sa taille est de 8x40 éléments.</li>
+<li>un tableau par entité indiquant combien elle a d'entités connectées.</li>
+<li>un tableau par entité indiquant la position dans le tableau (1) du premier élément connecté.</li>
+</ol>
+<p>L'optimisation proposée part du principe que pour une entité donnée les <code>localId()</code> des entités qui lui sont connectées sont souvent les mêmes relativement au <code>localId()</code> de la première entité connectée. Au lieu de conserver toute la connectivité, on peut donc ne conserver que le schéma de la connectivité ainsi que le localId() de la première entité.</p>
+<p>Pour cette optimisation, il faut donc :</p><ol type="1">
+<li>conserver pour chaque entité le localId() de la première entité connectée</li>
+<li>lors de l'accès à la i-ème entité connecté, il faut ajouter à la valeur conservée le localId() de la première entité connectée.</li>
+</ol>
+<p>L'opération (2) aura un cout négligeable en temps de calcul, car la valeur à ajouter sera conservée lors de l'itération de la même manière que le nombre d'entités connectées. Il reste donc pour (1) l'ajout d'un 'Int32' pour chaque entité, mais cela sera compensé par la réutilisation de la connectivité.</p>
+<p>Par exemple, pour un maillage cartésien de 2 lignes et 4 colonnes, on a actuellement la numérotation suivante :</p>
+<div class="fragment"><div class="line">10---11---12---13---14</div>
+<div class="line">| 4  | 5  | 6  | 7  |</div>
+<div class="line">5----6----7----8----9</div>
+<div class="line">| 0  | 1  | 2  | 3  |</div>
+<div class="line">0----1----2----3----4</div>
+</div><!-- fragment --><p>Si je prends la connectivité maille/nœuds, les trois tableaux contiennent les valeurs suivantes :</p>
+<div class="fragment"><div class="line">1. 0 5 6 1 | 1 6 7 2 | 2 7 8 3 | 3 8 9 4 | 5 10 11 6 | 6 11 12 7 | 7 12 13 8 | 8 13 14 9</div>
+<div class="line">2. 4         4         4         4         4           4           4           4</div>
+<div class="line">3. 0         4         8        12         16          20         24          28</div>
+</div><!-- fragment --><p>Si j'applique l'optimisation, j'ajoute le tableau suivant contenant le localId() de la première entité :</p>
+<div class="fragment"><div class="line">1. 0 5 6 1 | 1 6 7 2 | 2 7 8 3 | 3 8 9 4 | 5 10 11 6 | 6 11 12 7 | 7 12 13 8 | 8 13 14 9</div>
+<div class="line">2. 4         4         4         4         4           4           4           4</div>
+<div class="line">3. 0         4         8        12         16          20         24          28</div>
+<div class="line">4. 0         1         2         3         5           6           7           8</div>
+</div><!-- fragment --><p>Je retranche de (1) la valeur associée de (4)</p>
+<div class="fragment"><div class="line">1. 0 5 6 1 | 1 6 7 2 | 2 7 8 3 | 3 8 9 4 | 5 10 11 6 | 6 11 12 7 | 7 12 13 8 | 8 13 14 9</div>
+<div class="line">4. 0         1         2         3         5           6           7           8</div>
+<div class="line"> </div>
+<div class="line">1. 0 5 6 1 | 1 6 7 2 | 2 7 8 3 | 3 8 9 4 | 5 10 11 6 | 6 11 12 7 | 7 12 13 8 | 8 13 14 9</div>
+<div class="line">-  0 0 0 0   1 1 1 1   2 2 2 2   3 3 3 3   5 5  5  5   6  6  6 6   7 7  7  7 | 8  8  8 8</div>
+<div class="line">=  0 5 6 1   0 5 6 1   0 5 6 1   0 5 6 1   0 5  6  1   0  5  6 1   0 5  6  1   0  5  6 1</div>
+</div><!-- fragment --><p>On voit donc que pour ce cas (idéal), le schéma est le même. On peut donc ne le conserver qu'une fois et on aura les valeurs suivantes pour la connectivité :</p>
+<div class="fragment"><div class="line">1. 0 5 6 1</div>
+<div class="line">2. 4         4         4         4         4           4           4           4</div>
+<div class="line">3. 0         0         0         0         0           0           0           0</div>
+<div class="line">4. 0         1         2         3         5           6           7           8</div>
+</div><!-- fragment --><p>Si <code>N</code> est le nombre de mailles, on passe donc de d'une consommation mémoire de <code>(N*4 + N + N)</code> à <code>(4 + N + N +N)</code> soit de <code>6*N</code> à <code>3*N</code>. Dans le cas 3D, on passe de <code>(N*8 + N + N)</code> à <code>(8 + N + N + N)</code> soit <code>10*N</code> à <code>3*N</code>.</p>
+<dl class="section note"><dt>Note</dt><dd>On pourrait aussi envisager de conserver le nombre d'entités connectées à une entité dans (1) ce qui permettrait de supprimer le tableau (2).</dd></dl>
+<p>Dans les maillages cartésiens, le schéma pour les mailles et les nœuds est indépendant du nombre de mailles et de noeuds. Par contre, pour les faces, il y a un schéma par ligne et un par colonne. Donc par exemple pour un maillage 100x30x20 il y a 32x20 schémas pour les faces soit 640 valeurs au lieu de 60000 sans l'optimisation.</p>
+<p>Outre une réduction de la consommation mémoire cela permettra de mieux utiliser le cache.</p>
+<p>Dans le pire des cas s'il n'y a pas de schéma récurrent, la connectivité consommera <code>N</code> Int32 supplémentaires. A priori cela n'est le cas que pour les maillages composés de triangles (2D) ou tétraèdres (3D) quelconques ce qui n'est pas le cas des applications CEA et IFPEN.</p>
+<p>Ces mécanismes peuvent aussi s'appliquer aux classes gérant spécifiquement le cartésien qui ont aussi des schémas d'accès similaires.</p>
+<h2><a class="anchor" id="autotoc_md11"></a>
+Démarche pour mettre en place ces optimisations</h2>
+<p>Afin de pouvoir procéder à ces optimisations de manière transparente il faut un itérateur sur les connectivités différent de l'itérateur sur les entités ce qui n'est pas le cas actuellement, car les deux utilisent <a class="el" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> et <a class="el" href="../../d6/dcd/classArcane_1_1ItemEnumerator.html">ItemEnumerator</a> comme conteneur et itérateur. Cela permet de coder comme suit :</p>
+<div class="fragment"><div class="line"><a class="code hl_class" href="../../d8/d8e/classArcane_1_1ItemGroupT.html">Arcane::CellGroup</a> cells;</div>
+<div class="line"><a class="code hl_define" href="../../d6/d0f/ItemEnumerator_8h.html#a44837b340ff8a4fc02299e3160a4da20">ENUMERATE_</a>(Cell,icell,cells){</div>
+<div class="line">  <a class="code hl_class" href="../../d9/db2/classArcane_1_1Cell.html">Arcane::Cell</a> cell = *icell;</div>
+<div class="line">  <a class="code hl_define" href="../../d6/d0f/ItemEnumerator_8h.html#a44837b340ff8a4fc02299e3160a4da20">ENUMERATE_</a>(Face,iface,cell.<a class="code hl_function" href="../../d9/db2/classArcane_1_1Cell.html#a18cdcd02c64e902b646f6acceb06698b">faces</a>()){</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+<div class="ttc" id="aItemEnumerator_8h_html_a44837b340ff8a4fc02299e3160a4da20"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#a44837b340ff8a4fc02299e3160a4da20">ENUMERATE_</a></div><div class="ttdeci">#define ENUMERATE_(type, name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe d'entité</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d0f/ItemEnumerator_8h_source.html#l00400">ItemEnumerator.h:400</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Cell_html"><div class="ttname"><a href="../../d9/db2/classArcane_1_1Cell.html">Arcane::Cell</a></div><div class="ttdoc">Maille d'un maillage.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/dd4/Item_8h_source.html#l01169">Item.h:1171</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Cell_html_a18cdcd02c64e902b646f6acceb06698b"><div class="ttname"><a href="../../d9/db2/classArcane_1_1Cell.html#a18cdcd02c64e902b646f6acceb06698b">Arcane::Cell::faces</a></div><div class="ttdeci">FaceConnectedListViewType faces() const</div><div class="ttdoc">Liste des faces de la maille.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/dd4/Item_8h_source.html#l01251">Item.h:1251</a></div></div>
+<div class="ttc" id="aclassArcane_1_1ItemGroupT_html"><div class="ttname"><a href="../../d8/d8e/classArcane_1_1ItemGroupT.html">Arcane::ItemGroupT&lt; Cell &gt;</a></div></div>
+</div><!-- fragment --><p>Cela devra donc être interdit pour les connectivités. On pourra ajouter une macro spécifique pour énumérer sur les connectivités ou aussi remplacer par le <code>for-loop</code> :</p>
+<div class="fragment"><div class="line"><a class="code hl_class" href="../../d8/d8e/classArcane_1_1ItemGroupT.html">Arcane::CellGroup</a> cells;</div>
+<div class="line"><a class="code hl_define" href="../../d6/d0f/ItemEnumerator_8h.html#a44837b340ff8a4fc02299e3160a4da20">ENUMERATE_</a>(Cell,icell,cells){</div>
+<div class="line">  <a class="code hl_class" href="../../d9/db2/classArcane_1_1Cell.html">Arcane::Cell</a> cell = *icell;</div>
+<div class="line">  <span class="comment">// for-loop</span></div>
+<div class="line">  <span class="keywordflow">for</span> ( <a class="code hl_class" href="../../d1/db1/classArcane_1_1Face.html">Arcane::Face</a> face : cell.faces()){</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+<div class="ttc" id="aclassArcane_1_1Face_html"><div class="ttname"><a href="../../d1/db1/classArcane_1_1Face.html">Arcane::Face</a></div><div class="ttdoc">Face d'une maille.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/dd4/Item_8h_source.html#l00923">Item.h:925</a></div></div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md12"></a>
+Optimisations des groupes</h2>
+<p>Le même principe que pour les connectivités peut être appliqué aux groupes. Actuellement, on conserve une liste d'indirection simple. Pour un groupe avec M éléments, il faut conserver M Int32.</p>
+<p>Il serait possible de décomposer la liste des entités en blocs et conserver pour chaque bloc 3 valeurs correspondantes aux tableaux (2), (3) et (4) des connectivités. Éventuellement le nombre d'éléments dans chaque bloc peut aussi être mutualisé dans la liste d'indirection.</p>
+<p>Avec par exemple une taille de bloc de 128, il faut conserver (3*M/128) valeurs pour les informations d'indirection. Mais dans le cas où les valeurs du tableau sont contigues, il faut juste conserver en plus 128 valeurs. La encore cela permet d'économiser de la mémoire et de mieux utiliser le cache. Ce mécanisme a aussi l'avantage d'être facilement utilisable sur accélérateur.</p>
+<h2><a class="anchor" id="autotoc_md13"></a>
+Démarche pour mettre en place ces optimisations</h2>
+<p>Cela nécessite cependant deux modifications dans Arcane:</p><ul>
+<li>rendre obsolète la possibilité de récupérer les <code>localIds()</code> des groupes</li>
+<li>transformer la macro <code>ENUMERATE_</code> pour faire deux boucles : une boucle sur les blocs suivie d'une boucle pour chaque bloc. Cela nécessite donc de changer la classe <a class="el" href="../../d6/dcd/classArcane_1_1ItemEnumerator.html">ItemEnumerator</a> pour gérer les blocs ou d'en faire une autre. Une possibilité est par exemple d'avoir deux nouvelles classes <code>ItemBlockVectorView</code> et <code>ItemBlockEnumerator</code>. Le cas actuel utilisant <a class="el" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> et <a class="el" href="../../d6/dcd/classArcane_1_1ItemEnumerator.html">ItemEnumerator</a> serait un cas spécifique de bloc dont le nombre de valeurs correspondrait au nombre d'éléments du vecteur et l'offset de <code>localId()</code> serait zéro.</li>
+</ul>
+<p>Il doit être possible d'utiliser toujours une double boucle dans <code>ENUMERATE_</code> quitte à ce que la deuxième boucle soit de taille fixée à la compilation à 1 dans le cas des <a class="el" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> par exemple.</p>
+<h2><a class="anchor" id="autotoc_md14"></a>
+Planning</h2>
+<p>Les modifications pour changer ces connectivités commenceront dans la version 3.10 de Arcane (juin 2023).</p>
+<p>La première optimisation envisagée concernerait les connectivités des entités. Dans ce but, les modifications suivantes sont effectuées :</p>
+<ol type="1">
+<li>les méthodes permettant d'accéder aux tableaux de <code>localId()</code> des connectivités seront rendues obsolètes. Cela concerne les classes <a class="el" href="../../d6/dcd/classArcane_1_1ItemEnumerator.html">ItemEnumerator</a>, <a class="el" href="../../d6/db7/classArcane_1_1ItemEnumeratorBase.html">ItemEnumeratorBase</a>, <a class="el" href="../../d8/da8/classArcane_1_1ItemConnectedListView.html">ItemConnectedListView</a>.</li>
+<li>L'utilisation de la classe <a class="el" href="../../dd/df1/classArcane_1_1ItemInternal.html">ItemInternal</a> devient obsolète. Il faut utiliser <a class="el" href="../../d7/d1e/classArcane_1_1impl_1_1ItemBase.html">impl::ItemBase</a> à la place. Toutes les méthodes qui prenaient aussi des ItemInternalArrayView, ItemInternalPtr ou <a class="el" href="../../d0/d32/namespaceArcane.html#a6946176a3fcbd7087f23d5b720bcefa3">ItemInternalList</a> deviennent aussi obsolètes.</li>
+</ol>
+<p>En général les codes utilisateurs de Arcane sont peu impactés par le point (1) car les structures concernées sont plutôt internes à <a class="el" href="../../d0/d32/namespaceArcane.html" title="-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-">Arcane</a>. Comme il est nécessaire de supprimer ces méthodes pour mettre en place connectivités compressées, il est prévu de supprimer définitivement ces méthodes en décembre 2023.</p>
+<p>Pour le point (2) qui concerne potentiellement plus de parties de code, il est prévu de supprimer les méthodes concernées en juin 2024.</p>
+<p>La deuxième phase d'optimisation concernant les entités des groupes interviendra ensuite. </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.9.5-->
+<!-- start footer part -->
+  <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+    <ul>
+      <li class="navelem"><a class="el" href="../../index.html">%Arcane</a></li><li class="navelem"><a class="el" href="../../d0/d82/arcanedoc_news.html">Nouveautés et changements</a></li>
+      <li class="footer">Généré le Lundi 20 Mai 2024 02:24:58 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    </ul>
+  </div>
+  <script type="text/javascript" src="../../script-apply-config-theme.js"></script>
+  <script type="text/javascript">
+    // On met l'appel à cette fonction dans le footer dans le cas où
+    // une page ne veut pas de personnalisation (changement de la 
+    // variable globale "no_custom_theme").
+    applyConfigWithCookies();
+  </script>
+</body>
+</html>

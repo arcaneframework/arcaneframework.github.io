@@ -1,0 +1,28 @@
+var searchData=
+[
+  ['3_200_0',['| 0,0 | 1,0   |2,0| 3,0 |',['../d8/d13/classArcane_1_1IGridMeshPartitioner.html#autotoc_md112',1,'']]],
+  ['3_200_201_2027_20mai_202021_1',['Arcane Version 3.0.1 (27 mai 2021)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_news_changelog_version301',1,'']]],
+  ['3_200_203_20not_20released_2',['Arcane Version 3.0.3 (Not released)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_news_changelog_version303',1,'']]],
+  ['3_200_205_2030_20septembre_202021_3',['Arcane Version 3.0.5 (30 septembre 2021)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_news_changelog_version305',1,'']]],
+  ['3_201_4',['| 0,1 | 1,1   |2,1| 3,1 |',['../d8/d13/classArcane_1_1IGridMeshPartitioner.html#autotoc_md111',1,'']]],
+  ['3_201_202_2021_20octobre_202021_5',['Arcane Version 3.1.2 (21 octobre 2021)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_news_changelog_version310',1,'']]],
+  ['3_2010_6',['Modifications dans la version 3.10',['../da/da8/arcanedoc_item_handling_news.html#autotoc_md19',1,'']]],
+  ['3_2010_2011_2030_20juin_202023_7',['Arcane Version 3.10.11 (30 juin 2023)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_version3100',1,'']]],
+  ['3_2011_2015_2023_20novembre_202023_8',['Arcane Version 3.11.15 (23 novembre 2023)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_version3110',1,'']]],
+  ['3_2012_2018_2002_20mai_202024_9',['Arcane Version 3.12.18 (02 mai 2024)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_version3120',1,'']]],
+  ['3_202_10',['| 0,2 | 1,2   |2,2| 3,2 |',['../d8/d13/classArcane_1_1IGridMeshPartitioner.html#autotoc_md110',1,'']]],
+  ['3_202_200_2015_20novembre_202021_11',['Arcane Version 3.2.0 (15 novembre 2021)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_news_changelog_version320',1,'']]],
+  ['3_203_200_2016_20décembre_202021_12',['Arcane Version 3.3.0 (16 décembre 2021)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_news_changelog_version330',1,'']]],
+  ['3_204_205_2010_20février_202022_13',['Arcane Version 3.4.5 (10 février 2022)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_news_changelog_version340',1,'']]],
+  ['3_205_207_2007_20avril_202022_14',['Arcane Version 3.5.7 (07 avril 2022)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_news_changelog_version350',1,'']]],
+  ['3_206_2013_2006_20juillet_202022_15',['Arcane Version 3.6.13 (06 juillet 2022)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_news_changelog_version360',1,'']]],
+  ['3_207_16',['Modifications dans la version 3.7',['../da/da8/arcanedoc_item_handling_news.html#arcanedoc_news_37',1,'']]],
+  ['3_207_2023_2017_20novembre_202022_17',['Arcane Version 3.7.23 (17 novembre 2022)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_version370',1,'']]],
+  ['3_208_2015_2022_20février_202023_18',['Arcane Version 3.8.15 (22 février 2023)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_version380',1,'']]],
+  ['3_209_205_2004_20avril_202023_19',['Arcane Version 3.9.5 (04 avril 2023)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_version390',1,'']]],
+  ['3_209_20septembre_202016_20',['Arcane Version 2.3.9 (Septembre 2016)',['../d9/dec/arcanedoc_news_changelog20.html#arcanedoc_news_changelog_version239',1,'']]],
+  ['30_20juin_202020_21',['Arcane Version 2.19.0 (30 juin 2020)',['../d9/dec/arcanedoc_news_changelog20.html#arcanedoc_news_changelog_version2190',1,'']]],
+  ['30_20juin_202023_22',['Arcane Version 3.10.11 (30 juin 2023)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_version3100',1,'']]],
+  ['30_20septembre_202021_23',['Arcane Version 3.0.5 (30 septembre 2021)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_news_changelog_version305',1,'']]],
+  ['31_20janvier_202018_24',['Arcane Version 2.8.0 (31 janvier 2018)',['../d9/dec/arcanedoc_news_changelog20.html#arcanedoc_news_changelog_version280',1,'']]]
+];

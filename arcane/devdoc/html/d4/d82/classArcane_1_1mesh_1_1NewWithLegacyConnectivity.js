@@ -1,0 +1,27 @@
+var classArcane_1_1mesh_1_1NewWithLegacyConnectivity =
+[
+    [ "_connectedItems", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#a02ae47a8b327b43251652b7e616e29bb", null ],
+    [ "_initializeStorage", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#a34c805827082d03d45f9bccc1fa633c2", null ],
+    [ "addConnectedItem", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#a7eef360f60e8fff76eb0db30f4f212ed", null ],
+    [ "connectedItemLocalId", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#ac0722556d922dbc792aa87b41741e4e8", null ],
+    [ "dumpStats", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#a4294a170633490dd24131e05f9f63d26", null ],
+    [ "families", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#aff57ae4df09bf35f1b95823483838c27", null ],
+    [ "hasConnectedItem", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#a7618f9ee900dc27dbefc4b85045fd60b", null ],
+    [ "maxNbConnectedItem", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#ad0dde0d94f8fb1bce901d157f614cc99", null ],
+    [ "name", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#a3d56bf5210640a8bb08ae321fb2b6fa5", null ],
+    [ "nbConnectedItem", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#aa5dfea83c959291c1d8f091ba19cf1f8", null ],
+    [ "notifyReadFromDump", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#a9933d96a7a32e5f39ad5597c39290592", null ],
+    [ "notifySourceFamilyLocalIdChanged", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#ae2fd0c392c21665de8c00869a2c36b30", null ],
+    [ "notifySourceItemAdded", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#a480485a04cdd5122cd26bfda4aaeb5b5", null ],
+    [ "notifyTargetFamilyLocalIdChanged", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#a3fa1eec3d22921a13e37aea2c4812955", null ],
+    [ "preAllocatedSize", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#aca99ad91da96387e33dfbd7eecd75b69", null ],
+    [ "removeConnectedItem", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#ad5dc4ff2db4298c74cd5a424ca5a9d8a", null ],
+    [ "removeConnectedItems", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#a3d8c4b018e1001f8fd59ee541f96da0e", null ],
+    [ "replaceConnectedItem", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#a39f9a137c87cb5cba8f6067e1b29eee6", null ],
+    [ "replaceConnectedItems", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#ab97447cd6664025dc2224fbfb3e00bd6", null ],
+    [ "setPreAllocatedSize", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#a3b2a371189bebf2d59e87c761fca70d7", null ],
+    [ "sourceFamily", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#a1ab22f3d6f51dac199e9a9a9d0bde93c", null ],
+    [ "targetFamily", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#a9b8fdeca90cee0035fd785947d12e1e0", null ],
+    [ "toSourceReference", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#abe05d7bef09cff02cefe22c9934ac89c", null ],
+    [ "toTargetReference", "d4/d82/classArcane_1_1mesh_1_1NewWithLegacyConnectivity.html#a90d181d13d18420a62d2fa7efe4ea328", null ]
+];

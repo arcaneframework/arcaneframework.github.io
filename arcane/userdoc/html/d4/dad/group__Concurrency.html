@@ -1,0 +1,990 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <meta name="generator" content="Doxygen 1.9.8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arcane: Concurrence</title>
+    <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../../jquery.js"></script>
+    <script type="text/javascript" src="../../dynsections.js"></script>
+    <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+    <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+    <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../user_colors.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+    <script type="text/javascript" src="../../script-helper.js"></script>
+    <script type="text/javascript" src="../../script-resize.js"></script>
+    <script type="text/javascript" src="../../script-num-lines-code.js"></script>
+    <script type="text/javascript" src="../../script-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-edit-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-alternative-theme.js"></script>
+    <script type="text/javascript">
+      // On demande l'activation de la personnalisation de la page.
+      var no_custom_theme = false;
+      DoxygenAwesomeDarkModeToggle.title = "Thème clair/sombre";
+      DoxygenAwesomeDarkModeToggle.init();
+      DoxygenAwesomeFragmentCopyButton.title = "Copier le code dans le presse-papier";
+      DoxygenAwesomeFragmentCopyButton.init();
+      DoxygenAwesomeParagraphLink.init();
+      DoxygenAwesomeInteractiveToc.init();
+      DoxygenAwesomeTabs.init()
+      waitElemForResizeSideNav();
+      setOldSize();
+      //waitItemExpandCurrent();
+    </script>
+  </head>
+  <body>
+    <!--BEGIN CORNER_GITHUB-->
+    <!-- https://tholman.com/github-corners/ -->
+    <a href="https://github.com/arcaneframework/framework" class="github-corner" aria-label="Voir les sources sur GitHub">
+      <svg width="70" height="70" viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <!--END CORNER_GITHUB-->
+      <div id="top">
+        <!-- do not remove this div, it is closed by doxygen! -->
+        <div id="titlearea">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr id="projectrow">
+                <td id="projectlogo">
+                  <a href="../../index.html" title="Aller à la page principale">
+                    <img alt="Logo" src="../../arcane_logo.webp" />
+                  </a>
+                </td>
+              </tr>
+              <tr id="projectrow">
+                <td id="projectalign">
+                  <div id="projectname">Arcane
+                    <span id="projectnumber">&#160;v3.12.18.0</span>
+                  </div>
+                  <div id="projectbrief">Documentation utilisateur</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- end header part --><!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('d4/dad/group__Concurrency.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Concurrence</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Ensemble des classes gérant la concurrence.  
+<a href="#details">Plus de détails...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d3/df6/classArcane_1_1TaskContext.html">Arcane::TaskContext</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contexte d'éxecution d'une tâche.  <a href="../../d3/df6/classArcane_1_1TaskContext.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../da/dd2/classArcane_1_1ITask.html">Arcane::ITask</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface d'une tâche concourante.  <a href="../../da/dd2/classArcane_1_1ITask.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d0d/classArcane_1_1TaskFactory.html">Arcane::TaskFactory</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Fabrique pour les tâches.  <a href="../../d6/d0d/classArcane_1_1TaskFactory.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">Arcane::ParallelLoopOptions</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Options d'exécution d'une boucle parallèle en multi-thread.  <a href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html#details">Plus de détails...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:ga2dc1621d6f49d59fd2ed1c8b16bfd20c" id="r_ga2dc1621d6f49d59fd2ed1c8b16bfd20c"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> InstanceType , <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> ItemType &gt; </td></tr>
+<tr class="memitem:ga2dc1621d6f49d59fd2ed1c8b16bfd20c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dad/group__Concurrency.html#ga2dc1621d6f49d59fd2ed1c8b16bfd20c">Arcane::arcaneParallelForeach</a> (<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> &amp;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">items_view</a>, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/d7b/classArcane_1_1ForLoopRunInfo.html">ForLoopRunInfo</a> &amp;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">run_info</a>, InstanceType *instance, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>(InstanceType::*function)(<a class="el" href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">ItemVectorViewT</a>&lt; ItemType &gt; items))</td></tr>
+<tr class="memdesc:ga2dc1621d6f49d59fd2ed1c8b16bfd20c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique en concurrence la méthode <em>function</em> de l'instance <em>instance</em> sur la vue <em>items_view</em> avec les options <em>options</em>.  <br /></td></tr>
+<tr class="separator:ga2dc1621d6f49d59fd2ed1c8b16bfd20c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gae8c2080819be7f4dbc7199bac7117cb9" id="r_gae8c2080819be7f4dbc7199bac7117cb9"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &gt; </td></tr>
+<tr class="memitem:gae8c2080819be7f4dbc7199bac7117cb9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dad/group__Concurrency.html#gae8c2080819be7f4dbc7199bac7117cb9">Arcane::arcaneParallelForeach</a> (<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> &amp;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">items_view</a>, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/d7b/classArcane_1_1ForLoopRunInfo.html">ForLoopRunInfo</a> &amp;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">run_info</a>, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &amp;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">lambda_function</a>)</td></tr>
+<tr class="memdesc:gae8c2080819be7f4dbc7199bac7117cb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique en concurrence la fonction lambda <em>lambda_function</em> <em>instance</em> sur la vue <em>items_view</em> avec les options <em>options</em>.  <br /></td></tr>
+<tr class="separator:gae8c2080819be7f4dbc7199bac7117cb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8cea6a6d467b818b0347af4bbbe1036c" id="r_ga8cea6a6d467b818b0347af4bbbe1036c"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> InstanceType , <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> ItemType &gt; </td></tr>
+<tr class="memitem:ga8cea6a6d467b818b0347af4bbbe1036c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dad/group__Concurrency.html#ga8cea6a6d467b818b0347af4bbbe1036c">Arcane::arcaneParallelForeach</a> (<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> &amp;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">items_view</a>, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a> &amp;options, InstanceType *instance, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>(InstanceType::*function)(<a class="el" href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">ItemVectorViewT</a>&lt; ItemType &gt; items))</td></tr>
+<tr class="memdesc:ga8cea6a6d467b818b0347af4bbbe1036c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique en concurrence la méthode <em>function</em> de l'instance <em>instance</em> sur la vue <em>items_view</em> avec les options <em>options</em>.  <br /></td></tr>
+<tr class="separator:ga8cea6a6d467b818b0347af4bbbe1036c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab29e81a2d9542c65469986572fd776c0" id="r_gab29e81a2d9542c65469986572fd776c0"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> InstanceType , <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> ItemType &gt; </td></tr>
+<tr class="memitem:gab29e81a2d9542c65469986572fd776c0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dad/group__Concurrency.html#gab29e81a2d9542c65469986572fd776c0">Arcane::arcaneParallelForeach</a> (<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a> &amp;items, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/d7b/classArcane_1_1ForLoopRunInfo.html">ForLoopRunInfo</a> &amp;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">run_info</a>, InstanceType *instance, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>(InstanceType::*function)(<a class="el" href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">ItemVectorViewT</a>&lt; ItemType &gt; items))</td></tr>
+<tr class="memdesc:gab29e81a2d9542c65469986572fd776c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique en concurrence la méthode <em>function</em> de l'instance <em>instance</em> sur le groupe <em>items</em> avec les options <em>options</em>.  <br /></td></tr>
+<tr class="separator:gab29e81a2d9542c65469986572fd776c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0fc36018b071c872ed12c25a92cc974a" id="r_ga0fc36018b071c872ed12c25a92cc974a"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> InstanceType , <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> ItemType &gt; </td></tr>
+<tr class="memitem:ga0fc36018b071c872ed12c25a92cc974a"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dad/group__Concurrency.html#ga0fc36018b071c872ed12c25a92cc974a">Arcane::arcaneParallelForeach</a> (<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> &amp;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">items_view</a>, InstanceType *instance, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>(InstanceType::*function)(<a class="el" href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">ItemVectorViewT</a>&lt; ItemType &gt; items))</td></tr>
+<tr class="memdesc:ga0fc36018b071c872ed12c25a92cc974a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique en concurrence la méthode <em>function</em> de l'instance <em>instance</em> sur la vue <em>items_view</em>.  <br /></td></tr>
+<tr class="separator:ga0fc36018b071c872ed12c25a92cc974a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafb04b6c5100b7ad790fa76b1fe4eaa6d" id="r_gafb04b6c5100b7ad790fa76b1fe4eaa6d"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> InstanceType , <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> ItemType &gt; </td></tr>
+<tr class="memitem:gafb04b6c5100b7ad790fa76b1fe4eaa6d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dad/group__Concurrency.html#gafb04b6c5100b7ad790fa76b1fe4eaa6d">Arcane::arcaneParallelForeach</a> (<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a> &amp;items, InstanceType *instance, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>(InstanceType::*function)(<a class="el" href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">ItemVectorViewT</a>&lt; ItemType &gt; items))</td></tr>
+<tr class="memdesc:gafb04b6c5100b7ad790fa76b1fe4eaa6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique en concurrence la méthode <em>function</em> de l'instance <em>instance</em> sur le groupe <em>items</em>.  <br /></td></tr>
+<tr class="separator:gafb04b6c5100b7ad790fa76b1fe4eaa6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gafce1670a02b0f29314ac94c8ef9dec77" id="r_gafce1670a02b0f29314ac94c8ef9dec77"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &gt; </td></tr>
+<tr class="memitem:gafce1670a02b0f29314ac94c8ef9dec77"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dad/group__Concurrency.html#gafce1670a02b0f29314ac94c8ef9dec77">Arcane::arcaneParallelForeach</a> (<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> &amp;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">items_view</a>, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a> &amp;options, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &amp;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">lambda_function</a>)</td></tr>
+<tr class="memdesc:gafce1670a02b0f29314ac94c8ef9dec77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique en concurrence la fonction lambda <em>lambda_function</em> <em>instance</em> sur la vue <em>items_view</em> avec les options <em>options</em>.  <br /></td></tr>
+<tr class="separator:gafce1670a02b0f29314ac94c8ef9dec77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga41820f0d92ef5c3d28f8741f5a3434db" id="r_ga41820f0d92ef5c3d28f8741f5a3434db"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &gt; </td></tr>
+<tr class="memitem:ga41820f0d92ef5c3d28f8741f5a3434db"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dad/group__Concurrency.html#ga41820f0d92ef5c3d28f8741f5a3434db">Arcane::arcaneParallelForeach</a> (<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a> &amp;items, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a> &amp;options, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &amp;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">lambda_function</a>)</td></tr>
+<tr class="memdesc:ga41820f0d92ef5c3d28f8741f5a3434db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique en concurrence la fonction lambda <em>lambda_function</em> sur le groupe <em>items</em> avec les options <em>options</em>.  <br /></td></tr>
+<tr class="separator:ga41820f0d92ef5c3d28f8741f5a3434db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7f9a19add9b787422dd8f7a8f0945168" id="r_ga7f9a19add9b787422dd8f7a8f0945168"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &gt; </td></tr>
+<tr class="memitem:ga7f9a19add9b787422dd8f7a8f0945168"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dad/group__Concurrency.html#ga7f9a19add9b787422dd8f7a8f0945168">Arcane::arcaneParallelForeach</a> (<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> &amp;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">items_view</a>, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &amp;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">lambda_function</a>)</td></tr>
+<tr class="memdesc:ga7f9a19add9b787422dd8f7a8f0945168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique en concurrence la fonction lambda <em>lambda_function</em> <em>instance</em> sur la vue <em>items_view</em>.  <br /></td></tr>
+<tr class="separator:ga7f9a19add9b787422dd8f7a8f0945168"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga7c3e0a40062e0413b01a83a71a0e3b3f" id="r_ga7c3e0a40062e0413b01a83a71a0e3b3f"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &gt; </td></tr>
+<tr class="memitem:ga7c3e0a40062e0413b01a83a71a0e3b3f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dad/group__Concurrency.html#ga7c3e0a40062e0413b01a83a71a0e3b3f">Arcane::arcaneParallelForeach</a> (<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a> &amp;items, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &amp;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">lambda_function</a>)</td></tr>
+<tr class="memdesc:ga7c3e0a40062e0413b01a83a71a0e3b3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique en concurrence la fonction lambda <em>lambda_function</em> sur le groupe <em>items</em>.  <br /></td></tr>
+<tr class="separator:ga7c3e0a40062e0413b01a83a71a0e3b3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga3ccb4306b9c1745f2f5b2f72e727e9cd" id="r_ga3ccb4306b9c1745f2f5b2f72e727e9cd"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> InstanceType &gt; </td></tr>
+<tr class="memitem:ga3ccb4306b9c1745f2f5b2f72e727e9cd"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dad/group__Concurrency.html#ga3ccb4306b9c1745f2f5b2f72e727e9cd">Arcane::arcaneParallelFor</a> (Integer <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">i0</a>, Integer size, InstanceType *<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">itype</a>, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>(InstanceType::*<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">lambda_function</a>)(Integer <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">i0</a>, Integer size))</td></tr>
+<tr class="memdesc:ga3ccb4306b9c1745f2f5b2f72e727e9cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique en concurrence la fonction lambda <em>lambda_function</em> sur l'intervalle d'itération [i0,i0+size].  <br /></td></tr>
+<tr class="separator:ga3ccb4306b9c1745f2f5b2f72e727e9cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga254a9d652f6083958a43e8c638112821" id="r_ga254a9d652f6083958a43e8c638112821"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &gt; </td></tr>
+<tr class="memitem:ga254a9d652f6083958a43e8c638112821"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dad/group__Concurrency.html#ga254a9d652f6083958a43e8c638112821">Arcane::arcaneParallelFor</a> (Integer <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">i0</a>, Integer size, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/d7b/classArcane_1_1ForLoopRunInfo.html">ForLoopRunInfo</a> &amp;options, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &amp;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">lambda_function</a>)</td></tr>
+<tr class="memdesc:ga254a9d652f6083958a43e8c638112821"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique en concurrence la fonction lambda <em>lambda_function</em> sur l'intervalle d'itération [i0,i0+size] avec les options <em>options</em>.  <br /></td></tr>
+<tr class="separator:ga254a9d652f6083958a43e8c638112821"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8f7089c79b5cda80f0e347098347a183" id="r_ga8f7089c79b5cda80f0e347098347a183"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &gt; </td></tr>
+<tr class="memitem:ga8f7089c79b5cda80f0e347098347a183"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dad/group__Concurrency.html#ga8f7089c79b5cda80f0e347098347a183">Arcane::arcaneParallelFor</a> (Integer <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">i0</a>, Integer size, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a> &amp;options, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &amp;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">lambda_function</a>)</td></tr>
+<tr class="memdesc:ga8f7089c79b5cda80f0e347098347a183"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique en concurrence la fonction lambda <em>lambda_function</em> sur l'intervalle d'itération [i0,i0+size] avec les options <em>options</em>.  <br /></td></tr>
+<tr class="separator:ga8f7089c79b5cda80f0e347098347a183"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2eb3fe6db1cf0867273cdf90b9884a59" id="r_ga2eb3fe6db1cf0867273cdf90b9884a59"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> , typename... Views&gt; </td></tr>
+<tr class="memitem:ga2eb3fe6db1cf0867273cdf90b9884a59"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d4/dad/group__Concurrency.html#ga2eb3fe6db1cf0867273cdf90b9884a59">Arcane::arcaneParallelForVa</a> (<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/d7b/classArcane_1_1ForLoopRunInfo.html">ForLoopRunInfo</a> &amp;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">run_info</a>, <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &amp;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">lambda_function</a>, Views... views)</td></tr>
+<tr class="memdesc:ga2eb3fe6db1cf0867273cdf90b9884a59"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique en concurrence la fonction lambda <em>lambda_function</em> <em>instance</em> sur les vues des containers <em>views</em> avec les options <em>options</em>.  <br /></td></tr>
+<tr class="separator:ga2eb3fe6db1cf0867273cdf90b9884a59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<p>Ensemble des classes gérant la concurrence. </p>
+<p>Pour plus de renseignements, se reporter à la page <a class="el" href="../../d0/d6b/arcanedoc_parallel_concurrency.html">Concurrence et multi-threading</a> </p>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="ga254a9d652f6083958a43e8c638112821" name="ga254a9d652f6083958a43e8c638112821"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga254a9d652f6083958a43e8c638112821">&#9670;&#160;</a></span>arcaneParallelFor() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a> Arcane::arcaneParallelFor </td>
+          <td>(</td>
+          <td class="paramtype">Integer&#160;</td>
+          <td class="paramname"><em>i0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Integer&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/d7b/classArcane_1_1ForLoopRunInfo.html">ForLoopRunInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>options</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &amp;&#160;</td>
+          <td class="paramname"><em>lambda_function</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applique en concurrence la fonction lambda <em>lambda_function</em> sur l'intervalle d'itération [i0,i0+size] avec les options <em>options</em>. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00213">213</a> du fichier <a class="el" href="../../d4/d05/Concurrency_8h_source.html">Concurrency.h</a>.</p>
+
+<p class="reference">Références <a class="el" href="../../d7/d3c/ConcurrencyUtils_8h_source.html#l00334">Arcane::TaskFactory::executeParallelFor()</a>.</p>
+
+</div>
+</div>
+<a id="ga8f7089c79b5cda80f0e347098347a183" name="ga8f7089c79b5cda80f0e347098347a183"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8f7089c79b5cda80f0e347098347a183">&#9670;&#160;</a></span>arcaneParallelFor() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a> Arcane::arcaneParallelFor </td>
+          <td>(</td>
+          <td class="paramtype">Integer&#160;</td>
+          <td class="paramname"><em>i0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Integer&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a> &amp;&#160;</td>
+          <td class="paramname"><em>options</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &amp;&#160;</td>
+          <td class="paramname"><em>lambda_function</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applique en concurrence la fonction lambda <em>lambda_function</em> sur l'intervalle d'itération [i0,i0+size] avec les options <em>options</em>. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00227">227</a> du fichier <a class="el" href="../../d4/d05/Concurrency_8h_source.html">Concurrency.h</a>.</p>
+
+<p class="reference">Références <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00199">Arcane::arcaneParallelFor()</a>.</p>
+
+</div>
+</div>
+<a id="ga3ccb4306b9c1745f2f5b2f72e727e9cd" name="ga3ccb4306b9c1745f2f5b2f72e727e9cd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3ccb4306b9c1745f2f5b2f72e727e9cd">&#9670;&#160;</a></span>arcaneParallelFor() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> InstanceType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a> Arcane::arcaneParallelFor </td>
+          <td>(</td>
+          <td class="paramtype">Integer&#160;</td>
+          <td class="paramname"><em>i0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Integer&#160;</td>
+          <td class="paramname"><em>size</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InstanceType *&#160;</td>
+          <td class="paramname"><em>itype</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>(InstanceType::*)(Integer <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">i0</a>, Integer size)&#160;</td>
+          <td class="paramname"><em>lambda_function</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applique en concurrence la fonction lambda <em>lambda_function</em> sur l'intervalle d'itération [i0,i0+size]. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00199">199</a> du fichier <a class="el" href="../../d4/d05/Concurrency_8h_source.html">Concurrency.h</a>.</p>
+
+<p class="reference">Références <a class="el" href="../../d7/d3c/ConcurrencyUtils_8h_source.html#l00334">Arcane::TaskFactory::executeParallelFor()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="../../d5/ded/RunCommandMaterialEnumerate_8h_source.html#l00692">Arcane::Accelerator::impl::_applyEnvCells()</a>, <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html#l00038">Arcane::Accelerator::impl::_applyGenericLoop()</a>, <a class="el" href="../../d7/d3c/ConcurrencyUtils_8h_source.html#l00658">Arcane::arcaneParallelFor()</a>, <a class="el" href="../../d7/d3c/ConcurrencyUtils_8h_source.html#l00672">Arcane::arcaneParallelFor()</a>, <a class="el" href="../../d7/d3c/ConcurrencyUtils_8h_source.html#l00642">Arcane::arcaneParallelFor()</a>, et <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00227">Arcane::arcaneParallelFor()</a>.</p>
+
+</div>
+</div>
+<a id="gab29e81a2d9542c65469986572fd776c0" name="gab29e81a2d9542c65469986572fd776c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gab29e81a2d9542c65469986572fd776c0">&#9670;&#160;</a></span>arcaneParallelForeach() <span class="overload">[1/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> InstanceType , <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> ItemType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a> Arcane::arcaneParallelForeach </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a> &amp;&#160;</td>
+          <td class="paramname"><em>items</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/d7b/classArcane_1_1ForLoopRunInfo.html">ForLoopRunInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>run_info</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InstanceType *&#160;</td>
+          <td class="paramname"><em>instance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>(InstanceType::*)(<a class="el" href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">ItemVectorViewT</a>&lt; ItemType &gt; items)&#160;</td>
+          <td class="paramname"><em>function</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applique en concurrence la méthode <em>function</em> de l'instance <em>instance</em> sur le groupe <em>items</em> avec les options <em>options</em>. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00115">115</a> du fichier <a class="el" href="../../d4/d05/Concurrency_8h_source.html">Concurrency.h</a>.</p>
+
+<p class="reference">Références <a class="el" href="../../d4/dba/ItemGroup_8cc_source.html#l00590">Arcane::ItemGroup::_paddedView()</a>, et <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00054">Arcane::arcaneParallelForeach()</a>.</p>
+
+</div>
+</div>
+<a id="ga7c3e0a40062e0413b01a83a71a0e3b3f" name="ga7c3e0a40062e0413b01a83a71a0e3b3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7c3e0a40062e0413b01a83a71a0e3b3f">&#9670;&#160;</a></span>arcaneParallelForeach() <span class="overload">[2/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a> Arcane::arcaneParallelForeach </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a> &amp;&#160;</td>
+          <td class="paramname"><em>items</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &amp;&#160;</td>
+          <td class="paramname"><em>lambda_function</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applique en concurrence la fonction lambda <em>lambda_function</em> sur le groupe <em>items</em>. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00186">186</a> du fichier <a class="el" href="../../d4/d05/Concurrency_8h_source.html">Concurrency.h</a>.</p>
+
+<p class="reference">Références <a class="el" href="../../d4/dba/ItemGroup_8cc_source.html#l00590">Arcane::ItemGroup::_paddedView()</a>, et <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00054">Arcane::arcaneParallelForeach()</a>.</p>
+
+</div>
+</div>
+<a id="ga41820f0d92ef5c3d28f8741f5a3434db" name="ga41820f0d92ef5c3d28f8741f5a3434db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga41820f0d92ef5c3d28f8741f5a3434db">&#9670;&#160;</a></span>arcaneParallelForeach() <span class="overload">[3/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a> Arcane::arcaneParallelForeach </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a> &amp;&#160;</td>
+          <td class="paramname"><em>items</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a> &amp;&#160;</td>
+          <td class="paramname"><em>options</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &amp;&#160;</td>
+          <td class="paramname"><em>lambda_function</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applique en concurrence la fonction lambda <em>lambda_function</em> sur le groupe <em>items</em> avec les options <em>options</em>. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00163">163</a> du fichier <a class="el" href="../../d4/d05/Concurrency_8h_source.html">Concurrency.h</a>.</p>
+
+<p class="reference">Références <a class="el" href="../../d4/dba/ItemGroup_8cc_source.html#l00590">Arcane::ItemGroup::_paddedView()</a>, et <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00054">Arcane::arcaneParallelForeach()</a>.</p>
+
+</div>
+</div>
+<a id="gafb04b6c5100b7ad790fa76b1fe4eaa6d" name="gafb04b6c5100b7ad790fa76b1fe4eaa6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafb04b6c5100b7ad790fa76b1fe4eaa6d">&#9670;&#160;</a></span>arcaneParallelForeach() <span class="overload">[4/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> InstanceType , <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> ItemType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a> Arcane::arcaneParallelForeach </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d9/d27/classArcane_1_1ItemGroup.html">ItemGroup</a> &amp;&#160;</td>
+          <td class="paramname"><em>items</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InstanceType *&#160;</td>
+          <td class="paramname"><em>instance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>(InstanceType::*)(<a class="el" href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">ItemVectorViewT</a>&lt; ItemType &gt; items)&#160;</td>
+          <td class="paramname"><em>function</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applique en concurrence la méthode <em>function</em> de l'instance <em>instance</em> sur le groupe <em>items</em>. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00139">139</a> du fichier <a class="el" href="../../d4/d05/Concurrency_8h_source.html">Concurrency.h</a>.</p>
+
+<p class="reference">Références <a class="el" href="../../d4/dba/ItemGroup_8cc_source.html#l00590">Arcane::ItemGroup::_paddedView()</a>, et <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00054">Arcane::arcaneParallelForeach()</a>.</p>
+
+</div>
+</div>
+<a id="gae8c2080819be7f4dbc7199bac7117cb9" name="gae8c2080819be7f4dbc7199bac7117cb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae8c2080819be7f4dbc7199bac7117cb9">&#9670;&#160;</a></span>arcaneParallelForeach() <span class="overload">[5/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a> Arcane::arcaneParallelForeach </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> &amp;&#160;</td>
+          <td class="paramname"><em>items_view</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/d7b/classArcane_1_1ForLoopRunInfo.html">ForLoopRunInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>run_info</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &amp;&#160;</td>
+          <td class="paramname"><em>lambda_function</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applique en concurrence la fonction lambda <em>lambda_function</em> <em>instance</em> sur la vue <em>items_view</em> avec les options <em>options</em>. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00077">77</a> du fichier <a class="el" href="../../d4/d05/Concurrency_8h_source.html">Concurrency.h</a>.</p>
+
+<p class="reference">Références <a class="el" href="../../d7/d3c/ConcurrencyUtils_8h_source.html#l00434">Arcane::TaskFactory::defaultParallelLoopOptions()</a>, et <a class="el" href="../../d7/d3c/ConcurrencyUtils_8h_source.html#l00334">Arcane::TaskFactory::executeParallelFor()</a>.</p>
+
+</div>
+</div>
+<a id="ga2dc1621d6f49d59fd2ed1c8b16bfd20c" name="ga2dc1621d6f49d59fd2ed1c8b16bfd20c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2dc1621d6f49d59fd2ed1c8b16bfd20c">&#9670;&#160;</a></span>arcaneParallelForeach() <span class="overload">[6/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> InstanceType , <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> ItemType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a> Arcane::arcaneParallelForeach </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> &amp;&#160;</td>
+          <td class="paramname"><em>items_view</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/d7b/classArcane_1_1ForLoopRunInfo.html">ForLoopRunInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>run_info</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InstanceType *&#160;</td>
+          <td class="paramname"><em>instance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>(InstanceType::*)(<a class="el" href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">ItemVectorViewT</a>&lt; ItemType &gt; items)&#160;</td>
+          <td class="paramname"><em>function</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applique en concurrence la méthode <em>function</em> de l'instance <em>instance</em> sur la vue <em>items_view</em> avec les options <em>options</em>. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00054">54</a> du fichier <a class="el" href="../../d4/d05/Concurrency_8h_source.html">Concurrency.h</a>.</p>
+
+<p class="reference">Références <a class="el" href="../../d7/d3c/ConcurrencyUtils_8h_source.html#l00434">Arcane::TaskFactory::defaultParallelLoopOptions()</a>, et <a class="el" href="../../d7/d3c/ConcurrencyUtils_8h_source.html#l00334">Arcane::TaskFactory::executeParallelFor()</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="../../da/d9a/RunCommandEnumerate_8h_source.html#l00217">Arcane::Accelerator::impl::_applyItems()</a>, <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00115">Arcane::arcaneParallelForeach()</a>, <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00186">Arcane::arcaneParallelForeach()</a>, <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00163">Arcane::arcaneParallelForeach()</a>, <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00139">Arcane::arcaneParallelForeach()</a>, <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00175">Arcane::arcaneParallelForeach()</a>, <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00151">Arcane::arcaneParallelForeach()</a>, <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00102">Arcane::arcaneParallelForeach()</a>, et <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00127">Arcane::arcaneParallelForeach()</a>.</p>
+
+</div>
+</div>
+<a id="ga7f9a19add9b787422dd8f7a8f0945168" name="ga7f9a19add9b787422dd8f7a8f0945168"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7f9a19add9b787422dd8f7a8f0945168">&#9670;&#160;</a></span>arcaneParallelForeach() <span class="overload">[7/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a> Arcane::arcaneParallelForeach </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> &amp;&#160;</td>
+          <td class="paramname"><em>items_view</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &amp;&#160;</td>
+          <td class="paramname"><em>lambda_function</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applique en concurrence la fonction lambda <em>lambda_function</em> <em>instance</em> sur la vue <em>items_view</em>. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00175">175</a> du fichier <a class="el" href="../../d4/d05/Concurrency_8h_source.html">Concurrency.h</a>.</p>
+
+<p class="reference">Références <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00054">Arcane::arcaneParallelForeach()</a>.</p>
+
+</div>
+</div>
+<a id="gafce1670a02b0f29314ac94c8ef9dec77" name="gafce1670a02b0f29314ac94c8ef9dec77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafce1670a02b0f29314ac94c8ef9dec77">&#9670;&#160;</a></span>arcaneParallelForeach() <span class="overload">[8/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a> Arcane::arcaneParallelForeach </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> &amp;&#160;</td>
+          <td class="paramname"><em>items_view</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a> &amp;&#160;</td>
+          <td class="paramname"><em>options</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &amp;&#160;</td>
+          <td class="paramname"><em>lambda_function</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applique en concurrence la fonction lambda <em>lambda_function</em> <em>instance</em> sur la vue <em>items_view</em> avec les options <em>options</em>. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00151">151</a> du fichier <a class="el" href="../../d4/d05/Concurrency_8h_source.html">Concurrency.h</a>.</p>
+
+<p class="reference">Références <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00054">Arcane::arcaneParallelForeach()</a>.</p>
+
+</div>
+</div>
+<a id="ga8cea6a6d467b818b0347af4bbbe1036c" name="ga8cea6a6d467b818b0347af4bbbe1036c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8cea6a6d467b818b0347af4bbbe1036c">&#9670;&#160;</a></span>arcaneParallelForeach() <span class="overload">[9/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> InstanceType , <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> ItemType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a> Arcane::arcaneParallelForeach </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> &amp;&#160;</td>
+          <td class="paramname"><em>items_view</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d9/d62/classArcane_1_1ParallelLoopOptions.html">ParallelLoopOptions</a> &amp;&#160;</td>
+          <td class="paramname"><em>options</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InstanceType *&#160;</td>
+          <td class="paramname"><em>instance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>(InstanceType::*)(<a class="el" href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">ItemVectorViewT</a>&lt; ItemType &gt; items)&#160;</td>
+          <td class="paramname"><em>function</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applique en concurrence la méthode <em>function</em> de l'instance <em>instance</em> sur la vue <em>items_view</em> avec les options <em>options</em>. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00102">102</a> du fichier <a class="el" href="../../d4/d05/Concurrency_8h_source.html">Concurrency.h</a>.</p>
+
+<p class="reference">Références <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00054">Arcane::arcaneParallelForeach()</a>.</p>
+
+</div>
+</div>
+<a id="ga0fc36018b071c872ed12c25a92cc974a" name="ga0fc36018b071c872ed12c25a92cc974a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0fc36018b071c872ed12c25a92cc974a">&#9670;&#160;</a></span>arcaneParallelForeach() <span class="overload">[10/10]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> InstanceType , <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> ItemType &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a> Arcane::arcaneParallelForeach </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/df2/classArcane_1_1ItemVectorView.html">ItemVectorView</a> &amp;&#160;</td>
+          <td class="paramname"><em>items_view</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InstanceType *&#160;</td>
+          <td class="paramname"><em>instance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a>(InstanceType::*)(<a class="el" href="../../d7/d90/classArcane_1_1ItemVectorViewT.html">ItemVectorViewT</a>&lt; ItemType &gt; items)&#160;</td>
+          <td class="paramname"><em>function</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applique en concurrence la méthode <em>function</em> de l'instance <em>instance</em> sur la vue <em>items_view</em>. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00127">127</a> du fichier <a class="el" href="../../d4/d05/Concurrency_8h_source.html">Concurrency.h</a>.</p>
+
+<p class="reference">Références <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00054">Arcane::arcaneParallelForeach()</a>.</p>
+
+</div>
+</div>
+<a id="ga2eb3fe6db1cf0867273cdf90b9884a59" name="ga2eb3fe6db1cf0867273cdf90b9884a59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2eb3fe6db1cf0867273cdf90b9884a59">&#9670;&#160;</a></span>arcaneParallelForVa()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;<a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">typename</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> , typename... Views&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">void</a> Arcane::arcaneParallelForVa </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../d6/d7b/classArcane_1_1ForLoopRunInfo.html">ForLoopRunInfo</a> &amp;&#160;</td>
+          <td class="paramname"><em>run_info</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">const</a> <a class="el" href="../../db/d19/classArcane_1_1ScopedPtrT.html">LambdaType</a> &amp;&#160;</td>
+          <td class="paramname"><em>lambda_function</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Views...&#160;</td>
+          <td class="paramname"><em>views</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Applique en concurrence la fonction lambda <em>lambda_function</em> <em>instance</em> sur les vues des containers <em>views</em> avec les options <em>options</em>. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00253">253</a> du fichier <a class="el" href="../../d4/d05/Concurrency_8h_source.html">Concurrency.h</a>.</p>
+
+<p class="reference">Références <a class="el" href="../../d0/d1e/ArcaneGlobal_8h_source.html#l00809">ARCANE_FATAL</a>, et <a class="el" href="../../d7/d3c/ConcurrencyUtils_8h_source.html#l00334">Arcane::TaskFactory::executeParallelFor()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.9.5-->
+<!-- start footer part -->
+  <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+    <ul>
+      <li class="footer">Généré le Lundi 20 Mai 2024 02:24:58 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+    </ul>
+  </div>
+  <script type="text/javascript" src="../../script-apply-config-theme.js"></script>
+  <script type="text/javascript">
+    // On met l'appel à cette fonction dans le footer dans le cas où
+    // une page ne veut pas de personnalisation (changement de la 
+    // variable globale "no_custom_theme").
+    applyConfigWithCookies();
+  </script>
+</body>
+</html>
