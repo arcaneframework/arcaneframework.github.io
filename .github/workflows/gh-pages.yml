@@ -20,13 +20,19 @@ jobs:
     name: Build Arcane and documentations
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/arcaneframework/ubuntu-2204:gcc_doc_latest
+      image: ghcr.io/arcaneframework/ubuntu-2404:gcc_doc_latest
 
     steps:
       - name: Checkout doc
         uses: actions/checkout@v4
         with:
           path: ${{ env.DOC_DIR }}
+
+      - name: Remove old docs
+        shell: bash
+        run: |
+          rm -rf ${{ env.DOC_DIR }}/arcane
+          rm -rf ${{ env.DOC_DIR }}/framework
 
       - name: Checkout framework
         uses: actions/checkout@v4
@@ -60,8 +66,6 @@ jobs:
       - name: Move userdoc devdoc and aliendoc
         shell: bash
         run: |
-          rm -rf ${{ env.DOC_DIR }}/arcane
-          rm -rf ${{ env.DOC_DIR }}/framework
           mkdir -p ${{ env.DOC_DIR }}/arcane
           mkdir -p ${{ env.DOC_DIR }}/framework
           mv ${{ env.BUILD_DIR }}/share/userdoc ${{ env.DOC_DIR }}/arcane
@@ -69,7 +73,7 @@ jobs:
           mv ${{ env.BUILD_DIR }}/share/aliendoc ${{ env.DOC_DIR }}/framework
 
       - name: Deploy Docs
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: main
@@ -78,3 +82,10 @@ jobs:
           exclude_assets: ''
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Cleanup before tar cache
+        shell: bash
+        run: |
+          rm -rf ${{ env.DOC_DIR }}
+          rm -rf ${{ env.BUILD_DIR }}
+          rm -rf ${{ env.SOURCE_DIR }}
