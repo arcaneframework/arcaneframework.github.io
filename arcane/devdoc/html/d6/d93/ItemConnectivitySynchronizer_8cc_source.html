@@ -1,0 +1,441 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <meta name="generator" content="Doxygen 1.9.8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="../../logo_arcane.svg" type="image/svg+xml">
+    <title>Arcane:  Fichier source de ItemConnectivitySynchronizer.cc</title>
+    <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../../jquery.js"></script>
+    <script type="text/javascript" src="../../dynsections.js"></script>
+    <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+    <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+    <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../dev_colors.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+    <script type="text/javascript" src="../../script-helper.js"></script>
+    <script type="text/javascript" src="../../script-resize.js"></script>
+    <script type="text/javascript" src="../../script-num-lines-code.js"></script>
+    <script type="text/javascript" src="../../script-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-edit-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-alternative-theme.js"></script>
+    <script type="text/javascript">
+      // On demande l'activation de la personnalisation de la page.
+      var no_custom_theme = false;
+      DoxygenAwesomeDarkModeToggle.title = "Thème clair/sombre";
+      DoxygenAwesomeDarkModeToggle.init();
+      DoxygenAwesomeFragmentCopyButton.title = "Copier le code dans le presse-papier";
+      DoxygenAwesomeFragmentCopyButton.init();
+      DoxygenAwesomeParagraphLink.init();
+      DoxygenAwesomeInteractiveToc.init();
+      DoxygenAwesomeTabs.init()
+      waitElemForResizeSideNav();
+      setOldSize();
+      //waitItemExpandCurrent();
+    </script>
+  </head>
+  <body>
+    <!--BEGIN CORNER_GITHUB-->
+    <!-- https://tholman.com/github-corners/ -->
+    <a href="https://github.com/arcaneframework/framework" class="github-corner" aria-label="Voir les sources sur GitHub">
+      <svg width="70" height="70" viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <!--END CORNER_GITHUB-->
+      <div id="top">
+        <!-- do not remove this div, it is closed by doxygen! -->
+        <div id="titlearea">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr id="projectrow">
+                <td id="projectlogo">
+                  <a href="../../index.html" title="Aller à la page principale">
+                    <img alt="Logo" src="../../arcane_framework_small.webp" />
+                  </a>
+                </td>
+              </tr>
+              <tr id="projectrow">
+                <td id="projectalign">
+                  <div id="projectname">Arcane
+                    <span id="projectnumber">&#160;v3.13.6.0</span>
+                  </div>
+                  <div id="projectbrief">Documentation développeur</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('d6/d93/ItemConnectivitySynchronizer_8cc_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ItemConnectivitySynchronizer.cc</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">/* ItemConnectivitySynchronizer.cc                             (C) 2000-2023 */</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/*                                                                           */</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">/* Synchronization des connectivités.                                        */</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;arcane/mesh/ItemConnectivitySynchronizer.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;arcane/mesh/IItemConnectivityGhostPolicy.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="}">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html#a5c53d0aced3b37a29808a20a308a98c2">   28</a></span><a class="code hl_function" href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html#a5c53d0aced3b37a29808a20a308a98c2">ItemConnectivitySynchronizer::</a></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><a class="code hl_function" href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html#a5c53d0aced3b37a29808a20a308a98c2">ItemConnectivitySynchronizer</a>(<a class="code hl_class" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html">IItemConnectivity</a>* connectivity,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>                             <a class="code hl_class" href="../../d3/d32/classArcane_1_1IItemConnectivityGhostPolicy.html">IItemConnectivityGhostPolicy</a>* <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ghost_policy</a>)</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>: m_connectivity(connectivity)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>, m_ghost_policy(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ghost_policy</a>)</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>, m_parallel_mng(m_connectivity-&gt;targetFamily()-&gt;mesh()-&gt;parallelMng())</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>, m_added_ghost(m_parallel_mng-&gt;commSize())</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>}</div>
+</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="}">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html#abc6c8c31f549a0b9ac052a9da12ebbb5">   41</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html#abc6c8c31f549a0b9ac052a9da12ebbb5">ItemConnectivitySynchronizer::</a></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><a class="code hl_function" href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html#abc6c8c31f549a0b9ac052a9da12ebbb5">synchronize</a>()</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>{</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <span class="comment">// Compute ghost element for ToFamily</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  mesh::ExtraGhostItemsManager <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">extra_ghost_mng</a>(<span class="keyword">this</span>);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">extra_ghost_mng</a>.addExtraGhostItemsBuilder(<span class="keyword">this</span>);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">extra_ghost_mng</a>.computeExtraGhostItems();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>}</div>
+</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html#a2c6beb189703165ffaa9e0e87295d5af">   50</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html#a2c6beb189703165ffaa9e0e87295d5af">ItemConnectivitySynchronizer::</a></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><a class="code hl_function" href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html#a2c6beb189703165ffaa9e0e87295d5af">computeExtraItemsToSend</a>()</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>{</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  <span class="comment">// Get, for each rank k, ToFamily item that have to be shared with rank k, the</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  m_data_to_send.clear();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <a class="code hl_class" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ranks</a> = m_ghost_policy-&gt;<a class="code hl_function" href="../../d3/d32/classArcane_1_1IItemConnectivityGhostPolicy.html#a4338bcb9f2124d6c6326431d39cc1361">communicatingRanks</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  m_data_to_send.resize(m_parallel_mng-&gt;<a class="code hl_function" href="../../dc/d5a/classArcane_1_1IParallelMng.html#a7c5831fb289f8aa3fac3b05cdbb3d194">commSize</a>());</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  <span class="keyword">const</span> Int32 <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">my_rank</a> = m_parallel_mng-&gt;<a class="code hl_function" href="../../dc/d5a/classArcane_1_1IParallelMng.html#a26fc7494a02a7370d3be787fcc742b04">commRank</a>();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>  <span class="keywordflow">for</span> (Integer i = 0; i &lt; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ranks</a>.size(); ++i){</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    Integer rank = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ranks</a>[i];</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_class" href="../../d1/dfb/classArcane_1_1Array.html">Int32Array</a>&amp; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">data_to_send</a> = m_data_to_send[rank];</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <a class="code hl_class" href="../../d4/dee/classArccore_1_1SharedArray.html">Int32SharedArray</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_items</a> = m_ghost_policy-&gt;<a class="code hl_function" href="../../d3/d32/classArcane_1_1IItemConnectivityGhostPolicy.html#a0bb32e5e51b568a385ae203e5239fce1">sharedItems</a>(rank,m_connectivity-&gt;<a class="code hl_function" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html#a7c133c6a5415276bc86b6e1ae228fb9e">targetFamily</a>()-&gt;name());</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <a class="code hl_class" href="../../d4/dee/classArccore_1_1SharedArray.html">Int32SharedArray</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_items_connected_items</a> = m_ghost_policy-&gt;<a class="code hl_function" href="../../d3/d32/classArcane_1_1IItemConnectivityGhostPolicy.html#a4d68e7e74b8e1601181085aebb3c4ab8">sharedItemsConnectedItems</a>(rank,m_connectivity-&gt;<a class="code hl_function" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html#af190e1b8022d46ba7a55a5229ce2eb43">sourceFamily</a>()-&gt;name());</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    _getItemToSend(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_items</a>,<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_items_connected_items</a>, rank);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">data_to_send</a>.add(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_items</a>.size());</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">data_to_send</a>.addRange(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_items</a>);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">data_to_send</a>.addRange(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_items_connected_items</a>);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">data_to_send</a>.addRange(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">my_rank</a>,<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_items</a>.size()); <span class="comment">// shared item owner</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  }</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>}</div>
+</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="foldopen" id="foldopen00074" data-start="{" data-end="}">
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html#abb04f6bdf4f5ba2d9da04aa7172cdb7d">   74</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html#abb04f6bdf4f5ba2d9da04aa7172cdb7d">ItemConnectivitySynchronizer::</a></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><a class="code hl_function" href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html#abb04f6bdf4f5ba2d9da04aa7172cdb7d">serializeGhostItems</a>(<a class="code hl_class" href="../../dd/dcd/classArccore_1_1ISerializer.html">ISerializer</a>* buffer,<a class="code hl_class" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ghost_item_info</a>)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>{</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  <span class="comment">// Treat ghost item info : split into item_uids, nb_dof_per_item, dof_uids</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>  Integer <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">nb_shared_item</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ghost_item_info</a>[0];</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  <a class="code hl_class" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_lids</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ghost_item_info</a>.subConstView(1,<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">nb_shared_item</a>);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  <a class="code hl_class" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_connected_item_lids</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ghost_item_info</a>.subConstView(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">nb_shared_item</a>+1,<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">nb_shared_item</a>);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>  <a class="code hl_class" href="../../db/d8c/classArccore_1_1ConstArrayView.html">Int32ConstArrayView</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_owners</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ghost_item_info</a>.subConstView(2*<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">nb_shared_item</a>+1,<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">nb_shared_item</a>);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="comment">// Convert in uids (items must belong to current process)</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  <a class="code hl_class" href="../../d4/dee/classArccore_1_1SharedArray.html">Int64SharedArray</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_uids</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">nb_shared_item</a>);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  <a class="code hl_class" href="../../d4/dee/classArccore_1_1SharedArray.html">Int64SharedArray</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_connected_item_uids</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">nb_shared_item</a>);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  Integer i = 0, <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">j</a>= 0;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  <a class="code hl_define" href="../../d6/d0f/ItemEnumerator_8h.html#ad8a248a2dc99c27958e4670b9cb09aa3">ENUMERATE_ITEM</a>(item,m_connectivity-&gt;<a class="code hl_function" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html#a7c133c6a5415276bc86b6e1ae228fb9e">targetFamily</a>()-&gt;view(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_lids</a>)){</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_uids</a>[i++] = item-&gt;uniqueId().asInt64();</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  }</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  <a class="code hl_define" href="../../d6/d0f/ItemEnumerator_8h.html#ad8a248a2dc99c27958e4670b9cb09aa3">ENUMERATE_ITEM</a>(item,m_connectivity-&gt;<a class="code hl_function" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html#af190e1b8022d46ba7a55a5229ce2eb43">sourceFamily</a>()-&gt;view(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_connected_item_lids</a>)){</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_connected_item_uids</a>[<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">j</a>++] = item-&gt;uniqueId().asInt64();</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  }</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  <span class="comment">// Serialize item_uid, nb_dof, shared_item_connected_item_uids</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  buffer-&gt;<a class="code hl_function" href="../../dd/dcd/classArccore_1_1ISerializer.html#ab4546935b3a84b08c78a7aabcd075968">setMode</a>(ISerializer::ModeReserve);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  buffer-&gt;<a class="code hl_function" href="../../dd/dcd/classArccore_1_1ISerializer.html#a8dbfd965ccbe8fe5515dd74ffdba0cf3">reserve</a>(<a class="code hl_enumvalue" href="../../d0/d32/namespaceArcane.html#ad3bea5c99c24cb9ccc83e670698417bbaa59e9732cc990f1f9ce0bc74ccfac735">DT_Int64</a>,1);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  buffer-&gt;<a class="code hl_function" href="../../dd/dcd/classArccore_1_1ISerializer.html#a385668fa398234b71c9339970002754a">reserveSpan</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_uids</a>);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  buffer-&gt;<a class="code hl_function" href="../../dd/dcd/classArccore_1_1ISerializer.html#a385668fa398234b71c9339970002754a">reserveSpan</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_connected_item_uids</a>);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>  buffer-&gt;<a class="code hl_function" href="../../dd/dcd/classArccore_1_1ISerializer.html#a385668fa398234b71c9339970002754a">reserveSpan</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_owners</a>);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  buffer-&gt;<a class="code hl_function" href="../../dd/dcd/classArccore_1_1ISerializer.html#a22210a97ce04ff12a5cda68b22766d7a">allocateBuffer</a>();</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>  buffer-&gt;<a class="code hl_function" href="../../dd/dcd/classArccore_1_1ISerializer.html#ab4546935b3a84b08c78a7aabcd075968">setMode</a>(<a class="code hl_enumvalue" href="../../dd/dcd/classArccore_1_1ISerializer.html#a23c5d407e4d9b703fe595ce0725f913fa4533cfad45026c0cba50982578168e52">ISerializer::ModePut</a>);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  buffer-&gt;<a class="code hl_function" href="../../dd/dcd/classArccore_1_1ISerializer.html#af228f05a9fbf2af7709973fd08e756cd">putInt64</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">nb_shared_item</a>);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  buffer-&gt;<a class="code hl_function" href="../../dd/dcd/classArccore_1_1ISerializer.html#a431ea55fb97b19619f00f248509abedf">putSpan</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_uids</a>);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>  buffer-&gt;<a class="code hl_function" href="../../dd/dcd/classArccore_1_1ISerializer.html#a431ea55fb97b19619f00f248509abedf">putSpan</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_connected_item_uids</a>);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>  buffer-&gt;<a class="code hl_function" href="../../dd/dcd/classArccore_1_1ISerializer.html#a431ea55fb97b19619f00f248509abedf">putSpan</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_owners</a>);</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>}</div>
+</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="keywordtype">void</span> ItemConnectivitySynchronizer::</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>addExtraGhostItems (<a class="code hl_class" href="../../dd/dcd/classArccore_1_1ISerializer.html">ISerializer</a>* buffer)</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>{</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>  <span class="comment">// Deserialiser le buffer et faire un addGhost classique, puis faire la connexion grace a l&#39;item property</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>  buffer-&gt;<a class="code hl_function" href="../../dd/dcd/classArccore_1_1ISerializer.html#ab4546935b3a84b08c78a7aabcd075968">setMode</a>(<a class="code hl_enumvalue" href="../../dd/dcd/classArccore_1_1ISerializer.html#a23c5d407e4d9b703fe595ce0725f913fa56b149b45802cff6c857903ddb92664e">ISerializer::ModeGet</a>);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>  Int64 <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">nb_shared_items</a> = buffer-&gt;<a class="code hl_function" href="../../dd/dcd/classArccore_1_1ISerializer.html#a803d1e7683571a15ceaf723b215c7a53">getInt64</a>();</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>  <a class="code hl_class" href="../../d4/dee/classArccore_1_1SharedArray.html">Int64SharedArray</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_uids</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">nb_shared_items</a>);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>  <a class="code hl_class" href="../../d4/dee/classArccore_1_1SharedArray.html">Int64SharedArray</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_connected_items_uids</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">nb_shared_items</a>);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>  <a class="code hl_class" href="../../d4/dee/classArccore_1_1SharedArray.html">Int32SharedArray</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_items_owners</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">nb_shared_items</a>);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>  buffer-&gt;<a class="code hl_function" href="../../dd/dcd/classArccore_1_1ISerializer.html#a64fb5a0df6b1bbf59e04eda2691db386">getSpan</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_uids</a>);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>  buffer-&gt;<a class="code hl_function" href="../../dd/dcd/classArccore_1_1ISerializer.html#a64fb5a0df6b1bbf59e04eda2691db386">getSpan</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_connected_items_uids</a>);</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>  buffer-&gt;<a class="code hl_function" href="../../dd/dcd/classArccore_1_1ISerializer.html#a64fb5a0df6b1bbf59e04eda2691db386">getSpan</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_items_owners</a>);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>  <span class="comment">// Remove possible repetition in shared_items and impact owners. Necessary to add these items in the family</span></div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>  <a class="code hl_class" href="../../d4/dee/classArccore_1_1SharedArray.html">Int64SharedArray</a>   <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_uids_to_add</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_uids</a>);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>  <a class="code hl_class" href="../../d4/dee/classArccore_1_1SharedArray.html">IntegerSharedArray</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_owners_to_add</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_items_owners</a>);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>  _removeDuplicatedValues(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_uids_to_add</a>,<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_owners_to_add</a>);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>  <span class="comment">// Add shared items</span></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>  <a class="code hl_class" href="../../d4/dee/classArccore_1_1SharedArray.html">Int32SharedArray</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_lids_added</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_uids_to_add</a>.size());</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>  m_connectivity-&gt;<a class="code hl_function" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html#a7c133c6a5415276bc86b6e1ae228fb9e">targetFamily</a>()-&gt;addGhostItems(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_uids_to_add</a>,<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_lids_added</a>,<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_owners_to_add</a>);</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>  m_connectivity-&gt;<a class="code hl_function" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html#a7c133c6a5415276bc86b6e1ae228fb9e">targetFamily</a>()-&gt;endUpdate();</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>  <span class="comment">// update connectivity</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>  <a class="code hl_class" href="../../d4/dee/classArccore_1_1SharedArray.html">Int32SharedArray</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_lids</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">nb_shared_items</a>);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>  <span class="keywordtype">bool</span> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">do_fatal</a> = <span class="keyword">true</span>; <span class="comment">// shared_items have been adde to the family</span></div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>  m_connectivity-&gt;<a class="code hl_function" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html#a7c133c6a5415276bc86b6e1ae228fb9e">targetFamily</a>()  -&gt;itemsUniqueIdToLocalId(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_lids</a>,<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_uids</a>,<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">do_fatal</a>);</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>  <span class="comment">// shared_item_connected_item are not compulsory present on the new subdomain where shared_items have been send.</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>  <span class="comment">// Send shared_item_connected_items_uids to GhostPolicy where they will be handled (possibly converted to lid if they are present).</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>  m_ghost_policy-&gt;<a class="code hl_function" href="../../d3/d32/classArcane_1_1IItemConnectivityGhostPolicy.html#ad50e092f38a893167212536ab3845223">updateConnectivity</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_lids</a>,<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">shared_item_connected_items_uids</a>);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>}</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="keywordtype">void</span> ItemConnectivitySynchronizer::</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>_getItemToSend(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a938629183dac9847551e352185e6ca0f">Int32SharedArray</a>&amp; shared_items, <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a938629183dac9847551e352185e6ca0f">Int32SharedArray</a>&amp; shared_items_connected_items, <span class="keyword">const</span> Integer rank)</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>{</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>  <span class="comment">// remove null items.</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a9705dd87194ca42d81d4da3d95a9acd7">Int32UniqueArray</a> non_null_shared_items, non_null_shared_items_connected_items;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>  non_null_shared_items.<a class="code hl_function" href="../../d9/d09/classArccore_1_1Array.html#a6e5a67d456bf6bb6db598bacd92d7960">reserve</a>(shared_items.size());</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>  non_null_shared_items_connected_items.reserve(shared_items_connected_items.size());</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>  <span class="keyword">auto</span> i = 0;</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> item : shared_items) {</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keywordflow">if</span> (item != NULL_ITEM_LOCAL_ID) {</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>      non_null_shared_items.add(shared_items[i]);</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>      non_null_shared_items_connected_items.add(shared_items_connected_items[i]);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    }</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    ++i;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>  }</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>  shared_items.copy(non_null_shared_items);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>  shared_items_connected_items.copy(non_null_shared_items_connected_items);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>  <span class="comment">// Filter: don&#39;t add ghost twice. The synchronizer remember the ghost added and don&#39;t add them twice.</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a0610c32aa60d0285a594969e83881bb1">Int64SharedArray</a> shared_items_uids(shared_items.size());</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>  ItemVectorView shared_items_view = m_connectivity-&gt;<a class="code hl_function" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html#a7c133c6a5415276bc86b6e1ae228fb9e">targetFamily</a>()-&gt;view(shared_items);</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>  <span class="keywordflow">for</span> (Integer i = 0; i &lt; shared_items_view.size(); ++i)</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    shared_items_uids[i] = shared_items_view[i].uniqueId().asInt64();</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>  std::set&lt;Int64&gt;&amp; added_ghost = m_added_ghost[rank];</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> <span class="comment">// reverse order to handle index changes due to remove</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>  <span class="keywordflow">for</span> (Integer i = shared_items_uids.size()-1; i &gt;=0  ; --i ){</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordflow">if</span> (!added_ghost.insert(shared_items_uids[i]).second){</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>      <span class="comment">// check if already added ghost</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>      shared_items.<a class="code hl_function" href="../../d9/d09/classArccore_1_1Array.html#a8fa9ed15b139b0a1f54205eab6820275">remove</a>(i);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>      shared_items_connected_items.remove(i);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    }</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>  }</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>}</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="keywordtype">void</span> ItemConnectivitySynchronizer::</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>_removeDuplicatedValues(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a0610c32aa60d0285a594969e83881bb1">Int64SharedArray</a>&amp; shared_item_uids, <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ac12d45d58297ede9278d4055609d1413">IntegerSharedArray</a>&amp; shared_item_owners)</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>{</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>  <span class="comment">// Reverse order for the loop : otherwise wrong !! (since elements are removed and thus index are modified)</span></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>  std::set&lt;Int64&gt; shared_uids_set;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>  <span class="keywordflow">for</span> (Integer i = shared_item_uids.size()-1; i &gt;= 0 ; --i){</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keywordflow">if</span> (! shared_uids_set.insert(shared_item_uids[i]).second){</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>      <span class="comment">// element already in the set, remove it from both arrays.</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>      shared_item_uids.remove(i);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>      shared_item_owners.remove(i);</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>    }</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>  }</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>}</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span> </div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>ISubDomain* ItemConnectivitySynchronizer::</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>subDomain()</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>{</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>  <span class="keywordflow">return</span> m_connectivity-&gt;<a class="code hl_function" href="../../d0/dc0/classArcane_1_1IItemConnectivity.html#a7c133c6a5415276bc86b6e1ae228fb9e">targetFamily</a>()-&gt;mesh()-&gt;subDomain();</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>}</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="ttc" id="aItemEnumerator_8h_html_ad8a248a2dc99c27958e4670b9cb09aa3"><div class="ttname"><a href="../../d6/d0f/ItemEnumerator_8h.html#ad8a248a2dc99c27958e4670b9cb09aa3">ENUMERATE_ITEM</a></div><div class="ttdeci">#define ENUMERATE_ITEM(name, group)</div><div class="ttdoc">Enumérateur générique d'un groupe de noeuds.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d0f/ItemEnumerator_8h_source.html#l00413">ItemEnumerator.h:413</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Array_html"><div class="ttname"><a href="../../d1/dfb/classArcane_1_1Array.html">Arcane::Array</a></div><div class="ttdoc">Tableau d'items de types quelconques.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d60/AnyItemArray_8h_source.html#l00054">AnyItemArray.h:55</a></div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivityGhostPolicy_html"><div class="ttname"><a href="../../d3/d32/classArcane_1_1IItemConnectivityGhostPolicy.html">Arcane::IItemConnectivityGhostPolicy</a></div><div class="ttdef"><b>Definition</b> <a href="../../d2/db1/IItemConnectivityGhostPolicy_8h_source.html#l00027">IItemConnectivityGhostPolicy.h:28</a></div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivityGhostPolicy_html_a0bb32e5e51b568a385ae203e5239fce1"><div class="ttname"><a href="../../d3/d32/classArcane_1_1IItemConnectivityGhostPolicy.html#a0bb32e5e51b568a385ae203e5239fce1">Arcane::IItemConnectivityGhostPolicy::sharedItems</a></div><div class="ttdeci">virtual Int32ConstArrayView sharedItems(const Integer rank, const String &amp;family_name)=0</div><div class="ttdoc">donne les local_ids des items de la famille family_name partagés pour la connectivité avec le process...</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivityGhostPolicy_html_a4338bcb9f2124d6c6326431d39cc1361"><div class="ttname"><a href="../../d3/d32/classArcane_1_1IItemConnectivityGhostPolicy.html#a4338bcb9f2124d6c6326431d39cc1361">Arcane::IItemConnectivityGhostPolicy::communicatingRanks</a></div><div class="ttdeci">virtual Int32ConstArrayView communicatingRanks()=0</div><div class="ttdoc">Rangs des sous-domaines avec lesquels on communique.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivityGhostPolicy_html_a4d68e7e74b8e1601181085aebb3c4ab8"><div class="ttname"><a href="../../d3/d32/classArcane_1_1IItemConnectivityGhostPolicy.html#a4d68e7e74b8e1601181085aebb3c4ab8">Arcane::IItemConnectivityGhostPolicy::sharedItemsConnectedItems</a></div><div class="ttdeci">virtual Int32ConstArrayView sharedItemsConnectedItems(const Integer rank, const String &amp;family_name)=0</div><div class="ttdoc">donne les local_ids des items de la famille family_name connectés avec les sharedItems(rank).</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivityGhostPolicy_html_ad50e092f38a893167212536ab3845223"><div class="ttname"><a href="../../d3/d32/classArcane_1_1IItemConnectivityGhostPolicy.html#ad50e092f38a893167212536ab3845223">Arcane::IItemConnectivityGhostPolicy::updateConnectivity</a></div><div class="ttdeci">virtual void updateConnectivity(Int32ConstArrayView ghost_items, Int64ConstArrayView ghost_items_connected_items)=0</div><div class="ttdoc">mets à jour la connectivité en connectant les items fantômes ajoutés..</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivity_html"><div class="ttname"><a href="../../d0/dc0/classArcane_1_1IItemConnectivity.html">Arcane::IItemConnectivity</a></div><div class="ttdoc">Interface pour gérer une connectivité.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d4c/IItemConnectivity_8h_source.html#l00055">IItemConnectivity.h:57</a></div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivity_html_a7c133c6a5415276bc86b6e1ae228fb9e"><div class="ttname"><a href="../../d0/dc0/classArcane_1_1IItemConnectivity.html#a7c133c6a5415276bc86b6e1ae228fb9e">Arcane::IItemConnectivity::targetFamily</a></div><div class="ttdeci">virtual IItemFamily * targetFamily() const =0</div><div class="ttdoc">Famille cible.</div></div>
+<div class="ttc" id="aclassArcane_1_1IItemConnectivity_html_af190e1b8022d46ba7a55a5229ce2eb43"><div class="ttname"><a href="../../d0/dc0/classArcane_1_1IItemConnectivity.html#af190e1b8022d46ba7a55a5229ce2eb43">Arcane::IItemConnectivity::sourceFamily</a></div><div class="ttdeci">virtual IItemFamily * sourceFamily() const =0</div><div class="ttdoc">Famille source.</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelMng_html_a26fc7494a02a7370d3be787fcc742b04"><div class="ttname"><a href="../../dc/d5a/classArcane_1_1IParallelMng.html#a26fc7494a02a7370d3be787fcc742b04">Arcane::IParallelMng::commRank</a></div><div class="ttdeci">virtual Int32 commRank() const =0</div><div class="ttdoc">Rang de cette instance dans le communicateur.</div></div>
+<div class="ttc" id="aclassArcane_1_1IParallelMng_html_a7c5831fb289f8aa3fac3b05cdbb3d194"><div class="ttname"><a href="../../dc/d5a/classArcane_1_1IParallelMng.html#a7c5831fb289f8aa3fac3b05cdbb3d194">Arcane::IParallelMng::commSize</a></div><div class="ttdeci">virtual Int32 commSize() const =0</div><div class="ttdoc">Nombre d'instance dans le communicateur.</div></div>
+<div class="ttc" id="aclassArcane_1_1ItemConnectivitySynchronizer_html_a2c6beb189703165ffaa9e0e87295d5af"><div class="ttname"><a href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html#a2c6beb189703165ffaa9e0e87295d5af">Arcane::ItemConnectivitySynchronizer::computeExtraItemsToSend</a></div><div class="ttdeci">void computeExtraItemsToSend()</div><div class="ttdoc">Interface IExtraGhostItemsBuilder.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d93/ItemConnectivitySynchronizer_8cc_source.html#l00050">ItemConnectivitySynchronizer.cc:51</a></div></div>
+<div class="ttc" id="aclassArcane_1_1ItemConnectivitySynchronizer_html_a5c53d0aced3b37a29808a20a308a98c2"><div class="ttname"><a href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html#a5c53d0aced3b37a29808a20a308a98c2">Arcane::ItemConnectivitySynchronizer::ItemConnectivitySynchronizer</a></div><div class="ttdeci">ItemConnectivitySynchronizer(IItemConnectivity *connectivity, IItemConnectivityGhostPolicy *ghost_policy)</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d93/ItemConnectivitySynchronizer_8cc_source.html#l00028">ItemConnectivitySynchronizer.cc:29</a></div></div>
+<div class="ttc" id="aclassArcane_1_1ItemConnectivitySynchronizer_html_abb04f6bdf4f5ba2d9da04aa7172cdb7d"><div class="ttname"><a href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html#abb04f6bdf4f5ba2d9da04aa7172cdb7d">Arcane::ItemConnectivitySynchronizer::serializeGhostItems</a></div><div class="ttdeci">void serializeGhostItems(ISerializer *buffer, Int32ConstArrayView ghost_item_lids)</div><div class="ttdoc">Interface IExtraGhostItemsAdder : add extra ghost in TargetFamily.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d93/ItemConnectivitySynchronizer_8cc_source.html#l00074">ItemConnectivitySynchronizer.cc:75</a></div></div>
+<div class="ttc" id="aclassArcane_1_1ItemConnectivitySynchronizer_html_abc6c8c31f549a0b9ac052a9da12ebbb5"><div class="ttname"><a href="../../d0/d9e/classArcane_1_1ItemConnectivitySynchronizer.html#abc6c8c31f549a0b9ac052a9da12ebbb5">Arcane::ItemConnectivitySynchronizer::synchronize</a></div><div class="ttdeci">void synchronize()</div><div class="ttdoc">Interface IConnectivitySynchronizer.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d93/ItemConnectivitySynchronizer_8cc_source.html#l00041">ItemConnectivitySynchronizer.cc:42</a></div></div>
+<div class="ttc" id="aclassArcane_1_1LimaWrapper_html"><div class="ttname"><a href="../../dc/d69/classArcane_1_1LimaWrapper.html">Arcane::LimaWrapper</a></div><div class="ttdoc">Lecteur des fichiers de maillage via la bibliothèque LIMA.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dd3/Lima_8cc_source.html#l00118">Lima.cc:120</a></div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_a6e5a67d456bf6bb6db598bacd92d7960"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#a6e5a67d456bf6bb6db598bacd92d7960">Arccore::Array::reserve</a></div><div class="ttdeci">void reserve(Int64 new_capacity)</div><div class="ttdoc">Réserve le mémoire pour new_capacity éléments.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d85/arccore_2src_2collections_2arccore_2collections_2Array_8h_source.html#l01202">arccore/src/collections/arccore/collections/Array.h:1202</a></div></div>
+<div class="ttc" id="aclassArccore_1_1Array_html_a8fa9ed15b139b0a1f54205eab6820275"><div class="ttname"><a href="../../d9/d09/classArccore_1_1Array.html#a8fa9ed15b139b0a1f54205eab6820275">Arccore::Array::remove</a></div><div class="ttdeci">void remove(Int64 index)</div><div class="ttdoc">Supprime l'entité ayant l'indice index.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d85/arccore_2src_2collections_2arccore_2collections_2Array_8h_source.html#l01242">arccore/src/collections/arccore/collections/Array.h:1242</a></div></div>
+<div class="ttc" id="aclassArccore_1_1ConstArrayView_html"><div class="ttname"><a href="../../db/d8c/classArccore_1_1ConstArrayView.html">Arccore::ConstArrayView</a></div><div class="ttdoc">Vue constante d'un tableau de type T.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d51/arccore_2src_2base_2arccore_2base_2ArrayView_8h_source.html#l00532">arccore/src/base/arccore/base/ArrayView.h:533</a></div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html">Arccore::ISerializer</a></div><div class="ttdoc">Interface d'un sérialiseur.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/dea/arccore_2src_2serialize_2arccore_2serialize_2ISerializer_8h_source.html#l00056">arccore/src/serialize/arccore/serialize/ISerializer.h:57</a></div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a22210a97ce04ff12a5cda68b22766d7a"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a22210a97ce04ff12a5cda68b22766d7a">Arccore::ISerializer::allocateBuffer</a></div><div class="ttdeci">virtual void allocateBuffer()=0</div><div class="ttdoc">Alloue la mémoire du sérialiseur.</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a23c5d407e4d9b703fe595ce0725f913fa4533cfad45026c0cba50982578168e52"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a23c5d407e4d9b703fe595ce0725f913fa4533cfad45026c0cba50982578168e52">Arccore::ISerializer::ModePut</a></div><div class="ttdeci">@ ModePut</div><div class="ttdoc">Le sérialiseur attend des reserve()</div><div class="ttdef"><b>Definition</b> <a href="../../d3/dea/arccore_2src_2serialize_2arccore_2serialize_2ISerializer_8h_source.html#l00064">arccore/src/serialize/arccore/serialize/ISerializer.h:64</a></div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a23c5d407e4d9b703fe595ce0725f913fa56b149b45802cff6c857903ddb92664e"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a23c5d407e4d9b703fe595ce0725f913fa56b149b45802cff6c857903ddb92664e">Arccore::ISerializer::ModeGet</a></div><div class="ttdeci">@ ModeGet</div><div class="ttdoc">Le sérialiseur attend des get()</div><div class="ttdef"><b>Definition</b> <a href="../../d3/dea/arccore_2src_2serialize_2arccore_2serialize_2ISerializer_8h_source.html#l00066">arccore/src/serialize/arccore/serialize/ISerializer.h:65</a></div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a385668fa398234b71c9339970002754a"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a385668fa398234b71c9339970002754a">Arccore::ISerializer::reserveSpan</a></div><div class="ttdeci">virtual void reserveSpan(eDataType dt, Int64 n)=0</div><div class="ttdoc">Réserve de la mémoire pour n valeurs de dt.</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a431ea55fb97b19619f00f248509abedf"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a431ea55fb97b19619f00f248509abedf">Arccore::ISerializer::putSpan</a></div><div class="ttdeci">virtual void putSpan(Span&lt; const Real &gt; values)</div><div class="ttdoc">Ajoute le tableau values.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/da0/SerializeGlobal_8cc_source.html#l00025">SerializeGlobal.cc:26</a></div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a64fb5a0df6b1bbf59e04eda2691db386"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a64fb5a0df6b1bbf59e04eda2691db386">Arccore::ISerializer::getSpan</a></div><div class="ttdeci">virtual void getSpan(Span&lt; Real &gt; values)</div><div class="ttdoc">Récupère le tableau values.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/da0/SerializeGlobal_8cc_source.html#l00115">SerializeGlobal.cc:116</a></div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a803d1e7683571a15ceaf723b215c7a53"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a803d1e7683571a15ceaf723b215c7a53">Arccore::ISerializer::getInt64</a></div><div class="ttdeci">virtual Int64 getInt64()=0</div><div class="ttdoc">Récupère une taille.</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_a8dbfd965ccbe8fe5515dd74ffdba0cf3"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#a8dbfd965ccbe8fe5515dd74ffdba0cf3">Arccore::ISerializer::reserve</a></div><div class="ttdeci">virtual void reserve(eDataType dt, Int64 n)=0</div><div class="ttdoc">Réserve de la mémoire pour n objets de type dt.</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_ab4546935b3a84b08c78a7aabcd075968"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#ab4546935b3a84b08c78a7aabcd075968">Arccore::ISerializer::setMode</a></div><div class="ttdeci">virtual void setMode(eMode new_mode)=0</div><div class="ttdoc">Positionne le fonctionnement actuel.</div></div>
+<div class="ttc" id="aclassArccore_1_1ISerializer_html_af228f05a9fbf2af7709973fd08e756cd"><div class="ttname"><a href="../../dd/dcd/classArccore_1_1ISerializer.html#af228f05a9fbf2af7709973fd08e756cd">Arccore::ISerializer::putInt64</a></div><div class="ttdeci">virtual void putInt64(Int64 value)=0</div><div class="ttdoc">Ajoute l'entier value.</div></div>
+<div class="ttc" id="aclassArccore_1_1SharedArray_html"><div class="ttname"><a href="../../d4/dee/classArccore_1_1SharedArray.html">Arccore::SharedArray</a></div><div class="ttdoc">Vecteur 1D de données avec sémantique par référence.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d85/arccore_2src_2collections_2arccore_2collections_2Array_8h_source.html#l01464">arccore/src/collections/arccore/collections/Array.h:1466</a></div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition</b> <a href="../../de/d40/AcceleratorGlobal_8h_source.html#l00035">AcceleratorGlobal.h:36</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_a0610c32aa60d0285a594969e83881bb1"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a0610c32aa60d0285a594969e83881bb1">Arcane::Int64SharedArray</a></div><div class="ttdeci">SharedArray&lt; Int64 &gt; Int64SharedArray</div><div class="ttdoc">Tableau dynamique à une dimension d'entiers 64 bits.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00545">UtilsTypes.h:545</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_a938629183dac9847551e352185e6ca0f"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a938629183dac9847551e352185e6ca0f">Arcane::Int32SharedArray</a></div><div class="ttdeci">SharedArray&lt; Int32 &gt; Int32SharedArray</div><div class="ttdoc">Tableau dynamique à une dimension d'entiers 32 bits.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00547">UtilsTypes.h:547</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_a9705dd87194ca42d81d4da3d95a9acd7"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a9705dd87194ca42d81d4da3d95a9acd7">Arcane::Int32UniqueArray</a></div><div class="ttdeci">UniqueArray&lt; Int32 &gt; Int32UniqueArray</div><div class="ttdoc">Tableau dynamique à une dimension d'entiers 32 bits.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00515">UtilsTypes.h:515</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_ac12d45d58297ede9278d4055609d1413"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ac12d45d58297ede9278d4055609d1413">Arcane::IntegerSharedArray</a></div><div class="ttdeci">SharedArray&lt; Integer &gt; IntegerSharedArray</div><div class="ttdoc">Tableau dynamique à une dimension d'entiers.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00551">UtilsTypes.h:551</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_ad3bea5c99c24cb9ccc83e670698417bbaa59e9732cc990f1f9ce0bc74ccfac735"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ad3bea5c99c24cb9ccc83e670698417bbaa59e9732cc990f1f9ce0bc74ccfac735">Arcane::DT_Int64</a></div><div class="ttdeci">@ DT_Int64</div><div class="ttdoc">Donnée de type entier 64 bits.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d12/DataTypes_8h_source.html#l00044">DataTypes.h:44</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_cd48e9603a047c3a36ad2b31e177f8e3.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_e6d8d194800c5dcff96d185e12dd1228.html">mesh</a></li><li class="navelem"><b>ItemConnectivitySynchronizer.cc</b></li>
+    <li class="footer">Généré le Lundi 15 Juillet 2024 02:47:17 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>
