@@ -1,0 +1,418 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <meta name="generator" content="Doxygen 1.9.8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="../../logo_arcane.svg" type="image/svg+xml">
+    <title>Arcane:  Fichier source de AcceleratorRuntimeInitialisationInfo.cc</title>
+    <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../../jquery.js"></script>
+    <script type="text/javascript" src="../../dynsections.js"></script>
+    <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+    <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+    <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../dev_colors.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+    <script type="text/javascript" src="../../script-helper.js"></script>
+    <script type="text/javascript" src="../../script-resize.js"></script>
+    <script type="text/javascript" src="../../script-num-lines-code.js"></script>
+    <script type="text/javascript" src="../../script-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-edit-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-alternative-theme.js"></script>
+    <script type="text/javascript">
+      // On demande l'activation de la personnalisation de la page.
+      var no_custom_theme = false;
+      DoxygenAwesomeDarkModeToggle.title = "Thème clair/sombre";
+      DoxygenAwesomeDarkModeToggle.init();
+      DoxygenAwesomeFragmentCopyButton.title = "Copier le code dans le presse-papier";
+      DoxygenAwesomeFragmentCopyButton.init();
+      DoxygenAwesomeParagraphLink.init();
+      DoxygenAwesomeInteractiveToc.init();
+      DoxygenAwesomeTabs.init()
+      waitElemForResizeSideNav();
+      setOldSize();
+      //waitItemExpandCurrent();
+    </script>
+  </head>
+  <body>
+    <!--BEGIN CORNER_GITHUB-->
+    <!-- https://tholman.com/github-corners/ -->
+    <a href="https://github.com/arcaneframework/framework" class="github-corner" aria-label="Voir les sources sur GitHub">
+      <svg width="70" height="70" viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <!--END CORNER_GITHUB-->
+      <div id="top">
+        <!-- do not remove this div, it is closed by doxygen! -->
+        <div id="titlearea">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr id="projectrow">
+                <td id="projectlogo">
+                  <a href="../../index.html" title="Aller à la page principale">
+                    <img alt="Logo" src="../../arcane_framework_small.webp" />
+                  </a>
+                </td>
+              </tr>
+              <tr id="projectrow">
+                <td id="projectalign">
+                  <div id="projectname">Arcane
+                    <span id="projectnumber">&#160;v3.14.0.0</span>
+                  </div>
+                  <div id="projectbrief">Documentation développeur</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('db/d2e/AcceleratorRuntimeInitialisationInfo_8cc_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">AcceleratorRuntimeInitialisationInfo.cc</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// Copyright 2000-2024 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">/* AcceleratorRuntimeInitialisationInfo.cc                     (C) 2000-2024 */</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/*                                                                           */</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">/* Informations pour l&#39;initialisation du runtime des accélérateurs.          */</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;arcane/accelerator/core/AcceleratorRuntimeInitialisationInfo.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;arcane/utils/ITraceMng.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;arcane/utils/String.h&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;arcane/utils/Property.h&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;arcane/accelerator/core/Runner.h&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;arcane/accelerator/core/DeviceId.h&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="../../d7/d3c/ConcurrencyUtils_8h.html">arcane/utils/ConcurrencyUtils.h</a>&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../de/dae/namespaceArcane_1_1Accelerator.html">Arcane::Accelerator</a></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="../../df/db3/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo_1_1Impl.html">   33</a></span><span class="keyword">class </span><a class="code hl_class" href="../../df/db3/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo_1_1Impl.html">AcceleratorRuntimeInitialisationInfo::Impl</a></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>  <span class="keywordtype">bool</span> m_is_using_accelerator_runtime = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>  String m_accelerator_runtime;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>  DeviceId m_device_id;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>};</div>
+</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">template</span>&lt;<span class="keyword">typename</span> V&gt; <span class="keywordtype">void</span> AcceleratorRuntimeInitialisationInfo::</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>_applyPropertyVisitor(V&amp; p)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  <span class="keyword">auto</span> b = p.builder();</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>  p &lt;&lt; b.addString(<span class="stringliteral">&quot;AcceleratorRuntime&quot;</span>)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        .addDescription(<span class="stringliteral">&quot;Name of the accelerator runtime (currently only &#39;cuda&#39;, &#39;hip&#39; or &#39;sycl&#39;) to use&quot;</span>)</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        .addCommandLineArgument(<span class="stringliteral">&quot;AcceleratorRuntime&quot;</span>)</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        .addGetter([](<span class="keyword">auto</span> a) { <span class="keywordflow">return</span> a.x.acceleratorRuntime(); })</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        .addSetter([](<span class="keyword">auto</span> a) { a.x.setAcceleratorRuntime(a.v); });</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>}</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>AcceleratorRuntimeInitialisationInfo::</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>AcceleratorRuntimeInitialisationInfo()</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>: m_p(new Impl())</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>{</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>}</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>AcceleratorRuntimeInitialisationInfo::</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>AcceleratorRuntimeInitialisationInfo(<span class="keyword">const</span> AcceleratorRuntimeInitialisationInfo&amp; rhs)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>: m_p(new Impl(*rhs.m_p))</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>{</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>}</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>AcceleratorRuntimeInitialisationInfo&amp; AcceleratorRuntimeInitialisationInfo::</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>operator=(<span class="keyword">const</span> AcceleratorRuntimeInitialisationInfo&amp; rhs)</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>{</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>  <span class="keywordflow">if</span> (&amp;rhs!=<span class="keyword">this</span>){</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">delete</span> m_p;</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    m_p = <span class="keyword">new</span> Impl(*(rhs.m_p));</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  }</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>  <span class="keywordflow">return</span> (*<span class="keyword">this</span>);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>}</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>AcceleratorRuntimeInitialisationInfo::</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>~AcceleratorRuntimeInitialisationInfo()</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>{</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  <span class="keyword">delete</span> m_p;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>}</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="keywordtype">bool</span> AcceleratorRuntimeInitialisationInfo::</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>isUsingAcceleratorRuntime()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  <span class="keywordflow">return</span> m_p-&gt;m_is_using_accelerator_runtime;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>}</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="keywordtype">void</span> AcceleratorRuntimeInitialisationInfo::</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>setIsUsingAcceleratorRuntime(<span class="keywordtype">bool</span> v)</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>{</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>  m_p-&gt;m_is_using_accelerator_runtime = v;</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>String AcceleratorRuntimeInitialisationInfo::</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>acceleratorRuntime()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>  <span class="keywordflow">return</span> m_p-&gt;m_accelerator_runtime;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>}</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="foldopen" id="foldopen00122" data-start="{" data-end="}">
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="../../d7/d36/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo.html#a0047fd5fd950b9a3415d61ba17b7af75">  122</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d36/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo.html#a0047fd5fd950b9a3415d61ba17b7af75">AcceleratorRuntimeInitialisationInfo::</a></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><a class="code hl_function" href="../../d7/d36/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo.html#a0047fd5fd950b9a3415d61ba17b7af75">setAcceleratorRuntime</a>(<a class="code hl_class" href="../../d0/d06/classArccore_1_1StringView.html">StringView</a> v)</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>{</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>  m_p-&gt;m_accelerator_runtime = v;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>  <span class="keywordflow">if</span> (!v.<a class="code hl_function" href="../../d0/d06/classArccore_1_1StringView.html#a16d2a15416faccab0263f2c5bd745e6a">empty</a>())</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    setIsUsingAcceleratorRuntime(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>}</div>
+</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="foldopen" id="foldopen00133" data-start="{" data-end="}">
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno"><a class="line" href="../../d7/d36/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo.html#abe7444b253d777ce5e2829b90665d1bb">  133</a></span><a class="code hl_class" href="../../d8/d96/classArcane_1_1Accelerator_1_1DeviceId.html">DeviceId</a> <a class="code hl_function" href="../../d7/d36/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo.html#abe7444b253d777ce5e2829b90665d1bb">AcceleratorRuntimeInitialisationInfo::</a></div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span><a class="code hl_function" href="../../d7/d36/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo.html#abe7444b253d777ce5e2829b90665d1bb">deviceId</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>  <span class="keywordflow">return</span> m_p-&gt;m_device_id;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>}</div>
+</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="foldopen" id="foldopen00139" data-start="{" data-end="}">
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="../../d7/d36/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo.html#ae696fd11b724b393ca3090aa8dd30814">  139</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d36/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo.html#ae696fd11b724b393ca3090aa8dd30814">AcceleratorRuntimeInitialisationInfo::</a></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><a class="code hl_function" href="../../d7/d36/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo.html#ae696fd11b724b393ca3090aa8dd30814">setDeviceId</a>(<a class="code hl_class" href="../../d8/d96/classArcane_1_1Accelerator_1_1DeviceId.html">DeviceId</a> v)</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>{</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>  m_p-&gt;m_device_id = v;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>}</div>
+</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="foldopen" id="foldopen00148" data-start="{" data-end="}">
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="../../d7/d36/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo.html#a0e25129cf2caaa0a1aef8362ae411472">  148</a></span><a class="code hl_enumeration" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857df">eExecutionPolicy</a> <a class="code hl_function" href="../../d7/d36/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo.html#a0e25129cf2caaa0a1aef8362ae411472">AcceleratorRuntimeInitialisationInfo::</a></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><a class="code hl_function" href="../../d7/d36/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo.html#a0e25129cf2caaa0a1aef8362ae411472">executionPolicy</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>  <a class="code hl_class" href="../../d2/ddb/classArccore_1_1String.html">String</a> a = acceleratorRuntime();</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>  <span class="keywordflow">if</span> (a==<span class="stringliteral">&quot;cuda&quot;</span>)</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfaa33b7755e5f9b504d2d038eaca4ff28d">eExecutionPolicy::CUDA</a>;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>  <span class="keywordflow">if</span> (a==<span class="stringliteral">&quot;hip&quot;</span>)</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfa5e4576beae2ab86d6ad1b8b1700d2e11">eExecutionPolicy::HIP</a>;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>  <span class="keywordflow">if</span> (a==<span class="stringliteral">&quot;sycl&quot;</span>)</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfa4427481c96bb7dc6b1add3207cdc622d">eExecutionPolicy::SYCL</a>;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>  <span class="keywordflow">if</span> (!a.null())</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfa6adf97f83acf6453d4a6a4b1070f3754">eExecutionPolicy::None</a>;</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="../../d6/d0d/classArcane_1_1TaskFactory.html#ac1c5f1d4743f2a7b0e8d2e4151ea928a">TaskFactory::isActive</a>())</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfad97477d6d8a838ead9348185bb5b6742">eExecutionPolicy::Thread</a>;</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>  <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfaa7e82daa7280af25afbaa076ac16eb1e">eExecutionPolicy::Sequential</a>;</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>}</div>
+</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C++&quot;</span> ARCANE_ACCELERATOR_CORE_EXPORT <span class="keywordtype">void</span></div>
+<div class="foldopen" id="foldopen00169" data-start="{" data-end="}">
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="../../de/dae/namespaceArcane_1_1Accelerator.html#a4a09b4c6e7eef0ffd56662735f3da45a">  169</a></span><a class="code hl_function" href="../../de/dae/namespaceArcane_1_1Accelerator.html#a4a09b4c6e7eef0ffd56662735f3da45a">arcaneInitializeRunner</a>(<a class="code hl_class" href="../../d1/d61/classArcane_1_1Accelerator_1_1Runner.html">Accelerator::Runner</a>&amp; runner,<a class="code hl_class" href="../../d0/df9/classArccore_1_1ITraceMng.html">ITraceMng</a>* <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">tm</a>,</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>                       <span class="keyword">const</span> <a class="code hl_class" href="../../d7/d36/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo.html">AcceleratorRuntimeInitialisationInfo</a>&amp; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">acc_info</a>)</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>{</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>  <span class="keyword">using namespace </span>Accelerator;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>  <a class="code hl_class" href="../../d2/ddb/classArccore_1_1String.html">String</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">accelerator_runtime</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">acc_info</a>.acceleratorRuntime();</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>  <a class="code hl_enumeration" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857df">eExecutionPolicy</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">policy</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">acc_info</a>.executionPolicy();</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>  <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">policy</a>==<a class="code hl_enumvalue" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfa6adf97f83acf6453d4a6a4b1070f3754">eExecutionPolicy::None</a>)</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <a class="code hl_define" href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a>(<span class="stringliteral">&quot;Invalid policy eExecutionPolicy::None&quot;</span>);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>  <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">tm</a>-&gt;<a class="code hl_function" href="../../d4/d0e/classArccore_1_1TraceAccessor.html#ac97ca3cda108d93dceb8e1a4800246a7">info</a>() &lt;&lt; <span class="stringliteral">&quot;AcceleratorRuntime=&quot;</span> &lt;&lt; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">accelerator_runtime</a>;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>  <span class="keywordflow">if</span> (impl::isAcceleratorPolicy(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">policy</a>)){</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">tm</a>-&gt;<a class="code hl_function" href="../../d4/d0e/classArccore_1_1TraceAccessor.html#ac97ca3cda108d93dceb8e1a4800246a7">info</a>() &lt;&lt; <span class="stringliteral">&quot;Using accelerator runtime=&quot;</span> &lt;&lt; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">policy</a> &lt;&lt; <span class="stringliteral">&quot; device=&quot;</span> &lt;&lt; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">acc_info</a>.deviceId();</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    runner.<a class="code hl_function" href="../../d1/d61/classArcane_1_1Accelerator_1_1Runner.html#aa34ad215cb1b01a7eb24dd4b4e53d94d">initialize</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">policy</a>,<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">acc_info</a>.deviceId());</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    runner.<a class="code hl_function" href="../../d1/d61/classArcane_1_1Accelerator_1_1Runner.html#ab8ffe1878fe7188461c5086f6d4d8144">setAsCurrentDevice</a>();</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>  }</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>  <span class="keywordflow">else</span>{</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">tm</a>-&gt;<a class="code hl_function" href="../../d4/d0e/classArccore_1_1TraceAccessor.html#ac97ca3cda108d93dceb8e1a4800246a7">info</a>() &lt;&lt; <span class="stringliteral">&quot;Using accelerator runtime=&quot;</span> &lt;&lt; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">policy</a>;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    runner.<a class="code hl_function" href="../../d1/d61/classArcane_1_1Accelerator_1_1Runner.html#aa34ad215cb1b01a7eb24dd4b4e53d94d">initialize</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">policy</a>);</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>  }</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>}</div>
+</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>ARCANE_REGISTER_PROPERTY_CLASS(<a class="code hl_class" href="../../d7/d36/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo.html">AcceleratorRuntimeInitialisationInfo</a>,());</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>} <span class="comment">// End namespace Arcane::Accelerator</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a9d85d5fb84c5371348dd56600999e564"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a></div><div class="ttdeci">#define ARCANE_FATAL(...)</div><div class="ttdoc">Macro envoyant une exception FatalErrorException.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d1e/ArcaneGlobal_8h_source.html#l00809">ArcaneGlobal.h:809</a></div></div>
+<div class="ttc" id="aConcurrencyUtils_8h_html"><div class="ttname"><a href="../../d7/d3c/ConcurrencyUtils_8h.html">ConcurrencyUtils.h</a></div><div class="ttdoc">Classes, Types et macros pour gérer la concurrence.</div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo_1_1Impl_html"><div class="ttname"><a href="../../df/db3/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo_1_1Impl.html">Accelerator::AcceleratorRuntimeInitialisationInfo::Impl</a></div><div class="ttdef"><b>Definition</b> <a href="../../db/d2e/AcceleratorRuntimeInitialisationInfo_8cc_source.html#l00033">AcceleratorRuntimeInitialisationInfo.cc:34</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo_html"><div class="ttname"><a href="../../d7/d36/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo.html">Arcane::Accelerator::AcceleratorRuntimeInitialisationInfo</a></div><div class="ttdoc">Informations pour l'initialisation des accélérateurs.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d91/accelerator_2core_2AcceleratorRuntimeInitialisationInfo_8h_source.html#l00033">accelerator/core/AcceleratorRuntimeInitialisationInfo.h:34</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo_html_a0047fd5fd950b9a3415d61ba17b7af75"><div class="ttname"><a href="../../d7/d36/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo.html#a0047fd5fd950b9a3415d61ba17b7af75">Arcane::Accelerator::AcceleratorRuntimeInitialisationInfo::setAcceleratorRuntime</a></div><div class="ttdeci">void setAcceleratorRuntime(StringView name)</div><div class="ttdoc">Nom du runtime utilisé (pour l'instant uniquement 'cuda')</div><div class="ttdef"><b>Definition</b> <a href="../../db/d2e/AcceleratorRuntimeInitialisationInfo_8cc_source.html#l00122">AcceleratorRuntimeInitialisationInfo.cc:123</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo_html_a0e25129cf2caaa0a1aef8362ae411472"><div class="ttname"><a href="../../d7/d36/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo.html#a0e25129cf2caaa0a1aef8362ae411472">Arcane::Accelerator::AcceleratorRuntimeInitialisationInfo::executionPolicy</a></div><div class="ttdeci">eExecutionPolicy executionPolicy() const</div><div class="ttdoc">Politique d'exécution associée à acceleratorRuntime()</div><div class="ttdef"><b>Definition</b> <a href="../../db/d2e/AcceleratorRuntimeInitialisationInfo_8cc_source.html#l00148">AcceleratorRuntimeInitialisationInfo.cc:149</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo_html_abe7444b253d777ce5e2829b90665d1bb"><div class="ttname"><a href="../../d7/d36/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo.html#abe7444b253d777ce5e2829b90665d1bb">Arcane::Accelerator::AcceleratorRuntimeInitialisationInfo::deviceId</a></div><div class="ttdeci">DeviceId deviceId() const</div><div class="ttdoc">Device associé au Runner associé</div><div class="ttdef"><b>Definition</b> <a href="../../db/d2e/AcceleratorRuntimeInitialisationInfo_8cc_source.html#l00133">AcceleratorRuntimeInitialisationInfo.cc:134</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo_html_ae696fd11b724b393ca3090aa8dd30814"><div class="ttname"><a href="../../d7/d36/classArcane_1_1Accelerator_1_1AcceleratorRuntimeInitialisationInfo.html#ae696fd11b724b393ca3090aa8dd30814">Arcane::Accelerator::AcceleratorRuntimeInitialisationInfo::setDeviceId</a></div><div class="ttdeci">void setDeviceId(DeviceId name)</div><div class="ttdoc">Positionne le device associé au Runner associé.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d2e/AcceleratorRuntimeInitialisationInfo_8cc_source.html#l00139">AcceleratorRuntimeInitialisationInfo.cc:140</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1DeviceId_html"><div class="ttname"><a href="../../d8/d96/classArcane_1_1Accelerator_1_1DeviceId.html">Arcane::Accelerator::DeviceId</a></div><div class="ttdoc">Identifiant d'un composant du système.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/da3/DeviceId_8h_source.html#l00032">DeviceId.h:33</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1Runner_html"><div class="ttname"><a href="../../d1/d61/classArcane_1_1Accelerator_1_1Runner.html">Arcane::Accelerator::Runner</a></div><div class="ttdoc">Gestionnaire d'exécution pour accélérateur.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d67/core_2Runner_8h_source.html#l00052">core/Runner.h:53</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1Runner_html_aa34ad215cb1b01a7eb24dd4b4e53d94d"><div class="ttname"><a href="../../d1/d61/classArcane_1_1Accelerator_1_1Runner.html#aa34ad215cb1b01a7eb24dd4b4e53d94d">Arcane::Accelerator::Runner::initialize</a></div><div class="ttdeci">void initialize(eExecutionPolicy v)</div><div class="ttdoc">Initialise l'instance. Cette méthode ne doit être appelée qu'une seule fois.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d27/Runner_8cc_source.html#l00342">Runner.cc:343</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1Runner_html_ab8ffe1878fe7188461c5086f6d4d8144"><div class="ttname"><a href="../../d1/d61/classArcane_1_1Accelerator_1_1Runner.html#ab8ffe1878fe7188461c5086f6d4d8144">Arcane::Accelerator::Runner::setAsCurrentDevice</a></div><div class="ttdeci">void setAsCurrentDevice()</div><div class="ttdoc">Positionne le device associé à cette instance comme le device par défaut du contexte.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d27/Runner_8cc_source.html#l00399">Runner.cc:400</a></div></div>
+<div class="ttc" id="aclassArcane_1_1LimaWrapper_html"><div class="ttname"><a href="../../dc/d69/classArcane_1_1LimaWrapper.html">Arcane::LimaWrapper</a></div><div class="ttdoc">Lecteur des fichiers de maillage via la bibliothèque LIMA.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dd3/Lima_8cc_source.html#l00118">Lima.cc:120</a></div></div>
+<div class="ttc" id="aclassArcane_1_1TaskFactory_html_ac1c5f1d4743f2a7b0e8d2e4151ea928a"><div class="ttname"><a href="../../d6/d0d/classArcane_1_1TaskFactory.html#ac1c5f1d4743f2a7b0e8d2e4151ea928a">Arcane::TaskFactory::isActive</a></div><div class="ttdeci">static bool isActive()</div><div class="ttdoc">Indique si les tâches sont actives. Les tâches sont actives si une implémentation est disponible et s...</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d3c/ConcurrencyUtils_8h_source.html#l00446">ConcurrencyUtils.h:446</a></div></div>
+<div class="ttc" id="aclassArccore_1_1ITraceMng_html"><div class="ttname"><a href="../../d0/df9/classArccore_1_1ITraceMng.html">Arccore::ITraceMng</a></div><div class="ttdoc">Interface du gestionnaire de traces.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d19/arccore_2src_2trace_2arccore_2trace_2ITraceMng_8h_source.html#l00155">arccore/src/trace/arccore/trace/ITraceMng.h:156</a></div></div>
+<div class="ttc" id="aclassArccore_1_1StringView_html"><div class="ttname"><a href="../../d0/d06/classArccore_1_1StringView.html">Arccore::StringView</a></div><div class="ttdoc">Vue sur une chaîne de caractères UTF-8.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/dea/StringView_8h_source.html#l00046">StringView.h:47</a></div></div>
+<div class="ttc" id="aclassArccore_1_1StringView_html_a16d2a15416faccab0263f2c5bd745e6a"><div class="ttname"><a href="../../d0/d06/classArccore_1_1StringView.html#a16d2a15416faccab0263f2c5bd745e6a">Arccore::StringView::empty</a></div><div class="ttdeci">constexpr bool empty() const ARCCORE_NOEXCEPT</div><div class="ttdoc">Vrai si la chaîne est nulle ou vide.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/dea/StringView_8h_source.html#l00105">StringView.h:105</a></div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/ddc/arccore_2src_2base_2arccore_2base_2String_8h_source.html#l00069">arccore/src/base/arccore/base/String.h:70</a></div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html_ac97ca3cda108d93dceb8e1a4800246a7"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html#ac97ca3cda108d93dceb8e1a4800246a7">Arccore::TraceAccessor::info</a></div><div class="ttdeci">TraceMessage info() const</div><div class="ttdoc">Flot pour un message d'information.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/d23/TraceAccessor_8cc_source.html#l00100">TraceAccessor.cc:101</a></div></div>
+<div class="ttc" id="anamespaceArcane_1_1Accelerator_html"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html">Arcane::Accelerator</a></div><div class="ttdoc">Espace de nom pour l'utilisation des accélérateurs.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d40/AcceleratorGlobal_8h_source.html#l00035">AcceleratorGlobal.h:36</a></div></div>
+<div class="ttc" id="anamespaceArcane_1_1Accelerator_html_a4a09b4c6e7eef0ffd56662735f3da45a"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#a4a09b4c6e7eef0ffd56662735f3da45a">Arcane::Accelerator::arcaneInitializeRunner</a></div><div class="ttdeci">void arcaneInitializeRunner(Accelerator::Runner &amp;runner, ITraceMng *tm, const AcceleratorRuntimeInitialisationInfo &amp;acc_info)</div><div class="ttdoc">Initialise runner avec les informations de acc_info.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d2e/AcceleratorRuntimeInitialisationInfo_8cc_source.html#l00169">AcceleratorRuntimeInitialisationInfo.cc:169</a></div></div>
+<div class="ttc" id="anamespaceArcane_1_1Accelerator_html_acfc7ad484093ab4477c65b4c833857df"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857df">Arcane::Accelerator::eExecutionPolicy</a></div><div class="ttdeci">eExecutionPolicy</div><div class="ttdoc">Politique d'exécution pour un Runner.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/dfd/AcceleratorCoreGlobal_8h_source.html#l00084">AcceleratorCoreGlobal.h:85</a></div></div>
+<div class="ttc" id="anamespaceArcane_1_1Accelerator_html_acfc7ad484093ab4477c65b4c833857dfa4427481c96bb7dc6b1add3207cdc622d"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfa4427481c96bb7dc6b1add3207cdc622d">Arcane::Accelerator::eExecutionPolicy::SYCL</a></div><div class="ttdeci">@ SYCL</div><div class="ttdoc">Politique d'exécution utilisant l'environnement SYCL.</div></div>
+<div class="ttc" id="anamespaceArcane_1_1Accelerator_html_acfc7ad484093ab4477c65b4c833857dfa5e4576beae2ab86d6ad1b8b1700d2e11"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfa5e4576beae2ab86d6ad1b8b1700d2e11">Arcane::Accelerator::eExecutionPolicy::HIP</a></div><div class="ttdeci">@ HIP</div><div class="ttdoc">Politique d'exécution utilisant l'environnement HIP.</div></div>
+<div class="ttc" id="anamespaceArcane_1_1Accelerator_html_acfc7ad484093ab4477c65b4c833857dfa6adf97f83acf6453d4a6a4b1070f3754"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfa6adf97f83acf6453d4a6a4b1070f3754">Arcane::Accelerator::eExecutionPolicy::None</a></div><div class="ttdeci">@ None</div><div class="ttdoc">Aucune politique d'exécution.</div></div>
+<div class="ttc" id="anamespaceArcane_1_1Accelerator_html_acfc7ad484093ab4477c65b4c833857dfaa33b7755e5f9b504d2d038eaca4ff28d"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfaa33b7755e5f9b504d2d038eaca4ff28d">Arcane::Accelerator::eExecutionPolicy::CUDA</a></div><div class="ttdeci">@ CUDA</div><div class="ttdoc">Politique d'exécution utilisant l'environnement CUDA.</div></div>
+<div class="ttc" id="anamespaceArcane_1_1Accelerator_html_acfc7ad484093ab4477c65b4c833857dfaa7e82daa7280af25afbaa076ac16eb1e"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfaa7e82daa7280af25afbaa076ac16eb1e">Arcane::Accelerator::eExecutionPolicy::Sequential</a></div><div class="ttdeci">@ Sequential</div><div class="ttdoc">Politique d'exécution séquentielle.</div></div>
+<div class="ttc" id="anamespaceArcane_1_1Accelerator_html_acfc7ad484093ab4477c65b4c833857dfad97477d6d8a838ead9348185bb5b6742"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfad97477d6d8a838ead9348185bb5b6742">Arcane::Accelerator::eExecutionPolicy::Thread</a></div><div class="ttdeci">@ Thread</div><div class="ttdoc">Politique d'exécution multi-thread.</div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_cd48e9603a047c3a36ad2b31e177f8e3.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_0ae535d63c1c574fd7ac7e0cce1d5017.html">accelerator</a></li><li class="navelem"><a class="el" href="../../dir_ff188eb48cb0fa1d03a4aa371be53eb7.html">core</a></li><li class="navelem"><b>AcceleratorRuntimeInitialisationInfo.cc</b></li>
+    <li class="footer">Généré le Lundi 22 Juillet 2024 02:46:11 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>
