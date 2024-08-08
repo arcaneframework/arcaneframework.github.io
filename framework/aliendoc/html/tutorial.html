@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Tutorial C++ API &#8212; Alien 1.2.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=4f649999" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=cb25574f" />
+    <script src="_static/documentation_options.js?v=6efca38a"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorial C API" href="tutorialC.html" />
+    <link rel="prev" title="Building with ref semantic" href="user/ref.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="tutorial-c-api">
+<h1>Tutorial C++ API<a class="headerlink" href="#tutorial-c-api" title="Link to this heading">¶</a></h1>
+<section id="intro">
+<h2>Intro<a class="headerlink" href="#intro" title="Link to this heading">¶</a></h2>
+<p>This tutorial illustrates how to build a linear system and solve it with various linear solver algorithm.</p>
+<p>We consider the Laplacian problem on a 2D square mesh of size <span class="math notranslate nohighlight">\(N_X \times N_Y\)</span>. Unknowns are related to the mesh nodes
+indexed by <span class="math notranslate nohighlight">\((i,j)\)</span>. We use a 5-Points stencil to discretize the problem.</p>
+<p>First of all Alien provides tools to initialize the library, the MPI parallel environment to parametrize IO.
+The following code illustrates how to initialize :</p>
+<ul class="simple">
+<li><p>the ParallelMng object</p></li>
+<li><p>the TraceMng object</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>//<span class="w"> </span>INITIALIZE<span class="w"> </span>PARALLEL<span class="w"> </span>ENVIRONMENT
+Environment::initialize<span class="o">(</span>argc,<span class="w"> </span>argv<span class="o">)</span><span class="p">;</span>
+
+auto<span class="w"> </span><span class="nv">parallel_mng</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Environment::parallelMng<span class="o">()</span><span class="p">;</span>
+auto<span class="w"> </span><span class="nv">trace_mng</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Environment::traceMng<span class="o">()</span><span class="p">;</span>
+
+auto<span class="w"> </span><span class="nv">comm_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Environment::parallelMng<span class="o">()</span>-&gt;commSize<span class="o">()</span><span class="p">;</span>
+auto<span class="w"> </span><span class="nv">comm_rank</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Environment::parallelMng<span class="o">()</span>-&gt;commRank<span class="o">()</span><span class="p">;</span>
+
+trace_mng-&gt;info<span class="o">()</span><span class="w"> </span>&lt;&lt;<span class="w"> </span><span class="s2">&quot;NB PROC = &quot;</span><span class="w"> </span><span class="s">&lt;&lt; comm_size;</span>
+<span class="s">trace_mng-&gt;info() &lt;&lt; &quot;RANK    = &quot; &lt;&lt; comm_rank;</span>
+
+<span class="s">Arccore::StringBuilder filename(&quot;tutorial.log&quot;);</span>
+<span class="s">Arccore::ReferenceCounter&lt;Arccore::ITraceStream&gt; ofile;</span>
+<span class="s">if (comm_size</span><span class="w"> </span>&gt;<span class="w"> </span><span class="m">1</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nv">filename</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span>comm_rank<span class="p">;</span>
+<span class="w">  </span><span class="nv">ofile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Arccore::ITraceStream::createFileStream<span class="o">(</span>filename.toString<span class="o">())</span><span class="p">;</span>
+<span class="w">  </span>trace_mng-&gt;setRedirectStream<span class="o">(</span>ofile.get<span class="o">())</span><span class="p">;</span>
+<span class="o">}</span>
+trace_mng-&gt;finishInitialize<span class="o">()</span><span class="p">;</span>
+
+Alien::setTraceMng<span class="o">(</span>trace_mng<span class="o">)</span><span class="p">;</span>
+Alien::setVerbosityLevel<span class="o">(</span>Alien::Verbosity::Debug<span class="o">)</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="space">
+<h2>Space<a class="headerlink" href="#space" title="Link to this heading">¶</a></h2>
+<p>The Space concept enable to modelize the mathematical algebraic real space <span class="math notranslate nohighlight">\(R^N\)</span> of dimension <span class="math notranslate nohighlight">\(N\)</span></p>
+<p>To build this concept several tools are provided:</p>
+<ul class="simple">
+<li><p>the <cite>IndexeManager</cite> package provides helper tools to manage <cite>Integer IndexSets</cite></p></li>
+<li><p>the <cite>Distribution</cite> package provides helper tools to manage the partition of <cite>IndexSets</cite> between MPI processes</p></li>
+</ul>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>int<span class="w"> </span><span class="nv">Nx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+int<span class="w"> </span><span class="nv">Ny</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">10</span><span class="p">;</span>
+
+/*
+<span class="w"> </span>*<span class="w"> </span>MESH<span class="w"> </span>PARTITION<span class="w"> </span>ALONG<span class="w"> </span>Y<span class="w"> </span>AXIS
+<span class="w"> </span>*
+<span class="w"> </span>*/
+int<span class="w"> </span><span class="nv">local_ny</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Ny<span class="w"> </span>/<span class="w"> </span>comm_size<span class="p">;</span>
+int<span class="w"> </span><span class="nv">r</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Ny<span class="w"> </span>%<span class="w"> </span>comm_size<span class="p">;</span>
+
+std::vector&lt;int&gt;<span class="w"> </span>y_offset<span class="o">(</span>comm_size<span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="o">)</span><span class="p">;</span>
+y_offset<span class="o">[</span><span class="m">0</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="o">(</span>int<span class="w"> </span><span class="nv">ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span>ip<span class="w"> </span>&lt;<span class="w"> </span>r<span class="p">;</span><span class="w"> </span>++ip<span class="o">)</span>
+<span class="w">  </span>y_offset<span class="o">[</span>ip<span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>y_offset<span class="o">[</span>ip<span class="o">]</span><span class="w"> </span>+<span class="w"> </span>local_ny<span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="p">;</span>
+
+<span class="k">for</span><span class="w"> </span><span class="o">(</span>int<span class="w"> </span><span class="nv">ip</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>r<span class="p">;</span><span class="w"> </span>ip<span class="w"> </span>&lt;<span class="w"> </span>comm_size<span class="p">;</span><span class="w"> </span>++ip<span class="o">)</span>
+<span class="w">  </span>y_offset<span class="o">[</span>ip<span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>y_offset<span class="o">[</span>ip<span class="o">]</span><span class="w"> </span>+<span class="w"> </span>local_ny<span class="p">;</span>
+
+//<span class="w"> </span>Define<span class="w"> </span>a<span class="w"> </span>lambda<span class="w"> </span><span class="k">function</span><span class="w"> </span>to<span class="w"> </span>compute<span class="w"> </span>node<span class="w"> </span>unique<span class="w"> </span>ids<span class="w"> </span>from<span class="w"> </span>the<span class="w"> </span>2D<span class="w"> </span><span class="o">(</span>i,j<span class="o">)</span><span class="w"> </span>coordinates
+//<span class="w"> </span><span class="o">(</span>i,j<span class="o">)</span><span class="w"> </span>-&gt;<span class="w"> </span><span class="nv">uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>node_uid<span class="o">(</span>i,j<span class="o">)</span>
+auto<span class="w"> </span><span class="nv">node_uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="o">[</span><span class="p">&amp;</span><span class="o">](</span>int<span class="w"> </span>i,<span class="w"> </span>int<span class="w"> </span>j<span class="o">)</span><span class="w"> </span><span class="o">{</span><span class="w"> </span><span class="k">return</span><span class="w"> </span>j<span class="w"> </span>*<span class="w"> </span>Nx<span class="w"> </span>+<span class="w"> </span>i<span class="p">;</span><span class="w"> </span><span class="o">}</span><span class="p">;</span>
+
+/*
+<span class="w"> </span>*<span class="w"> </span>DEFINITION<span class="w"> </span>of<span class="w"> </span>Unknowns<span class="w"> </span>Unique<span class="w"> </span>Ids<span class="w"> </span>and<span class="w">  </span>Local<span class="w"> </span>Ids
+<span class="w"> </span>*/
+Alien::UniqueArray&lt;UID&gt;<span class="w"> </span>uid<span class="p">;</span>
+Alien::UniqueArray&lt;LID&gt;<span class="w"> </span>lid<span class="p">;</span>
+int<span class="w"> </span><span class="nv">first_j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>y_offset<span class="o">[</span>comm_rank<span class="o">]</span><span class="p">;</span>
+int<span class="w"> </span><span class="nv">last_j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>y_offset<span class="o">[</span>comm_rank<span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="o">]</span><span class="p">;</span>
+
+int<span class="w"> </span><span class="nv">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+<span class="k">for</span><span class="w"> </span><span class="o">(</span>int<span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>first_j<span class="p">;</span><span class="w"> </span>j<span class="w"> </span>&lt;<span class="w"> </span>last_j<span class="p">;</span><span class="w"> </span>++j<span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="o">(</span>int<span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span>i<span class="w"> </span>&lt;<span class="w"> </span>Nx<span class="p">;</span><span class="w"> </span>++i<span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>uid.add<span class="o">(</span>node_uid<span class="o">(</span>i,<span class="w"> </span>j<span class="o">))</span><span class="p">;</span>
+<span class="w">    </span>lid.add<span class="o">(</span>index<span class="o">)</span><span class="p">;</span>
+<span class="w">    </span>++index<span class="p">;</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
+
+/*
+<span class="w"> </span>*<span class="w"> </span>DEFINITION<span class="w"> </span>of<span class="w"> </span>an<span class="w"> </span>abstract<span class="w"> </span>family<span class="w"> </span>of<span class="w"> </span>unknowns
+<span class="w"> </span>*/
+Alien::DefaultAbstractFamily<span class="w"> </span>family<span class="o">(</span>uid,<span class="w"> </span>parallel_mng<span class="o">)</span><span class="p">;</span>
+Alien::IndexManager<span class="w"> </span>index_manager<span class="o">(</span>parallel_mng<span class="o">)</span><span class="p">;</span>
+
+/*
+<span class="w"> </span>*<span class="w"> </span>Creation<span class="w"> </span>of<span class="w"> </span>a<span class="w"> </span><span class="nb">set</span><span class="w"> </span>of<span class="w"> </span>indexes
+<span class="w"> </span>*/
+auto<span class="w"> </span><span class="nv">indexSetU</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>index_manager.buildScalarIndexSet<span class="o">(</span><span class="s2">&quot;U&quot;</span>,<span class="w"> </span>lid,<span class="w"> </span>family,<span class="w"> </span><span class="m">0</span><span class="o">)</span><span class="p">;</span>
+
+//<span class="w"> </span>Combine<span class="w"> </span>all<span class="w"> </span>index<span class="w"> </span><span class="nb">set</span><span class="w"> </span>and<span class="w"> </span>create<span class="w"> </span>Linear<span class="w"> </span>system<span class="w"> </span>index<span class="w"> </span>system
+index_manager.prepare<span class="o">()</span><span class="p">;</span>
+
+auto<span class="w"> </span><span class="nv">global_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>index_manager.globalSize<span class="o">()</span><span class="p">;</span>
+auto<span class="w"> </span><span class="nv">local_size</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>index_manager.localSize<span class="o">()</span><span class="p">;</span>
+
+trace_mng-&gt;info<span class="o">()</span><span class="w"> </span>&lt;&lt;<span class="w"> </span><span class="s2">&quot;GLOBAL SIZE : &quot;</span><span class="w"> </span><span class="s">&lt;&lt; global_size;</span>
+<span class="s">trace_mng-&gt;info() &lt;&lt; &quot;LOCAL SIZE  : &quot; &lt;&lt; local_size;</span>
+
+<span class="s">/*</span>
+<span class="s"> * DEFINITION of</span>
+<span class="s"> * - Alien Space,</span>
+<span class="s"> * - matrix and vector distributions</span>
+<span class="s"> * to manage the distribution of indexes between all MPI processes</span>
+<span class="s"> */</span>
+
+<span class="s">auto space = Alien::Space(global_size</span>,<span class="w"> </span><span class="s2">&quot;MySpace&quot;</span><span class="o">)</span><span class="p">;</span>
+
+auto<span class="w"> </span><span class="nv">mdist</span><span class="w"> </span><span class="o">=</span>
+Alien::MatrixDistribution<span class="o">(</span>global_size,<span class="w"> </span>global_size,<span class="w"> </span>local_size,<span class="w"> </span>parallel_mng<span class="o">)</span><span class="p">;</span>
+auto<span class="w"> </span><span class="nv">vdist</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Alien::VectorDistribution<span class="o">(</span>global_size,<span class="w"> </span>local_size,<span class="w"> </span>parallel_mng<span class="o">)</span><span class="p">;</span>
+
+trace_mng-&gt;info<span class="o">()</span><span class="w"> </span>&lt;&lt;<span class="w"> </span><span class="s2">&quot;MATRIX DISTRIBUTION INFO&quot;</span><span class="p">;</span>
+trace_mng-&gt;info<span class="o">()</span><span class="w"> </span>&lt;&lt;<span class="w"> </span><span class="s2">&quot;GLOBAL ROW SIZE : &quot;</span><span class="w"> </span><span class="s">&lt;&lt; mdist.globalRowSize();</span>
+<span class="s">trace_mng-&gt;info() &lt;&lt; &quot;LOCAL ROW SIZE  : &quot; &lt;&lt; mdist</span>.localRowSize<span class="o">()</span><span class="p">;</span>
+trace_mng-&gt;info<span class="o">()</span><span class="w"> </span>&lt;&lt;<span class="w"> </span><span class="s2">&quot;GLOBAL COL SIZE : &quot;</span><span class="w"> </span><span class="s">&lt;&lt; mdist.globalColSize();</span>
+<span class="s">trace_mng-&gt;info() &lt;&lt; &quot;LOCAL COL SIZE  : &quot; &lt;&lt; mdist</span>.localColSize<span class="o">()</span><span class="p">;</span>
+
+trace_mng-&gt;info<span class="o">()</span><span class="w"> </span>&lt;&lt;<span class="w"> </span><span class="s2">&quot;VECTOR DISTRIBUTION INFO&quot;</span><span class="p">;</span>
+trace_mng-&gt;info<span class="o">()</span><span class="w"> </span>&lt;&lt;<span class="w"> </span><span class="s2">&quot;GLOBAL SIZE : &quot;</span><span class="w"> </span><span class="s">&lt;&lt; vdist.globalSize();</span>
+<span class="s">trace_mng-&gt;info() &lt;&lt; &quot;LOCAL SIZE  : &quot; &lt;&lt; vdist</span>.localSize<span class="o">()</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="matrix">
+<h2>Matrix<a class="headerlink" href="#matrix" title="Link to this heading">¶</a></h2>
+<p>The Matrix concept represents a set of <span class="math notranslate nohighlight">\(N_i\)</span> linear equations (rows) <span class="math notranslate nohighlight">\((y_i)\)</span> of <span class="math notranslate nohighlight">\(N_j\)</span> unknowns <span class="math notranslate nohighlight">\((x_j)\)</span> (columns).
+This represents a linear application <span class="math notranslate nohighlight">\(S_X \mapsto S_Y\)</span> with <span class="math notranslate nohighlight">\(x \in S_X\)</span>, <span class="math notranslate nohighlight">\(y \in S_Y\)</span> and <span class="math notranslate nohighlight">\(x \mapsto y=A*x\)</span>.
+Usually the dimension of <span class="math notranslate nohighlight">\(S_X\)</span> and <span class="math notranslate nohighlight">\(S_Y\)</span> are equal, <span class="math notranslate nohighlight">\(N_i=N_j\)</span>. In that case the matrix is square.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/*
+<span class="w"> </span>*<span class="w"> </span>MATRIX<span class="w"> </span>CONSTRUCTION<span class="w"> </span>STEP
+<span class="w"> </span>*/
+auto<span class="w"> </span><span class="nv">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Alien::Matrix<span class="o">(</span>mdist<span class="o">)</span><span class="p">;</span>
+
+/*<span class="w"> </span>FILLING<span class="w"> </span>STEP<span class="w"> </span>*/
+
+alien_info<span class="o">([</span><span class="p">&amp;</span><span class="o">]</span><span class="w"> </span><span class="o">{</span><span class="w"> </span>cout<span class="o">()</span><span class="w"> </span>&lt;&lt;<span class="w"> </span><span class="s2">&quot;DIRECT ONE STEP FILLING PHASE&quot;</span><span class="p">;</span><span class="o">})</span><span class="w"> </span><span class="p">;</span>
+
+auto<span class="w"> </span><span class="nv">tag</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Alien::DirectMatrixOptions::eResetValues<span class="p">;</span>
+<span class="o">{</span>
+<span class="w">  </span>auto<span class="w"> </span><span class="nv">builder</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Alien::DirectMatrixBuilder<span class="o">(</span>A,<span class="w"> </span>tag,<span class="w"> </span>Alien::DirectMatrixOptions::SymmetricFlag::eUnSymmetric<span class="o">)</span><span class="p">;</span>
+
+<span class="w">  </span>//<span class="w"> </span>RESERVE<span class="w"> </span><span class="m">5</span><span class="w"> </span>non<span class="w"> </span>zero<span class="w"> </span>entries<span class="w"> </span>per<span class="w"> </span>row
+<span class="w">  </span>builder.reserve<span class="o">(</span><span class="m">5</span><span class="o">)</span><span class="p">;</span>
+<span class="w">  </span>builder.allocate<span class="o">()</span><span class="p">;</span>
+
+<span class="w">  </span>//<span class="w"> </span>LOOP<span class="w"> </span>FOLLOWING<span class="w"> </span>Y<span class="w"> </span>AXE
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="o">(</span>int<span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>first_j<span class="p">;</span><span class="w"> </span>j<span class="w"> </span>&lt;<span class="w"> </span>last_j<span class="p">;</span><span class="w"> </span>++j<span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>//<span class="w"> </span>LOOP<span class="w"> </span>FOLLOWING<span class="w"> </span>X<span class="w"> </span>AXE
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="o">(</span>int<span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span>i<span class="w"> </span>&lt;<span class="w"> </span>Nx<span class="p">;</span><span class="w"> </span>++i<span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">      </span>auto<span class="w"> </span><span class="nv">n_uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>node_uid<span class="o">(</span>i,<span class="w"> </span>j<span class="o">)</span><span class="p">;</span>
+<span class="w">      </span>auto<span class="w"> </span><span class="nv">n_lid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>uid2lid<span class="o">[</span>n_uid<span class="o">]</span><span class="p">;</span>
+<span class="w">      </span>auto<span class="w"> </span><span class="nv">irow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>allUIndex<span class="o">[</span>n_lid<span class="o">]</span><span class="p">;</span>
+
+<span class="w">      </span>//<span class="w"> </span>DIAGONAL<span class="w"> </span>FILLING
+<span class="w">      </span>builder<span class="o">(</span>irow,<span class="w"> </span>irow<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">4</span><span class="p">;</span>
+
+<span class="w">      </span>//<span class="w"> </span>OFF<span class="w"> </span>DIAG<span class="w"> </span>FILLING
+<span class="w">      </span>//<span class="w"> </span>On<span class="w"> </span>bottom
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="o">(</span>j<span class="w"> </span>&gt;<span class="w"> </span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span>auto<span class="w"> </span><span class="nv">off_uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>node_uid<span class="o">(</span>i,<span class="w"> </span>j<span class="w"> </span>-<span class="w"> </span><span class="m">1</span><span class="o">)</span><span class="p">;</span>
+<span class="w">        </span>auto<span class="w"> </span><span class="nv">off_lid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>uid2lid<span class="o">[</span>off_uid<span class="o">]</span><span class="p">;</span>
+<span class="w">        </span>auto<span class="w"> </span><span class="nv">jcol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>allUIndex<span class="o">[</span>off_lid<span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">(</span>jcol<span class="w"> </span>!<span class="o">=</span><span class="w"> </span>-1<span class="o">)</span>
+<span class="w">          </span>builder<span class="o">(</span>irow,<span class="w"> </span>jcol<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>-1<span class="p">;</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">      </span>//<span class="w"> </span>On<span class="w"> </span>the<span class="w"> </span>left<span class="w"> </span>size
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="o">(</span>i<span class="w"> </span>&gt;<span class="w"> </span><span class="m">0</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span>auto<span class="w"> </span><span class="nv">off_uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>node_uid<span class="o">(</span>i<span class="w"> </span>-<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>j<span class="o">)</span><span class="p">;</span>
+<span class="w">        </span>auto<span class="w"> </span><span class="nv">off_lid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>uid2lid<span class="o">[</span>off_uid<span class="o">]</span><span class="p">;</span>
+<span class="w">        </span>auto<span class="w"> </span><span class="nv">jcol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>allUIndex<span class="o">[</span>off_lid<span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">(</span>jcol<span class="w"> </span>!<span class="o">=</span><span class="w"> </span>-1<span class="o">)</span>
+<span class="w">          </span>builder<span class="o">(</span>irow,<span class="w"> </span>jcol<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>-1<span class="p">;</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">      </span>//<span class="w"> </span>on<span class="w"> </span>the<span class="w"> </span>right<span class="w"> </span>side
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="o">(</span>i<span class="w"> </span>&lt;<span class="w"> </span>Nx<span class="w"> </span>-<span class="w"> </span><span class="m">1</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span>auto<span class="w"> </span><span class="nv">off_uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>node_uid<span class="o">(</span>i<span class="w"> </span>+<span class="w"> </span><span class="m">1</span>,<span class="w"> </span>j<span class="o">)</span><span class="p">;</span>
+<span class="w">        </span>auto<span class="w"> </span><span class="nv">off_lid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>uid2lid<span class="o">[</span>off_uid<span class="o">]</span><span class="p">;</span>
+<span class="w">        </span>auto<span class="w"> </span><span class="nv">jcol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>allUIndex<span class="o">[</span>off_lid<span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">(</span>jcol<span class="w"> </span>!<span class="o">=</span><span class="w"> </span>-1<span class="o">)</span>
+<span class="w">          </span>builder<span class="o">(</span>irow,<span class="w"> </span>jcol<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>-1<span class="p">;</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">      </span>//<span class="w"> </span>On<span class="w"> </span>the<span class="w"> </span>top
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="o">(</span>j<span class="w"> </span>&lt;<span class="w"> </span>Ny<span class="w"> </span>-<span class="w"> </span><span class="m">1</span><span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">        </span>auto<span class="w"> </span><span class="nv">off_uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>node_uid<span class="o">(</span>i,<span class="w"> </span>j<span class="w"> </span>+<span class="w"> </span><span class="m">1</span><span class="o">)</span><span class="p">;</span>
+<span class="w">        </span>auto<span class="w"> </span><span class="nv">off_lid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>uid2lid<span class="o">[</span>off_uid<span class="o">]</span><span class="p">;</span>
+<span class="w">        </span>auto<span class="w"> </span><span class="nv">jcol</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>allUIndex<span class="o">[</span>off_lid<span class="o">]</span><span class="p">;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">(</span>jcol<span class="w"> </span>!<span class="o">=</span><span class="w"> </span>-1<span class="o">)</span>
+<span class="w">          </span>builder<span class="o">(</span>irow,<span class="w"> </span>jcol<span class="o">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>-1<span class="p">;</span>
+<span class="w">      </span><span class="o">}</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</section>
+<section id="vector">
+<h2>Vector<a class="headerlink" href="#vector" title="Link to this heading">¶</a></h2>
+<p>The Vector concept represents the set of unknowns <span class="math notranslate nohighlight">\(x=(x_i)\)</span> element of a linear space <span class="math notranslate nohighlight">\(S_X\)</span>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/*
+<span class="w"> </span>*<span class="w"> </span>VECTOR<span class="w"> </span>CONSTRUCTION
+<span class="w"> </span>*/
+auto<span class="w"> </span><span class="nv">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Alien::Vector<span class="o">(</span>vdist<span class="o">)</span><span class="p">;</span>
+
+//<span class="w"> </span>VECTOR<span class="w"> </span>FILLING<span class="w"> </span>STEP
+<span class="o">{</span>
+<span class="w">  </span>Alien::VectorWriter<span class="w"> </span>writer<span class="o">(</span>B<span class="o">)</span><span class="p">;</span>
+
+<span class="w">  </span>//<span class="w"> </span>LOOP<span class="w"> </span>ALONG<span class="w"> </span>Y<span class="w"> </span>AXE
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="o">(</span>int<span class="w"> </span><span class="nv">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>first_j<span class="p">;</span><span class="w"> </span>j<span class="w"> </span>&lt;<span class="w"> </span>last_j<span class="p">;</span><span class="w"> </span>++j<span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>//<span class="w"> </span>LOOP<span class="w"> </span>ALONG<span class="w"> </span>X<span class="w"> </span>AXE
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="o">(</span>int<span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span>i<span class="w"> </span>&lt;<span class="w"> </span>Nx<span class="p">;</span><span class="w"> </span>++i<span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">      </span>auto<span class="w"> </span><span class="nv">n_uid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>node_uid<span class="o">(</span>i,<span class="w"> </span>j<span class="o">)</span><span class="p">;</span>
+<span class="w">      </span>auto<span class="w"> </span><span class="nv">n_lid</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>uid2lid<span class="o">[</span>n_uid<span class="o">]</span><span class="p">;</span>
+<span class="w">      </span>auto<span class="w"> </span><span class="nv">irow</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>allUIndex<span class="o">[</span>n_lid<span class="o">]</span><span class="p">;</span>
+
+<span class="w">      </span>writer<span class="o">[</span>irow<span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span>.<span class="w"> </span>/<span class="w"> </span><span class="o">(</span><span class="m">1</span>.<span class="w"> </span>+<span class="w"> </span>i<span class="w"> </span>+<span class="w"> </span>j<span class="o">)</span><span class="p">;</span>
+<span class="w">    </span><span class="o">}</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
+
+//<span class="w"> </span>VECTOR<span class="w"> </span>ACCESSOR
+<span class="o">{</span>
+<span class="w">  </span>Alien::LocalVectorReader<span class="w"> </span>reader<span class="o">(</span>B<span class="o">)</span><span class="p">;</span>
+<span class="w">  </span><span class="k">for</span><span class="w"> </span><span class="o">(</span>int<span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span>i<span class="w"> </span>&lt;<span class="w"> </span>reader.size<span class="o">()</span><span class="p">;</span><span class="w"> </span>++i<span class="o">)</span><span class="w"> </span><span class="o">{</span>
+<span class="w">    </span>trace_mng-&gt;info<span class="o">()</span><span class="w"> </span>&lt;&lt;<span class="w"> </span><span class="s2">&quot;B[&quot;</span><span class="w"> </span><span class="s">&lt;&lt; i &lt;&lt; &quot;]=&quot; &lt;&lt; reader[i</span><span class="o">]</span><span class="p">;</span>
+<span class="w">  </span><span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</section>
+<section id="linear-systems-resolution">
+<h2>Linear Systems resolution<a class="headerlink" href="#linear-systems-resolution" title="Link to this heading">¶</a></h2>
+<p>A linear system is reprensented by a matrix <span class="math notranslate nohighlight">\(A\)</span>, and two vectors <span class="math notranslate nohighlight">\(B\)</span> and <span class="math notranslate nohighlight">\(X\)</span> where <span class="math notranslate nohighlight">\(B\)</span> is the system right hand side and <span class="math notranslate nohighlight">\(X\)</span> the solution.</p>
+<p>Solving the linear system consists in finding the solution X such that <span class="math notranslate nohighlight">\(A*X=B\)</span> applying a linear solver algorithm.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>/*
+<span class="w"> </span>*<span class="w"> </span>LINEAR<span class="w"> </span>SYSTEM<span class="w"> </span>CONSTRUCTION
+<span class="w"> </span>*/
+
+auto<span class="w"> </span><span class="nv">A</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Alien::Matrix<span class="o">(</span>mdist<span class="o">)</span><span class="p">;</span>
+auto<span class="w"> </span><span class="nv">B</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Alien::Vector<span class="o">(</span>vdist<span class="o">)</span><span class="p">;</span>
+auto<span class="w"> </span><span class="nv">X</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>Alien::Vector<span class="o">(</span>vdist<span class="o">)</span><span class="p">;</span>
+
+auto<span class="w"> </span><span class="nv">solver</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>createSolver<span class="o">(</span>/*<span class="w">  </span>...<span class="w"> </span>*/<span class="o">)</span><span class="w"> </span><span class="p">;</span>
+
+solver-&gt;init<span class="o">()</span><span class="w"> </span><span class="p">;</span>
+
+solver-&gt;solve<span class="o">(</span>matrixA,<span class="w"> </span>vectorB,<span class="w"> </span>vectorX<span class="o">)</span><span class="p">;</span>
+
+Alien::SolverStatus<span class="w"> </span><span class="nv">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>solver-&gt;getStatus<span class="o">()</span><span class="p">;</span>
+<span class="k">if</span><span class="w"> </span><span class="o">(</span>status.succeeded<span class="o">)</span>
+<span class="o">{</span>
+<span class="w">    </span>alien_info<span class="o">()([</span><span class="p">&amp;</span><span class="o">]{</span><span class="w"> </span>cout<span class="o">()</span>&lt;&lt;<span class="s2">&quot;SOLVER HAS  SUCCEEDED&quot;</span><span class="p">;</span><span class="o">})</span><span class="w"> </span><span class="p">;</span>
+
+<span class="w">    </span>SimpleCSRLinearAlgebra<span class="w"> </span>alg<span class="p">;</span>
+<span class="w">    </span>Alien::Vector<span class="w"> </span>vectorR<span class="o">(</span>m_vdist<span class="o">)</span><span class="p">;</span>
+<span class="w">    </span>alg.mult<span class="o">(</span>matrixA,<span class="w"> </span>vectorX,<span class="w"> </span>vectorR<span class="o">)</span><span class="p">;</span>
+<span class="w">    </span>alg.axpy<span class="o">(</span>-1.,<span class="w"> </span>vectorB,<span class="w"> </span>vectorR<span class="o">)</span><span class="p">;</span>
+<span class="w">    </span>Real<span class="w"> </span><span class="nv">res</span><span class="w"> </span><span class="o">=</span><span class="w"> </span>alg.norm2<span class="o">(</span>vectorR<span class="o">)</span><span class="p">;</span>
+<span class="w">    </span>alien_info<span class="o">([</span><span class="p">&amp;</span><span class="o">]</span><span class="w"> </span>cout<span class="o">()</span><span class="w"> </span>&lt;&lt;<span class="w"> </span><span class="s2">&quot;RES : &quot;</span><span class="w"> </span><span class="s">&lt;&lt; res;}) ;</span>
+<span class="s">  }</span>
+<span class="s">  else</span>
+<span class="s">    alien_info()([&amp;]{ cout()&lt;&lt;&quot;SOLVER FAILED&quot;;}) ;</span>
+<span class="s">  solver</span>-&gt;getSolverStat<span class="o">()</span>.print<span class="o">(</span>Universe<span class="o">()</span>.traceMng<span class="o">()</span>,<span class="w"> </span>status,<span class="w"> </span><span class="s2">&quot;Linear Solver : &quot;</span><span class="o">)</span><span class="p">;</span>
+<span class="o">}</span>
+
+solver-&gt;end<span class="o">()</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Alien</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="user/index.html">Alien user documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial C++ API</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#intro">Intro</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#space">Space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#matrix">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#vector">Vector</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#linear-systems-resolution">Linear Systems resolution</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorialC.html">Tutorial C API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorialF.html">Tutorial FORTRAN API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer/index.html">Alien developer documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sycl/index.html">Alien SYCL documentation</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="user/ref.html" title="previous chapter">Building with ref semantic</a></li>
+      <li>Next: <a href="tutorialC.html" title="next chapter">Tutorial C API</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2024, CEA, IFPEN.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/tutorial.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
