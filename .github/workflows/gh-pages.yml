@@ -141,9 +141,6 @@ jobs:
             CMDD=$(du -ahc --time --max-depth=1 "${DIR}")
             grep -E -- '$(echo "${CMDD}" | tail -n1)|$' <(echo "${CMDD}" | sort -h)
           }
-          echo "::group::SOURCE_DIR :"
-          dum "${{ env.SOURCE_DIR }}"
-          echo "::endgroup::"
           echo "::group::BUILD_DIR :"
           dum "${{ env.BUILD_DIR }}"
           echo "::endgroup::"
@@ -189,15 +186,6 @@ jobs:
             CMDD=$(du -ahc --time --max-depth=1 "${DIR}")
             grep -E -- '$(echo "${CMDD}" | tail -n1)|$' <(echo "${CMDD}" | sort -h)
           }
-          echo "::group::SOURCE_DIR :"
-          dum "${{ env.SOURCE_DIR }}"
-          echo "::endgroup::"
-          echo "::group::BUILD_DIR :"
-          dum "${{ env.BUILD_DIR }}"
-          echo "::endgroup::"
-          echo "::group::CCACHE_DIR :"
-          dum "${{ env.CCACHE_DIR }}"
-          echo "::endgroup::"
           echo "::group::DOC_DIR :"
           dum "${{ env.DOC_DIR }}"
           echo "::endgroup::"
@@ -213,24 +201,7 @@ jobs:
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
 
-      - name: Display disks infos and size of directories
+      - name: Display disks infos
         shell: bash
         run: |
           df -h
-          dum(){
-            DIR="${1:-0}"
-            CMDD=$(du -ahc --time --max-depth=1 "${DIR}")
-            grep -E -- '$(echo "${CMDD}" | tail -n1)|$' <(echo "${CMDD}" | sort -h)
-          }
-          echo "::group::SOURCE_DIR :"
-          dum "${{ env.SOURCE_DIR }}"
-          echo "::endgroup::"
-          echo "::group::BUILD_DIR :"
-          dum "${{ env.BUILD_DIR }}"
-          echo "::endgroup::"
-          echo "::group::CCACHE_DIR :"
-          dum "${{ env.CCACHE_DIR }}"
-          echo "::endgroup::"
-          echo "::group::DOC_DIR :"
-          dum "${{ env.DOC_DIR }}"
-          echo "::endgroup::"
