@@ -5,15 +5,6 @@ on:
     - cron: '23 1 * * 1' # Tous les lundis à 01:23 (du matin).
   # A executer lorsque l'on demande.
   workflow_dispatch:
-  
-
-env:
-
-  SOURCE_DIR: '/__w/arcaneframework.github.io/arcaneframework.github.io/framework'
-  BUILD_DIR: '/__w/arcaneframework.github.io/arcaneframework.github.io/build'
-  CCACHE_DIR: '/__w/arcaneframework.github.io/arcaneframework.github.io/ccache'
-  DOC_DIR: '/__w/arcaneframework.github.io/arcaneframework.github.io/doc'
-
 
 jobs:
   arcane_build:
@@ -23,10 +14,59 @@ jobs:
       image: ghcr.io/arcaneframework/ubuntu-2404:doc_latest
 
     steps:
+      - name: Display CPU infos
+        shell: bash
+        run: |
+          cat /proc/cpuinfo
+
+      - name: Display disks infos
+        shell: bash
+        run: |
+          df -h
+
+      - name: Define environment paths
+        shell: bash
+        run: |
+          echo "SOURCE_DIR=${GITHUB_WORKSPACE}/framework" >> $GITHUB_ENV
+          echo "BUILD_DIR=${GITHUB_WORKSPACE}/build" >> $GITHUB_ENV
+          echo "CCACHE_DIR=${GITHUB_WORKSPACE}/ccache" >> $GITHUB_ENV
+          echo "DOC_DIR=${GITHUB_WORKSPACE}/doc" >> $GITHUB_ENV
+
+
+      - name: Create paths
+        shell: bash
+        run: |
+          mkdir ${{ env.SOURCE_DIR }} \
+            ${{ env.BUILD_DIR }} \
+            ${{ env.CCACHE_DIR }} \
+            ${{ env.DOC_DIR }}
+
       - name: Checkout doc
         uses: actions/checkout@v4
         with:
           path: ${{ env.DOC_DIR }}
+
+      - name: Display disks infos and size of directories
+        shell: bash
+        run: |
+          df -h
+          dum(){
+            DIR="${1:-0}"
+            CMDD=$(du -ahc --time --max-depth=1 "${DIR}")
+            grep -E -- '$(echo "${CMDD}" | tail -n1)|$' <(echo "${CMDD}" | sort -h)
+          }
+          echo "::group::SOURCE_DIR :"
+          dum "${{ env.SOURCE_DIR }}"
+          echo "::endgroup::"
+          echo "::group::BUILD_DIR :"
+          dum "${{ env.BUILD_DIR }}"
+          echo "::endgroup::"
+          echo "::group::CCACHE_DIR :"
+          dum "${{ env.CCACHE_DIR }}"
+          echo "::endgroup::"
+          echo "::group::DOC_DIR :"
+          dum "${{ env.DOC_DIR }}"
+          echo "::endgroup::"
 
       - name: Remove old docs files
         shell: bash
@@ -54,12 +94,35 @@ jobs:
           key: doc-${{ env.m_date }}-${{ github.run_number }}
           restore-keys: doc-
 
+      - name: Display disks infos and size of directories
+        shell: bash
+        run: |
+          df -h
+          dum(){
+            DIR="${1:-0}"
+            CMDD=$(du -ahc --time --max-depth=1 "${DIR}")
+            grep -E -- '$(echo "${CMDD}" | tail -n1)|$' <(echo "${CMDD}" | sort -h)
+          }
+          echo "::group::SOURCE_DIR :"
+          dum "${{ env.SOURCE_DIR }}"
+          echo "::endgroup::"
+          echo "::group::BUILD_DIR :"
+          dum "${{ env.BUILD_DIR }}"
+          echo "::endgroup::"
+          echo "::group::CCACHE_DIR :"
+          dum "${{ env.CCACHE_DIR }}"
+          echo "::endgroup::"
+          echo "::group::DOC_DIR :"
+          dum "${{ env.DOC_DIR }}"
+          echo "::endgroup::"
+
       - name: Build framework
         uses: arcaneframework/gh_actions/build_install_framework@v2
         with:
           source_dir: ${{ env.SOURCE_DIR }}
           build_dir: ${{ env.BUILD_DIR }}
           cache_dir: ${{ env.CCACHE_DIR }}
+          max_size_cache_dir: 512M
           with_userdoc: true
           with_devdoc: true
           with_aliendoc: true
@@ -68,6 +131,28 @@ jobs:
         shell: bash
         run: |
           rm -rf ${{ env.SOURCE_DIR }}
+
+      - name: Display disks infos and size of directories
+        shell: bash
+        run: |
+          df -h
+          dum(){
+            DIR="${1:-0}"
+            CMDD=$(du -ahc --time --max-depth=1 "${DIR}")
+            grep -E -- '$(echo "${CMDD}" | tail -n1)|$' <(echo "${CMDD}" | sort -h)
+          }
+          echo "::group::SOURCE_DIR :"
+          dum "${{ env.SOURCE_DIR }}"
+          echo "::endgroup::"
+          echo "::group::BUILD_DIR :"
+          dum "${{ env.BUILD_DIR }}"
+          echo "::endgroup::"
+          echo "::group::CCACHE_DIR :"
+          dum "${{ env.CCACHE_DIR }}"
+          echo "::endgroup::"
+          echo "::group::DOC_DIR :"
+          dum "${{ env.DOC_DIR }}"
+          echo "::endgroup::"
 
       - name: Move userdoc devdoc and aliendoc
         shell: bash
@@ -95,6 +180,28 @@ jobs:
         run: |
           rm -rf ${{ env.CCACHE_DIR }}
 
+      - name: Display disks infos and size of directories
+        shell: bash
+        run: |
+          df -h
+          dum(){
+            DIR="${1:-0}"
+            CMDD=$(du -ahc --time --max-depth=1 "${DIR}")
+            grep -E -- '$(echo "${CMDD}" | tail -n1)|$' <(echo "${CMDD}" | sort -h)
+          }
+          echo "::group::SOURCE_DIR :"
+          dum "${{ env.SOURCE_DIR }}"
+          echo "::endgroup::"
+          echo "::group::BUILD_DIR :"
+          dum "${{ env.BUILD_DIR }}"
+          echo "::endgroup::"
+          echo "::group::CCACHE_DIR :"
+          dum "${{ env.CCACHE_DIR }}"
+          echo "::endgroup::"
+          echo "::group::DOC_DIR :"
+          dum "${{ env.DOC_DIR }}"
+          echo "::endgroup::"
+
       - name: Deploy Docs
         uses: peaceiris/actions-gh-pages@v4
         with:
@@ -105,3 +212,25 @@ jobs:
           exclude_assets: ''
           user_name: 'github-actions[bot]'
           user_email: 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Display disks infos and size of directories
+        shell: bash
+        run: |
+          df -h
+          dum(){
+            DIR="${1:-0}"
+            CMDD=$(du -ahc --time --max-depth=1 "${DIR}")
+            grep -E -- '$(echo "${CMDD}" | tail -n1)|$' <(echo "${CMDD}" | sort -h)
+          }
+          echo "::group::SOURCE_DIR :"
+          dum "${{ env.SOURCE_DIR }}"
+          echo "::endgroup::"
+          echo "::group::BUILD_DIR :"
+          dum "${{ env.BUILD_DIR }}"
+          echo "::endgroup::"
+          echo "::group::CCACHE_DIR :"
+          dum "${{ env.CCACHE_DIR }}"
+          echo "::endgroup::"
+          echo "::group::DOC_DIR :"
+          dum "${{ env.DOC_DIR }}"
+          echo "::endgroup::"
