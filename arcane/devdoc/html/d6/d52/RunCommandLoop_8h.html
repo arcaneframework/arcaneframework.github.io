@@ -1,0 +1,896 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <meta name="generator" content="Doxygen 1.9.8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="../../logo_arcane.svg" type="image/svg+xml">
+    <title>Arcane: Référence du fichier RunCommandLoop.h</title>
+    <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../../jquery.js"></script>
+    <script type="text/javascript" src="../../dynsections.js"></script>
+    <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+    <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+    <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../dev_colors.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+    <script type="text/javascript" src="../../script-helper.js"></script>
+    <script type="text/javascript" src="../../script-resize.js"></script>
+    <script type="text/javascript" src="../../script-num-lines-code.js"></script>
+    <script type="text/javascript" src="../../script-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-edit-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-alternative-theme.js"></script>
+    <script type="text/javascript">
+      // On demande l'activation de la personnalisation de la page.
+      var no_custom_theme = false;
+      DoxygenAwesomeDarkModeToggle.title = "Thème clair/sombre";
+      DoxygenAwesomeDarkModeToggle.init();
+      DoxygenAwesomeFragmentCopyButton.title = "Copier le code dans le presse-papier";
+      DoxygenAwesomeFragmentCopyButton.init();
+      DoxygenAwesomeParagraphLink.init();
+      DoxygenAwesomeInteractiveToc.init();
+      DoxygenAwesomeTabs.init()
+      waitElemForResizeSideNav();
+      setOldSize();
+      //waitItemExpandCurrent();
+    </script>
+  </head>
+  <body>
+    <!--BEGIN CORNER_GITHUB-->
+    <!-- https://tholman.com/github-corners/ -->
+    <a href="https://github.com/arcaneframework/framework" class="github-corner" aria-label="Voir les sources sur GitHub">
+      <svg width="70" height="70" viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <!--END CORNER_GITHUB-->
+      <div id="top">
+        <!-- do not remove this div, it is closed by doxygen! -->
+        <div id="titlearea">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr id="projectrow">
+                <td id="projectlogo">
+                  <a href="../../index.html" title="Aller à la page principale">
+                    <img alt="Logo" src="../../arcane_framework_small.webp" />
+                  </a>
+                </td>
+              </tr>
+              <tr id="projectrow">
+                <td id="projectalign">
+                  <div id="projectname">Arcane
+                    <span id="projectnumber">&#160;v3.15.0.0</span>
+                  </div>
+                  <div id="projectbrief">Documentation développeur</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('d6/d52/RunCommandLoop_8h.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#namespaces">Espaces de nommage</a> &#124;
+<a href="#define-members">Macros</a> &#124;
+<a href="#func-members">Fonctions</a>  </div>
+  <div class="headertitle"><div class="title">Référence du fichier RunCommandLoop.h</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Types et macros pour gérer les boucles sur les accélérateurs.  
+<a href="#details">Plus de détails...</a></p>
+<div class="textblock"><code>#include &quot;arcane/utils/ArcaneCxx20.h&quot;</code><br />
+<code>#include &quot;arcane/accelerator/RunCommand.h&quot;</code><br />
+<code>#include &quot;arcane/accelerator/KernelLauncher.h&quot;</code><br />
+</div><div class="textblock"><div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-0-trigger" src="../../closed.png" alt="+"/> Graphe des dépendances par inclusion de RunCommandLoop.h:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../d7/d9d/RunCommandLoop_8h__incl.png" border="0" usemap="#aRunCommandLoop_8h" alt=""/></div>
+<map name="aRunCommandLoop_8h" id="aRunCommandLoop_8h">
+<area shape="rect" title="Types et macros pour gérer les boucles sur les accélérateurs." alt="" coords="755,5,912,31"/>
+<area shape="rect" href="../../d1/d68/ArcaneCxx20_8h_source.html" title=" " alt="" coords="1357,86,1557,111"/>
+<area shape="poly" title=" " alt="" coords="913,27,1353,82,1353,87,912,32"/>
+<area shape="rect" href="../../d4/dc9/RunCommand_8h_source.html" title=" " alt="" coords="482,79,625,119"/>
+<area shape="poly" title=" " alt="" coords="793,33,634,78,633,72,792,28"/>
+<area shape="rect" href="../../db/dff/KernelLauncher_8h_source.html" title=" " alt="" coords="762,79,905,119"/>
+<area shape="poly" title=" " alt="" coords="836,31,836,65,831,65,831,31"/>
+<area shape="rect" href="../../d0/d1e/ArcaneGlobal_8h.html" title="Fichier de configuration d&#39;Arcane." alt="" coords="979,687,1181,713"/>
+<area shape="poly" title=" " alt="" coords="1483,109,1542,141,1616,191,1655,222,1691,258,1723,298,1748,341,1782,399,1797,427,1806,457,1804,491,1787,530,1753,577,1696,634,1671,646,1625,657,1494,674,1338,687,1195,696,1194,691,1338,682,1494,669,1624,652,1669,641,1693,630,1749,574,1782,528,1798,490,1800,458,1792,429,1777,402,1743,344,1718,301,1687,262,1651,226,1613,195,1539,145,1481,114"/>
+<area shape="rect" href="../../dd/d76/ArccoreGlobal_8h_source.html" title=" " alt="" coords="806,841,1018,867"/>
+<area shape="poly" title=" " alt="" coords="1063,715,1028,739,990,770,932,832,928,829,986,766,1025,735,1060,711"/>
+<area shape="rect" title=" " alt="" coords="1001,768,1159,793"/>
+<area shape="poly" title=" " alt="" coords="1083,713,1083,754,1077,754,1077,713"/>
+<area shape="rect" title=" " alt="" coords="347,768,411,793"/>
+<area shape="poly" title=" " alt="" coords="979,715,424,777,424,772,979,710"/>
+<area shape="rect" title=" " alt="" coords="805,915,872,940"/>
+<area shape="poly" title=" " alt="" coords="902,869,862,907,859,903,898,865"/>
+<area shape="rect" title=" " alt="" coords="897,915,1077,940"/>
+<area shape="poly" title=" " alt="" coords="926,865,966,903,963,907,922,869"/>
+<area shape="rect" href="../../d0/d3e/core_2RunCommand_8h_source.html" title=" " alt="" coords="5,255,168,295"/>
+<area shape="poly" title=" " alt="" coords="482,115,387,137,285,169,200,209,129,250,126,245,198,204,283,164,386,132,481,110"/>
+<area shape="rect" href="../../d5/dfd/AcceleratorCoreGlobal_8h.html" title=" " alt="" coords="272,431,488,471"/>
+<area shape="poly" title=" " alt="" coords="83,295,76,338,79,361,89,381,114,399,155,414,259,434,258,440,153,419,112,404,85,384,74,362,71,338,78,294"/>
+<area shape="poly" title=" " alt="" coords="383,471,381,754,376,754,377,471"/>
+<area shape="rect" href="../../d4/da8/UtilsTypes_8h.html" title="Déclarations des types utilisés dans Arcane." alt="" coords="645,519,827,544"/>
+<area shape="poly" title=" " alt="" coords="466,468,671,513,670,518,465,473"/>
+<area shape="poly" title=" " alt="" coords="756,542,825,582,914,630,1036,680,1034,685,912,634,822,587,753,547"/>
+<area shape="rect" href="../../d4/d12/BaseTypes_8h.html" title="Déclarations des types de la composante &#39;base&#39; de Arccore." alt="" coords="1183,768,1374,793"/>
+<area shape="poly" title=" " alt="" coords="827,537,991,556,1066,571,1119,590,1169,626,1211,671,1245,717,1268,754,1263,757,1240,720,1207,675,1165,630,1116,594,1064,576,990,562,827,542"/>
+<area shape="rect" href="../../dc/d80/RefDeclarations_8h.html" title=" " alt="" coords="590,687,815,713"/>
+<area shape="poly" title=" " alt="" coords="762,542,791,562,804,575,814,591,821,612,814,633,802,650,787,664,753,684,750,680,784,660,798,646,810,631,816,612,810,593,800,578,787,566,759,546"/>
+<area shape="rect" href="../../d0/d8d/CollectionsGlobal_8h_source.html" title=" " alt="" coords="100,680,252,720"/>
+<area shape="poly" title=" " alt="" coords="645,545,529,564,466,577,405,595,306,634,222,676,220,671,303,629,403,589,465,572,528,558,645,540"/>
+<area shape="rect" href="../../d1/db9/ConcurrencyGlobal_8h_source.html" title=" " alt="" coords="417,592,578,632"/>
+<area shape="poly" title=" " alt="" coords="702,547,568,590,567,585,700,541"/>
+<area shape="rect" href="../../dd/d4e/TraceGlobal_8h_source.html" title=" " alt="" coords="602,599,801,625"/>
+<area shape="poly" title=" " alt="" coords="733,545,714,588,710,586,728,543"/>
+<area shape="poly" title=" " alt="" coords="1220,796,985,841,984,836,1219,791"/>
+<area shape="rect" title=" " alt="" coords="1243,841,1314,867"/>
+<area shape="poly" title=" " alt="" coords="1281,794,1281,828,1276,828,1276,794"/>
+<area shape="poly" title=" " alt="" coords="720,711,886,831,883,835,717,715"/>
+<area shape="rect" title=" " alt="" coords="675,768,767,793"/>
+<area shape="poly" title=" " alt="" coords="708,712,718,754,713,755,703,713"/>
+<area shape="rect" title=" " alt="" coords="573,768,651,793"/>
+<area shape="poly" title=" " alt="" coords="691,715,637,761,634,757,688,711"/>
+<area shape="poly" title=" " alt="" coords="202,718,261,756,297,776,335,791,421,809,541,824,792,844,792,849,540,829,420,814,334,796,295,780,258,761,199,722"/>
+<area shape="poly" title=" " alt="" coords="226,718,337,760,335,765,224,723"/>
+<area shape="poly" title=" " alt="" coords="543,630,664,680,662,685,541,635"/>
+<area shape="poly" title=" " alt="" coords="704,625,705,673,700,673,699,625"/>
+<area shape="rect" href="../../da/d85/CheckedConvert_8h_source.html" title=" " alt="" coords="839,262,1059,287"/>
+<area shape="poly" title=" " alt="" coords="837,119,843,161,850,184,861,205,886,232,915,253,912,257,882,236,856,208,845,186,838,162,831,119"/>
+<area shape="rect" href="../../db/dc6/LoopRanges_8h_source.html" title=" " alt="" coords="1131,174,1325,199"/>
+<area shape="poly" title=" " alt="" coords="905,113,1163,168,1162,174,904,118"/>
+<area shape="rect" href="../../de/d40/AcceleratorGlobal_8h_source.html" title=" " alt="" coords="99,343,253,383"/>
+<area shape="poly" title=" " alt="" coords="762,107,698,114,623,126,544,144,468,169,391,207,319,252,257,297,209,336,206,331,254,293,316,247,388,202,466,164,543,139,622,121,697,109,761,102"/>
+<area shape="rect" href="../../d2/dae/RunCommandLaunchInfo_8h_source.html" title=" " alt="" coords="479,167,681,207"/>
+<area shape="poly" title=" " alt="" coords="779,121,649,165,647,160,777,116"/>
+<area shape="rect" title=" " alt="" coords="871,174,926,199"/>
+<area shape="poly" title=" " alt="" coords="850,117,883,161,879,164,846,121"/>
+<area shape="poly" title=" " alt="" coords="945,289,917,333,875,385,844,409,814,433,780,471,754,508,749,505,776,468,810,429,841,405,871,381,913,329,940,286"/>
+<area shape="rect" href="../../d2/da3/BadCastException_8h_source.html" title=" " alt="" coords="1179,350,1411,375"/>
+<area shape="poly" title=" " alt="" coords="996,285,1236,344,1235,349,995,290"/>
+<area shape="rect" href="../../d8/d3e/arcane_2src_2arcane_2utils_2String_8h_source.html" title=" " alt="" coords="1372,438,1524,463"/>
+<area shape="poly" title=" " alt="" coords="1060,275,1161,280,1268,291,1362,311,1398,324,1424,341,1439,359,1447,381,1452,424,1447,425,1442,383,1434,362,1421,345,1396,329,1361,316,1268,297,1161,286,1060,280"/>
+<area shape="rect" title=" " alt="" coords="1624,599,1683,625"/>
+<area shape="poly" title=" " alt="" coords="1060,280,1165,288,1279,301,1381,318,1422,328,1453,340,1514,375,1556,412,1591,457,1628,517,1643,552,1652,585,1647,586,1638,554,1623,520,1586,460,1553,415,1511,380,1451,345,1420,333,1380,323,1278,306,1165,293,1060,285"/>
+<area shape="rect" href="../../d5/dd7/arcane_2src_2arcane_2utils_2TraceInfo_8h_source.html" title=" " alt="" coords="824,438,997,463"/>
+<area shape="poly" title=" " alt="" coords="949,288,919,425,914,424,944,287"/>
+<area shape="rect" href="../../de/d42/Convert_8h_source.html" title=" " alt="" coords="696,350,861,375"/>
+<area shape="poly" title=" " alt="" coords="928,290,815,346,813,341,925,285"/>
+<area shape="rect" href="../../dd/d36/arcane_2src_2arcane_2utils_2Exception_8h_source.html" title=" " alt="" coords="1123,438,1301,463"/>
+<area shape="poly" title=" " alt="" coords="1285,377,1235,429,1231,426,1282,374"/>
+<area shape="poly" title=" " alt="" coords="1143,466,819,519,819,514,1142,461"/>
+<area shape="rect" href="../../d0/dfb/arccore_2src_2base_2arccore_2base_2Exception_8h_source.html" title=" " alt="" coords="1249,519,1434,544"/>
+<area shape="poly" title=" " alt="" coords="1232,461,1312,509,1309,514,1230,466"/>
+<area shape="rect" href="../../d5/dbe/arccore_2src_2base_2arccore_2base_2TraceInfo_8h_source.html" title=" " alt="" coords="926,599,1106,625"/>
+<area shape="poly" title=" " alt="" coords="1158,466,1103,486,1077,501,1054,520,1033,553,1023,587,1018,585,1029,550,1050,517,1074,497,1101,481,1156,461"/>
+<area shape="rect" href="../../da/d17/utils_2Atomic_8h_source.html" title=" " alt="" coords="1064,519,1224,544"/>
+<area shape="poly" title=" " alt="" coords="1204,465,1165,510,1161,507,1200,462"/>
+<area shape="rect" title=" " alt="" coords="902,519,989,544"/>
+<area shape="poly" title=" " alt="" coords="1174,466,998,517,997,512,1172,461"/>
+<area shape="rect" href="../../d1/ddc/arccore_2src_2base_2arccore_2base_2String_8h_source.html" title=" " alt="" coords="1774,599,1933,625"/>
+<area shape="poly" title=" " alt="" coords="1416,541,1766,595,1765,600,1415,547"/>
+<area shape="poly" title=" " alt="" coords="1295,547,1077,599,1076,594,1293,541"/>
+<area shape="rect" href="../../dd/dea/StringView_8h_source.html" title=" " alt="" coords="1833,687,2023,713"/>
+<area shape="poly" title=" " alt="" coords="1865,623,1911,675,1906,678,1861,627"/>
+<area shape="rect" title=" " alt="" coords="1749,687,1808,713"/>
+<area shape="poly" title=" " alt="" coords="1845,627,1800,678,1796,675,1841,623"/>
+<area shape="rect" title=" " alt="" coords="1651,687,1725,713"/>
+<area shape="poly" title=" " alt="" coords="1832,627,1724,683,1721,678,1830,622"/>
+<area shape="poly" title=" " alt="" coords="1866,715,1820,723,1589,751,1388,772,1387,767,1589,746,1820,717,1865,710"/>
+<area shape="poly" title=" " alt="" coords="1008,626,988,651,969,681,952,720,938,761,920,829,915,827,933,759,947,718,964,679,984,648,1004,623"/>
+<area shape="poly" title=" " alt="" coords="995,627,895,682,862,704,828,723,747,741,636,757,425,778,425,773,635,752,746,736,826,717,860,700,892,678,993,623"/>
+<area shape="poly" title=" " alt="" coords="1144,545,1135,585,1120,633,1097,677,1092,674,1115,631,1130,583,1139,544"/>
+<area shape="poly" title=" " alt="" coords="1372,466,1314,473,841,523,840,518,1313,468,1372,460"/>
+<area shape="poly" title=" " alt="" coords="1480,461,1626,516,1814,592,1812,597,1624,521,1478,466"/>
+<area shape="rect" href="../../d4/dd4/Limits_8h_source.html" title=" " alt="" coords="1459,519,1613,544"/>
+<area shape="poly" title=" " alt="" coords="1463,462,1515,508,1511,512,1459,466"/>
+<area shape="rect" href="../../d2/d39/StdHeader_8h_source.html" title=" " alt="" coords="1285,599,1467,625"/>
+<area shape="poly" title=" " alt="" coords="1514,546,1413,596,1410,591,1512,542"/>
+<area shape="poly" title=" " alt="" coords="1555,542,1626,589,1623,594,1552,546"/>
+<area shape="rect" title=" " alt="" coords="1505,599,1567,625"/>
+<area shape="poly" title=" " alt="" coords="1539,544,1539,585,1533,585,1533,544"/>
+<area shape="poly" title=" " alt="" coords="1337,627,1133,686,1132,681,1335,622"/>
+<area shape="poly" title=" " alt="" coords="886,466,775,515,773,511,884,461"/>
+<area shape="poly" title=" " alt="" coords="905,465,889,502,886,523,892,543,904,559,921,573,958,592,956,597,918,577,901,563,887,545,881,523,883,500,900,463"/>
+<area shape="poly" title=" " alt="" coords="778,376,745,506,740,505,773,375"/>
+<area shape="rect" title=" " alt="" coords="623,438,697,463"/>
+<area shape="poly" title=" " alt="" coords="764,378,689,432,686,428,761,373"/>
+<area shape="rect" href="../../da/d68/ForLoopRanges_8h_source.html" title=" " alt="" coords="1303,262,1516,287"/>
+<area shape="poly" title=" " alt="" coords="1254,197,1373,254,1371,258,1251,202"/>
+<area shape="rect" href="../../d4/df0/ArrayBounds_8h_source.html" title=" " alt="" coords="1536,350,1733,375"/>
+<area shape="poly" title=" " alt="" coords="1441,285,1592,342,1590,347,1439,290"/>
+<area shape="poly" title=" " alt="" coords="188,382,370,755,365,757,183,384"/>
+<area shape="poly" title=" " alt="" coords="222,380,324,423,322,428,220,385"/>
+<area shape="poly" title=" " alt="" coords="254,378,266,380,384,400,436,409,501,428,544,447,586,468,694,511,692,516,584,473,542,452,499,433,435,415,383,405,265,385,253,383"/>
+<area shape="poly" title=" " alt="" coords="537,209,234,340,231,335,535,204"/>
+<area shape="rect" href="../../df/d64/core_2RunCommandLaunchInfo_8h_source.html" title=" " alt="" coords="463,255,697,295"/>
+<area shape="poly" title=" " alt="" coords="583,207,583,241,577,241,577,207"/>
+<area shape="rect" href="../../d7/d3c/ConcurrencyUtils_8h.html" title="Classes, Types et macros pour gérer la concurrence." alt="" coords="489,343,671,383"/>
+<area shape="poly" title=" " alt="" coords="583,295,583,329,577,329,577,295"/>
+<area shape="rect" href="../../d0/d46/Profiling_8h_source.html" title=" " alt="" coords="987,350,1154,375"/>
+<area shape="poly" title=" " alt="" coords="688,292,993,345,992,350,687,297"/>
+<area shape="rect" href="../../de/d0c/KernelLaunchArgs_8h_source.html" title=" " alt="" coords="277,343,464,383"/>
+<area shape="poly" title=" " alt="" coords="535,297,430,340,428,335,533,292"/>
+<area shape="poly" title=" " alt="" coords="583,382,591,425,600,448,613,469,643,494,678,512,676,516,640,499,609,472,595,451,586,427,578,383"/>
+<area shape="poly" title=" " alt="" coords="600,381,641,426,638,429,596,385"/>
+<area shape="poly" title=" " alt="" coords="1070,376,1051,423,1034,450,1011,473,981,487,939,500,839,519,838,514,938,495,979,482,1008,468,1030,447,1046,421,1065,374"/>
+<area shape="poly" title=" " alt="" coords="1075,376,1074,420,1068,447,1055,472,1029,498,998,516,995,511,1026,494,1051,469,1063,446,1068,420,1069,375"/>
+<area shape="poly" title=" " alt="" coords="1122,373,1385,432,1384,438,1121,378"/>
+<area shape="poly" title=" " alt="" coords="375,383,379,417,374,417,370,383"/>
+</map>
+</div>
+</div><div class="textblock"><div id="dynsection-1" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
+  <img id="dynsection-1-trigger" src="../../closed.png" alt="+"/> Ce graphe montre quels fichiers incluent directement ou indirectement ce fichier :</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><img src="../../db/d10/RunCommandLoop_8h__dep__incl.png" border="0" usemap="#aRunCommandLoop_8hdep" alt=""/></div>
+<map name="aRunCommandLoop_8hdep" id="aRunCommandLoop_8hdep">
+<area shape="rect" title="Types et macros pour gérer les boucles sur les accélérateurs." alt="" coords="1895,5,2052,31"/>
+<area shape="rect" href="../../db/d5b/Accelerator_8h_source.html" title=" " alt="" coords="267,79,373,104"/>
+<area shape="poly" title=" " alt="" coords="1881,24,1273,40,857,57,432,81,374,87,373,81,432,76,856,51,1273,34,1881,18"/>
+<area shape="rect" href="../../d6/de7/AllEnvData_8cc_source.html" title=" " alt="" coords="5,570,117,595"/>
+<area shape="poly" title=" " alt="" coords="1881,23,1508,28,1002,39,529,57,356,68,255,81,191,91,134,98,111,106,94,118,83,136,79,164,79,423,74,507,66,570,60,569,68,507,73,423,73,163,78,134,90,114,109,101,133,93,190,86,254,76,356,63,528,51,1002,34,1508,23,1881,18"/>
+<area shape="rect" href="../../db/dd9/ComponentItemInternalData_8cc_source.html" title=" " alt="" coords="1731,570,1957,595"/>
+<area shape="poly" title=" " alt="" coords="2066,16,2192,19,2336,28,2467,46,2520,59,2559,76,2583,94,2600,112,2610,134,2613,163,2613,424,2607,432,2590,440,2530,459,2337,501,2107,542,1918,573,1917,567,2106,537,2336,496,2529,454,2588,435,2603,428,2608,422,2608,163,2605,135,2596,115,2580,98,2556,81,2518,64,2466,51,2335,33,2192,25,2066,22"/>
+<area shape="rect" href="../../d4/d7a/ConstituentConnectivityList_8cc_source.html" title=" " alt="" coords="1982,570,2202,595"/>
+<area shape="poly" title=" " alt="" coords="2066,20,2219,26,2395,38,2547,54,2600,64,2631,76,2650,95,2660,114,2663,136,2664,163,2664,423,2664,452,2661,475,2651,496,2631,517,2599,535,2556,549,2444,569,2319,579,2203,584,2202,578,2318,574,2443,563,2555,544,2597,530,2628,513,2646,493,2655,474,2658,451,2659,423,2659,163,2658,137,2655,116,2646,98,2628,81,2599,69,2546,59,2395,43,2219,32,2065,25"/>
+<area shape="rect" href="../../d7/d48/IncrementalComponentModifier__Accelerator_8cc_source.html" title=" " alt="" coords="1478,563,1706,603"/>
+<area shape="poly" title=" " alt="" coords="1881,24,1327,44,1020,60,893,70,796,81,736,85,676,82,565,73,519,76,500,81,484,89,471,101,462,116,455,137,453,163,453,247,453,305,460,328,477,351,834,432,1193,512,1478,561,1477,567,1191,517,833,438,475,356,455,330,448,306,448,247,448,163,450,136,457,114,467,97,481,84,498,76,518,71,565,68,676,77,736,80,796,76,892,65,1020,55,1327,39,1881,19"/>
+<area shape="rect" href="../../df/d66/ConstituentItemVectorImpl_8cc_source.html" title=" " alt="" coords="1139,152,1354,177"/>
+<area shape="poly" title=" " alt="" coords="1903,36,1305,155,1304,149,1902,31"/>
+<area shape="rect" href="../../d8/d40/GenericFilterer_8h_source.html" title=" " alt="" coords="775,152,905,177"/>
+<area shape="poly" title=" " alt="" coords="1881,23,1638,27,1334,36,1060,54,962,66,906,81,886,96,869,115,847,153,843,150,865,112,882,92,904,76,961,61,1059,48,1334,31,1638,21,1881,17"/>
+<area shape="rect" href="../../de/d8b/MaterialHeatTestModule_8cc_source.html" title=" " alt="" coords="1366,321,1565,346"/>
+<area shape="poly" title=" " alt="" coords="1881,22,1692,28,1580,35,1465,47,1355,63,1258,86,1180,116,1150,134,1129,154,1117,171,1112,186,1113,201,1118,214,1143,240,1182,262,1231,281,1284,296,1388,318,1387,323,1283,301,1229,286,1180,266,1140,244,1114,217,1108,202,1107,185,1113,168,1125,150,1147,130,1177,112,1256,81,1354,58,1464,41,1579,30,1692,22,1881,17"/>
+<area shape="rect" href="../../df/d28/MeshComponentPartData_8cc_source.html" title=" " alt="" coords="489,321,695,346"/>
+<area shape="poly" title=" " alt="" coords="1881,24,1319,44,1035,60,933,70,873,81,800,107,746,134,698,171,645,227,627,251,614,277,598,321,593,320,609,275,623,248,641,224,694,167,743,130,798,102,871,76,932,65,1035,55,1319,38,1881,19"/>
+<area shape="rect" href="../../d1/daa/MeshMaterialVariableIndexer_8cc_source.html" title=" " alt="" coords="1640,321,1869,346"/>
+<area shape="poly" title=" " alt="" coords="2066,15,2221,21,2306,29,2384,43,2449,63,2474,76,2493,91,2505,109,2509,130,2502,153,2486,179,2457,192,2396,209,2210,250,1820,323,1819,318,2208,244,2395,204,2456,187,2482,175,2498,151,2503,130,2500,111,2489,95,2471,80,2447,68,2383,48,2305,34,2221,26,2065,21"/>
+<area shape="rect" href="../../df/d35/GenericScanner_8h_source.html" title=" " alt="" coords="929,152,1063,177"/>
+<area shape="poly" title=" " alt="" coords="1881,25,1429,43,1208,60,1129,70,1084,81,1059,96,1036,116,1006,154,1001,150,1033,112,1055,92,1082,76,1128,65,1207,55,1428,38,1881,19"/>
+<area shape="rect" href="../../df/db9/MeshEnvironment_8cc_source.html" title=" " alt="" coords="1894,321,2053,346"/>
+<area shape="poly" title=" " alt="" coords="2066,20,2197,27,2342,38,2465,54,2507,64,2530,77,2548,100,2562,124,2569,148,2572,172,2569,196,2561,220,2548,243,2530,267,2506,280,2462,291,2334,310,2185,323,2053,331,2053,326,2184,317,2333,304,2461,286,2504,275,2526,263,2544,241,2557,218,2564,195,2567,172,2564,149,2557,126,2544,103,2526,81,2505,69,2464,59,2342,43,2197,32,2066,25"/>
+<area shape="rect" href="../../d0/dd5/ItemMaterialVariableBaseT_8H_source.html" title=" " alt="" coords="2701,79,2913,104"/>
+<area shape="poly" title=" " alt="" coords="2066,24,2680,76,2701,78,2700,83,2680,81,2066,30"/>
+<area shape="rect" href="../../d2/dcc/MemoryCopier_8cc_source.html" title=" " alt="" coords="2937,79,3071,104"/>
+<area shape="poly" title=" " alt="" coords="2066,20,2441,39,2682,55,2924,76,2937,77,2936,83,2924,81,2681,60,2441,44,2066,25"/>
+<area shape="rect" href="../../de/df1/MeshMaterialVariable_8cc_source.html" title=" " alt="" coords="3095,79,3278,104"/>
+<area shape="poly" title=" " alt="" coords="2066,20,2505,39,2793,55,3084,76,3095,77,3095,82,3084,81,2793,61,2505,44,2066,25"/>
+<area shape="rect" href="../../df/dd2/Reduce_8h.html" title="Types et fonctions pour gérer les synchronisations sur les accélérateurs." alt="" coords="1893,79,1976,104"/>
+<area shape="poly" title=" " alt="" coords="1963,44,1943,80,1939,77,1958,42"/>
+<area shape="rect" href="../../dc/d71/Test_8cu_8cc_source.html" title=" " alt="" coords="2128,152,2213,177"/>
+<area shape="poly" title=" " alt="" coords="2002,37,2156,150,2153,154,1999,41"/>
+<area shape="rect" href="../../d0/d62/Test_8sycl_8cc_source.html" title=" " alt="" coords="2237,152,2333,177"/>
+<area shape="poly" title=" " alt="" coords="2012,34,2262,150,2260,154,2010,39"/>
+<area shape="rect" href="../../d7/dd4/TestReduce_8cc_source.html" title=" " alt="" coords="2357,152,2472,177"/>
+<area shape="poly" title=" " alt="" coords="2022,32,2380,149,2379,154,2020,38"/>
+<area shape="rect" href="../../d3/dec/ScanImpl_8h_source.html" title=" " alt="" coords="918,79,1013,104"/>
+<area shape="poly" title=" " alt="" coords="1881,25,1509,42,1272,58,1032,81,1013,84,1013,79,1032,76,1271,53,1509,36,1880,19"/>
+<area shape="rect" href="../../d9/d71/AcceleratorMeshMaterialSynchronizerImpl_8h_source.html" title=" " alt="" coords="144,313,413,353"/>
+<area shape="poly" title=" " alt="" coords="318,118,285,313,279,313,313,117"/>
+<area shape="rect" href="../../de/d57/AcceleratorMeshMaterialSynchronizerImpl_8cc_source.html" title=" " alt="" coords="117,401,387,441"/>
+<area shape="poly" title=" " alt="" coords="271,367,260,402,255,400,266,366"/>
+<area shape="rect" href="../../d4/db4/MeshMaterialSynchronizer_8h_source.html" title=" " alt="" coords="462,409,669,434"/>
+<area shape="poly" title=" " alt="" coords="355,355,528,406,526,411,354,360"/>
+<area shape="rect" href="../../d6/d2e/MeshMaterialMng_8cc_source.html" title=" " alt="" coords="141,570,299,595"/>
+<area shape="poly" title=" " alt="" coords="568,448,561,483,554,501,541,517,275,573,274,567,539,512,549,499,556,482,563,447"/>
+<area shape="rect" href="../../da/d7b/MeshMaterialMng_8h_source.html" title=" " alt="" coords="603,489,754,515"/>
+<area shape="poly" title=" " alt="" coords="595,440,663,487,660,491,592,444"/>
+<area shape="rect" href="../../d4/d6f/MeshMaterialSynchronizer_8cc_source.html" title=" " alt="" coords="317,489,529,515"/>
+<area shape="poly" title=" " alt="" coords="534,443,445,491,443,487,531,438"/>
+<area shape="poly" title=" " alt="" coords="590,519,311,565,274,573,273,567,310,560,589,514"/>
+<area shape="poly" title=" " alt="" coords="590,514,342,538,130,565,99,573,98,567,129,560,342,533,589,509"/>
+<area shape="poly" title=" " alt="" coords="768,503,1179,520,1447,537,1718,560,1775,567,1774,573,1717,565,1446,542,1179,526,768,508"/>
+<area shape="poly" title=" " alt="" coords="768,502,981,506,1279,515,1622,533,1970,560,2026,567,2026,573,1969,565,1621,538,1279,520,981,511,768,507"/>
+<area shape="rect" href="../../df/dc4/ConstituentListPrinter_8cc_source.html" title=" " alt="" coords="1003,570,1183,595"/>
+<area shape="poly" title=" " alt="" coords="753,515,1033,567,1032,573,752,520"/>
+<area shape="rect" href="../../d5/df1/IncrementalComponentModifier_8cc_source.html" title=" " alt="" coords="1208,570,1453,595"/>
+<area shape="poly" title=" " alt="" coords="768,511,774,512,1195,560,1251,567,1250,573,1194,565,773,517,767,517"/>
+<area shape="poly" title=" " alt="" coords="768,511,774,512,968,527,1120,534,1271,543,1466,560,1478,561,1477,567,1465,565,1271,548,1119,540,968,532,773,517,767,517"/>
+<area shape="rect" href="../../d5/d2c/MeshMaterialBackup_8cc_source.html" title=" " alt="" coords="323,570,499,595"/>
+<area shape="poly" title=" " alt="" coords="627,521,450,573,449,567,626,516"/>
+<area shape="rect" href="../../d6/d4b/MeshMaterialExchangeMng_8cc_source.html" title=" " alt="" coords="523,570,743,595"/>
+<area shape="poly" title=" " alt="" coords="667,528,642,571,638,568,663,525"/>
+<area shape="rect" href="../../da/d9e/MeshMaterialModifierImpl_8cc_source.html" title=" " alt="" coords="768,570,979,595"/>
+<area shape="poly" title=" " alt="" coords="720,517,846,568,844,572,719,522"/>
+<area shape="rect" href="../../df/df8/Filter_8h_source.html" title=" " alt="" coords="808,233,875,258"/>
+<area shape="poly" title=" " alt="" coords="843,191,844,232,838,232,838,191"/>
+<area shape="rect" href="../../d9/d08/IndexSelecter_8h_source.html" title=" " alt="" coords="655,233,777,258"/>
+<area shape="poly" title=" " alt="" coords="812,187,736,235,733,230,809,182"/>
+<area shape="poly" title=" " alt="" coords="855,269,882,311,900,333,920,351,987,395,1059,434,1134,466,1210,494,1355,536,1478,562,1477,567,1354,541,1208,499,1132,471,1057,438,985,400,917,355,896,336,877,314,851,272"/>
+<area shape="rect" href="../../d9/d01/Filterer_8cc_source.html" title=" " alt="" coords="720,321,805,346"/>
+<area shape="poly" title=" " alt="" coords="824,270,776,322,772,318,820,266"/>
+<area shape="poly" title=" " alt="" coords="889,251,968,263,1378,318,1378,323,968,268,888,256"/>
+<area shape="poly" title=" " alt="" coords="798,265,790,268,627,323,625,318,788,263,796,260"/>
+<area shape="poly" title=" " alt="" coords="889,252,968,263,1139,280,1272,289,1405,297,1576,311,1651,318,1650,323,1576,316,1405,302,1272,294,1138,285,968,268,888,257"/>
+<area shape="poly" title=" " alt="" coords="645,263,375,316,374,311,644,258"/>
+<area shape="rect" href="../../d0/de1/Scan_8h_source.html" title=" " alt="" coords="981,233,1046,258"/>
+<area shape="poly" title=" " alt="" coords="1004,190,1013,232,1008,233,999,191"/>
+<area shape="poly" title=" " alt="" coords="987,268,913,313,867,337,818,356,763,370,715,376,631,375,591,374,549,377,503,386,450,404,435,412,425,422,400,444,339,474,253,510,93,572,91,567,251,505,336,469,397,439,422,418,432,408,448,399,502,380,549,371,591,369,632,370,715,371,762,365,817,351,865,332,911,309,984,264"/>
+<area shape="poly" title=" " alt="" coords="1060,252,1192,279,1257,295,1304,311,1320,321,1330,331,1340,341,1355,351,1445,394,1540,433,1636,467,1730,496,1901,540,2029,567,2028,573,1900,545,1728,501,1634,472,1538,438,1443,399,1352,356,1337,345,1326,335,1316,325,1302,316,1256,300,1191,284,1059,257"/>
+<area shape="poly" title=" " alt="" coords="1060,246,1403,264,1640,283,1882,311,1923,318,1922,323,1881,316,1639,288,1402,269,1060,251"/>
+<area shape="rect" href="../../d7/dfe/MeshMaterialVariableSynchronizer_8cc_source.html" title=" " alt="" coords="1026,321,1291,346"/>
+<area shape="poly" title=" " alt="" coords="1046,263,1140,318,1138,323,1043,267"/>
+<area shape="rect" href="../../d9/d1b/Scan_8cc_source.html" title=" " alt="" coords="931,321,1002,346"/>
+<area shape="poly" title=" " alt="" coords="1003,271,975,321,971,319,998,269"/>
+<area shape="rect" href="../../df/d43/MeshMaterialVariableArray_8inst_8h_source.html" title=" " alt="" coords="3381,152,3619,177"/>
+<area shape="poly" title=" " alt="" coords="2926,102,3389,149,3389,155,2926,108"/>
+<area shape="rect" href="../../dd/d3a/MeshMaterialVariableScalar_8cc_source.html" title=" " alt="" coords="2699,152,2920,177"/>
+<area shape="poly" title=" " alt="" coords="2810,118,2812,152,2806,152,2805,118"/>
+<area shape="rect" href="../../db/dcf/MeshMaterialVariableScalar_8inst_8h_source.html" title=" " alt="" coords="2944,152,3187,177"/>
+<area shape="poly" title=" " alt="" coords="2862,105,3024,149,3023,154,2861,110"/>
+<area shape="rect" href="../../dc/d3e/MeshMaterialVariableArrayTpl1_8cc_source.html" title=" " alt="" coords="3623,225,3822,265"/>
+<area shape="poly" title=" " alt="" coords="3546,179,3670,223,3668,228,3544,184"/>
+<area shape="rect" href="../../d9/d0f/MeshMaterialVariableArrayTpl2_8cc_source.html" title=" " alt="" coords="3401,225,3599,265"/>
+<area shape="poly" title=" " alt="" coords="3503,191,3503,225,3497,225,3497,191"/>
+<area shape="rect" href="../../dd/d73/MeshMaterialVariableScalarTpl1_8cc_source.html" title=" " alt="" coords="3173,225,3377,265"/>
+<area shape="poly" title=" " alt="" coords="3109,180,3225,223,3223,228,3107,185"/>
+<area shape="rect" href="../../da/da6/MeshMaterialVariableScalarTpl2_8cc_source.html" title=" " alt="" coords="2717,225,2921,265"/>
+<area shape="poly" title=" " alt="" coords="3017,184,2879,228,2877,223,3016,179"/>
+<area shape="rect" href="../../db/d6d/MeshMaterialVariableScalarTpl3_8cc_source.html" title=" " alt="" coords="2945,225,3149,265"/>
+<area shape="poly" title=" " alt="" coords="3062,191,3054,226,3049,225,3057,190"/>
+<area shape="poly" title=" " alt="" coords="1975,108,2013,129,2052,159,2068,178,2081,198,2090,220,2093,244,2093,423,2095,570,2089,570,2088,423,2088,244,2085,221,2077,200,2064,181,2048,163,2010,134,1973,112"/>
+<area shape="poly" title=" " alt="" coords="1880,98,1640,118,1528,134,1490,144,1470,154,1466,164,1470,176,1481,200,1494,217,1523,244,1553,270,1567,288,1578,312,1589,347,1597,383,1603,454,1601,517,1597,563,1592,562,1596,517,1597,454,1591,383,1584,348,1574,314,1562,291,1549,274,1519,248,1490,221,1476,202,1466,178,1461,164,1466,150,1488,139,1527,129,1639,112,1879,93"/>
+<area shape="poly" title=" " alt="" coords="1880,101,1354,155,1354,150,1879,96"/>
+<area shape="poly" title=" " alt="" coords="1880,98,1760,104,1616,116,1491,132,1448,143,1426,154,1414,173,1410,195,1412,219,1418,242,1438,287,1459,319,1455,322,1434,289,1413,244,1406,219,1405,195,1409,171,1422,150,1446,138,1490,127,1616,110,1760,99,1880,92"/>
+<area shape="poly" title=" " alt="" coords="1973,108,1994,122,2011,138,2021,158,2017,178,1997,208,1972,234,1913,275,1853,304,1799,323,1798,318,1850,299,1911,270,1968,230,1992,204,2012,176,2016,158,2007,141,1991,126,1970,113"/>
+<area shape="rect" href="../../d4/d56/Accelerator_8cc_source.html" title=" " alt="" coords="1481,152,1594,177"/>
+<area shape="poly" title=" " alt="" coords="1880,105,1595,156,1594,151,1879,100"/>
+<area shape="rect" href="../../d6/ddd/AllCellToAllEnvCellConverter_8cc_source.html" title=" " alt="" coords="1618,152,1843,177"/>
+<area shape="poly" title=" " alt="" coords="1890,111,1765,154,1763,149,1888,106"/>
+<area shape="rect" href="../../df/d7b/GenericReducer_8h_source.html" title=" " alt="" coords="1867,152,2003,177"/>
+<area shape="poly" title=" " alt="" coords="1929,118,1930,152,1925,152,1923,118"/>
+<area shape="poly" title=" " alt="" coords="1986,105,2133,149,2132,154,1985,110"/>
+<area shape="poly" title=" " alt="" coords="1990,101,2238,151,2237,156,1989,106"/>
+<area shape="poly" title=" " alt="" coords="1990,98,2346,149,2358,151,2357,156,2345,155,1989,103"/>
+<area shape="poly" title=" " alt="" coords="1941,139,1939,104,1944,104,1946,138"/>
+<area shape="poly" title=" " alt="" coords="935,113,862,154,859,149,932,108"/>
+<area shape="poly" title=" " alt="" coords="978,116,993,151,989,153,973,118"/>
+</map>
+</div>
+</div>
+<p><a href="../../d6/d52/RunCommandLoop_8h_source.html">Aller au code source de ce fichier.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/dc3/classArcane_1_1Accelerator_1_1impl_1_1ExtendedArrayBoundLoop.html">Arcane::Accelerator::impl::ExtendedArrayBoundLoop&lt; LoopBoundType, RemainingArgs &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d2f/classArcane_1_1Accelerator_1_1ArrayBoundRunCommand.html">Arcane::Accelerator::ArrayBoundRunCommand&lt; N, LoopBoundType, RemainingArgs &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Espaces de nommage</h2></td></tr>
+<tr class="memitem:d0/d32/namespaceArcane" id="r_d0/d32/namespaceArcane"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d0/d32/namespaceArcane.html">Arcane</a></td></tr>
+<tr class="memdesc:d0/d32/namespaceArcane"><td class="mdescLeft">&#160;</td><td class="mdescRight">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*- <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:de/dae/namespaceArcane_1_1Accelerator" id="r_de/dae/namespaceArcane_1_1Accelerator"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/dae/namespaceArcane_1_1Accelerator.html">Arcane::Accelerator</a></td></tr>
+<tr class="memdesc:de/dae/namespaceArcane_1_1Accelerator"><td class="mdescLeft">&#160;</td><td class="mdescRight">Espace de nom pour l'utilisation des accélérateurs. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ab7e14f7438197160df439871b0108540" id="r_ab7e14f7438197160df439871b0108540"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d52/RunCommandLoop_8h.html#ab7e14f7438197160df439871b0108540">RUNCOMMAND_LOOP</a>(iter_name,  bounds)&#160;&#160;&#160;  A_FUNCINFO &lt;&lt; bounds &lt;&lt; [=] ARCCORE_HOST_DEVICE(typename decltype(bounds)::IndexType iter_name)</td></tr>
+<tr class="memdesc:ab7e14f7438197160df439871b0108540"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boucle sur accélérateur.  <br /></td></tr>
+<tr class="separator:ab7e14f7438197160df439871b0108540"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a667d8ca0a39bdd4bc5f82042691221c6" id="r_a667d8ca0a39bdd4bc5f82042691221c6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d52/RunCommandLoop_8h.html#a667d8ca0a39bdd4bc5f82042691221c6">RUNCOMMAND_LOOPN</a>(iter_name,  N, ...)&#160;&#160;&#160;  A_FUNCINFO &lt;&lt; <a class="el" href="../../df/d48/classArcane_1_1ArrayBounds.html">Arcane::ArrayBounds</a>&lt;typename <a class="el" href="../../d4/db5/classArcane_1_1MDDimType.html">Arcane::MDDimType</a>&lt;N&gt;::DimType&gt;(__VA_ARGS__) &lt;&lt; [=] ARCCORE_HOST_DEVICE(<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">Arcane::ArrayIndex</a>&lt;N&gt; iter_name)</td></tr>
+<tr class="memdesc:a667d8ca0a39bdd4bc5f82042691221c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boucle sur accélérateur.  <br /></td></tr>
+<tr class="separator:a667d8ca0a39bdd4bc5f82042691221c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fd31b8ce665552fa3cf0c04095464b3" id="r_a7fd31b8ce665552fa3cf0c04095464b3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d52/RunCommandLoop_8h.html#a7fd31b8ce665552fa3cf0c04095464b3">RUNCOMMAND_LOOP2</a>(iter_name,  x1,  x2)&#160;&#160;&#160;  A_FUNCINFO &lt;&lt; <a class="el" href="../../df/d48/classArcane_1_1ArrayBounds.html">Arcane::ArrayBounds</a>&lt;MDDim2&gt;(x1, x2) &lt;&lt; [=] ARCCORE_HOST_DEVICE(<a class="el" href="../../d8/d62/classArcane_1_1MDIndex.html">Arcane::MDIndex</a>&lt;2&gt; iter_name)</td></tr>
+<tr class="memdesc:a7fd31b8ce665552fa3cf0c04095464b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boucle sur accélérateur.  <br /></td></tr>
+<tr class="separator:a7fd31b8ce665552fa3cf0c04095464b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a681d04cf6f2dbd68751cc7366dc60e40" id="r_a681d04cf6f2dbd68751cc7366dc60e40"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d52/RunCommandLoop_8h.html#a681d04cf6f2dbd68751cc7366dc60e40">RUNCOMMAND_LOOP3</a>(iter_name,  x1,  x2,  x3)&#160;&#160;&#160;  A_FUNCINFO &lt;&lt; <a class="el" href="../../df/d48/classArcane_1_1ArrayBounds.html">Arcane::ArrayBounds</a>&lt;MDDim3&gt;(x1, x2, x3) &lt;&lt; [=] ARCCORE_HOST_DEVICE(<a class="el" href="../../d8/d62/classArcane_1_1MDIndex.html">Arcane::MDIndex</a>&lt;3&gt; iter_name)</td></tr>
+<tr class="memdesc:a681d04cf6f2dbd68751cc7366dc60e40"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boucle sur accélérateur.  <br /></td></tr>
+<tr class="separator:a681d04cf6f2dbd68751cc7366dc60e40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21f2e6e2c2310dc955999807f9374a51" id="r_a21f2e6e2c2310dc955999807f9374a51"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d52/RunCommandLoop_8h.html#a21f2e6e2c2310dc955999807f9374a51">RUNCOMMAND_LOOP4</a>(iter_name,  x1,  x2,  x3,  x4)&#160;&#160;&#160;  A_FUNCINFO &lt;&lt; <a class="el" href="../../df/d48/classArcane_1_1ArrayBounds.html">Arcane::ArrayBounds</a>&lt;MDDim4&gt;(x1, x2, x3, x4) &lt;&lt; [=] ARCCORE_HOST_DEVICE(<a class="el" href="../../d8/d62/classArcane_1_1MDIndex.html">Arcane::MDIndex</a>&lt;4&gt; iter_name)</td></tr>
+<tr class="memdesc:a21f2e6e2c2310dc955999807f9374a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boucle sur accélérateur.  <br /></td></tr>
+<tr class="separator:a21f2e6e2c2310dc955999807f9374a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1c050b656df83364bfd260e20f2e967" id="r_ae1c050b656df83364bfd260e20f2e967"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d52/RunCommandLoop_8h.html#ae1c050b656df83364bfd260e20f2e967">RUNCOMMAND_LOOP1</a>(iter_name,  x1, ...)</td></tr>
+<tr class="memdesc:ae1c050b656df83364bfd260e20f2e967"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boucle sur accélérateur avec arguments supplémentaires pour les réductions.  <br /></td></tr>
+<tr class="separator:ae1c050b656df83364bfd260e20f2e967"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad82417c7e58571917a9952c4bd1b1ac5" id="r_ad82417c7e58571917a9952c4bd1b1ac5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d6/d52/RunCommandLoop_8h.html#ad82417c7e58571917a9952c4bd1b1ac5">RUNCOMMAND_SINGLE</a>(...)</td></tr>
+<tr class="memdesc:ad82417c7e58571917a9952c4bd1b1ac5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Boucle sur accélérateur pour exécution avec un seul thread.  <br /></td></tr>
+<tr class="separator:ad82417c7e58571917a9952c4bd1b1ac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Fonctions</h2></td></tr>
+<tr class="memitem:a0b92238249f0cacecba1ce915c8a0955" id="r_a0b92238249f0cacecba1ce915c8a0955"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">int</a> N, <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">template</a>&lt; <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">int</a> T, <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">typename</a> &gt; <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">class</a> LoopBoundType, <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">typename</a> <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">Lambda</a> , typename... RemainingArgs&gt; </td></tr>
+<tr class="memitem:a0b92238249f0cacecba1ce915c8a0955"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/d52/RunCommandLoop_8h.html#a0b92238249f0cacecba1ce915c8a0955">Arcane::Accelerator::impl::_applyGenericLoop</a> (<a class="el" href="../../dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html">RunCommand</a> &amp;command, <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">LoopBoundType</a>&lt; N, <a class="el" href="../../d5/d60/namespaceArccore.html#ab32c98ae2c2cf8372feb620983bb5b67">Int32</a> &gt; <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">bounds</a>, const <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">Lambda</a> &amp;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">func</a>, const <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">RemainingArgs</a> &amp;... <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">other_args</a>)</td></tr>
+<tr class="memdesc:a0b92238249f0cacecba1ce915c8a0955"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique la lambda <em>func</em> sur une boucle <em>bounds</em>.  <br /></td></tr>
+<tr class="separator:a0b92238249f0cacecba1ce915c8a0955"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dda5acbe60bfb9a28e6bcae97a47ec8" id="r_a0dda5acbe60bfb9a28e6bcae97a47ec8"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">typename</a> ExtentType , typename... RemainingArgs&gt; </td></tr>
+<tr class="memitem:a0dda5acbe60bfb9a28e6bcae97a47ec8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../d6/d52/RunCommandLoop_8h.html#a0dda5acbe60bfb9a28e6bcae97a47ec8">Arcane::Accelerator::impl::makeExtendedArrayBoundLoop</a> (const <a class="el" href="../../df/d48/classArcane_1_1ArrayBounds.html">ArrayBounds</a>&lt; ExtentType &gt; &amp;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">bounds</a>, RemainingArgs... args) -&gt; <a class="el" href="../../d0/dc3/classArcane_1_1Accelerator_1_1impl_1_1ExtendedArrayBoundLoop.html">ExtendedArrayBoundLoop</a>&lt; <a class="el" href="../../df/d48/classArcane_1_1ArrayBounds.html">ArrayBounds</a>&lt; ExtentType &gt;, RemainingArgs... &gt;</td></tr>
+<tr class="separator:a0dda5acbe60bfb9a28e6bcae97a47ec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa19302369cacfcc5c447215103b57716" id="r_aa19302369cacfcc5c447215103b57716"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">typename</a> ExtentType , <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">typename</a> <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">Lambda</a> &gt; </td></tr>
+<tr class="memitem:aa19302369cacfcc5c447215103b57716"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/dae/namespaceArcane_1_1Accelerator.html#aa19302369cacfcc5c447215103b57716">Arcane::Accelerator::run</a> (<a class="el" href="../../dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html">RunCommand</a> &amp;command, <a class="el" href="../../df/d48/classArcane_1_1ArrayBounds.html">ArrayBounds</a>&lt; ExtentType &gt; <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">bounds</a>, const <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">Lambda</a> &amp;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">func</a>)</td></tr>
+<tr class="memdesc:aa19302369cacfcc5c447215103b57716"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique la lambda <em>func</em> sur l'intervalle d'itération donnée par <em>bounds</em>.  <br /></td></tr>
+<tr class="separator:aa19302369cacfcc5c447215103b57716"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d273ea9b507a7c50d4e74c419d88ed7" id="r_a2d273ea9b507a7c50d4e74c419d88ed7"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">int</a> N, <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">typename</a> <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">Lambda</a> &gt; </td></tr>
+<tr class="memitem:a2d273ea9b507a7c50d4e74c419d88ed7"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/dae/namespaceArcane_1_1Accelerator.html#a2d273ea9b507a7c50d4e74c419d88ed7">Arcane::Accelerator::run</a> (<a class="el" href="../../dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html">RunCommand</a> &amp;command, <a class="el" href="../../d1/d05/classArcane_1_1SimpleForLoopRanges.html">SimpleForLoopRanges</a>&lt; N, Int32 &gt; <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">bounds</a>, const <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">Lambda</a> &amp;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">func</a>)</td></tr>
+<tr class="memdesc:a2d273ea9b507a7c50d4e74c419d88ed7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique la lambda <em>func</em> sur l'intervalle d'itération donnée par <em>bounds</em>.  <br /></td></tr>
+<tr class="separator:a2d273ea9b507a7c50d4e74c419d88ed7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a381abf9899bbd47f9c6802482b5273bf" id="r_a381abf9899bbd47f9c6802482b5273bf"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">int</a> N, <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">typename</a> <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">Lambda</a> &gt; </td></tr>
+<tr class="memitem:a381abf9899bbd47f9c6802482b5273bf"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/dae/namespaceArcane_1_1Accelerator.html#a381abf9899bbd47f9c6802482b5273bf">Arcane::Accelerator::run</a> (<a class="el" href="../../dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html">RunCommand</a> &amp;command, <a class="el" href="../../dc/d26/classArcane_1_1ComplexForLoopRanges.html">ComplexForLoopRanges</a>&lt; N, Int32 &gt; <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">bounds</a>, const <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">Lambda</a> &amp;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">func</a>)</td></tr>
+<tr class="memdesc:a381abf9899bbd47f9c6802482b5273bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique la lambda <em>func</em> sur l'intervalle d'itération donnée par <em>bounds</em>.  <br /></td></tr>
+<tr class="separator:a381abf9899bbd47f9c6802482b5273bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c001a329053fa78011ffcccbbc4bc73" id="r_a2c001a329053fa78011ffcccbbc4bc73"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">int</a> N, <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">template</a>&lt; <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">int</a> T, <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">typename</a> &gt; <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">class</a> LoopBoundType, <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">typename</a> <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">Lambda</a> , typename... RemainingArgs&gt; </td></tr>
+<tr class="memitem:a2c001a329053fa78011ffcccbbc4bc73"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/dae/namespaceArcane_1_1Accelerator.html#a2c001a329053fa78011ffcccbbc4bc73">Arcane::Accelerator::runExtended</a> (<a class="el" href="../../dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html">RunCommand</a> &amp;command, <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">LoopBoundType</a>&lt; N, Int32 &gt; <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">bounds</a>, const <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">Lambda</a> &amp;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">func</a>, const std::tuple&lt; RemainingArgs... &gt; &amp;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">other_args</a>)</td></tr>
+<tr class="memdesc:a2c001a329053fa78011ffcccbbc4bc73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Applique la lambda <em>func</em> sur l'intervalle d'itération donnée par <em>bounds</em>.  <br /></td></tr>
+<tr class="separator:a2c001a329053fa78011ffcccbbc4bc73"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac5e1c2bcc75b4eda0d707b6b91dcd5d" id="r_aac5e1c2bcc75b4eda0d707b6b91dcd5d"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">typename</a> ExtentType &gt; </td></tr>
+<tr class="memitem:aac5e1c2bcc75b4eda0d707b6b91dcd5d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/dae/namespaceArcane_1_1Accelerator.html#aac5e1c2bcc75b4eda0d707b6b91dcd5d">Arcane::Accelerator::operator&lt;&lt;</a> (<a class="el" href="../../dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html">RunCommand</a> &amp;command, const <a class="el" href="../../df/d48/classArcane_1_1ArrayBounds.html">ArrayBounds</a>&lt; ExtentType &gt; &amp;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">bounds</a>) -&gt; <a class="el" href="../../d6/d2f/classArcane_1_1Accelerator_1_1ArrayBoundRunCommand.html">ArrayBoundRunCommand</a>&lt; ExtentType::rank(), <a class="el" href="../../d1/d05/classArcane_1_1SimpleForLoopRanges.html">SimpleForLoopRanges</a>&lt; ExtentType::rank(), Int32 &gt; &gt;</td></tr>
+<tr class="separator:aac5e1c2bcc75b4eda0d707b6b91dcd5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0193c4619d0a42cf2a54ade6d80f21e" id="r_ab0193c4619d0a42cf2a54ade6d80f21e"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">typename</a> ExtentType , typename... RemainingArgs&gt; </td></tr>
+<tr class="memitem:ab0193c4619d0a42cf2a54ade6d80f21e"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">auto</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/dae/namespaceArcane_1_1Accelerator.html#ab0193c4619d0a42cf2a54ade6d80f21e">Arcane::Accelerator::operator&lt;&lt;</a> (<a class="el" href="../../dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html">RunCommand</a> &amp;command, const <a class="el" href="../../d0/dc3/classArcane_1_1Accelerator_1_1impl_1_1ExtendedArrayBoundLoop.html">impl::ExtendedArrayBoundLoop</a>&lt; ExtentType, RemainingArgs... &gt; &amp;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ex_loop</a>) -&gt; <a class="el" href="../../d6/d2f/classArcane_1_1Accelerator_1_1ArrayBoundRunCommand.html">ArrayBoundRunCommand</a>&lt; 1, <a class="el" href="../../d1/d05/classArcane_1_1SimpleForLoopRanges.html">SimpleForLoopRanges</a>&lt; 1, Int32 &gt;, RemainingArgs... &gt;</td></tr>
+<tr class="separator:ab0193c4619d0a42cf2a54ade6d80f21e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a197bcbbaac1afdbaa4d1c7f43a122d31" id="r_a197bcbbaac1afdbaa4d1c7f43a122d31"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">int</a> N&gt; </td></tr>
+<tr class="memitem:a197bcbbaac1afdbaa4d1c7f43a122d31"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../d6/d2f/classArcane_1_1Accelerator_1_1ArrayBoundRunCommand.html">ArrayBoundRunCommand</a>&lt; N, <a class="el" href="../../d1/d05/classArcane_1_1SimpleForLoopRanges.html">SimpleForLoopRanges</a>&lt; N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/dae/namespaceArcane_1_1Accelerator.html#a197bcbbaac1afdbaa4d1c7f43a122d31">Arcane::Accelerator::operator&lt;&lt;</a> (<a class="el" href="../../dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html">RunCommand</a> &amp;command, const <a class="el" href="../../d1/d05/classArcane_1_1SimpleForLoopRanges.html">SimpleForLoopRanges</a>&lt; N, Int32 &gt; &amp;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">bounds</a>)</td></tr>
+<tr class="separator:a197bcbbaac1afdbaa4d1c7f43a122d31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a786a900de11dcc2f7cfdd0924e7a8333" id="r_a786a900de11dcc2f7cfdd0924e7a8333"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">int</a> N&gt; </td></tr>
+<tr class="memitem:a786a900de11dcc2f7cfdd0924e7a8333"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../d6/d2f/classArcane_1_1Accelerator_1_1ArrayBoundRunCommand.html">ArrayBoundRunCommand</a>&lt; N, <a class="el" href="../../dc/d26/classArcane_1_1ComplexForLoopRanges.html">ComplexForLoopRanges</a>&lt; N &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/dae/namespaceArcane_1_1Accelerator.html#a786a900de11dcc2f7cfdd0924e7a8333">Arcane::Accelerator::operator&lt;&lt;</a> (<a class="el" href="../../dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html">RunCommand</a> &amp;command, const <a class="el" href="../../dc/d26/classArcane_1_1ComplexForLoopRanges.html">ComplexForLoopRanges</a>&lt; N, Int32 &gt; &amp;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">bounds</a>)</td></tr>
+<tr class="separator:a786a900de11dcc2f7cfdd0924e7a8333"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e82c30366895bca0b5f4ba95978a402" id="r_a7e82c30366895bca0b5f4ba95978a402"><td class="memTemplParams" colspan="2">template&lt;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">int</a> N, <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">template</a>&lt; <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">int</a>, <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">typename</a> &gt; <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">class</a> ForLoopBoundType, <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">typename</a> <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">Lambda</a> , typename... RemainingArgs&gt; </td></tr>
+<tr class="memitem:a7e82c30366895bca0b5f4ba95978a402"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">void</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="../../de/dae/namespaceArcane_1_1Accelerator.html#a7e82c30366895bca0b5f4ba95978a402">Arcane::Accelerator::operator&lt;&lt;</a> (<a class="el" href="../../d6/d2f/classArcane_1_1Accelerator_1_1ArrayBoundRunCommand.html">ArrayBoundRunCommand</a>&lt; N, <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ForLoopBoundType</a>&lt; N, Int32 &gt;, RemainingArgs... &gt; &amp;&amp;<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">nr</a>, const <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">Lambda</a> &amp;f)</td></tr>
+<tr class="separator:a7e82c30366895bca0b5f4ba95978a402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">Description détaillée</h2>
+<div class="textblock"><p>Types et macros pour gérer les boucles sur les accélérateurs. </p>
+
+<p class="definition">Définition dans le fichier <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html">RunCommandLoop.h</a>.</p>
+</div><h2 class="groupheader">Documentation des macros</h2>
+<a id="ab7e14f7438197160df439871b0108540" name="ab7e14f7438197160df439871b0108540"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7e14f7438197160df439871b0108540">&#9670;&#160;</a></span>RUNCOMMAND_LOOP</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUNCOMMAND_LOOP</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">iter_name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">bounds&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;  A_FUNCINFO &lt;&lt; bounds &lt;&lt; [=] ARCCORE_HOST_DEVICE(typename decltype(bounds)::IndexType iter_name)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Boucle sur accélérateur. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html#l00209">209</a> du fichier <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html">RunCommandLoop.h</a>.</p>
+
+</div>
+</div>
+<a id="ae1c050b656df83364bfd260e20f2e967" name="ae1c050b656df83364bfd260e20f2e967"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1c050b656df83364bfd260e20f2e967">&#9670;&#160;</a></span>RUNCOMMAND_LOOP1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUNCOMMAND_LOOP1</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">iter_name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">  A_FUNCINFO &lt;&lt; ::Arcane::Accelerator::impl::makeExtendedArrayBoundLoop(Arcane::ArrayBounds&lt;MDDim1&gt;(x1) __VA_OPT__(, __VA_ARGS__)) \</div>
+<div class="line">             &lt;&lt; [=] ARCCORE_HOST_DEVICE(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">Arcane::ArrayIndex&lt;1&gt;</a> iter_name __VA_OPT__(ARCANE_RUNCOMMAND_REDUCER_FOR_EACH(__VA_ARGS__)))</div>
+<div class="ttc" id="aclassArcane_1_1LimaWrapper_html"><div class="ttname"><a href="../../dc/d69/classArcane_1_1LimaWrapper.html">Arcane::LimaWrapper</a></div><div class="ttdoc">Lecteur des fichiers de maillage via la bibliothèque LIMA.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dd3/Lima_8cc_source.html#l00118">Lima.cc:120</a></div></div>
+</div><!-- fragment -->
+<p>Boucle sur accélérateur avec arguments supplémentaires pour les réductions. </p>
+<p>Cette macro permet d'ajouter des arguments pour chaque valeur à réduire. Les arguments doivent être des instances des classes <a class="el" href="../../db/de9/classArcane_1_1Accelerator_1_1ReducerSum2.html" title="Classe pour effectuer une réduction &#39;somme&#39;.">Arcane::Accelerator::ReducerSum2</a>, <a class="el" href="../../dd/d40/classArcane_1_1Accelerator_1_1ReducerMax2.html" title="Classe pour effectuer une réduction &#39;max&#39;.">Arcane::Accelerator::ReducerMax2</a> ou <a class="el" href="../../dc/d95/classArcane_1_1Accelerator_1_1ReducerMin2.html" title="Classe pour effectuer une réduction &#39;min&#39;.">Arcane::Accelerator::ReducerMin2</a>. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html#l00235">235</a> du fichier <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html">RunCommandLoop.h</a>.</p>
+
+</div>
+</div>
+<a id="a7fd31b8ce665552fa3cf0c04095464b3" name="a7fd31b8ce665552fa3cf0c04095464b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fd31b8ce665552fa3cf0c04095464b3">&#9670;&#160;</a></span>RUNCOMMAND_LOOP2</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUNCOMMAND_LOOP2</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">iter_name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x2&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;  A_FUNCINFO &lt;&lt; <a class="el" href="../../df/d48/classArcane_1_1ArrayBounds.html">Arcane::ArrayBounds</a>&lt;MDDim2&gt;(x1, x2) &lt;&lt; [=] ARCCORE_HOST_DEVICE(<a class="el" href="../../d8/d62/classArcane_1_1MDIndex.html">Arcane::MDIndex</a>&lt;2&gt; iter_name)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Boucle sur accélérateur. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html#l00217">217</a> du fichier <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html">RunCommandLoop.h</a>.</p>
+
+</div>
+</div>
+<a id="a681d04cf6f2dbd68751cc7366dc60e40" name="a681d04cf6f2dbd68751cc7366dc60e40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a681d04cf6f2dbd68751cc7366dc60e40">&#9670;&#160;</a></span>RUNCOMMAND_LOOP3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUNCOMMAND_LOOP3</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">iter_name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x3&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;  A_FUNCINFO &lt;&lt; <a class="el" href="../../df/d48/classArcane_1_1ArrayBounds.html">Arcane::ArrayBounds</a>&lt;MDDim3&gt;(x1, x2, x3) &lt;&lt; [=] ARCCORE_HOST_DEVICE(<a class="el" href="../../d8/d62/classArcane_1_1MDIndex.html">Arcane::MDIndex</a>&lt;3&gt; iter_name)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Boucle sur accélérateur. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html#l00221">221</a> du fichier <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html">RunCommandLoop.h</a>.</p>
+
+</div>
+</div>
+<a id="a21f2e6e2c2310dc955999807f9374a51" name="a21f2e6e2c2310dc955999807f9374a51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21f2e6e2c2310dc955999807f9374a51">&#9670;&#160;</a></span>RUNCOMMAND_LOOP4</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUNCOMMAND_LOOP4</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">iter_name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x1, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x2, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x3, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">x4&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;  A_FUNCINFO &lt;&lt; <a class="el" href="../../df/d48/classArcane_1_1ArrayBounds.html">Arcane::ArrayBounds</a>&lt;MDDim4&gt;(x1, x2, x3, x4) &lt;&lt; [=] ARCCORE_HOST_DEVICE(<a class="el" href="../../d8/d62/classArcane_1_1MDIndex.html">Arcane::MDIndex</a>&lt;4&gt; iter_name)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Boucle sur accélérateur. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html#l00225">225</a> du fichier <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html">RunCommandLoop.h</a>.</p>
+
+</div>
+</div>
+<a id="a667d8ca0a39bdd4bc5f82042691221c6" name="a667d8ca0a39bdd4bc5f82042691221c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a667d8ca0a39bdd4bc5f82042691221c6">&#9670;&#160;</a></span>RUNCOMMAND_LOOPN</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUNCOMMAND_LOOPN</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">iter_name, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">N, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td>&#160;&#160;&#160;  A_FUNCINFO &lt;&lt; <a class="el" href="../../df/d48/classArcane_1_1ArrayBounds.html">Arcane::ArrayBounds</a>&lt;typename <a class="el" href="../../d4/db5/classArcane_1_1MDDimType.html">Arcane::MDDimType</a>&lt;N&gt;::DimType&gt;(__VA_ARGS__) &lt;&lt; [=] ARCCORE_HOST_DEVICE(<a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">Arcane::ArrayIndex</a>&lt;N&gt; iter_name)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Boucle sur accélérateur. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html#l00213">213</a> du fichier <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html">RunCommandLoop.h</a>.</p>
+
+</div>
+</div>
+<a id="ad82417c7e58571917a9952c4bd1b1ac5" name="ad82417c7e58571917a9952c4bd1b1ac5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad82417c7e58571917a9952c4bd1b1ac5">&#9670;&#160;</a></span>RUNCOMMAND_SINGLE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RUNCOMMAND_SINGLE</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname"><em>...</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Valeur :</b><div class="fragment"><div class="line">  A_FUNCINFO &lt;&lt; ::Arcane::Accelerator::impl::makeExtendedArrayBoundLoop(Arcane::ArrayBounds&lt;MDDim1&gt;(1) __VA_OPT__(, __VA_ARGS__)) \</div>
+<div class="line">             &lt;&lt; [=] ARCCORE_HOST_DEVICE(<a class="code hl_namespace" href="../../d0/d32/namespaceArcane.html">Arcane</a>::ArrayIndex&lt;1&gt; __VA_OPT__(ARCANE_RUNCOMMAND_REDUCER_FOR_EACH(__VA_ARGS__)))</div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition</b> <a href="../../de/d40/AcceleratorGlobal_8h_source.html#l00035">AcceleratorGlobal.h:36</a></div></div>
+</div><!-- fragment -->
+<p>Boucle sur accélérateur pour exécution avec un seul thread. </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html#l00242">242</a> du fichier <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html">RunCommandLoop.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Documentation des fonctions</h2>
+<a id="a0b92238249f0cacecba1ce915c8a0955" name="a0b92238249f0cacecba1ce915c8a0955"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b92238249f0cacecba1ce915c8a0955">&#9670;&#160;</a></span>_applyGenericLoop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;int N, template&lt; int T, typename &gt; class LoopBoundType, typename Lambda , typename... RemainingArgs&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void Arcane::Accelerator::impl::_applyGenericLoop </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="../../dd/d65/classArcane_1_1Accelerator_1_1RunCommand.html">RunCommand</a> &amp;&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">LoopBoundType</a>&lt; N, <a class="el" href="../../d5/d60/namespaceArccore.html#ab32c98ae2c2cf8372feb620983bb5b67">Int32</a> &gt;&#160;</td>
+          <td class="paramname"><em>bounds</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">Lambda</a> &amp;&#160;</td>
+          <td class="paramname"><em>func</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="../../dc/d69/classArcane_1_1LimaWrapper.html">RemainingArgs</a> &amp;...&#160;</td>
+          <td class="paramname"><em>other_args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Applique la lambda <em>func</em> sur une boucle <em>bounds</em>. </p>
+<p><em>N</em> est la dimension de la boucle (actuellement 1, 2, 3 ou 4). La lambda <em>func</em> est appliqué à la commande <em>command</em>. Les arguments supplémentaires sont des fonctor supplémentaires (comme les réductions). </p>
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html#l00038">38</a> du fichier <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html">RunCommandLoop.h</a>.</p>
+
+<p class="reference">Références <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html#l00038">Arcane::Accelerator::impl::_applyGenericLoop()</a>, <a class="el" href="../../d0/d1e/ArcaneGlobal_8h_source.html#l00809">ARCANE_FATAL</a>, <a class="el" href="../../d4/d05/Concurrency_8h_source.html#l00199">Arcane::arcaneParallelFor()</a>, <a class="el" href="../../da/d68/ForLoopRanges_8h_source.html#l00257">Arcane::arcaneSequentialFor()</a>, <a class="el" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfaa33b7755e5f9b504d2d038eaca4ff28d">Arcane::Accelerator::CUDA</a>, <a class="el" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfa5e4576beae2ab86d6ad1b8b1700d2e11">Arcane::Accelerator::HIP</a>, <a class="el" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfaa7e82daa7280af25afbaa076ac16eb1e">Arcane::Accelerator::Sequential</a>, <a class="el" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfa4427481c96bb7dc6b1add3207cdc622d">Arcane::Accelerator::SYCL</a>, et <a class="el" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfad97477d6d8a838ead9348185bb5b6742">Arcane::Accelerator::Thread</a>.</p>
+
+<p class="reference">Référencé par <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html#l00038">Arcane::Accelerator::impl::_applyGenericLoop()</a>.</p>
+
+</div>
+</div>
+<a id="a0dda5acbe60bfb9a28e6bcae97a47ec8" name="a0dda5acbe60bfb9a28e6bcae97a47ec8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0dda5acbe60bfb9a28e6bcae97a47ec8">&#9670;&#160;</a></span>makeExtendedArrayBoundLoop()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename ExtentType , typename... RemainingArgs&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">auto Arcane::Accelerator::impl::makeExtendedArrayBoundLoop </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="../../df/d48/classArcane_1_1ArrayBounds.html">ArrayBounds</a>&lt; ExtentType &gt; &amp;&#160;</td>
+          <td class="paramname"><em>bounds</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">RemainingArgs...&#160;</td>
+          <td class="paramname"><em>args</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> -&gt; <a class="el" href="../../d0/dc3/classArcane_1_1Accelerator_1_1impl_1_1ExtendedArrayBoundLoop.html">ExtendedArrayBoundLoop</a>&lt;<a class="el" href="../../df/d48/classArcane_1_1ArrayBounds.html">ArrayBounds</a>&lt;ExtentType&gt;, RemainingArgs...&gt;
+</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Définition à la ligne <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html#l00087">87</a> du fichier <a class="el" href="../../d6/d52/RunCommandLoop_8h_source.html">RunCommandLoop.h</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_cd48e9603a047c3a36ad2b31e177f8e3.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_0ae535d63c1c574fd7ac7e0cce1d5017.html">accelerator</a></li><li class="navelem"><a class="el" href="../../d6/d52/RunCommandLoop_8h.html">RunCommandLoop.h</a></li>
+    <li class="footer">Généré le Lundi 16 Décembre 2024 03:22:00 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>
