@@ -1,0 +1,485 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <meta name="generator" content="Doxygen 1.9.8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="../../logo_arcane.svg" type="image/svg+xml">
+    <title>Arcane:  Fichier source de TimeLoopReader.cc</title>
+    <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../../jquery.js"></script>
+    <script type="text/javascript" src="../../dynsections.js"></script>
+    <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+    <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+    <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../dev_colors.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+    <script type="text/javascript" src="../../script-helper.js"></script>
+    <script type="text/javascript" src="../../script-resize.js"></script>
+    <script type="text/javascript" src="../../script-num-lines-code.js"></script>
+    <script type="text/javascript" src="../../script-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-edit-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-alternative-theme.js"></script>
+    <script type="text/javascript">
+      // On demande l'activation de la personnalisation de la page.
+      var no_custom_theme = false;
+      DoxygenAwesomeDarkModeToggle.title = "Thème clair/sombre";
+      DoxygenAwesomeDarkModeToggle.init();
+      DoxygenAwesomeFragmentCopyButton.title = "Copier le code dans le presse-papier";
+      DoxygenAwesomeFragmentCopyButton.init();
+      DoxygenAwesomeParagraphLink.init();
+      DoxygenAwesomeInteractiveToc.init();
+      DoxygenAwesomeTabs.init()
+      waitElemForResizeSideNav();
+      setOldSize();
+      //waitItemExpandCurrent();
+    </script>
+  </head>
+  <body>
+    <!--BEGIN CORNER_GITHUB-->
+    <!-- https://tholman.com/github-corners/ -->
+    <a href="https://github.com/arcaneframework/framework" class="github-corner" aria-label="Voir les sources sur GitHub">
+      <svg width="70" height="70" viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <!--END CORNER_GITHUB-->
+      <div id="top">
+        <!-- do not remove this div, it is closed by doxygen! -->
+        <div id="titlearea">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr id="projectrow">
+                <td id="projectlogo">
+                  <a href="../../index.html" title="Aller à la page principale">
+                    <img alt="Logo" src="../../arcane_framework_small.webp" />
+                  </a>
+                </td>
+              </tr>
+              <tr id="projectrow">
+                <td id="projectalign">
+                  <div id="projectname">Arcane
+                    <span id="projectnumber">&#160;v3.15.3.0</span>
+                  </div>
+                  <div id="projectbrief">Documentation développeur</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('d1/d8d/TimeLoopReader_8cc_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">TimeLoopReader.cc</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">/* TimeLoopReader.cc                                           (C) 2000-2020 */</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/*                                                                           */</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">/* Chargement d&#39;une boucle en temps.                                         */</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;arcane/utils/Iterator.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;arcane/utils/ScopedPtr.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;arcane/utils/ApplicationInfo.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;arcane/utils/ITraceMng.h&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;arcane/utils/List.h&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;arcane/utils/OStringStream.h&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;arcane/utils/FatalErrorException.h&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;arcane/impl/TimeLoopReader.h&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;arcane/IApplication.h&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;arcane/IXmlDocumentHolder.h&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;arcane/IIOMng.h&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;arcane/ISubDomain.h&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;arcane/XmlNode.h&quot;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;arcane/XmlNodeList.h&quot;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;arcane/XmlNodeIterator.h&quot;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;arcane/ICaseDocument.h&quot;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;arcane/ArcaneException.h&quot;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &quot;arcane/ITimeLoopMng.h&quot;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &quot;arcane/ITimeLoop.h&quot;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &quot;arcane/IMainFactory.h&quot;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &quot;arcane/SequentialSection.h&quot;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &quot;arcane/TimeLoopEntryPointInfo.h&quot;</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &quot;arcane/TimeLoopSingletonServiceInfo.h&quot;</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &quot;arcane/impl/ConfigurationReader.h&quot;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>{</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#a0ccb1fb4710a3ef6b30806367be20cbb">   50</a></span><a class="code hl_function" href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#a0ccb1fb4710a3ef6b30806367be20cbb">TimeLoopReader::</a></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><a class="code hl_function" href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#a0ccb1fb4710a3ef6b30806367be20cbb">TimeLoopReader</a>(<a class="code hl_class" href="../../d9/d7f/classArcane_1_1IApplication.html">IApplication</a>* <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">sm</a>)</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>: <a class="code hl_class" href="../../d4/d0e/classArccore_1_1TraceAccessor.html">TraceAccessor</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">sm</a>-&gt;traceMng())</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>, m_application(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">sm</a>)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>{</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>}</div>
+</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#aad292dfe95ba8422155ddd81e3ac024b">   60</a></span><a class="code hl_function" href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#aad292dfe95ba8422155ddd81e3ac024b">TimeLoopReader::</a></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><a class="code hl_function" href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#aad292dfe95ba8422155ddd81e3ac024b">~TimeLoopReader</a>()</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>{</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
+</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="}">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#a2b49a375d4654bbfea8018523d5564b2">   68</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#a2b49a375d4654bbfea8018523d5564b2">TimeLoopReader::</a></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><a class="code hl_function" href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#a2b49a375d4654bbfea8018523d5564b2">setUsedTimeLoop</a>(<a class="code hl_class" href="../../d9/d1e/classArcane_1_1ISubDomain.html">ISubDomain</a>* <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">sub_domain</a>)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>{</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>  <a class="code hl_class" href="../../d5/d9e/classArcane_1_1ITimeLoopMng.html">ITimeLoopMng</a>* <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">loop_mng</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">sub_domain</a>-&gt;timeLoopMng();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  <a class="code hl_class" href="../../d9/dcc/classArcane_1_1XmlNode.html">XmlNode</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">time_loop_elem</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">sub_domain</a>-&gt;caseDocument()-&gt;timeloopElement();</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  {</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_class" href="../../d7/dff/classArcane_1_1SequentialSection.html">SequentialSection</a> ss(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">sub_domain</a>);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordflow">try</span>{</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>      <a class="code hl_class" href="../../d2/ddb/classArccore_1_1String.html">String</a> value;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>      <span class="keywordflow">if</span> (!<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">time_loop_elem</a>.null())</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        value = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">time_loop_elem</a>.value();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>      <span class="keywordflow">if</span> (value.null())</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <a class="code hl_define" href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a>(<span class="stringliteral">&quot;No time loop specified&quot;</span>);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>      <span class="keywordflow">if</span> (value.empty())</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        value = <span class="stringliteral">&quot;ArcaneEmptyLoop&quot;</span>;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>      <span class="comment">// La boucle en temps est spécifiée dans le fichier de config.</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>      m_time_loop_name = value;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>      <a class="code hl_function" href="../../d4/d0e/classArccore_1_1TraceAccessor.html#ac97ca3cda108d93dceb8e1a4800246a7">info</a>() &lt;&lt; <span class="stringliteral">&quot;Using the time loop &lt;&quot;</span> &lt;&lt; m_time_loop_name &lt;&lt; <span class="stringliteral">&quot;&gt;&quot;</span>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>      <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">loop_mng</a>-&gt;setUsedTimeLoop(m_time_loop_name);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    }</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">catch</span>(<span class="keyword">const</span> <a class="code hl_class" href="../../d7/d37/classArccore_1_1Exception.html">Exception</a>&amp; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ex</a>){</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>      <a class="code hl_function" href="../../d4/d0e/classArccore_1_1TraceAccessor.html#a86a8c15c146724b331c8aa10e2027f08">error</a>() &lt;&lt; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ex</a> &lt;&lt; <span class="charliteral">&#39;\n&#39;</span>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>      ss.setError(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordflow">catch</span>(...){</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>      ss.setError(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    }</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>}</div>
+</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="foldopen" id="foldopen00103" data-start="{" data-end="}">
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#a888913377cca90a034a00740c03c1e2b">  103</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#a888913377cca90a034a00740c03c1e2b">TimeLoopReader::</a></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><a class="code hl_function" href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#a888913377cca90a034a00740c03c1e2b">readTimeLoops</a>()</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>{</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>  <a class="code hl_class" href="../../d2/dae/classArcane_1_1IMainFactory.html">IMainFactory</a>* factory = <a class="code hl_variable" href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#ac69bdb56a55291a63b97db7af7663165">m_application</a>-&gt;<a class="code hl_function" href="../../d9/d7f/classArcane_1_1IApplication.html#a2c01ba22362753d6ac96e9824b58bcc6">mainFactory</a>();</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  <a class="code hl_class" href="../../dd/d9f/classArccore_1_1Span.html">ByteConstSpan</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">config_bytes</a> = <a class="code hl_variable" href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#ac69bdb56a55291a63b97db7af7663165">m_application</a>-&gt;configBuffer();</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>  <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ScopedPtrT&lt;IXmlDocumentHolder&gt;</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">config_doc</a>(<a class="code hl_variable" href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#ac69bdb56a55291a63b97db7af7663165">m_application</a>-&gt;<a class="code hl_function" href="../../d9/d7f/classArcane_1_1IApplication.html#a3c832462070966ae37708b7069fa40e5">ioMng</a>()-&gt;parseXmlBuffer(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">config_bytes</a>,<a class="code hl_class" href="../../d2/ddb/classArccore_1_1String.html">String</a>()));</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>  <span class="keywordflow">if</span> (!<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">config_doc</a>.get())</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_define" href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a>(<span class="stringliteral">&quot;Can not parse code configuration file&quot;</span>);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  <a class="code hl_class" href="../../d9/dcc/classArcane_1_1XmlNode.html">XmlNode</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">root_elem</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">config_doc</a>-&gt;documentNode().documentElement();</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>  <span class="comment">//  XmlNode root_elem = m_application-&gt;configRootElement();</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>  <a class="code hl_class" href="../../d9/dcc/classArcane_1_1XmlNode.html">XmlNode</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">elem</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">root_elem</a>.child(<a class="code hl_class" href="../../d2/ddb/classArccore_1_1String.html">String</a>(<span class="stringliteral">&quot;time-loops&quot;</span>));</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>  <a class="code hl_class" href="../../dd/df7/classArcane_1_1XmlNodeList.html">XmlNodeList</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">timeloops</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">elem</a>.children(<a class="code hl_class" href="../../d2/ddb/classArccore_1_1String.html">String</a>(<span class="stringliteral">&quot;time-loop&quot;</span>));</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>  <a class="code hl_class" href="../../d2/ddc/classArcane_1_1List.html">StringList</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">required_modules_list</a>;</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>  <a class="code hl_class" href="../../d2/ddc/classArcane_1_1List.html">StringList</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">optional_modules_list</a>;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>  <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">List&lt;TimeLoopEntryPointInfo&gt;</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">entry_points</a>;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>  <a class="code hl_class" href="../../d2/ddc/classArcane_1_1List.html">StringList</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">user_classes</a>;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>  <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">List&lt;TimeLoopSingletonServiceInfo&gt;</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">singleton_services</a>;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>  <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">List&lt;TimeLoopSingletonServiceInfo&gt;</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">global_singleton_services</a>;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>  <a class="code hl_class" href="../../d2/ddb/classArccore_1_1String.html">String</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ustr_name</a>(<span class="stringliteral">&quot;name&quot;</span>);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>  <a class="code hl_class" href="../../d2/ddb/classArccore_1_1String.html">String</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ustr_modules</a>(<span class="stringliteral">&quot;modules&quot;</span>);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>  <span class="comment">// Liste des services singletons globaux</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>  <a class="code hl_class" href="../../dd/df7/classArcane_1_1XmlNodeList.html">XmlNodeList</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">global_singleton_elems</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">root_elem</a>.children(<span class="stringliteral">&quot;singleton-services&quot;</span>);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>  <a class="code hl_function" href="../../d4/d0e/classArccore_1_1TraceAccessor.html#ac97ca3cda108d93dceb8e1a4800246a7">info</a>() &lt;&lt; <span class="stringliteral">&quot;CHECK GLOBAL SINGLETON SERVICES&quot;</span>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>  <span class="keywordflow">for</span>( <span class="keyword">const</span> <span class="keyword">auto</span>&amp; i : <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">global_singleton_elems</a> ){</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <a class="code hl_function" href="../../d4/d0e/classArccore_1_1TraceAccessor.html#ac97ca3cda108d93dceb8e1a4800246a7">info</a>() &lt;&lt; <span class="stringliteral">&quot;CHECK GLOBAL SINGLETON SERVICES 2 &quot;</span> &lt;&lt; i.name();</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordflow">for</span>( <span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">j_node</a> : i ){</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>      <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">j_node</a>.name()==<span class="stringliteral">&quot;service&quot;</span>){</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordtype">bool</span> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">is_required</a> = (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">j_node</a>.attrValue(<span class="stringliteral">&quot;need&quot;</span>)==<span class="stringliteral">&quot;required&quot;</span>);</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <a class="code hl_function" href="../../d4/d0e/classArccore_1_1TraceAccessor.html#ac97ca3cda108d93dceb8e1a4800246a7">info</a>() &lt;&lt; <span class="stringliteral">&quot;GLOBAL SINGLETON SERVICE name=&quot;</span> &lt;&lt; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">j_node</a>.attrValue(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ustr_name</a>) &lt;&lt; <span class="stringliteral">&quot; is_required?=&quot;</span> &lt;&lt; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">is_required</a>;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">global_singleton_services</a>.add(<a class="code hl_class" href="../../dd/dd5/classArcane_1_1TimeLoopSingletonServiceInfo.html">TimeLoopSingletonServiceInfo</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">j_node</a>.attrValue(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ustr_name</a>),<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">is_required</a>));</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>      }</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    }</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>  }</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>  <span class="keywordflow">for</span>( <span class="keyword">const</span> <span class="keyword">auto</span>&amp; i : <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">timeloops</a> ){</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">optional_modules_list</a>.clear();</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">required_modules_list</a>.clear();</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">user_classes</a>.clear();</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">singleton_services</a>.clone(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">global_singleton_services</a>);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <a class="code hl_class" href="../../d2/ddb/classArccore_1_1String.html">String</a> name = i.attrValue(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ustr_name</a>);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordflow">if</span> (name.null())</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>      <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <a class="code hl_class" href="../../dd/dc9/classArcane_1_1ITimeLoop.html">ITimeLoop</a>* <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">time_loop</a> = factory-&gt;<a class="code hl_function" href="../../d2/dae/classArcane_1_1IMainFactory.html#ade2ead7e830e9ad424a5cbf215bef59e">createTimeLoop</a>(<a class="code hl_variable" href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#ac69bdb56a55291a63b97db7af7663165">m_application</a>, name);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <a class="code hl_class" href="../../d9/dcc/classArcane_1_1XmlNode.html">XmlNode</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">timeloop_node</a> = i;</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    </div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordflow">for</span>( <span class="keyword">const</span> <span class="keyword">auto</span>&amp; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">j_node</a> : <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">timeloop_node</a> ){</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>      <a class="code hl_class" href="../../d2/ddb/classArccore_1_1String.html">String</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">elem_name</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">j_node</a>.name();</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>      <a class="code hl_class" href="../../d2/ddb/classArccore_1_1String.html">String</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">elem_value</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">j_node</a>.value();</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>      <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">elem_name</a>==<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ustr_modules</a>){</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <span class="keywordflow">for</span>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">XmlNode::const_iter</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">k</a> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">j_node</a>) ; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">k</a>() ; ++<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">k</a>)</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>          <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">k</a>-&gt;name()==<span class="stringliteral">&quot;module&quot;</span>){</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">k</a>-&gt;attrValue(<span class="stringliteral">&quot;need&quot;</span>)==<span class="stringliteral">&quot;required&quot;</span>)</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>              <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">required_modules_list</a>.add(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">k</a>-&gt;attrValue(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ustr_name</a>));</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>              <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">optional_modules_list</a>.add(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">k</a>-&gt;attrValue(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ustr_name</a>));</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>          }</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>      }</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">elem_name</a>==<span class="stringliteral">&quot;singleton-services&quot;</span>){</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>        <span class="keywordflow">for</span>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">XmlNode::const_iter</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">k</a> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">j_node</a>) ; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">k</a>() ; ++<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">k</a>)</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>          <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">k</a>-&gt;name()==<span class="stringliteral">&quot;service&quot;</span>){</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>            <span class="keywordtype">bool</span> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">is_required</a> = (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">k</a>-&gt;attrValue(<span class="stringliteral">&quot;need&quot;</span>)==<span class="stringliteral">&quot;required&quot;</span>);</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            <span class="comment">//info() &lt;&lt; &quot;SINGLETON SERVICE name=&quot; &lt;&lt; k-&gt;attrValue(ustr_name) &lt;&lt; &quot; is_required?=&quot; &lt;&lt; is_required;</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">singleton_services</a>.add(<a class="code hl_class" href="../../dd/dd5/classArcane_1_1TimeLoopSingletonServiceInfo.html">TimeLoopSingletonServiceInfo</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">k</a>-&gt;attrValue(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ustr_name</a>),<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">is_required</a>));</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>          }</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>      }</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">elem_name</a>==<span class="stringliteral">&quot;entry-points&quot;</span>){</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>        <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">entry_points</a>.clear();</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <span class="keywordflow">for</span>( <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">XmlNode::const_iter</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">k</a> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">j_node</a>) ; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">k</a>() ; ++<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">k</a>){</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>          <a class="code hl_class" href="../../d9/dcc/classArcane_1_1XmlNode.html">XmlNode</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">k_node</a> = *<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">k</a>;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>          <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">k_node</a>.name()!=<span class="stringliteral">&quot;entry-point&quot;</span>)</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>          <a class="code hl_class" href="../../d2/ddc/classArcane_1_1List.html">StringList</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">depends</a>;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>          <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">entry_points</a>.add(<a class="code hl_class" href="../../d9/d50/classArcane_1_1TimeLoopEntryPointInfo.html">TimeLoopEntryPointInfo</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">k_node</a>.attrValue(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ustr_name</a>),<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">depends</a>));</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        }</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <a class="code hl_class" href="../../d2/ddb/classArccore_1_1String.html">String</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">cwhere</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">j_node</a>.attrValue(<span class="stringliteral">&quot;where&quot;</span>);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">cwhere</a> != <a class="code hl_variable" href="../../dd/dc9/classArcane_1_1ITimeLoop.html#afdcfded6967d90359c5520deb6c87f3a">ITimeLoop::WInit</a> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>            &amp;&amp; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">cwhere</a> != <a class="code hl_variable" href="../../dd/dc9/classArcane_1_1ITimeLoop.html#af0e8afec9c7fe019e3584888a30f93a5">ITimeLoop::WComputeLoop</a></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>            &amp;&amp; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">cwhere</a> != <a class="code hl_variable" href="../../dd/dc9/classArcane_1_1ITimeLoop.html#a03ff047e2d2134464633d02923d01c5e">ITimeLoop::WRestore</a></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            &amp;&amp; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">cwhere</a> != <a class="code hl_variable" href="../../dd/dc9/classArcane_1_1ITimeLoop.html#a339b20c9bd3482ea459dd22dd4d06f5b">ITimeLoop::WExit</a></div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>            &amp;&amp; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">cwhere</a> != <a class="code hl_variable" href="../../dd/dc9/classArcane_1_1ITimeLoop.html#aeb0ff565615e3aa21a15235c330a65c0">ITimeLoop::WBuild</a></div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>            &amp;&amp; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">cwhere</a> != <a class="code hl_variable" href="../../dd/dc9/classArcane_1_1ITimeLoop.html#a2e3eeab713a1f188a106aa0609fefa90">ITimeLoop::WOnMeshChanged</a></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>            &amp;&amp; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">cwhere</a> != <a class="code hl_variable" href="../../dd/dc9/classArcane_1_1ITimeLoop.html#ab165eeb8059f1e67fbc1b5fcb77a00f0">ITimeLoop::WOnMeshRefinement</a>)</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>        {</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>          <a class="code hl_class" href="../../d8/d12/classArcane_1_1OStringStream.html">OStringStream</a> s;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>          s() &lt;&lt; <span class="stringliteral">&quot;Incorrect value for the attribute \&quot;where\&quot; (time loop &quot;</span>;</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>          s() &lt;&lt; name &lt;&lt; <span class="stringliteral">&quot;): \&quot;&quot;</span> &lt;&lt; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">cwhere</a> &lt;&lt; <span class="stringliteral">&quot;\&quot;.\n&quot;</span>;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>          s() &lt;&lt; <span class="stringliteral">&quot;Available values are: &quot;</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>              &lt;&lt; <a class="code hl_variable" href="../../dd/dc9/classArcane_1_1ITimeLoop.html#afdcfded6967d90359c5520deb6c87f3a">ITimeLoop::WInit</a></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>              &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; <a class="code hl_variable" href="../../dd/dc9/classArcane_1_1ITimeLoop.html#af0e8afec9c7fe019e3584888a30f93a5">ITimeLoop::WComputeLoop</a></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>              &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; <a class="code hl_variable" href="../../dd/dc9/classArcane_1_1ITimeLoop.html#a03ff047e2d2134464633d02923d01c5e">ITimeLoop::WRestore</a></div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>              &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; <a class="code hl_variable" href="../../dd/dc9/classArcane_1_1ITimeLoop.html#a2e3eeab713a1f188a106aa0609fefa90">ITimeLoop::WOnMeshChanged</a></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>              &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; <a class="code hl_variable" href="../../dd/dc9/classArcane_1_1ITimeLoop.html#ab165eeb8059f1e67fbc1b5fcb77a00f0">ITimeLoop::WOnMeshRefinement</a></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>              &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; <a class="code hl_variable" href="../../dd/dc9/classArcane_1_1ITimeLoop.html#aeb0ff565615e3aa21a15235c330a65c0">ITimeLoop::WBuild</a></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>              &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; <a class="code hl_variable" href="../../dd/dc9/classArcane_1_1ITimeLoop.html#a339b20c9bd3482ea459dd22dd4d06f5b">ITimeLoop::WExit</a></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>              &lt;&lt; <span class="stringliteral">&quot;.&quot;</span>;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>          <span class="keywordflow">throw</span> <a class="code hl_class" href="../../d1/d3c/classArcane_1_1InternalErrorException.html">InternalErrorException</a>(A_FUNCINFO,s.str());</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        }</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>        <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">time_loop</a>-&gt;setEntryPoints(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">cwhere</a>,<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">entry_points</a>);</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>      }</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">elem_name</a>==<span class="stringliteral">&quot;title&quot;</span>)</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>      {</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">time_loop</a>-&gt;setTitle(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">elem_value</a>);</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>      }</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">elem_name</a>==<span class="stringliteral">&quot;description&quot;</span>)</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>      {</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">time_loop</a>-&gt;setDescription(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">elem_value</a>);</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>      }</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">elem_name</a>==<span class="stringliteral">&quot;userclass&quot;</span>)</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>      {</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">user_classes</a>.add(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">elem_value</a>);</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>      }</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>      <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">elem_name</a>==<span class="stringliteral">&quot;configuration&quot;</span>){</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <a class="code hl_class" href="../../dc/dfb/classArcane_1_1ConfigurationReader.html">ConfigurationReader</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">cr</a>(<a class="code hl_function" href="../../d4/d0e/classArccore_1_1TraceAccessor.html#a75c624a02bc7d3a224b158010018b753">traceMng</a>(),<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">time_loop</a>-&gt;configuration());</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">cr</a>.addValuesFromXmlNode(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">j_node</a>,ConfigurationReader::P_TimeLoop);</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>      }</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    }</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span> </div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">time_loop</a>-&gt;setRequiredModulesName(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">required_modules_list</a>);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">time_loop</a>-&gt;setOptionalModulesName(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">optional_modules_list</a>);</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">time_loop</a>-&gt;setUserClasses(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">user_classes</a>);</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">time_loop</a>-&gt;setSingletonServices(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">singleton_services</a>);</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    m_time_loops.add(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">time_loop</a>);</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>  }</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>}</div>
+</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="foldopen" id="foldopen00243" data-start="{" data-end="}">
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno"><a class="line" href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#aa95dc525fd648324b42efd4c3467e049">  243</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#aa95dc525fd648324b42efd4c3467e049">TimeLoopReader::</a></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><a class="code hl_function" href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#aa95dc525fd648324b42efd4c3467e049">registerTimeLoops</a>(<a class="code hl_class" href="../../d9/d1e/classArcane_1_1ISubDomain.html">ISubDomain</a>* <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">sd</a>)</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>{</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>  <a class="code hl_class" href="../../d5/d9e/classArcane_1_1ITimeLoopMng.html">ITimeLoopMng</a>* <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">loop_mng</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">sd</a>-&gt;timeLoopMng();</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>  <span class="keywordflow">for</span>( <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">TimeLoopList::Enumerator</a> i(m_time_loops); ++i; )</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">loop_mng</a>-&gt;registerTimeLoop(*i);</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>}</div>
+</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span> </div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span> </div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a9d85d5fb84c5371348dd56600999e564"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a></div><div class="ttdeci">#define ARCANE_FATAL(...)</div><div class="ttdoc">Macro envoyant une exception FatalErrorException.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d1e/ArcaneGlobal_8h_source.html#l00778">ArcaneGlobal.h:778</a></div></div>
+<div class="ttc" id="aclassArcane_1_1ConfigurationReader_html"><div class="ttname"><a href="../../dc/dfb/classArcane_1_1ConfigurationReader.html">Arcane::ConfigurationReader</a></div><div class="ttdoc">Lecteurs de fichiers de configuration.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/df2/ConfigurationReader_8h_source.html#l00036">ConfigurationReader.h:38</a></div></div>
+<div class="ttc" id="aclassArcane_1_1IApplication_html"><div class="ttname"><a href="../../d9/d7f/classArcane_1_1IApplication.html">Arcane::IApplication</a></div><div class="ttdoc">Interface de l'application.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/de3/IApplication_8h_source.html#l00055">IApplication.h:57</a></div></div>
+<div class="ttc" id="aclassArcane_1_1IApplication_html_a2c01ba22362753d6ac96e9824b58bcc6"><div class="ttname"><a href="../../d9/d7f/classArcane_1_1IApplication.html#a2c01ba22362753d6ac96e9824b58bcc6">Arcane::IApplication::mainFactory</a></div><div class="ttdeci">virtual IMainFactory * mainFactory() const =0</div><div class="ttdoc">Manufacture principale.</div></div>
+<div class="ttc" id="aclassArcane_1_1IApplication_html_a3c832462070966ae37708b7069fa40e5"><div class="ttname"><a href="../../d9/d7f/classArcane_1_1IApplication.html#a3c832462070966ae37708b7069fa40e5">Arcane::IApplication::ioMng</a></div><div class="ttdeci">virtual IIOMng * ioMng()=0</div><div class="ttdoc">Gestionnaire des entrées/sorties.</div></div>
+<div class="ttc" id="aclassArcane_1_1IMainFactory_html"><div class="ttname"><a href="../../d2/dae/classArcane_1_1IMainFactory.html">Arcane::IMainFactory</a></div><div class="ttdoc">Manufacture des classes d'Arcane.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da9/IMainFactory_8h_source.html#l00092">IMainFactory.h:93</a></div></div>
+<div class="ttc" id="aclassArcane_1_1IMainFactory_html_ade2ead7e830e9ad424a5cbf215bef59e"><div class="ttname"><a href="../../d2/dae/classArcane_1_1IMainFactory.html#ade2ead7e830e9ad424a5cbf215bef59e">Arcane::IMainFactory::createTimeLoop</a></div><div class="ttdeci">virtual ITimeLoop * createTimeLoop(IApplication *sm, const String &amp;name)=0</div><div class="ttdoc">Crée une boucle en temps de nom name.</div></div>
+<div class="ttc" id="aclassArcane_1_1ISubDomain_html"><div class="ttname"><a href="../../d9/d1e/classArcane_1_1ISubDomain.html">Arcane::ISubDomain</a></div><div class="ttdoc">Interface du gestionnaire d'un sous-domaine.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d4b/ISubDomain_8h_source.html#l00072">ISubDomain.h:74</a></div></div>
+<div class="ttc" id="aclassArcane_1_1ITimeLoopMng_html"><div class="ttname"><a href="../../d5/d9e/classArcane_1_1ITimeLoopMng.html">Arcane::ITimeLoopMng</a></div><div class="ttdoc">Interface du gestionnaire de la boucle en temps.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d41/ITimeLoopMng_8h_source.html#l00068">ITimeLoopMng.h:69</a></div></div>
+<div class="ttc" id="aclassArcane_1_1ITimeLoop_html"><div class="ttname"><a href="../../dd/dc9/classArcane_1_1ITimeLoop.html">Arcane::ITimeLoop</a></div><div class="ttdoc">Interface d'une boucle en temps.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbc/ITimeLoop_8h_source.html#l00040">ITimeLoop.h:41</a></div></div>
+<div class="ttc" id="aclassArcane_1_1ITimeLoop_html_a03ff047e2d2134464633d02923d01c5e"><div class="ttname"><a href="../../dd/dc9/classArcane_1_1ITimeLoop.html#a03ff047e2d2134464633d02923d01c5e">Arcane::ITimeLoop::WRestore</a></div><div class="ttdeci">static const char * WRestore</div><div class="ttdoc">appelé pour restaurer les variables lors d'un retour arrière</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbc/ITimeLoop_8h_source.html#l00054">ITimeLoop.h:54</a></div></div>
+<div class="ttc" id="aclassArcane_1_1ITimeLoop_html_a2e3eeab713a1f188a106aa0609fefa90"><div class="ttname"><a href="../../dd/dc9/classArcane_1_1ITimeLoop.html#a2e3eeab713a1f188a106aa0609fefa90">Arcane::ITimeLoop::WOnMeshChanged</a></div><div class="ttdeci">static const char * WOnMeshChanged</div><div class="ttdoc">appelé après un changement de maillage</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbc/ITimeLoop_8h_source.html#l00056">ITimeLoop.h:56</a></div></div>
+<div class="ttc" id="aclassArcane_1_1ITimeLoop_html_a339b20c9bd3482ea459dd22dd4d06f5b"><div class="ttname"><a href="../../dd/dc9/classArcane_1_1ITimeLoop.html#a339b20c9bd3482ea459dd22dd4d06f5b">Arcane::ITimeLoop::WExit</a></div><div class="ttdeci">static const char * WExit</div><div class="ttdoc">appelé lors de la terminaison du code.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbc/ITimeLoop_8h_source.html#l00060">ITimeLoop.h:60</a></div></div>
+<div class="ttc" id="aclassArcane_1_1ITimeLoop_html_ab165eeb8059f1e67fbc1b5fcb77a00f0"><div class="ttname"><a href="../../dd/dc9/classArcane_1_1ITimeLoop.html#ab165eeb8059f1e67fbc1b5fcb77a00f0">Arcane::ITimeLoop::WOnMeshRefinement</a></div><div class="ttdeci">static const char * WOnMeshRefinement</div><div class="ttdoc">appelé après un raffinement de maillage</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbc/ITimeLoop_8h_source.html#l00058">ITimeLoop.h:58</a></div></div>
+<div class="ttc" id="aclassArcane_1_1ITimeLoop_html_aeb0ff565615e3aa21a15235c330a65c0"><div class="ttname"><a href="../../dd/dc9/classArcane_1_1ITimeLoop.html#aeb0ff565615e3aa21a15235c330a65c0">Arcane::ITimeLoop::WBuild</a></div><div class="ttdeci">static const char * WBuild</div><div class="ttdoc">appelé lors de la lecture du jeu de données</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbc/ITimeLoop_8h_source.html#l00050">ITimeLoop.h:50</a></div></div>
+<div class="ttc" id="aclassArcane_1_1ITimeLoop_html_af0e8afec9c7fe019e3584888a30f93a5"><div class="ttname"><a href="../../dd/dc9/classArcane_1_1ITimeLoop.html#af0e8afec9c7fe019e3584888a30f93a5">Arcane::ITimeLoop::WComputeLoop</a></div><div class="ttdeci">static const char * WComputeLoop</div><div class="ttdoc">appelé pendant la boucle de calcul</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbc/ITimeLoop_8h_source.html#l00048">ITimeLoop.h:48</a></div></div>
+<div class="ttc" id="aclassArcane_1_1ITimeLoop_html_afdcfded6967d90359c5520deb6c87f3a"><div class="ttname"><a href="../../dd/dc9/classArcane_1_1ITimeLoop.html#afdcfded6967d90359c5520deb6c87f3a">Arcane::ITimeLoop::WInit</a></div><div class="ttdeci">static const char * WInit</div><div class="ttdoc">appelé pendant l'initialisation, l'initialisation d'une reprise ou d'un nouveau cas</div><div class="ttdef"><b>Definition</b> <a href="../../d8/dbc/ITimeLoop_8h_source.html#l00052">ITimeLoop.h:52</a></div></div>
+<div class="ttc" id="aclassArcane_1_1InternalErrorException_html"><div class="ttname"><a href="../../d1/d3c/classArcane_1_1InternalErrorException.html">Arcane::InternalErrorException</a></div><div class="ttdoc">Exception lorsqu'une erreur interne survient.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d03/ArcaneException_8h_source.html#l00105">ArcaneException.h:107</a></div></div>
+<div class="ttc" id="aclassArcane_1_1LimaWrapper_html"><div class="ttname"><a href="../../dc/d69/classArcane_1_1LimaWrapper.html">Arcane::LimaWrapper</a></div><div class="ttdoc">Lecteur des fichiers de maillage via la bibliothèque LIMA.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dd3/Lima_8cc_source.html#l00147">Lima.cc:149</a></div></div>
+<div class="ttc" id="aclassArcane_1_1List_html"><div class="ttname"><a href="../../d2/ddc/classArcane_1_1List.html">Arcane::List&lt; String &gt;</a></div></div>
+<div class="ttc" id="aclassArcane_1_1OStringStream_html"><div class="ttname"><a href="../../d8/d12/classArcane_1_1OStringStream.html">Arcane::OStringStream</a></div><div class="ttdoc">Flot de sortie lié à une String.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/dd5/OStringStream_8h_source.html#l00035">OStringStream.h:36</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SequentialSection_html"><div class="ttname"><a href="../../d7/dff/classArcane_1_1SequentialSection.html">Arcane::SequentialSection</a></div><div class="ttdoc">Section de code à exécuter séquentiellement.</div><div class="ttdef"><b>Definition</b> <a href="../../da/d00/SequentialSection_8h_source.html#l00064">SequentialSection.h:65</a></div></div>
+<div class="ttc" id="aclassArcane_1_1TimeLoopEntryPointInfo_html"><div class="ttname"><a href="../../d9/d50/classArcane_1_1TimeLoopEntryPointInfo.html">Arcane::TimeLoopEntryPointInfo</a></div><div class="ttdoc">Infos d'un point d'entrée d'une boucle en temps.</div><div class="ttdef"><b>Definition</b> <a href="../../df/dec/TimeLoopEntryPointInfo_8h_source.html#l00032">TimeLoopEntryPointInfo.h:33</a></div></div>
+<div class="ttc" id="aclassArcane_1_1TimeLoopReader_html_a0ccb1fb4710a3ef6b30806367be20cbb"><div class="ttname"><a href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#a0ccb1fb4710a3ef6b30806367be20cbb">Arcane::TimeLoopReader::TimeLoopReader</a></div><div class="ttdeci">TimeLoopReader(IApplication *sm)</div><div class="ttdoc">Crée une instance associée au gestionnaire sm.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/d8d/TimeLoopReader_8cc_source.html#l00050">TimeLoopReader.cc:51</a></div></div>
+<div class="ttc" id="aclassArcane_1_1TimeLoopReader_html_a2b49a375d4654bbfea8018523d5564b2"><div class="ttname"><a href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#a2b49a375d4654bbfea8018523d5564b2">Arcane::TimeLoopReader::setUsedTimeLoop</a></div><div class="ttdeci">void setUsedTimeLoop(ISubDomain *sd)</div><div class="ttdoc">Positionne la boucle en temps utilisée dans le gestionnaire sd.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/d8d/TimeLoopReader_8cc_source.html#l00068">TimeLoopReader.cc:69</a></div></div>
+<div class="ttc" id="aclassArcane_1_1TimeLoopReader_html_a888913377cca90a034a00740c03c1e2b"><div class="ttname"><a href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#a888913377cca90a034a00740c03c1e2b">Arcane::TimeLoopReader::readTimeLoops</a></div><div class="ttdeci">void readTimeLoops()</div><div class="ttdoc">Effectue la lecture des boucles en temps disponible.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/d8d/TimeLoopReader_8cc_source.html#l00103">TimeLoopReader.cc:104</a></div></div>
+<div class="ttc" id="aclassArcane_1_1TimeLoopReader_html_aa95dc525fd648324b42efd4c3467e049"><div class="ttname"><a href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#aa95dc525fd648324b42efd4c3467e049">Arcane::TimeLoopReader::registerTimeLoops</a></div><div class="ttdeci">void registerTimeLoops(ISubDomain *sd)</div><div class="ttdoc">Enregistre la liste des boucles en temps dans le gestionnaire sd.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/d8d/TimeLoopReader_8cc_source.html#l00243">TimeLoopReader.cc:244</a></div></div>
+<div class="ttc" id="aclassArcane_1_1TimeLoopReader_html_aad292dfe95ba8422155ddd81e3ac024b"><div class="ttname"><a href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#aad292dfe95ba8422155ddd81e3ac024b">Arcane::TimeLoopReader::~TimeLoopReader</a></div><div class="ttdeci">~TimeLoopReader()</div><div class="ttdoc">Libère les ressources.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/d8d/TimeLoopReader_8cc_source.html#l00060">TimeLoopReader.cc:61</a></div></div>
+<div class="ttc" id="aclassArcane_1_1TimeLoopReader_html_ac69bdb56a55291a63b97db7af7663165"><div class="ttname"><a href="../../d4/d6b/classArcane_1_1TimeLoopReader.html#ac69bdb56a55291a63b97db7af7663165">Arcane::TimeLoopReader::m_application</a></div><div class="ttdeci">IApplication * m_application</div><div class="ttdoc">Superviseur.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/dc5/TimeLoopReader_8h_source.html#l00070">TimeLoopReader.h:70</a></div></div>
+<div class="ttc" id="aclassArcane_1_1TimeLoopSingletonServiceInfo_html"><div class="ttname"><a href="../../dd/dd5/classArcane_1_1TimeLoopSingletonServiceInfo.html">Arcane::TimeLoopSingletonServiceInfo</a></div><div class="ttdoc">Infos d'un service singleton d'une boucle en temps.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dbd/TimeLoopSingletonServiceInfo_8h_source.html#l00031">TimeLoopSingletonServiceInfo.h:32</a></div></div>
+<div class="ttc" id="aclassArcane_1_1XmlNodeList_html"><div class="ttname"><a href="../../dd/df7/classArcane_1_1XmlNodeList.html">Arcane::XmlNodeList</a></div><div class="ttdoc">Liste de noeuds d'un arbre DOM.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/de6/XmlNodeList_8h_source.html#l00031">XmlNodeList.h:33</a></div></div>
+<div class="ttc" id="aclassArcane_1_1XmlNode_html"><div class="ttname"><a href="../../d9/dcc/classArcane_1_1XmlNode.html">Arcane::XmlNode</a></div><div class="ttdoc">Noeud d'un arbre DOM.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/d28/XmlNode_8h_source.html#l00050">XmlNode.h:51</a></div></div>
+<div class="ttc" id="aclassArccore_1_1Exception_html"><div class="ttname"><a href="../../d7/d37/classArccore_1_1Exception.html">Arccore::Exception</a></div><div class="ttdoc">Classe de base d'une exception.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dfb/arccore_2src_2base_2arccore_2base_2Exception_8h_source.html#l00046">arccore/src/base/arccore/base/Exception.h:48</a></div></div>
+<div class="ttc" id="aclassArccore_1_1Span_html"><div class="ttname"><a href="../../dd/d9f/classArccore_1_1Span.html">Arccore::Span&lt; const std::byte &gt;</a></div></div>
+<div class="ttc" id="aclassArccore_1_1String_html"><div class="ttname"><a href="../../d2/ddb/classArccore_1_1String.html">Arccore::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/ddc/arccore_2src_2base_2arccore_2base_2String_8h_source.html#l00069">arccore/src/base/arccore/base/String.h:70</a></div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html">Arccore::TraceAccessor</a></div><div class="ttdoc">Classe d'accès aux traces.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/d1d/arccore_2src_2trace_2arccore_2trace_2TraceAccessor_8h_source.html#l00038">arccore/src/trace/arccore/trace/TraceAccessor.h:39</a></div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html_a75c624a02bc7d3a224b158010018b753"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html#a75c624a02bc7d3a224b158010018b753">Arccore::TraceAccessor::traceMng</a></div><div class="ttdeci">ITraceMng * traceMng() const</div><div class="ttdoc">Gestionnaire de trace.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/d23/TraceAccessor_8cc_source.html#l00071">TraceAccessor.cc:72</a></div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html_a86a8c15c146724b331c8aa10e2027f08"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html#a86a8c15c146724b331c8aa10e2027f08">Arccore::TraceAccessor::error</a></div><div class="ttdeci">TraceMessage error() const</div><div class="ttdoc">Flot pour un message d'erreur.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/d23/TraceAccessor_8cc_source.html#l00200">TraceAccessor.cc:201</a></div></div>
+<div class="ttc" id="aclassArccore_1_1TraceAccessor_html_ac97ca3cda108d93dceb8e1a4800246a7"><div class="ttname"><a href="../../d4/d0e/classArccore_1_1TraceAccessor.html#ac97ca3cda108d93dceb8e1a4800246a7">Arccore::TraceAccessor::info</a></div><div class="ttdeci">TraceMessage info() const</div><div class="ttdoc">Flot pour un message d'information.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/d23/TraceAccessor_8cc_source.html#l00100">TraceAccessor.cc:101</a></div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition</b> <a href="../../de/d40/AcceleratorGlobal_8h_source.html#l00035">AcceleratorGlobal.h:36</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_cd48e9603a047c3a36ad2b31e177f8e3.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_ec03dd46f3a35f00f5eb9d8763bb81e2.html">impl</a></li><li class="navelem"><b>TimeLoopReader.cc</b></li>
+    <li class="footer">Généré le Lundi 10 Février 2025 02:51:12 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>

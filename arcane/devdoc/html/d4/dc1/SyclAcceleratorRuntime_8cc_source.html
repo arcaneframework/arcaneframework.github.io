@@ -1,0 +1,709 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <meta name="generator" content="Doxygen 1.9.8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="../../logo_arcane.svg" type="image/svg+xml">
+    <title>Arcane:  Fichier source de SyclAcceleratorRuntime.cc</title>
+    <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../../jquery.js"></script>
+    <script type="text/javascript" src="../../dynsections.js"></script>
+    <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+    <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+    <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../dev_colors.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+    <script type="text/javascript" src="../../script-helper.js"></script>
+    <script type="text/javascript" src="../../script-resize.js"></script>
+    <script type="text/javascript" src="../../script-num-lines-code.js"></script>
+    <script type="text/javascript" src="../../script-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-edit-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-alternative-theme.js"></script>
+    <script type="text/javascript">
+      // On demande l'activation de la personnalisation de la page.
+      var no_custom_theme = false;
+      DoxygenAwesomeDarkModeToggle.title = "Thème clair/sombre";
+      DoxygenAwesomeDarkModeToggle.init();
+      DoxygenAwesomeFragmentCopyButton.title = "Copier le code dans le presse-papier";
+      DoxygenAwesomeFragmentCopyButton.init();
+      DoxygenAwesomeParagraphLink.init();
+      DoxygenAwesomeInteractiveToc.init();
+      DoxygenAwesomeTabs.init()
+      waitElemForResizeSideNav();
+      setOldSize();
+      //waitItemExpandCurrent();
+    </script>
+  </head>
+  <body>
+    <!--BEGIN CORNER_GITHUB-->
+    <!-- https://tholman.com/github-corners/ -->
+    <a href="https://github.com/arcaneframework/framework" class="github-corner" aria-label="Voir les sources sur GitHub">
+      <svg width="70" height="70" viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <!--END CORNER_GITHUB-->
+      <div id="top">
+        <!-- do not remove this div, it is closed by doxygen! -->
+        <div id="titlearea">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr id="projectrow">
+                <td id="projectlogo">
+                  <a href="../../index.html" title="Aller à la page principale">
+                    <img alt="Logo" src="../../arcane_framework_small.webp" />
+                  </a>
+                </td>
+              </tr>
+              <tr id="projectrow">
+                <td id="projectalign">
+                  <div id="projectname">Arcane
+                    <span id="projectnumber">&#160;v3.15.3.0</span>
+                  </div>
+                  <div id="projectbrief">Documentation développeur</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- end header part -->
+<!-- Généré par Doxygen 1.9.8 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche');
+  $(document).ready(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function() { init_codefold(1); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(document).ready(function(){initNavTree('d4/dc1/SyclAcceleratorRuntime_8cc_source.html','../../'); initResizable(); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">SyclAcceleratorRuntime.cc</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// Copyright 2000-2024 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">/* SyclAcceleratorRuntime.cc                                   (C) 2000-2024 */</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/*                                                                           */</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">/* Runtime pour &#39;SYCL&#39;.                                                      */</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;arcane/accelerator/sycl/SyclAccelerator.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;arcane/accelerator/sycl/internal/SyclAcceleratorInternal.h&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;arcane/utils/PlatformUtils.h&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;arcane/utils/NotSupportedException.h&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;arcane/utils/FatalErrorException.h&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;arcane/utils/IMemoryRessourceMng.h&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;arcane/utils/internal/IMemoryRessourceMngInternal.h&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;arcane/accelerator/core/RunQueueBuildInfo.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;arcane/accelerator/core/Memory.h&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;arcane/accelerator/core/DeviceInfoList.h&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;arcane/accelerator/core/RunQueue.h&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;arcane/accelerator/core/DeviceMemoryInfo.h&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;arcane/accelerator/core/NativeStream.h&quot;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;arcane/accelerator/core/internal/IRunnerRuntime.h&quot;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;arcane/accelerator/core/internal/RegisterRuntimeInfo.h&quot;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;arcane/accelerator/core/internal/IRunQueueStream.h&quot;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;arcane/accelerator/core/internal/IRunQueueEventImpl.h&quot;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keyword">namespace </span>Arcane::Accelerator::Sycl</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>{</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d5/d60/namespaceArccore.html">Arccore</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#define ARCANE_SYCL_FUNC_NOT_HANDLED \</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">  std::cout &lt;&lt; &quot;WARNING: SYCL: function not handled &quot; &lt;&lt; A_FUNCINFO &lt;&lt; &quot;\n&quot;</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">class </span>SyclRunnerRuntime;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="};">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html">   49</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html">SyclRunQueueStream</a></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>: <span class="keyword">public</span> <a class="code hl_class" href="../../da/dbb/classArcane_1_1Accelerator_1_1impl_1_1IRunQueueStream.html">impl::IRunQueueStream</a></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>{</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  <a class="code hl_class" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html">SyclRunQueueStream</a>(<a class="code hl_class" href="../../dc/dde/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunnerRuntime.html">SyclRunnerRuntime</a>* runtime, <span class="keyword">const</span> <a class="code hl_class" href="../../df/d13/classArcane_1_1Accelerator_1_1RunQueueBuildInfo.html">RunQueueBuildInfo</a>&amp; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">bi</a>);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <a class="code hl_class" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html">~SyclRunQueueStream</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>  }</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="}">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#ac9284547c2d2e8a54ac49bc9db889cd1">   61</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#ac9284547c2d2e8a54ac49bc9db889cd1">notifyBeginLaunchKernel</a>([[<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">maybe_unused</a>]] <a class="code hl_class" href="../../d2/d7c/classArcane_1_1Accelerator_1_1impl_1_1RunCommandImpl.html">impl::RunCommandImpl</a>&amp; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">c</a>)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordflow">return</span> m_runtime-&gt;notifyBeginLaunchKernel();</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a83b3cde3c16679cc7c857f124a247ee1">   65</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a83b3cde3c16679cc7c857f124a247ee1">notifyEndLaunchKernel</a>(<a class="code hl_class" href="../../d2/d7c/classArcane_1_1Accelerator_1_1impl_1_1RunCommandImpl.html">impl::RunCommandImpl</a>&amp;)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">return</span> m_runtime-&gt;notifyEndLaunchKernel();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00069" data-start="{" data-end="}">
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a44d63a7897b5ef3964fc3e66c541d452">   69</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a44d63a7897b5ef3964fc3e66c541d452">barrier</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    m_sycl_stream-&gt;wait_and_throw();</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a78f7cf6023683a75a92fdb4f31f0dfe2">   73</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a78f7cf6023683a75a92fdb4f31f0dfe2">_barrierNoException</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    m_sycl_stream-&gt;wait();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00078" data-start="{" data-end="}">
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a7527bf603210e56fc7b8533aa0f6f6e1">   78</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a7527bf603210e56fc7b8533aa0f6f6e1">copyMemory</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../de/d00/classArcane_1_1Accelerator_1_1MemoryCopyArgs.html">MemoryCopyArgs</a>&amp; args)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keyword">auto</span> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">source_bytes</a> = args.source().bytes();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    m_sycl_stream-&gt;memcpy(args.destination().data(), <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">source_bytes</a>.data(),</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                          <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">source_bytes</a>.size());</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordflow">if</span> (!args.isAsync())</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>      this-&gt;<a class="code hl_function" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a44d63a7897b5ef3964fc3e66c541d452">barrier</a>();</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00086" data-start="{" data-end="}">
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a48d5b77ebbc1e1bf18fce0aa9ae5b932">   86</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a48d5b77ebbc1e1bf18fce0aa9ae5b932">prefetchMemory</a>([[<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">maybe_unused</a>]] <span class="keyword">const</span> <a class="code hl_class" href="../../dc/d62/classArcane_1_1Accelerator_1_1MemoryPrefetchArgs.html">MemoryPrefetchArgs</a>&amp; args)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keyword">auto</span> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">source_bytes</a> = args.source().bytes();</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <a class="code hl_typedef" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">nb_byte</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">source_bytes</a>.size();</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">nb_byte</a> == 0)</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>      <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    m_sycl_stream-&gt;prefetch(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">source_bytes</a>.data(), <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">nb_byte</a>);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    <span class="keywordflow">if</span> (!args.isAsync())</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>      this-&gt;<a class="code hl_function" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a44d63a7897b5ef3964fc3e66c541d452">barrier</a>();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00096" data-start="{" data-end="}">
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a3cf1b24d159bf35d8398c85ea426da39">   96</a></span>  <a class="code hl_class" href="../../df/d7a/classArcane_1_1Accelerator_1_1impl_1_1NativeStream.html">impl::NativeStream</a> <a class="code hl_function" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a3cf1b24d159bf35d8398c85ea426da39">nativeStream</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="../../df/d7a/classArcane_1_1Accelerator_1_1impl_1_1NativeStream.html">impl::NativeStream</a>(m_sycl_stream.get());</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  }</div>
+</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="foldopen" id="foldopen00101" data-start="{" data-end="}">
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a7d76def4aed5677672e2e62d63b860a6">  101</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a7d76def4aed5677672e2e62d63b860a6">_setSyclLastCommandEvent</a>([[<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">maybe_unused</a>]] <span class="keywordtype">void</span>* <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">sycl_event_ptr</a>)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    sycl::event <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">last_event</a>;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">sycl_event_ptr</a>)</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>      <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">last_event</a> = *(<span class="keyword">reinterpret_cast&lt;</span>sycl::event*<span class="keyword">&gt;</span>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">sycl_event_ptr</a>));</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    m_last_command_event = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">last_event</a>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>  }</div>
+</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>  <span class="keyword">static</span> sycl::async_handler _getAsyncHandler()</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  {</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keyword">auto</span> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">err_handler</a> = [](<span class="keyword">const</span> sycl::exception_list&amp; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">exceptions</a>) {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>      std::ostringstream <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ostr</a>;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>      <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ostr</a> &lt;&lt; <span class="stringliteral">&quot;Error in SYCL runtime\n&quot;</span>;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>      <span class="keywordflow">for</span> (<span class="keyword">const</span> std::exception_ptr&amp; e : <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">exceptions</a>) {</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <span class="keywordflow">try</span> {</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>          std::rethrow_exception(e);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        }</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordflow">catch</span> (<span class="keyword">const</span> sycl::exception&amp; e) {</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>          <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ostr</a> &lt;&lt; <span class="stringliteral">&quot;SYCL exception: &quot;</span> &lt;&lt; e.what() &lt;&lt; <span class="stringliteral">&quot;\n&quot;</span>;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        }</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>      }</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>      <a class="code hl_define" href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a>(ostr.str());</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    };</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordflow">return</span> err_handler;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>  }</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a4886252dc70a8a2d64194393404781c4">  130</a></span>  sycl::event <a class="code hl_function" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a4886252dc70a8a2d64194393404781c4">lastCommandEvent</a>() { <span class="keywordflow">return</span> m_last_command_event; }</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>  sycl::queue&amp; trueStream()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <span class="keywordflow">return</span> *m_sycl_stream;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>  }</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>  <a class="code hl_class" href="../../df/d79/classArcane_1_1Accelerator_1_1impl_1_1IRunnerRuntime.html">impl::IRunnerRuntime</a>* m_runtime;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>  std::unique_ptr&lt;sycl::queue&gt; m_sycl_stream;</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>  sycl::event m_last_command_event;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>};</div>
+</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="foldopen" id="foldopen00149" data-start="{" data-end="};">
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="../../d7/d9d/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueEvent.html">  149</a></span><span class="keyword">class </span><a class="code hl_class" href="../../d7/d9d/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueEvent.html">SyclRunQueueEvent</a></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>: <span class="keyword">public</span> <a class="code hl_class" href="../../da/d4c/classArcane_1_1Accelerator_1_1impl_1_1IRunQueueEventImpl.html">impl::IRunQueueEventImpl</a></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>{</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>  <span class="keyword">explicit</span> <a class="code hl_class" href="../../d7/d9d/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueEvent.html">SyclRunQueueEvent</a>([[<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">maybe_unused</a>]] <span class="keywordtype">bool</span> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">has_timer</a>)</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>  {</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>  }</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>  <a class="code hl_class" href="../../d7/d9d/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueEvent.html">~SyclRunQueueEvent</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>  }</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>  <span class="comment">// Enregistre l&#39;événement au sein d&#39;une RunQueue</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>  <span class="keywordtype">void</span> recordQueue([[<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">maybe_unused</a>]] <a class="code hl_class" href="../../da/dbb/classArcane_1_1Accelerator_1_1impl_1_1IRunQueueStream.html">impl::IRunQueueStream</a>* stream) <span class="keyword">final</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>  {</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <a class="code hl_define" href="../../d0/d1e/ArcaneGlobal_8h.html#a3fb196870fc917614437a98517be2ed4">ARCANE_CHECK_POINTER</a>(stream);</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keyword">auto</span>* <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">rq</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html">SyclRunQueueStream</a>*<span class="keyword">&gt;</span>(stream);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    m_sycl_event = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">rq</a>-&gt;lastCommandEvent();</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="preprocessor">#if defined(__ADAPTIVECPP__)</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    m_recorded_stream = stream;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="comment">// TODO: Vérifier s&#39;il faut faire quelque chose</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="preprocessor">#elif defined(__INTEL_LLVM_COMPILER)</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="comment">//m_sycl_event = rq-&gt;trueStream().ext_oneapi_submit_barrier();</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <a class="code hl_define" href="../../d0/d1e/ArcaneGlobal_8h.html#a98dc7953a3cabcdf7e32826a9cc39da7">ARCANE_THROW</a>(<a class="code hl_class" href="../../d6/ddb/classArccore_1_1NotSupportedException.html">NotSupportedException</a>, <span class="stringliteral">&quot;Only supported for AdaptiveCpp and Intel DPC++ implementation&quot;</span>);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>  }</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>  <span class="keywordtype">void</span> wait() <span class="keyword">final</span></div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>  {</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    <span class="comment">//ARCANE_SYCL_FUNC_NOT_HANDLED;</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="comment">// TODO: Vérifier ce que cela signifie exactement</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    m_sycl_event.wait();</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>  }</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>  <span class="keywordtype">void</span> waitForEvent([[<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">maybe_unused</a>]] <a class="code hl_class" href="../../da/dbb/classArcane_1_1Accelerator_1_1impl_1_1IRunQueueStream.html">impl::IRunQueueStream</a>* stream) <span class="keyword">final</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>  {</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span><span class="preprocessor">#if defined(__ADAPTIVECPP__)</span></div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <span class="keyword">auto</span>* <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">rq</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html">SyclRunQueueStream</a>*<span class="keyword">&gt;</span>(stream);</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    m_sycl_event.wait(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">rq</a>-&gt;trueStream().get_wait_list());</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="preprocessor">#elif defined(__INTEL_LLVM_COMPILER)</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    std::vector&lt;sycl::event&gt; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">events</a>;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">events</a>.push_back(m_sycl_event);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    <span class="keyword">auto</span>* <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">rq</a> = <span class="keyword">static_cast&lt;</span><a class="code hl_class" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html">SyclRunQueueStream</a>*<span class="keyword">&gt;</span>(stream);</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">rq</a>-&gt;trueStream().ext_oneapi_submit_barrier(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">events</a>);</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <a class="code hl_define" href="../../d0/d1e/ArcaneGlobal_8h.html#a98dc7953a3cabcdf7e32826a9cc39da7">ARCANE_THROW</a>(<a class="code hl_class" href="../../d6/ddb/classArccore_1_1NotSupportedException.html">NotSupportedException</a>, <span class="stringliteral">&quot;Only supported for AdaptiveCpp and Intel DPC++ implementation&quot;</span>);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>  }</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>  <a class="code hl_typedef" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> elapsedTime([[<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">maybe_unused</a>]] IRunQueueEventImpl* <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">start_event</a>) <span class="keyword">final</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>  {</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <a class="code hl_define" href="../../d0/d1e/ArcaneGlobal_8h.html#a3fb196870fc917614437a98517be2ed4">ARCANE_CHECK_POINTER</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">start_event</a>);</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="comment">// Il faut prendre l&#39;évènement de début car on est certain qu&#39;il contient</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    <span class="comment">// la bonne valeur de &#39;sycl::event&#39;.</span></div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    sycl::event <span class="keyword">event</span> = (<span class="keyword">static_cast&lt;</span><a class="code hl_class" href="../../d7/d9d/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueEvent.html">SyclRunQueueEvent</a>*<span class="keyword">&gt;</span>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">start_event</a>))-&gt;m_sycl_event;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    <span class="comment">// Si pas d&#39;évènement associé, on ne fait rien pour éviter une exception</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">event</a>==sycl::event())</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>      <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    <span class="keywordtype">bool</span> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">is_submitted</a> = <span class="keyword">event</span>.get_info&lt;sycl::info::event::command_execution_status&gt;() == sycl::info::event_command_status::complete;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keywordflow">if</span> (!<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">is_submitted</a>)</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>      <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <a class="code hl_typedef" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> start = <span class="keyword">event</span>.get_profiling_info&lt;sycl::info::event_profiling::command_start&gt;();</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <a class="code hl_typedef" href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Int64</a> end = <span class="keyword">event</span>.get_profiling_info&lt;sycl::info::event_profiling::command_end&gt;();</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    <span class="keywordflow">return</span> (end - start);</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>  }</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>  sycl::event m_sycl_event;</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>  <a class="code hl_class" href="../../da/dbb/classArcane_1_1Accelerator_1_1impl_1_1IRunQueueStream.html">impl::IRunQueueStream</a>* m_recorded_stream = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>};</div>
+</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span> </div>
+<div class="foldopen" id="foldopen00228" data-start="{" data-end="};">
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno"><a class="line" href="../../dc/dde/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunnerRuntime.html">  228</a></span><span class="keyword">class </span><a class="code hl_class" href="../../dc/dde/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunnerRuntime.html">SyclRunnerRuntime</a></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>: <span class="keyword">public</span> <a class="code hl_class" href="../../df/d79/classArcane_1_1Accelerator_1_1impl_1_1IRunnerRuntime.html">impl::IRunnerRuntime</a></div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>{</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>  <span class="keyword">friend</span> <span class="keyword">class </span><a class="code hl_class" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html">SyclRunQueueStream</a>;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>  <span class="keywordtype">void</span> notifyBeginLaunchKernel()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>  }</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>  <span class="keywordtype">void</span> notifyEndLaunchKernel()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>  }</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>  <span class="keywordtype">void</span> barrier()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <span class="comment">// TODO Faire le wait sur la file par défaut n&#39;est pas strictement équivalent</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <span class="comment">// à la barrière en CUDA qui synchronize tout le device.</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    m_default_queue-&gt;wait();</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>  }</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>  <a class="code hl_enumeration" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857df">eExecutionPolicy</a> executionPolicy()<span class="keyword"> const override</span></div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfa4427481c96bb7dc6b1add3207cdc622d">eExecutionPolicy::SYCL</a>;</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>  }</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>  <a class="code hl_class" href="../../da/dbb/classArcane_1_1Accelerator_1_1impl_1_1IRunQueueStream.html">impl::IRunQueueStream</a>* createStream(<span class="keyword">const</span> <a class="code hl_class" href="../../df/d13/classArcane_1_1Accelerator_1_1RunQueueBuildInfo.html">RunQueueBuildInfo</a>&amp; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">bi</a>)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_class" href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html">SyclRunQueueStream</a>(<span class="keyword">this</span>, <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">bi</a>);</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>  }</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>  <a class="code hl_class" href="../../da/d4c/classArcane_1_1Accelerator_1_1impl_1_1IRunQueueEventImpl.html">impl::IRunQueueEventImpl</a>* createEventImpl()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_class" href="../../d7/d9d/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueEvent.html">SyclRunQueueEvent</a>(<span class="keyword">false</span>);</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>  }</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>  <a class="code hl_class" href="../../da/d4c/classArcane_1_1Accelerator_1_1impl_1_1IRunQueueEventImpl.html">impl::IRunQueueEventImpl</a>* createEventImplWithTimer()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="keywordflow">return</span> <span class="keyword">new</span> <a class="code hl_class" href="../../d7/d9d/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueEvent.html">SyclRunQueueEvent</a>(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>  }</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>  <span class="keywordtype">void</span> setMemoryAdvice([[<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">maybe_unused</a>]] ConstMemoryView buffer, [[<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">maybe_unused</a>]] <a class="code hl_enumeration" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acafdcb065959fca560cf5b78caa1ee8b">eMemoryAdvice</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">advice</a>,</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>                       [[<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">maybe_unused</a>]] <a class="code hl_class" href="../../d8/d96/classArcane_1_1Accelerator_1_1DeviceId.html">DeviceId</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">device_id</a>)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>  }</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>  <span class="keywordtype">void</span> unsetMemoryAdvice([[<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">maybe_unused</a>]] ConstMemoryView buffer,</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>                         [[<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">maybe_unused</a>]] <a class="code hl_enumeration" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acafdcb065959fca560cf5b78caa1ee8b">eMemoryAdvice</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">advice</a>, [[<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">maybe_unused</a>]] <a class="code hl_class" href="../../d8/d96/classArcane_1_1Accelerator_1_1DeviceId.html">DeviceId</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">device_id</a>)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>  }</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>  <span class="keywordtype">void</span> setCurrentDevice([[<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">maybe_unused</a>]] <a class="code hl_class" href="../../d8/d96/classArcane_1_1Accelerator_1_1DeviceId.html">DeviceId</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">device_id</a>) <span class="keyword">final</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>  {</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    ARCANE_SYCL_FUNC_NOT_HANDLED;</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>  }</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>  <span class="keyword">const</span> <a class="code hl_class" href="../../dd/d03/classArcane_1_1Accelerator_1_1IDeviceInfoList.html">IDeviceInfoList</a>* deviceInfoList()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> &amp;m_device_info_list; }</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>  <span class="keywordtype">void</span> getPointerAttribute(<a class="code hl_class" href="../../dd/deb/classArcane_1_1Accelerator_1_1PointerAttribute.html">PointerAttribute</a>&amp; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">attribute</a>, <span class="keyword">const</span> <span class="keywordtype">void</span>* <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ptr</a>)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    sycl::usm::alloc <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">sycl_mem_type</a> = sycl::get_pointer_type(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ptr</a>, *m_default_context);</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    <a class="code hl_enumeration" href="../../de/dae/namespaceArcane_1_1Accelerator.html#acb2ea2c462f615699e3b66e3fa746734">ePointerMemoryType</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">mem_type</a> = ePointerMemoryType::Unregistered;</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    <span class="keyword">const</span> <span class="keywordtype">void</span>* <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">host_ptr</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    <span class="keyword">const</span> <span class="keywordtype">void</span>* <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">device_ptr</a> = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">sycl_mem_type</a> == sycl::usm::alloc::host) {</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>      <span class="comment">// HostPinned. Doit être accessible depuis le device mais</span></div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>      <span class="comment">//</span></div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>      <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">mem_type</a> = ePointerMemoryType::Host;</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>      <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">host_ptr</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ptr</a>;</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>      <span class="comment">// TODO: Regarder comment récupérer la valeur</span></div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>      <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">device_ptr</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ptr</a>;</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    }</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">sycl_mem_type</a> == sycl::usm::alloc::device) {</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>      <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">mem_type</a> = ePointerMemoryType::Device;</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>      <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">device_ptr</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ptr</a>;</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    }</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">sycl_mem_type</a> == sycl::usm::alloc::shared) {</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>      <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">mem_type</a> = ePointerMemoryType::Managed;</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>      <span class="comment">// TODO: pour l&#39;instant on remplit avec le pointeur car on ne sait</span></div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>      <span class="comment">// pas comment récupérer l&#39;info.</span></div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>      <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">host_ptr</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ptr</a>;</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>      <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">device_ptr</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ptr</a>;</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    }</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    <span class="comment">// TODO: à corriger</span></div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    <a class="code hl_typedef" href="../../d5/d60/namespaceArccore.html#ab32c98ae2c2cf8372feb620983bb5b67">Int32</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">device_id</a> = 0;</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    _fillPointerAttribute(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">attribute</a>, <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">mem_type</a>, <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">device_id</a>, <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">ptr</a>, <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">device_ptr</a>, <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">host_ptr</a>);</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>  }</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>  <a class="code hl_class" href="../../d5/def/classArcane_1_1Accelerator_1_1DeviceMemoryInfo.html">DeviceMemoryInfo</a> getDeviceMemoryInfo(<a class="code hl_class" href="../../d8/d96/classArcane_1_1Accelerator_1_1DeviceId.html">DeviceId</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">device_id</a>)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    <span class="keywordflow">return</span> {};</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>  }</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span> </div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>  <span class="keywordtype">void</span> fillDevicesAndSetDefaultQueue(<span class="keywordtype">bool</span> is_verbose);</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>  sycl::queue&amp; defaultQueue()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> *m_default_queue; }</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>  sycl::device&amp; defaultDevice()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> *m_default_device; }</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span> </div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span> </div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>  <a class="code hl_class" href="../../d5/dfd/classArcane_1_1Accelerator_1_1impl_1_1DeviceInfoList.html">impl::DeviceInfoList</a> m_device_info_list;</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>  std::unique_ptr&lt;sycl::device&gt; m_default_device;</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>  std::unique_ptr&lt;sycl::context&gt; m_default_context;</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>  std::unique_ptr&lt;sycl::queue&gt; m_default_queue;</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span> </div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span> </div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>  <span class="keywordtype">void</span> _init(sycl::device&amp; device)</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>  {</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    m_default_device = std::make_unique&lt;sycl::device&gt;(device);</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    m_default_queue = std::make_unique&lt;sycl::queue&gt;(device);</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>    m_default_context = std::make_unique&lt;sycl::context&gt;(device);</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>  }</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>};</div>
+</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span> </div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span> </div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>SyclRunQueueStream::</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>SyclRunQueueStream(<a class="code hl_class" href="../../dc/dde/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunnerRuntime.html">SyclRunnerRuntime</a>* runtime, <span class="keyword">const</span> <a class="code hl_class" href="../../df/d13/classArcane_1_1Accelerator_1_1RunQueueBuildInfo.html">RunQueueBuildInfo</a>&amp; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">bi</a>)</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>: m_runtime(runtime)</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>{</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>  sycl::device&amp; d = runtime-&gt;defaultDevice();</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>  <span class="comment">// Indique que les commandes lancées sont implicitement exécutées les</span></div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>  <span class="comment">// unes derrière les autres.</span></div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>  <span class="keyword">auto</span> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">queue_property</a> = sycl::property::queue::in_order();</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>  <span class="comment">// Pour le profiling</span></div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>  <span class="keyword">auto</span> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">profiling_property</a> = sycl::property::queue::enable_profiling();</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>  sycl::property_list <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">queue_properties</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">queue_property</a>, <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">profiling_property</a>);</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span> </div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>  <span class="comment">// Gestionnaire d&#39;erreur.</span></div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>  sycl::async_handler <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">err_handler</a>;</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>  <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">err_handler</a> = _getAsyncHandler();</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>  <span class="keywordflow">if</span> (<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">bi</a>.isDefault())</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    m_sycl_stream = std::make_unique&lt;sycl::queue&gt;(d, <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">err_handler</a>, <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">queue_properties</a>);</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>  <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>    ARCANE_SYCL_FUNC_NOT_HANDLED;</div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span>    m_sycl_stream = std::make_unique&lt;sycl::queue&gt;(d, <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">err_handler</a>, <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">queue_properties</a>);</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>  }</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>}</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span> </div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span> </div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span><span class="keywordtype">void</span> SyclRunnerRuntime::</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>fillDevicesAndSetDefaultQueue(<span class="keywordtype">bool</span> is_verbose)</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>{</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>  <span class="keywordflow">if</span> (is_verbose){</div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> platform : <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">sycl</a>::platform::<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">get_platforms</a>()) {</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>      std::cout &lt;&lt; <span class="stringliteral">&quot;Platform: &quot;</span></div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>                &lt;&lt; platform.get_info&lt;sycl::info::platform::name&gt;()</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>                &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>    }</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>  }</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span> </div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>  sycl::device device{ sycl::gpu_selector_v };</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>  <span class="keywordflow">if</span> (is_verbose)</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>    std::cout &lt;&lt; <span class="stringliteral">&quot;\nDevice: &quot;</span> &lt;&lt; device.get_info&lt;sycl::info::device::name&gt;()</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>              &lt;&lt; <span class="stringliteral">&quot;\nVersion=&quot;</span> &lt;&lt; device.get_info&lt;sycl::info::device::version&gt;()</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>              &lt;&lt; std::endl;</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>  <span class="comment">// Pour l&#39;instant, on prend comme file par défaut la première trouvée</span></div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>  <span class="comment">// et on ne considère qu&#39;un seul device accessible.</span></div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>  _init(device);</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span> </div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>  DeviceInfo device_info;</div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>  device_info.setDescription(<span class="stringliteral">&quot;No description info&quot;</span>);</div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>  device_info.setDeviceId(DeviceId(0));</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span>  device_info.setName(device.get_info&lt;sycl::info::device::name&gt;());</div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>  m_device_info_list.addDevice(device_info);</div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>}</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span> </div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno">  390</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span> </div>
+<div class="foldopen" id="foldopen00393" data-start="{" data-end="};">
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno"><a class="line" href="../../de/dba/classArcane_1_1Accelerator_1_1Sycl_1_1SyclMemoryCopier.html">  393</a></span><span class="keyword">class </span><a class="code hl_class" href="../../de/dba/classArcane_1_1Accelerator_1_1Sycl_1_1SyclMemoryCopier.html">SyclMemoryCopier</a></div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>: <span class="keyword">public</span> <a class="code hl_class" href="../../d7/dec/classArcane_1_1IMemoryCopier.html">IMemoryCopier</a></div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>{</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="../../de/dba/classArcane_1_1Accelerator_1_1Sycl_1_1SyclMemoryCopier.html#a4683ed0f678fe0642d336fbc71f24c5e">copy</a>(ConstMemoryView <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">from</a>, <a class="code hl_enumeration" href="../../d5/d60/namespaceArccore.html#a9a0e8cf94995d555829979e3a0da453f">eMemoryRessource</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">from_mem</a>,</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>            <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">MutableMemoryView</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">to</a>, <a class="code hl_enumeration" href="../../d5/d60/namespaceArccore.html#a9a0e8cf94995d555829979e3a0da453f">eMemoryRessource</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">to_mem</a>,</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>            <span class="keyword">const</span> <a class="code hl_class" href="../../d9/d8e/classArcane_1_1Accelerator_1_1RunQueue.html">RunQueue</a>* queue) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>};</div>
+</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span> </div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span> </div>
+<div class="line"><a id="l00404" name="l00404"></a><span class="lineno">  404</span>} <span class="comment">// namespace Arcane::Accelerator::Sycl</span></div>
+<div class="line"><a id="l00405" name="l00405"></a><span class="lineno">  405</span> </div>
+<div class="line"><a id="l00406" name="l00406"></a><span class="lineno">  406</span><span class="keyword">namespace</span></div>
+<div class="line"><a id="l00407" name="l00407"></a><span class="lineno">  407</span>{</div>
+<div class="line"><a id="l00408" name="l00408"></a><span class="lineno">  408</span><a class="code hl_class" href="../../dc/dde/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunnerRuntime.html">Arcane::Accelerator::Sycl::SyclRunnerRuntime</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">global_sycl_runtime</a>;</div>
+<div class="line"><a id="l00409" name="l00409"></a><span class="lineno">  409</span><a class="code hl_class" href="../../de/dba/classArcane_1_1Accelerator_1_1Sycl_1_1SyclMemoryCopier.html">Arcane::Accelerator::Sycl::SyclMemoryCopier</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">global_sycl_memory_copier</a>;</div>
+<div class="line"><a id="l00410" name="l00410"></a><span class="lineno">  410</span>} <span class="comment">// namespace</span></div>
+<div class="line"><a id="l00411" name="l00411"></a><span class="lineno">  411</span> </div>
+<div class="line"><a id="l00412" name="l00412"></a><span class="lineno">  412</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00413" name="l00413"></a><span class="lineno">  413</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00414" name="l00414"></a><span class="lineno">  414</span> </div>
+<div class="line"><a id="l00415" name="l00415"></a><span class="lineno">  415</span><span class="keyword">namespace </span>Arcane::Accelerator::Sycl</div>
+<div class="line"><a id="l00416" name="l00416"></a><span class="lineno">  416</span>{</div>
+<div class="line"><a id="l00417" name="l00417"></a><span class="lineno">  417</span> </div>
+<div class="line"><a id="l00418" name="l00418"></a><span class="lineno">  418</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00419" name="l00419"></a><span class="lineno">  419</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00420" name="l00420"></a><span class="lineno">  420</span> </div>
+<div class="foldopen" id="foldopen00421" data-start="{" data-end="}">
+<div class="line"><a id="l00421" name="l00421"></a><span class="lineno"><a class="line" href="../../de/dba/classArcane_1_1Accelerator_1_1Sycl_1_1SyclMemoryCopier.html#a4683ed0f678fe0642d336fbc71f24c5e">  421</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../de/dba/classArcane_1_1Accelerator_1_1Sycl_1_1SyclMemoryCopier.html#a4683ed0f678fe0642d336fbc71f24c5e">SyclMemoryCopier::</a></div>
+<div class="line"><a id="l00422" name="l00422"></a><span class="lineno">  422</span><a class="code hl_function" href="../../de/dba/classArcane_1_1Accelerator_1_1Sycl_1_1SyclMemoryCopier.html#a4683ed0f678fe0642d336fbc71f24c5e">copy</a>(ConstMemoryView <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">from</a>, [[<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">maybe_unused</a>]] <a class="code hl_enumeration" href="../../d5/d60/namespaceArccore.html#a9a0e8cf94995d555829979e3a0da453f">eMemoryRessource</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">from_mem</a>,</div>
+<div class="line"><a id="l00423" name="l00423"></a><span class="lineno">  423</span>     <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">MutableMemoryView</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">to</a>, [[<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">maybe_unused</a>]] <a class="code hl_enumeration" href="../../d5/d60/namespaceArccore.html#a9a0e8cf94995d555829979e3a0da453f">eMemoryRessource</a> <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">to_mem</a>,</div>
+<div class="line"><a id="l00424" name="l00424"></a><span class="lineno">  424</span>     <span class="keyword">const</span> <a class="code hl_class" href="../../d9/d8e/classArcane_1_1Accelerator_1_1RunQueue.html">RunQueue</a>* queue)</div>
+<div class="line"><a id="l00425" name="l00425"></a><span class="lineno">  425</span>{</div>
+<div class="line"><a id="l00426" name="l00426"></a><span class="lineno">  426</span>  <span class="keywordflow">if</span> (queue) {</div>
+<div class="line"><a id="l00427" name="l00427"></a><span class="lineno">  427</span>    queue-&gt;<a class="code hl_function" href="../../d9/d8e/classArcane_1_1Accelerator_1_1RunQueue.html#a3cee9cbe1c8b03bec8cce0fe595d9ae8">copyMemory</a>(<a class="code hl_class" href="../../de/d00/classArcane_1_1Accelerator_1_1MemoryCopyArgs.html">MemoryCopyArgs</a>(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">to</a>.bytes(), <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">from</a>.bytes()).addAsync(queue-&gt;<a class="code hl_function" href="../../d9/d8e/classArcane_1_1Accelerator_1_1RunQueue.html#a131c65ef64dc0cf6730efdb2350d9a09">isAsync</a>()));</div>
+<div class="line"><a id="l00428" name="l00428"></a><span class="lineno">  428</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00429" name="l00429"></a><span class="lineno">  429</span>  }</div>
+<div class="line"><a id="l00430" name="l00430"></a><span class="lineno">  430</span>  sycl::queue&amp; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">q</a> = <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">global_sycl_runtime</a>.defaultQueue();</div>
+<div class="line"><a id="l00431" name="l00431"></a><span class="lineno">  431</span>  <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">q</a>.memcpy(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">to</a>.data(), <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">from</a>.data(), <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">from</a>.bytes().size()).wait();</div>
+<div class="line"><a id="l00432" name="l00432"></a><span class="lineno">  432</span>}</div>
+</div>
+<div class="line"><a id="l00433" name="l00433"></a><span class="lineno">  433</span> </div>
+<div class="line"><a id="l00434" name="l00434"></a><span class="lineno">  434</span>} <span class="comment">// namespace Arcane::Accelerator::Sycl</span></div>
+<div class="line"><a id="l00435" name="l00435"></a><span class="lineno">  435</span> </div>
+<div class="line"><a id="l00436" name="l00436"></a><span class="lineno">  436</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00437" name="l00437"></a><span class="lineno">  437</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00438" name="l00438"></a><span class="lineno">  438</span> </div>
+<div class="line"><a id="l00439" name="l00439"></a><span class="lineno">  439</span><span class="comment">// Cette fonction est le point d&#39;entrée utilisé lors du chargement</span></div>
+<div class="line"><a id="l00440" name="l00440"></a><span class="lineno">  440</span><span class="comment">// dynamique de cette bibliothèque</span></div>
+<div class="line"><a id="l00441" name="l00441"></a><span class="lineno">  441</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> ARCANE_EXPORT <span class="keywordtype">void</span></div>
+<div class="line"><a id="l00442" name="l00442"></a><span class="lineno">  442</span>arcaneRegisterAcceleratorRuntimesycl(<a class="code hl_class" href="../../de/d28/classArcane_1_1Accelerator_1_1RegisterRuntimeInfo.html">Arcane::Accelerator::RegisterRuntimeInfo</a>&amp; <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">init_info</a>)</div>
+<div class="line"><a id="l00443" name="l00443"></a><span class="lineno">  443</span>{</div>
+<div class="line"><a id="l00444" name="l00444"></a><span class="lineno">  444</span>  <span class="keyword">using namespace </span><a class="code hl_namespace" href="../../d0/d32/namespaceArcane.html">Arcane</a>;</div>
+<div class="line"><a id="l00445" name="l00445"></a><span class="lineno">  445</span>  <span class="keyword">using namespace </span>Arcane::Accelerator::Sycl;</div>
+<div class="line"><a id="l00446" name="l00446"></a><span class="lineno">  446</span>  Arcane::Accelerator::impl::setUsingSYCLRuntime(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00447" name="l00447"></a><span class="lineno">  447</span>  Arcane::Accelerator::impl::setSYCLRunQueueRuntime(&amp;<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">global_sycl_runtime</a>);</div>
+<div class="line"><a id="l00448" name="l00448"></a><span class="lineno">  448</span>  Arcane::platform::setAcceleratorHostMemoryAllocator(getSyclMemoryAllocator());</div>
+<div class="line"><a id="l00449" name="l00449"></a><span class="lineno">  449</span>  <a class="code hl_class" href="../../d2/d8d/classArcane_1_1IMemoryRessourceMngInternal.html">IMemoryRessourceMngInternal</a>* <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">mrm</a> = platform::getDataMemoryRessourceMng()-&gt;_internal();</div>
+<div class="line"><a id="l00450" name="l00450"></a><span class="lineno">  450</span>  <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">mrm</a>-&gt;setIsAccelerator(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00451" name="l00451"></a><span class="lineno">  451</span>  <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">mrm</a>-&gt;setAllocator(eMemoryRessource::UnifiedMemory, getSyclUnifiedMemoryAllocator());</div>
+<div class="line"><a id="l00452" name="l00452"></a><span class="lineno">  452</span>  <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">mrm</a>-&gt;setAllocator(eMemoryRessource::HostPinned, getSyclHostPinnedMemoryAllocator());</div>
+<div class="line"><a id="l00453" name="l00453"></a><span class="lineno">  453</span>  <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">mrm</a>-&gt;setAllocator(eMemoryRessource::Device, getSyclDeviceMemoryAllocator());</div>
+<div class="line"><a id="l00454" name="l00454"></a><span class="lineno">  454</span>  <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">mrm</a>-&gt;setCopier(&amp;<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">global_sycl_memory_copier</a>);</div>
+<div class="line"><a id="l00455" name="l00455"></a><span class="lineno">  455</span>  <a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">global_sycl_runtime</a>.fillDevicesAndSetDefaultQueue(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">init_info</a>.isVerbose());</div>
+<div class="line"><a id="l00456" name="l00456"></a><span class="lineno">  456</span>  setSyclMemoryQueue(<a class="code hl_class" href="../../dc/d69/classArcane_1_1LimaWrapper.html">global_sycl_runtime</a>.defaultQueue());</div>
+<div class="line"><a id="l00457" name="l00457"></a><span class="lineno">  457</span>}</div>
+<div class="line"><a id="l00458" name="l00458"></a><span class="lineno">  458</span> </div>
+<div class="line"><a id="l00459" name="l00459"></a><span class="lineno">  459</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00460" name="l00460"></a><span class="lineno">  460</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a3fb196870fc917614437a98517be2ed4"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a3fb196870fc917614437a98517be2ed4">ARCANE_CHECK_POINTER</a></div><div class="ttdeci">#define ARCANE_CHECK_POINTER(ptr)</div><div class="ttdoc">Macro retournant le pointeur ptr s'il est non nul ou lancant une exception s'il est nul.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d1e/ArcaneGlobal_8h_source.html#l00837">ArcaneGlobal.h:837</a></div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a98dc7953a3cabcdf7e32826a9cc39da7"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a98dc7953a3cabcdf7e32826a9cc39da7">ARCANE_THROW</a></div><div class="ttdeci">#define ARCANE_THROW(exception_class,...)</div><div class="ttdoc">Macro pour envoyer une exception avec formattage.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d1e/ArcaneGlobal_8h_source.html#l00767">ArcaneGlobal.h:767</a></div></div>
+<div class="ttc" id="aArcaneGlobal_8h_html_a9d85d5fb84c5371348dd56600999e564"><div class="ttname"><a href="../../d0/d1e/ArcaneGlobal_8h.html#a9d85d5fb84c5371348dd56600999e564">ARCANE_FATAL</a></div><div class="ttdeci">#define ARCANE_FATAL(...)</div><div class="ttdoc">Macro envoyant une exception FatalErrorException.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d1e/ArcaneGlobal_8h_source.html#l00778">ArcaneGlobal.h:778</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1DeviceId_html"><div class="ttname"><a href="../../d8/d96/classArcane_1_1Accelerator_1_1DeviceId.html">Arcane::Accelerator::DeviceId</a></div><div class="ttdoc">Identifiant d'un composant du système.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/da3/DeviceId_8h_source.html#l00032">DeviceId.h:33</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1DeviceMemoryInfo_html"><div class="ttname"><a href="../../d5/def/classArcane_1_1Accelerator_1_1DeviceMemoryInfo.html">Arcane::Accelerator::DeviceMemoryInfo</a></div><div class="ttdoc">Information mémoire d'un accélérateur.</div><div class="ttdef"><b>Definition</b> <a href="../../df/d99/DeviceMemoryInfo_8h_source.html#l00030">DeviceMemoryInfo.h:31</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1IDeviceInfoList_html"><div class="ttname"><a href="../../dd/d03/classArcane_1_1Accelerator_1_1IDeviceInfoList.html">Arcane::Accelerator::IDeviceInfoList</a></div><div class="ttdoc">Interface d'une liste de devices.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d0a/IDeviceInfoList_8h_source.html#l00030">IDeviceInfoList.h:31</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1MemoryCopyArgs_html"><div class="ttname"><a href="../../de/d00/classArcane_1_1Accelerator_1_1MemoryCopyArgs.html">Arcane::Accelerator::MemoryCopyArgs</a></div><div class="ttdoc">Arguments pour la copie mémoire.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d5c/Memory_8h_source.html#l00062">Memory.h:63</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1MemoryPrefetchArgs_html"><div class="ttname"><a href="../../dc/d62/classArcane_1_1Accelerator_1_1MemoryPrefetchArgs.html">Arcane::Accelerator::MemoryPrefetchArgs</a></div><div class="ttdoc">Arguments pour le préfetching mémoire.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d5c/Memory_8h_source.html#l00124">Memory.h:125</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1PointerAttribute_html"><div class="ttname"><a href="../../dd/deb/classArcane_1_1Accelerator_1_1PointerAttribute.html">Arcane::Accelerator::PointerAttribute</a></div><div class="ttdoc">Informations sur une adresse mémoire.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d5f/PointerAttribute_8h_source.html#l00035">PointerAttribute.h:36</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1RegisterRuntimeInfo_html"><div class="ttname"><a href="../../de/d28/classArcane_1_1Accelerator_1_1RegisterRuntimeInfo.html">Arcane::Accelerator::RegisterRuntimeInfo</a></div><div class="ttdoc">Informations pour initialiser le runtime accélérateur.</div><div class="ttdef"><b>Definition</b> <a href="../../d6/dae/RegisterRuntimeInfo_8h_source.html#l00030">RegisterRuntimeInfo.h:31</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1RunQueueBuildInfo_html"><div class="ttname"><a href="../../df/d13/classArcane_1_1Accelerator_1_1RunQueueBuildInfo.html">Arcane::Accelerator::RunQueueBuildInfo</a></div><div class="ttdoc">Informations pour créer une RunQueue.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d46/RunQueueBuildInfo_8h_source.html#l00030">RunQueueBuildInfo.h:31</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1RunQueue_html"><div class="ttname"><a href="../../d9/d8e/classArcane_1_1Accelerator_1_1RunQueue.html">Arcane::Accelerator::RunQueue</a></div><div class="ttdoc">File d'exécution pour un accélérateur.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d05/core_2RunQueue_8h_source.html#l00051">core/RunQueue.h:52</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1RunQueue_html_a131c65ef64dc0cf6730efdb2350d9a09"><div class="ttname"><a href="../../d9/d8e/classArcane_1_1Accelerator_1_1RunQueue.html#a131c65ef64dc0cf6730efdb2350d9a09">Arcane::Accelerator::RunQueue::isAsync</a></div><div class="ttdeci">bool isAsync() const</div><div class="ttdoc">Indique si la file d'exécution est asynchrone.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/d62/RunQueue_8cc_source.html#l00319">RunQueue.cc:320</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1RunQueue_html_a3cee9cbe1c8b03bec8cce0fe595d9ae8"><div class="ttname"><a href="../../d9/d8e/classArcane_1_1Accelerator_1_1RunQueue.html#a3cee9cbe1c8b03bec8cce0fe595d9ae8">Arcane::Accelerator::RunQueue::copyMemory</a></div><div class="ttdeci">void copyMemory(const MemoryCopyArgs &amp;args) const</div><div class="ttdoc">Copie des informations entre deux zones mémoires.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/d62/RunQueue_8cc_source.html#l00236">RunQueue.cc:237</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1Sycl_1_1SyclMemoryCopier_html"><div class="ttname"><a href="../../de/dba/classArcane_1_1Accelerator_1_1Sycl_1_1SyclMemoryCopier.html">Arcane::Accelerator::Sycl::SyclMemoryCopier</a></div><div class="ttdef"><b>Definition</b> <a href="../../d4/dc1/SyclAcceleratorRuntime_8cc_source.html#l00393">SyclAcceleratorRuntime.cc:395</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1Sycl_1_1SyclMemoryCopier_html_a4683ed0f678fe0642d336fbc71f24c5e"><div class="ttname"><a href="../../de/dba/classArcane_1_1Accelerator_1_1Sycl_1_1SyclMemoryCopier.html#a4683ed0f678fe0642d336fbc71f24c5e">Arcane::Accelerator::Sycl::SyclMemoryCopier::copy</a></div><div class="ttdeci">void copy(ConstMemoryView from, eMemoryRessource from_mem, MutableMemoryView to, eMemoryRessource to_mem, const RunQueue *queue) override</div><div class="ttdoc">Copie les données de from vers to avec la queue queue.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/dc1/SyclAcceleratorRuntime_8cc_source.html#l00421">SyclAcceleratorRuntime.cc:422</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueEvent_html"><div class="ttname"><a href="../../d7/d9d/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueEvent.html">Arcane::Accelerator::Sycl::SyclRunQueueEvent</a></div><div class="ttdef"><b>Definition</b> <a href="../../d4/dc1/SyclAcceleratorRuntime_8cc_source.html#l00149">SyclAcceleratorRuntime.cc:151</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream_html"><div class="ttname"><a href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html">Arcane::Accelerator::Sycl::SyclRunQueueStream</a></div><div class="ttdef"><b>Definition</b> <a href="../../d4/dc1/SyclAcceleratorRuntime_8cc_source.html#l00049">SyclAcceleratorRuntime.cc:51</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream_html_a3cf1b24d159bf35d8398c85ea426da39"><div class="ttname"><a href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a3cf1b24d159bf35d8398c85ea426da39">Arcane::Accelerator::Sycl::SyclRunQueueStream::nativeStream</a></div><div class="ttdeci">impl::NativeStream nativeStream() override</div><div class="ttdoc">Pointeur sur la structure interne dépendante de l'implémentation.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/dc1/SyclAcceleratorRuntime_8cc_source.html#l00096">SyclAcceleratorRuntime.cc:96</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream_html_a44d63a7897b5ef3964fc3e66c541d452"><div class="ttname"><a href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a44d63a7897b5ef3964fc3e66c541d452">Arcane::Accelerator::Sycl::SyclRunQueueStream::barrier</a></div><div class="ttdeci">void barrier() override</div><div class="ttdoc">Bloque jusqu'à ce que toutes les actions associées à cette file soient terminées.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/dc1/SyclAcceleratorRuntime_8cc_source.html#l00069">SyclAcceleratorRuntime.cc:69</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream_html_a4886252dc70a8a2d64194393404781c4"><div class="ttname"><a href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a4886252dc70a8a2d64194393404781c4">Arcane::Accelerator::Sycl::SyclRunQueueStream::lastCommandEvent</a></div><div class="ttdeci">sycl::event lastCommandEvent()</div><div class="ttdoc">Évènement correspondant à la dernière commande.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/dc1/SyclAcceleratorRuntime_8cc_source.html#l00130">SyclAcceleratorRuntime.cc:130</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream_html_a48d5b77ebbc1e1bf18fce0aa9ae5b932"><div class="ttname"><a href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a48d5b77ebbc1e1bf18fce0aa9ae5b932">Arcane::Accelerator::Sycl::SyclRunQueueStream::prefetchMemory</a></div><div class="ttdeci">void prefetchMemory(const MemoryPrefetchArgs &amp;args) override</div><div class="ttdoc">Effectue un pré-chargement d'une zone mémoire.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/dc1/SyclAcceleratorRuntime_8cc_source.html#l00086">SyclAcceleratorRuntime.cc:86</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream_html_a7527bf603210e56fc7b8533aa0f6f6e1"><div class="ttname"><a href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a7527bf603210e56fc7b8533aa0f6f6e1">Arcane::Accelerator::Sycl::SyclRunQueueStream::copyMemory</a></div><div class="ttdeci">void copyMemory(const MemoryCopyArgs &amp;args) override</div><div class="ttdoc">Effectue une copie entre deux zones mémoire.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/dc1/SyclAcceleratorRuntime_8cc_source.html#l00078">SyclAcceleratorRuntime.cc:78</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream_html_a78f7cf6023683a75a92fdb4f31f0dfe2"><div class="ttname"><a href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a78f7cf6023683a75a92fdb4f31f0dfe2">Arcane::Accelerator::Sycl::SyclRunQueueStream::_barrierNoException</a></div><div class="ttdeci">bool _barrierNoException() override</div><div class="ttdoc">Barrière sans exception. Retourne true en cas d'erreur.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/dc1/SyclAcceleratorRuntime_8cc_source.html#l00073">SyclAcceleratorRuntime.cc:73</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream_html_a7d76def4aed5677672e2e62d63b860a6"><div class="ttname"><a href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a7d76def4aed5677672e2e62d63b860a6">Arcane::Accelerator::Sycl::SyclRunQueueStream::_setSyclLastCommandEvent</a></div><div class="ttdeci">void _setSyclLastCommandEvent(void *sycl_event_ptr) override</div><div class="ttdoc">Pour SYCL, positionne l'évènement associé à la dernière commande exécutée.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/dc1/SyclAcceleratorRuntime_8cc_source.html#l00101">SyclAcceleratorRuntime.cc:101</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream_html_a83b3cde3c16679cc7c857f124a247ee1"><div class="ttname"><a href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#a83b3cde3c16679cc7c857f124a247ee1">Arcane::Accelerator::Sycl::SyclRunQueueStream::notifyEndLaunchKernel</a></div><div class="ttdeci">void notifyEndLaunchKernel(impl::RunCommandImpl &amp;) override</div><div class="ttdoc">Notification de fin de lancement de la commande.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/dc1/SyclAcceleratorRuntime_8cc_source.html#l00065">SyclAcceleratorRuntime.cc:65</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream_html_ac9284547c2d2e8a54ac49bc9db889cd1"><div class="ttname"><a href="../../d0/d9c/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunQueueStream.html#ac9284547c2d2e8a54ac49bc9db889cd1">Arcane::Accelerator::Sycl::SyclRunQueueStream::notifyBeginLaunchKernel</a></div><div class="ttdeci">void notifyBeginLaunchKernel(impl::RunCommandImpl &amp;c) override</div><div class="ttdoc">Notification avant le lancement de la commande.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/dc1/SyclAcceleratorRuntime_8cc_source.html#l00061">SyclAcceleratorRuntime.cc:61</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1Sycl_1_1SyclRunnerRuntime_html"><div class="ttname"><a href="../../dc/dde/classArcane_1_1Accelerator_1_1Sycl_1_1SyclRunnerRuntime.html">Arcane::Accelerator::Sycl::SyclRunnerRuntime</a></div><div class="ttdef"><b>Definition</b> <a href="../../d4/dc1/SyclAcceleratorRuntime_8cc_source.html#l00228">SyclAcceleratorRuntime.cc:230</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1impl_1_1DeviceInfoList_html"><div class="ttname"><a href="../../d5/dfd/classArcane_1_1Accelerator_1_1impl_1_1DeviceInfoList.html">Arcane::Accelerator::impl::DeviceInfoList</a></div><div class="ttdoc">Interface d'une liste de devices.</div><div class="ttdef"><b>Definition</b> <a href="../../db/ddf/DeviceInfoList_8h_source.html#l00033">DeviceInfoList.h:35</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1impl_1_1IRunQueueEventImpl_html"><div class="ttname"><a href="../../da/d4c/classArcane_1_1Accelerator_1_1impl_1_1IRunQueueEventImpl.html">Arcane::Accelerator::impl::IRunQueueEventImpl</a></div><div class="ttdoc">Interface de l'implémentation d'un évènement.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/d4f/IRunQueueEventImpl_8h_source.html#l00031">IRunQueueEventImpl.h:32</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1impl_1_1IRunQueueStream_html"><div class="ttname"><a href="../../da/dbb/classArcane_1_1Accelerator_1_1impl_1_1IRunQueueStream.html">Arcane::Accelerator::impl::IRunQueueStream</a></div><div class="ttdoc">Interface d'un flux d'exécution pour une RunQueue.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/d76/IRunQueueStream_8h_source.html#l00031">IRunQueueStream.h:32</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1impl_1_1IRunnerRuntime_html"><div class="ttname"><a href="../../df/d79/classArcane_1_1Accelerator_1_1impl_1_1IRunnerRuntime.html">Arcane::Accelerator::impl::IRunnerRuntime</a></div><div class="ttdoc">Interface du runtime associé à un accélérateur.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da4/IRunnerRuntime_8h_source.html#l00034">IRunnerRuntime.h:35</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1impl_1_1NativeStream_html"><div class="ttname"><a href="../../df/d7a/classArcane_1_1Accelerator_1_1impl_1_1NativeStream.html">Arcane::Accelerator::impl::NativeStream</a></div><div class="ttdoc">Type opaque pour encapsuler une 'stream' native.</div><div class="ttdef"><b>Definition</b> <a href="../../d3/d91/NativeStream_8h_source.html#l00053">NativeStream.h:54</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Accelerator_1_1impl_1_1RunCommandImpl_html"><div class="ttname"><a href="../../d2/d7c/classArcane_1_1Accelerator_1_1impl_1_1RunCommandImpl.html">Arcane::Accelerator::impl::RunCommandImpl</a></div><div class="ttdoc">Implémentation d'une commande pour accélérateur.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/dd6/internal_2RunCommandImpl_8h_source.html#l00038">internal/RunCommandImpl.h:39</a></div></div>
+<div class="ttc" id="aclassArcane_1_1IMemoryCopier_html"><div class="ttname"><a href="../../d7/dec/classArcane_1_1IMemoryCopier.html">Arcane::IMemoryCopier</a></div><div class="ttdoc">Interface pour les copies mémoire avec support des accélérateurs.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/d57/IMemoryCopier_8h_source.html#l00030">IMemoryCopier.h:31</a></div></div>
+<div class="ttc" id="aclassArcane_1_1IMemoryRessourceMngInternal_html"><div class="ttname"><a href="../../d2/d8d/classArcane_1_1IMemoryRessourceMngInternal.html">Arcane::IMemoryRessourceMngInternal</a></div><div class="ttdoc">Partie interne à Arcane de 'IMemoryRessourceMng'.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d98/IMemoryRessourceMngInternal_8h_source.html#l00030">IMemoryRessourceMngInternal.h:31</a></div></div>
+<div class="ttc" id="aclassArcane_1_1LimaWrapper_html"><div class="ttname"><a href="../../dc/d69/classArcane_1_1LimaWrapper.html">Arcane::LimaWrapper</a></div><div class="ttdoc">Lecteur des fichiers de maillage via la bibliothèque LIMA.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dd3/Lima_8cc_source.html#l00147">Lima.cc:149</a></div></div>
+<div class="ttc" id="aclassArccore_1_1NotSupportedException_html"><div class="ttname"><a href="../../d6/ddb/classArccore_1_1NotSupportedException.html">Arccore::NotSupportedException</a></div><div class="ttdoc">Exception lorsqu'une opération n'est pas supportée.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/db3/arccore_2src_2base_2arccore_2base_2NotSupportedException_8h_source.html#l00031">arccore/src/base/arccore/base/NotSupportedException.h:33</a></div></div>
+<div class="ttc" id="anamespaceArcane_1_1Accelerator_html_acafdcb065959fca560cf5b78caa1ee8b"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#acafdcb065959fca560cf5b78caa1ee8b">Arcane::Accelerator::eMemoryAdvice</a></div><div class="ttdeci">eMemoryAdvice</div><div class="ttdoc">Conseils pour la gestion mémoire.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d5c/Memory_8h_source.html#l00035">Memory.h:36</a></div></div>
+<div class="ttc" id="anamespaceArcane_1_1Accelerator_html_acb2ea2c462f615699e3b66e3fa746734"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#acb2ea2c462f615699e3b66e3fa746734">Arcane::Accelerator::ePointerMemoryType</a></div><div class="ttdeci">ePointerMemoryType</div><div class="ttdoc">Type de mémoire pour un pointeur.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/dfd/AcceleratorCoreGlobal_8h_source.html#l00146">AcceleratorCoreGlobal.h:147</a></div></div>
+<div class="ttc" id="anamespaceArcane_1_1Accelerator_html_acfc7ad484093ab4477c65b4c833857df"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857df">Arcane::Accelerator::eExecutionPolicy</a></div><div class="ttdeci">eExecutionPolicy</div><div class="ttdoc">Politique d'exécution pour un Runner.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/dfd/AcceleratorCoreGlobal_8h_source.html#l00092">AcceleratorCoreGlobal.h:93</a></div></div>
+<div class="ttc" id="anamespaceArcane_1_1Accelerator_html_acfc7ad484093ab4477c65b4c833857dfa4427481c96bb7dc6b1add3207cdc622d"><div class="ttname"><a href="../../de/dae/namespaceArcane_1_1Accelerator.html#acfc7ad484093ab4477c65b4c833857dfa4427481c96bb7dc6b1add3207cdc622d">Arcane::Accelerator::eExecutionPolicy::SYCL</a></div><div class="ttdeci">@ SYCL</div><div class="ttdoc">Politique d'exécution utilisant l'environnement SYCL.</div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition</b> <a href="../../de/d40/AcceleratorGlobal_8h_source.html#l00035">AcceleratorGlobal.h:36</a></div></div>
+<div class="ttc" id="anamespaceArccore_html"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html">Arccore</a></div><div class="ttdoc">Espace de nom de Arccore.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d7e/ArcaneTypes_8h_source.html#l00028">ArcaneTypes.h:29</a></div></div>
+<div class="ttc" id="anamespaceArccore_html_a7cde9b16416e2271fa90d200e7c9e276"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a7cde9b16416e2271fa90d200e7c9e276">Arccore::Int64</a></div><div class="ttdeci">std::int64_t Int64</div><div class="ttdoc">Type entier signé sur 64 bits.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/d76/ArccoreGlobal_8h_source.html#l00186">ArccoreGlobal.h:186</a></div></div>
+<div class="ttc" id="anamespaceArccore_html_a9a0e8cf94995d555829979e3a0da453f"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#a9a0e8cf94995d555829979e3a0da453f">Arccore::eMemoryResource</a></div><div class="ttdeci">eMemoryResource</div><div class="ttdoc">Liste des ressources mémoire disponibles.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d8d/CollectionsGlobal_8h_source.html#l00125">CollectionsGlobal.h:126</a></div></div>
+<div class="ttc" id="anamespaceArccore_html_ab32c98ae2c2cf8372feb620983bb5b67"><div class="ttname"><a href="../../d5/d60/namespaceArccore.html#ab32c98ae2c2cf8372feb620983bb5b67">Arccore::Int32</a></div><div class="ttdeci">std::int32_t Int32</div><div class="ttdoc">Type entier signé sur 32 bits.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/d76/ArccoreGlobal_8h_source.html#l00184">ArccoreGlobal.h:184</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="../../dir_cd48e9603a047c3a36ad2b31e177f8e3.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_0ae535d63c1c574fd7ac7e0cce1d5017.html">accelerator</a></li><li class="navelem"><a class="el" href="../../dir_2c55eb9dd8ab6f1b6d603f9b126e8cd5.html">sycl</a></li><li class="navelem"><a class="el" href="../../dir_43bd3132b8d5f1ec029f17f8b7bab5d1.html">runtime</a></li><li class="navelem"><b>SyclAcceleratorRuntime.cc</b></li>
+    <li class="footer">Généré le Lundi 10 Février 2025 02:50:21 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
+  </ul>
+</div>
+</body>
+</html>
