@@ -1,0 +1,593 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <meta name="generator" content="Doxygen 1.13.2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="../../logo_arcane.svg" type="image/svg+xml">
+    <title>Arcane:  Fichier source de ArrayVariant.cc</title>
+    <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../../jquery.js"></script>
+    <script type="text/javascript" src="../../dynsections.js"></script>
+    <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+    <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+    <script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+    <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../user_colors.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+    <script type="text/javascript" src="../../script-helper.js"></script>
+    <script type="text/javascript" src="../../script-resize.js"></script>
+    <script type="text/javascript" src="../../script-num-lines-code.js"></script>
+    <script type="text/javascript" src="../../script-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-edit-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-alternative-theme.js"></script>
+    <script type="text/javascript">
+      // On demande l'activation de la personnalisation de la page.
+      var no_custom_theme = false;
+      DoxygenAwesomeDarkModeToggle.title = "Thème clair/sombre";
+      DoxygenAwesomeDarkModeToggle.init();
+      DoxygenAwesomeFragmentCopyButton.title = "Copier le code dans le presse-papier";
+      DoxygenAwesomeFragmentCopyButton.init();
+      DoxygenAwesomeParagraphLink.init();
+      DoxygenAwesomeInteractiveToc.init();
+      DoxygenAwesomeTabs.init()
+      waitElemForResizeSideNav();
+      setOldSize();
+      //waitItemExpandCurrent();
+    </script>
+  </head>
+  <body>
+    <!--BEGIN CORNER_GITHUB-->
+    <!-- https://tholman.com/github-corners/ -->
+    <a href="https://github.com/arcaneframework/framework" class="github-corner" aria-label="Voir les sources sur GitHub">
+      <svg width="70" height="70" viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <!--END CORNER_GITHUB-->
+      <div id="top">
+        <!-- do not remove this div, it is closed by doxygen! -->
+        <div id="titlearea">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr id="projectrow">
+                <td id="projectlogo">
+                  <a href="../../index.html" title="Aller à la page principale">
+                    <img alt="Logo" src="../../arcane_framework_small.webp" />
+                  </a>
+                </td>
+              </tr>
+              <tr id="projectrow">
+                <td id="projectalign">
+                  <div id="projectname">Arcane
+                    <span id="projectnumber">&#160;v4.1.4.0</span>
+                  </div>
+                  <div id="projectbrief">Documentation utilisateur</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('db/de7/ArrayVariant_8cc_source.html','../../'); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">ArrayVariant.cc</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">/* ArrayVariant.cc                                             (C) 2000-2006 */</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/*                                                                           */</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">/* Type de base polymorphe pour les tableaux mono-dim (dimension 1).         */</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;arcane/utils/ArcanePrecomp.h&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;arcane/utils/Array.h&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;arcane/utils/String.h&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;arcane/utils/Real2.h&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;arcane/utils/Real3.h&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;arcane/utils/Real2x2.h&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;arcane/utils/Real3x3.h&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;arcane/datatype/ArrayVariant.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;arcane/datatype/BadVariantTypeException.h&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>ARCANE_BEGIN_NAMESPACE</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>ArrayVariant::</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>ArrayVariant(eType type,Integer asize)</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>: VariantBase(1, type)</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>, m_allocated_array(0)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>  <span class="keywordflow">switch</span>(type){</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  <span class="keywordflow">case</span> TReal:</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>      <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#abd14ca0b062ffabbbcd191cc2e381746">RealArray</a>* v = <span class="keyword">new</span> <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#aa75ce7197cbd274fa23cff0578899986">RealUniqueArray</a>(asize);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>      m_allocated_array = v;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>      m_real_value = *v;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  <span class="keywordflow">case</span> TInt64:</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>      <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a0ec5ae2caa35ee3489405a512fc09f94">Int64Array</a>* v = <span class="keyword">new</span> <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a282d06cf0e8fd507e5b46b5189f7648d">Int64UniqueArray</a>(asize);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>      m_allocated_array = v;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>      m_int64_value = *v;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    }</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>  <span class="keywordflow">case</span> TInt32:</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>      <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#abc8d646c5aa8c4a583e54f7798c3bf80">Int32Array</a>* v = <span class="keyword">new</span> <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a9705dd87194ca42d81d4da3d95a9acd7">Int32UniqueArray</a>(asize);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>      m_allocated_array = v;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>      m_int32_value = *v;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  <span class="keywordflow">case</span> TBool:</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>      <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a3658f3ce64972fb12a66229536142c64">BoolArray</a>* v = <span class="keyword">new</span> <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a5ba86569ed7a971f61c8c5e71109ba10">BoolUniqueArray</a>(asize);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>      m_allocated_array = v;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>      m_bool_value = *v;</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  <span class="keywordflow">case</span> TString:</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    {</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>      <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a2b0d1c04c9a16a7cd5b90d4f2caca7dd">StringArray</a>* v = <span class="keyword">new</span> <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#abdd4c7b0ad1c4b2467f729a80def3e3d">StringUniqueArray</a>(asize);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>      m_allocated_array = v;</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>      m_string_value = *v;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    }</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  <span class="keywordflow">case</span> TReal2:</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    {</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>      <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a07ea126ff90a6d748d809a9a62f9ebcf">Real2Array</a>* v = <span class="keyword">new</span> <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ad58c6a35351a848791a241694a840a4f">Real2UniqueArray</a>(asize);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>      m_allocated_array = v;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>      m_real2_value = *v;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    }</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>  <span class="keywordflow">case</span> TReal3:</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    {</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>      <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#af96b2e35a2ff9593f8093a2f1377cd46">Real3Array</a>* v = <span class="keyword">new</span> <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a504f7d6d52d8180d8ff1af81c4ed5741">Real3UniqueArray</a>(asize);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>      m_allocated_array = v;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>      m_real3_value = *v;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    }</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>  <span class="keywordflow">case</span> TReal2x2:</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    {</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>      <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab96640601ac4fc16d70f789280f5e7b0">Real2x2Array</a>* v = <span class="keyword">new</span> <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a0cfa7709a2521b0e506ea0bef0517007">Real2x2UniqueArray</a>(asize);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>      m_allocated_array = v;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>      m_real2x2_value = *v;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    }</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  <span class="keywordflow">case</span> TReal3x3:</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    {</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>      <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a42775ca3cc051759169ce8b04e6c3790">Real3x3Array</a>* v = <span class="keyword">new</span> <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a1f108a4ae5030f175067343a32abad8a">Real3x3UniqueArray</a>(asize);</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>      m_allocated_array = v;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>      m_real3x3_value = *v;</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    }</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>  <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordflow">throw</span> BadVariantTypeException(<span class="stringliteral">&quot;ArrayVariant::ArrayVariant(eType,Integer)&quot;</span>,type);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>  }</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>}</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>  </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>ArrayVariant::</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>ArrayVariant(ArrayView&lt;Real&gt; data)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>: VariantBase(1,TReal)</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>, m_real_value(data)</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>, m_allocated_array(0)</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>{</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>}</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>ArrayVariant::</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>ArrayVariant(ArrayView&lt;Real2&gt; data)</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>: VariantBase(1,TReal2)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>, m_real2_value(data)</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>, m_allocated_array(0)</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>{</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>}</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>ArrayVariant::</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>ArrayVariant(ArrayView&lt;Real3&gt; data)</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>: VariantBase(1, TReal3)</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>, m_real3_value(data)</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>, m_allocated_array(0)</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>{</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>}</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>ArrayVariant::</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>ArrayVariant(ArrayView&lt;Real2x2&gt; data)</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>: VariantBase(1,TReal2x2)</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>, m_real2x2_value(data)</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>, m_allocated_array(0)</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>{</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>}</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>ArrayVariant::</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>ArrayVariant(ArrayView&lt;Real3x3&gt; data)</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>: VariantBase(1,TReal3x3)</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>, m_real3x3_value(data)</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>, m_allocated_array(0)</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>{</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>}</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>ArrayVariant::</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>ArrayVariant(ArrayView&lt;Int32&gt; data)</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>: VariantBase(1,TInt32)</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>, m_int32_value(data)</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>, m_allocated_array(0)</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>{</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>}</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>ArrayVariant::</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>ArrayVariant(ArrayView&lt;Int64&gt; data)</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>: VariantBase(1,TInt64)</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>, m_int64_value(data)</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>, m_allocated_array(0)</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>{</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>}</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>ArrayVariant::</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>ArrayVariant(ArrayView&lt;bool&gt; data)</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>: VariantBase(1,TBool)</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>, m_bool_value(data)</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>, m_allocated_array(0)</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>{</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>}</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>ArrayVariant::</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>ArrayVariant(ArrayView&lt;String&gt; data)</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>: VariantBase(1,TString)</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>, m_string_value(data)</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>, m_allocated_array(0)</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>{</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>}</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span> </div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>ArrayVariant::</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>~ArrayVariant()</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>{</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>  _destroy();</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>}</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="keywordtype">void</span> ArrayVariant::</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>_destroy()</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>{</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>  <span class="keywordflow">if</span> (!m_allocated_array)</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>  <span class="keywordflow">switch</span>(m_type){</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>  <span class="keywordflow">case</span> TReal: <span class="keyword">delete</span> <span class="keyword">reinterpret_cast&lt;</span><a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#abd14ca0b062ffabbbcd191cc2e381746">RealArray</a>*<span class="keyword">&gt;</span>(m_allocated_array); <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>  <span class="keywordflow">case</span> TReal2: <span class="keyword">delete</span> <span class="keyword">reinterpret_cast&lt;</span><a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a07ea126ff90a6d748d809a9a62f9ebcf">Real2Array</a>*<span class="keyword">&gt;</span>(m_allocated_array); <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>  <span class="keywordflow">case</span> TReal3: <span class="keyword">delete</span> <span class="keyword">reinterpret_cast&lt;</span><a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#af96b2e35a2ff9593f8093a2f1377cd46">Real3Array</a>*<span class="keyword">&gt;</span>(m_allocated_array); <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>  <span class="keywordflow">case</span> TReal2x2: <span class="keyword">delete</span> <span class="keyword">reinterpret_cast&lt;</span><a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab96640601ac4fc16d70f789280f5e7b0">Real2x2Array</a>*<span class="keyword">&gt;</span>(m_allocated_array); <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>  <span class="keywordflow">case</span> TReal3x3: <span class="keyword">delete</span> <span class="keyword">reinterpret_cast&lt;</span><a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a42775ca3cc051759169ce8b04e6c3790">Real3x3Array</a>*<span class="keyword">&gt;</span>(m_allocated_array); <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>  <span class="keywordflow">case</span> TInt64: <span class="keyword">delete</span> <span class="keyword">reinterpret_cast&lt;</span><a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a0ec5ae2caa35ee3489405a512fc09f94">Int64Array</a>*<span class="keyword">&gt;</span>(m_allocated_array); <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>  <span class="keywordflow">case</span> TInt32: <span class="keyword">delete</span> <span class="keyword">reinterpret_cast&lt;</span><a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#abc8d646c5aa8c4a583e54f7798c3bf80">Int32Array</a>*<span class="keyword">&gt;</span>(m_allocated_array); <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>  <span class="keywordflow">case</span> TBool: <span class="keyword">delete</span> <span class="keyword">reinterpret_cast&lt;</span><a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a3658f3ce64972fb12a66229536142c64">BoolArray</a>*<span class="keyword">&gt;</span>(m_allocated_array); <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>  <span class="keywordflow">case</span> TString: <span class="keyword">delete</span> <span class="keyword">reinterpret_cast&lt;</span><a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a2b0d1c04c9a16a7cd5b90d4f2caca7dd">StringArray</a>*<span class="keyword">&gt;</span>(m_allocated_array); <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>  <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>  }</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>}</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span> </div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span><a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> ArrayVariant::</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>size()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>  <span class="keywordflow">switch</span>(m_type){</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>  <span class="keywordflow">case</span> TReal:</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="keywordflow">return</span> m_real_value.size();</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>  <span class="keywordflow">case</span> TReal2:</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    <span class="keywordflow">return</span> m_real2_value.size();</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>  <span class="keywordflow">case</span> TReal3:</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="keywordflow">return</span> m_real3_value.size();</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>  <span class="keywordflow">case</span> TReal2x2:</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    <span class="keywordflow">return</span> m_real2x2_value.size();</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>  <span class="keywordflow">case</span> TReal3x3:</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    <span class="keywordflow">return</span> m_real3x3_value.size();</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>  <span class="keywordflow">case</span> TBool:</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    <span class="keywordflow">return</span> m_bool_value.size();</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>  <span class="keywordflow">case</span> TString:</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    <span class="keywordflow">return</span> m_string_value.size();</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>  <span class="keywordflow">case</span> TInt32:</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    <span class="keywordflow">return</span> m_int32_value.size();</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>  <span class="keywordflow">case</span> TInt64:</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <span class="keywordflow">return</span> m_int64_value.size();</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>  <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>  }</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>  <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>}</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span> </div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C++&quot;</span> ARCANE_DATATYPE_EXPORT std::ostream&amp; </div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span><a class="code hl_function" href="../../d0/d32/namespaceArcane.html#ae7fe252d07667426958ff2a1aa634196">operator&lt;&lt;</a>(std::ostream&amp; s, <span class="keyword">const</span> ArrayVariant&amp; x)</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>{</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>  s &lt;&lt; <span class="stringliteral">&quot;ArrayVariant [t=&quot;</span></div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    &lt;&lt; x.typeName();</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>  </div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>  s &lt;&lt; <span class="stringliteral">&quot;, adr=&quot;</span>;</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> size = 0;</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>  <span class="keywordflow">switch</span> (x.type())</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>  {</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>  <span class="keywordflow">case</span> VariantBase::TReal:</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    s &lt;&lt; x.asReal().data();</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    s &lt;&lt; <span class="stringliteral">&quot;], v=[ &quot;</span>;</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>    size = x.asReal().size();</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <span class="keywordflow">for</span> (Integer i=0 ; i&lt;size ; ++i)</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>      s &lt;&lt; x.asReal()[i] &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>  <span class="keywordflow">case</span> VariantBase::TReal2:</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    s &lt;&lt; x.asReal2().data();</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    s &lt;&lt; <span class="stringliteral">&quot;], v=[ &quot;</span>;</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    size = x.asReal2().size();</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    <span class="keywordflow">for</span> (Integer i=0 ; i&lt;size ; ++i)</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>      s &lt;&lt; x.asReal2()[i] &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>  <span class="keywordflow">case</span> VariantBase::TReal3:</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    s &lt;&lt; x.asReal3().data();</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    s &lt;&lt; <span class="stringliteral">&quot;], v=[ &quot;</span>;</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    size = x.asReal3().size();</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    <span class="keywordflow">for</span> (Integer i=0 ; i&lt;size ; ++i)</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>      s &lt;&lt; x.asReal3()[i] &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>  <span class="keywordflow">case</span> VariantBase::TReal2x2:</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    s &lt;&lt; x.asReal2().data();</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    s &lt;&lt; <span class="stringliteral">&quot;], v=[ &quot;</span>;</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    size = x.asReal2().size();</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    <span class="keywordflow">for</span> (Integer i=0 ; i&lt;size ; ++i)</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>      s &lt;&lt; x.asReal2x2()[i] &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>  <span class="keywordflow">case</span> VariantBase::TReal3x3:</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    s &lt;&lt; x.asReal3x3().data();</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    s &lt;&lt; <span class="stringliteral">&quot;], v=[ &quot;</span>;</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    size = x.asReal3x3().size();</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    <span class="keywordflow">for</span> (Integer i=0 ; i&lt;size ; ++i)</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>      s &lt;&lt; x.asReal3x3()[i] &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>  <span class="keywordflow">case</span> VariantBase::TInt64:</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    s &lt;&lt; x.asInt64().data();</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    s &lt;&lt; <span class="stringliteral">&quot;], v=[ &quot;</span>;</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    size = x.asInt64().size();</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    <span class="keywordflow">for</span>(Integer i=0 ; i&lt;size ; ++i)</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>      s &lt;&lt; x.asInt64()[i] &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>  <span class="keywordflow">case</span> VariantBase::TInt32:</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>    s &lt;&lt; x.asInteger().data();</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>    s &lt;&lt; <span class="stringliteral">&quot;], v=[ &quot;</span>;</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    size = x.asInteger().size();</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>    <span class="keywordflow">for</span> (Integer i=0 ; i&lt;size ; ++i)</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>      s &lt;&lt; x.asInteger()[i] &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>  <span class="keywordflow">case</span> VariantBase::TBool:</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>    s &lt;&lt; x.asBool().data();</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>    s &lt;&lt; <span class="stringliteral">&quot;], v=[ &quot;</span>;</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>    size = x.asBool().size();</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>    <span class="keywordflow">for</span> (Integer i=0 ; i&lt;size ; ++i)</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>      s &lt;&lt; x.asBool()[i] &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>  <span class="keywordflow">case</span> VariantBase::TString:</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>    s &lt;&lt; x.asString().data();</div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    s &lt;&lt; <span class="stringliteral">&quot;], v=[ &quot;</span>;</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    size = x.asString().size();</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>    <span class="keywordflow">for</span> (Integer i=0 ; i&lt;size ; ++i)</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>      s &lt;&lt; x.asString()[i] &lt;&lt; <span class="stringliteral">&quot; &quot;</span>;</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>  <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>    <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>  }</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span>  s &lt;&lt; <span class="stringliteral">&quot;]&quot;</span>;</div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>  </div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>  <span class="keywordflow">return</span> s;</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>}</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span> </div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span> </div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span><a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a6540a2c9882d5d4181c28378c1afd90f">IntegerArrayView</a> ArrayVariant::</div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>asInteger() </div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>{</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span><span class="preprocessor">#ifdef ARCANE_64BIT</span></div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>  <span class="keywordflow">return</span> m_int64_value;</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>  <span class="keywordflow">return</span> m_int32_value;</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>}</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span> </div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span> </div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span><a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ae33ca1247527a686930303a38614be87">IntegerConstArrayView</a> ArrayVariant::</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>asInteger()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span><span class="preprocessor">#ifdef ARCANE_64BIT</span></div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>  <span class="keywordflow">return</span> m_int64_value;</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>  <span class="keywordflow">return</span> m_int32_value;</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>}</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span> </div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span> </div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>ARCANE_END_NAMESPACE</div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span> </div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="ttc" id="anamespaceArcane_html_a07ea126ff90a6d748d809a9a62f9ebcf"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a07ea126ff90a6d748d809a9a62f9ebcf">Arcane::Real2Array</a></div><div class="ttdeci">Array&lt; Real2 &gt; Real2Array</div><div class="ttdoc">Tableau dynamique à une dimension de vecteurs de rang 2.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00147">UtilsTypes.h:147</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_a0cfa7709a2521b0e506ea0bef0517007"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a0cfa7709a2521b0e506ea0bef0517007">Arcane::Real2x2UniqueArray</a></div><div class="ttdeci">UniqueArray&lt; Real2x2 &gt; Real2x2UniqueArray</div><div class="ttdoc">Tableau dynamique à une dimension de tenseurs de rang 2.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00365">UtilsTypes.h:365</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_a0ec5ae2caa35ee3489405a512fc09f94"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a0ec5ae2caa35ee3489405a512fc09f94">Arcane::Int64Array</a></div><div class="ttdeci">Array&lt; Int64 &gt; Int64Array</div><div class="ttdoc">Tableau dynamique à une dimension d&#39;entiers 64 bits.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00125">UtilsTypes.h:125</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_a1f108a4ae5030f175067343a32abad8a"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a1f108a4ae5030f175067343a32abad8a">Arcane::Real3x3UniqueArray</a></div><div class="ttdeci">UniqueArray&lt; Real3x3 &gt; Real3x3UniqueArray</div><div class="ttdoc">Tableau dynamique à une dimension de tenseurs de rang 3.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00367">UtilsTypes.h:367</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_a282d06cf0e8fd507e5b46b5189f7648d"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a282d06cf0e8fd507e5b46b5189f7648d">Arcane::Int64UniqueArray</a></div><div class="ttdeci">UniqueArray&lt; Int64 &gt; Int64UniqueArray</div><div class="ttdoc">Tableau dynamique à une dimension d&#39;entiers 64 bits.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00339">UtilsTypes.h:339</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_a2b0d1c04c9a16a7cd5b90d4f2caca7dd"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a2b0d1c04c9a16a7cd5b90d4f2caca7dd">Arcane::StringArray</a></div><div class="ttdeci">Array&lt; String &gt; StringArray</div><div class="ttdoc">Tableau dynamique à une dimension de chaînes de caractères.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00145">UtilsTypes.h:145</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_a3658f3ce64972fb12a66229536142c64"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a3658f3ce64972fb12a66229536142c64">Arcane::BoolArray</a></div><div class="ttdeci">Array&lt; bool &gt; BoolArray</div><div class="ttdoc">Tableau dynamique à une dimension de booléens.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00143">UtilsTypes.h:143</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_a42775ca3cc051759169ce8b04e6c3790"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a42775ca3cc051759169ce8b04e6c3790">Arcane::Real3x3Array</a></div><div class="ttdeci">Array&lt; Real3x3 &gt; Real3x3Array</div><div class="ttdoc">Tableau dynamique à une dimension de tenseurs de rang 3.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00153">UtilsTypes.h:153</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_a45db9613d5b4bffe8397f823bf28a5b1"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Arcane::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/d76/ArccoreGlobal_8h_source.html#l00281">ArccoreGlobal.h:281</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_a504f7d6d52d8180d8ff1af81c4ed5741"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a504f7d6d52d8180d8ff1af81c4ed5741">Arcane::Real3UniqueArray</a></div><div class="ttdeci">UniqueArray&lt; Real3 &gt; Real3UniqueArray</div><div class="ttdoc">Tableau dynamique à une dimension de vecteurs de rang 3.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00363">UtilsTypes.h:363</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_a5ba86569ed7a971f61c8c5e71109ba10"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a5ba86569ed7a971f61c8c5e71109ba10">Arcane::BoolUniqueArray</a></div><div class="ttdeci">UniqueArray&lt; bool &gt; BoolUniqueArray</div><div class="ttdoc">Tableau dynamique à une dimension de booléens.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00357">UtilsTypes.h:357</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_a6540a2c9882d5d4181c28378c1afd90f"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a6540a2c9882d5d4181c28378c1afd90f">Arcane::IntegerArrayView</a></div><div class="ttdeci">ArrayView&lt; Integer &gt; IntegerArrayView</div><div class="ttdoc">Equivalent C d&#39;un tableau à une dimension d&#39;entiers.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00457">UtilsTypes.h:457</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_a9705dd87194ca42d81d4da3d95a9acd7"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a9705dd87194ca42d81d4da3d95a9acd7">Arcane::Int32UniqueArray</a></div><div class="ttdeci">UniqueArray&lt; Int32 &gt; Int32UniqueArray</div><div class="ttdoc">Tableau dynamique à une dimension d&#39;entiers 32 bits.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00341">UtilsTypes.h:341</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_aa75ce7197cbd274fa23cff0578899986"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aa75ce7197cbd274fa23cff0578899986">Arcane::RealUniqueArray</a></div><div class="ttdeci">UniqueArray&lt; Real &gt; RealUniqueArray</div><div class="ttdoc">Tableau dynamique à une dimension de réels.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00349">UtilsTypes.h:349</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_ab96640601ac4fc16d70f789280f5e7b0"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ab96640601ac4fc16d70f789280f5e7b0">Arcane::Real2x2Array</a></div><div class="ttdeci">Array&lt; Real2x2 &gt; Real2x2Array</div><div class="ttdoc">Tableau dynamique à une dimension de tenseurs de rang 2.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00151">UtilsTypes.h:151</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_abc8d646c5aa8c4a583e54f7798c3bf80"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#abc8d646c5aa8c4a583e54f7798c3bf80">Arcane::Int32Array</a></div><div class="ttdeci">Array&lt; Int32 &gt; Int32Array</div><div class="ttdoc">Tableau dynamique à une dimension d&#39;entiers 32 bits.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00127">UtilsTypes.h:127</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_abd14ca0b062ffabbbcd191cc2e381746"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#abd14ca0b062ffabbbcd191cc2e381746">Arcane::RealArray</a></div><div class="ttdeci">Array&lt; Real &gt; RealArray</div><div class="ttdoc">Tableau dynamique à une dimension de réels.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00135">UtilsTypes.h:135</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_abdd4c7b0ad1c4b2467f729a80def3e3d"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#abdd4c7b0ad1c4b2467f729a80def3e3d">Arcane::StringUniqueArray</a></div><div class="ttdeci">UniqueArray&lt; String &gt; StringUniqueArray</div><div class="ttdoc">Tableau dynamique à une dimension de chaînes de caractères.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00359">UtilsTypes.h:359</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_ad58c6a35351a848791a241694a840a4f"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ad58c6a35351a848791a241694a840a4f">Arcane::Real2UniqueArray</a></div><div class="ttdeci">UniqueArray&lt; Real2 &gt; Real2UniqueArray</div><div class="ttdoc">Tableau dynamique à une dimension de vecteurs de rang 2.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00361">UtilsTypes.h:361</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_ae33ca1247527a686930303a38614be87"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ae33ca1247527a686930303a38614be87">Arcane::IntegerConstArrayView</a></div><div class="ttdeci">ConstArrayView&lt; Integer &gt; IntegerConstArrayView</div><div class="ttdoc">Equivalent C d&#39;un tableau à une dimension d&#39;entiers.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00486">UtilsTypes.h:486</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_ae7fe252d07667426958ff2a1aa634196"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ae7fe252d07667426958ff2a1aa634196">Arcane::operator&lt;&lt;</a></div><div class="ttdeci">std::ostream &amp; operator&lt;&lt;(std::ostream &amp;ostr, eItemKind item_kind)</div><div class="ttdoc">Opérateur de sortie sur un flot.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d8f/ArcaneTypes_8cc_source.html#l00070">ArcaneTypes.cc:71</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_af96b2e35a2ff9593f8093a2f1377cd46"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#af96b2e35a2ff9593f8093a2f1377cd46">Arcane::Real3Array</a></div><div class="ttdeci">Array&lt; Real3 &gt; Real3Array</div><div class="ttdoc">Tableau dynamique à une dimension de vecteurs de rang 3.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00149">UtilsTypes.h:149</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.9.5-->
+<!-- start footer part -->
+  <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+    <ul>
+      <li class="navelem"><a class="el" href="../../dir_050f182cfd4329e7fe1ae122895331c9.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_1941bdde34408fe2aa5689c21633ee3b.html">core</a></li><li class="navelem"><a class="el" href="../../dir_3aae90aab073a27dbe75bec38c349e91.html">datatype</a></li><li class="navelem"><b>ArrayVariant.cc</b></li>
+      <li class="footer">Généré le Lundi 9 Février 2026 04:05:54 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    </ul>
+  </div>
+  <script type="text/javascript" src="../../script-apply-config-theme.js"></script>
+  <script type="text/javascript">
+    // On met l'appel à cette fonction dans le footer dans le cas où
+    // une page ne veut pas de personnalisation (changement de la 
+    // variable globale "no_custom_theme").
+    applyConfigWithCookies();
+  </script>
+</body>
+</html>

@@ -1,0 +1,782 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <meta name="generator" content="Doxygen 1.13.2" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="../../logo_arcane.svg" type="image/svg+xml">
+    <title>Arcane:  Fichier source de SimpleCsvOutputService.h</title>
+    <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../../jquery.js"></script>
+    <script type="text/javascript" src="../../dynsections.js"></script>
+    <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../resize.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+    <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+    <script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+    <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../dev_colors.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+    <script type="text/javascript" src="../../script-helper.js"></script>
+    <script type="text/javascript" src="../../script-resize.js"></script>
+    <script type="text/javascript" src="../../script-num-lines-code.js"></script>
+    <script type="text/javascript" src="../../script-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-edit-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-alternative-theme.js"></script>
+    <script type="text/javascript">
+      // On demande l'activation de la personnalisation de la page.
+      var no_custom_theme = false;
+      DoxygenAwesomeDarkModeToggle.title = "Thème clair/sombre";
+      DoxygenAwesomeDarkModeToggle.init();
+      DoxygenAwesomeFragmentCopyButton.title = "Copier le code dans le presse-papier";
+      DoxygenAwesomeFragmentCopyButton.init();
+      DoxygenAwesomeParagraphLink.init();
+      DoxygenAwesomeInteractiveToc.init();
+      DoxygenAwesomeTabs.init()
+      waitElemForResizeSideNav();
+      setOldSize();
+      //waitItemExpandCurrent();
+    </script>
+  </head>
+  <body>
+    <!--BEGIN CORNER_GITHUB-->
+    <!-- https://tholman.com/github-corners/ -->
+    <a href="https://github.com/arcaneframework/framework" class="github-corner" aria-label="Voir les sources sur GitHub">
+      <svg width="70" height="70" viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <!--END CORNER_GITHUB-->
+      <div id="top">
+        <!-- do not remove this div, it is closed by doxygen! -->
+        <div id="titlearea">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr id="projectrow">
+                <td id="projectlogo">
+                  <a href="../../index.html" title="Aller à la page principale">
+                    <img alt="Logo" src="../../arcane_framework_small.webp" />
+                  </a>
+                </td>
+              </tr>
+              <tr id="projectrow">
+                <td id="projectalign">
+                  <div id="projectname">Arcane
+                    <span id="projectnumber">&#160;v4.1.4.0</span>
+                  </div>
+                  <div id="projectbrief">Documentation développeur</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- end header part -->
+<!-- Généré par Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(1); });
+/* @license-end */
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() {
+  initMenu('../../',true,false,'search.php','Recherche',true);
+  $(function() { init_search(); });
+});
+/* @license-end */
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('d4/ddb/SimpleCsvOutputService_8h_source.html','../../'); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Chargement...</div>
+<div class="SRStatus" id="Searching">Recherche...</div>
+<div class="SRStatus" id="NoMatches">Aucune correspondance</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">SimpleCsvOutputService.h</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// -*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">// Copyright 2000-2022 CEA (www.cea.fr) IFPEN (www.ifpenergiesnouvelles.com)</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">// See the top-level COPYRIGHT file for details.</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">// SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">//-----------------------------------------------------------------------------</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">/* SimpleCsvOutputService.h                                    (C) 2000-2022 */</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">/*                                                                           */</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment">/* Service permettant de construire et de sortir un tableau au formet csv.   */</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#ifndef ARCANE_STD_SIMPLECSVOUTPUTSERVICE_H</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#define ARCANE_STD_SIMPLECSVOUTPUTSERVICE_H</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;arcane/ISimpleTableOutput.h&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;arcane/std/SimpleCsvReaderWriter.h&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;arcane/std/SimpleTableInternalMng.h&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="preprocessor">#include &quot;arcane/std/SimpleTableWriterHelper.h&quot;</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;arcane/Directory.h&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;arcane/IMesh.h&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;arcane/std/SimpleCsvOutput_axl.h&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d0/d32/namespaceArcane.html">Arcane</a></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="foldopen" id="foldopen00037" data-start="{" data-end="};">
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html">   37</a></span><span class="keyword">class </span>SimpleCsvOutputService</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>: <span class="keyword">public</span> <a class="code hl_function" href="../../d6/dc8/classArcaneSimpleCsvOutputObject.html#a53f0b7cb27a05ee42e7d790434557b8e">ArcaneSimpleCsvOutputObject</a></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>{</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="keyword">explicit</span> SimpleCsvOutputService(<span class="keyword">const</span> <a class="code hl_class" href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">ServiceBuildInfo</a>&amp; sbi)</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  : <a class="code hl_function" href="../../d6/dc8/classArcaneSimpleCsvOutputObject.html#a53f0b7cb27a05ee42e7d790434557b8e">ArcaneSimpleCsvOutputObject</a>(sbi)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  , m_is_already_init(<span class="keyword">false</span>)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  , m_with_option(sbi.<a class="code hl_function" href="../../d1/dd8/classArcane_1_1ServiceBuildInfoBase.html#ad585414d49bbcac307a664bf4ae6e5b1">creationType</a>() == <a class="code hl_enumvalue" href="../../d0/d32/namespaceArcane.html#a76d8edd5679322dbbea6dd06488a0db4a2786299c8b6755c7b89d6bb7fdaa5506">ST_CaseOption</a>)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  {</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#acf7b1a31416fee2ade8b993303af284a">init</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#acf7b1a31416fee2ade8b993303af284a">init</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; table_name) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#acf7b1a31416fee2ade8b993303af284a">init</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; table_name, <span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; directory_name) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>  <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a28fa08706ef851e46330adcba0f42172">clear</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="}">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a7887c39340de3e4a04d9ed2e2b4dbbb6">   57</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a7887c39340de3e4a04d9ed2e2b4dbbb6">addRow</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; row_name)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.addRow(row_name);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="}">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a9a5190155c165181c46053cc44fa50d2">   61</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a9a5190155c165181c46053cc44fa50d2">addRow</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; row_name, <a class="code hl_class" href="../../d9/d2e/classArcane_1_1ConstArrayView.html">ConstArrayView&lt;Real&gt;</a> elements)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.addRow(row_name, elements);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a753a8bf74110316ea68eff79659d04af">   65</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a753a8bf74110316ea68eff79659d04af">addRows</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a2aeea08a7cb09253d50128690b113667">StringConstArrayView</a> rows_names)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.addRows(rows_names);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00069" data-start="{" data-end="}">
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a57216b4274668ce39136254033f24550">   69</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a57216b4274668ce39136254033f24550">addColumn</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; column_name)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.addColumn(column_name);</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aa379003668c13a3c025d9ae185ab190a">   73</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aa379003668c13a3c025d9ae185ab190a">addColumn</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; column_name, <a class="code hl_class" href="../../d9/d2e/classArcane_1_1ConstArrayView.html">ConstArrayView&lt;Real&gt;</a> elements)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.addColumn(column_name, elements);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00077" data-start="{" data-end="}">
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aba0708dba65ba9a82583a51cfd78666e">   77</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aba0708dba65ba9a82583a51cfd78666e">addColumns</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a2aeea08a7cb09253d50128690b113667">StringConstArrayView</a> columns_names)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.addColumns(columns_names);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00081" data-start="{" data-end="}">
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a988de99cbc4403a2979adaa178c511ef">   81</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a988de99cbc4403a2979adaa178c511ef">addElementInRow</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> position, <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Real</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.addElementInRow(position, <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00085" data-start="{" data-end="}">
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a3798602f52864e0edbe2a36e9890292b">   85</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a3798602f52864e0edbe2a36e9890292b">addElementInRow</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; row_name, <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Real</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>, <span class="keywordtype">bool</span> create_if_not_exist)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.addElementInRow(row_name, <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>, create_if_not_exist);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00089" data-start="{" data-end="}">
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a35472057d31cc79f6ad012cb244bd3b9">   89</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a35472057d31cc79f6ad012cb244bd3b9">addElementInSameRow</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Real</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.addElementInSameRow(<a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00093" data-start="{" data-end="}">
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a76f45b198ccd265bbf05bd585dccac23">   93</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a76f45b198ccd265bbf05bd585dccac23">addElementsInRow</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> position, <a class="code hl_class" href="../../d9/d2e/classArcane_1_1ConstArrayView.html">ConstArrayView&lt;Real&gt;</a> elements)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.addElementsInRow(position, elements);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00097" data-start="{" data-end="}">
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a27365ad3f988ac93a22d0b6ca9c03bbb">   97</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a27365ad3f988ac93a22d0b6ca9c03bbb">addElementsInRow</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; row_name, <a class="code hl_class" href="../../d9/d2e/classArcane_1_1ConstArrayView.html">ConstArrayView&lt;Real&gt;</a> elements, <span class="keywordtype">bool</span> create_if_not_exist)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.addElementsInRow(row_name, elements, create_if_not_exist);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00101" data-start="{" data-end="}">
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a4ac06e5f92d5ec829051eb00768da0a5">  101</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a4ac06e5f92d5ec829051eb00768da0a5">addElementsInSameRow</a>(<a class="code hl_class" href="../../d9/d2e/classArcane_1_1ConstArrayView.html">ConstArrayView&lt;Real&gt;</a> elements)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.addElementsInSameRow(elements);</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00105" data-start="{" data-end="}">
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ab09f433cefee1df54c6a6f6838d09b5c">  105</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ab09f433cefee1df54c6a6f6838d09b5c">addElementInColumn</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> position, <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Real</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.addElementInColumn(position, <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>);</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00109" data-start="{" data-end="}">
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a4a23f56d19a4821a21b4daa16c26e471">  109</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a4a23f56d19a4821a21b4daa16c26e471">addElementInColumn</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; column_name, <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Real</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>, <span class="keywordtype">bool</span> create_if_not_exist)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.addElementInColumn(column_name, <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>, create_if_not_exist);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00113" data-start="{" data-end="}">
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#af3983c8c68abbc1d99fa95e05a83fc0d">  113</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#af3983c8c68abbc1d99fa95e05a83fc0d">addElementInSameColumn</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Real</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.addElementInSameColumn(<a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>  }</div>
+</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
+<div class="foldopen" id="foldopen00118" data-start="{" data-end="}">
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a5774d5d882148e95061c00e6f1be91e7">  118</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a5774d5d882148e95061c00e6f1be91e7">addElementsInColumn</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> position, <a class="code hl_class" href="../../d9/d2e/classArcane_1_1ConstArrayView.html">ConstArrayView&lt;Real&gt;</a> elements)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.addElementsInColumn(position, elements);</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00122" data-start="{" data-end="}">
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aeeaa86f30d935b49444c5ed3dc3f51ff">  122</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aeeaa86f30d935b49444c5ed3dc3f51ff">addElementsInColumn</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; column_name, <a class="code hl_class" href="../../d9/d2e/classArcane_1_1ConstArrayView.html">ConstArrayView&lt;Real&gt;</a> elements, <span class="keywordtype">bool</span> create_if_not_exist)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.addElementsInColumn(column_name, elements, create_if_not_exist);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00126" data-start="{" data-end="}">
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a621c41aa3069b2bfa903dd5730ebd16f">  126</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a621c41aa3069b2bfa903dd5730ebd16f">addElementsInSameColumn</a>(<a class="code hl_class" href="../../d9/d2e/classArcane_1_1ConstArrayView.html">ConstArrayView&lt;Real&gt;</a> elements)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.addElementsInSameColumn(elements);</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>  };</div>
+</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
+<div class="foldopen" id="foldopen00131" data-start="{" data-end="}">
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aa07b35ec4eda49241a72a3dbcb8e8ae4">  131</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aa07b35ec4eda49241a72a3dbcb8e8ae4">editElementUp</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Real</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>, <span class="keywordtype">bool</span> update_last_position)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.editElementUp(<a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>, update_last_position);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>  };</div>
+</div>
+<div class="foldopen" id="foldopen00135" data-start="{" data-end="}">
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aa7e4c7cf1994e39ba69bff66c0df0fc2">  135</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aa7e4c7cf1994e39ba69bff66c0df0fc2">editElementDown</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Real</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>, <span class="keywordtype">bool</span> update_last_position)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.editElementDown(<a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>, update_last_position);</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>  };</div>
+</div>
+<div class="foldopen" id="foldopen00139" data-start="{" data-end="}">
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#abfcdb221ce20b98a9d44fd24b248f61b">  139</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#abfcdb221ce20b98a9d44fd24b248f61b">editElementLeft</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Real</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>, <span class="keywordtype">bool</span> update_last_position)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.editElementLeft(<a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>, update_last_position);</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>  };</div>
+</div>
+<div class="foldopen" id="foldopen00143" data-start="{" data-end="}">
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a138d8b38da114cab987f81e329ed838c">  143</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a138d8b38da114cab987f81e329ed838c">editElementRight</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Real</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>, <span class="keywordtype">bool</span> update_last_position)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.editElementRight(<a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>, update_last_position);</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>  };</div>
+</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="foldopen" id="foldopen00148" data-start="{" data-end="}">
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a84497680e79f6b05c54ab722279f0bb7">  148</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Real</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a84497680e79f6b05c54ab722279f0bb7">elementUp</a>(<span class="keywordtype">bool</span> update_last_position)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.elementUp(update_last_position);</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00152" data-start="{" data-end="}">
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a750c2ae84754be18cfea5c9893b8eb8b">  152</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Real</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a750c2ae84754be18cfea5c9893b8eb8b">elementDown</a>(<span class="keywordtype">bool</span> update_last_position)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.elementDown(update_last_position);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00156" data-start="{" data-end="}">
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a58fec5f78c6c52f2ef35f39eab4f5df4">  156</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Real</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a58fec5f78c6c52f2ef35f39eab4f5df4">elementLeft</a>(<span class="keywordtype">bool</span> update_last_position)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.elementLeft(update_last_position);</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00160" data-start="{" data-end="}">
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a446f594413e39b57a48b28676588205b">  160</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Real</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a446f594413e39b57a48b28676588205b">elementRight</a>(<span class="keywordtype">bool</span> update_last_position)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.elementRight(update_last_position);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>  }</div>
+</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="foldopen" id="foldopen00165" data-start="{" data-end="}">
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a9b6076771b9542a10e94caa51a3dcfc5">  165</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a9b6076771b9542a10e94caa51a3dcfc5">editElement</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Real</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.editElement(<a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00169" data-start="{" data-end="}">
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8b6bdb8da93c532abeb2484aa47f2e2b">  169</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8b6bdb8da93c532abeb2484aa47f2e2b">editElement</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> position_x, <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> position_y, <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Real</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.editElement(position_x, position_y, <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>);</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00173" data-start="{" data-end="}">
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a6989b9766c0859e6ac8ce61f27c0eff4">  173</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a6989b9766c0859e6ac8ce61f27c0eff4">editElement</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; column_name, <span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; row_name, <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Real</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.editElement(column_name, row_name, <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>  }</div>
+</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
+<div class="foldopen" id="foldopen00178" data-start="{" data-end="}">
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">  178</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Real</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">element</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.element();</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00182" data-start="{" data-end="}">
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a32cf7bfc17f9d1279dade7c29c774bf4">  182</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Real</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a32cf7bfc17f9d1279dade7c29c774bf4">element</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> position_x, <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> position_y, <span class="keywordtype">bool</span> update_last_position)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.element(position_x, position_y, update_last_position);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00186" data-start="{" data-end="}">
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aada7a1fedf4e30acc705308ef1274d02">  186</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Real</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aada7a1fedf4e30acc705308ef1274d02">element</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; column_name, <span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; row_name, <span class="keywordtype">bool</span> update_last_position)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.element(column_name, row_name, update_last_position);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>  }</div>
+</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="foldopen" id="foldopen00191" data-start="{" data-end="}">
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aac724edc3d4f5774724cde9af83b545e">  191</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#aa75ce7197cbd274fa23cff0578899986">RealUniqueArray</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aac724edc3d4f5774724cde9af83b545e">row</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> position)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.row(position);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00195" data-start="{" data-end="}">
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a32492cf01c1f0b27275c2220dea4a61c">  195</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#aa75ce7197cbd274fa23cff0578899986">RealUniqueArray</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a32492cf01c1f0b27275c2220dea4a61c">column</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> position)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.column(position);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>  }</div>
+</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="foldopen" id="foldopen00200" data-start="{" data-end="}">
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a3f1867c48b1b6beec93211a4f0c8ffd2">  200</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#aa75ce7197cbd274fa23cff0578899986">RealUniqueArray</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a3f1867c48b1b6beec93211a4f0c8ffd2">row</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; row_name)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.row(row_name);</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00204" data-start="{" data-end="}">
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8ec1e34ff02147a6acf1b94758f4cab3">  204</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#aa75ce7197cbd274fa23cff0578899986">RealUniqueArray</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8ec1e34ff02147a6acf1b94758f4cab3">column</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; column_name)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.column(column_name);</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>  }</div>
+</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="foldopen" id="foldopen00209" data-start="{" data-end="}">
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a79004d02cfbff09328f44d297e11064b">  209</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a79004d02cfbff09328f44d297e11064b">rowSize</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> position)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.rowSize(position);</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00213" data-start="{" data-end="}">
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aa9afc5e3411556233d45552e02227cc1">  213</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aa9afc5e3411556233d45552e02227cc1">columnSize</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> position)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.columnSize(position);</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>  }</div>
+</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span> </div>
+<div class="foldopen" id="foldopen00218" data-start="{" data-end="}">
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a60919e09b2c70e0662325196d085db7f">  218</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a60919e09b2c70e0662325196d085db7f">rowSize</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; row_name)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.rowSize(row_name);</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00222" data-start="{" data-end="}">
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8d60c5161b81d2de9be464f213b8d960">  222</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8d60c5161b81d2de9be464f213b8d960">columnSize</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; column_name)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.columnSize(column_name);</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>  }</div>
+</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="foldopen" id="foldopen00227" data-start="{" data-end="}">
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aded47e49ba03ec0646373d30f45d8982">  227</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aded47e49ba03ec0646373d30f45d8982">rowPosition</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; row_name)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.rowPosition(row_name);</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00231" data-start="{" data-end="}">
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a4c8d7d24bfecb6821fd3e322732ae8fa">  231</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a4c8d7d24bfecb6821fd3e322732ae8fa">columnPosition</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; column_name)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.columnPosition(column_name);</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>  }</div>
+</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="foldopen" id="foldopen00236" data-start="{" data-end="}">
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ab793beda49f3890c87617005f7bce3ec">  236</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ab793beda49f3890c87617005f7bce3ec">numberOfRows</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.numberOfRows();</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00240" data-start="{" data-end="}">
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a22a868c60703766deab6dae788d45a2a">  240</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a22a868c60703766deab6dae788d45a2a">numberOfColumns</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.numberOfColumns();</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>  }</div>
+</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>  <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a> rowName(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> position)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.<a class="code hl_function" href="../../d8/d4b/classArcane_1_1SimpleTableInternalMng.html#a76cc821e92358a17a2d34123521d0e28">rowName</a>(position);</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>  }</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>  String columnName(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> position)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.<a class="code hl_function" href="../../d8/d4b/classArcane_1_1SimpleTableInternalMng.html#a137781f2c1338cd552309f21ad3bb218">columnName</a>(position);</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>  }</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="foldopen" id="foldopen00254" data-start="{" data-end="}">
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a21109883c76a1e6dbe237da3900a77c8">  254</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a21109883c76a1e6dbe237da3900a77c8">editRowName</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> position, <span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; new_name)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.editRowName(position, new_name);</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00258" data-start="{" data-end="}">
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a371fd63f6d7fac8802a9189501a05cb8">  258</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a371fd63f6d7fac8802a9189501a05cb8">editRowName</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; row_name, <span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; new_name)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.editRowName(row_name, new_name);</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>  }</div>
+</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
+<div class="foldopen" id="foldopen00263" data-start="{" data-end="}">
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a17f55bdb0c6be1fd130ac8e9b50e4f0b">  263</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a17f55bdb0c6be1fd130ac8e9b50e4f0b">editColumnName</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> position, <span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; new_name)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.editColumnName(position, new_name);</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00267" data-start="{" data-end="}">
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8161c4c22557b80403adc6ae50683c7c">  267</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8161c4c22557b80403adc6ae50683c7c">editColumnName</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; column_name, <span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; new_name)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.editColumnName(column_name, new_name);</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>  }</div>
+</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span> </div>
+<div class="foldopen" id="foldopen00272" data-start="{" data-end="}">
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8fa1a9c850bcd49e66582fa2806e3808">  272</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8fa1a9c850bcd49e66582fa2806e3808">addAverageColumn</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; column_name)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <span class="keywordflow">return</span> m_simple_table_internal_mng.addAverageColumn(column_name);</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>  }</div>
+</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span> </div>
+<div class="foldopen" id="foldopen00277" data-start="{" data-end="}">
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a44c3d7e0525eb6a1ce03d47cd66fe7c9">  277</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a44c3d7e0525eb6a1ce03d47cd66fe7c9">print</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> rank)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    <span class="keywordflow">return</span> m_simple_table_output_mng.print(rank);</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00281" data-start="{" data-end="}">
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aa7292682aaf36533dabb9bfc2faefaed">  281</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aa7292682aaf36533dabb9bfc2faefaed">writeFile</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> rank)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    <span class="keywordflow">return</span> m_simple_table_output_mng.writeFile(rank);</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>  }</div>
+</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aa7292682aaf36533dabb9bfc2faefaed">writeFile</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d8/d8f/classArcane_1_1Directory.html">Directory</a>&amp; root_directory, <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> rank)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    <span class="keywordflow">return</span> m_simple_table_output_mng.<a class="code hl_function" href="../../d0/dae/classArcane_1_1SimpleTableWriterHelper.html#aa5630ad40fd7e67f6d824d8454cc9496">writeFile</a>(root_directory, rank);</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>  }</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aa7292682aaf36533dabb9bfc2faefaed">writeFile</a>(<span class="keyword">const</span> String&amp; directory, <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> rank) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a0ef7f37f240b73733949c5e4c225a976">  291</a></span>  <a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a0ef7f37f240b73733949c5e4c225a976">precision</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> m_simple_table_output_mng.precision(); }</div>
+<div class="foldopen" id="foldopen00292" data-start="{" data-end="}">
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ae95d7327e422aec4e41d3f4101acf67c">  292</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ae95d7327e422aec4e41d3f4101acf67c">setPrecision</a>(<a class="code hl_typedef" href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Integer</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a0ef7f37f240b73733949c5e4c225a976">precision</a>)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    <span class="keywordflow">return</span> m_simple_table_output_mng.setPrecision(<a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a0ef7f37f240b73733949c5e4c225a976">precision</a>);</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>  }</div>
+</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span> </div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a466a5b89cacc2e00bf597f0378369e7f">  297</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a466a5b89cacc2e00bf597f0378369e7f">isFixed</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> m_simple_table_output_mng.isFixed(); }</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a4923195f39e72c90690682c5b67c2ef7">  298</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a4923195f39e72c90690682c5b67c2ef7">setFixed</a>(<span class="keywordtype">bool</span> fixed)<span class="keyword"> override </span>{ <span class="keywordflow">return</span> m_simple_table_output_mng.setFixed(fixed); };</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span> </div>
+<div class="foldopen" id="foldopen00300" data-start="{" data-end="}">
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a43cf2c8f1db7cd9594cf0ee7fa10e7b6">  300</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a43cf2c8f1db7cd9594cf0ee7fa10e7b6">isForcedToUseScientificNotation</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    <span class="keywordflow">return</span> m_simple_table_output_mng.isForcedToUseScientificNotation();</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00304" data-start="{" data-end="}">
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a5f50057688a620e34c605c014f2943b3">  304</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a5f50057688a620e34c605c014f2943b3">setForcedToUseScientificNotation</a>(<span class="keywordtype">bool</span> use_scientific)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    <span class="keywordflow">return</span> m_simple_table_output_mng.setForcedToUseScientificNotation(use_scientific);</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>  }</div>
+</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span> </div>
+<div class="foldopen" id="foldopen00309" data-start="{" data-end="}">
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a97eb6069219b26d7647d1c2e9796cff3">  309</a></span>  <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a97eb6069219b26d7647d1c2e9796cff3">outputDirectory</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    <span class="keywordflow">return</span> m_simple_table_output_mng.outputDirectory();</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00313" data-start="{" data-end="}">
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a12f1d8ff083649b38b61d4fee831b285">  313</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a12f1d8ff083649b38b61d4fee831b285">setOutputDirectory</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; directory)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    <span class="keywordflow">return</span> m_simple_table_output_mng.setOutputDirectory(directory);</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>  }</div>
+</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
+<div class="foldopen" id="foldopen00318" data-start="{" data-end="}">
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a1352e1b5cbef5324a9765c8b37c07b26">  318</a></span>  <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a1352e1b5cbef5324a9765c8b37c07b26">tableName</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    <span class="keywordflow">return</span> m_simple_table_output_mng.tableName();</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00322" data-start="{" data-end="}">
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ad9fbffbd4065784a7f2f6c6f6db357c9">  322</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ad9fbffbd4065784a7f2f6c6f6db357c9">setTableName</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a>&amp; name)<span class="keyword"> override</span></div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    <span class="keywordflow">return</span> m_simple_table_output_mng.setTableName(name);</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00326" data-start="{" data-end="}">
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ac547deb6fa973f122da3043ec3531337">  326</a></span>  <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ac547deb6fa973f122da3043ec3531337">fileName</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>    <span class="keywordflow">return</span> m_simple_table_output_mng.fileName();</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>  }</div>
+</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span> </div>
+<div class="foldopen" id="foldopen00331" data-start="{" data-end="}">
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a58e8cbcb5c7e3abf3989be089233cd8f">  331</a></span>  <a class="code hl_class" href="../../d8/d8f/classArcane_1_1Directory.html">Directory</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a58e8cbcb5c7e3abf3989be089233cd8f">outputPath</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>    <span class="keywordflow">return</span> m_simple_table_output_mng.outputPath();</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>  }</div>
+</div>
+<div class="foldopen" id="foldopen00335" data-start="{" data-end="}">
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a2bb0ffbab738b5c43fa030a35d9b1614">  335</a></span>  <a class="code hl_class" href="../../d8/d8f/classArcane_1_1Directory.html">Directory</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a2bb0ffbab738b5c43fa030a35d9b1614">rootPath</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>    <span class="keywordflow">return</span> m_simple_table_output_mng.rootPath();</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>  }</div>
+</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span> </div>
+<div class="foldopen" id="foldopen00340" data-start="{" data-end="}">
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ad35f75e29cb43c5162e1ab953a51f6d3">  340</a></span>  <a class="code hl_class" href="../../db/dc4/classArcane_1_1String.html">String</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ad35f75e29cb43c5162e1ab953a51f6d3">fileType</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>    <span class="keywordflow">return</span> m_simple_table_output_mng.fileType();</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>  }</div>
+</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span> </div>
+<div class="foldopen" id="foldopen00345" data-start="{" data-end="}">
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ad462b2067d640a587f8fc307178e4619">  345</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ad462b2067d640a587f8fc307178e4619">isOneFileByRanksPermited</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span>    <span class="keywordflow">return</span> m_simple_table_output_mng.isOneFileByRanksPermited();</div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>  }</div>
+</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ab76f9e62b7ab5cf0ca8dd5114f3616bd">  350</a></span>  <a class="code hl_class" href="../../d6/da9/classArcane_1_1Ref.html">Ref&lt;SimpleTableInternal&gt;</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ab76f9e62b7ab5cf0ca8dd5114f3616bd">internal</a>()<span class="keyword"> override </span>{ <span class="keywordflow">return</span> m_internal; }</div>
+<div class="foldopen" id="foldopen00351" data-start="{" data-end="}">
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno"><a class="line" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ada06a323313d67d96d2e5b507214e21d">  351</a></span>  <a class="code hl_class" href="../../d6/da9/classArcane_1_1Ref.html">Ref&lt;ISimpleTableReaderWriter&gt;</a> <a class="code hl_function" href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ada06a323313d67d96d2e5b507214e21d">readerWriter</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span><span class="keyword">  </span>{</div>
+<div class="line"><a id="l00353" name="l00353"></a><span class="lineno">  353</span>    <span class="keywordflow">return</span> m_simple_csv_reader_writer;</div>
+<div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>  }</div>
+</div>
+<div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span> </div>
+<div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span> <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span> </div>
+<div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span>  <a class="code hl_class" href="../../d8/d4b/classArcane_1_1SimpleTableInternalMng.html">SimpleTableInternalMng</a> m_simple_table_internal_mng;</div>
+<div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>  <a class="code hl_class" href="../../d0/dae/classArcane_1_1SimpleTableWriterHelper.html">SimpleTableWriterHelper</a> m_simple_table_output_mng;</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span> </div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>  <a class="code hl_class" href="../../d6/da9/classArcane_1_1Ref.html">Ref&lt;SimpleTableInternal&gt;</a> m_internal;</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>  <a class="code hl_class" href="../../d6/da9/classArcane_1_1Ref.html">Ref&lt;SimpleCsvReaderWriter&gt;</a> m_simple_csv_reader_writer;</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span> </div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>  <span class="keywordtype">bool</span> m_is_already_init;</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>  <span class="keywordtype">bool</span> m_with_option;</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>};</div>
+</div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span> </div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span> </div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>} <span class="comment">// End namespace Arcane</span></div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span> </div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span> </div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span> </div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="ttc" id="aclassArcaneSimpleCsvOutputObject_html_a53f0b7cb27a05ee42e7d790434557b8e"><div class="ttname"><a href="../../d6/dc8/classArcaneSimpleCsvOutputObject.html#a53f0b7cb27a05ee42e7d790434557b8e">ArcaneSimpleCsvOutputObject::ArcaneSimpleCsvOutputObject</a></div><div class="ttdeci">ArcaneSimpleCsvOutputObject(const Arcane::ServiceBuildInfo &amp;sbi)</div><div class="ttdoc">Constructeur.</div><div class="ttdef"><b>Definition</b> <a href="../../d9/d05/SimpleCsvOutput__axl_8h_source.html#l00184">SimpleCsvOutput_axl.h:184</a></div></div>
+<div class="ttc" id="aclassArcane_1_1ConstArrayView_html"><div class="ttname"><a href="../../d9/d2e/classArcane_1_1ConstArrayView.html">Arcane::ConstArrayView</a></div><div class="ttdoc">Vue constante d&#39;un tableau de type T.</div><div class="ttdef"><b>Definition</b> <a href="../../db/d51/arccore_2src_2base_2arccore_2base_2ArrayView_8h_source.html#l00532">arccore/src/base/arccore/base/ArrayView.h:533</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Directory_html"><div class="ttname"><a href="../../d8/d8f/classArcane_1_1Directory.html">Arcane::Directory</a></div><div class="ttdoc">Classe gérant un répertoire.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d4a/Directory_8h_source.html#l00033">Directory.h:35</a></div></div>
+<div class="ttc" id="aclassArcane_1_1Ref_html"><div class="ttname"><a href="../../d6/da9/classArcane_1_1Ref.html">Arcane::Ref</a></div><div class="ttdoc">Référence à une instance.</div><div class="ttdef"><b>Definition</b> <a href="../../de/d92/arccore_2src_2base_2arccore_2base_2Ref_8h_source.html#l00141">arccore/src/base/arccore/base/Ref.h:143</a></div></div>
+<div class="ttc" id="aclassArcane_1_1ServiceBuildInfoBase_html_ad585414d49bbcac307a664bf4ae6e5b1"><div class="ttname"><a href="../../d1/dd8/classArcane_1_1ServiceBuildInfoBase.html#ad585414d49bbcac307a664bf4ae6e5b1">Arcane::ServiceBuildInfoBase::creationType</a></div><div class="ttdeci">eServiceType creationType() const</div><div class="ttdoc">Type du service pouvant être créé par cette instance.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dd2/ServiceBuildInfo_8h_source.html#l00176">ServiceBuildInfo.h:176</a></div></div>
+<div class="ttc" id="aclassArcane_1_1ServiceBuildInfo_html"><div class="ttname"><a href="../../d8/dc4/classArcane_1_1ServiceBuildInfo.html">Arcane::ServiceBuildInfo</a></div><div class="ttdoc">Structure contenant les informations pour créer un service.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/dd2/ServiceBuildInfo_8h_source.html#l00196">ServiceBuildInfo.h:198</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a0ef7f37f240b73733949c5e4c225a976"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a0ef7f37f240b73733949c5e4c225a976">Arcane::SimpleCsvOutputService::precision</a></div><div class="ttdeci">Integer precision() override</div><div class="ttdoc">Méthode permettant de récupérer la précision actuellement utilisée pour l&#39;écriture des valeurs.</div><div class="ttdef"><b>Definition</b> <a href="#l00291">SimpleCsvOutputService.h:291</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a12f1d8ff083649b38b61d4fee831b285"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a12f1d8ff083649b38b61d4fee831b285">Arcane::SimpleCsvOutputService::setOutputDirectory</a></div><div class="ttdeci">void setOutputDirectory(const String &amp;directory) override</div><div class="ttdoc">Accesseur permettant de définir le répertoire dans lequel enregistrer les tableaux.</div><div class="ttdef"><b>Definition</b> <a href="#l00313">SimpleCsvOutputService.h:313</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a1352e1b5cbef5324a9765c8b37c07b26"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a1352e1b5cbef5324a9765c8b37c07b26">Arcane::SimpleCsvOutputService::tableName</a></div><div class="ttdeci">String tableName() override</div><div class="ttdoc">Accesseur permettant de récupérer le nom des tableaux.</div><div class="ttdef"><b>Definition</b> <a href="#l00318">SimpleCsvOutputService.h:318</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a138d8b38da114cab987f81e329ed838c"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a138d8b38da114cab987f81e329ed838c">Arcane::SimpleCsvOutputService::editElementRight</a></div><div class="ttdeci">bool editElementRight(Real element, bool update_last_position) override</div><div class="ttdoc">Méthode permettant d&#39;éditer un élément à droite du dernier élement dernièrement manipulé (même ligne/...</div><div class="ttdef"><b>Definition</b> <a href="#l00143">SimpleCsvOutputService.h:143</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a17f55bdb0c6be1fd130ac8e9b50e4f0b"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a17f55bdb0c6be1fd130ac8e9b50e4f0b">Arcane::SimpleCsvOutputService::editColumnName</a></div><div class="ttdeci">bool editColumnName(Integer position, const String &amp;new_name) override</div><div class="ttdoc">Méthode permettant de changer le nom d&#39;une colonne.</div><div class="ttdef"><b>Definition</b> <a href="#l00263">SimpleCsvOutputService.h:263</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a21109883c76a1e6dbe237da3900a77c8"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a21109883c76a1e6dbe237da3900a77c8">Arcane::SimpleCsvOutputService::editRowName</a></div><div class="ttdeci">bool editRowName(Integer position, const String &amp;new_name) override</div><div class="ttdoc">Méthode permettant de changer le nom d&#39;une ligne.</div><div class="ttdef"><b>Definition</b> <a href="#l00254">SimpleCsvOutputService.h:254</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a22a868c60703766deab6dae788d45a2a"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a22a868c60703766deab6dae788d45a2a">Arcane::SimpleCsvOutputService::numberOfColumns</a></div><div class="ttdeci">Integer numberOfColumns() override</div><div class="ttdoc">Méthode permettant de récupérer le nombre de colonnes dans le tableau. C&#39;est, en quelque sorte,...</div><div class="ttdef"><b>Definition</b> <a href="#l00240">SimpleCsvOutputService.h:240</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a27365ad3f988ac93a22d0b6ca9c03bbb"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a27365ad3f988ac93a22d0b6ca9c03bbb">Arcane::SimpleCsvOutputService::addElementsInRow</a></div><div class="ttdeci">bool addElementsInRow(const String &amp;row_name, ConstArrayView&lt; Real &gt; elements, bool create_if_not_exist) override</div><div class="ttdoc">Méthode permettant d&#39;ajouter plusieurs éléments sur une ligne.</div><div class="ttdef"><b>Definition</b> <a href="#l00097">SimpleCsvOutputService.h:97</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a28fa08706ef851e46330adcba0f42172"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a28fa08706ef851e46330adcba0f42172">Arcane::SimpleCsvOutputService::clear</a></div><div class="ttdeci">void clear() override</div><div class="ttdoc">Méthode permettant de remettre à zéro les tableaux.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/da5/SimpleCsvOutputService_8cc_source.html#l00067">SimpleCsvOutputService.cc:68</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a2bb0ffbab738b5c43fa030a35d9b1614"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a2bb0ffbab738b5c43fa030a35d9b1614">Arcane::SimpleCsvOutputService::rootPath</a></div><div class="ttdeci">Directory rootPath() override</div><div class="ttdoc">Accesseur permettant de récupérer le chemin où l&#39;implémentation enregistre ces tableaux.</div><div class="ttdef"><b>Definition</b> <a href="#l00335">SimpleCsvOutputService.h:335</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a32492cf01c1f0b27275c2220dea4a61c"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a32492cf01c1f0b27275c2220dea4a61c">Arcane::SimpleCsvOutputService::column</a></div><div class="ttdeci">RealUniqueArray column(Integer position) override</div><div class="ttdoc">Méthode permettant d&#39;obtenir une copie d&#39;une colonne.</div><div class="ttdef"><b>Definition</b> <a href="#l00195">SimpleCsvOutputService.h:195</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a32cf7bfc17f9d1279dade7c29c774bf4"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a32cf7bfc17f9d1279dade7c29c774bf4">Arcane::SimpleCsvOutputService::element</a></div><div class="ttdeci">Real element(Integer position_x, Integer position_y, bool update_last_position) override</div><div class="ttdoc">Méthode permettant d&#39;obtenir une copie d&#39;un élement.</div><div class="ttdef"><b>Definition</b> <a href="#l00182">SimpleCsvOutputService.h:182</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a35472057d31cc79f6ad012cb244bd3b9"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a35472057d31cc79f6ad012cb244bd3b9">Arcane::SimpleCsvOutputService::addElementInSameRow</a></div><div class="ttdeci">bool addElementInSameRow(Real element) override</div><div class="ttdoc">Méthode permettant d&#39;ajouter un élément sur la ligne dernièrement manipulée.</div><div class="ttdef"><b>Definition</b> <a href="#l00089">SimpleCsvOutputService.h:89</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a371fd63f6d7fac8802a9189501a05cb8"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a371fd63f6d7fac8802a9189501a05cb8">Arcane::SimpleCsvOutputService::editRowName</a></div><div class="ttdeci">bool editRowName(const String &amp;row_name, const String &amp;new_name) override</div><div class="ttdoc">Méthode permettant de changer le nom d&#39;une ligne.</div><div class="ttdef"><b>Definition</b> <a href="#l00258">SimpleCsvOutputService.h:258</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a3798602f52864e0edbe2a36e9890292b"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a3798602f52864e0edbe2a36e9890292b">Arcane::SimpleCsvOutputService::addElementInRow</a></div><div class="ttdeci">bool addElementInRow(const String &amp;row_name, Real element, bool create_if_not_exist) override</div><div class="ttdoc">Méthode permettant l&#39;ajouter un élément sur une ligne.</div><div class="ttdef"><b>Definition</b> <a href="#l00085">SimpleCsvOutputService.h:85</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a3f1867c48b1b6beec93211a4f0c8ffd2"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a3f1867c48b1b6beec93211a4f0c8ffd2">Arcane::SimpleCsvOutputService::row</a></div><div class="ttdeci">RealUniqueArray row(const String &amp;row_name) override</div><div class="ttdoc">Méthode permettant d&#39;obtenir une copie d&#39;une ligne.</div><div class="ttdef"><b>Definition</b> <a href="#l00200">SimpleCsvOutputService.h:200</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a43cf2c8f1db7cd9594cf0ee7fa10e7b6"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a43cf2c8f1db7cd9594cf0ee7fa10e7b6">Arcane::SimpleCsvOutputService::isForcedToUseScientificNotation</a></div><div class="ttdeci">bool isForcedToUseScientificNotation() override</div><div class="ttdoc">Méthode permettant de savoir si le frag &#39;std::scientific&#39; est actif ou non pour l&#39;écriture des valeur...</div><div class="ttdef"><b>Definition</b> <a href="#l00300">SimpleCsvOutputService.h:300</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a446f594413e39b57a48b28676588205b"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a446f594413e39b57a48b28676588205b">Arcane::SimpleCsvOutputService::elementRight</a></div><div class="ttdeci">Real elementRight(bool update_last_position) override</div><div class="ttdoc">Méthode permettant de récupérer un élément à droite du dernier élement dernièrement manipulé (même li...</div><div class="ttdef"><b>Definition</b> <a href="#l00160">SimpleCsvOutputService.h:160</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a44c3d7e0525eb6a1ce03d47cd66fe7c9"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a44c3d7e0525eb6a1ce03d47cd66fe7c9">Arcane::SimpleCsvOutputService::print</a></div><div class="ttdeci">void print(Integer rank) override</div><div class="ttdoc">Méthode permettant d&#39;afficher le tableau. Méthode effectuant des opérations collectives.</div><div class="ttdef"><b>Definition</b> <a href="#l00277">SimpleCsvOutputService.h:277</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a466a5b89cacc2e00bf597f0378369e7f"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a466a5b89cacc2e00bf597f0378369e7f">Arcane::SimpleCsvOutputService::isFixed</a></div><div class="ttdeci">bool isFixed() override</div><div class="ttdoc">Méthode permettant de savoir si le frag &#39;std::fixed&#39; est actif ou non pour l&#39;écriture des valeurs.</div><div class="ttdef"><b>Definition</b> <a href="#l00297">SimpleCsvOutputService.h:297</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a4923195f39e72c90690682c5b67c2ef7"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a4923195f39e72c90690682c5b67c2ef7">Arcane::SimpleCsvOutputService::setFixed</a></div><div class="ttdeci">void setFixed(bool fixed) override</div><div class="ttdoc">Méthode permettant de définir le flag &#39;std::fixed&#39; ou non.</div><div class="ttdef"><b>Definition</b> <a href="#l00298">SimpleCsvOutputService.h:298</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a4a23f56d19a4821a21b4daa16c26e471"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a4a23f56d19a4821a21b4daa16c26e471">Arcane::SimpleCsvOutputService::addElementInColumn</a></div><div class="ttdeci">bool addElementInColumn(const String &amp;column_name, Real element, bool create_if_not_exist) override</div><div class="ttdoc">Méthode permettant l&#39;ajouter un élément sur une colonne.</div><div class="ttdef"><b>Definition</b> <a href="#l00109">SimpleCsvOutputService.h:109</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a4ac06e5f92d5ec829051eb00768da0a5"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a4ac06e5f92d5ec829051eb00768da0a5">Arcane::SimpleCsvOutputService::addElementsInSameRow</a></div><div class="ttdeci">bool addElementsInSameRow(ConstArrayView&lt; Real &gt; elements) override</div><div class="ttdoc">Méthode permettant d&#39;ajouter plusieurs éléments sur la ligne dernièrement manipulée.</div><div class="ttdef"><b>Definition</b> <a href="#l00101">SimpleCsvOutputService.h:101</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a4c8d7d24bfecb6821fd3e322732ae8fa"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a4c8d7d24bfecb6821fd3e322732ae8fa">Arcane::SimpleCsvOutputService::columnPosition</a></div><div class="ttdeci">Integer columnPosition(const String &amp;column_name) override</div><div class="ttdoc">Méthode permettant de récupérer la position d&#39;une colonne.</div><div class="ttdef"><b>Definition</b> <a href="#l00231">SimpleCsvOutputService.h:231</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a57216b4274668ce39136254033f24550"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a57216b4274668ce39136254033f24550">Arcane::SimpleCsvOutputService::addColumn</a></div><div class="ttdeci">Integer addColumn(const String &amp;column_name) override</div><div class="ttdoc">Méthode permettant d&#39;ajouter une colonne.</div><div class="ttdef"><b>Definition</b> <a href="#l00069">SimpleCsvOutputService.h:69</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a5774d5d882148e95061c00e6f1be91e7"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a5774d5d882148e95061c00e6f1be91e7">Arcane::SimpleCsvOutputService::addElementsInColumn</a></div><div class="ttdeci">bool addElementsInColumn(Integer position, ConstArrayView&lt; Real &gt; elements) override</div><div class="ttdoc">Méthode permettant d&#39;ajouter plusieurs éléments sur une colonne.</div><div class="ttdef"><b>Definition</b> <a href="#l00118">SimpleCsvOutputService.h:118</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a58e8cbcb5c7e3abf3989be089233cd8f"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a58e8cbcb5c7e3abf3989be089233cd8f">Arcane::SimpleCsvOutputService::outputPath</a></div><div class="ttdeci">Directory outputPath() override</div><div class="ttdoc">Accesseur permettant de récupérer le chemin où sera enregistrés les tableaux.</div><div class="ttdef"><b>Definition</b> <a href="#l00331">SimpleCsvOutputService.h:331</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a58fec5f78c6c52f2ef35f39eab4f5df4"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a58fec5f78c6c52f2ef35f39eab4f5df4">Arcane::SimpleCsvOutputService::elementLeft</a></div><div class="ttdeci">Real elementLeft(bool update_last_position) override</div><div class="ttdoc">Méthode permettant de récupérer un élément à gauche du dernier élement dernièrement manipulé (même li...</div><div class="ttdef"><b>Definition</b> <a href="#l00156">SimpleCsvOutputService.h:156</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a5f50057688a620e34c605c014f2943b3"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a5f50057688a620e34c605c014f2943b3">Arcane::SimpleCsvOutputService::setForcedToUseScientificNotation</a></div><div class="ttdeci">void setForcedToUseScientificNotation(bool use_scientific) override</div><div class="ttdoc">Méthode permettant de définir le flag &#39;std::scientific&#39; ou non.</div><div class="ttdef"><b>Definition</b> <a href="#l00304">SimpleCsvOutputService.h:304</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a60919e09b2c70e0662325196d085db7f"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a60919e09b2c70e0662325196d085db7f">Arcane::SimpleCsvOutputService::rowSize</a></div><div class="ttdeci">Integer rowSize(const String &amp;row_name) override</div><div class="ttdoc">Méthode permettant d&#39;obtenir la taille d&#39;une ligne. Incluant les hypotétiques &#39;trous&#39; dans la ligne.</div><div class="ttdef"><b>Definition</b> <a href="#l00218">SimpleCsvOutputService.h:218</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a621c41aa3069b2bfa903dd5730ebd16f"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a621c41aa3069b2bfa903dd5730ebd16f">Arcane::SimpleCsvOutputService::addElementsInSameColumn</a></div><div class="ttdeci">bool addElementsInSameColumn(ConstArrayView&lt; Real &gt; elements) override</div><div class="ttdoc">Méthode permettant d&#39;ajouter plusieurs éléments sur la colonne dernièrement manipulée.</div><div class="ttdef"><b>Definition</b> <a href="#l00126">SimpleCsvOutputService.h:126</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a6989b9766c0859e6ac8ce61f27c0eff4"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a6989b9766c0859e6ac8ce61f27c0eff4">Arcane::SimpleCsvOutputService::editElement</a></div><div class="ttdeci">bool editElement(const String &amp;column_name, const String &amp;row_name, Real element) override</div><div class="ttdoc">Méthode permettant de modifier un élement dans le tableau.</div><div class="ttdef"><b>Definition</b> <a href="#l00173">SimpleCsvOutputService.h:173</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a750c2ae84754be18cfea5c9893b8eb8b"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a750c2ae84754be18cfea5c9893b8eb8b">Arcane::SimpleCsvOutputService::elementDown</a></div><div class="ttdeci">Real elementDown(bool update_last_position) override</div><div class="ttdoc">Méthode permettant de récupérer un élément en-dessous du dernier élement dernièrement manipulé (ligne...</div><div class="ttdef"><b>Definition</b> <a href="#l00152">SimpleCsvOutputService.h:152</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a753a8bf74110316ea68eff79659d04af"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a753a8bf74110316ea68eff79659d04af">Arcane::SimpleCsvOutputService::addRows</a></div><div class="ttdeci">bool addRows(StringConstArrayView rows_names) override</div><div class="ttdoc">Méthode permettant d&#39;ajouter plusieurs lignes.</div><div class="ttdef"><b>Definition</b> <a href="#l00065">SimpleCsvOutputService.h:65</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a76f45b198ccd265bbf05bd585dccac23"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a76f45b198ccd265bbf05bd585dccac23">Arcane::SimpleCsvOutputService::addElementsInRow</a></div><div class="ttdeci">bool addElementsInRow(Integer position, ConstArrayView&lt; Real &gt; elements) override</div><div class="ttdoc">Méthode permettant d&#39;ajouter plusieurs éléments sur une ligne.</div><div class="ttdef"><b>Definition</b> <a href="#l00093">SimpleCsvOutputService.h:93</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a7887c39340de3e4a04d9ed2e2b4dbbb6"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a7887c39340de3e4a04d9ed2e2b4dbbb6">Arcane::SimpleCsvOutputService::addRow</a></div><div class="ttdeci">Integer addRow(const String &amp;row_name) override</div><div class="ttdoc">Méthode permettant d&#39;ajouter une ligne.</div><div class="ttdef"><b>Definition</b> <a href="#l00057">SimpleCsvOutputService.h:57</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a79004d02cfbff09328f44d297e11064b"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a79004d02cfbff09328f44d297e11064b">Arcane::SimpleCsvOutputService::rowSize</a></div><div class="ttdeci">Integer rowSize(Integer position) override</div><div class="ttdoc">Méthode permettant d&#39;obtenir la taille d&#39;une ligne. Incluant les hypothétiques &#39;trous&#39; dans la ligne.</div><div class="ttdef"><b>Definition</b> <a href="#l00209">SimpleCsvOutputService.h:209</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a8161c4c22557b80403adc6ae50683c7c"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8161c4c22557b80403adc6ae50683c7c">Arcane::SimpleCsvOutputService::editColumnName</a></div><div class="ttdeci">bool editColumnName(const String &amp;column_name, const String &amp;new_name) override</div><div class="ttdoc">Méthode permettant de changer le nom d&#39;une colonne.</div><div class="ttdef"><b>Definition</b> <a href="#l00267">SimpleCsvOutputService.h:267</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a84497680e79f6b05c54ab722279f0bb7"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a84497680e79f6b05c54ab722279f0bb7">Arcane::SimpleCsvOutputService::elementUp</a></div><div class="ttdeci">Real elementUp(bool update_last_position) override</div><div class="ttdoc">Méthode permettant de récupérer un élément au-dessus du dernier élement dernièrement manipulé (ligne ...</div><div class="ttdef"><b>Definition</b> <a href="#l00148">SimpleCsvOutputService.h:148</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a8b6bdb8da93c532abeb2484aa47f2e2b"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8b6bdb8da93c532abeb2484aa47f2e2b">Arcane::SimpleCsvOutputService::editElement</a></div><div class="ttdeci">bool editElement(Integer position_x, Integer position_y, Real element) override</div><div class="ttdoc">Méthode permettant de modifier un élement dans le tableau.</div><div class="ttdef"><b>Definition</b> <a href="#l00169">SimpleCsvOutputService.h:169</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a8c6230fbc34b32f5bd3c2aa9b450a4b5"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8c6230fbc34b32f5bd3c2aa9b450a4b5">Arcane::SimpleCsvOutputService::element</a></div><div class="ttdeci">Real element() override</div><div class="ttdoc">Méthode permettant d&#39;obtenir une copie d&#39;un élement.</div><div class="ttdef"><b>Definition</b> <a href="#l00178">SimpleCsvOutputService.h:178</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a8d60c5161b81d2de9be464f213b8d960"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8d60c5161b81d2de9be464f213b8d960">Arcane::SimpleCsvOutputService::columnSize</a></div><div class="ttdeci">Integer columnSize(const String &amp;column_name) override</div><div class="ttdoc">Méthode permettant d&#39;obtenir la taille d&#39;une colonne. Incluant les hypotétiques &#39;trous&#39; dans la colon...</div><div class="ttdef"><b>Definition</b> <a href="#l00222">SimpleCsvOutputService.h:222</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a8ec1e34ff02147a6acf1b94758f4cab3"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8ec1e34ff02147a6acf1b94758f4cab3">Arcane::SimpleCsvOutputService::column</a></div><div class="ttdeci">RealUniqueArray column(const String &amp;column_name) override</div><div class="ttdoc">Méthode permettant d&#39;obtenir une copie d&#39;une colonne.</div><div class="ttdef"><b>Definition</b> <a href="#l00204">SimpleCsvOutputService.h:204</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a8fa1a9c850bcd49e66582fa2806e3808"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a8fa1a9c850bcd49e66582fa2806e3808">Arcane::SimpleCsvOutputService::addAverageColumn</a></div><div class="ttdeci">Integer addAverageColumn(const String &amp;column_name) override</div><div class="ttdoc">Méthode permettant de créer une colonne contenant la moyenne des éléments de chaque ligne.</div><div class="ttdef"><b>Definition</b> <a href="#l00272">SimpleCsvOutputService.h:272</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a97eb6069219b26d7647d1c2e9796cff3"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a97eb6069219b26d7647d1c2e9796cff3">Arcane::SimpleCsvOutputService::outputDirectory</a></div><div class="ttdeci">String outputDirectory() override</div><div class="ttdoc">Accesseur permettant de récupérer le nom du répertoire où sera placé les tableaux.</div><div class="ttdef"><b>Definition</b> <a href="#l00309">SimpleCsvOutputService.h:309</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a988de99cbc4403a2979adaa178c511ef"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a988de99cbc4403a2979adaa178c511ef">Arcane::SimpleCsvOutputService::addElementInRow</a></div><div class="ttdeci">bool addElementInRow(Integer position, Real element) override</div><div class="ttdoc">Méthode permettant d&#39;ajouter un élément à une ligne.</div><div class="ttdef"><b>Definition</b> <a href="#l00081">SimpleCsvOutputService.h:81</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a9a5190155c165181c46053cc44fa50d2"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a9a5190155c165181c46053cc44fa50d2">Arcane::SimpleCsvOutputService::addRow</a></div><div class="ttdeci">Integer addRow(const String &amp;row_name, ConstArrayView&lt; Real &gt; elements) override</div><div class="ttdoc">Méthode permettant d&#39;ajouter une ligne.</div><div class="ttdef"><b>Definition</b> <a href="#l00061">SimpleCsvOutputService.h:61</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_a9b6076771b9542a10e94caa51a3dcfc5"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#a9b6076771b9542a10e94caa51a3dcfc5">Arcane::SimpleCsvOutputService::editElement</a></div><div class="ttdeci">bool editElement(Real element) override</div><div class="ttdoc">Méthode permettant de modifier un élement dans le tableau.</div><div class="ttdef"><b>Definition</b> <a href="#l00165">SimpleCsvOutputService.h:165</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_aa07b35ec4eda49241a72a3dbcb8e8ae4"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aa07b35ec4eda49241a72a3dbcb8e8ae4">Arcane::SimpleCsvOutputService::editElementUp</a></div><div class="ttdeci">bool editElementUp(Real element, bool update_last_position) override</div><div class="ttdoc">Méthode permettant d&#39;éditer un élément au-dessus du dernier élement dernièrement manipulé (ligne du d...</div><div class="ttdef"><b>Definition</b> <a href="#l00131">SimpleCsvOutputService.h:131</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_aa379003668c13a3c025d9ae185ab190a"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aa379003668c13a3c025d9ae185ab190a">Arcane::SimpleCsvOutputService::addColumn</a></div><div class="ttdeci">Integer addColumn(const String &amp;column_name, ConstArrayView&lt; Real &gt; elements) override</div><div class="ttdoc">Méthode permettant d&#39;ajouter une colonne.</div><div class="ttdef"><b>Definition</b> <a href="#l00073">SimpleCsvOutputService.h:73</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_aa7292682aaf36533dabb9bfc2faefaed"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aa7292682aaf36533dabb9bfc2faefaed">Arcane::SimpleCsvOutputService::writeFile</a></div><div class="ttdeci">bool writeFile(Integer rank) override</div><div class="ttdoc">Méthode permettant d&#39;écrire le tableau dans un fichier. Méthode effectuant des opérations collectives...</div><div class="ttdef"><b>Definition</b> <a href="#l00281">SimpleCsvOutputService.h:281</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_aa7e4c7cf1994e39ba69bff66c0df0fc2"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aa7e4c7cf1994e39ba69bff66c0df0fc2">Arcane::SimpleCsvOutputService::editElementDown</a></div><div class="ttdeci">bool editElementDown(Real element, bool update_last_position) override</div><div class="ttdoc">Méthode permettant d&#39;éditer un élément en-dessous du dernier élement dernièrement manipulé (ligne du ...</div><div class="ttdef"><b>Definition</b> <a href="#l00135">SimpleCsvOutputService.h:135</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_aa9afc5e3411556233d45552e02227cc1"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aa9afc5e3411556233d45552e02227cc1">Arcane::SimpleCsvOutputService::columnSize</a></div><div class="ttdeci">Integer columnSize(Integer position) override</div><div class="ttdoc">Méthode permettant d&#39;obtenir la taille d&#39;une colonne. Incluant les hypotétiques &#39;trous&#39; dans la colon...</div><div class="ttdef"><b>Definition</b> <a href="#l00213">SimpleCsvOutputService.h:213</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_aac724edc3d4f5774724cde9af83b545e"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aac724edc3d4f5774724cde9af83b545e">Arcane::SimpleCsvOutputService::row</a></div><div class="ttdeci">RealUniqueArray row(Integer position) override</div><div class="ttdoc">Méthode permettant d&#39;obtenir une copie d&#39;une ligne.</div><div class="ttdef"><b>Definition</b> <a href="#l00191">SimpleCsvOutputService.h:191</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_aada7a1fedf4e30acc705308ef1274d02"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aada7a1fedf4e30acc705308ef1274d02">Arcane::SimpleCsvOutputService::element</a></div><div class="ttdeci">Real element(const String &amp;column_name, const String &amp;row_name, bool update_last_position) override</div><div class="ttdoc">Méthode permettant d&#39;obtenir une copie d&#39;un élement.</div><div class="ttdef"><b>Definition</b> <a href="#l00186">SimpleCsvOutputService.h:186</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_ab09f433cefee1df54c6a6f6838d09b5c"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ab09f433cefee1df54c6a6f6838d09b5c">Arcane::SimpleCsvOutputService::addElementInColumn</a></div><div class="ttdeci">bool addElementInColumn(Integer position, Real element) override</div><div class="ttdoc">Méthode permettant d&#39;ajouter un élément à une colonne.</div><div class="ttdef"><b>Definition</b> <a href="#l00105">SimpleCsvOutputService.h:105</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_ab76f9e62b7ab5cf0ca8dd5114f3616bd"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ab76f9e62b7ab5cf0ca8dd5114f3616bd">Arcane::SimpleCsvOutputService::internal</a></div><div class="ttdeci">Ref&lt; SimpleTableInternal &gt; internal() override</div><div class="ttdoc">Méthode permettant de récupérer une référence vers l&#39;objet SimpleTableInternal utilisé.</div><div class="ttdef"><b>Definition</b> <a href="#l00350">SimpleCsvOutputService.h:350</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_ab793beda49f3890c87617005f7bce3ec"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ab793beda49f3890c87617005f7bce3ec">Arcane::SimpleCsvOutputService::numberOfRows</a></div><div class="ttdeci">Integer numberOfRows() override</div><div class="ttdoc">Méthode permettant de récupérer le nombre de lignes dans le tableau. C&#39;est, en quelque sorte,...</div><div class="ttdef"><b>Definition</b> <a href="#l00236">SimpleCsvOutputService.h:236</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_aba0708dba65ba9a82583a51cfd78666e"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aba0708dba65ba9a82583a51cfd78666e">Arcane::SimpleCsvOutputService::addColumns</a></div><div class="ttdeci">bool addColumns(StringConstArrayView columns_names) override</div><div class="ttdoc">Méthode permettant d&#39;ajouter plusieurs colonnes.</div><div class="ttdef"><b>Definition</b> <a href="#l00077">SimpleCsvOutputService.h:77</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_abfcdb221ce20b98a9d44fd24b248f61b"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#abfcdb221ce20b98a9d44fd24b248f61b">Arcane::SimpleCsvOutputService::editElementLeft</a></div><div class="ttdeci">bool editElementLeft(Real element, bool update_last_position) override</div><div class="ttdoc">Méthode permettant d&#39;éditer un élément à gauche du dernier élement dernièrement manipulé (même ligne/...</div><div class="ttdef"><b>Definition</b> <a href="#l00139">SimpleCsvOutputService.h:139</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_ac547deb6fa973f122da3043ec3531337"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ac547deb6fa973f122da3043ec3531337">Arcane::SimpleCsvOutputService::fileName</a></div><div class="ttdeci">String fileName() override</div><div class="ttdoc">Accesseur permettant de récupérer le nom des fichiers.</div><div class="ttdef"><b>Definition</b> <a href="#l00326">SimpleCsvOutputService.h:326</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_acf7b1a31416fee2ade8b993303af284a"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#acf7b1a31416fee2ade8b993303af284a">Arcane::SimpleCsvOutputService::init</a></div><div class="ttdeci">bool init() override</div><div class="ttdoc">Méthode permettant d&#39;initialiser le tableau.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/da5/SimpleCsvOutputService_8cc_source.html#l00025">SimpleCsvOutputService.cc:26</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_ad35f75e29cb43c5162e1ab953a51f6d3"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ad35f75e29cb43c5162e1ab953a51f6d3">Arcane::SimpleCsvOutputService::fileType</a></div><div class="ttdeci">String fileType() override</div><div class="ttdoc">Méthode permettant de connaitre le type de fichier du service.</div><div class="ttdef"><b>Definition</b> <a href="#l00340">SimpleCsvOutputService.h:340</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_ad462b2067d640a587f8fc307178e4619"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ad462b2067d640a587f8fc307178e4619">Arcane::SimpleCsvOutputService::isOneFileByRanksPermited</a></div><div class="ttdeci">bool isOneFileByRanksPermited() override</div><div class="ttdoc">Méthode permettant de savoir si les paramètres actuellement en possession de l&#39;implémentation lui per...</div><div class="ttdef"><b>Definition</b> <a href="#l00345">SimpleCsvOutputService.h:345</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_ad9fbffbd4065784a7f2f6c6f6db357c9"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ad9fbffbd4065784a7f2f6c6f6db357c9">Arcane::SimpleCsvOutputService::setTableName</a></div><div class="ttdeci">void setTableName(const String &amp;name) override</div><div class="ttdoc">Accesseur permettant de définir le nom du tableau.</div><div class="ttdef"><b>Definition</b> <a href="#l00322">SimpleCsvOutputService.h:322</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_ada06a323313d67d96d2e5b507214e21d"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ada06a323313d67d96d2e5b507214e21d">Arcane::SimpleCsvOutputService::readerWriter</a></div><div class="ttdeci">Ref&lt; ISimpleTableReaderWriter &gt; readerWriter() override</div><div class="ttdoc">Méthode permettant de récupérer une référence vers l&#39;objet ISimpleTableReaderWriter utilisé.</div><div class="ttdef"><b>Definition</b> <a href="#l00351">SimpleCsvOutputService.h:351</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_aded47e49ba03ec0646373d30f45d8982"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aded47e49ba03ec0646373d30f45d8982">Arcane::SimpleCsvOutputService::rowPosition</a></div><div class="ttdeci">Integer rowPosition(const String &amp;row_name) override</div><div class="ttdoc">Méthode permettant de récupérer la position d&#39;une ligne.</div><div class="ttdef"><b>Definition</b> <a href="#l00227">SimpleCsvOutputService.h:227</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_ae95d7327e422aec4e41d3f4101acf67c"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#ae95d7327e422aec4e41d3f4101acf67c">Arcane::SimpleCsvOutputService::setPrecision</a></div><div class="ttdeci">void setPrecision(Integer precision) override</div><div class="ttdoc">Méthode permettant de modifier la précision du print.</div><div class="ttdef"><b>Definition</b> <a href="#l00292">SimpleCsvOutputService.h:292</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_aeeaa86f30d935b49444c5ed3dc3f51ff"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#aeeaa86f30d935b49444c5ed3dc3f51ff">Arcane::SimpleCsvOutputService::addElementsInColumn</a></div><div class="ttdeci">bool addElementsInColumn(const String &amp;column_name, ConstArrayView&lt; Real &gt; elements, bool create_if_not_exist) override</div><div class="ttdoc">Méthode permettant d&#39;ajouter plusieurs éléments sur une colonne.</div><div class="ttdef"><b>Definition</b> <a href="#l00122">SimpleCsvOutputService.h:122</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleCsvOutputService_html_af3983c8c68abbc1d99fa95e05a83fc0d"><div class="ttname"><a href="../../d0/d0a/classArcane_1_1SimpleCsvOutputService.html#af3983c8c68abbc1d99fa95e05a83fc0d">Arcane::SimpleCsvOutputService::addElementInSameColumn</a></div><div class="ttdeci">bool addElementInSameColumn(Real element) override</div><div class="ttdoc">Méthode permettant d&#39;ajouter un élément sur la colonne dernièrement manipulée.</div><div class="ttdef"><b>Definition</b> <a href="#l00113">SimpleCsvOutputService.h:113</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleTableInternalMng_html"><div class="ttname"><a href="../../d8/d4b/classArcane_1_1SimpleTableInternalMng.html">Arcane::SimpleTableInternalMng</a></div><div class="ttdef"><b>Definition</b> <a href="../../dc/d98/SimpleTableInternalMng_8h_source.html#l00032">SimpleTableInternalMng.h:34</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleTableInternalMng_html_a137781f2c1338cd552309f21ad3bb218"><div class="ttname"><a href="../../d8/d4b/classArcane_1_1SimpleTableInternalMng.html#a137781f2c1338cd552309f21ad3bb218">Arcane::SimpleTableInternalMng::columnName</a></div><div class="ttdeci">String columnName(Integer position) override</div><div class="ttdoc">Méthode permettant de récupérer le nom d&#39;une colonne à partir de sa position.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/d5e/SimpleTableInternalMng_8cc_source.html#l00703">SimpleTableInternalMng.cc:704</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleTableInternalMng_html_a76cc821e92358a17a2d34123521d0e28"><div class="ttname"><a href="../../d8/d4b/classArcane_1_1SimpleTableInternalMng.html#a76cc821e92358a17a2d34123521d0e28">Arcane::SimpleTableInternalMng::rowName</a></div><div class="ttdeci">String rowName(Integer position) override</div><div class="ttdoc">Méthode permettant de récupérer le nom d&#39;une ligne à partir de sa position.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/d5e/SimpleTableInternalMng_8cc_source.html#l00694">SimpleTableInternalMng.cc:695</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleTableWriterHelper_html"><div class="ttname"><a href="../../d0/dae/classArcane_1_1SimpleTableWriterHelper.html">Arcane::SimpleTableWriterHelper</a></div><div class="ttdef"><b>Definition</b> <a href="../../d1/def/SimpleTableWriterHelper_8h_source.html#l00038">SimpleTableWriterHelper.h:40</a></div></div>
+<div class="ttc" id="aclassArcane_1_1SimpleTableWriterHelper_html_aa5630ad40fd7e67f6d824d8454cc9496"><div class="ttname"><a href="../../d0/dae/classArcane_1_1SimpleTableWriterHelper.html#aa5630ad40fd7e67f6d824d8454cc9496">Arcane::SimpleTableWriterHelper::writeFile</a></div><div class="ttdeci">bool writeFile(Integer rank) override</div><div class="ttdef"><b>Definition</b> <a href="../../d6/d73/SimpleTableWriterHelper_8cc_source.html#l00096">SimpleTableWriterHelper.cc:97</a></div></div>
+<div class="ttc" id="aclassArcane_1_1String_html"><div class="ttname"><a href="../../db/dc4/classArcane_1_1String.html">Arcane::String</a></div><div class="ttdoc">Chaîne de caractères unicode.</div><div class="ttdef"><b>Definition</b> <a href="../../d1/ddc/arccore_2src_2base_2arccore_2base_2String_8h_source.html#l00069">arccore/src/base/arccore/base/String.h:70</a></div></div>
+<div class="ttc" id="anamespaceArcane_html"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html">Arcane</a></div><div class="ttdoc">-*- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature -*-</div><div class="ttdef"><b>Definition</b> <a href="../../da/d9d/arcane_2src_2arcane_2accelerator_2AcceleratorGlobal_8h_source.html#l00036">arcane/src/arcane/accelerator/AcceleratorGlobal.h:37</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_a2aeea08a7cb09253d50128690b113667"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a2aeea08a7cb09253d50128690b113667">Arcane::StringConstArrayView</a></div><div class="ttdeci">ConstArrayView&lt; String &gt; StringConstArrayView</div><div class="ttdoc">Equivalent C d&#39;un tableau à une dimension de chaînes de caractères.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00492">UtilsTypes.h:492</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_a45db9613d5b4bffe8397f823bf28a5b1"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a45db9613d5b4bffe8397f823bf28a5b1">Arcane::Integer</a></div><div class="ttdeci">Int32 Integer</div><div class="ttdoc">Type représentant un entier.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/d76/ArccoreGlobal_8h_source.html#l00281">ArccoreGlobal.h:281</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_a76d8edd5679322dbbea6dd06488a0db4a2786299c8b6755c7b89d6bb7fdaa5506"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#a76d8edd5679322dbbea6dd06488a0db4a2786299c8b6755c7b89d6bb7fdaa5506">Arcane::ST_CaseOption</a></div><div class="ttdeci">@ ST_CaseOption</div><div class="ttdoc">Le service s&#39;utilise au niveau du jeu de données.</div><div class="ttdef"><b>Definition</b> <a href="../../d2/d54/ServiceProperty_8h_source.html#l00068">ServiceProperty.h:68</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_aa75ce7197cbd274fa23cff0578899986"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#aa75ce7197cbd274fa23cff0578899986">Arcane::RealUniqueArray</a></div><div class="ttdeci">UniqueArray&lt; Real &gt; RealUniqueArray</div><div class="ttdoc">Tableau dynamique à une dimension de réels.</div><div class="ttdef"><b>Definition</b> <a href="../../d4/da8/UtilsTypes_8h_source.html#l00349">UtilsTypes.h:349</a></div></div>
+<div class="ttc" id="anamespaceArcane_html_ab490948e48ca8ebdc894411a9f062809"><div class="ttname"><a href="../../d0/d32/namespaceArcane.html#ab490948e48ca8ebdc894411a9f062809">Arcane::Real</a></div><div class="ttdeci">double Real</div><div class="ttdoc">Type représentant un réel.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/d76/ArccoreGlobal_8h_source.html#l00264">ArccoreGlobal.h:264</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- HTML footer for doxygen 1.9.5-->
+<!-- start footer part -->
+  <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+    <ul>
+      <li class="navelem"><a class="el" href="../../dir_cd48e9603a047c3a36ad2b31e177f8e3.html">arcane</a></li><li class="navelem"><a class="el" href="../../dir_a3e309b2fcc87469c5b99e55c99d7269.html">std</a></li><li class="navelem"><b>SimpleCsvOutputService.h</b></li>
+      <li class="footer">Généré le Lundi 9 Février 2026 04:08:15 pour Arcane par <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+    </ul>
+  </div>
+  <script type="text/javascript" src="../../script-apply-config-theme.js"></script>
+  <script type="text/javascript">
+    // On met l'appel à cette fonction dans le footer dans le cas où
+    // une page ne veut pas de personnalisation (changement de la 
+    // variable globale "no_custom_theme").
+    applyConfigWithCookies();
+  </script>
+</body>
+</html>
