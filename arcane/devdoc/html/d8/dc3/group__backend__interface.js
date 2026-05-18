@@ -1,0 +1,26 @@
+var group__backend__interface =
+[
+    [ "Arcane::Alina::backend::backends_compatible< SBackend, PBackend >", "d3/d8b/structArcane_1_1Alina_1_1backend_1_1backends__compatible.html", null ],
+    [ "Arcane::Alina::backend::value_type< T, Enable >", "df/df3/structArcane_1_1Alina_1_1backend_1_1value__type.html", null ],
+    [ "Arcane::Alina::backend::col_type< T, Enable >", "db/d5f/structArcane_1_1Alina_1_1backend_1_1col__type.html", null ],
+    [ "Arcane::Alina::backend::ptr_type< T, Enable >", "d4/df5/structArcane_1_1Alina_1_1backend_1_1ptr__type.html", null ],
+    [ "Arcane::Alina::backend::rows_impl< Matrix, Enable >", "d9/d84/structArcane_1_1Alina_1_1backend_1_1rows__impl.html", null ],
+    [ "Arcane::Alina::backend::cols_impl< Matrix, Enable >", "da/d54/structArcane_1_1Alina_1_1backend_1_1cols__impl.html", null ],
+    [ "Arcane::Alina::backend::bytes_impl< T, Enable >", "da/d5b/structArcane_1_1Alina_1_1backend_1_1bytes__impl.html", null ],
+    [ "Arcane::Alina::backend::ptr_data_impl< Matrix, Enable >", "d1/deb/structArcane_1_1Alina_1_1backend_1_1ptr__data__impl.html", null ],
+    [ "Arcane::Alina::backend::col_data_impl< Matrix, Enable >", "d5/d8d/structArcane_1_1Alina_1_1backend_1_1col__data__impl.html", null ],
+    [ "Arcane::Alina::backend::val_data_impl< Matrix, Enable >", "d8/dbf/structArcane_1_1Alina_1_1backend_1_1val__data__impl.html", null ],
+    [ "Arcane::Alina::backend::nonzeros_impl< Matrix, Enable >", "d7/d20/structArcane_1_1Alina_1_1backend_1_1nonzeros__impl.html", null ],
+    [ "Arcane::Alina::backend::row_nonzeros_impl< Matrix, Enable >", "db/d3b/structArcane_1_1Alina_1_1backend_1_1row__nonzeros__impl.html", null ],
+    [ "Arcane::Alina::backend::row_iterator< Matrix, Enable >", "d5/de1/structArcane_1_1Alina_1_1backend_1_1row__iterator.html", null ],
+    [ "Arcane::Alina::backend::row_begin_impl< Matrix, Enable >", "dd/dd2/structArcane_1_1Alina_1_1backend_1_1row__begin__impl.html", null ],
+    [ "Arcane::Alina::backend::spmv_impl< Alpha, Matrix, Vector1, Beta, Vector2, Enable >", "db/d7e/structArcane_1_1Alina_1_1backend_1_1spmv__impl.html", null ],
+    [ "Arcane::Alina::backend::residual_impl< Matrix, Vector1, Vector2, Vector3, Enable >", "d4/d6c/structArcane_1_1Alina_1_1backend_1_1residual__impl.html", null ],
+    [ "Arcane::Alina::backend::clear_impl< Vector, Enable >", "d7/dde/structArcane_1_1Alina_1_1backend_1_1clear__impl.html", null ],
+    [ "Arcane::Alina::backend::copy_impl< Vector1, Vector2, Enable >", "db/d9e/structArcane_1_1Alina_1_1backend_1_1copy__impl.html", null ],
+    [ "Arcane::Alina::backend::inner_product_impl< Vector1, Vector2, Enable >", "d2/da4/structArcane_1_1Alina_1_1backend_1_1inner__product__impl.html", null ],
+    [ "Arcane::Alina::backend::axpby_impl< A, Vector1, B, Vector2, Enable >", "d7/dd5/structArcane_1_1Alina_1_1backend_1_1axpby__impl.html", null ],
+    [ "Arcane::Alina::backend::axpbypcz_impl< A, Vector1, B, Vector2, C, Vector3, Enable >", "d2/d2d/structArcane_1_1Alina_1_1backend_1_1axpbypcz__impl.html", null ],
+    [ "Arcane::Alina::backend::vmul_impl< Alpha, Vector1, Vector2, Beta, Vector3, Enable >", "dd/d8b/structArcane_1_1Alina_1_1backend_1_1vmul__impl.html", null ],
+    [ "Arcane::Alina::backend::reinterpret_as_rhs_impl< MatrixValue, Vector, IsConst, Enable >", "da/d10/structArcane_1_1Alina_1_1backend_1_1reinterpret__as__rhs__impl.html", null ]
+];
