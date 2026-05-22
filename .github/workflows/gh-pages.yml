@@ -11,7 +11,7 @@ jobs:
     name: Build Arcane and documentations
     runs-on: ubuntu-latest
     container:
-      image: ghcr.io/arcaneframework/ubuntu-2404:doc_latest
+      image: ghcr.io/arcaneframework/ubuntu-2604:doc_latest
 
     steps:
       - name: Display CPU infos
@@ -42,7 +42,7 @@ jobs:
             ${{ env.DOC_DIR }}
 
       - name: Checkout doc
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           path: ${{ env.DOC_DIR }}
 
@@ -75,7 +75,7 @@ jobs:
           rm -rf ${{ env.DOC_DIR }}/framework
 
       - name: Checkout framework
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           repository: arcaneframework/framework
           path: ${{ env.SOURCE_DIR }}
@@ -88,7 +88,7 @@ jobs:
 
       - name: Get cache for ccache tool
         id: restore-cache
-        uses: actions/cache/restore@v4
+        uses: actions/cache/restore@v5
         with:
           path: ${{env.CCACHE_DIR}}
           key: doc-${{ env.m_date }}-${{ github.run_number }}
@@ -117,7 +117,7 @@ jobs:
           echo "::endgroup::"
 
       - name: Build framework
-        uses: arcaneframework/gh_actions/build_install_framework@v2
+        uses: arcaneframework/gh_actions/build_install_framework@v3
         with:
           source_dir: ${{ env.SOURCE_DIR }}
           build_dir: ${{ env.BUILD_DIR }}
@@ -155,10 +155,11 @@ jobs:
         shell: bash
         run: |
           mkdir -p ${{ env.DOC_DIR }}/arcane
-          mkdir -p ${{ env.DOC_DIR }}/framework
+          mkdir -p ${{ env.DOC_DIR }}/framework/alien/doc/en
           mv ${{ env.BUILD_DIR }}/share/userdoc ${{ env.DOC_DIR }}/arcane
           mv ${{ env.BUILD_DIR }}/share/devdoc ${{ env.DOC_DIR }}/arcane
-          mv ${{ env.BUILD_DIR }}/share/aliendoc ${{ env.DOC_DIR }}/framework
+          mv ${{ env.BUILD_DIR }}/share/alienuserdoc ${{ env.DOC_DIR }}/framework/alien/doc/en/user
+          mv ${{ env.BUILD_DIR }}/share/aliendevdoc ${{ env.DOC_DIR }}/framework/alien/doc/en/dev
 
       - name: Remove BUILD_DIR
         shell: bash
@@ -169,10 +170,11 @@ jobs:
         shell: bash
         run: |
           find ${{ env.DOC_DIR }}/arcane -type f \( -name "*.md5" -o -name "*.map" \) -delete
+          find ${{ env.DOC_DIR }}/framework -type f \( -name "*.md5" -o -name "*.map" \) -delete
 
       - name: Save cache from ccache tool
         id: save-cache
-        uses: actions/cache/save@v4
+        uses: actions/cache/save@v5
         with:
           path: ${{env.CCACHE_DIR}}
           key: ${{ steps.restore-cache.outputs.cache-primary-key }}
