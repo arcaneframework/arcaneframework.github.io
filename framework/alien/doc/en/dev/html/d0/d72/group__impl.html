@@ -1,0 +1,546 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <meta name="generator" content="Doxygen 1.16.1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+     <link rel="icon" href="../../logo_arcane.svg" type="image/svg+xml">
+    <title>Alien: Internal data structure access.</title>
+    <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../../jquery.js"></script>
+    <script type="text/javascript" src="../../dynsections.js"></script>
+    <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+    <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+    <script type="text/javascript">
+window.MathJax = {
+  options: {
+    ignoreHtmlClass: 'tex2jax_ignore',
+    processHtmlClass: 'tex2jax_process'
+  }
+};
+</script>
+<script type="text/javascript" id="MathJax-script" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+    <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+    <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../dev_colors.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+    <script type="text/javascript" src="../../script-helper.js"></script>
+    <script type="text/javascript" src="../../script-resize.js"></script>
+    <script type="text/javascript" src="../../script-num-lines-code.js"></script>
+    <script type="text/javascript" src="../../script-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-edit-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-doxygen-version.js"></script>
+    <script type="text/javascript">
+      // On demande l'activation de la personnalisation de la page.
+      var no_custom_theme = false;
+      setDoxygenVersion("1.16.1");
+      DoxygenAwesomeDarkModeToggle.title = "Thème clair/sombre";
+      DoxygenAwesomeDarkModeToggle.init();
+      DoxygenAwesomeFragmentCopyButton.title = "Copier le code dans le presse-papier";
+      DoxygenAwesomeFragmentCopyButton.init();
+      DoxygenAwesomeParagraphLink.init();
+      if (doxygen_minor_version < 14) {
+        DoxygenAwesomeInteractiveToc.init();
+      }
+      DoxygenAwesomeTabs.init()
+      waitElemForResizeSideNav();
+      setOldSize();
+      //waitItemExpandCurrent();
+    </script>
+  </head>
+  <body>
+    <!--BEGIN CORNER_GITHUB-->
+    <!-- https://tholman.com/github-corners/ -->
+    <a href="" class="github-corner" aria-label="Voir les sources sur GitHub">
+      <svg width="70" height="70" viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <!--END CORNER_GITHUB-->
+      <div id="top">
+        <!-- do not remove this div, it is closed by doxygen! -->
+        <div id="titlearea">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr id="projectrow">
+                <td id="projectlogo">
+                  <a href="../../index.html" title="Aller à la page principale">
+                    <img alt="Logo" src="../../arcane_framework_small.webp" />
+                  </a>
+                </td>
+              </tr>
+              <tr id="projectrow">
+                <td id="projectalign">
+                  <div id="projectname">Alien
+                    <span id="projectnumber">&#160;1.3.0</span>
+                  </div>
+                  <div id="projectbrief">Developer documentation</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- end header part -->
+<!-- Generated by Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','Search',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d0/d72/group__impl.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Internal data structure access. <div class="ingroups"><a class="el" href="../../d1/df4/group__constructor.html">Matrix Constructor</a> &raquo; <a class="el" href="../../d2/dba/group__block.html">Block related API</a> &raquo; <a class="el" href="../../d6/d2d/group__space.html">Space related functions.</a> &raquo; <a class="el" href="../../d6/d2e/group__lock.html">Protection functions.</a> &raquo; <a class="el" href="../../d6/dea/group__properties.html">Algebraic properties management.</a></div></div></div>
+</div><!--header-->
+<div class="contents">
+<div id="dynsection-0" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Collaboration diagram for Internal data structure access.:</div>
+<div id="dynsection-0-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-0-content" class="dyncontent" style="display:none;">
+<div class="center"><!-- SVG 0 --></div>
+</div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:Alien_3A_3AIMatrixImpl" id="r_Alien_3A_3AIMatrixImpl"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../da/da9/classAlien_1_1IMatrixImpl.html">Alien::IMatrixImpl</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface to handle abstract matrices implementation.  <a href="../../da/da9/classAlien_1_1IMatrixImpl.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Alien_3A_3AIVectorImpl" id="r_Alien_3A_3AIVectorImpl"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d7/d6b/classAlien_1_1IVectorImpl.html">Alien::IVectorImpl</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface to handle abstract vectors implementation.  <a href="../../d7/d6b/classAlien_1_1IVectorImpl.html#details">More...</a><br /></td></tr>
+<tr class="memitem:Alien_3A_3AMultiMatrixImpl" id="r_Alien_3A_3AMultiMatrixImpl"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html">Alien::MultiMatrixImpl</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multi matrices representation container.  <a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:gae7a06153427e5b758e9032fb8cbf169d" id="r_gae7a06153427e5b758e9032fb8cbf169d"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#gae7a06153427e5b758e9032fb8cbf169d">Alien::MultiVectorImpl::MultiVectorImpl</a> ()</td></tr>
+<tr class="memdesc:gae7a06153427e5b758e9032fb8cbf169d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multi vectors representation container.  <br /></td></tr>
+<tr class="memitem:gad32723cb626f5cce563a0ae16b7203c2" id="r_gad32723cb626f5cce563a0ae16b7203c2"><td class="memItemLeft"><a class="el" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html">MultiMatrixImpl</a> *&#160;</td><td class="memItemRight"><a class="el" href="#gad32723cb626f5cce563a0ae16b7203c2">Alien::Move::MatrixData::impl</a> ()</td></tr>
+<tr class="memdesc:gad32723cb626f5cce563a0ae16b7203c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the multimatrix implementation.  <br /></td></tr>
+<tr class="memitem:ga4420484d33c74c9f4f286054a812f6e9" id="r_ga4420484d33c74c9f4f286054a812f6e9"><td class="memItemLeft">const <a class="el" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html">MultiMatrixImpl</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ga4420484d33c74c9f4f286054a812f6e9">Alien::Move::MatrixData::impl</a> () const</td></tr>
+<tr class="memdesc:ga4420484d33c74c9f4f286054a812f6e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the multimatrix implementation.  <br /></td></tr>
+<tr class="memitem:ga8527296bb0dade0423317569cbf209d7" id="r_ga8527296bb0dade0423317569cbf209d7"><td class="memItemLeft"><a class="el" href="../../dc/d6b/classAlien_1_1MultiVectorImpl.html">MultiVectorImpl</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ga8527296bb0dade0423317569cbf209d7">Alien::Move::VectorData::impl</a> ()</td></tr>
+<tr class="memdesc:ga8527296bb0dade0423317569cbf209d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the multivector implementation.  <br /></td></tr>
+<tr class="memitem:ga479473796257cb2bfcbfaa225b62100d" id="r_ga479473796257cb2bfcbfaa225b62100d"><td class="memItemLeft">const <a class="el" href="../../dc/d6b/classAlien_1_1MultiVectorImpl.html">MultiVectorImpl</a> *&#160;</td><td class="memItemRight"><a class="el" href="#ga479473796257cb2bfcbfaa225b62100d">Alien::Move::VectorData::impl</a> () const</td></tr>
+<tr class="memdesc:ga479473796257cb2bfcbfaa225b62100d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the multivector implementation.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:gad7a4fd3aa4165b0ac5c18c98db113f29" id="r_gad7a4fd3aa4165b0ac5c18c98db113f29"><td class="memItemLeft">std::shared_ptr&lt; <a class="el" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html">MultiMatrixImpl</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#gad7a4fd3aa4165b0ac5c18c98db113f29">Alien::Move::MatrixData::m_impl</a></td></tr>
+<tr class="memitem:ga330f9b7181978378690ffccd5c2fbf49" id="r_ga330f9b7181978378690ffccd5c2fbf49"><td class="memItemLeft">std::shared_ptr&lt; <a class="el" href="../../dc/d6b/classAlien_1_1MultiVectorImpl.html">MultiVectorImpl</a> &gt;&#160;</td><td class="memItemRight"><a class="el" href="#ga330f9b7181978378690ffccd5c2fbf49">Alien::Move::VectorData::m_impl</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-friend-members" class="groupheader"><a id="friend-members" name="friend-members"></a>
+Friends</h2></td></tr>
+<tr class="memitem:gad7e887143ea338f37e54ac9aafd9c451" id="r_gad7e887143ea338f37e54ac9aafd9c451"><td class="memItemLeft"><a class="el" href="../../d1/df4/group__constructor.html#ga810c42fd0404026a07dccdb48840b28c">MatrixData</a>&#160;</td><td class="memItemRight"><a class="el" href="#gad7e887143ea338f37e54ac9aafd9c451">Alien::Move::MatrixData::createMatrixData</a> (std::shared_ptr&lt; <a class="el" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html">MultiMatrixImpl</a> &gt; multi)</td></tr>
+<tr class="memitem:ga3dec512ba5be2a2b02af080388bc27b7" id="r_ga3dec512ba5be2a2b02af080388bc27b7"><td class="memItemLeft"><a class="el" href="../../d1/df4/group__constructor.html#ga6f17f69e4282720c61c70dbaf6f4a292">VectorData</a>&#160;</td><td class="memItemRight"><a class="el" href="#ga3dec512ba5be2a2b02af080388bc27b7">Alien::Move::VectorData::createVectorData</a> (std::shared_ptr&lt; <a class="el" href="../../dc/d6b/classAlien_1_1MultiVectorImpl.html">MultiVectorImpl</a> &gt; multi)</td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Access multi-representation object.</p>
+<p>}@</p>
+<p>Access multi-representation object. </p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="gad32723cb626f5cce563a0ae16b7203c2" name="gad32723cb626f5cce563a0ae16b7203c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad32723cb626f5cce563a0ae16b7203c2">&#9670;&#160;</a></span>impl() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html">MultiMatrixImpl</a> * Alien::Move::MatrixData::impl </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the multimatrix implementation. </p>
+<dl class="section return"><dt>Returns</dt><dd>The multimatrix implementation </dd></dl>
+
+<p>Implements <a class="el" href="../../d8/d9a/classAlien_1_1IMatrix.html#a63999c959ff86e4419fc0c4493384997">Alien::IMatrix</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/df6/MatrixData_8cc_source.html#l00212">212</a> of file <a class="el" href="../../d9/df6/MatrixData_8cc_source.html">MatrixData.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="../../d0/d34/MultiMatrixImpl_8h_source.html#l00263">Alien::MultiMatrixImpl::get()</a>.</p>
+<div id="dynsection-1" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-1-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-1-content" class="dyncontent" style="display:none;">
+<div class="center"><!-- SVG 1 --></div>
+</div>
+
+</div>
+</div>
+<a id="ga4420484d33c74c9f4f286054a812f6e9" name="ga4420484d33c74c9f4f286054a812f6e9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga4420484d33c74c9f4f286054a812f6e9">&#9670;&#160;</a></span>impl() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html">MultiMatrixImpl</a> * Alien::Move::MatrixData::impl </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the multimatrix implementation. </p>
+<dl class="section return"><dt>Returns</dt><dd>The multimatrix implementation </dd></dl>
+
+<p>Implements <a class="el" href="../../d8/d9a/classAlien_1_1IMatrix.html#a020a3bd466c88805ea9fc1716e776f77">Alien::IMatrix</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/df6/MatrixData_8cc_source.html#l00224">224</a> of file <a class="el" href="../../d9/df6/MatrixData_8cc_source.html">MatrixData.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="../../d0/d34/MultiMatrixImpl_8h_source.html#l00263">Alien::MultiMatrixImpl::get()</a>.</p>
+<div id="dynsection-2" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-2-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-2-content" class="dyncontent" style="display:none;">
+<div class="center"><!-- SVG 2 --></div>
+</div>
+
+</div>
+</div>
+<a id="ga8527296bb0dade0423317569cbf209d7" name="ga8527296bb0dade0423317569cbf209d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8527296bb0dade0423317569cbf209d7">&#9670;&#160;</a></span>impl() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../dc/d6b/classAlien_1_1MultiVectorImpl.html">MultiVectorImpl</a> * Alien::Move::VectorData::impl </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the multivector implementation. </p>
+<dl class="section return"><dt>Returns</dt><dd>The multivector implementation </dd></dl>
+
+<p>Implements <a class="el" href="../../d4/dbd/classAlien_1_1IVector.html#a8487a8e2510384afeff05db5c2980a1c">Alien::IVector</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="../../db/d42/VectorData_8cc_source.html#l00186">186</a> of file <a class="el" href="../../db/d42/VectorData_8cc_source.html">VectorData.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="../../d9/d31/MultiVectorImpl_8h_source.html#l00224">Alien::MultiVectorImpl::get()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../db/d42/VectorData_8cc_source.html#l00125">clear()</a>, <a class="el" href="../../db/d42/VectorData_8cc_source.html#l00118">free()</a>, <a class="el" href="../../db/d42/VectorData_8cc_source.html#l00178">hasUserFeature()</a>, <a class="el" href="../../d1/df4/group__constructor.html#ga7b3a712daeeb37172b9bd291b67423af">operator=()</a>, <a class="el" href="../../db/d42/VectorData_8cc_source.html#l00171">setUserFeature()</a>, and <a class="el" href="../../db/d42/VectorData_8cc_source.html#l00140">space()</a>.</p>
+<div id="dynsection-3" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-3-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-3-content" class="dyncontent" style="display:none;">
+<div class="center"><!-- SVG 3 --></div>
+</div>
+<div id="dynsection-4" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-4-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-4-content" class="dyncontent" style="display:none;">
+<div class="center"><!-- SVG 4 --></div>
+</div>
+
+</div>
+</div>
+<a id="ga479473796257cb2bfcbfaa225b62100d" name="ga479473796257cb2bfcbfaa225b62100d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga479473796257cb2bfcbfaa225b62100d">&#9670;&#160;</a></span>impl() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="../../dc/d6b/classAlien_1_1MultiVectorImpl.html">MultiVectorImpl</a> * Alien::Move::VectorData::impl </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get the multivector implementation. </p>
+<dl class="section return"><dt>Returns</dt><dd>The multivector implementation </dd></dl>
+
+<p>Implements <a class="el" href="../../d4/dbd/classAlien_1_1IVector.html#aa89cdcc4af44247c87da4ec19eb6accf">Alien::IVector</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="../../db/d42/VectorData_8cc_source.html#l00201">201</a> of file <a class="el" href="../../db/d42/VectorData_8cc_source.html">VectorData.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="../../d9/d31/MultiVectorImpl_8h_source.html#l00224">Alien::MultiVectorImpl::get()</a>.</p>
+<div id="dynsection-5" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the call graph for this function:</div>
+<div id="dynsection-5-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-5-content" class="dyncontent" style="display:none;">
+<div class="center"><!-- SVG 5 --></div>
+</div>
+
+</div>
+</div>
+<a id="gae7a06153427e5b758e9032fb8cbf169d" name="gae7a06153427e5b758e9032fb8cbf169d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae7a06153427e5b758e9032fb8cbf169d">&#9670;&#160;</a></span>MultiVectorImpl()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Alien::MultiVectorImpl::MultiVectorImpl </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Multi vectors representation container. </p>
+<p>This class allows to store and access several implementations of the same vector. It also stores all shared information between those implementation such as distribution, or block information. It provided two accessors, one to access the vector in read-only, that do not increase the timestamp and one in read-write mode, that can increase the timestamp. The former implementation might therefore become the up to date vector.</p>
+<p>While requesting a vector in a specific format, if the up to date vector is not in that specific format, the up to vector matrix will be converted, provided a converter exists. Default constructor </p>
+
+<p class="definition">Definition at line <a class="el" href="../../db/d75/MultiVectorImpl_8cc_source.html#l00039">39</a> of file <a class="el" href="../../db/d75/MultiVectorImpl_8cc_source.html">MultiVectorImpl.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="../../d9/d31/MultiVectorImpl_8h_source.html#l00214">m_block</a>, and <a class="el" href="../../d9/d31/MultiVectorImpl_8h_source.html#l00216">m_variable_block</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../db/d75/MultiVectorImpl_8cc_source.html#l00147">clone()</a>, and <a class="el" href="../../db/d75/MultiVectorImpl_8cc_source.html#l00058">MultiVectorImpl()</a>.</p>
+<div id="dynsection-6" onclick="return dynsection.toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;"><span class="dynarrow"><span class="arrowhead closed"></span></span>Here is the caller graph for this function:</div>
+<div id="dynsection-6-summary" class="dynsummary" style="display:block;">
+</div>
+<div id="dynsection-6-content" class="dyncontent" style="display:none;">
+<div class="center"><!-- SVG 6 --></div>
+</div>
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="gad7a4fd3aa4165b0ac5c18c98db113f29" name="gad7a4fd3aa4165b0ac5c18c98db113f29"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad7a4fd3aa4165b0ac5c18c98db113f29">&#9670;&#160;</a></span>m_impl <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html">MultiMatrixImpl</a>&gt; Alien::Move::MatrixData::m_impl</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d4/d86/MatrixData_8h_source.html#l00230">230</a> of file <a class="el" href="../../d4/d86/MatrixData_8h_source.html">MatrixData.h</a>.</p>
+
+</div>
+</div>
+<a id="ga330f9b7181978378690ffccd5c2fbf49" name="ga330f9b7181978378690ffccd5c2fbf49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga330f9b7181978378690ffccd5c2fbf49">&#9670;&#160;</a></span>m_impl <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="../../dc/d6b/classAlien_1_1MultiVectorImpl.html">MultiVectorImpl</a>&gt; Alien::Move::VectorData::m_impl</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel private">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="../../d6/d3e/VectorData_8h_source.html#l00192">192</a> of file <a class="el" href="../../d6/d3e/VectorData_8h_source.html">VectorData.h</a>.</p>
+
+</div>
+</div>
+<a name="doc-friend-members" id="doc-friend-members"></a><h2 id="header-doc-friend-members" class="groupheader">Friends</h2>
+<a id="gad7e887143ea338f37e54ac9aafd9c451" name="gad7e887143ea338f37e54ac9aafd9c451"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad7e887143ea338f37e54ac9aafd9c451">&#9670;&#160;</a></span>createMatrixData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/df4/group__constructor.html#ga810c42fd0404026a07dccdb48840b28c">MatrixData</a> createMatrixData </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html">MultiMatrixImpl</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>multi</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>} @ </p>
+
+<p class="definition">Definition at line <a class="el" href="../../d9/df6/MatrixData_8cc_source.html#l00239">239</a> of file <a class="el" href="../../d9/df6/MatrixData_8cc_source.html">MatrixData.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="../../d9/df6/MatrixData_8cc_source.html#l00239">createMatrixData</a>, and <a class="el" href="../../d9/df6/MatrixData_8cc_source.html#l00039">MatrixData()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../d9/df6/MatrixData_8cc_source.html#l00239">createMatrixData</a>.</p>
+
+</div>
+</div>
+<a id="ga3dec512ba5be2a2b02af080388bc27b7" name="ga3dec512ba5be2a2b02af080388bc27b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga3dec512ba5be2a2b02af080388bc27b7">&#9670;&#160;</a></span>createVectorData</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d1/df4/group__constructor.html#ga6f17f69e4282720c61c70dbaf6f4a292">VectorData</a> createVectorData </td>
+          <td>(</td>
+          <td class="paramtype">std::shared_ptr&lt; <a class="el" href="../../dc/d6b/classAlien_1_1MultiVectorImpl.html">MultiVectorImpl</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>multi</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel friend">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>}@ </p>
+
+<p class="definition">Definition at line <a class="el" href="../../db/d42/VectorData_8cc_source.html#l00216">216</a> of file <a class="el" href="../../db/d42/VectorData_8cc_source.html">VectorData.cc</a>.</p>
+
+<p class="reference">References <a class="el" href="../../db/d42/VectorData_8cc_source.html#l00216">createVectorData</a>, and <a class="el" href="../../db/d42/VectorData_8cc_source.html#l00037">VectorData()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="../../db/d42/VectorData_8cc_source.html#l00216">createVectorData</a>, and <a class="el" href="../../d1/df4/group__constructor.html#ga7b3a712daeeb37172b9bd291b67423af">operator=()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<div id="page-nav" class="page-nav-panel">
+<div id="page-nav-resize-handle"></div>
+<div id="page-nav-tree">
+<div id="page-nav-contents">
+</div><!-- page-nav-contents -->
+</div><!-- page-nav-tree -->
+</div><!-- page-nav -->
+</div><!-- container -->
+<!-- HTML footer for doxygen 1.9.5-->
+<!-- start footer part -->
+  <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+    <ul>
+      <li class="footer">Generated on <span class="timestamp"></span> for Alien by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+    </ul>
+  </div>
+  <script type="text/javascript" src="../../script-apply-config-theme.js"></script>
+  <script type="text/javascript">
+    // On met l'appel à cette fonction dans le footer dans le cas où
+    // une page ne veut pas de personnalisation (changement de la 
+    // variable globale "no_custom_theme").
+    applyConfigWithCookies();
+  </script>
+</body>
+</html>
