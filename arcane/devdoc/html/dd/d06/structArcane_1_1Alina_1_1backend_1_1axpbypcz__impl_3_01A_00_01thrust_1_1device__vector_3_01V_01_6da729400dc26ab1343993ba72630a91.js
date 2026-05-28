@@ -1,4 +1,0 @@
-var structArcane_1_1Alina_1_1backend_1_1axpbypcz__impl_3_01A_00_01thrust_1_1device__vector_3_01V_01_6da729400dc26ab1343993ba72630a91 =
-[
-    [ "functor", "d8/d81/structArcane_1_1Alina_1_1backend_1_1axpbypcz__impl_3_01A_00_01thrust_1_1device__vector_3_01V_01_22483cbc4c98345f531f771819f79d64.html", null ]
-];
