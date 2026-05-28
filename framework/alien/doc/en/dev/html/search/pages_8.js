@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['c_0',['C++',['../d4/d2d/aliendoc_coding_style.html#autotoc_md27',1,'']]],
+  ['clang_20and_20rocm_205_205_201_1',['Clang and ROCM 5 5 1',['../d2/d3d/aliendoc_sycl_install.html#autotoc_md13',1,'Example of configuration AdpativeCpp with Clang and ROCM 5.5.1'],['../d2/d3d/aliendoc_sycl_install.html#autotoc_md8',1,'Example of configuration hipSYCL with Clang and ROCM 5.5.1']]],
+  ['clang_20compiler_20hipsycl_20with_20hip_20rocm_20support_2',['Configuring with Clang compiler, hipSYCL with hip-rocm support',['../d2/d48/aliendoc_sycl_build.html#autotoc_md15',1,'']]],
+  ['cmake_20project_3',['Using Alien from a CMake project',['../d4/d9d/aliendoc_build_install_build.html#autotoc_md3',1,'']]],
+  ['coding_20style_4',['Alien&apos;s Coding Style',['../d4/d2d/aliendoc_coding_style.html',1,'index']]],
+  ['compilation_20and_20installation_5',['Compilation and Installation',['../d7/d09/aliendoc_build_install.html',1,'index']]],
+  ['compiler_6',['Configuring with oneAPI ipcx compiler',['../d2/d48/aliendoc_sycl_build.html#autotoc_md16',1,'']]],
+  ['compiler_20hipsycl_20with_20cuda_20support_7',['Configuring with Gcc compiler, hipSYCL with cuda support',['../d2/d48/aliendoc_sycl_build.html#autotoc_md14',1,'']]],
+  ['compiler_20hipsycl_20with_20hip_20rocm_20support_8',['Configuring with Clang compiler, hipSYCL with hip-rocm support',['../d2/d48/aliendoc_sycl_build.html#autotoc_md15',1,'']]],
+  ['concepts_9',['Alien User API, concepts',['../dc/d1e/aliendoc_api.html#autotoc_md21',1,'']]],
+  ['configuration_20adpativecpp_20with_20clang_20and_20rocm_205_205_201_10',['Example of configuration AdpativeCpp with Clang and ROCM 5.5.1',['../d2/d3d/aliendoc_sycl_install.html#autotoc_md13',1,'']]],
+  ['configuration_20hipsycl_20with_20clang_20and_20rocm_205_205_201_11',['Example of configuration hipSYCL with Clang and ROCM 5.5.1',['../d2/d3d/aliendoc_sycl_install.html#autotoc_md8',1,'']]],
+  ['configuration_20hipsycl_20with_20gcc_2011_20and_20cuda_2011_20ou_2012_12',['Example of configuration hipSYCL with GCC 11 and CUDA 11 ou 12',['../d2/d3d/aliendoc_sycl_install.html#autotoc_md7',1,'']]],
+  ['configuration_20with_20gcc_2011_20and_20cuda_2011_20ou_2012_13',['Example of configuration with GCC 11 and CUDA 11 ou 12',['../d2/d3d/aliendoc_sycl_install.html#autotoc_md12',1,'']]],
+  ['configuring_14',['Configuring',['../d4/d9d/aliendoc_build_install_build.html#autotoc_md1',1,'']]],
+  ['configuring_20with_20clang_20compiler_20hipsycl_20with_20hip_20rocm_20support_15',['Configuring with Clang compiler, hipSYCL with hip-rocm support',['../d2/d48/aliendoc_sycl_build.html#autotoc_md15',1,'']]],
+  ['configuring_20with_20gcc_20compiler_20hipsycl_20with_20cuda_20support_16',['Configuring with Gcc compiler, hipSYCL with cuda support',['../d2/d48/aliendoc_sycl_build.html#autotoc_md14',1,'']]],
+  ['configuring_20with_20oneapi_20ipcx_20compiler_17',['Configuring with oneAPI ipcx compiler',['../d2/d48/aliendoc_sycl_build.html#autotoc_md16',1,'']]],
+  ['core_18',['Core',['../dc/d1e/aliendoc_api.html#autotoc_md23',1,'']]],
+  ['cuda_2011_20ou_2012_19',['CUDA 11 ou 12',['../d2/d3d/aliendoc_sycl_install.html#autotoc_md7',1,'Example of configuration hipSYCL with GCC 11 and CUDA 11 ou 12'],['../d2/d3d/aliendoc_sycl_install.html#autotoc_md12',1,'Example of configuration with GCC 11 and CUDA 11 ou 12']]],
+  ['cuda_20or_20rocm_20support_20',['CUDA or ROCM Support',['../d2/d3d/aliendoc_sycl_install.html#autotoc_md10',1,'Installing AdaptiveCPP v24.10.0 with CUDA or ROCM Support'],['../d2/d3d/aliendoc_sycl_install.html#autotoc_md5',1,'Installing hipSYCL v0.9.4 with CUDA or ROCM Support']]],
+  ['cuda_20support_21',['Installing OneAPI 2024.0 with CUDA Support',['../d2/d3d/aliendoc_sycl_install.html#autotoc_md4',1,'']]],
+  ['cuda_20support_22',['Configuring with Gcc compiler, hipSYCL with cuda support',['../d2/d48/aliendoc_sycl_build.html#autotoc_md14',1,'']]]
+];

@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['linearalgebra_0',['LinearAlgebra',['../d2/d8d/classAlien_1_1LinearAlgebra.html',1,'Alien']]],
+  ['linearalgebra_3c_20backend_3a_3atag_3a_3asimplecsr_20_3e_1',['LinearAlgebra&lt; BackEnd::tag::simplecsr &gt;',['../d2/d8d/classAlien_1_1LinearAlgebra.html',1,'Alien']]],
+  ['linearalgebra_3c_20backend_3a_3atag_3a_3asycl_20_3e_2',['LinearAlgebra&lt; BackEnd::tag::sycl &gt;',['../d2/d8d/classAlien_1_1LinearAlgebra.html',1,'Alien']]],
+  ['linearalgebraexpr_3',['LinearAlgebraExpr',['../d8/d3e/classAlien_1_1LinearAlgebraExpr.html',1,'Alien']]],
+  ['linearalgebraexpr_3c_20backend_3a_3atag_3a_3asimplecsr_20_3e_4',['LinearAlgebraExpr&lt; BackEnd::tag::simplecsr &gt;',['../d8/d3e/classAlien_1_1LinearAlgebraExpr.html',1,'Alien']]],
+  ['linearalgebraexpr_3c_20backend_3a_3atag_3a_3asycl_20_3e_5',['LinearAlgebraExpr&lt; BackEnd::tag::sycl &gt;',['../d8/d3e/classAlien_1_1LinearAlgebraExpr.html',1,'Alien']]],
+  ['linearsolver_6',['LinearSolver',['../df/daf/classAlien_1_1LinearSolver.html',1,'Alien']]],
+  ['localblockvectorreader_7',['LocalBlockVectorReader',['../d4/dd0/classAlien_1_1LocalBlockVectorReader.html',1,'Alien::LocalBlockVectorReader'],['../db/d27/classAlien_1_1Move_1_1LocalBlockVectorReader.html',1,'Alien::Move::LocalBlockVectorReader']]],
+  ['localblockvectorwriter_8',['LocalBlockVectorWriter',['../dd/d23/classAlien_1_1LocalBlockVectorWriter.html',1,'Alien::LocalBlockVectorWriter'],['../d8/d88/classAlien_1_1Move_1_1LocalBlockVectorWriter.html',1,'Alien::Move::LocalBlockVectorWriter']]],
+  ['localblockvectorwritert_9',['LocalBlockVectorWriterT',['../df/d60/classAlien_1_1Common_1_1LocalBlockVectorWriterT.html',1,'Alien::Common']]],
+  ['localblockvectorwritert_3c_20real_20_3e_10',['LocalBlockVectorWriterT&lt; Real &gt;',['../df/d60/classAlien_1_1Common_1_1LocalBlockVectorWriterT.html',1,'Alien::Common']]],
+  ['localindexer_11',['LocalIndexer',['../d4/d45/structAlien_1_1LocalIndexer.html',1,'Alien']]],
+  ['localvblockvectorreader_12',['LocalVBlockVectorReader',['../d0/d71/classAlien_1_1LocalVBlockVectorReader.html',1,'Alien']]],
+  ['localvblockvectorwriter_13',['LocalVBlockVectorWriter',['../d4/d5a/classAlien_1_1LocalVBlockVectorWriter.html',1,'Alien']]],
+  ['localvectorreader_14',['LocalVectorReader',['../d7/dda/classAlien_1_1LocalVectorReader.html',1,'Alien::LocalVectorReader'],['../d2/de7/classAlien_1_1Move_1_1LocalVectorReader.html',1,'Alien::Move::LocalVectorReader']]],
+  ['localvectorwriter_15',['LocalVectorWriter',['../d7/dd6/classAlien_1_1LocalVectorWriter.html',1,'Alien::LocalVectorWriter'],['../dc/d63/classAlien_1_1Move_1_1LocalVectorWriter.html',1,'Alien::Move::LocalVectorWriter']]],
+  ['lu_16',['LU',['../d6/d39/structAlien_1_1LU.html',1,'Alien::LU&lt; ValueT &gt;'],['../d1/d29/classAlien_1_1NormalizeOpt_1_1LU.html',1,'Alien::NormalizeOpt::LU&lt; N, check_null_pivot &gt;'],['../d5/d7d/structAlien_1_1SYCLInternal_1_1MatrixInternal_1_1LU.html',1,'Alien::SYCLInternal::MatrixInternal&lt; ValueT, EllPackSize &gt;::LU&lt; MatrixAccT, VectorAccT, LUAccT &gt;']]],
+  ['lufactorisationalgo_17',['LUFactorisationAlgo',['../d7/dae/classAlien_1_1LUFactorisationAlgo.html',1,'Alien']]],
+  ['lufactorisationalgo_3c_20matrixtype_2c_20vectortype_20_3e_18',['LUFactorisationAlgo&lt; MatrixType, VectorType &gt;',['../d7/dae/classAlien_1_1LUFactorisationAlgo.html',1,'Alien']]],
+  ['lusendrecvop_19',['LUSendRecvOp',['../da/dc1/classAlien_1_1SimpleCSRInternal_1_1LUSendRecvOp.html',1,'Alien::SimpleCSRInternal']]],
+  ['lusendrecvop_3c_20csrmatrix_20_3e_20',['LUSendRecvOp&lt; CSRMatrix &gt;',['../da/dc1/classAlien_1_1SimpleCSRInternal_1_1LUSendRecvOp.html',1,'Alien::SimpleCSRInternal']]],
+  ['lusendrecvtraits_21',['LUSendRecvTraits',['../d9/ded/structAlien_1_1LUSendRecvTraits.html',1,'Alien']]],
+  ['lusendrecvtraits_3c_20backend_3a_3atag_3a_3asimplecsr_20_3e_22',['LUSendRecvTraits&lt; BackEnd::tag::simplecsr &gt;',['../d2/d40/structAlien_1_1LUSendRecvTraits_3_01BackEnd_1_1tag_1_1simplecsr_01_4.html',1,'Alien']]],
+  ['lusendrecvtraits_3c_20backend_3a_3atag_3a_3asycl_20_3e_23',['LUSendRecvTraits&lt; BackEnd::tag::sycl &gt;',['../da/dea/structAlien_1_1LUSendRecvTraits_3_01BackEnd_1_1tag_1_1sycl_01_4.html',1,'Alien']]]
+];
