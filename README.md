@@ -1,12 +1,9 @@
 # Documentation Arcane
 ## The Arcane Framework for HPC codes
 
-### [Cliquer ici pour accéder à la documentation Arcane pour les utilisateurs.](https://arcaneframework.github.io/arcane/userdoc/html/index.html)
-### [Cliquer ici pour accéder à la documentation Arcane pour les développeurs.](https://arcaneframework.github.io/arcane/devdoc/html/index.html)
-### [Cliquer ici pour accéder à la documentation Alien pour les utilisateurs.](https://arcaneframework.github.io/framework/alien/doc/en/user/html/index.html)
-### [Cliquer ici pour accéder à la documentation Alien pour les développeurs.](https://arcaneframework.github.io/framework/alien/doc/en/dev/html/index.html)
+### [Cliquer ici pour accéder aux documentations.](https://arcaneframework.github.io/index.html)
 
-Ce dépôt contient la documentation Arcane.
+Ce dépôt contient la documentation Arcane et Alien.
 
 Pour cloner la documentation, prévoir de l'espace disque et faire :
 
