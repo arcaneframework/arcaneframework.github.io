@@ -14,12 +14,6 @@ jobs:
       image: ghcr.io/arcaneframework/ubuntu-2604:doc_latest
 
     steps:
-      - name: Install dot
-        shell: bash
-        run: |
-          apt-get update
-          apt-get install -y --no-install-recommends dot2tex
-
       - name: Display CPU infos
         shell: bash
         run: |
@@ -151,12 +145,6 @@ jobs:
       image: ghcr.io/arcaneframework/ubuntu-2604:doc_latest
 
     steps:
-      - name: Install dot
-        shell: bash
-        run: |
-          apt-get update
-          apt-get install -y --no-install-recommends dot2tex
-
       - name: Display CPU infos
         shell: bash
         run: |
@@ -334,16 +322,14 @@ jobs:
       - name: Remove old docs files
         shell: bash
         run: |
-          rm -rf ${{ env.DOC_DIR }}/arcane
           rm -rf ${{ env.DOC_DIR }}/framework
 
       - name: Create new folders
         shell: bash
         run: |
-          mkdir -p ${{ env.DOC_DIR }}/arcane
           mkdir -p ${{ env.DOC_DIR }}/framework/arcane/doc/fr
+          mkdir -p ${{ env.DOC_DIR }}/framework/arcane/doc/en
           mkdir -p ${{ env.DOC_DIR }}/framework/alien/doc/en
-
 
 
       - name: Download english doc artifact
@@ -362,8 +348,8 @@ jobs:
       - name: Move english userdoc devdoc and aliendoc
         shell: bash
         run: |
-          mv ${{ env.BUILD_DIR }}/share/userdoc ${{ env.DOC_DIR }}/arcane
-          mv ${{ env.BUILD_DIR }}/share/devdoc ${{ env.DOC_DIR }}/arcane
+          mv ${{ env.BUILD_DIR }}/share/userdoc ${{ env.DOC_DIR }}/framework/arcane/doc/en/user
+          mv ${{ env.BUILD_DIR }}/share/devdoc ${{ env.DOC_DIR }}/framework/arcane/doc/en/dev
           mv ${{ env.BUILD_DIR }}/share/alienuserdoc ${{ env.DOC_DIR }}/framework/alien/doc/en/user
           mv ${{ env.BUILD_DIR }}/share/aliendevdoc ${{ env.DOC_DIR }}/framework/alien/doc/en/dev
 
