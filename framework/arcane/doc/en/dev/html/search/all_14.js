@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['jaggedsmallspan_0',['JaggedSmallSpan',['../d2/d2d/classArcane_1_1JaggedSmallSpan.html',1,'Arcane::JaggedSmallSpan&lt; DataType &gt;'],['../d2/d2d/classArcane_1_1JaggedSmallSpan.html#a57a3be0043e94cf0266b2c3efb669040',1,'Arcane::JaggedSmallSpan::JaggedSmallSpan()=default'],['../d2/d2d/classArcane_1_1JaggedSmallSpan.html#a1071cfd9cf828d64ba3f29fccb46884d',1,'Arcane::JaggedSmallSpan::JaggedSmallSpan(SmallSpan&lt; DataType &gt; buf, SmallSpan&lt; const Int32 &gt; indexes, SmallSpan&lt; const Int32 &gt; sizes)']]],
+  ['january_2013_202017_1',['Arcane Version 2.4.2 (January 13, 2017)',['../d9/dec/arcanedoc_news_changelog20.html#arcanedoc_news_changelog_version242',1,'']]],
+  ['january_202019_2',['Arcane Version 2.13.0 (21 January 2019)',['../d9/dec/arcanedoc_news_changelog20.html#arcanedoc_news_changelog_version2130',1,'']]],
+  ['january_202021_3',['Arcane Version 2.20.0 (07 January 2021)',['../d9/dec/arcanedoc_news_changelog20.html#arcanedoc_news_changelog_version2200',1,'']]],
+  ['january_2031_202018_4',['Arcane Version 2.8.0 (January 31, 2018)',['../d9/dec/arcanedoc_news_changelog20.html#arcanedoc_news_changelog_version280',1,'']]],
+  ['jsondocument_5',['JSONDocument',['../db/d54/classArcane_1_1JSONDocument.html',1,'Arcane']]],
+  ['jsonkeyvalue_6',['JSONKeyValue',['../db/d78/classArcane_1_1JSONKeyValue.html',1,'Arcane']]],
+  ['jsonkeyvaluelist_7',['JSONKeyValueList',['../dc/d0e/classArcane_1_1JSONKeyValueList.html',1,'Arcane']]],
+  ['jsonmessagepassingprofilingservice_8',['JsonMessagePassingProfilingService',['../d6/d71/classArcane_1_1JsonMessagePassingProfilingService.html',1,'Arcane']]],
+  ['jsonpropertyreader_9',['JSONPropertyReader',['../da/d72/classArcane_1_1properties_1_1JSONPropertyReader.html',1,'Arcane::properties']]],
+  ['jsonvalue_10',['JSONValue',['../de/da3/classArcane_1_1JSONValue.html',1,'Arcane']]],
+  ['jsonvaluelist_11',['JSONValueList',['../d4/dd2/classArcane_1_1JSONValueList.html',1,'Arcane']]],
+  ['jsonwrapperutils_12',['JSONWrapperUtils',['../d6/d9d/classArcane_1_1JSONWrapperUtils.html',1,'Arcane']]],
+  ['jsonwriter_13',['JSONWriter',['../d9/d23/classArcane_1_1JSONWriter.html',1,'Arcane']]],
+  ['july_2006_202022_14',['Arcane Version 3.6.13 (July 06, 2022)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_news_changelog_version360',1,'']]],
+  ['july_2019_202024_15',['Arcane Version 3.13.08 (July 19, 2024)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_version3130',1,'']]],
+  ['july_202019_16',['Arcane Version 2.16.0 (18 July 2019)',['../d9/dec/arcanedoc_news_changelog20.html#arcanedoc_news_changelog_version2160',1,'']]],
+  ['july_2025_202017_17',['Arcane Version 2.5.2 (July 25, 2017)',['../d9/dec/arcanedoc_news_changelog20.html#arcanedoc_news_changelog_version252',1,'']]],
+  ['june_202018_18',['Arcane Version 2.9.1 (June 2018)',['../d9/dec/arcanedoc_news_changelog20.html#arcanedoc_news_changelog_version291',1,'']]],
+  ['june_202019_19',['Arcane Version 2.15.0 (13 June 2019)',['../d9/dec/arcanedoc_news_changelog20.html#arcanedoc_news_changelog_version2150',1,'']]],
+  ['june_202020_20',['Arcane Version 2.19.0 (30 June 2020)',['../d9/dec/arcanedoc_news_changelog20.html#arcanedoc_news_changelog_version2190',1,'']]],
+  ['june_2030_202023_21',['Arcane Version 3.10.11 (June 30, 2023)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_version3100',1,'']]]
+];
