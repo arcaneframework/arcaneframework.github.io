@@ -1,0 +1,26 @@
+var group__constructor =
+[
+    [ "Block related API", "d2/dba/group__block.html", "d2/dba/group__block" ],
+    [ "Alien::Move::MatrixData::init", "d1/df4/group__constructor.html#ga2ae758b01f9f6f74c052494c50c7376b", null ],
+    [ "Alien::Move::VectorData::init", "d1/df4/group__constructor.html#ga9eaac2a44bc0d87e376dc79afae0ccdc", null ],
+    [ "Alien::Move::MatrixData::MatrixData", "d1/df4/group__constructor.html#ga810c42fd0404026a07dccdb48840b28c", null ],
+    [ "Alien::Move::MatrixData::MatrixData", "d1/df4/group__constructor.html#ga2003c43a6c6fcad3507312375808e338", null ],
+    [ "Alien::Move::MatrixData::MatrixData", "d1/df4/group__constructor.html#gaef405cca2d7dd087a92d12f29cefd7c9", null ],
+    [ "Alien::Move::MatrixData::MatrixData", "d1/df4/group__constructor.html#ga362d59bb5dedf22ec5f3fbcd453b233e", null ],
+    [ "Alien::Move::MatrixData::MatrixData", "d1/df4/group__constructor.html#ga628663857159603843633790a0a3880b", null ],
+    [ "Alien::Move::MatrixData::MatrixData", "d1/df4/group__constructor.html#ga099f5c7456a3203c15820ea1235c12bf", null ],
+    [ "Alien::Move::MatrixData::MatrixData", "d1/df4/group__constructor.html#ga74fef69ea17d659ea3378b430c62338e", null ],
+    [ "Alien::Move::MatrixData::MatrixData", "d1/df4/group__constructor.html#gacdcb8aa78283adafe72207ca841226f9", null ],
+    [ "Alien::Move::MatrixData::operator=", "d1/df4/group__constructor.html#gac8c0c775c915696a7bcb7943ab642958", null ],
+    [ "Alien::Move::MatrixData::operator=", "d1/df4/group__constructor.html#ga62442488345eb1203cf3c9f62c6fb940", null ],
+    [ "Alien::Move::VectorData::operator=", "d1/df4/group__constructor.html#ga7b3a712daeeb37172b9bd291b67423af", null ],
+    [ "Alien::Move::VectorData::operator=", "d1/df4/group__constructor.html#ga8834698538f7acdcc8fbf94700267a92", null ],
+    [ "Alien::Move::VectorData::VectorData", "d1/df4/group__constructor.html#ga6f17f69e4282720c61c70dbaf6f4a292", null ],
+    [ "Alien::Move::VectorData::VectorData", "d1/df4/group__constructor.html#gaea22c3cd3b8408374fa35047a0ebc44f", null ],
+    [ "Alien::Move::VectorData::VectorData", "d1/df4/group__constructor.html#ga6a7d5b6bbb955911d5459038cd7c9443", null ],
+    [ "Alien::Move::VectorData::VectorData", "d1/df4/group__constructor.html#ga84b97d2243e739eaa3dff26a0e7c07e7", null ],
+    [ "Alien::Move::VectorData::VectorData", "d1/df4/group__constructor.html#ga91e09444bb8bde63f0f2732e9cf2f413", null ],
+    [ "Alien::Move::VectorData::VectorData", "d1/df4/group__constructor.html#ga82a1e341bdc0cae3e8faaf28423194cb", null ],
+    [ "Alien::Move::MatrixData::~MatrixData", "d1/df4/group__constructor.html#ga4ec10c564425f8917485ce265096366e", null ],
+    [ "Alien::Move::VectorData::~VectorData", "d1/df4/group__constructor.html#ga799c0cff62a4ad3b832754b9318940fd", null ]
+];

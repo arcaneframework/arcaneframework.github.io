@@ -1,0 +1,8 @@
+var classArcane_1_1AcceleratorRuntimeInitialisationInfo =
+[
+    [ "deviceId", "d0/d2b/classArcane_1_1AcceleratorRuntimeInitialisationInfo.html#abe7444b253d777ce5e2829b90665d1bb", null ],
+    [ "executionPolicy", "d0/d2b/classArcane_1_1AcceleratorRuntimeInitialisationInfo.html#a0e25129cf2caaa0a1aef8362ae411472", null ],
+    [ "setAcceleratorRuntime", "d0/d2b/classArcane_1_1AcceleratorRuntimeInitialisationInfo.html#a0047fd5fd950b9a3415d61ba17b7af75", null ],
+    [ "setDeviceId", "d0/d2b/classArcane_1_1AcceleratorRuntimeInitialisationInfo.html#ae696fd11b724b393ca3090aa8dd30814", null ],
+    [ "setIsUsingAcceleratorRuntime", "d0/d2b/classArcane_1_1AcceleratorRuntimeInitialisationInfo.html#a59497fd1223a46e1ecbacc30cd59a12f", null ]
+];
