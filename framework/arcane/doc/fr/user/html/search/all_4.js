@@ -1,0 +1,10 @@
+var searchData=
+[
+  ['4_200_200_2015_20octobre_202025_0',['Arcane Version 4.0.0 (15 octobre 2025)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_version4000',1,'']]],
+  ['4_200_20novembre_202016_1',['Arcane Version 2.4.0 (Novembre 2016)',['../d9/dec/arcanedoc_news_changelog20.html#arcanedoc_news_changelog_version240',1,'']]],
+  ['4_201_2001_20décembre_202016_2',['Arcane Version 2.4.1 (01 Décembre 2016)',['../d9/dec/arcanedoc_news_changelog20.html#arcanedoc_news_changelog_version241',1,'']]],
+  ['4_201_2016_200_208_20juillet_202026_3',['Version Arcane 4.1.16.0 (8 juillet 2026)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_version410',1,'']]],
+  ['4_202_2013_20janvier_202017_4',['Arcane Version 2.4.2 (13 Janvier 2017)',['../d9/dec/arcanedoc_news_changelog20.html#arcanedoc_news_changelog_version242',1,'']]],
+  ['4_205_2010_20février_202022_5',['Arcane Version 3.4.5 (10 février 2022)',['../da/d0c/arcanedoc_news_changelog.html#arcanedoc_news_changelog_version340',1,'']]],
+  ['4_20span_20—_20la_20vue_20de_20style_20c_2020_20de_20taille_20int64_6',['4. &lt;span class=&quot;tt&quot;&gt;Span&amp;lt;T, Extent&amp;gt;&lt;/span&gt; — la vue de style C++20, de taille Int64',['../d3/dcb/arcanedoc_core_types_array_views.html#autotoc_md52',1,'']]]
+];
