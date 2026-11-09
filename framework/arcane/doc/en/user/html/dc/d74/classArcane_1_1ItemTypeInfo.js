@@ -1,0 +1,23 @@
+var classArcane_1_1ItemTypeInfo =
+[
+    [ "LocalFace", "d3/ded/classArcane_1_1ItemTypeInfo_1_1LocalFace.html", "d3/ded/classArcane_1_1ItemTypeInfo_1_1LocalFace" ],
+    [ "LocalEdge", "d9/db5/classArcane_1_1ItemTypeInfo_1_1LocalEdge.html", "d9/db5/classArcane_1_1ItemTypeInfo_1_1LocalEdge" ],
+    [ "ItemTypeInfo", "dc/d74/classArcane_1_1ItemTypeInfo.html#ae4aa2a13a1ca6174d1c672af72192f93", null ],
+    [ "dimension", "dc/d74/classArcane_1_1ItemTypeInfo.html#a81f0702d2d19ce1ea568504afc9fbb05", null ],
+    [ "hasCenterNode", "dc/d74/classArcane_1_1ItemTypeInfo.html#a4aaeaecdcf32bc6a7fade15099df7c61", null ],
+    [ "isPolygon", "dc/d74/classArcane_1_1ItemTypeInfo.html#acd254a37b582d07896f3662cf9629788", null ],
+    [ "isPolyhedron", "dc/d74/classArcane_1_1ItemTypeInfo.html#aab1c6e5ba846ca5b8aaa9594757a85d5", null ],
+    [ "isValidForCell", "dc/d74/classArcane_1_1ItemTypeInfo.html#ae707645296875b8a5755663135696e0a", null ],
+    [ "itemTypeId", "dc/d74/classArcane_1_1ItemTypeInfo.html#affcd76c43878a695ffdb35692674970b", null ],
+    [ "linearItemTypeId", "dc/d74/classArcane_1_1ItemTypeInfo.html#a87766567231f9d1608294a19058ed022", null ],
+    [ "linearTypeId", "dc/d74/classArcane_1_1ItemTypeInfo.html#a9613cc7ddd39f66a67603ea684058c45", null ],
+    [ "linearTypeInfo", "dc/d74/classArcane_1_1ItemTypeInfo.html#a68a86cabe7268ec47a2fb29e0e724e09", null ],
+    [ "localEdge", "dc/d74/classArcane_1_1ItemTypeInfo.html#a1bf6a0517a9090940144043dd19d70fd", null ],
+    [ "localFace", "dc/d74/classArcane_1_1ItemTypeInfo.html#a64afa3f46173e415791eea66d60da94e", null ],
+    [ "nbLocalEdge", "dc/d74/classArcane_1_1ItemTypeInfo.html#a776f478162a7f77ff58d62db61dce72c", null ],
+    [ "nbLocalFace", "dc/d74/classArcane_1_1ItemTypeInfo.html#ac54318dd2542772550c41c66a6072b01", null ],
+    [ "nbLocalNode", "dc/d74/classArcane_1_1ItemTypeInfo.html#a830b0a258a33153b154545cdc028e8a9", null ],
+    [ "order", "dc/d74/classArcane_1_1ItemTypeInfo.html#a4beb9879ad47f37ed1559ffabcbbcfbe", null ],
+    [ "typeId", "dc/d74/classArcane_1_1ItemTypeInfo.html#af31a98902ea37f75721cb1478f44725d", null ],
+    [ "typeName", "dc/d74/classArcane_1_1ItemTypeInfo.html#aa3497731926adb83ecaa37521b77b226", null ]
+];

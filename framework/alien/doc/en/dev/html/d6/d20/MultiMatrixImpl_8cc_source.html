@@ -1,0 +1,557 @@
+<!-- HTML header for doxygen 1.9.5-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=11" />
+    <meta name="generator" content="Doxygen 1.16.1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+     <link rel="icon" href="../../logo_arcane.svg" type="image/svg+xml">
+    <title>Alien: MultiMatrixImpl.cc Source File</title>
+    <link href="../../tabs.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="../../jquery.js"></script>
+    <script type="text/javascript" src="../../dynsections.js"></script>
+    <link href="../../navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../navtreedata.js"></script>
+<script type="text/javascript" src="../../navtree.js"></script>
+<script type="text/javascript" src="../../cookie.js"></script>
+    <link href="../../search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="../../search/searchdata.js"></script>
+<script type="text/javascript" src="../../search/search.js"></script>
+    <link href="../../doxygen.css" rel="stylesheet" type="text/css" />
+    <link href="../../doxygen-awesome.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-sidebar-only-darkmode-toggle.css" rel="stylesheet" type="text/css"/>
+<link href="../../doxygen-awesome-custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../custom.css" rel="stylesheet" type="text/css"/>
+<link href="../../dev_colors.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../../doxygen-awesome-darkmode-toggle.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-fragment-copy-button.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-paragraph-link.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-interactive-toc.js"></script>
+    <script type="text/javascript" src="../../doxygen-awesome-tabs.js"></script>
+    <script type="text/javascript" src="../../script-helper.js"></script>
+    <script type="text/javascript" src="../../script-resize.js"></script>
+    <script type="text/javascript" src="../../script-num-lines-code.js"></script>
+    <script type="text/javascript" src="../../script-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-edit-config-theme.js"></script>
+    <script type="text/javascript" src="../../script-doxygen-version.js"></script>
+    <script type="text/javascript">
+      // On demande l'activation de la personnalisation de la page.
+      var no_custom_theme = false;
+      setDoxygenVersion("1.16.1");
+      DoxygenAwesomeDarkModeToggle.title = "Thème clair/sombre";
+      DoxygenAwesomeDarkModeToggle.init();
+      DoxygenAwesomeFragmentCopyButton.title = "Copier le code dans le presse-papier";
+      DoxygenAwesomeFragmentCopyButton.init();
+      DoxygenAwesomeParagraphLink.init();
+      if (doxygen_minor_version < 14) {
+        DoxygenAwesomeInteractiveToc.init();
+      }
+      DoxygenAwesomeTabs.init()
+      waitElemForResizeSideNav();
+      setOldSize();
+      //waitItemExpandCurrent();
+    </script>
+  </head>
+  <body>
+    <!--BEGIN CORNER_GITHUB-->
+    <!-- https://tholman.com/github-corners/ -->
+    <a href="" class="github-corner" aria-label="Voir les sources sur GitHub">
+      <svg width="70" height="70" viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <!--END CORNER_GITHUB-->
+      <div id="top">
+        <!-- do not remove this div, it is closed by doxygen! -->
+        <div id="titlearea">
+          <table cellspacing="0" cellpadding="0">
+            <tbody>
+              <tr id="projectrow">
+                <td id="projectlogo">
+                  <a href="../../index.html" title="Aller à la page principale">
+                    <img alt="Logo" src="../../arcane_framework_small.webp" />
+                  </a>
+                </td>
+              </tr>
+              <tr id="projectrow">
+                <td id="projectalign">
+                  <div id="projectname">Alien
+                    <span id="projectnumber">&#160;1.3.0</span>
+                  </div>
+                  <div id="projectbrief">Developer documentation</div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- end header part -->
+<!-- Generated by Doxygen 1.16.1 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "../../search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="../../menudata.js"></script>
+<script type="text/javascript" src="../../menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('../../',true,false,'search.php','Search',true);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(function(){initNavTree('d6/d20/MultiMatrixImpl_8cc_source.html','../../',''); });
+</script>
+<div id="container">
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Loading...</div>
+<div class="SRStatus" id="Searching">Searching...</div>
+<div class="SRStatus" id="NoMatches">No Matches</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MultiMatrixImpl.cc</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="../../d6/d20/MultiMatrixImpl_8cc.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Copyright 2020 IFPEN-CEA</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * you may not use this file except in compliance with the License.</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> * You may obtain a copy of the License at</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * http://www.apache.org/licenses/LICENSE-2.0</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"> * Unless required by applicable law or agreed to in writing, software</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment"> * distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"> * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment"> * See the License for the specific language governing permissions and</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"> * limitations under the License.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"> * SPDX-License-Identifier: Apache-2.0</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="../../d0/d34/MultiMatrixImpl_8h.html">MultiMatrixImpl.h</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &lt;<a class="code" href="../../d9/dfd/Block_8h.html">alien/core/block/Block.h</a>&gt;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &lt;alien/kernels/simple_csr/SimpleCSRMatrix.h&gt;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &lt;cstdlib&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">namespace </span><a class="code hl_namespace" href="../../d8/d96/namespaceAlien.html">Alien</a></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keyword">using namespace </span>Arccore;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="}">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a624306fd4aa5ba9ffbdd57e653f33c5c">   42</a></span><a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a624306fd4aa5ba9ffbdd57e653f33c5c">MultiMatrixImpl::MultiMatrixImpl</a>()</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>: <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a65376f9c70a9f58c5324c0b184c4da14">m_block</a>(nullptr)</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>, <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ad04f04dbf88f2fc4ef705b47a65731ca">m_rows_block</a>(nullptr)</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>, <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a65103e182e11923d01023bad18058d57">m_cols_block</a>(nullptr)</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>{}</div>
+</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="foldopen" id="foldopen00051" data-start="{" data-end="}">
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#aeb54021445d32b801a6c0b9a079c9191">   51</a></span><a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a624306fd4aa5ba9ffbdd57e653f33c5c">MultiMatrixImpl::MultiMatrixImpl</a>(std::shared_ptr&lt;ISpace&gt; row_space,</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                                 std::shared_ptr&lt;ISpace&gt; col_space, std::shared_ptr&lt;MatrixDistribution&gt; dist)</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>: <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a1d63e15896dd9e70b460ba76ebd5f05d">m_row_space</a>(row_space)</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>, <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ac237e486f11676f7364106df2d032e34">m_col_space</a>(col_space)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>, <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a29b9afbd2abac54f1e98a94cd70d52ce">m_distribution</a>(dist)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>, <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a65376f9c70a9f58c5324c0b184c4da14">m_block</a>(nullptr)</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>, <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ad04f04dbf88f2fc4ef705b47a65731ca">m_rows_block</a>(nullptr)</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>, <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a65103e182e11923d01023bad18058d57">m_cols_block</a>(nullptr)</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>{}</div>
+</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="foldopen" id="foldopen00064" data-start="{" data-end="}">
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a8bb503737d4596a4528bad24ac067557">   64</a></span><a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a624306fd4aa5ba9ffbdd57e653f33c5c">MultiMatrixImpl::MultiMatrixImpl</a>(<span class="keyword">const</span> <a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a624306fd4aa5ba9ffbdd57e653f33c5c">MultiMatrixImpl</a>&amp; impl)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>: TimestampMng(impl)</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>, <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a1d63e15896dd9e70b460ba76ebd5f05d">m_row_space</a>(impl.<a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a1d63e15896dd9e70b460ba76ebd5f05d">m_row_space</a>)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>, <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ac237e486f11676f7364106df2d032e34">m_col_space</a>(impl.<a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ac237e486f11676f7364106df2d032e34">m_col_space</a>)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>, <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a29b9afbd2abac54f1e98a94cd70d52ce">m_distribution</a>(impl.<a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a29b9afbd2abac54f1e98a94cd70d52ce">m_distribution</a>)</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>, <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a65376f9c70a9f58c5324c0b184c4da14">m_block</a>(nullptr)</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>, <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ad04f04dbf88f2fc4ef705b47a65731ca">m_rows_block</a>(nullptr)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>, <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a65103e182e11923d01023bad18058d57">m_cols_block</a>(nullptr)</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>{</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>  <span class="keywordflow">if</span> (impl.<a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a65376f9c70a9f58c5324c0b184c4da14">m_block</a>)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a65376f9c70a9f58c5324c0b184c4da14">m_block</a> = impl.<a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a65376f9c70a9f58c5324c0b184c4da14">m_block</a>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  if (impl.<a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ad04f04dbf88f2fc4ef705b47a65731ca">m_rows_block</a>)</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ad04f04dbf88f2fc4ef705b47a65731ca">m_rows_block</a> = impl.<a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ad04f04dbf88f2fc4ef705b47a65731ca">m_rows_block</a>;</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>  if (impl.<a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a65103e182e11923d01023bad18058d57">m_cols_block</a>)</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a65103e182e11923d01023bad18058d57">m_cols_block</a> = impl.<a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a65103e182e11923d01023bad18058d57">m_cols_block</a>;</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}</div>
+</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="foldopen" id="foldopen00084" data-start="{" data-end="}">
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#aceefc011ceebced21dcda96e0b7f30f5">   84</a></span><a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#aceefc011ceebced21dcda96e0b7f30f5">MultiMatrixImpl::~MultiMatrixImpl</a>()</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>{</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>  <a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a96ec6d219fd9e24c83c71fba50734349">free</a>();</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>}</div>
+</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#afab3b5f2540e3215b18abf3595dd3489">MultiMatrixImpl::setBlockInfos</a>(Integer block_size)</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>{</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a65376f9c70a9f58c5324c0b184c4da14">m_block</a>.reset(<span class="keyword">new</span> <a class="code hl_class" href="../../d8/d67/classAlien_1_1Block.html">Block</a>(block_size));</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>}</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="foldopen" id="foldopen00100" data-start="{" data-end="}">
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#aa98e1fa4c07a47b24c54295dd08de795">  100</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#afab3b5f2540e3215b18abf3595dd3489">MultiMatrixImpl::setBlockInfos</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d8/d67/classAlien_1_1Block.html">Block</a>* blocks)</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>{</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>  <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a65376f9c70a9f58c5324c0b184c4da14">m_block</a> = blocks-&gt;<a class="code hl_function" href="../../d8/d67/classAlien_1_1Block.html#a7704c4ef0b1b66b978de8136959dc3c9">clone</a>();</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>}</div>
+</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
+<div class="foldopen" id="foldopen00108" data-start="{" data-end="}">
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ab5005b621cbf7f89cf6ead15954263b7">  108</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#afab3b5f2540e3215b18abf3595dd3489">MultiMatrixImpl::setBlockInfos</a>(<span class="keyword">const</span> <a class="code hl_class" href="../../d4/d76/classAlien_1_1VBlock.html">VBlock</a>* blocks)</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>{</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>  <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ad04f04dbf88f2fc4ef705b47a65731ca">m_rows_block</a> = blocks-&gt;<a class="code hl_function" href="../../d4/d76/classAlien_1_1VBlock.html#ab44cc4d2d379fc471170ab65946a5f79">clone</a>();</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>}</div>
+</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="foldopen" id="foldopen00116" data-start="{" data-end="}">
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a45323887927237bef7487fd4868aab9b">  116</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a45323887927237bef7487fd4868aab9b">MultiMatrixImpl::setRowBlockInfos</a>(<a class="code hl_class" href="../../d4/d76/classAlien_1_1VBlock.html">VBlock</a> <span class="keyword">const</span>* blocks)</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>{</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>  <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ad04f04dbf88f2fc4ef705b47a65731ca">m_rows_block</a> = blocks-&gt;<a class="code hl_function" href="../../d4/d76/classAlien_1_1VBlock.html#ab44cc4d2d379fc471170ab65946a5f79">clone</a>();</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>}</div>
+</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span> </div>
+<div class="foldopen" id="foldopen00124" data-start="{" data-end="}">
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a03d8cca861021326e7a1c3c48350af9e">  124</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a03d8cca861021326e7a1c3c48350af9e">MultiMatrixImpl::setColBlockInfos</a>(<a class="code hl_class" href="../../d4/d76/classAlien_1_1VBlock.html">VBlock</a> <span class="keyword">const</span>* blocks)</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>{</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>  <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a65103e182e11923d01023bad18058d57">m_cols_block</a> = blocks-&gt;<a class="code hl_function" href="../../d4/d76/classAlien_1_1VBlock.html#ab44cc4d2d379fc471170ab65946a5f79">clone</a>();</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>}</div>
+</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="foldopen" id="foldopen00132" data-start="{" data-end="}">
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a96ec6d219fd9e24c83c71fba50734349">  132</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a96ec6d219fd9e24c83c71fba50734349">MultiMatrixImpl::free</a>()</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>{</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#adfa289e106d1036313801add58be8c4e">m_impls2</a>.begin(); i != <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#adfa289e106d1036313801add58be8c4e">m_impls2</a>.end(); ++i) {</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keyword">delete</span> i-&gt;second;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    i-&gt;second = NULL;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>  }</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>  <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#adfa289e106d1036313801add58be8c4e">m_impls2</a>.clear();</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>}</div>
+</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="foldopen" id="foldopen00144" data-start="{" data-end="}">
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a7fcb04286f861cbc2f66ab66103ec58e">  144</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a7fcb04286f861cbc2f66ab66103ec58e">MultiMatrixImpl::clear</a>()</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>{</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#adfa289e106d1036313801add58be8c4e">m_impls2</a>.begin(); i != <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#adfa289e106d1036313801add58be8c4e">m_impls2</a>.end(); ++i) {</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    i-&gt;second-&gt;clear();</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>  }</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>}</div>
+</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="keyword">const</span> <a class="code hl_class" href="../../d8/d67/classAlien_1_1Block.html">Block</a>*</div>
+<div class="foldopen" id="foldopen00155" data-start="{" data-end="}">
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ad20009fd901142282ccc359055763c2d">  155</a></span><a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ad20009fd901142282ccc359055763c2d">MultiMatrixImpl::block</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>  <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a65376f9c70a9f58c5324c0b184c4da14">m_block</a>.get();</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>}</div>
+</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span> </div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span><span class="keyword">const</span> <a class="code hl_class" href="../../d4/d76/classAlien_1_1VBlock.html">VBlock</a>*</div>
+<div class="foldopen" id="foldopen00164" data-start="{" data-end="}">
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#aee2a1668133ced057faea738a40ce703">  164</a></span><a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#aee2a1668133ced057faea738a40ce703">MultiMatrixImpl::rowBlock</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>  <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ad04f04dbf88f2fc4ef705b47a65731ca">m_rows_block</a>.get();</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>}</div>
+</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="keyword">const</span> <a class="code hl_class" href="../../d4/d76/classAlien_1_1VBlock.html">VBlock</a>*</div>
+<div class="foldopen" id="foldopen00173" data-start="{" data-end="}">
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#adde43849b929e2d94ba3ed9ecdc020ad">  173</a></span><a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#adde43849b929e2d94ba3ed9ecdc020ad">MultiMatrixImpl::colBlock</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>  <span class="keywordflow">if</span> (<a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a65103e182e11923d01023bad18058d57">m_cols_block</a>.get())</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a65103e182e11923d01023bad18058d57">m_cols_block</a>.get();</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>  <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#aee2a1668133ced057faea738a40ce703">rowBlock</a>();</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>}</div>
+</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span><span class="keyword">const</span> <a class="code hl_class" href="../../d4/d76/classAlien_1_1VBlock.html">VBlock</a>*</div>
+<div class="foldopen" id="foldopen00185" data-start="{" data-end="}">
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno"><a class="line" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#af393991249cba1171acdf87f65f066e2">  185</a></span><a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#af393991249cba1171acdf87f65f066e2">MultiMatrixImpl::vblock</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>  <span class="keywordflow">return</span> <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ad04f04dbf88f2fc4ef705b47a65731ca">m_rows_block</a>.get();</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>}</div>
+</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span><a class="code hl_class" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html">MultiMatrixImpl</a>*</div>
+<div class="foldopen" id="foldopen00194" data-start="{" data-end="}">
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a5042491cdc6a09f4ce3a2e546480366e">  194</a></span><a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a5042491cdc6a09f4ce3a2e546480366e">MultiMatrixImpl::clone</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>  <span class="comment">// Initialize muli-representation without data</span></div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>  <span class="keyword">auto</span> impl = <span class="keyword">new</span> <a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a624306fd4aa5ba9ffbdd57e653f33c5c">MultiMatrixImpl</a>(*<span class="keyword">this</span>);</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>  <span class="keyword">typedef</span> <a class="code hl_struct" href="../../d2/de6/structAlien_1_1BackEnd_1_1tag_1_1simplecsr.html">BackEnd::tag::simplecsr</a> tag;</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>  <span class="comment">// We get the last up to date implementation</span></div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>  <span class="keyword">const</span> <a class="code hl_class" href="../../de/d5f/classAlien_1_1SimpleCSRMatrix.html">SimpleCSRMatrix&lt;Real&gt;</a>&amp; matrixToClone = this-&gt;<a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ae47b1b031c7e00f3b184ebb27c5bdd2b">get&lt;tag&gt;</a>();</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>  <span class="comment">// And clone it</span></div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>  <a class="code hl_class" href="../../de/d5f/classAlien_1_1SimpleCSRMatrix.html">SimpleCSRMatrix&lt;Real&gt;</a>* matrixCloned = matrixToClone.cloneTo(impl);</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>  matrixCloned-&gt;setTimestamp(impl, matrixToClone.<a class="code hl_function" href="../../dd/dea/classAlien_1_1Timestamp.html#a08c271597c409290c578b1f337b74010">timestamp</a>());</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>  matrixCloned-&gt;<a class="code hl_function" href="../../dd/dea/classAlien_1_1Timestamp.html#acd5c69e3fbc708035f5b9136abbf5180">updateTimestamp</a>();</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>  impl-&gt;m_impls2.insert(</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>  MultiMatrixImplMap::value_type(<a class="code hl_struct" href="../../d7/d21/structAlien_1_1AlgebraTraits.html">AlgebraTraits&lt;tag&gt;::name</a>(), matrixCloned));</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span> </div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>  <span class="comment">// TOCHECK: to be removed or not ?</span></div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>  <span class="comment">/* WARNING: this implementation is temporary. Later it should be implemented through a</span></div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span><span class="comment">     clone() method for each kernel as written lower.</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="comment">     For now, we will convert the last up to date matrix in SimpleCSRMatrix, then clone</span></div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span><span class="comment">     it.</span></div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span><span class="comment"></span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span><span class="comment">     for(std::map&lt;BackEndId, IMatrixImpl*&gt;::const_iterator it = m_impls2.begin(); it !=</span></div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span><span class="comment">     m_impls2.end(); ++it)</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="comment">     impl-&gt;m_impls2.insert(MultiMatrixImplMap::value_type(it-&gt;first,</span></div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="comment">     it-&gt;second-&gt;clone()));</span></div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span><span class="comment">  */</span></div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>  <span class="keywordflow">return</span> impl;</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>}</div>
+</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="foldopen" id="foldopen00226" data-start="{" data-end="}">
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno"><a class="line" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a490be697de7e4f2a09fa82c8ecf37d39">  226</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a490be697de7e4f2a09fa82c8ecf37d39">MultiMatrixImpl::updateImpl</a>(<a class="code hl_class" href="../../da/da9/classAlien_1_1IMatrixImpl.html">IMatrixImpl</a>* target)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>  <span class="comment">// If we are up to date, do nothing</span></div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>  <span class="keywordflow">if</span> (<a class="code hl_function" href="../../df/d46/classAlien_1_1TimestampMng.html#a0788f0f63c0fb882510ada81a7598483">timestamp</a>() == target-&gt;<a class="code hl_function" href="../../dd/dea/classAlien_1_1Timestamp.html#a08c271597c409290c578b1f337b74010">timestamp</a>()) {</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>  }</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span> </div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>  <span class="comment">// Otherwise we are looking for a converter</span></div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; impl : <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#adfa289e106d1036313801add58be8c4e">m_impls2</a>) {</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keyword">auto</span>* candidate = impl.second;</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    <span class="comment">// if the timestamp is not good we keep looking</span></div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>    <span class="keywordflow">if</span> (candidate-&gt;timestamp() != <a class="code hl_function" href="../../df/d46/classAlien_1_1TimestampMng.html#a0788f0f63c0fb882510ada81a7598483">timestamp</a>())</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>      <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <span class="keyword">auto</span>* converter =</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    <a class="code hl_function" href="../../dc/d10/classAlien_1_1MatrixConverterRegisterer.html#ab0f9d47b109e1084945e52e0d25f80c2">MatrixConverterRegisterer::getConverter</a>(candidate-&gt;backend(), target-&gt;<a class="code hl_function" href="../../da/da9/classAlien_1_1IMatrixImpl.html#a4288fcd3354d8656d097357e53355e35">backend</a>());</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <span class="comment">// If no converter is found, we continue</span></div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <span class="keywordflow">if</span> (converter == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>      <span class="keywordflow">continue</span>;</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <span class="comment">// Otherwise we convert the matrix and return</span></div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    converter-&gt;convert(candidate, target);</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>    target-&gt;<a class="code hl_function" href="../../dd/dea/classAlien_1_1Timestamp.html#ae2ae5e362246a4e30ceef768f0efdc00">copyTimestamp</a>(*candidate);</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>  }</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span> </div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>  <span class="comment">// If there is no candidate up to date, throw an error</span></div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>  UniqueArray&lt;IMatrixImpl*&gt; candidates;</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span>&amp; impl : <a class="code hl_variable" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#adfa289e106d1036313801add58be8c4e">m_impls2</a>) {</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>    <span class="keyword">auto</span>* candidate = impl.second;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    <span class="keywordflow">if</span> (candidate-&gt;timestamp() == <a class="code hl_function" href="../../df/d46/classAlien_1_1TimestampMng.html#a0788f0f63c0fb882510ada81a7598483">timestamp</a>())</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>      candidates.add(candidate);</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>  }</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>  <span class="keywordflow">if</span> (candidates.empty()) {</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    <span class="keyword">auto</span> msg = String::format(<span class="stringliteral">&quot;Matrix converter to: &quot;</span>, target-&gt;<a class="code hl_function" href="../../da/da9/classAlien_1_1IMatrixImpl.html#a4288fcd3354d8656d097357e53355e35">backend</a>(),</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>                              <span class="stringliteral">&quot; internal error: no timestamp matching&quot;</span>);</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    <span class="keywordflow">throw</span> FatalErrorException(A_FUNCINFO, msg);</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>  }</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span> </div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>  <span class="comment">// Otherwise, we have candidates but no converter</span></div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>  <span class="comment">// In that case we try to use simplecsr as a third party converter</span></div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>  <span class="comment">// Error message that will be printed</span></div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>  <span class="keyword">auto</span> print_error = [&amp;] {</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    alien_fatal([&amp;] {</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>      cout() &lt;&lt; <span class="stringliteral">&quot;ALIEN FATAL ERROR \n&quot;</span></div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>             &lt;&lt; <span class="stringliteral">&quot;Matrix converting to target backend &#39;&quot;</span> &lt;&lt; target-&gt;<a class="code hl_function" href="../../da/da9/classAlien_1_1IMatrixImpl.html#a4288fcd3354d8656d097357e53355e35">backend</a>() &lt;&lt; <span class="stringliteral">&quot;&#39; :\n&quot;</span></div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>             &lt;&lt; <span class="stringliteral">&quot;* no converter available from source backend(s)&quot;</span>;</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span> </div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>      <span class="keywordflow">for</span> (<span class="keyword">auto</span>* candidate : candidates) {</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>        cout() &lt;&lt; <span class="stringliteral">&quot;   ** &#39;&quot;</span> &lt;&lt; candidate-&gt;backend() &lt;&lt; <span class="stringliteral">&quot;&#39;&quot;</span>;</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>      }</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>      cout();</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    });</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>  };</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>  <span class="comment">// Request simplecsr implementation</span></div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>  <span class="keyword">auto</span>* simplecsr = <a class="code hl_function" href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#aba7a596d920c96087128bc92b40b1ebb">getImpl&lt;SimpleCSRMatrix&lt;Real&gt;</a>&gt;(<span class="stringliteral">&quot;simplecsr&quot;</span>);</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>  <span class="comment">// Checking that we have a converter from simplecsr to the requested implementation</span></div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>  <span class="keyword">auto</span>* simplecsr_target =</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>  <a class="code hl_function" href="../../dc/d10/classAlien_1_1MatrixConverterRegisterer.html#ab0f9d47b109e1084945e52e0d25f80c2">MatrixConverterRegisterer::getConverter</a>(simplecsr-&gt;backend(), target-&gt;<a class="code hl_function" href="../../da/da9/classAlien_1_1IMatrixImpl.html#a4288fcd3354d8656d097357e53355e35">backend</a>());</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>  <span class="comment">// If not, throw error</span></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>  <span class="keywordflow">if</span> (simplecsr_target == <span class="keyword">nullptr</span>)</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    print_error();</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span> </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>  <span class="comment">// We look for each candidate</span></div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>  <span class="keywordflow">for</span> (<span class="keyword">auto</span>* candidate : candidates) {</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    <span class="keyword">auto</span>* candidat_simplecsr = <a class="code hl_function" href="../../dc/d10/classAlien_1_1MatrixConverterRegisterer.html#ab0f9d47b109e1084945e52e0d25f80c2">MatrixConverterRegisterer::getConverter</a>(</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    candidate-&gt;backend(), simplecsr-&gt;backend());</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    <span class="comment">// If we have one, we can convert to the requested implementation through simplecsr</span></div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    <span class="keywordflow">if</span> (candidat_simplecsr != <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>      <span class="comment">// Conversion from candidate to simplecsr</span></div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>      candidat_simplecsr-&gt;convert(candidate, simplecsr);</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>      simplecsr-&gt;copyTimestamp(*candidate);</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>      <span class="comment">// Conversion from simplecsr to target</span></div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>      simplecsr_target-&gt;convert(simplecsr, target);</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>      target-&gt;<a class="code hl_function" href="../../dd/dea/classAlien_1_1Timestamp.html#ae2ae5e362246a4e30ceef768f0efdc00">copyTimestamp</a>(*simplecsr);</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>      <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    }</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>  }</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span> </div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>  <span class="comment">// If we reach this line, all conversions possibilities have failed. Throw an exception</span></div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>  print_error();</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>}</div>
+</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>} <span class="comment">// namespace Alien</span></div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span><span class="comment">/*---------------------------------------------------------------------------*/</span></div>
+<div class="ttc" id="aBlock_8h_html"><div class="ttname"><a href="../../d9/dfd/Block_8h.html">Block.h</a></div><div class="ttdoc">Block.h.</div></div>
+<div class="ttc" id="aMultiMatrixImpl_8h_html"><div class="ttname"><a href="../../d0/d34/MultiMatrixImpl_8h.html">MultiMatrixImpl.h</a></div><div class="ttdoc">MultiMatrixImpl.h.</div></div>
+<div class="ttc" id="aclassAlien_1_1Block_html"><div class="ttname"><a href="../../d8/d67/classAlien_1_1Block.html">Alien::Block</a></div><div class="ttdoc">Block elements for block matrices.</div><div class="ttdef"><b>Definition</b> <a href="../../d9/dfd/Block_8h_source.html#l00044">Block.h:45</a></div></div>
+<div class="ttc" id="aclassAlien_1_1Block_html_a7704c4ef0b1b66b978de8136959dc3c9"><div class="ttname"><a href="../../d8/d67/classAlien_1_1Block.html#a7704c4ef0b1b66b978de8136959dc3c9">Alien::Block::clone</a></div><div class="ttdeci">std::shared_ptr&lt; Block &gt; clone() const</div><div class="ttdoc">Clone this object.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d0d/Block_8cc_source.html#l00117">Block.cc:117</a></div></div>
+<div class="ttc" id="aclassAlien_1_1IMatrixImpl_html"><div class="ttname"><a href="../../da/da9/classAlien_1_1IMatrixImpl.html">Alien::IMatrixImpl</a></div><div class="ttdoc">Interface to handle abstract matrices implementation.</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d78/IMatrixImpl_8h_source.html#l00045">IMatrixImpl.h:47</a></div></div>
+<div class="ttc" id="aclassAlien_1_1IMatrixImpl_html_a4288fcd3354d8656d097357e53355e35"><div class="ttname"><a href="../../da/da9/classAlien_1_1IMatrixImpl.html#a4288fcd3354d8656d097357e53355e35">Alien::IMatrixImpl::backend</a></div><div class="ttdeci">virtual BackEndId backend() const</div><div class="ttdef"><b>Definition</b> <a href="../../d7/d78/IMatrixImpl_8h_source.html#l00094">IMatrixImpl.h:94</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MatrixConverterRegisterer_html_ab0f9d47b109e1084945e52e0d25f80c2"><div class="ttname"><a href="../../dc/d10/classAlien_1_1MatrixConverterRegisterer.html#ab0f9d47b109e1084945e52e0d25f80c2">Alien::MatrixConverterRegisterer::getConverter</a></div><div class="ttdeci">static IMatrixConverter * getConverter(BackEndId from, BackEndId to)</div><div class="ttdoc">Get the converter from one matrix format to another one.</div><div class="ttdef"><b>Definition</b> <a href="../../d5/dd4/MatrixConverterRegisterer_8cc_source.html#l00051">MatrixConverterRegisterer.cc:51</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html">Alien::MultiMatrixImpl</a></div><div class="ttdoc">Multi matrices representation container.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d34/MultiMatrixImpl_8h_source.html#l00065">MultiMatrixImpl.h:69</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_a03d8cca861021326e7a1c3c48350af9e"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a03d8cca861021326e7a1c3c48350af9e">Alien::MultiMatrixImpl::setColBlockInfos</a></div><div class="ttdeci">void setColBlockInfos(const VBlock *blocks)</div><div class="ttdoc">Set variable col block information.</div><div class="ttdef"><b>Definition</b> <a href="#l00124">MultiMatrixImpl.cc:124</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_a1d63e15896dd9e70b460ba76ebd5f05d"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a1d63e15896dd9e70b460ba76ebd5f05d">Alien::MultiMatrixImpl::m_row_space</a></div><div class="ttdeci">std::shared_ptr&lt; ISpace &gt; m_row_space</div><div class="ttdoc">The matrix row space.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d34/MultiMatrixImpl_8h_source.html#l00241">MultiMatrixImpl.h:241</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_a29b9afbd2abac54f1e98a94cd70d52ce"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a29b9afbd2abac54f1e98a94cd70d52ce">Alien::MultiMatrixImpl::m_distribution</a></div><div class="ttdeci">std::shared_ptr&lt; MatrixDistribution &gt; m_distribution</div><div class="ttdoc">The matrix distribution.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d34/MultiMatrixImpl_8h_source.html#l00245">MultiMatrixImpl.h:245</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_a45323887927237bef7487fd4868aab9b"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a45323887927237bef7487fd4868aab9b">Alien::MultiMatrixImpl::setRowBlockInfos</a></div><div class="ttdeci">void setRowBlockInfos(const VBlock *blocks)</div><div class="ttdoc">Set variable row block information.</div><div class="ttdef"><b>Definition</b> <a href="#l00116">MultiMatrixImpl.cc:116</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_a490be697de7e4f2a09fa82c8ecf37d39"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a490be697de7e4f2a09fa82c8ecf37d39">Alien::MultiMatrixImpl::updateImpl</a></div><div class="ttdeci">void updateImpl(IMatrixImpl *target) const</div><div class="ttdoc">Update a matrix implementation.</div><div class="ttdef"><b>Definition</b> <a href="#l00226">MultiMatrixImpl.cc:226</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_a5042491cdc6a09f4ce3a2e546480366e"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a5042491cdc6a09f4ce3a2e546480366e">Alien::MultiMatrixImpl::clone</a></div><div class="ttdeci">MultiMatrixImpl * clone() const</div><div class="ttdoc">Clone this object.</div><div class="ttdef"><b>Definition</b> <a href="#l00194">MultiMatrixImpl.cc:194</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_a624306fd4aa5ba9ffbdd57e653f33c5c"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a624306fd4aa5ba9ffbdd57e653f33c5c">Alien::MultiMatrixImpl::MultiMatrixImpl</a></div><div class="ttdeci">MultiMatrixImpl()</div><div class="ttdoc">Default constructor.</div><div class="ttdef"><b>Definition</b> <a href="#l00042">MultiMatrixImpl.cc:42</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_a65103e182e11923d01023bad18058d57"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a65103e182e11923d01023bad18058d57">Alien::MultiMatrixImpl::m_cols_block</a></div><div class="ttdeci">std::shared_ptr&lt; VBlock &gt; m_cols_block</div><div class="ttdoc">The variable col block datas.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d34/MultiMatrixImpl_8h_source.html#l00255">MultiMatrixImpl.h:255</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_a65376f9c70a9f58c5324c0b184c4da14"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a65376f9c70a9f58c5324c0b184c4da14">Alien::MultiMatrixImpl::m_block</a></div><div class="ttdeci">std::shared_ptr&lt; Block &gt; m_block</div><div class="ttdoc">The uniform block datas.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d34/MultiMatrixImpl_8h_source.html#l00251">MultiMatrixImpl.h:251</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_a7fcb04286f861cbc2f66ab66103ec58e"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a7fcb04286f861cbc2f66ab66103ec58e">Alien::MultiMatrixImpl::clear</a></div><div class="ttdeci">void clear()</div><div class="ttdoc">Clear resources.</div><div class="ttdef"><b>Definition</b> <a href="#l00144">MultiMatrixImpl.cc:144</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_a96ec6d219fd9e24c83c71fba50734349"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#a96ec6d219fd9e24c83c71fba50734349">Alien::MultiMatrixImpl::free</a></div><div class="ttdeci">void free()</div><div class="ttdoc">Free resources.</div><div class="ttdef"><b>Definition</b> <a href="#l00132">MultiMatrixImpl.cc:132</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_aba7a596d920c96087128bc92b40b1ebb"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#aba7a596d920c96087128bc92b40b1ebb">Alien::MultiMatrixImpl::getImpl</a></div><div class="ttdeci">IMatrixImpl *&amp; getImpl(BackEndId backend) const</div><div class="ttdoc">Get a specific matrix implementation.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d34/MultiMatrixImpl_8h_source.html#l00313">MultiMatrixImpl.h:313</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_ac237e486f11676f7364106df2d032e34"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ac237e486f11676f7364106df2d032e34">Alien::MultiMatrixImpl::m_col_space</a></div><div class="ttdeci">std::shared_ptr&lt; ISpace &gt; m_col_space</div><div class="ttdoc">The matrix column space.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d34/MultiMatrixImpl_8h_source.html#l00243">MultiMatrixImpl.h:243</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_aceefc011ceebced21dcda96e0b7f30f5"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#aceefc011ceebced21dcda96e0b7f30f5">Alien::MultiMatrixImpl::~MultiMatrixImpl</a></div><div class="ttdeci">virtual ~MultiMatrixImpl()</div><div class="ttdoc">Free resources.</div><div class="ttdef"><b>Definition</b> <a href="#l00084">MultiMatrixImpl.cc:84</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_ad04f04dbf88f2fc4ef705b47a65731ca"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ad04f04dbf88f2fc4ef705b47a65731ca">Alien::MultiMatrixImpl::m_rows_block</a></div><div class="ttdeci">std::shared_ptr&lt; VBlock &gt; m_rows_block</div><div class="ttdoc">The variable row block datas.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d34/MultiMatrixImpl_8h_source.html#l00253">MultiMatrixImpl.h:253</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_ad20009fd901142282ccc359055763c2d"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ad20009fd901142282ccc359055763c2d">Alien::MultiMatrixImpl::block</a></div><div class="ttdeci">const Block * block() const</div><div class="ttdoc">Get uniform block datas.</div><div class="ttdef"><b>Definition</b> <a href="#l00155">MultiMatrixImpl.cc:155</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_adde43849b929e2d94ba3ed9ecdc020ad"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#adde43849b929e2d94ba3ed9ecdc020ad">Alien::MultiMatrixImpl::colBlock</a></div><div class="ttdeci">const VBlock * colBlock() const</div><div class="ttdoc">Get variable col block datas.</div><div class="ttdef"><b>Definition</b> <a href="#l00173">MultiMatrixImpl.cc:173</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_adfa289e106d1036313801add58be8c4e"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#adfa289e106d1036313801add58be8c4e">Alien::MultiMatrixImpl::m_impls2</a></div><div class="ttdeci">MultiMatrixImplMap m_impls2</div><div class="ttdoc">The matrices container.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d34/MultiMatrixImpl_8h_source.html#l00249">MultiMatrixImpl.h:249</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_ae47b1b031c7e00f3b184ebb27c5bdd2b"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#ae47b1b031c7e00f3b184ebb27c5bdd2b">Alien::MultiMatrixImpl::get</a></div><div class="ttdeci">const AlgebraTraits&lt; tag &gt;::matrix_type &amp; get() const</div><div class="ttdoc">Get a specific matrix implementation.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/d34/MultiMatrixImpl_8h_source.html#l00263">MultiMatrixImpl.h:263</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_aee2a1668133ced057faea738a40ce703"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#aee2a1668133ced057faea738a40ce703">Alien::MultiMatrixImpl::rowBlock</a></div><div class="ttdeci">const VBlock * rowBlock() const</div><div class="ttdoc">Get variable row block datas.</div><div class="ttdef"><b>Definition</b> <a href="#l00164">MultiMatrixImpl.cc:164</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_af393991249cba1171acdf87f65f066e2"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#af393991249cba1171acdf87f65f066e2">Alien::MultiMatrixImpl::vblock</a></div><div class="ttdeci">const VBlock * vblock() const</div><div class="ttdoc">Get variable block datas.</div><div class="ttdef"><b>Definition</b> <a href="#l00185">MultiMatrixImpl.cc:185</a></div></div>
+<div class="ttc" id="aclassAlien_1_1MultiMatrixImpl_html_afab3b5f2540e3215b18abf3595dd3489"><div class="ttname"><a href="../../d7/d86/classAlien_1_1MultiMatrixImpl.html#afab3b5f2540e3215b18abf3595dd3489">Alien::MultiMatrixImpl::setBlockInfos</a></div><div class="ttdeci">void setBlockInfos(Arccore::Integer block_size)</div><div class="ttdoc">Set uniform block information.</div></div>
+<div class="ttc" id="aclassAlien_1_1SimpleCSRMatrix_html"><div class="ttname"><a href="../../de/d5f/classAlien_1_1SimpleCSRMatrix.html">Alien::SimpleCSRMatrix</a></div><div class="ttdef"><b>Definition</b> <a href="../../dc/daf/SimpleCSRMatrix_8h_source.html#l00042">SimpleCSRMatrix.h:43</a></div></div>
+<div class="ttc" id="aclassAlien_1_1TimestampMng_html_a0788f0f63c0fb882510ada81a7598483"><div class="ttname"><a href="../../df/d46/classAlien_1_1TimestampMng.html#a0788f0f63c0fb882510ada81a7598483">Alien::TimestampMng::timestamp</a></div><div class="ttdeci">Int64 timestamp() const</div><div class="ttdoc">Valeur du timestamp de référence.</div><div class="ttdef"><b>Definition</b> <a href="../../d0/da3/TimestampMng_8cc_source.html#l00049">TimestampMng.cc:49</a></div></div>
+<div class="ttc" id="aclassAlien_1_1Timestamp_html_a08c271597c409290c578b1f337b74010"><div class="ttname"><a href="../../dd/dea/classAlien_1_1Timestamp.html#a08c271597c409290c578b1f337b74010">Alien::Timestamp::timestamp</a></div><div class="ttdeci">virtual Int64 timestamp() const</div><div class="ttdoc">Donne la valeur courante du timestamp.</div><div class="ttdef"><b>Definition</b> <a href="../../df/dea/Timestamp_8cc_source.html#l00043">Timestamp.cc:43</a></div></div>
+<div class="ttc" id="aclassAlien_1_1Timestamp_html_acd5c69e3fbc708035f5b9136abbf5180"><div class="ttname"><a href="../../dd/dea/classAlien_1_1Timestamp.html#acd5c69e3fbc708035f5b9136abbf5180">Alien::Timestamp::updateTimestamp</a></div><div class="ttdeci">void updateTimestamp()</div><div class="ttdoc">Met à jour le timestamp.</div><div class="ttdef"><b>Definition</b> <a href="../../df/dea/Timestamp_8cc_source.html#l00050">Timestamp.cc:50</a></div></div>
+<div class="ttc" id="aclassAlien_1_1Timestamp_html_ae2ae5e362246a4e30ceef768f0efdc00"><div class="ttname"><a href="../../dd/dea/classAlien_1_1Timestamp.html#ae2ae5e362246a4e30ceef768f0efdc00">Alien::Timestamp::copyTimestamp</a></div><div class="ttdeci">void copyTimestamp(const Timestamp &amp;v)</div><div class="ttdoc">Copy un autre timestamp.</div><div class="ttdef"><b>Definition</b> <a href="../../df/dea/Timestamp_8cc_source.html#l00058">Timestamp.cc:58</a></div></div>
+<div class="ttc" id="aclassAlien_1_1VBlock_html"><div class="ttname"><a href="../../d4/d76/classAlien_1_1VBlock.html">Alien::VBlock</a></div><div class="ttdoc">Variable size block elements for block matrices.</div><div class="ttdef"><b>Definition</b> <a href="../../dd/de9/VBlock_8h_source.html#l00045">VBlock.h:46</a></div></div>
+<div class="ttc" id="aclassAlien_1_1VBlock_html_ab44cc4d2d379fc471170ab65946a5f79"><div class="ttname"><a href="../../d4/d76/classAlien_1_1VBlock.html#ab44cc4d2d379fc471170ab65946a5f79">Alien::VBlock::clone</a></div><div class="ttdeci">std::shared_ptr&lt; VBlock &gt; clone() const</div><div class="ttdoc">Copy this object.</div><div class="ttdef"><b>Definition</b> <a href="../../d8/d87/VBlock_8cc_source.html#l00184">VBlock.cc:184</a></div></div>
+<div class="ttc" id="anamespaceAlien_html"><div class="ttname"><a href="../../d8/d96/namespaceAlien.html">Alien</a></div><div class="ttdoc">-- tab-width: 2; indent-tabs-mode: nil; coding: utf-8-with-signature --</div><div class="ttdef"><b>Definition</b> <a href="../../d8/d45/BackEnd_8h_source.html#l00016">BackEnd.h:17</a></div></div>
+<div class="ttc" id="astructAlien_1_1AlgebraTraits_html"><div class="ttname"><a href="../../d7/d21/structAlien_1_1AlgebraTraits.html">Alien::AlgebraTraits</a></div><div class="ttdef"><b>Definition</b> <a href="../../d8/d45/BackEnd_8h_source.html#l00025">BackEnd.h:25</a></div></div>
+<div class="ttc" id="astructAlien_1_1BackEnd_1_1tag_1_1simplecsr_html"><div class="ttname"><a href="../../d2/de6/structAlien_1_1BackEnd_1_1tag_1_1simplecsr.html">Alien::BackEnd::tag::simplecsr</a></div><div class="ttdef"><b>Definition</b> <a href="../../d2/df6/SimpleCSRBackEnd_8h_source.html#l00050">SimpleCSRBackEnd.h:51</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+</div><!-- container -->
+<!-- HTML footer for doxygen 1.9.5-->
+<!-- start footer part -->
+  <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+    <ul>
+      <li class="navelem"><b>core</b></li><li class="navelem"><b>alien</b></li><li class="navelem"><b>core</b></li><li class="navelem"><b>impl</b></li><li class="navelem"><a href="../../d6/d20/MultiMatrixImpl_8cc.html">MultiMatrixImpl.cc</a></li>
+      <li class="footer">Generated on <span class="timestamp"></span> for Alien by <a href="https://www.doxygen.org/index.html"><img class="footer" src="../../doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
+    </ul>
+  </div>
+  <script type="text/javascript" src="../../script-apply-config-theme.js"></script>
+  <script type="text/javascript">
+    // On met l'appel à cette fonction dans le footer dans le cas où
+    // une page ne veut pas de personnalisation (changement de la 
+    // variable globale "no_custom_theme").
+    applyConfigWithCookies();
+  </script>
+</body>
+</html>
